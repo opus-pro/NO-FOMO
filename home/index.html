@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NO-FOMO AI Daily - Homepage</title>
+    <title>NO-FOMO AI 日报 - 主页</title>
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
@@ -14,7 +14,7 @@
         gtag('config', 'G-008T4WC27P');
     </script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #007bff;
@@ -28,7 +28,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
             line-height: 1.7;
             margin: 0;
             padding: 0;
@@ -292,661 +292,661 @@
     <div class="container">
         <header class="header">
             <div class="language-switch">
-                <a href="../">中文</a>
-                <a href="./" class="active">English</a>
+                <a href="index.html" class="active">中文</a>
+                <a href="en/">English</a>
             </div>
-            <h1>NO-FOMO AI Daily</h1>
-            <p>Daily curated AI insights to keep you at the forefront of technology</p>
+            <h1>NO-FOMO AI 日报</h1>
+            <p>每日精选 AI 资讯，助您紧跟科技前沿</p>
         </header>
 
         <div class="quick-links">
-            <a href="../../daily/en/" class="quick-link primary">📅 Latest Daily</a>
-            <a href="https://github.com/opus-pro/no-fomo-pages/tree/main/NO-FOMO" class="quick-link github">🔗 GitHub Repository</a>
-            <a href="https://opusair.github.io/" class="quick-link about">👤 About Us</a>
+            <a href="../daily/" class="quick-link primary">📅 最新日报</a>
+            <a href="https://github.com/opus-pro/NO-FOMO" class="quick-link github">🔗 GitHub 仓库</a>
+            <a href="https://opusair.github.io/" class="quick-link about">👤 关于我们</a>
         </div>
 
         <div class="stats">
-            <h2>📊 Statistics Overview</h2>
+            <h2>📊 统计概览</h2>
             <div class="stats-grid">
                 <div class="stat-item">
                     <div class="stat-number" id="total-reports">0</div>
-                    <div class="stat-label">Total Reports</div>
+                    <div class="stat-label">总日报数</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number" id="total-articles">0</div>
-                    <div class="stat-label">Total Articles</div>
+                    <div class="stat-label">总文章数</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number" id="total-visits">0</div>
-                    <div class="stat-label">Total Visits</div>
+                    <div class="stat-label">总访问量</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number" id="today-visits">0</div>
-                    <div class="stat-label">Today's Visits</div>
+                    <div class="stat-label">今日访问</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number" id="latest-date">-</div>
-                    <div class="stat-label">Latest Update</div>
+                    <div class="stat-label">最新更新</div>
                 </div>
             </div>
         </div>
 
         <div id="date-list" class="date-grid">
-            <!-- Date cards will be generated dynamically by JavaScript -->
+            <!-- 日期卡片将由JavaScript动态生成 -->
         </div>
 
         <footer class="footer">
-            <p>&copy; 2025 NO-FOMO AI Daily | Continuously updated...</p>
+            <p>&copy; 2025 NO-FOMO AI 日报 | 持续更新中...</p>
         </footer>
     </div>
 
     <script>
-        // Daily report data configuration
+        // 日报数据配置
         const reports = [
             {
                         "date": "2026-08-08",
-                        "title": "AI Daily Report - 2026-08-08",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-08-08",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-08-07",
-                        "title": "AI Daily Report - 2026-08-07",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-08-07",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-08-06",
-                        "title": "AI Daily Report - 2026-08-06",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-08-06",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-08-05",
-                        "title": "AI Daily Report - 2026-08-05",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-08-05",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-08-04",
-                        "title": "AI Daily Report - 2026-08-04",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-08-04",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-08-03",
-                        "title": "AI Daily Report - 2026-08-03",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-08-03",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-08-02",
-                        "title": "AI Daily Report - 2026-08-02",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-08-02",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-08-01",
-                        "title": "AI Daily Report - 2026-08-01",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-08-01",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-31",
-                        "title": "AI Daily Report - 2026-07-31",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-31",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-30",
-                        "title": "AI Daily Report - 2026-07-30",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-30",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-29",
-                        "title": "AI Daily Report - 2026-07-29",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-29",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-28",
-                        "title": "AI Daily Report - 2026-07-28",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-28",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-27",
-                        "title": "AI Daily Report - 2026-07-27",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-27",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-26",
-                        "title": "AI Daily Report - 2026-07-26",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-26",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-25",
-                        "title": "AI Daily Report - 2026-07-25",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-25",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-24",
-                        "title": "AI Daily Report - 2026-07-24",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-24",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-23",
-                        "title": "AI Daily Report - 2026-07-23",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-23",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-22",
-                        "title": "AI Daily Report - 2026-07-22",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-22",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-21",
-                        "title": "AI Daily Report - 2026-07-21",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-21",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-20",
-                        "title": "AI Daily Report - 2026-07-20",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-20",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-19",
-                        "title": "AI Daily Report - 2026-07-19",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-19",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-18",
-                        "title": "AI Daily Report - 2026-07-18",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-18",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-17",
-                        "title": "AI Daily Report - 2026-07-17",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-17",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-16",
-                        "title": "AI Daily Report - 2026-07-16",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-16",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-15",
-                        "title": "AI Daily Report - 2026-07-15",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-15",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-14",
-                        "title": "AI Daily Report - 2026-07-14",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-14",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-13",
-                        "title": "AI Daily Report - 2026-07-13",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-13",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-12",
-                        "title": "AI Daily Report - 2026-07-12",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-12",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-11",
-                        "title": "AI Daily Report - 2026-07-11",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-11",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-10",
-                        "title": "AI Daily Report - 2026-07-10",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-10",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-09",
-                        "title": "AI Daily Report - 2026-07-09",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-09",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-08",
-                        "title": "AI Daily Report - 2026-07-08",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-08",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-07",
-                        "title": "AI Daily Report - 2026-07-07",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-07",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-06",
-                        "title": "AI Daily Report - 2026-07-06",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-06",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-05",
-                        "title": "AI Daily Report - 2026-07-05",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-05",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-04",
-                        "title": "AI Daily Report - 2026-07-04",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-04",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-03",
-                        "title": "AI Daily Report - 2026-07-03",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-03",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-02",
-                        "title": "AI Daily Report - 2026-07-02",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-02",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-07-01",
-                        "title": "AI Daily Report - 2026-07-01",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-07-01",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-30",
-                        "title": "AI Daily Report - 2026-06-30",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-30",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-29",
-                        "title": "AI Daily Report - 2026-06-29",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-29",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-28",
-                        "title": "AI Daily Report - 2026-06-28",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-28",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-27",
-                        "title": "AI Daily Report - 2026-06-27",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-27",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-26",
-                        "title": "AI Daily Report - 2026-06-26",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-26",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-25",
-                        "title": "AI Daily Report - 2026-06-25",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-25",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-24",
-                        "title": "AI Daily Report - 2026-06-24",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-24",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-23",
-                        "title": "AI Daily Report - 2026-06-23",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-23",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-22",
-                        "title": "AI Daily Report - 2026-06-22",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-22",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-21",
-                        "title": "AI Daily Report - 2026-06-21",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-21",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-20",
-                        "title": "AI Daily Report - 2026-06-20",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-20",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-19",
-                        "title": "AI Daily Report - 2026-06-19",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-19",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-18",
-                        "title": "AI Daily Report - 2026-06-18",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-18",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-17",
-                        "title": "AI Daily Report - 2026-06-17",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-17",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-16",
-                        "title": "AI Daily Report - 2026-06-16",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-16",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-15",
-                        "title": "AI Daily Report - 2026-06-15",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-15",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-14",
-                        "title": "AI Daily Report - 2026-06-14",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-14",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-13",
-                        "title": "AI Daily Report - 2026-06-13",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-13",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-12",
-                        "title": "AI Daily Report - 2026-06-12",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-12",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-11",
-                        "title": "AI Daily Report - 2026-06-11",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-11",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-10",
-                        "title": "AI Daily Report - 2026-06-10",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-10",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-09",
-                        "title": "AI Daily Report - 2026-06-09",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-09",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-08",
-                        "title": "AI Daily Report - 2026-06-08",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-08",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-07",
-                        "title": "AI Daily Report - 2026-06-07",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-07",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-06",
-                        "title": "AI Daily Report - 2026-06-06",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-06",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-05",
-                        "title": "AI Daily Report - 2026-06-05",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-05",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-04",
-                        "title": "AI Daily Report - 2026-06-04",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-04",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-03",
-                        "title": "AI Daily Report - 2026-06-03",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-03",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-02",
-                        "title": "AI Daily Report - 2026-06-02",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-02",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-06-01",
-                        "title": "AI Daily Report - 2026-06-01",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-06-01",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-05-31",
-                        "title": "AI Daily Report - 2026-05-31",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-05-31",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-05-30",
-                        "title": "AI Daily Report - 2026-05-30",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-05-30",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-05-29",
-                        "title": "AI Daily Report - 2026-05-29",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-05-29",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-05-28",
-                        "title": "AI Daily Report - 2026-05-28",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-05-28",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-05-27",
-                        "title": "AI Daily Report - 2026-05-27",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-05-27",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-05-26",
-                        "title": "AI Daily Report - 2026-05-26",
-                        "description": "Latest AI news from 0 sources including ",
+                        "title": "AI 日报 - 2026-05-26",
+                        "description": "涵盖  等 0 个来源的最新 AI 资讯",
                         "articleCount": 0,
                         "sources": [],
                         "hasLanguages": true
             },
             {
                         "date": "2026-05-12",
-                        "title": "AI Daily Report - 2026-05-12",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-05-12",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -956,8 +956,8 @@
             },
             {
                         "date": "2026-05-11",
-                        "title": "AI Daily Report - 2026-05-11",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-05-11",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -967,8 +967,8 @@
             },
             {
                         "date": "2026-05-10",
-                        "title": "AI Daily Report - 2026-05-10",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-05-10",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -977,8 +977,8 @@
             },
             {
                         "date": "2026-05-09",
-                        "title": "AI Daily Report - 2026-05-09",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-05-09",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -987,8 +987,8 @@
             },
             {
                         "date": "2026-05-08",
-                        "title": "AI Daily Report - 2026-05-08",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-05-08",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -998,8 +998,8 @@
             },
             {
                         "date": "2026-05-07",
-                        "title": "AI Daily Report - 2026-05-07",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-05-07",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1009,8 +1009,8 @@
             },
             {
                         "date": "2026-05-06",
-                        "title": "AI Daily Report - 2026-05-06",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-05-06",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1020,8 +1020,8 @@
             },
             {
                         "date": "2026-05-05",
-                        "title": "AI Daily Report - 2026-05-05",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-05-05",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1031,8 +1031,8 @@
             },
             {
                         "date": "2026-05-04",
-                        "title": "AI Daily Report - 2026-05-04",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-05-04",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1042,8 +1042,8 @@
             },
             {
                         "date": "2026-05-03",
-                        "title": "AI Daily Report - 2026-05-03",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-05-03",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1052,8 +1052,8 @@
             },
             {
                         "date": "2026-05-02",
-                        "title": "AI Daily Report - 2026-05-02",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-05-02",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1062,8 +1062,8 @@
             },
             {
                         "date": "2026-05-01",
-                        "title": "AI Daily Report - 2026-05-01",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-05-01",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1073,8 +1073,8 @@
             },
             {
                         "date": "2026-04-30",
-                        "title": "AI Daily Report - 2026-04-30",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-30",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1084,8 +1084,8 @@
             },
             {
                         "date": "2026-04-29",
-                        "title": "AI Daily Report - 2026-04-29",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-29",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1095,8 +1095,8 @@
             },
             {
                         "date": "2026-04-28",
-                        "title": "AI Daily Report - 2026-04-28",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-28",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1106,8 +1106,8 @@
             },
             {
                         "date": "2026-04-27",
-                        "title": "AI Daily Report - 2026-04-27",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-27",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1117,8 +1117,8 @@
             },
             {
                         "date": "2026-04-26",
-                        "title": "AI Daily Report - 2026-04-26",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-04-26",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1127,8 +1127,8 @@
             },
             {
                         "date": "2026-04-25",
-                        "title": "AI Daily Report - 2026-04-25",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-04-25",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1137,8 +1137,8 @@
             },
             {
                         "date": "2026-04-24",
-                        "title": "AI Daily Report - 2026-04-24",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-24",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1148,8 +1148,8 @@
             },
             {
                         "date": "2026-04-23",
-                        "title": "AI Daily Report - 2026-04-23",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-23",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 10,
                         "sources": [
                                     "Hacker News",
@@ -1159,8 +1159,8 @@
             },
             {
                         "date": "2026-04-22",
-                        "title": "AI Daily Report - 2026-04-22",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-22",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1170,8 +1170,8 @@
             },
             {
                         "date": "2026-04-21",
-                        "title": "AI Daily Report - 2026-04-21",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-21",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1181,8 +1181,8 @@
             },
             {
                         "date": "2026-04-20",
-                        "title": "AI Daily Report - 2026-04-20",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-20",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1192,8 +1192,8 @@
             },
             {
                         "date": "2026-04-19",
-                        "title": "AI Daily Report - 2026-04-19",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-04-19",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 4,
                         "sources": [
                                     "Hacker News"
@@ -1202,8 +1202,8 @@
             },
             {
                         "date": "2026-04-18",
-                        "title": "AI Daily Report - 2026-04-18",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-04-18",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1212,8 +1212,8 @@
             },
             {
                         "date": "2026-04-17",
-                        "title": "AI Daily Report - 2026-04-17",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-17",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1223,8 +1223,8 @@
             },
             {
                         "date": "2026-04-16",
-                        "title": "AI Daily Report - 2026-04-16",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-16",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1234,8 +1234,8 @@
             },
             {
                         "date": "2026-04-15",
-                        "title": "AI Daily Report - 2026-04-15",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-15",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1245,8 +1245,8 @@
             },
             {
                         "date": "2026-04-14",
-                        "title": "AI Daily Report - 2026-04-14",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-14",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1256,8 +1256,8 @@
             },
             {
                         "date": "2026-04-13",
-                        "title": "AI Daily Report - 2026-04-13",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-13",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1267,8 +1267,8 @@
             },
             {
                         "date": "2026-04-12",
-                        "title": "AI Daily Report - 2026-04-12",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-04-12",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1277,8 +1277,8 @@
             },
             {
                         "date": "2026-04-11",
-                        "title": "AI Daily Report - 2026-04-11",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-04-11",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1287,8 +1287,8 @@
             },
             {
                         "date": "2026-04-10",
-                        "title": "AI Daily Report - 2026-04-10",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-10",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1298,8 +1298,8 @@
             },
             {
                         "date": "2026-04-09",
-                        "title": "AI Daily Report - 2026-04-09",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-09",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1309,8 +1309,8 @@
             },
             {
                         "date": "2026-04-08",
-                        "title": "AI Daily Report - 2026-04-08",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-08",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1320,8 +1320,8 @@
             },
             {
                         "date": "2026-04-07",
-                        "title": "AI Daily Report - 2026-04-07",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-07",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1331,8 +1331,8 @@
             },
             {
                         "date": "2026-04-06",
-                        "title": "AI Daily Report - 2026-04-06",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-06",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1342,8 +1342,8 @@
             },
             {
                         "date": "2026-04-05",
-                        "title": "AI Daily Report - 2026-04-05",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-04-05",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1352,8 +1352,8 @@
             },
             {
                         "date": "2026-04-04",
-                        "title": "AI Daily Report - 2026-04-04",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-04-04",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1362,8 +1362,8 @@
             },
             {
                         "date": "2026-04-03",
-                        "title": "AI Daily Report - 2026-04-03",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-03",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 9,
                         "sources": [
                                     "Hacker News",
@@ -1373,8 +1373,8 @@
             },
             {
                         "date": "2026-04-02",
-                        "title": "AI Daily Report - 2026-04-02",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-02",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1384,8 +1384,8 @@
             },
             {
                         "date": "2026-04-01",
-                        "title": "AI Daily Report - 2026-04-01",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-04-01",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1395,8 +1395,8 @@
             },
             {
                         "date": "2026-03-31",
-                        "title": "AI Daily Report - 2026-03-31",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-31",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1406,8 +1406,8 @@
             },
             {
                         "date": "2026-03-30",
-                        "title": "AI Daily Report - 2026-03-30",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-30",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1417,8 +1417,8 @@
             },
             {
                         "date": "2026-03-29",
-                        "title": "AI Daily Report - 2026-03-29",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-03-29",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 5,
                         "sources": [
                                     "Hacker News"
@@ -1427,8 +1427,8 @@
             },
             {
                         "date": "2026-03-28",
-                        "title": "AI Daily Report - 2026-03-28",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-03-28",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1437,8 +1437,8 @@
             },
             {
                         "date": "2026-03-27",
-                        "title": "AI Daily Report - 2026-03-27",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-27",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1448,8 +1448,8 @@
             },
             {
                         "date": "2026-03-26",
-                        "title": "AI Daily Report - 2026-03-26",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-26",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1459,8 +1459,8 @@
             },
             {
                         "date": "2026-03-25",
-                        "title": "AI Daily Report - 2026-03-25",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-25",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1470,8 +1470,8 @@
             },
             {
                         "date": "2026-03-24",
-                        "title": "AI Daily Report - 2026-03-24",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-24",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1481,8 +1481,8 @@
             },
             {
                         "date": "2026-03-23",
-                        "title": "AI Daily Report - 2026-03-23",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-23",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1492,8 +1492,8 @@
             },
             {
                         "date": "2026-03-22",
-                        "title": "AI Daily Report - 2026-03-22",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-03-22",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1502,8 +1502,8 @@
             },
             {
                         "date": "2026-03-21",
-                        "title": "AI Daily Report - 2026-03-21",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-03-21",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1512,8 +1512,8 @@
             },
             {
                         "date": "2026-03-20",
-                        "title": "AI Daily Report - 2026-03-20",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-20",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1523,8 +1523,8 @@
             },
             {
                         "date": "2026-03-19",
-                        "title": "AI Daily Report - 2026-03-19",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-19",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1534,8 +1534,8 @@
             },
             {
                         "date": "2026-03-18",
-                        "title": "AI Daily Report - 2026-03-18",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-18",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1545,8 +1545,8 @@
             },
             {
                         "date": "2026-03-17",
-                        "title": "AI Daily Report - 2026-03-17",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-17",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1556,8 +1556,8 @@
             },
             {
                         "date": "2026-03-16",
-                        "title": "AI Daily Report - 2026-03-16",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-16",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1567,8 +1567,8 @@
             },
             {
                         "date": "2026-03-15",
-                        "title": "AI Daily Report - 2026-03-15",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-03-15",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1577,8 +1577,8 @@
             },
             {
                         "date": "2026-03-14",
-                        "title": "AI Daily Report - 2026-03-14",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-03-14",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 5,
                         "sources": [
                                     "Hacker News"
@@ -1587,8 +1587,8 @@
             },
             {
                         "date": "2026-03-13",
-                        "title": "AI Daily Report - 2026-03-13",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-13",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1598,8 +1598,8 @@
             },
             {
                         "date": "2026-03-12",
-                        "title": "AI Daily Report - 2026-03-12",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-12",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1609,8 +1609,8 @@
             },
             {
                         "date": "2026-03-11",
-                        "title": "AI Daily Report - 2026-03-11",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-11",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1620,8 +1620,8 @@
             },
             {
                         "date": "2026-03-10",
-                        "title": "AI Daily Report - 2026-03-10",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-10",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1631,8 +1631,8 @@
             },
             {
                         "date": "2026-03-09",
-                        "title": "AI Daily Report - 2026-03-09",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-09",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1642,8 +1642,8 @@
             },
             {
                         "date": "2026-03-08",
-                        "title": "AI Daily Report - 2026-03-08",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-03-08",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1652,8 +1652,8 @@
             },
             {
                         "date": "2026-03-07",
-                        "title": "AI Daily Report - 2026-03-07",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-03-07",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1662,8 +1662,8 @@
             },
             {
                         "date": "2026-03-06",
-                        "title": "AI Daily Report - 2026-03-06",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-06",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1673,8 +1673,8 @@
             },
             {
                         "date": "2026-03-05",
-                        "title": "AI Daily Report - 2026-03-05",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-05",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1684,8 +1684,8 @@
             },
             {
                         "date": "2026-03-04",
-                        "title": "AI Daily Report - 2026-03-04",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-04",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1695,8 +1695,8 @@
             },
             {
                         "date": "2026-03-03",
-                        "title": "AI Daily Report - 2026-03-03",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-03",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1706,8 +1706,8 @@
             },
             {
                         "date": "2026-03-02",
-                        "title": "AI Daily Report - 2026-03-02",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-03-02",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1717,8 +1717,8 @@
             },
             {
                         "date": "2026-03-01",
-                        "title": "AI Daily Report - 2026-03-01",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-03-01",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1727,8 +1727,8 @@
             },
             {
                         "date": "2026-02-28",
-                        "title": "AI Daily Report - 2026-02-28",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-02-28",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1737,8 +1737,8 @@
             },
             {
                         "date": "2026-02-27",
-                        "title": "AI Daily Report - 2026-02-27",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-02-27",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1748,8 +1748,8 @@
             },
             {
                         "date": "2026-02-26",
-                        "title": "AI Daily Report - 2026-02-26",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-02-26",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1759,8 +1759,8 @@
             },
             {
                         "date": "2026-02-25",
-                        "title": "AI Daily Report - 2026-02-25",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-02-25",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1770,8 +1770,8 @@
             },
             {
                         "date": "2026-02-24",
-                        "title": "AI Daily Report - 2026-02-24",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-02-24",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1781,8 +1781,8 @@
             },
             {
                         "date": "2026-02-23",
-                        "title": "AI Daily Report - 2026-02-23",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-02-23",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1792,8 +1792,8 @@
             },
             {
                         "date": "2026-02-22",
-                        "title": "AI Daily Report - 2026-02-22",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-02-22",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1802,8 +1802,8 @@
             },
             {
                         "date": "2026-02-21",
-                        "title": "AI Daily Report - 2026-02-21",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-02-21",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1812,8 +1812,8 @@
             },
             {
                         "date": "2026-02-20",
-                        "title": "AI Daily Report - 2026-02-20",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-02-20",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1823,8 +1823,8 @@
             },
             {
                         "date": "2026-02-19",
-                        "title": "AI Daily Report - 2026-02-19",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-02-19",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1834,8 +1834,8 @@
             },
             {
                         "date": "2026-02-18",
-                        "title": "AI Daily Report - 2026-02-18",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-02-18",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1845,8 +1845,8 @@
             },
             {
                         "date": "2026-02-17",
-                        "title": "AI Daily Report - 2026-02-17",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-02-17",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1856,8 +1856,8 @@
             },
             {
                         "date": "2026-02-16",
-                        "title": "AI Daily Report - 2026-02-16",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-02-16",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1867,8 +1867,8 @@
             },
             {
                         "date": "2026-02-15",
-                        "title": "AI Daily Report - 2026-02-15",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-02-15",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1877,8 +1877,8 @@
             },
             {
                         "date": "2026-02-14",
-                        "title": "AI Daily Report - 2026-02-14",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-02-14",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 5,
                         "sources": [
                                     "Hacker News"
@@ -1887,8 +1887,8 @@
             },
             {
                         "date": "2026-02-13",
-                        "title": "AI Daily Report - 2026-02-13",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-02-13",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1898,8 +1898,8 @@
             },
             {
                         "date": "2026-02-12",
-                        "title": "AI Daily Report - 2026-02-12",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-02-12",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1909,8 +1909,8 @@
             },
             {
                         "date": "2026-02-11",
-                        "title": "AI Daily Report - 2026-02-11",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-02-11",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 11,
                         "sources": [
                                     "Hacker News",
@@ -1920,8 +1920,8 @@
             },
             {
                         "date": "2026-02-10",
-                        "title": "AI Daily Report - 2026-02-10",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-02-10",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1931,8 +1931,8 @@
             },
             {
                         "date": "2026-02-09",
-                        "title": "AI Daily Report - 2026-02-09",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-02-09",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1942,8 +1942,8 @@
             },
             {
                         "date": "2026-02-08",
-                        "title": "AI Daily Report - 2026-02-08",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-02-08",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1952,8 +1952,8 @@
             },
             {
                         "date": "2026-02-07",
-                        "title": "AI Daily Report - 2026-02-07",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-02-07",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -1962,8 +1962,8 @@
             },
             {
                         "date": "2026-02-06",
-                        "title": "AI Daily Report - 2026-02-06",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-02-06",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1973,8 +1973,8 @@
             },
             {
                         "date": "2026-02-05",
-                        "title": "AI Daily Report - 2026-02-05",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-02-05",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1984,8 +1984,8 @@
             },
             {
                         "date": "2026-02-04",
-                        "title": "AI Daily Report - 2026-02-04",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-02-04",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -1995,8 +1995,8 @@
             },
             {
                         "date": "2026-02-03",
-                        "title": "AI Daily Report - 2026-02-03",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-02-03",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2006,8 +2006,8 @@
             },
             {
                         "date": "2026-02-02",
-                        "title": "AI Daily Report - 2026-02-02",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-02-02",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2017,8 +2017,8 @@
             },
             {
                         "date": "2026-02-01",
-                        "title": "AI Daily Report - 2026-02-01",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-02-01",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -2027,8 +2027,8 @@
             },
             {
                         "date": "2026-01-31",
-                        "title": "AI Daily Report - 2026-01-31",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-01-31",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 5,
                         "sources": [
                                     "Hacker News"
@@ -2037,8 +2037,8 @@
             },
             {
                         "date": "2026-01-30",
-                        "title": "AI Daily Report - 2026-01-30",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-30",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2048,8 +2048,8 @@
             },
             {
                         "date": "2026-01-29",
-                        "title": "AI Daily Report - 2026-01-29",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-29",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2059,8 +2059,8 @@
             },
             {
                         "date": "2026-01-28",
-                        "title": "AI Daily Report - 2026-01-28",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-28",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 11,
                         "sources": [
                                     "Hacker News",
@@ -2070,8 +2070,8 @@
             },
             {
                         "date": "2026-01-27",
-                        "title": "AI Daily Report - 2026-01-27",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-27",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2081,8 +2081,8 @@
             },
             {
                         "date": "2026-01-26",
-                        "title": "AI Daily Report - 2026-01-26",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-26",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2092,8 +2092,8 @@
             },
             {
                         "date": "2026-01-25",
-                        "title": "AI Daily Report - 2026-01-25",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-01-25",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 4,
                         "sources": [
                                     "Hacker News"
@@ -2102,8 +2102,8 @@
             },
             {
                         "date": "2026-01-24",
-                        "title": "AI Daily Report - 2026-01-24",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-01-24",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -2112,8 +2112,8 @@
             },
             {
                         "date": "2026-01-23",
-                        "title": "AI Daily Report - 2026-01-23",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-23",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2123,8 +2123,8 @@
             },
             {
                         "date": "2026-01-22",
-                        "title": "AI Daily Report - 2026-01-22",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-22",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2134,8 +2134,8 @@
             },
             {
                         "date": "2026-01-21",
-                        "title": "AI Daily Report - 2026-01-21",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-21",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 11,
                         "sources": [
                                     "Hacker News",
@@ -2145,8 +2145,8 @@
             },
             {
                         "date": "2026-01-20",
-                        "title": "AI Daily Report - 2026-01-20",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-20",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2156,8 +2156,8 @@
             },
             {
                         "date": "2026-01-19",
-                        "title": "AI Daily Report - 2026-01-19",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-19",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2167,8 +2167,8 @@
             },
             {
                         "date": "2026-01-18",
-                        "title": "AI Daily Report - 2026-01-18",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-01-18",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -2177,8 +2177,8 @@
             },
             {
                         "date": "2026-01-17",
-                        "title": "AI Daily Report - 2026-01-17",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-01-17",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -2187,8 +2187,8 @@
             },
             {
                         "date": "2026-01-16",
-                        "title": "AI Daily Report - 2026-01-16",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-16",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2198,8 +2198,8 @@
             },
             {
                         "date": "2026-01-15",
-                        "title": "AI Daily Report - 2026-01-15",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-15",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2209,8 +2209,8 @@
             },
             {
                         "date": "2026-01-14",
-                        "title": "AI Daily Report - 2026-01-14",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-14",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2220,8 +2220,8 @@
             },
             {
                         "date": "2026-01-13",
-                        "title": "AI Daily Report - 2026-01-13",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-13",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2231,8 +2231,8 @@
             },
             {
                         "date": "2026-01-12",
-                        "title": "AI Daily Report - 2026-01-12",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-12",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2242,8 +2242,8 @@
             },
             {
                         "date": "2026-01-11",
-                        "title": "AI Daily Report - 2026-01-11",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-01-11",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -2252,8 +2252,8 @@
             },
             {
                         "date": "2026-01-10",
-                        "title": "AI Daily Report - 2026-01-10",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-01-10",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 3,
                         "sources": [
                                     "Hacker News"
@@ -2262,8 +2262,8 @@
             },
             {
                         "date": "2026-01-09",
-                        "title": "AI Daily Report - 2026-01-09",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-09",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2273,8 +2273,8 @@
             },
             {
                         "date": "2026-01-08",
-                        "title": "AI Daily Report - 2026-01-08",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-08",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2284,8 +2284,8 @@
             },
             {
                         "date": "2026-01-07",
-                        "title": "AI Daily Report - 2026-01-07",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-07",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2295,8 +2295,8 @@
             },
             {
                         "date": "2026-01-06",
-                        "title": "AI Daily Report - 2026-01-06",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-06",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2306,8 +2306,8 @@
             },
             {
                         "date": "2026-01-05",
-                        "title": "AI Daily Report - 2026-01-05",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-05",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2317,8 +2317,8 @@
             },
             {
                         "date": "2026-01-04",
-                        "title": "AI Daily Report - 2026-01-04",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-01-04",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -2327,8 +2327,8 @@
             },
             {
                         "date": "2026-01-03",
-                        "title": "AI Daily Report - 2026-01-03",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2026-01-03",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 5,
                         "sources": [
                                     "Hacker News"
@@ -2337,8 +2337,8 @@
             },
             {
                         "date": "2026-01-02",
-                        "title": "AI Daily Report - 2026-01-02",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-02",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 11,
                         "sources": [
                                     "Hacker News",
@@ -2348,8 +2348,8 @@
             },
             {
                         "date": "2026-01-01",
-                        "title": "AI Daily Report - 2026-01-01",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2026-01-01",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 11,
                         "sources": [
                                     "Hacker News",
@@ -2359,8 +2359,8 @@
             },
             {
                         "date": "2025-12-31",
-                        "title": "AI Daily Report - 2025-12-31",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2025-12-31",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 10,
                         "sources": [
                                     "Hacker News",
@@ -2370,8 +2370,8 @@
             },
             {
                         "date": "2025-12-30",
-                        "title": "AI Daily Report - 2025-12-30",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2025-12-30",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 11,
                         "sources": [
                                     "Hacker News",
@@ -2381,8 +2381,8 @@
             },
             {
                         "date": "2025-12-29",
-                        "title": "AI Daily Report - 2025-12-29",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2025-12-29",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2392,8 +2392,8 @@
             },
             {
                         "date": "2025-12-28",
-                        "title": "AI Daily Report - 2025-12-28",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2025-12-28",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 3,
                         "sources": [
                                     "Hacker News"
@@ -2402,8 +2402,8 @@
             },
             {
                         "date": "2025-12-27",
-                        "title": "AI Daily Report - 2025-12-27",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2025-12-27",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -2412,8 +2412,8 @@
             },
             {
                         "date": "2025-12-26",
-                        "title": "AI Daily Report - 2025-12-26",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2025-12-26",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2423,8 +2423,8 @@
             },
             {
                         "date": "2025-12-25",
-                        "title": "AI Daily Report - 2025-12-25",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2025-12-25",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 11,
                         "sources": [
                                     "Hacker News",
@@ -2434,8 +2434,8 @@
             },
             {
                         "date": "2025-12-24",
-                        "title": "AI Daily Report - 2025-12-24",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2025-12-24",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 10,
                         "sources": [
                                     "Hacker News",
@@ -2445,8 +2445,8 @@
             },
             {
                         "date": "2025-12-23",
-                        "title": "AI Daily Report - 2025-12-23",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2025-12-23",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2456,8 +2456,8 @@
             },
             {
                         "date": "2025-12-22",
-                        "title": "AI Daily Report - 2025-12-22",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2025-12-22",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 11,
                         "sources": [
                                     "Hacker News",
@@ -2467,8 +2467,8 @@
             },
             {
                         "date": "2025-12-21",
-                        "title": "AI Daily Report - 2025-12-21",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2025-12-21",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News"
@@ -2477,8 +2477,8 @@
             },
             {
                         "date": "2025-12-20",
-                        "title": "AI Daily Report - 2025-12-20",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2025-12-20",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 5,
                         "sources": [
                                     "Hacker News"
@@ -2487,8 +2487,8 @@
             },
             {
                         "date": "2025-12-19",
-                        "title": "AI Daily Report - 2025-12-19",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2025-12-19",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2498,8 +2498,8 @@
             },
             {
                         "date": "2025-12-18",
-                        "title": "AI Daily Report - 2025-12-18",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2025-12-18",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2509,8 +2509,8 @@
             },
             {
                         "date": "2025-12-17",
-                        "title": "AI Daily Report - 2025-12-17",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2025-12-17",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2520,8 +2520,8 @@
             },
             {
                         "date": "2025-12-16",
-                        "title": "AI Daily Report - 2025-12-16",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2025-12-16",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2531,8 +2531,8 @@
             },
             {
                         "date": "2025-12-15",
-                        "title": "AI Daily Report - 2025-12-15",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2025-12-15",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2542,8 +2542,8 @@
             },
             {
                         "date": "2025-12-14",
-                        "title": "AI Daily Report - 2025-12-14",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2025-12-14",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 5,
                         "sources": [
                                     "Hacker News"
@@ -2552,8 +2552,8 @@
             },
             {
                         "date": "2025-12-13",
-                        "title": "AI Daily Report - 2025-12-13",
-                        "description": "Latest AI news from 1 sources including Hacker News",
+                        "title": "AI 日报 - 2025-12-13",
+                        "description": "涵盖 Hacker News 等 1 个来源的最新 AI 资讯",
                         "articleCount": 3,
                         "sources": [
                                     "Hacker News"
@@ -2562,8 +2562,8 @@
             },
             {
                         "date": "2025-12-12",
-                        "title": "AI Daily Report - 2025-12-12",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2025-12-12",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2573,8 +2573,8 @@
             },
             {
                         "date": "2025-12-11",
-                        "title": "AI Daily Report - 2025-12-11",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2025-12-11",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2584,8 +2584,8 @@
             },
             {
                         "date": "2025-12-10",
-                        "title": "AI Daily Report - 2025-12-10",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2025-12-10",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2595,8 +2595,8 @@
             },
             {
                         "date": "2025-12-09",
-                        "title": "AI Daily Report - 2025-12-09",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2025-12-09",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2606,8 +2606,8 @@
             },
             {
                         "date": "2025-12-08",
-                        "title": "AI Daily Report - 2025-12-08",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2025-12-08",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -2617,8 +2617,8 @@
             },
             {
                         "date": "2025-12-07",
-                        "title": "AI Daily Report - 2025-12-07",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-12-07",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 9,
                         "sources": [
                                     "Hacker News",
@@ -2628,8 +2628,8 @@
             },
             {
                         "date": "2025-12-06",
-                        "title": "AI Daily Report - 2025-12-06",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-12-06",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 9,
                         "sources": [
                                     "Hacker News",
@@ -2639,8 +2639,8 @@
             },
             {
                         "date": "2025-12-05",
-                        "title": "AI Daily Report - 2025-12-05",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-12-05",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 11,
                         "sources": [
                                     "Hacker News",
@@ -2651,8 +2651,8 @@
             },
             {
                         "date": "2025-12-04",
-                        "title": "AI Daily Report - 2025-12-04",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-12-04",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -2663,8 +2663,8 @@
             },
             {
                         "date": "2025-12-03",
-                        "title": "AI Daily Report - 2025-12-03",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-12-03",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -2675,8 +2675,8 @@
             },
             {
                         "date": "2025-12-02",
-                        "title": "AI Daily Report - 2025-12-02",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-12-02",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -2687,8 +2687,8 @@
             },
             {
                         "date": "2025-12-01",
-                        "title": "AI Daily Report - 2025-12-01",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-12-01",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 15,
                         "sources": [
                                     "Hacker News",
@@ -2699,8 +2699,8 @@
             },
             {
                         "date": "2025-11-30",
-                        "title": "AI Daily Report - 2025-11-30",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-11-30",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 9,
                         "sources": [
                                     "Hacker News",
@@ -2710,8 +2710,8 @@
             },
             {
                         "date": "2025-11-29",
-                        "title": "AI Daily Report - 2025-11-29",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-11-29",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 9,
                         "sources": [
                                     "Hacker News",
@@ -2721,8 +2721,8 @@
             },
             {
                         "date": "2025-11-28",
-                        "title": "AI Daily Report - 2025-11-28",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-11-28",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 13,
                         "sources": [
                                     "Hacker News",
@@ -2733,8 +2733,8 @@
             },
             {
                         "date": "2025-11-27",
-                        "title": "AI Daily Report - 2025-11-27",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-11-27",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 13,
                         "sources": [
                                     "Hacker News",
@@ -2745,8 +2745,8 @@
             },
             {
                         "date": "2025-11-26",
-                        "title": "AI Daily Report - 2025-11-26",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-11-26",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -2757,8 +2757,8 @@
             },
             {
                         "date": "2025-11-24",
-                        "title": "AI Daily Report - 2025-11-24",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-11-24",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 15,
                         "sources": [
                                     "Hacker News",
@@ -2769,8 +2769,8 @@
             },
             {
                         "date": "2025-11-23",
-                        "title": "AI Daily Report - 2025-11-23",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-11-23",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 8,
                         "sources": [
                                     "Hacker News",
@@ -2780,8 +2780,8 @@
             },
             {
                         "date": "2025-11-22",
-                        "title": "AI Daily Report - 2025-11-22",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-11-22",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News",
@@ -2791,8 +2791,8 @@
             },
             {
                         "date": "2025-11-21",
-                        "title": "AI Daily Report - 2025-11-21",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-11-21",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -2803,8 +2803,8 @@
             },
             {
                         "date": "2025-11-20",
-                        "title": "AI Daily Report - 2025-11-20",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-11-20",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -2815,8 +2815,8 @@
             },
             {
                         "date": "2025-11-19",
-                        "title": "AI Daily Report - 2025-11-19",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-11-19",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 15,
                         "sources": [
                                     "Hacker News",
@@ -2827,8 +2827,8 @@
             },
             {
                         "date": "2025-11-18",
-                        "title": "AI Daily Report - 2025-11-18",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-11-18",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 15,
                         "sources": [
                                     "Hacker News",
@@ -2839,8 +2839,8 @@
             },
             {
                         "date": "2025-11-17",
-                        "title": "AI Daily Report - 2025-11-17",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-11-17",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 11,
                         "sources": [
                                     "Hacker News",
@@ -2851,8 +2851,8 @@
             },
             {
                         "date": "2025-11-16",
-                        "title": "AI Daily Report - 2025-11-16",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-11-16",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 9,
                         "sources": [
                                     "Hacker News",
@@ -2862,8 +2862,8 @@
             },
             {
                         "date": "2025-11-15",
-                        "title": "AI Daily Report - 2025-11-15",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-11-15",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News",
@@ -2873,8 +2873,8 @@
             },
             {
                         "date": "2025-11-14",
-                        "title": "AI Daily Report - 2025-11-14",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-11-14",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -2885,8 +2885,8 @@
             },
             {
                         "date": "2025-11-13",
-                        "title": "AI Daily Report - 2025-11-13",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-11-13",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 15,
                         "sources": [
                                     "Hacker News",
@@ -2897,8 +2897,8 @@
             },
             {
                         "date": "2025-11-12",
-                        "title": "AI Daily Report - 2025-11-12",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-11-12",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -2909,8 +2909,8 @@
             },
             {
                         "date": "2025-11-11",
-                        "title": "AI Daily Report - 2025-11-11",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-11-11",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 15,
                         "sources": [
                                     "Hacker News",
@@ -2921,8 +2921,8 @@
             },
             {
                         "date": "2025-11-10",
-                        "title": "AI Daily Report - 2025-11-10",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-11-10",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 15,
                         "sources": [
                                     "Hacker News",
@@ -2933,8 +2933,8 @@
             },
             {
                         "date": "2025-11-09",
-                        "title": "AI Daily Report - 2025-11-09",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-11-09",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 9,
                         "sources": [
                                     "Hacker News",
@@ -2944,8 +2944,8 @@
             },
             {
                         "date": "2025-11-08",
-                        "title": "AI Daily Report - 2025-11-08",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-11-08",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 7,
                         "sources": [
                                     "Hacker News",
@@ -2955,8 +2955,8 @@
             },
             {
                         "date": "2025-11-07",
-                        "title": "AI Daily Report - 2025-11-07",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-11-07",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -2967,8 +2967,8 @@
             },
             {
                         "date": "2025-11-06",
-                        "title": "AI Daily Report - 2025-11-06",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-11-06",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 16,
                         "sources": [
                                     "Hacker News",
@@ -2979,8 +2979,8 @@
             },
             {
                         "date": "2025-11-05",
-                        "title": "AI Daily Report - 2025-11-05",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-11-05",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 15,
                         "sources": [
                                     "Hacker News",
@@ -2991,8 +2991,8 @@
             },
             {
                         "date": "2025-11-04",
-                        "title": "AI Daily Report - 2025-11-04",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-11-04",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 16,
                         "sources": [
                                     "Hacker News",
@@ -3003,8 +3003,8 @@
             },
             {
                         "date": "2025-11-03",
-                        "title": "AI Daily Report - 2025-11-03",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-11-03",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 15,
                         "sources": [
                                     "Hacker News",
@@ -3015,8 +3015,8 @@
             },
             {
                         "date": "2025-11-02",
-                        "title": "AI Daily Report - 2025-11-02",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-11-02",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 10,
                         "sources": [
                                     "Hacker News",
@@ -3026,8 +3026,8 @@
             },
             {
                         "date": "2025-11-01",
-                        "title": "AI Daily Report - 2025-11-01",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-11-01",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 10,
                         "sources": [
                                     "Hacker News",
@@ -3037,8 +3037,8 @@
             },
             {
                         "date": "2025-10-31",
-                        "title": "AI Daily Report - 2025-10-31",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-31",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 13,
                         "sources": [
                                     "Hacker News",
@@ -3049,8 +3049,8 @@
             },
             {
                         "date": "2025-10-30",
-                        "title": "AI Daily Report - 2025-10-30",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-30",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -3061,8 +3061,8 @@
             },
             {
                         "date": "2025-10-29",
-                        "title": "AI Daily Report - 2025-10-29",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-29",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -3073,8 +3073,8 @@
             },
             {
                         "date": "2025-10-28",
-                        "title": "AI Daily Report - 2025-10-28",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-28",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -3085,8 +3085,8 @@
             },
             {
                         "date": "2025-10-27",
-                        "title": "AI Daily Report - 2025-10-27",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-27",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -3097,8 +3097,8 @@
             },
             {
                         "date": "2025-10-26",
-                        "title": "AI Daily Report - 2025-10-26",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-10-26",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 10,
                         "sources": [
                                     "Hacker News",
@@ -3108,8 +3108,8 @@
             },
             {
                         "date": "2025-10-25",
-                        "title": "AI Daily Report - 2025-10-25",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-10-25",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News",
@@ -3119,8 +3119,8 @@
             },
             {
                         "date": "2025-10-24",
-                        "title": "AI Daily Report - 2025-10-24",
-                        "description": "Latest AI news from 2 sources including Hacker News, huggingface",
+                        "title": "AI 日报 - 2025-10-24",
+                        "description": "涵盖 Hacker News, huggingface 等 2 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -3130,8 +3130,8 @@
             },
             {
                         "date": "2025-10-23",
-                        "title": "AI Daily Report - 2025-10-23",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-23",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 13,
                         "sources": [
                                     "Hacker News",
@@ -3142,8 +3142,8 @@
             },
             {
                         "date": "2025-10-22",
-                        "title": "AI Daily Report - 2025-10-22",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-22",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -3154,8 +3154,8 @@
             },
             {
                         "date": "2025-10-21",
-                        "title": "AI Daily Report - 2025-10-21",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-21",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 15,
                         "sources": [
                                     "Hacker News",
@@ -3166,8 +3166,8 @@
             },
             {
                         "date": "2025-10-20",
-                        "title": "AI Daily Report - 2025-10-20",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-20",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 18,
                         "sources": [
                                     "Hacker News",
@@ -3178,8 +3178,8 @@
             },
             {
                         "date": "2025-10-19",
-                        "title": "AI Daily Report - 2025-10-19",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-10-19",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 9,
                         "sources": [
                                     "Hacker News",
@@ -3189,8 +3189,8 @@
             },
             {
                         "date": "2025-10-18",
-                        "title": "AI Daily Report - 2025-10-18",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-10-18",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 7,
                         "sources": [
                                     "Hacker News",
@@ -3200,8 +3200,8 @@
             },
             {
                         "date": "2025-10-17",
-                        "title": "AI Daily Report - 2025-10-17",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-17",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -3212,8 +3212,8 @@
             },
             {
                         "date": "2025-10-16",
-                        "title": "AI Daily Report - 2025-10-16",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-16",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -3224,8 +3224,8 @@
             },
             {
                         "date": "2025-10-15",
-                        "title": "AI Daily Report - 2025-10-15",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-15",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 16,
                         "sources": [
                                     "Hacker News",
@@ -3236,8 +3236,8 @@
             },
             {
                         "date": "2025-10-14",
-                        "title": "AI Daily Report - 2025-10-14",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-14",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 16,
                         "sources": [
                                     "Hacker News",
@@ -3248,8 +3248,8 @@
             },
             {
                         "date": "2025-10-13",
-                        "title": "AI Daily Report - 2025-10-13",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-13",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 17,
                         "sources": [
                                     "Hacker News",
@@ -3260,8 +3260,8 @@
             },
             {
                         "date": "2025-10-12",
-                        "title": "AI Daily Report - 2025-10-12",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-10-12",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 10,
                         "sources": [
                                     "Hacker News",
@@ -3271,8 +3271,8 @@
             },
             {
                         "date": "2025-10-11",
-                        "title": "AI Daily Report - 2025-10-11",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-10-11",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 6,
                         "sources": [
                                     "Hacker News",
@@ -3282,8 +3282,8 @@
             },
             {
                         "date": "2025-10-10",
-                        "title": "AI Daily Report - 2025-10-10",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-10",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -3294,8 +3294,8 @@
             },
             {
                         "date": "2025-10-09",
-                        "title": "AI Daily Report - 2025-10-09",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-09",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -3306,8 +3306,8 @@
             },
             {
                         "date": "2025-10-08",
-                        "title": "AI Daily Report - 2025-10-08",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-08",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -3318,8 +3318,8 @@
             },
             {
                         "date": "2025-10-07",
-                        "title": "AI Daily Report - 2025-10-07",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-07",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 15,
                         "sources": [
                                     "Hacker News",
@@ -3330,8 +3330,8 @@
             },
             {
                         "date": "2025-10-06",
-                        "title": "AI Daily Report - 2025-10-06",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-06",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 12,
                         "sources": [
                                     "Hacker News",
@@ -3342,8 +3342,8 @@
             },
             {
                         "date": "2025-10-05",
-                        "title": "AI Daily Report - 2025-10-05",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-10-05",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 7,
                         "sources": [
                                     "Hacker News",
@@ -3353,8 +3353,8 @@
             },
             {
                         "date": "2025-10-04",
-                        "title": "AI Daily Report - 2025-10-04",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-10-04",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 7,
                         "sources": [
                                     "Hacker News",
@@ -3364,8 +3364,8 @@
             },
             {
                         "date": "2025-10-03",
-                        "title": "AI Daily Report - 2025-10-03",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-03",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 15,
                         "sources": [
                                     "Hacker News",
@@ -3376,8 +3376,8 @@
             },
             {
                         "date": "2025-10-02",
-                        "title": "AI Daily Report - 2025-10-02",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-02",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 15,
                         "sources": [
                                     "Hacker News",
@@ -3388,8 +3388,8 @@
             },
             {
                         "date": "2025-10-01",
-                        "title": "AI Daily Report - 2025-10-01",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-10-01",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 15,
                         "sources": [
                                     "Hacker News",
@@ -3400,8 +3400,8 @@
             },
             {
                         "date": "2025-09-30",
-                        "title": "AI Daily Report - 2025-09-30",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-09-30",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -3412,8 +3412,8 @@
             },
             {
                         "date": "2025-09-29",
-                        "title": "AI Daily Report - 2025-09-29",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-09-29",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 13,
                         "sources": [
                                     "Hacker News",
@@ -3424,8 +3424,8 @@
             },
             {
                         "date": "2025-09-28",
-                        "title": "AI Daily Report - 2025-09-28",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-09-28",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 7,
                         "sources": [
                                     "Hacker News",
@@ -3435,8 +3435,8 @@
             },
             {
                         "date": "2025-09-27",
-                        "title": "AI Daily Report - 2025-09-27",
-                        "description": "Latest AI news from 2 sources including Hacker News, GitHub",
+                        "title": "AI 日报 - 2025-09-27",
+                        "description": "涵盖 Hacker News, GitHub 等 2 个来源的最新 AI 资讯",
                         "articleCount": 10,
                         "sources": [
                                     "Hacker News",
@@ -3446,8 +3446,8 @@
             },
             {
                         "date": "2025-09-26",
-                        "title": "AI Daily Report - 2025-09-26",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-09-26",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -3458,8 +3458,8 @@
             },
             {
                         "date": "2025-09-25",
-                        "title": "AI Daily Report - 2025-09-25",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-09-25",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -3470,8 +3470,8 @@
             },
             {
                         "date": "2025-09-24",
-                        "title": "AI Daily Report - 2025-09-24",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-09-24",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -3482,8 +3482,8 @@
             },
             {
                         "date": "2025-09-23",
-                        "title": "AI Daily Report - 2025-09-23",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-09-23",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 3 个来源的最新 AI 资讯",
                         "articleCount": 16,
                         "sources": [
                                     "Hacker News",
@@ -3494,8 +3494,8 @@
             },
             {
                         "date": "2025-09-22",
-                        "title": "AI Daily Report - 2025-09-22",
-                        "description": "Latest AI news from 4 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-09-22",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 4 个来源的最新 AI 资讯",
                         "articleCount": 22,
                         "sources": [
                                     "Hacker News",
@@ -3507,8 +3507,8 @@
             },
             {
                         "date": "2025-09-21",
-                        "title": "AI Daily Report - 2025-09-21",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, Twitter",
+                        "title": "AI 日报 - 2025-09-21",
+                        "description": "涵盖 Hacker News, GitHub, Twitter 等 3 个来源的最新 AI 资讯",
                         "articleCount": 15,
                         "sources": [
                                     "Hacker News",
@@ -3519,8 +3519,8 @@
             },
             {
                         "date": "2025-09-20",
-                        "title": "AI Daily Report - 2025-09-20",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, Twitter",
+                        "title": "AI 日报 - 2025-09-20",
+                        "description": "涵盖 Hacker News, GitHub, Twitter 等 3 个来源的最新 AI 资讯",
                         "articleCount": 14,
                         "sources": [
                                     "Hacker News",
@@ -3531,8 +3531,8 @@
             },
             {
                         "date": "2025-09-19",
-                        "title": "AI Daily Report - 2025-09-19",
-                        "description": "Latest AI news from 4 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-09-19",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 4 个来源的最新 AI 资讯",
                         "articleCount": 19,
                         "sources": [
                                     "Hacker News",
@@ -3544,8 +3544,8 @@
             },
             {
                         "date": "2025-09-16",
-                        "title": "AI Daily Report - 2025-09-16",
-                        "description": "Latest AI news from 4 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-09-16",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 4 个来源的最新 AI 资讯",
                         "articleCount": 23,
                         "sources": [
                                     "Hacker News",
@@ -3557,8 +3557,8 @@
             },
             {
                         "date": "2025-09-15",
-                        "title": "AI Daily Report - 2025-09-15",
-                        "description": "Latest AI news from 4 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-09-15",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 4 个来源的最新 AI 资讯",
                         "articleCount": 21,
                         "sources": [
                                     "Hacker News",
@@ -3570,8 +3570,8 @@
             },
             {
                         "date": "2025-09-14",
-                        "title": "AI Daily Report - 2025-09-14",
-                        "description": "Latest AI news from 3 sources including Hacker News, GitHub, Twitter",
+                        "title": "AI 日报 - 2025-09-14",
+                        "description": "涵盖 Hacker News, GitHub, Twitter 等 3 个来源的最新 AI 资讯",
                         "articleCount": 16,
                         "sources": [
                                     "Hacker News",
@@ -3582,8 +3582,8 @@
             },
             {
                         "date": "2025-09-12",
-                        "title": "AI Daily Report - 2025-09-12",
-                        "description": "Latest AI news from 4 sources including Hacker News, GitHub, huggingface",
+                        "title": "AI 日报 - 2025-09-12",
+                        "description": "涵盖 Hacker News, GitHub, huggingface 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Hacker News",
@@ -3595,8 +3595,8 @@
             },
             {
                         "date": "2025-09-09",
-                        "title": "AI Daily Report - 2025-09-09",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-09-09",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Twitter",
@@ -3608,8 +3608,8 @@
             },
             {
                         "date": "2025-09-08",
-                        "title": "AI Daily Report - 2025-09-08",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-09-08",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Twitter",
@@ -3621,8 +3621,8 @@
             },
             {
                         "date": "2025-09-05",
-                        "title": "AI Daily Report - 2025-09-05",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-09-05",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Twitter",
@@ -3634,8 +3634,8 @@
             },
             {
                         "date": "2025-09-04",
-                        "title": "AI Daily Report - 2025-09-04",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-09-04",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 23,
                         "sources": [
                                     "Twitter",
@@ -3647,8 +3647,8 @@
             },
             {
                         "date": "2025-09-03",
-                        "title": "AI Daily Report - 2025-09-03",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-09-03",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Twitter",
@@ -3660,8 +3660,8 @@
             },
             {
                         "date": "2025-09-02",
-                        "title": "AI Daily Report - 2025-09-02",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-09-02",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 23,
                         "sources": [
                                     "Twitter",
@@ -3673,8 +3673,8 @@
             },
             {
                         "date": "2025-09-01",
-                        "title": "AI Daily Report - 2025-09-01",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-09-01",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Twitter",
@@ -3686,8 +3686,8 @@
             },
             {
                         "date": "2025-08-29",
-                        "title": "AI Daily Report - 2025-08-29",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-08-29",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Twitter",
@@ -3699,8 +3699,8 @@
             },
             {
                         "date": "2025-08-28",
-                        "title": "AI Daily Report - 2025-08-28",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-08-28",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Twitter",
@@ -3712,8 +3712,8 @@
             },
             {
                         "date": "2025-08-27",
-                        "title": "AI Daily Report - 2025-08-27",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-08-27",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 23,
                         "sources": [
                                     "Twitter",
@@ -3725,8 +3725,8 @@
             },
             {
                         "date": "2025-08-26",
-                        "title": "AI Daily Report - 2025-08-26",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-08-26",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Twitter",
@@ -3738,8 +3738,8 @@
             },
             {
                         "date": "2025-08-25",
-                        "title": "AI Daily Report - 2025-08-25",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-08-25",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Twitter",
@@ -3751,8 +3751,8 @@
             },
             {
                         "date": "2025-08-22",
-                        "title": "AI Daily Report - 2025-08-22",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-08-22",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 19,
                         "sources": [
                                     "Twitter",
@@ -3764,9 +3764,9 @@
             },
             {
                         "date": "2025-08-21",
-                        "title": "AI Daily Report - 2025-08-21",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
-                        "articleCount": 17,
+                        "title": "AI 日报 - 2025-08-21",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
+                        "articleCount": 18,
                         "sources": [
                                     "Twitter",
                                     "wechat",
@@ -3777,8 +3777,8 @@
             },
             {
                         "date": "2025-08-20",
-                        "title": "AI Daily Report - 2025-08-20",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-08-20",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Twitter",
@@ -3790,8 +3790,8 @@
             },
             {
                         "date": "2025-08-18",
-                        "title": "AI Daily Report - 2025-08-18",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-08-18",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Twitter",
@@ -3803,8 +3803,8 @@
             },
             {
                         "date": "2025-08-15",
-                        "title": "AI Daily Report - 2025-08-15",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-08-15",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 22,
                         "sources": [
                                     "Twitter",
@@ -3816,8 +3816,8 @@
             },
             {
                         "date": "2025-08-14",
-                        "title": "AI Daily Report - 2025-08-14",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-08-14",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 22,
                         "sources": [
                                     "Twitter",
@@ -3829,8 +3829,8 @@
             },
             {
                         "date": "2025-08-13",
-                        "title": "AI Daily Report - 2025-08-13",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-08-13",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Twitter",
@@ -3842,8 +3842,8 @@
             },
             {
                         "date": "2025-08-12",
-                        "title": "AI Daily Report - 2025-08-12",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-08-12",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Twitter",
@@ -3855,8 +3855,8 @@
             },
             {
                         "date": "2025-06-24",
-                        "title": "AI Daily Report - 2025-06-24",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-06-24",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 21,
                         "sources": [
                                     "Twitter",
@@ -3868,8 +3868,8 @@
             },
             {
                         "date": "2025-06-23",
-                        "title": "AI Daily Report - 2025-06-23",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-06-23",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 23,
                         "sources": [
                                     "Twitter",
@@ -3881,8 +3881,8 @@
             },
             {
                         "date": "2025-06-20",
-                        "title": "AI Daily Report - 2025-06-20",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-06-20",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 22,
                         "sources": [
                                     "Twitter",
@@ -3894,8 +3894,8 @@
             },
             {
                         "date": "2025-06-18",
-                        "title": "AI Daily Report - 2025-06-18",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-06-18",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Twitter",
@@ -3907,8 +3907,8 @@
             },
             {
                         "date": "2025-06-17",
-                        "title": "AI Daily Report - 2025-06-17",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-06-17",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Twitter",
@@ -3920,8 +3920,8 @@
             },
             {
                         "date": "2025-06-16",
-                        "title": "AI Daily Report - 2025-06-16",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-06-16",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Twitter",
@@ -3933,8 +3933,8 @@
             },
             {
                         "date": "2025-06-13",
-                        "title": "AI Daily Report - 2025-06-13",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-06-13",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Twitter",
@@ -3946,8 +3946,8 @@
             },
             {
                         "date": "2025-06-11",
-                        "title": "AI Daily Report - 2025-06-11",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-06-11",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 22,
                         "sources": [
                                     "Twitter",
@@ -3959,8 +3959,8 @@
             },
             {
                         "date": "2025-06-10",
-                        "title": "AI Daily Report - 2025-06-10",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-06-10",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 22,
                         "sources": [
                                     "Twitter",
@@ -3972,8 +3972,8 @@
             },
             {
                         "date": "2025-06-09",
-                        "title": "AI Daily Report - 2025-06-09",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-06-09",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Twitter",
@@ -3985,8 +3985,8 @@
             },
             {
                         "date": "2025-06-06",
-                        "title": "AI Daily Report - 2025-06-06",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-06-06",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Twitter",
@@ -3998,8 +3998,8 @@
             },
             {
                         "date": "2025-06-05",
-                        "title": "AI Daily Report - 2025-06-05",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-06-05",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 23,
                         "sources": [
                                     "Twitter",
@@ -4011,8 +4011,8 @@
             },
             {
                         "date": "2025-06-04",
-                        "title": "AI Daily Report - 2025-06-04",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-06-04",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 20,
                         "sources": [
                                     "Twitter",
@@ -4024,8 +4024,8 @@
             },
             {
                         "date": "2025-06-03",
-                        "title": "AI Daily Report - 2025-06-03",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-06-03",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 20,
                         "sources": [
                                     "Twitter",
@@ -4037,8 +4037,8 @@
             },
             {
                         "date": "2025-05-29",
-                        "title": "AI Daily Report - 2025-05-29",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-05-29",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Twitter",
@@ -4050,8 +4050,8 @@
             },
             {
                         "date": "2025-05-26",
-                        "title": "AI Daily Report - 2025-05-26",
-                        "description": "Latest AI news from 4 sources including Twitter, wechat, GitHub",
+                        "title": "AI 日报 - 2025-05-26",
+                        "description": "涵盖 Twitter, wechat, GitHub 等 4 个来源的最新 AI 资讯",
                         "articleCount": 24,
                         "sources": [
                                     "Twitter",
@@ -4063,90 +4063,90 @@
             }
 ];
 
-        // Update statistics
+        // 更新统计数据
         function updateStats() {
             const totalReports = reports.length;
             const totalArticles = reports.reduce((sum, report) => sum + report.articleCount, 0);
             const latestDate = reports[0].date;
             
-            // Basic statistics
+            // 基础统计
             document.getElementById('total-reports').textContent = totalReports;
             document.getElementById('total-articles').textContent = totalArticles;
             document.getElementById('latest-date').textContent = latestDate.replace(/(\d{4})-(\d{2})-(\d{2})/, '$2/$3');
             
-            // Get Google Analytics data
+            // 获取Google Analytics数据
             updateGAStats();
         }
 
-        // Get real Google Analytics statistics
+        // 获取真实的Google Analytics统计数据
         function updateGAStats() {
-            // Send GA event (for tracking, but not for display)
+            // 发送GA事件（用于追踪，但不用于显示）
             if (typeof gtag === 'function') {
                 gtag('event', 'page_view', {
                     'send_to': 'G-008T4WC27P',
-                    'page_title': 'NO-FOMO AI Daily - Homepage',
+                    'page_title': 'NO-FOMO AI 日报 - 主页',
                     'page_location': window.location.href
                 });
             }
             
-            // Start auto-refresh statistics (every 30 seconds)
+            // 启动自动刷新统计数据（每30秒）
             startAutoRefresh();
         }
 
-        // Load real Analytics data from JSON file
+        // 从JSON文件加载真实的Analytics数据
         async function loadRealAnalyticsData() {
             try {
-                // Add timestamp to prevent caching
+                // 添加时间戳防止缓存
                 const timestamp = new Date().getTime();
-                const response = await fetch(`../analytics-stats.json?t=${timestamp}`);
+                const response = await fetch(`./analytics-stats.json?t=${timestamp}`);
                 if (!response.ok) {
-                    throw new Error('Unable to load statistics data');
+                    throw new Error('无法加载统计数据');
                 }
                 
                 const data = await response.json();
                 
-                // Update display
+                // 更新显示
                 document.getElementById('total-visits').textContent = formatNumber(data.totalVisits || 0);
                 document.getElementById('today-visits').textContent = formatNumber(data.todayVisits || 0);
                 
-                // Show last update time
+                // 显示最后更新时间
                 const lastUpdated = new Date(data.lastUpdated);
                 if (data.lastUpdated) {
-                    console.log(`📊 Statistics last updated: ${lastUpdated.toLocaleString('en-US')}`);
+                    console.log(`📊 统计数据最后更新: ${lastUpdated.toLocaleString('zh-CN')}`);
                 }
                 
             } catch (error) {
-                console.error('Failed to load statistics data:', error);
+                console.error('加载统计数据失败:', error);
                 
-                // If loading fails, show placeholders
+                // 如果加载失败，显示占位符
                 document.getElementById('total-visits').textContent = '...';
                 document.getElementById('today-visits').textContent = '...';
                 
-                // Try to get fallback data (backward compatibility)
+                // 尝试从本地存储获取备用数据（向后兼容）
                 loadFallbackData();
             }
         }
 
-        // Auto-refresh statistics every 30 seconds
+        // 每30秒自动刷新统计数据
         function startAutoRefresh() {
-            // Load data immediately
+            // 立即加载一次数据
             loadRealAnalyticsData();
             
-            // Set timer to refresh every 30 seconds
+            // 设置定时器，每30秒刷新一次
             setInterval(async () => {
-                console.log('🔄 Auto-refreshing statistics data...');
+                console.log('🔄 自动刷新统计数据...');
                 await loadRealAnalyticsData();
-            }, 30000); // 30 seconds = 30000 milliseconds
+            }, 30000); // 30秒 = 30000毫秒
         }
 
-        // Fallback data loading (backward compatibility)
+        // 备用数据加载（向后兼容）
         function loadFallbackData() {
-            console.log('⚠️ Unable to load statistics data, showing default values');
+            console.log('⚠️ 无法加载统计数据，显示默认值');
             document.getElementById('total-visits').textContent = '-';
             document.getElementById('today-visits').textContent = '-';
         }
 
-        // Format number display
+        // 格式化数字显示
         function formatNumber(num) {
             if (num >= 1000000) {
                 return (num / 1000000).toFixed(1) + 'M';
@@ -4156,36 +4156,31 @@
             return num.toString();
         }
 
-        // Generate date cards
+        // 生成日期卡片
         function generateDateCards() {
             const dateList = document.getElementById('date-list');
 
-            // Generate cards
+            // 生成卡片
             reports.forEach((report, index) => {
                 const isNew = index === 0;
                 const formattedDate = formatDate(report.date);
                 
-                // Determine link path - English version if available
-                let linkPath;
-                if (report.hasLanguages) {
-                    linkPath = `../${report.date}/en/`;
-                } else {
-                    linkPath = `../${report.date}/`;
-                }
+                // 确定链接路径 - 主版本为中文版
+                let linkPath = `${report.date}/`;
                 
                 const card = document.createElement('div');
                 card.className = 'date-card';
                 card.innerHTML = `
                     <h3>${formattedDate} ${isNew ? '🆕' : ''}</h3>
                     <div class="meta">
-                        📝 ${report.articleCount} articles | 
-                        📊 ${report.sources.length} sources | 
+                        📝 ${report.articleCount} 篇文章 | 
+                        📊 ${report.sources.length} 个来源 | 
                         🏷️ ${report.sources.join(', ')}
                     </div>
                     <div class="preview">${report.description}</div>
                     <div class="actions">
-                        <a href="${linkPath}" class="btn btn-primary">📖 Read Report</a>
-                        <a href="${linkPath}" class="btn btn-outline">🔗 Share Link</a>
+                        <a href="${linkPath}" class="btn btn-primary">📖 阅读日报</a>
+                        <a href="${linkPath}" class="btn btn-outline">🔗 分享链接</a>
                     </div>
                 `;
                 
@@ -4193,7 +4188,7 @@
             });
         }
 
-        // Format date display
+        // 格式化日期显示
         function formatDate(dateString) {
             const date = new Date(dateString);
             const options = { 
@@ -4202,14 +4197,14 @@
                 day: 'numeric',
                 weekday: 'long'
             };
-            return date.toLocaleDateString('en-US', options);
+            return date.toLocaleDateString('zh-CN', options);
         }
 
-        // Generate content after page load
+        // 页面加载完成后生成内容
         document.addEventListener('DOMContentLoaded', () => {
             generateDateCards();
             updateStats();
         });
     </script>
 </body>
-</html> 
+</html>
