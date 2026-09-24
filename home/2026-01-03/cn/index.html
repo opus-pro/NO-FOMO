@@ -1,273 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2026-01-03</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO AI 日报 — 2026-01-03</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"PingFang SC","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em}.issue h1{margin:0;max-width:820px;font:800 clamp(2.6rem,7vw,6.3rem)/1.02 Georgia,"Songti SC",serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:800 clamp(1.5rem,3vw,2.35rem)/1.2 Georgia,"Songti SC",serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.86 Georgia,"Songti SC",serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <h1>AI Daily Report</h1>
-            <p class="date">2026-01-03</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>IQuest-Coder: A new open-source code model beats Claude Sonnet 4.5 and GPT 5.1</h2>
-                <span class="published-time">Published: 2026-01-03 04:01:03</span>
-                
-                <p class="summary">A significant advancement in artificial intelligence has been announced with the introduction of IQuest-Coder, a novel open-source code generation model. This new model is reported to surpass the performance of established commercial AI models, specifically Claude Sonnet 4.5 and a purported GPT 5.1, in various coding benchmarks and tasks. The technical details, capabilities, and evaluation methodology of IQuest-Coder are elaborated in a recently released technical report, which is accessible to the public. The development of IQuest-Coder represents a notable contribution to the open-source AI community, potentially fostering further innovation in code-related AI applications and setting new performance standards. Its ability to outperform proprietary models suggests a powerful and efficient architecture, making it a compelling tool for developers and researchers. This release underscores the accelerating pace of AI development and the growing competitiveness of open-source solutions against closed-source counterparts in specialized domains like code generation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>IQuest-Coder</span><span>Open-source AI</span><span>Code generation</span><span>Large Language Model</span><span>Performance benchmarks</span><span>AI models</span><span>Competitive AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/IQuestLab/IQuest-Coder-V1/blob/main/papers/IQuest_Coder_Technical_Report.pdf" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Recursive Language Models</h2>
-                <span class="published-time">Published: 2026-01-03 11:29:33</span>
-                
-                <p class="summary">Recursive Language Models represent an advanced paradigm in artificial intelligence, designed to process and generate language through inherent recursive structures. This architectural approach aims to overcome limitations of purely sequential models by enabling a deeper understanding of hierarchical dependencies and nested relationships within natural language. By incorporating recursive mechanisms, these models are poised to enhance capabilities in complex reasoning, disambiguating intricate grammatical constructions, and producing more coherent and contextually rich outputs. Such models could significantly improve performance in tasks requiring iterative processing, long-range dependency handling, and compositionality. The development of Recursive Language Models signifies a push towards AI systems that can better mirror the structured nature of human cognition and language, offering potential breakthroughs in natural language understanding and advanced text generation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Language Models</span><span>Recursion</span><span>Hierarchical Processing</span><span>Natural Language Processing</span><span>Deep Learning</span><span>AI Research</span><span>Neural Networks</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Natural Language Processing</span><span>Large Language Model</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://arxiv.org/abs/2512.24601" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Chatbots could be harmful for teens' mental health and social development</h2>
-                <span class="published-time">Published: 2026-01-03 18:06:21</span>
-                
-                <p class="summary">A growing body of concern suggests that the increasing integration of chatbots into the daily lives of teenagers could pose significant risks to their mental health and social development. Experts warn that prolonged interaction with AI-powered conversational agents might hinder the formation of crucial real-world social skills, as these interactions often lack the nuances and complexities of human relationships. There are also apprehensions regarding the potential for chatbots to expose young users to inappropriate or harmful content, given the challenges in fully controlling AI outputs and the evolving regulatory landscape. Furthermore, the addictive nature of engaging with readily available and non-judgmental AI companions could lead to social isolation, exacerbate feelings of loneliness, and impact self-esteem. As these technologies become more sophisticated and prevalent, discussions are intensifying around the ethical responsibilities of developers, the need for robust safeguards, parental guidance, and digital literacy initiatives to mitigate these potential negative impacts on adolescent well-being and foster healthy development.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Chatbots</span><span>AI Ethics</span><span>Adolescent Mental Health</span><span>Social Development</span><span>Generative AI</span><span>Digital Well-being</span><span>AI Safety</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Natural Language Processing</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.npr.org/2025/12/29/nx-s1-5646633/teens-ai-chatbot-sex-violence-mental-health" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: FP-pack – Functional pipelines in TypeScript without monads</h2>
-                <span class="published-time">Published: 2026-01-03 15:00:23</span>
-                
-                <p class="summary">A new TypeScript functional utility library, `fp-pack`, has been released, emphasizing pipe-first composition for creating simple and readable pipelines. The library aims to facilitate functional programming paradigms by supporting features like early exits and side effects, crucially without the need to implement monads such as Option or Either. Its core functionality revolves around `pipe` and `pipeAsync` for general use, and a `SideEffect`-based pipeline is provided for safely handling short-circuiting in scenarios requiring early termination. Additionally, the developer has created an “AI agent skills” document, specifically designed to assist Large Language Models (LLMs) in generating code that adheres to the `fp-pack` style, thereby promoting consistency in AI-assisted development.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Functional Programming</span><span>TypeScript</span><span>Pipeline Composition</span><span>Utility Library</span><span>Monads</span><span>Side Effects</span><span>Early Exit</span><span>AI Agent Skills</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/superlucky84/fp-pack" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: Website that plays the lottery every second</h2>
-                <span class="published-time">Published: 2026-01-03 00:12:55</span>
-                
-                <p class="summary">A new project, 'Lottery Every Second,' recently showcased on Hacker News, introduces a web-based application engineered to automatically participate in a lottery at an extraordinarily high frequency, specifically executing an attempt every second. This novel demonstration emphasizes key principles of continuous automated task execution, real-time system design, and persistent online interaction. The technical underpinnings of such a system likely involve robust scheduling mechanisms, possibly utilizing serverless functions or dedicated background processes to ensure uninterrupted operation. Furthermore, effective implementation would require resilient web automation techniques, potentially involving browser automation tools or direct API interactions, to interface with the lottery system. The project offers a practical case study for exploring the challenges of maintaining system reliability under constant, high-frequency load and managing the state of continuous operations. It provides insight into how digital platforms can be engineered for perpetual engagement with external services, presenting a unique perspective on automated decision-making and rapid event processing in a dynamic online environment. This initiative could stimulate discussions on the ethics and technical feasibility of hyper-automated digital participation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Web Automation</span><span>Real-time Systems</span><span>Automated Task Execution</span><span>High-Frequency Operations</span><span>Scheduled Tasks</span><span>Web Applications</span><span>System Reliability</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://lotteryeverysecond.lffl.me/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">跳到新闻列表</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO 主页">NO<i>/</i>FOMO</a><nav class="nav" aria-label="日报导航"><a href="../../../home/">往期</a><a href="../en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">每天一次，过滤 AI 噪音</p><h1>值得打开的<br>AI 日报。</h1></div><div class="issue-meta"><span>发布日期</span><strong>2026-01-03</strong><span>中文版本</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>5 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-01-03 04:01:03</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/IQuestLab/IQuest-Coder-V1/blob/main/papers/IQuest_Coder_Technical_Report.pdf" target="_blank" rel="noopener noreferrer">IQuest-Coder: A new open-source code model beats Claude Sonnet 4.5 and GPT 5.1</a></h3>
+    <p class="story-summary">A significant advancement in artificial intelligence has been announced with the introduction of IQuest-Coder, a novel open-source code generation model. This new model is reported to surpass the performance of established commercial AI models, specifically Claude Sonnet 4.5 and a purported GPT 5.1, in various coding benchmarks and tasks. The technical details, capabilities, and evaluation methodology of IQuest-Coder are elaborated in a recently released technical report, which is accessible to the public. The development of IQuest-Coder represents a notable contribution to the open-source AI community, potentially fostering further innovation in code-related AI applications and setting new performance standards. Its ability to outperform proprietary models suggests a powerful and efficient architecture, making it a compelling tool for developers and researchers. This release underscores the accelerating pace of AI development and the growing competitiveness of open-source solutions against closed-source counterparts in specialized domains like code generation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">IQuest-Coder</span><span class="tag tag-keyword">Open-source AI</span><span class="tag tag-keyword">Code generation</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Performance benchmarks</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-01-03 11:29:33</time></div>
+  <div class="story-body">
+    <h3><a href="https://arxiv.org/abs/2512.24601" target="_blank" rel="noopener noreferrer">Recursive Language Models</a></h3>
+    <p class="story-summary">Recursive Language Models represent an advanced paradigm in artificial intelligence, designed to process and generate language through inherent recursive structures. This architectural approach aims to overcome limitations of purely sequential models by enabling a deeper understanding of hierarchical dependencies and nested relationships within natural language. By incorporating recursive mechanisms, these models are poised to enhance capabilities in complex reasoning, disambiguating intricate grammatical constructions, and producing more coherent and contextually rich outputs. Such models could significantly improve performance in tasks requiring iterative processing, long-range dependency handling, and compositionality. The development of Recursive Language Models signifies a push towards AI systems that can better mirror the structured nature of human cognition and language, offering potential breakthroughs in natural language understanding and advanced text generation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Language Models</span><span class="tag tag-keyword">Recursion</span><span class="tag tag-keyword">Hierarchical Processing</span><span class="tag tag-keyword">Natural Language Processing</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-01-03 18:06:21</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.npr.org/2025/12/29/nx-s1-5646633/teens-ai-chatbot-sex-violence-mental-health" target="_blank" rel="noopener noreferrer">Chatbots could be harmful for teens&#x27; mental health and social development</a></h3>
+    <p class="story-summary">A growing body of concern suggests that the increasing integration of chatbots into the daily lives of teenagers could pose significant risks to their mental health and social development. Experts warn that prolonged interaction with AI-powered conversational agents might hinder the formation of crucial real-world social skills, as these interactions often lack the nuances and complexities of human relationships. There are also apprehensions regarding the potential for chatbots to expose young users to inappropriate or harmful content, given the challenges in fully controlling AI outputs and the evolving regulatory landscape. Furthermore, the addictive nature of engaging with readily available and non-judgmental AI companions could lead to social isolation, exacerbate feelings of loneliness, and impact self-esteem. As these technologies become more sophisticated and prevalent, discussions are intensifying around the ethical responsibilities of developers, the need for robust safeguards, parental guidance, and digital literacy initiatives to mitigate these potential negative impacts on adolescent well-being and foster healthy development.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Chatbots</span><span class="tag tag-keyword">AI Ethics</span><span class="tag tag-keyword">Adolescent Mental Health</span><span class="tag tag-keyword">Social Development</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-01-03 15:00:23</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/superlucky84/fp-pack" target="_blank" rel="noopener noreferrer">Show HN: FP-pack – Functional pipelines in TypeScript without monads</a></h3>
+    <p class="story-summary">A new TypeScript functional utility library, `fp-pack`, has been released, emphasizing pipe-first composition for creating simple and readable pipelines. The library aims to facilitate functional programming paradigms by supporting features like early exits and side effects, crucially without the need to implement monads such as Option or Either. Its core functionality revolves around `pipe` and `pipeAsync` for general use, and a `SideEffect`-based pipeline is provided for safely handling short-circuiting in scenarios requiring early termination. Additionally, the developer has created an “AI agent skills” document, specifically designed to assist Large Language Models (LLMs) in generating code that adheres to the `fp-pack` style, thereby promoting consistency in AI-assisted development.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Functional Programming</span><span class="tag tag-keyword">TypeScript</span><span class="tag tag-keyword">Pipeline Composition</span><span class="tag tag-keyword">Utility Library</span><span class="tag tag-keyword">Monads</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-01-03 00:12:55</time></div>
+  <div class="story-body">
+    <h3><a href="https://lotteryeverysecond.lffl.me/" target="_blank" rel="noopener noreferrer">Show HN: Website that plays the lottery every second</a></h3>
+    <p class="story-summary">A new project, &#x27;Lottery Every Second,&#x27; recently showcased on Hacker News, introduces a web-based application engineered to automatically participate in a lottery at an extraordinarily high frequency, specifically executing an attempt every second. This novel demonstration emphasizes key principles of continuous automated task execution, real-time system design, and persistent online interaction. The technical underpinnings of such a system likely involve robust scheduling mechanisms, possibly utilizing serverless functions or dedicated background processes to ensure uninterrupted operation. Furthermore, effective implementation would require resilient web automation techniques, potentially involving browser automation tools or direct API interactions, to interface with the lottery system. The project offers a practical case study for exploring the challenges of maintaining system reliability under constant, high-frequency load and managing the state of continuous operations. It provides insight into how digital platforms can be engineered for perpetual engagement with external services, presenting a unique perspective on automated decision-making and rapid event processing in a dynamic online environment. This initiative could stimulate discussions on the ethics and technical feasibility of hyper-automated digital participation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Web Automation</span><span class="tag tag-keyword">Real-time Systems</span><span class="tag tag-keyword">Automated Task Execution</span><span class="tag tag-keyword">High-Frequency Operations</span><span class="tag tag-keyword">Scheduled Tasks</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>AI 辅助筛选，原始来源始终可查。</span></footer>
 </body>
 </html>

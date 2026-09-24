@@ -1,374 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2026-04-09</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO AI 日报 — 2026-04-09</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"PingFang SC","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em}.issue h1{margin:0;max-width:820px;font:800 clamp(2.6rem,7vw,6.3rem)/1.02 Georgia,"Songti SC",serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:800 clamp(1.5rem,3vw,2.35rem)/1.2 Georgia,"Songti SC",serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.86 Georgia,"Songti SC",serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <h1>AI Daily Report</h1>
-            <p class="date">2026-04-09</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Research-Driven Agents: What Happens When Your Agent Reads Before It Codes</h2>
-                <span class="published-time">Published: 2026-04-09 16:58:49</span>
-                
-                <p class="summary">The article delves into the paradigm of "Research-Driven Agents," an advanced approach for AI systems where agents are designed to perform comprehensive research and information synthesis prior to engaging in code generation. This methodology represents a departure from conventional agentic workflows that frequently proceed directly from an initial prompt to coding. By incorporating a foundational "reading" or research phase, these intelligent agents are empowered to effectively utilize a vast array of existing knowledge bases, technical documentation, and external resources. The central premise is that an agent equipped with thorough preparatory understanding, much like a human software engineer who researches a problem domain, can deliver more robust, accurate, and efficient solutions. This strategic shift holds substantial implications for elevating the quality and reliability of AI-assisted development tools, fostering the creation of more autonomous, context-aware, and sophisticated coding agents. The research particularly examines the performance enhancements and architectural requirements for integrating this crucial knowledge acquisition stage into agent workflows.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agents</span><span>Code Generation</span><span>Autonomous Systems</span><span>Knowledge Retrieval</span><span>Large Language Models</span><span>Agentic Workflow</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Large Language Model</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://blog.skypilot.co/research-driven-agents/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: CSS Studio. Design by hand, code by agent</h2>
-                <span class="published-time">Published: 2026-04-09 11:23:31</span>
-                
-                <p class="summary">CSS Studio is a newly released design tool that allows users to visually edit their websites directly within the browser while in development mode. This innovative solution streams real-time design changes, including text modifications, style adjustments, and animation timeline edits, as structured JSON data to an existing AI agent. The AI agent, capable of integrating via polling an MCP server or utilizing Claude Channels, receives these comprehensive updates along with critical viewport and URL context. Its programmed skills then interpret and autonomously implement these precise visual design specifications into the underlying codebase. This unique workflow significantly streamlines the web development process, offering a powerful bridge between human design intuition and AI-driven coding automation by enabling designers to make immediate, hands-on visual adjustments that are efficiently and accurately translated into functional code, enhancing productivity and consistency in web development.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>CSS Studio</span><span>AI Agent</span><span>Web Design</span><span>Visual Editing</span><span>Code Generation</span><span>Frontend Development</span><span>JSON Streaming</span><span>Developer Tools</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://cssstudio.ai" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>ChatGPT Pro now starts at $100/month</h2>
-                <span class="published-time">Published: 2026-04-09 18:09:19</span>
-                
-                <p class="summary">The announcement details the introduction of a new, higher-tier subscription plan for ChatGPT, named 'ChatGPT Pro', which is priced starting at $100 per month. This strategic move by the service provider signals a targeted approach towards professional users, businesses, and power users who require enhanced access, performance, and potentially exclusive features beyond what standard or existing premium tiers offer. The substantial pricing adjustment reflects the increasing demand for advanced AI capabilities, the continuous research and development efforts, and the operational costs associated with maintaining and developing sophisticated large language models. This development is significant for the broader AI services market, indicating a clear segmentation of offerings designed to cater to diverse user needs and varying willingness to pay. It is expected to influence how AI-powered tools are monetized and adopted within both enterprise and professional environments, further underscoring the commercial maturation and value proposition of generative AI platforms.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>ChatGPT</span><span>AI services</span><span>subscription model</span><span>LLM pricing</span><span>Generative AI</span><span>AI commercialization</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://chatgpt.com/pricing/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Launch HN: Relvy (YC F24) – On-call runbooks, automated</h2>
-                <span class="published-time">Published: 2026-04-09 12:11:56</span>
-                
-                <p class="summary">Relvy AI, a YC F24 startup founded by Bharath and Simranjit, introduces an innovative AI agent specifically engineered to automate on-call runbooks for software engineering teams. This platform is designed to dramatically expedite the debugging and resolution of production issues by harnessing artificial intelligence to analyze vast amounts of telemetry data and code. The goal is to enable teams to pinpoint and resolve problems within minutes, thereby significantly reducing the on-call burden. While the industry sees various applications of AI, such as integrating logs into tools like Cursor or using Claude Code with Datadog for debugging, Relvy AI identifies autonomous root cause analysis as a particularly challenging area for current AI models. The founders point to benchmark data, like Claude Opus achieving only 36% accuracy on the OpenRCA dataset, to underscore the complexity. Relvy AI aims to overcome these limitations by offering a specialized, tool-equipped AI agent, providing a targeted and efficient solution for incident management and operational reliability in software development environments.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agent</span><span>On-call Automation</span><span>Runbooks</span><span>Software Debugging</span><span>Root Cause Analysis</span><span>Telemetry Data</span><span>Code Analysis</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.relvy.ai" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>OpenAI puts Stargate UK on ice, blames energy costs and red tape</h2>
-                <span class="published-time">Published: 2026-04-09 19:29:59</span>
-                
-                <p class="summary">OpenAI has reportedly put its ambitious "Stargate UK" project on hold, a significant initiative anticipated to involve the development of advanced AI computing infrastructure. The decision to pause this substantial venture is primarily attributed to rising energy costs and complex regulatory challenges encountered within the United Kingdom. This development highlights the escalating operational expenses and intricate policy environments that can impact large-scale AI infrastructure investments. The Stargate project, while specific details remain largely undisclosed, was widely considered a crucial component of OpenAI's long-term strategy for training and deploying next-generation artificial intelligence models, potentially a multi-billion dollar endeavor. The halt raises important questions about the economic viability and regulatory landscape for massive AI development efforts that demand extensive computational resources and significant capital outlay, particularly concerning the UK's current market conditions. This move could potentially influence how other major AI companies evaluate international expansion and the strategic location of their high-performance computing facilities, impacting global AI infrastructure development trends.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>OpenAI</span><span>AI Infrastructure</span><span>Data Centers</span><span>AI Development</span><span>Energy Costs</span><span>Regulatory Policy</span><span>Global AI Strategy</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.theregister.com/2026/04/09/openai_puts_stargate_uk_on/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>The Vercel plugin on Claude Code wants to read your prompts</h2>
-                <span class="published-time">Published: 2026-04-09 15:17:27</span>
-                
-                <p class="summary">A significant privacy and security concern has been highlighted regarding a Vercel plugin integrated within the Claude Code environment. Reports indicate that this plugin may be designed to access or "read" user prompts, raising alarms about the potential unauthorized collection of sensitive information. In AI development and interaction platforms like Claude Code, user prompts often contain proprietary code, intellectual property, or confidential project details. The prospect of a third-party plugin intercepting such critical input introduces a substantial risk to data privacy and operational security. This incident underscores the imperative for stringent data governance policies and explicit user consent mechanisms in AI ecosystems. It also brings to light the broader challenges associated with telemetry and data collection practices by integrated tools, prompting developers to exercise caution and scrutinize the permissions requested by plugins. The ongoing discussion emphasizes the need for transparency from tool providers regarding how user data, especially prompts, is handled and secured, ensuring user trust and protecting sensitive development workflows.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Plugin Security</span><span>Data Privacy</span><span>AI Agent</span><span>Telemetry</span><span>Prompt Engineering</span><span>Vercel</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://akshaychugh.xyz/writings/png/vercel-plugin-telemetry" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>Qualixar OS: A Universal Operating System for AI Agent Orchestration</h2>
-                <span class="published-time">Published: 2026-04-07T00:00:00.000Z</span>
-                
-                <p class="summary">We present Qualixar OS, the first application-layer operating system for universal AI agent orchestration. Unlike kernel-level approaches (AIOS) or single-framework tools (AutoGen, CrewAI), Qualixar OS provides a complete runtime for heterogeneous multi-agent systems spanning 10 LLM providers, 8+ agent frameworks, and 7 transports. We contribute: (1) execution semantics for 12 multi-agent topologies including grid, forest, mesh, and maker patterns; (2) Forge, an LLM-driven team design engine with historical strategy memory; (3) three-layer model routing combining Q-learning, five strategies, and Bayesian POMDP with dynamic multi-provider discovery; (4) a consensus-based judge pipeline with Goodhart detection, JSD drift monitoring, and alignment trilemma navigation; (5) four-layer content attribution with HMAC signing and steganographic watermarks; (6) universal compatibility via the Claw Bridge supporting MCP and A2A protocols with a 25-command Universal Command Protocol; (7) a 24-tab production dashboard with visual workflow builder and skill marketplace. Qualixar OS is validated by 2,821 test cases across 217 event types and 8 quality modules. On a custom 20-task evaluation suite, the system achieves 100% accuracy at a mean cost of $0.000039 per task. Source-available under the Elastic License 2.0.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI agent orchestration</span><span>multi-agent systems</span><span>Large Language Models</span><span>operating system</span><span>agent frameworks</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2604.06392" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>RAGEN-2: Reasoning Collapse in Agentic RL</h2>
-                <span class="published-time">Published: 2026-04-07T00:00:00.000Z</span>
-                
-                <p class="summary">RL training of multi-turn LLM agents is inherently unstable, and reasoning quality directly determines task performance. Entropy is widely used to track reasoning stability. However, entropy only measures diversity within the same input, and cannot tell whether reasoning actually responds to different inputs. In RAGEN-2, we find that even with stable entropy, models can rely on fixed templates that look diverse but are input-agnostic. We call this template collapse, a failure mode invisible to entropy and all existing metrics. To diagnose this failure, we decompose reasoning quality into within-input diversity (Entropy) and cross-input distinguishability (Mutual Information, MI), and introduce a family of mutual information proxies for online diagnosis. Across diverse tasks, mutual information correlates with final performance much more strongly than entropy, making it a more reliable proxy for reasoning quality. We further explain template collapse with a signal-to-noise ratio (SNR) mechanism. Low reward variance weakens task gradients, letting regularization terms dominate and erase cross-input reasoning differences. To address this, we propose SNR-Aware Filtering to select high-signal prompts per iteration using reward variance as a lightweight proxy. Across planning, math reasoning, web navigation, and code execution, the method consistently improves both input dependence and task performance.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Agentic RL</span><span>Reasoning Collapse</span><span>Template Collapse</span><span>Mutual Information</span><span>Signal-to-Noise Ratio</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Large Language Model</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2604.06268" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>FlowInOne:Unifying Multimodal Generation as Image-in, Image-out Flow Matching</h2>
-                <span class="published-time">Published: 2026-04-08T00:00:00.000Z</span>
-                
-                <p class="summary">Multimodal generation has long been dominated by text-driven pipelines where language dictates vision but cannot reason or create within it. We challenge this paradigm by asking whether all modalities, including textual descriptions, spatial layouts, and editing instructions, can be unified into a single visual representation. We present FlowInOne, a framework that reformulates multimodal generation as a purely visual flow, converting all inputs into visual prompts and enabling a clean image-in, image-out pipeline governed by a single flow matching model. This vision-centric formulation naturally eliminates cross-modal alignment bottlenecks, noise scheduling, and task-specific architectural branches, unifying text-to-image generation, layout-guided editing, and visual instruction following under one coherent paradigm. To support this, we introduce VisPrompt-5M, a large-scale dataset of 5 million visual prompt pairs spanning diverse tasks including physics-aware force dynamics and trajectory prediction, alongside VP-Bench, a rigorously curated benchmark assessing instruction faithfulness, spatial precision, visual realism, and content consistency. Extensive experiments demonstrate that FlowInOne achieves state-of-the-art performance across all unified generation tasks, surpassing both open-source models and competitive commercial systems, establishing a new foundation for fully vision-centric generative modeling where perception and creation coexist within a single continuous visual space.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multimodal Generation</span><span>Flow Matching</span><span>Image-in Image-out</span><span>Visual Prompts</span><span>Generative Modeling</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Generative AI</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2604.06757" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>INSPATIO-WORLD: A Real-Time 4D World Simulator via Spatiotemporal Autoregressive Modeling</h2>
-                <span class="published-time">Published: 2026-04-08T00:00:00.000Z</span>
-                
-                <p class="summary">Building world models with spatial consistency and real-time interactivity remains a fundamental challenge in computer vision. Current video generation paradigms often struggle with a lack of spatial persistence and insufficient visual realism, making it difficult to support seamless navigation in complex environments. To address these challenges, we propose INSPATIO-WORLD, a novel real-time framework capable of recovering and generating high-fidelity, dynamic interactive scenes from a single reference video. At the core of our approach is a Spatiotemporal Autoregressive (STAR) architecture, which enables consistent and controllable scene evolution through two tightly coupled components: Implicit Spatiotemporal Cache aggregates reference and historical observations into a latent world representation, ensuring global consistency during long-horizon navigation; Explicit Spatial Constraint Module enforces geometric structure and translates user interactions into precise and physically plausible camera trajectories. Furthermore, we introduce Joint Distribution Matching Distillation (JDMD). By using real-world data distributions as a regularizing guide, JDMD effectively overcomes the fidelity degradation typically caused by over-reliance on synthetic data. Extensive experiments demonstrate that INSPATIO-WORLD significantly outperforms existing state-of-the-art (SOTA) models in spatial consistency and interaction precision, ranking first among real-time interactive methods on the WorldScore-Dynamic benchmark, and establishing a practical pipeline for navigating 4D environments reconstructed from monocular videos.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Real-Time 4D World Simulator</span><span>Spatiotemporal Autoregressive Modeling</span><span>Dynamic Scene Generation</span><span>Spatial Consistency</span><span>Video Generation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Computer Vision</span><span>Generative AI</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2604.07209" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>MARS: Enabling Autoregressive Models Multi-Token Generation</h2>
-                <span class="published-time">Published: 2026-04-08T00:00:00.000Z</span>
-                
-                <p class="summary">Autoregressive (AR) language models generate text one token at a time, even when consecutive tokens are highly predictable given earlier context. We introduce MARS (Mask AutoRegreSsion), a lightweight fine-tuning method that teaches an instruction-tuned AR model to predict multiple tokens per forward pass. MARS adds no architectural modifications, no extra parameters, and produces a single model that can still be called exactly like the original AR model with no performance degradation. Unlike speculative decoding, which maintains a separate draft model alongside the target, or multi-head approaches such as Medusa, which attach additional prediction heads, MARS requires only continued training on existing instruction data. When generating one token per forward pass, MARS matches or exceeds the AR baseline on six standard benchmarks. When allowed to accept multiple tokens per step, it maintains baseline-level accuracy while achieving 1.5-1.7x throughput. We further develop a block-level KV caching strategy for batch inference, achieving up to 1.71x wall-clock speedup over AR with KV cache on Qwen2.5-7B. Finally, MARS supports real-time speed adjustment via confidence thresholding: under high request load, the serving system can increase throughput on the fly without swapping models or restarting, providing a practical latency-quality knob for deployment.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Autoregressive Models</span><span>Multi-Token Generation</span><span>Fine-tuning</span><span>Language Models</span><span>Throughput</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Natural Language Processing</span><span>Large Language Model</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2604.07023" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>SEVerA: Verified Synthesis of Self-Evolving Agents</h2>
-                <span class="published-time">Published: 2026-03-26T00:00:00.000Z</span>
-                
-                <p class="summary">Recent advances have shown the effectiveness of self-evolving LLM agents on tasks such as program repair and scientific discovery. In this paradigm, a planner LLM synthesizes an agent program that invokes parametric models, including LLMs, which are then tuned per task to improve performance. However, existing self-evolving agent frameworks provide no formal guarantees of safety or correctness. Because such programs are often executed autonomously on unseen inputs, this lack of guarantees raises reliability and security concerns. We formulate agentic code generation as a constrained learning problem, combining hard formal specifications with soft objectives capturing task utility. We introduce Formally Guarded Generative Models (FGGM), which allow the planner LLM to specify a formal output contract for each generative model call using first-order logic. Each FGGM call wraps the underlying model in a rejection sampler with a verified fallback, ensuring every returned output satisfies the contract for any input and parameter setting. Building on FGGM, we present SEVerA (Self-Evolving Verified Agents), a three-stage framework: Search synthesizes candidate parametric programs containing FGGM calls; Verification proves correctness with respect to hard constraints for all parameter values, reducing the problem to unconstrained learning; and Learning applies scalable gradient-based optimization, including GRPO-style fine-tuning, to improve the soft objective while preserving correctness. We evaluate SEVerA on Dafny program verification, symbolic math synthesis, and policy-compliant agentic tool use (τ^2-bench). Across tasks, SEVerA achieves zero constraint violations while improving performance over unconstrained and SOTA baselines, showing that formal behavioral constraints not only guarantee correctness but also steer synthesis toward higher-quality agents.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Self-Evolving Agents</span><span>Formal Verification</span><span>Constrained Learning</span><span>Large Language Models</span><span>Generative Models</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2603.25111" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">跳到新闻列表</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO 主页">NO<i>/</i>FOMO</a><nav class="nav" aria-label="日报导航"><a href="../../../home/">往期</a><a href="../en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">每天一次，过滤 AI 噪音</p><h1>值得打开的<br>AI 日报。</h1></div><div class="issue-meta"><span>发布日期</span><strong>2026-04-09</strong><span>中文版本</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-04-09 16:58:49</time></div>
+  <div class="story-body">
+    <h3><a href="https://blog.skypilot.co/research-driven-agents/" target="_blank" rel="noopener noreferrer">Research-Driven Agents: What Happens When Your Agent Reads Before It Codes</a></h3>
+    <p class="story-summary">The article delves into the paradigm of &quot;Research-Driven Agents,&quot; an advanced approach for AI systems where agents are designed to perform comprehensive research and information synthesis prior to engaging in code generation. This methodology represents a departure from conventional agentic workflows that frequently proceed directly from an initial prompt to coding. By incorporating a foundational &quot;reading&quot; or research phase, these intelligent agents are empowered to effectively utilize a vast array of existing knowledge bases, technical documentation, and external resources. The central premise is that an agent equipped with thorough preparatory understanding, much like a human software engineer who researches a problem domain, can deliver more robust, accurate, and efficient solutions. This strategic shift holds substantial implications for elevating the quality and reliability of AI-assisted development tools, fostering the creation of more autonomous, context-aware, and sophisticated coding agents. The research particularly examines the performance enhancements and architectural requirements for integrating this crucial knowledge acquisition stage into agent workflows.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Code Generation</span><span class="tag tag-keyword">Autonomous Systems</span><span class="tag tag-keyword">Knowledge Retrieval</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-04-09 11:23:31</time></div>
+  <div class="story-body">
+    <h3><a href="https://cssstudio.ai" target="_blank" rel="noopener noreferrer">Show HN: CSS Studio. Design by hand, code by agent</a></h3>
+    <p class="story-summary">CSS Studio is a newly released design tool that allows users to visually edit their websites directly within the browser while in development mode. This innovative solution streams real-time design changes, including text modifications, style adjustments, and animation timeline edits, as structured JSON data to an existing AI agent. The AI agent, capable of integrating via polling an MCP server or utilizing Claude Channels, receives these comprehensive updates along with critical viewport and URL context. Its programmed skills then interpret and autonomously implement these precise visual design specifications into the underlying codebase. This unique workflow significantly streamlines the web development process, offering a powerful bridge between human design intuition and AI-driven coding automation by enabling designers to make immediate, hands-on visual adjustments that are efficiently and accurately translated into functional code, enhancing productivity and consistency in web development.</p>
+    <div class="story-tags"><span class="tag tag-keyword">CSS Studio</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Web Design</span><span class="tag tag-keyword">Visual Editing</span><span class="tag tag-keyword">Code Generation</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-04-09 18:09:19</time></div>
+  <div class="story-body">
+    <h3><a href="https://chatgpt.com/pricing/" target="_blank" rel="noopener noreferrer">ChatGPT Pro now starts at $100/month</a></h3>
+    <p class="story-summary">The announcement details the introduction of a new, higher-tier subscription plan for ChatGPT, named &#x27;ChatGPT Pro&#x27;, which is priced starting at $100 per month. This strategic move by the service provider signals a targeted approach towards professional users, businesses, and power users who require enhanced access, performance, and potentially exclusive features beyond what standard or existing premium tiers offer. The substantial pricing adjustment reflects the increasing demand for advanced AI capabilities, the continuous research and development efforts, and the operational costs associated with maintaining and developing sophisticated large language models. This development is significant for the broader AI services market, indicating a clear segmentation of offerings designed to cater to diverse user needs and varying willingness to pay. It is expected to influence how AI-powered tools are monetized and adopted within both enterprise and professional environments, further underscoring the commercial maturation and value proposition of generative AI platforms.</p>
+    <div class="story-tags"><span class="tag tag-keyword">ChatGPT</span><span class="tag tag-keyword">AI services</span><span class="tag tag-keyword">subscription model</span><span class="tag tag-keyword">LLM pricing</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-04-09 12:11:56</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.relvy.ai" target="_blank" rel="noopener noreferrer">Launch HN: Relvy (YC F24) – On-call runbooks, automated</a></h3>
+    <p class="story-summary">Relvy AI, a YC F24 startup founded by Bharath and Simranjit, introduces an innovative AI agent specifically engineered to automate on-call runbooks for software engineering teams. This platform is designed to dramatically expedite the debugging and resolution of production issues by harnessing artificial intelligence to analyze vast amounts of telemetry data and code. The goal is to enable teams to pinpoint and resolve problems within minutes, thereby significantly reducing the on-call burden. While the industry sees various applications of AI, such as integrating logs into tools like Cursor or using Claude Code with Datadog for debugging, Relvy AI identifies autonomous root cause analysis as a particularly challenging area for current AI models. The founders point to benchmark data, like Claude Opus achieving only 36% accuracy on the OpenRCA dataset, to underscore the complexity. Relvy AI aims to overcome these limitations by offering a specialized, tool-equipped AI agent, providing a targeted and efficient solution for incident management and operational reliability in software development environments.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">On-call Automation</span><span class="tag tag-keyword">Runbooks</span><span class="tag tag-keyword">Software Debugging</span><span class="tag tag-keyword">Root Cause Analysis</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-04-09 19:29:59</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.theregister.com/2026/04/09/openai_puts_stargate_uk_on/" target="_blank" rel="noopener noreferrer">OpenAI puts Stargate UK on ice, blames energy costs and red tape</a></h3>
+    <p class="story-summary">OpenAI has reportedly put its ambitious &quot;Stargate UK&quot; project on hold, a significant initiative anticipated to involve the development of advanced AI computing infrastructure. The decision to pause this substantial venture is primarily attributed to rising energy costs and complex regulatory challenges encountered within the United Kingdom. This development highlights the escalating operational expenses and intricate policy environments that can impact large-scale AI infrastructure investments. The Stargate project, while specific details remain largely undisclosed, was widely considered a crucial component of OpenAI&#x27;s long-term strategy for training and deploying next-generation artificial intelligence models, potentially a multi-billion dollar endeavor. The halt raises important questions about the economic viability and regulatory landscape for massive AI development efforts that demand extensive computational resources and significant capital outlay, particularly concerning the UK&#x27;s current market conditions. This move could potentially influence how other major AI companies evaluate international expansion and the strategic location of their high-performance computing facilities, impacting global AI infrastructure development trends.</p>
+    <div class="story-tags"><span class="tag tag-keyword">OpenAI</span><span class="tag tag-keyword">AI Infrastructure</span><span class="tag tag-keyword">Data Centers</span><span class="tag tag-keyword">AI Development</span><span class="tag tag-keyword">Energy Costs</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-04-09 15:17:27</time></div>
+  <div class="story-body">
+    <h3><a href="https://akshaychugh.xyz/writings/png/vercel-plugin-telemetry" target="_blank" rel="noopener noreferrer">The Vercel plugin on Claude Code wants to read your prompts</a></h3>
+    <p class="story-summary">A significant privacy and security concern has been highlighted regarding a Vercel plugin integrated within the Claude Code environment. Reports indicate that this plugin may be designed to access or &quot;read&quot; user prompts, raising alarms about the potential unauthorized collection of sensitive information. In AI development and interaction platforms like Claude Code, user prompts often contain proprietary code, intellectual property, or confidential project details. The prospect of a third-party plugin intercepting such critical input introduces a substantial risk to data privacy and operational security. This incident underscores the imperative for stringent data governance policies and explicit user consent mechanisms in AI ecosystems. It also brings to light the broader challenges associated with telemetry and data collection practices by integrated tools, prompting developers to exercise caution and scrutinize the permissions requested by plugins. The ongoing discussion emphasizes the need for transparency from tool providers regarding how user data, especially prompts, is handled and secured, ensuring user trust and protecting sensitive development workflows.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Plugin Security</span><span class="tag tag-keyword">Data Privacy</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Telemetry</span><span class="tag tag-keyword">Prompt Engineering</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-04-07T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2604.06392" target="_blank" rel="noopener noreferrer">Qualixar OS: A Universal Operating System for AI Agent Orchestration</a></h3>
+    <p class="story-summary">We present Qualixar OS, the first application-layer operating system for universal AI agent orchestration. Unlike kernel-level approaches (AIOS) or single-framework tools (AutoGen, CrewAI), Qualixar OS provides a complete runtime for heterogeneous multi-agent systems spanning 10 LLM providers, 8+ agent frameworks, and 7 transports. We contribute: (1) execution semantics for 12 multi-agent topologies including grid, forest, mesh, and maker patterns; (2) Forge, an LLM-driven team design engine with historical strategy memory; (3) three-layer model routing combining Q-learning, five strategies, and Bayesian POMDP with dynamic multi-provider discovery; (4) a consensus-based judge pipeline with Goodhart detection, JSD drift monitoring, and alignment trilemma navigation; (5) four-layer content attribution with HMAC signing and steganographic watermarks; (6) universal compatibility via the Claw Bridge supporting MCP and A2A protocols with a 25-command Universal Command Protocol; (7) a 24-tab production dashboard with visual workflow builder and skill marketplace. Qualixar OS is validated by 2,821 test cases across 217 event types and 8 quality modules. On a custom 20-task evaluation suite, the system achieves 100% accuracy at a mean cost of $0.000039 per task. Source-available under the Elastic License 2.0.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI agent orchestration</span><span class="tag tag-keyword">multi-agent systems</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">operating system</span><span class="tag tag-keyword">agent frameworks</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-04-07T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2604.06268" target="_blank" rel="noopener noreferrer">RAGEN-2: Reasoning Collapse in Agentic RL</a></h3>
+    <p class="story-summary">RL training of multi-turn LLM agents is inherently unstable, and reasoning quality directly determines task performance. Entropy is widely used to track reasoning stability. However, entropy only measures diversity within the same input, and cannot tell whether reasoning actually responds to different inputs. In RAGEN-2, we find that even with stable entropy, models can rely on fixed templates that look diverse but are input-agnostic. We call this template collapse, a failure mode invisible to entropy and all existing metrics. To diagnose this failure, we decompose reasoning quality into within-input diversity (Entropy) and cross-input distinguishability (Mutual Information, MI), and introduce a family of mutual information proxies for online diagnosis. Across diverse tasks, mutual information correlates with final performance much more strongly than entropy, making it a more reliable proxy for reasoning quality. We further explain template collapse with a signal-to-noise ratio (SNR) mechanism. Low reward variance weakens task gradients, letting regularization terms dominate and erase cross-input reasoning differences. To address this, we propose SNR-Aware Filtering to select high-signal prompts per iteration using reward variance as a lightweight proxy. Across planning, math reasoning, web navigation, and code execution, the method consistently improves both input dependence and task performance.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agentic RL</span><span class="tag tag-keyword">Reasoning Collapse</span><span class="tag tag-keyword">Template Collapse</span><span class="tag tag-keyword">Mutual Information</span><span class="tag tag-keyword">Signal-to-Noise Ratio</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-04-08T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2604.06757" target="_blank" rel="noopener noreferrer">FlowInOne:Unifying Multimodal Generation as Image-in, Image-out Flow Matching</a></h3>
+    <p class="story-summary">Multimodal generation has long been dominated by text-driven pipelines where language dictates vision but cannot reason or create within it. We challenge this paradigm by asking whether all modalities, including textual descriptions, spatial layouts, and editing instructions, can be unified into a single visual representation. We present FlowInOne, a framework that reformulates multimodal generation as a purely visual flow, converting all inputs into visual prompts and enabling a clean image-in, image-out pipeline governed by a single flow matching model. This vision-centric formulation naturally eliminates cross-modal alignment bottlenecks, noise scheduling, and task-specific architectural branches, unifying text-to-image generation, layout-guided editing, and visual instruction following under one coherent paradigm. To support this, we introduce VisPrompt-5M, a large-scale dataset of 5 million visual prompt pairs spanning diverse tasks including physics-aware force dynamics and trajectory prediction, alongside VP-Bench, a rigorously curated benchmark assessing instruction faithfulness, spatial precision, visual realism, and content consistency. Extensive experiments demonstrate that FlowInOne achieves state-of-the-art performance across all unified generation tasks, surpassing both open-source models and competitive commercial systems, establishing a new foundation for fully vision-centric generative modeling where perception and creation coexist within a single continuous visual space.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multimodal Generation</span><span class="tag tag-keyword">Flow Matching</span><span class="tag tag-keyword">Image-in Image-out</span><span class="tag tag-keyword">Visual Prompts</span><span class="tag tag-keyword">Generative Modeling</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-04-08T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2604.07209" target="_blank" rel="noopener noreferrer">INSPATIO-WORLD: A Real-Time 4D World Simulator via Spatiotemporal Autoregressive Modeling</a></h3>
+    <p class="story-summary">Building world models with spatial consistency and real-time interactivity remains a fundamental challenge in computer vision. Current video generation paradigms often struggle with a lack of spatial persistence and insufficient visual realism, making it difficult to support seamless navigation in complex environments. To address these challenges, we propose INSPATIO-WORLD, a novel real-time framework capable of recovering and generating high-fidelity, dynamic interactive scenes from a single reference video. At the core of our approach is a Spatiotemporal Autoregressive (STAR) architecture, which enables consistent and controllable scene evolution through two tightly coupled components: Implicit Spatiotemporal Cache aggregates reference and historical observations into a latent world representation, ensuring global consistency during long-horizon navigation; Explicit Spatial Constraint Module enforces geometric structure and translates user interactions into precise and physically plausible camera trajectories. Furthermore, we introduce Joint Distribution Matching Distillation (JDMD). By using real-world data distributions as a regularizing guide, JDMD effectively overcomes the fidelity degradation typically caused by over-reliance on synthetic data. Extensive experiments demonstrate that INSPATIO-WORLD significantly outperforms existing state-of-the-art (SOTA) models in spatial consistency and interaction precision, ranking first among real-time interactive methods on the WorldScore-Dynamic benchmark, and establishing a practical pipeline for navigating 4D environments reconstructed from monocular videos.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Real-Time 4D World Simulator</span><span class="tag tag-keyword">Spatiotemporal Autoregressive Modeling</span><span class="tag tag-keyword">Dynamic Scene Generation</span><span class="tag tag-keyword">Spatial Consistency</span><span class="tag tag-keyword">Video Generation</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-04-08T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2604.07023" target="_blank" rel="noopener noreferrer">MARS: Enabling Autoregressive Models Multi-Token Generation</a></h3>
+    <p class="story-summary">Autoregressive (AR) language models generate text one token at a time, even when consecutive tokens are highly predictable given earlier context. We introduce MARS (Mask AutoRegreSsion), a lightweight fine-tuning method that teaches an instruction-tuned AR model to predict multiple tokens per forward pass. MARS adds no architectural modifications, no extra parameters, and produces a single model that can still be called exactly like the original AR model with no performance degradation. Unlike speculative decoding, which maintains a separate draft model alongside the target, or multi-head approaches such as Medusa, which attach additional prediction heads, MARS requires only continued training on existing instruction data. When generating one token per forward pass, MARS matches or exceeds the AR baseline on six standard benchmarks. When allowed to accept multiple tokens per step, it maintains baseline-level accuracy while achieving 1.5-1.7x throughput. We further develop a block-level KV caching strategy for batch inference, achieving up to 1.71x wall-clock speedup over AR with KV cache on Qwen2.5-7B. Finally, MARS supports real-time speed adjustment via confidence thresholding: under high request load, the serving system can increase throughput on the fly without swapping models or restarting, providing a practical latency-quality knob for deployment.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Autoregressive Models</span><span class="tag tag-keyword">Multi-Token Generation</span><span class="tag tag-keyword">Fine-tuning</span><span class="tag tag-keyword">Language Models</span><span class="tag tag-keyword">Throughput</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-03-26T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2603.25111" target="_blank" rel="noopener noreferrer">SEVerA: Verified Synthesis of Self-Evolving Agents</a></h3>
+    <p class="story-summary">Recent advances have shown the effectiveness of self-evolving LLM agents on tasks such as program repair and scientific discovery. In this paradigm, a planner LLM synthesizes an agent program that invokes parametric models, including LLMs, which are then tuned per task to improve performance. However, existing self-evolving agent frameworks provide no formal guarantees of safety or correctness. Because such programs are often executed autonomously on unseen inputs, this lack of guarantees raises reliability and security concerns. We formulate agentic code generation as a constrained learning problem, combining hard formal specifications with soft objectives capturing task utility. We introduce Formally Guarded Generative Models (FGGM), which allow the planner LLM to specify a formal output contract for each generative model call using first-order logic. Each FGGM call wraps the underlying model in a rejection sampler with a verified fallback, ensuring every returned output satisfies the contract for any input and parameter setting. Building on FGGM, we present SEVerA (Self-Evolving Verified Agents), a three-stage framework: Search synthesizes candidate parametric programs containing FGGM calls; Verification proves correctness with respect to hard constraints for all parameter values, reducing the problem to unconstrained learning; and Learning applies scalable gradient-based optimization, including GRPO-style fine-tuning, to improve the soft objective while preserving correctness. We evaluate SEVerA on Dafny program verification, symbolic math synthesis, and policy-compliant agentic tool use (τ^2-bench). Across tasks, SEVerA achieves zero constraint violations while improving performance over unconstrained and SOTA baselines, showing that formal behavioral constraints not only guarantee correctness but also steer synthesis toward higher-quality agents.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Self-Evolving Agents</span><span class="tag tag-keyword">Formal Verification</span><span class="tag tag-keyword">Constrained Learning</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Generative Models</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>AI 辅助筛选，原始来源始终可查。</span></footer>
 </body>
 </html>

@@ -1,365 +1,93 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-11-23</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2025-11-23</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="../" class="">中文</a>
-                <a href="." class="active">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-11-23</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../../home/en/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 Back to Homepage</a>
-            <a href="../../../daily/en/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 Latest Daily</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 About Us</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>MCP Apps: Extending servers with interactive user interfaces</h2>
-                <span class="published-time">Published: 2025-11-23 03:27:04</span>
-                
-                <p class="summary">The concept of MCP Apps introduces a novel paradigm for enhancing server functionalities by deeply integrating interactive user interfaces directly with server-side operations. This initiative aims to address the complexities of developing applications that require dynamic user interaction by potentially leveraging a 'Model Context Protocol' to create a more streamlined bridge between backend services and frontend experiences. The core objective is to simplify the development and deployment processes, enabling servers to host or interface more directly with rich user interfaces. This integration promises to enhance operational efficiency, streamline user workflows, and provide more intuitive control over server-based processes and data. Ultimately, MCP Apps seek to expand the utility of existing server infrastructure, making server functionalities more accessible and manageable through interactive interfaces, thereby significantly improving both the user experience and the overall application development paradigm for extending server capabilities.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Server extensibility</span><span>Interactive user interfaces</span><span>Application development</span><span>Client-server architecture</span><span>Backend-frontend integration</span><span>Protocol design</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Others</span><span>Others</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="http://blog.modelcontextprotocol.io/posts/2025-11-21-mcp-apps/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Meta buried 'causal' evidence of social media harm, US court filings allege</h2>
-                <span class="published-time">Published: 2025-11-23 01:09:47</span>
-                
-                <p class="summary">US court filings have brought forth serious allegations that Meta, the parent company of Facebook and Instagram, deliberately concealed 'causal' evidence linking its social media platforms to harm among users. These accusations imply that internal research within Meta had identified direct relationships between platform usage and adverse user outcomes, but the company purportedly suppressed this critical information. The legal challenge underscores escalating scrutiny on major technology firms regarding their ethical obligations and the societal impact of their products. It raises fundamental questions about the transparency of internal studies conducted by social media giants and their accountability for user well-being. The alleged suppression of evidence could have profound consequences for future regulatory frameworks, potentially leading to stricter data governance requirements, mandated public disclosure of platform impact research, and increased legal liabilities for companies that prioritize engagement over user safety. This development reflects a broader societal debate concerning the design of algorithmic systems, their influence on mental health, and the need for greater corporate responsibility in the digital age.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Social Media Regulation</span><span>Platform Accountability</span><span>Digital Ethics</span><span>User Well-being</span><span>Algorithmic Harm</span><span>Data Transparency</span><span>Corporate Governance</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.reuters.com/sustainability/boards-policy-regulation/meta-buried-causal-evidence-social-media-harm-us-court-filings-allege-2025-11-23/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Claude Status – Elevated error rates on the API</h2>
-                <span class="published-time">Published: 2025-11-23 13:24:01</span>
-                
-                <p class="summary">Anthropic's AI service, Claude, is currently experiencing elevated error rates on its Application Programming Interface (API), as reported on its official status page. This incident indicates that users integrating Claude's advanced large language model capabilities into their applications may encounter disruptions, including failed requests or inconsistent responses. Elevated error rates are a critical concern for developers and businesses relying on external AI APIs for their operations, potentially impacting user experience, automated workflows, and data processing tasks. The status update, while concise, signals an active investigation or ongoing efforts by the service provider to identify and mitigate the root cause of the performance degradation. Such incidents underscore the inherent complexities in maintaining high availability and reliability for sophisticated cloud-based AI infrastructure, which must process numerous requests while ensuring computational integrity and timely delivery of results. Users are advised to monitor the Claude status page for further updates and resolution timelines regarding this service interruption.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>API</span><span>Error Rates</span><span>Large Language Model</span><span>Service Incident</span><span>System Status</span><span>Cloud Services</span><span>AI Platform</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://status.claude.com/incidents/538r2y9cjmhk" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Tosijs-schema is a super lightweight schema-first LLM-native JSON schema library</h2>
-                <span class="published-time">Published: 2025-11-23 13:43:24</span>
-                
-                <p class="summary">Tosijs-schema emerges as a novel, highly lightweight JSON schema library specifically engineered with a 'schema-first' and 'LLM-native' philosophy. This innovative approach aims to significantly streamline the development of applications that interact with Large Language Models by providing a robust yet minimal framework for defining and validating data structures. The library's design prioritizes efficiency, ease of integration, and performance within modern AI-driven workflows, ensuring that data generated by or consumed by LLMs adheres strictly to predefined schemas. Its lightweight footprint minimizes computational overhead, making it an attractive option for developers seeking performant solutions for data governance and consistency in evolving AI ecosystems. By adopting a schema-first methodology, Tosijs-schema empowers developers to clearly articulate data expectations from the outset, thereby enhancing reliability and predictability in complex LLM interactions, ranging from sophisticated prompt engineering to rigorous output parsing and validation. This positions the library as an essential tool for building more reliable, structured, and scalable AI applications that demand precise data handling.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>JSON Schema</span><span>Large Language Model</span><span>LLM-native</span><span>Schema-first</span><span>Lightweight Library</span><span>AI Development</span><span>Data Validation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Artificial Intelligence</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.npmjs.com/package/tosijs-schema" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Scoop: Judge Caught Using AI to Read His Court Decisions</h2>
-                <span class="published-time">Published: 2025-11-23 18:24:42</span>
-                
-                <p class="summary">A recent investigative report has unveiled an instance of a judge reportedly employing artificial intelligence (AI) tools to assist in the review and analysis of court decisions. This revelation immediately triggers a broader discussion about the accelerating integration of AI technologies within the legal sector and its potential ramifications for established judicial processes. Although specific details regarding the AI's exact function and implementation methods have not yet been fully disclosed, the discovery prompts critical inquiries into issues of judicial impartiality, ethical governance, and the evolving role of technology in decision-making domains traditionally dependent on human expertise and judgment. Industry observers and legal scholars suggest this case underscores the urgent need for comprehensive guidelines and robust regulatory frameworks to govern AI adoption in highly sensitive professional fields, particularly those underpinning public confidence and complex legal principles. The potential for AI to both enhance efficiency and inadvertently introduce algorithmic biases necessitates careful consideration, making transparency and accountability paramount as technological advancements increasingly intersect with legal administration.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Artificial Intelligence</span><span>Legal Technology</span><span>Judicial AI</span><span>AI Ethics</span><span>Algorithmic Bias</span><span>Court Automation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Natural Language Processing</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://migrantinsider.com/p/scoop-judge-caught-using-ai-to-read" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>AI trained on bacterial genomes produces never-before-seen proteins</h2>
-                <span class="published-time">Published: 2025-11-23 19:05:22</span>
-                
-                <p class="summary">A groundbreaking advancement in synthetic biology showcases the efficacy of artificial intelligence in protein design, with a generative AI model successfully trained on bacterial genomes producing entirely novel protein structures. This innovative system demonstrates the capacity to learn intricate patterns and rules governing protein formation from vast biological datasets, subsequently synthesizing sequences that do not exist in known natural repertoires. This represents a significant paradigm shift from traditional protein engineering methods, which often rely on modifying existing proteins. The generated "never-before-seen" proteins hold immense potential for revolutionizing fields such as medicine, where new enzymes or therapeutic agents could be designed, and industrial biotechnology, for creating more efficient biocatalysts or advanced materials. This achievement underscores the growing intersection of AI and life sciences, paving the way for accelerated discovery and the creation of functional biomolecules tailored for specific applications, thus expanding the boundaries of what is biologically possible.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Generative AI</span><span>Protein Engineering</span><span>Bacterial Genomes</span><span>Synthetic Biology</span><span>Biotechnology</span><span>Novel Proteins</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Generative AI</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://arstechnica.com/science/2025/11/generative-ai-meets-the-genome/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>TrendRadar</h2>
-                <span class="published-time">Published: 2025-11-23T00:37:57Z</span>
-                
-                <p class="summary">TrendRadar is an open-source, lightweight, and easily deployable hotspot assistant designed to provide personalized news and information. It aggregates trending topics from over 11 mainstream platforms, including Zhihu, Douyin, Weibo, and financial news sites, pushing relevant content based on user-defined keywords and intelligent strategies. Key features include three distinct push modes (daily summary, current ranking, incremental monitoring), precise content filtering with advanced keyword syntax, real-time trend analysis, and a customizable hotness algorithm. The platform supports multi-channel notifications via Enterprise WeChat, Feishu, DingTalk, Telegram, Email, and ntfy, alongside multi-device adaptation through GitHub Pages and Docker deployment. A significant addition is the AI smart analysis powered by the MCP protocol, offering conversational data querying and 13 analytical tools for deep insights into news trends, sentiment, and cross-platform comparisons, enhancing efficiency for investors, media professionals, and general users.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>News Monitoring</span><span>Hotspot Aggregation</span><span>AI Analysis</span><span>Real-time Alerts</span><span>Web Scraping</span><span>Docker</span><span>GitHub Actions</span><span>Trend Prediction</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Natural Language Processing</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/sansan0/TrendRadar" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Agent Development Kit (ADK) for Go</h2>
-                <span class="published-time">Published: 2025-11-21T07:50:33Z</span>
-                
-                <p class="summary">The Agent Development Kit (ADK) for Go is an open-source, code-first toolkit specifically engineered for building, evaluating, and deploying sophisticated AI agents with enhanced flexibility and control. It applies robust software development principles to AI agent creation, simplifying the entire workflow from simple task automation to complex multi-agent systems. While optimized for the Gemini family of models, ADK maintains model-agnostic and deployment-agnostic characteristics, ensuring broad compatibility with other AI frameworks and cloud environments, including strong support for Google Cloud Run. This Go version leverages the language's strengths in concurrency and performance, making it an ideal choice for developers focused on cloud-native agent applications. Key features encompass an idiomatic Go design, a rich tool ecosystem for integrating custom or pre-built functions, and a code-first development paradigm that offers ultimate flexibility, testability, and versioning. Its modular architecture also supports the creation of scalable multi-agent systems, positioning ADK as a powerful and adaptable framework for contemporary AI agent development.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agent</span><span>Go Programming</span><span>Cloud-Native</span><span>Modular Design</span><span>Multi-Agent Systems</span><span>Model-Agnostic</span><span>Software Development Kit</span><span>AI Framework</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/google/adk-go" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/en/" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/en/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2025-11-23</strong><span>ENGLISH EDITION</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-11-23 03:27:04</time></div>
+  <div class="story-body">
+    <h3><a href="http://blog.modelcontextprotocol.io/posts/2025-11-21-mcp-apps/" target="_blank" rel="noopener noreferrer">MCP Apps: Extending servers with interactive user interfaces</a></h3>
+    <p class="story-summary">The concept of MCP Apps introduces a novel paradigm for enhancing server functionalities by deeply integrating interactive user interfaces directly with server-side operations. This initiative aims to address the complexities of developing applications that require dynamic user interaction by potentially leveraging a &#x27;Model Context Protocol&#x27; to create a more streamlined bridge between backend services and frontend experiences. The core objective is to simplify the development and deployment processes, enabling servers to host or interface more directly with rich user interfaces. This integration promises to enhance operational efficiency, streamline user workflows, and provide more intuitive control over server-based processes and data. Ultimately, MCP Apps seek to expand the utility of existing server infrastructure, making server functionalities more accessible and manageable through interactive interfaces, thereby significantly improving both the user experience and the overall application development paradigm for extending server capabilities.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Server extensibility</span><span class="tag tag-keyword">Interactive user interfaces</span><span class="tag tag-keyword">Application development</span><span class="tag tag-keyword">Client-server architecture</span><span class="tag tag-keyword">Backend-frontend integration</span><span class="tag tag-area">Others</span><span class="tag tag-area">Others</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-11-23 01:09:47</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.reuters.com/sustainability/boards-policy-regulation/meta-buried-causal-evidence-social-media-harm-us-court-filings-allege-2025-11-23/" target="_blank" rel="noopener noreferrer">Meta buried &#x27;causal&#x27; evidence of social media harm, US court filings allege</a></h3>
+    <p class="story-summary">US court filings have brought forth serious allegations that Meta, the parent company of Facebook and Instagram, deliberately concealed &#x27;causal&#x27; evidence linking its social media platforms to harm among users. These accusations imply that internal research within Meta had identified direct relationships between platform usage and adverse user outcomes, but the company purportedly suppressed this critical information. The legal challenge underscores escalating scrutiny on major technology firms regarding their ethical obligations and the societal impact of their products. It raises fundamental questions about the transparency of internal studies conducted by social media giants and their accountability for user well-being. The alleged suppression of evidence could have profound consequences for future regulatory frameworks, potentially leading to stricter data governance requirements, mandated public disclosure of platform impact research, and increased legal liabilities for companies that prioritize engagement over user safety. This development reflects a broader societal debate concerning the design of algorithmic systems, their influence on mental health, and the need for greater corporate responsibility in the digital age.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Social Media Regulation</span><span class="tag tag-keyword">Platform Accountability</span><span class="tag tag-keyword">Digital Ethics</span><span class="tag tag-keyword">User Well-being</span><span class="tag tag-keyword">Algorithmic Harm</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-11-23 13:24:01</time></div>
+  <div class="story-body">
+    <h3><a href="https://status.claude.com/incidents/538r2y9cjmhk" target="_blank" rel="noopener noreferrer">Claude Status – Elevated error rates on the API</a></h3>
+    <p class="story-summary">Anthropic&#x27;s AI service, Claude, is currently experiencing elevated error rates on its Application Programming Interface (API), as reported on its official status page. This incident indicates that users integrating Claude&#x27;s advanced large language model capabilities into their applications may encounter disruptions, including failed requests or inconsistent responses. Elevated error rates are a critical concern for developers and businesses relying on external AI APIs for their operations, potentially impacting user experience, automated workflows, and data processing tasks. The status update, while concise, signals an active investigation or ongoing efforts by the service provider to identify and mitigate the root cause of the performance degradation. Such incidents underscore the inherent complexities in maintaining high availability and reliability for sophisticated cloud-based AI infrastructure, which must process numerous requests while ensuring computational integrity and timely delivery of results. Users are advised to monitor the Claude status page for further updates and resolution timelines regarding this service interruption.</p>
+    <div class="story-tags"><span class="tag tag-keyword">API</span><span class="tag tag-keyword">Error Rates</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Service Incident</span><span class="tag tag-keyword">System Status</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-11-23 13:43:24</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.npmjs.com/package/tosijs-schema" target="_blank" rel="noopener noreferrer">Tosijs-schema is a super lightweight schema-first LLM-native JSON schema library</a></h3>
+    <p class="story-summary">Tosijs-schema emerges as a novel, highly lightweight JSON schema library specifically engineered with a &#x27;schema-first&#x27; and &#x27;LLM-native&#x27; philosophy. This innovative approach aims to significantly streamline the development of applications that interact with Large Language Models by providing a robust yet minimal framework for defining and validating data structures. The library&#x27;s design prioritizes efficiency, ease of integration, and performance within modern AI-driven workflows, ensuring that data generated by or consumed by LLMs adheres strictly to predefined schemas. Its lightweight footprint minimizes computational overhead, making it an attractive option for developers seeking performant solutions for data governance and consistency in evolving AI ecosystems. By adopting a schema-first methodology, Tosijs-schema empowers developers to clearly articulate data expectations from the outset, thereby enhancing reliability and predictability in complex LLM interactions, ranging from sophisticated prompt engineering to rigorous output parsing and validation. This positions the library as an essential tool for building more reliable, structured, and scalable AI applications that demand precise data handling.</p>
+    <div class="story-tags"><span class="tag tag-keyword">JSON Schema</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">LLM-native</span><span class="tag tag-keyword">Schema-first</span><span class="tag tag-keyword">Lightweight Library</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-11-23 18:24:42</time></div>
+  <div class="story-body">
+    <h3><a href="https://migrantinsider.com/p/scoop-judge-caught-using-ai-to-read" target="_blank" rel="noopener noreferrer">Scoop: Judge Caught Using AI to Read His Court Decisions</a></h3>
+    <p class="story-summary">A recent investigative report has unveiled an instance of a judge reportedly employing artificial intelligence (AI) tools to assist in the review and analysis of court decisions. This revelation immediately triggers a broader discussion about the accelerating integration of AI technologies within the legal sector and its potential ramifications for established judicial processes. Although specific details regarding the AI&#x27;s exact function and implementation methods have not yet been fully disclosed, the discovery prompts critical inquiries into issues of judicial impartiality, ethical governance, and the evolving role of technology in decision-making domains traditionally dependent on human expertise and judgment. Industry observers and legal scholars suggest this case underscores the urgent need for comprehensive guidelines and robust regulatory frameworks to govern AI adoption in highly sensitive professional fields, particularly those underpinning public confidence and complex legal principles. The potential for AI to both enhance efficiency and inadvertently introduce algorithmic biases necessitates careful consideration, making transparency and accountability paramount as technological advancements increasingly intersect with legal administration.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Legal Technology</span><span class="tag tag-keyword">Judicial AI</span><span class="tag tag-keyword">AI Ethics</span><span class="tag tag-keyword">Algorithmic Bias</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-11-23 19:05:22</time></div>
+  <div class="story-body">
+    <h3><a href="https://arstechnica.com/science/2025/11/generative-ai-meets-the-genome/" target="_blank" rel="noopener noreferrer">AI trained on bacterial genomes produces never-before-seen proteins</a></h3>
+    <p class="story-summary">A groundbreaking advancement in synthetic biology showcases the efficacy of artificial intelligence in protein design, with a generative AI model successfully trained on bacterial genomes producing entirely novel protein structures. This innovative system demonstrates the capacity to learn intricate patterns and rules governing protein formation from vast biological datasets, subsequently synthesizing sequences that do not exist in known natural repertoires. This represents a significant paradigm shift from traditional protein engineering methods, which often rely on modifying existing proteins. The generated &quot;never-before-seen&quot; proteins hold immense potential for revolutionizing fields such as medicine, where new enzymes or therapeutic agents could be designed, and industrial biotechnology, for creating more efficient biocatalysts or advanced materials. This achievement underscores the growing intersection of AI and life sciences, paving the way for accelerated discovery and the creation of functional biomolecules tailored for specific applications, thus expanding the boundaries of what is biologically possible.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Generative AI</span><span class="tag tag-keyword">Protein Engineering</span><span class="tag tag-keyword">Bacterial Genomes</span><span class="tag tag-keyword">Synthetic Biology</span><span class="tag tag-keyword">Biotechnology</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>2 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-11-23T00:37:57Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/sansan0/TrendRadar" target="_blank" rel="noopener noreferrer">TrendRadar</a></h3>
+    <p class="story-summary">TrendRadar is an open-source, lightweight, and easily deployable hotspot assistant designed to provide personalized news and information. It aggregates trending topics from over 11 mainstream platforms, including Zhihu, Douyin, Weibo, and financial news sites, pushing relevant content based on user-defined keywords and intelligent strategies. Key features include three distinct push modes (daily summary, current ranking, incremental monitoring), precise content filtering with advanced keyword syntax, real-time trend analysis, and a customizable hotness algorithm. The platform supports multi-channel notifications via Enterprise WeChat, Feishu, DingTalk, Telegram, Email, and ntfy, alongside multi-device adaptation through GitHub Pages and Docker deployment. A significant addition is the AI smart analysis powered by the MCP protocol, offering conversational data querying and 13 analytical tools for deep insights into news trends, sentiment, and cross-platform comparisons, enhancing efficiency for investors, media professionals, and general users.</p>
+    <div class="story-tags"><span class="tag tag-keyword">News Monitoring</span><span class="tag tag-keyword">Hotspot Aggregation</span><span class="tag tag-keyword">AI Analysis</span><span class="tag tag-keyword">Real-time Alerts</span><span class="tag tag-keyword">Web Scraping</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-11-21T07:50:33Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/google/adk-go" target="_blank" rel="noopener noreferrer">Agent Development Kit (ADK) for Go</a></h3>
+    <p class="story-summary">The Agent Development Kit (ADK) for Go is an open-source, code-first toolkit specifically engineered for building, evaluating, and deploying sophisticated AI agents with enhanced flexibility and control. It applies robust software development principles to AI agent creation, simplifying the entire workflow from simple task automation to complex multi-agent systems. While optimized for the Gemini family of models, ADK maintains model-agnostic and deployment-agnostic characteristics, ensuring broad compatibility with other AI frameworks and cloud environments, including strong support for Google Cloud Run. This Go version leverages the language&#x27;s strengths in concurrency and performance, making it an ideal choice for developers focused on cloud-native agent applications. Key features encompass an idiomatic Go design, a rich tool ecosystem for integrating custom or pre-built functions, and a code-first development paradigm that offers ultimate flexibility, testability, and versioning. Its modular architecture also supports the creation of scalable multi-agent systems, positioning ADK as a powerful and adaptable framework for contemporary AI agent development.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Go Programming</span><span class="tag tag-keyword">Cloud-Native</span><span class="tag tag-keyword">Modular Design</span><span class="tag tag-keyword">Multi-Agent Systems</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
 </body>
 </html>

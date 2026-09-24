@@ -1,375 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2026-01-14</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO AI 日报 — 2026-01-14</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"PingFang SC","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em}.issue h1{margin:0;max-width:820px;font:800 clamp(2.6rem,7vw,6.3rem)/1.02 Georgia,"Songti SC",serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:800 clamp(1.5rem,3vw,2.35rem)/1.2 Georgia,"Songti SC",serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.86 Georgia,"Songti SC",serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <h1>AI Daily Report</h1>
-            <p class="date">2026-01-14</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Tesla moving Full Self-Driving to a monthly subscription</h2>
-                <span class="published-time">Published: 2026-01-14 16:50:12</span>
-                
-                <p class="summary">Tesla has announced a strategic shift for its Full Self-Driving (FSD) software, transitioning from an upfront purchase model to a monthly subscription service. This move, reported to commence on January 14, 2026, aims to make the advanced driver-assistance system more accessible to a broader customer base by reducing the initial financial barrier. The FSD system, which leverages sophisticated artificial intelligence, computer vision, and machine learning algorithms to enable autonomous driving functionalities, has historically been offered as a high-cost one-time purchase. The introduction of a subscription model is expected to provide Tesla with a more consistent and recurring revenue stream, supporting ongoing research and development in autonomous technology. Furthermore, it allows for greater flexibility for users who may not wish to commit to the substantial upfront cost, or who prefer to experience the evolving features of FSD on a more flexible basis. This business model adjustment reflects a growing trend in the automotive software sector, moving towards software-as-a-service (SaaS) offerings to monetize continuously updated and improving technological capabilities.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Full Self-Driving</span><span>Autonomous Vehicles</span><span>Software Subscription</span><span>Tesla FSD</span><span>Advanced Driver-Assistance Systems</span><span>Automotive AI</span><span>Over-the-Air Updates</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Robotics</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.cnbc.com/2026/01/14/musk-tesla-full-self-driving-subscription-fsd.html" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>1000 Blank White Cards</h2>
-                <span class="published-time">Published: 2026-01-14 03:08:37</span>
-                
-                <p class="summary">1000 Blank White Cards (1000BWCs) is an unconventional and highly adaptable card game characterized by its emphasis on player-driven creativity and emergent gameplay. Unlike traditional card games with fixed rules, 1000BWCs begins with a deck of entirely blank cards. Players are tasked with drawing and writing on these cards, thereby creating new rules, modifying existing ones, or introducing narrative elements and imagery into the game. This dynamic rule-making process means that the game evolves continuously with each session and player interaction, leading to unique and often humorous outcomes. The core mechanics revolve around collaborative storytelling and improvisation, where the game's structure and objectives are co-created by the participants. From a computational perspective, 1000BWCs presents an intriguing case study for research into dynamic system design, user-generated content generation, and adaptive rule-sets. The game's principles could inform the development of AI agents capable of understanding, interpreting, and even generating novel game rules or interactive experiences. Furthermore, the collaborative content creation aspect aligns with advancements in generative AI, which could be employed to create diverse card content or to simulate player interactions within such an open-ended framework. This unique approach to gameplay underscores the potential for systems where creativity and rule evolution are central, offering insights into human-computer interaction and adaptive intelligence.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Generative AI</span><span>AI Agent</span><span>Emergent Gameplay</span><span>Dynamic Rule Systems</span><span>Computational Creativity</span><span>User-Generated Content</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>AI Agent</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://en.wikipedia.org/wiki/1000_Blank_White_Cards" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Matthew McConaughey trademarks himself to fight AI misuse</h2>
-                <span class="published-time">Published: 2026-01-14 16:48:23</span>
-                
-                <p class="summary">Matthew McConaughey has taken a proactive stance against the unauthorized use of his likeness and voice by artificial intelligence technologies by trademarking himself. This move highlights a growing concern among celebrities and public figures regarding the potential for AI misuse, including the creation of deepfakes, voice clones, and other forms of synthetic media that could misrepresent or exploit their digital identity without consent. By establishing legal trademarks, McConaughey aims to protect his intellectual property and control the commercial utilization of his persona in an era increasingly influenced by advanced generative AI. This action underscores the urgent need for clearer legal frameworks and ethical guidelines to govern AI development and deployment, particularly in safeguarding individual rights and combating identity theft in the digital realm. It could also set a precedent for how public figures and content creators navigate the evolving challenges presented by AI-driven content generation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Misuse</span><span>Intellectual Property</span><span>Generative AI</span><span>Deepfakes</span><span>Voice Cloning</span><span>Digital Rights</span><span>Celebrity Rights</span><span>Legal Frameworks</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Generative AI</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.msn.com/en-in/entertainment/celebrities/matthew-mcconaughey-trademarks-himself-to-fight-ai-misuse/ar-AA1UaVvt" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Jeff Bezos hopes that you'll give up your PC to rent one from the cloud</h2>
-                <span class="published-time">Published: 2026-01-14 18:39:39</span>
-                
-                <p class="summary">Jeff Bezos, founder of Amazon, has articulated a vision for the future of personal computing, suggesting a paradigm shift where users transition from owning traditional PCs to renting AI-powered virtual machines from the cloud. This concept implies a fundamental change in how individuals access and utilize computational resources, moving away from local hardware dependencies towards a fully cloud-centric model. Such a transition would leverage artificial intelligence to optimize performance, manage resources, and potentially offer a more seamless and personalized user experience. The implications include reduced upfront hardware costs for consumers, enhanced security through centralized management, and greater flexibility to access powerful computing environments from any device with an internet connection. This strategic outlook aligns with the ongoing expansion of cloud computing services and the pervasive integration of AI across various technological domains, highlighting a potential future where the physical desktop computer could become obsolete, replaced by an on-demand, AI-driven digital workspace provided by cloud infrastructure.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Cloud Computing</span><span>Artificial Intelligence</span><span>Virtual Desktops</span><span>Future of Computing</span><span>Cloud Services</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.windowscentral.com/artificial-intelligence/jeff-bezos-says-the-quiet-part-out-loud-bezos-envisions-that-youll-give-up-your-pc-for-an-ai-cloud-version" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: Nori CLI, a better interface for Claude Code (no flicker)</h2>
-                <span class="published-time">Published: 2026-01-14 14:40:51</span>
-                
-                <p class="summary">Clifford, a co-creator of Nori CLI, has unveiled a new command-line interface developed to resolve significant performance issues plaguing Claude Code's existing Terminal User Interface (TUI). Experiencing persistent flicker and strobing since last summer, Clifford noted these visual artifacts across various terminal setups, including restricted terminal splits, less optimized emulators, and even in fundamental virtual TTY environments, despite Anthropics' previous attempts to improve the TUI. The core contention is that rendering performant monospace text output should not be a complex challenge, indicating a potential architectural limitation in Claude Code's current interface. Nori CLI positions itself as a robust alternative, engineered to provide a smoother, more reliable interaction for developers who frequently use Claude Code. This community-driven solution emphasizes enhancing the daily productivity and user experience by eliminating distracting interface inconsistencies, underscoring the importance of efficient and stable developer tooling in modern software development workflows.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Nori CLI</span><span>Claude Code</span><span>Terminal User Interface</span><span>Command Line Interface</span><span>Performance Optimization</span><span>Developer Tools</span><span>Text Rendering</span><span>Flicker Mitigation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/tilework-tech/nori-cli" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: Skillshare 
-– Sync skills across AI CLI tools</h2>
-                <span class="published-time">Published: 2026-01-14 15:03:37</span>
-                
-                <p class="summary">Skillshare, a project recently showcased on Hacker News, introduces a novel approach to managing and synchronizing 'skills' across disparate AI Command Line Interface (CLI) tools. The core concept behind Skillshare is to enable developers and AI practitioners to effortlessly share, update, and maintain consistent AI functionalities – which could include specific models, custom configurations, data processing scripts, or inference pipelines – across their entire suite of CLI-based AI applications. This centralized synchronization mechanism aims to significantly enhance development workflow efficiency by eliminating the redundant task of configuring each AI tool individually. By fostering greater reusability and consistency, Skillshare intends to streamline the integration of various AI capabilities within a unified operational framework, ultimately reducing development friction and accelerating the deployment of AI-powered solutions. This initiative could prove invaluable for teams looking to standardize their AI toolchains and promote collaborative skill development.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Tools</span><span>CLI</span><span>Skill Management</span><span>AI Development</span><span>Workflow Automation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/runkids/skillshare" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>Motion Attribution for Video Generation</h2>
-                <span class="published-time">Published: 2026-01-13T18:59:09.000Z</span>
-                
-                <p class="summary">Despite the rapid progress of video generation models, the role of data in influencing motion is poorly understood. We present Motive (MOTIon attribution for Video gEneration), a motion-centric, gradient-based data attribution framework that scales to modern, large, high-quality video datasets and models. We use this to study which fine-tuning clips improve or degrade temporal dynamics. Motive isolates temporal dynamics from static appearance via motion-weighted loss masks, yielding efficient and scalable motion-specific influence computation. On text-to-video models, Motive identifies clips that strongly affect motion and guides data curation that improves temporal consistency and physical plausibility. With Motive-selected high-influence data, our method improves both motion smoothness and dynamic degree on VBench, achieving a 74.1% human preference win rate compared with the pretrained base model. To our knowledge, this is the first framework to attribute motion rather than visual appearance in video generative models and to use it to curate fine-tuning data.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Motion Attribution</span><span>Video Generation</span><span>Data Attribution</span><span>Generative Models</span><span>Temporal Dynamics</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Deep Learning</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.08828" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>SnapGen++: Unleashing Diffusion Transformers for Efficient High-Fidelity Image Generation on Edge Devices</h2>
-                <span class="published-time">Published: 2026-01-13T07:46:46.000Z</span>
-                
-                <p class="summary">Recent advances in diffusion transformers (DiTs) have set new standards in image generation, yet remain impractical for on-device deployment due to their high computational and memory costs. In this work, we present an efficient DiT framework tailored for mobile and edge devices that achieves transformer-level generation quality under strict resource constraints. Our design combines three key components. First, we propose a compact DiT architecture with an adaptive global-local sparse attention mechanism that balances global context modeling and local detail preservation. Second, we propose an elastic training framework that jointly optimizes sub-DiTs of varying capacities within a unified supernetwork, allowing a single model to dynamically adjust for efficient inference across different hardware. Finally, we develop Knowledge-Guided Distribution Matching Distillation, a step-distillation pipeline that integrates the DMD objective with knowledge transfer from few-step teacher models, producing high-fidelity and low-latency generation (e.g., 4-step) suitable for real-time on-device use. Together, these contributions enable scalable, efficient, and high-quality diffusion models for deployment on diverse hardware.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Diffusion Transformers</span><span>Image Generation</span><span>Edge Devices</span><span>Efficient Inference</span><span>Knowledge Distillation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Deep Learning</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.08303" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>MemoBrain: Executive Memory as an Agentic Brain for Reasoning</h2>
-                <span class="published-time">Published: 2026-01-12T23:44:59.000Z</span>
-                
-                <p class="summary">Complex reasoning in tool-augmented agent frameworks is inherently long-horizon, causing reasoning traces and transient tool artifacts to accumulate and strain the bounded working context of large language models. Without explicit memory mechanisms, such accumulation disrupts logical continuity and undermines task alignment. This positions memory not as an auxiliary efficiency concern, but as a core component for sustaining coherent, goal-directed reasoning over long horizons. We propose MemoBrain, an executive memory model for tool-augmented agents that constructs a dependency-aware memory over reasoning steps, capturing salient intermediate states and their logical relations. Operating as a co-pilot alongside the reasoning agent, MemoBrain organizes reasoning progress without blocking execution and actively manages the working context. Specifically, it prunes invalid steps, folds completed sub-trajectories, and preserves a compact, high-salience reasoning backbone under a fixed context budget. Together, these mechanisms enable explicit cognitive control over reasoning trajectories rather than passive context accumulation. We evaluate MemoBrain on challenging long-horizon benchmarks, including GAIA, WebWalker, and BrowseComp-Plus, demonstrating consistent improvements over strong baselines.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agent</span><span>Executive Memory</span><span>Reasoning</span><span>Large Language Models</span><span>Context Management</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Large Language Model</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.08079" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>The Confidence Dichotomy: Analyzing and Mitigating Miscalibration in Tool-Use Agents</h2>
-                <span class="published-time">Published: 2026-01-12T07:10:35.000Z</span>
-                
-                <p class="summary">Autonomous agents based on large language models (LLMs) are rapidly evolving to handle multi-turn tasks, but ensuring their trustworthiness remains a critical challenge. A fundamental pillar of this trustworthiness is calibration, which refers to an agent's ability to express confidence that reliably reflects its actual performance. While calibration is well-established for static models, its dynamics in tool-integrated agentic workflows remain underexplored. In this work, we systematically investigate verbalized calibration in tool-use agents, revealing a fundamental confidence dichotomy driven by tool type. Specifically, our pilot study identifies that evidence tools (e.g., web search) systematically induce severe overconfidence due to inherent noise in retrieved information, while verification tools (e.g., code interpreters) can ground reasoning through deterministic feedback and mitigate miscalibration. To robustly improve calibration across tool types, we propose a reinforcement learning (RL) fine-tuning framework that jointly optimizes task accuracy and calibration, supported by a holistic benchmark of reward designs. We demonstrate that our trained agents not only achieve superior calibration but also exhibit robust generalization from local training environments to noisy web settings and to distinct domains such as mathematical reasoning. Our results highlight the necessity of domain-specific calibration strategies for tool-use agents. More broadly, this work establishes a foundation for building self-aware agents that can reliably communicate uncertainty in high-stakes, real-world deployments.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>tool-use agents</span><span>calibration</span><span>large language models</span><span>reinforcement learning</span><span>miscalibration</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.07264" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Solar Open Technical Report</h2>
-                <span class="published-time">Published: 2026-01-11T18:33:09.000Z</span>
-                
-                <p class="summary">We introduce Solar Open, a 102B-parameter bilingual Mixture-of-Experts language model for underserved languages. Solar Open demonstrates a systematic methodology for building competitive LLMs by addressing three interconnected challenges. First, to train effectively despite data scarcity for underserved languages, we synthesize 4.5T tokens of high-quality, domain-specific, and RL-oriented data. Second, we coordinate this data through a progressive curriculum jointly optimizing composition, quality thresholds, and domain coverage across 20 trillion tokens. Third, to enable reasoning capabilities through scalable RL, we apply our proposed framework SnapPO for efficient optimization. Across benchmarks in English and Korean, Solar Open achieves competitive performance, demonstrating the effectiveness of this methodology for underserved language AI development.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Solar Open</span><span>Mixture-of-Experts</span><span>LLMs</span><span>underserved languages</span><span>Reinforcement Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Natural Language Processing</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.07022" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>ArenaRL: Scaling RL for Open-Ended Agents via Tournament-based Relative Ranking</h2>
-                <span class="published-time">Published: 2026-01-10T08:43:07.000Z</span>
-                
-                <p class="summary">Reinforcement learning has substantially improved the performance of LLM agents on tasks with verifiable outcomes, but it still struggles on open-ended agent tasks with vast solution spaces (e.g., complex travel planning). Due to the absence of objective ground-truth for these tasks, current RL algorithms largely rely on reward models that assign scalar scores to individual responses. We contend that such pointwise scoring suffers from an inherent discrimination collapse: the reward model struggles to distinguish subtle advantages among different trajectories, resulting in scores within a group being compressed into a narrow range. Consequently, the effective reward signal becomes dominated by noise from the reward model, leading to optimization stagnation. To address this, we propose ArenaRL, a reinforcement learning paradigm that shifts from pointwise scalar scoring to intra-group relative ranking. ArenaRL introduces a process-aware pairwise evaluation mechanism, employing multi-level rubrics to assign fine-grained relative scores to trajectories. Additionally, we construct an intra-group adversarial arena and devise a tournament-based ranking scheme to obtain stable advantage signals. Empirical results confirm that the built seeded single-elimination scheme achieves nearly equivalent advantage estimation accuracy to full pairwise comparisons with O(N^2) complexity, while operating with only O(N) complexity, striking an optimal balance between efficiency and precision. Furthermore, to address the lack of full-cycle benchmarks for open-ended agents, we build Open-Travel and Open-DeepResearch, two high-quality benchmarks featuring a comprehensive pipeline covering SFT, RL training, and multi-dimensional evaluation. Extensive experiments show that ArenaRL substantially outperforms standard RL baselines, enabling LLM agents to generate more robust solutions for complex real-world tasks.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Reinforcement Learning</span><span>LLM Agents</span><span>Open-ended Agents</span><span>Relative Ranking</span><span>Tournament-based Ranking</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Machine Learning</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.06487" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">跳到新闻列表</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO 主页">NO<i>/</i>FOMO</a><nav class="nav" aria-label="日报导航"><a href="../../../home/">往期</a><a href="../en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">每天一次，过滤 AI 噪音</p><h1>值得打开的<br>AI 日报。</h1></div><div class="issue-meta"><span>发布日期</span><strong>2026-01-14</strong><span>中文版本</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-01-14 16:50:12</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.cnbc.com/2026/01/14/musk-tesla-full-self-driving-subscription-fsd.html" target="_blank" rel="noopener noreferrer">Tesla moving Full Self-Driving to a monthly subscription</a></h3>
+    <p class="story-summary">Tesla has announced a strategic shift for its Full Self-Driving (FSD) software, transitioning from an upfront purchase model to a monthly subscription service. This move, reported to commence on January 14, 2026, aims to make the advanced driver-assistance system more accessible to a broader customer base by reducing the initial financial barrier. The FSD system, which leverages sophisticated artificial intelligence, computer vision, and machine learning algorithms to enable autonomous driving functionalities, has historically been offered as a high-cost one-time purchase. The introduction of a subscription model is expected to provide Tesla with a more consistent and recurring revenue stream, supporting ongoing research and development in autonomous technology. Furthermore, it allows for greater flexibility for users who may not wish to commit to the substantial upfront cost, or who prefer to experience the evolving features of FSD on a more flexible basis. This business model adjustment reflects a growing trend in the automotive software sector, moving towards software-as-a-service (SaaS) offerings to monetize continuously updated and improving technological capabilities.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Full Self-Driving</span><span class="tag tag-keyword">Autonomous Vehicles</span><span class="tag tag-keyword">Software Subscription</span><span class="tag tag-keyword">Tesla FSD</span><span class="tag tag-keyword">Advanced Driver-Assistance Systems</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Robotics</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-01-14 03:08:37</time></div>
+  <div class="story-body">
+    <h3><a href="https://en.wikipedia.org/wiki/1000_Blank_White_Cards" target="_blank" rel="noopener noreferrer">1000 Blank White Cards</a></h3>
+    <p class="story-summary">1000 Blank White Cards (1000BWCs) is an unconventional and highly adaptable card game characterized by its emphasis on player-driven creativity and emergent gameplay. Unlike traditional card games with fixed rules, 1000BWCs begins with a deck of entirely blank cards. Players are tasked with drawing and writing on these cards, thereby creating new rules, modifying existing ones, or introducing narrative elements and imagery into the game. This dynamic rule-making process means that the game evolves continuously with each session and player interaction, leading to unique and often humorous outcomes. The core mechanics revolve around collaborative storytelling and improvisation, where the game&#x27;s structure and objectives are co-created by the participants. From a computational perspective, 1000BWCs presents an intriguing case study for research into dynamic system design, user-generated content generation, and adaptive rule-sets. The game&#x27;s principles could inform the development of AI agents capable of understanding, interpreting, and even generating novel game rules or interactive experiences. Furthermore, the collaborative content creation aspect aligns with advancements in generative AI, which could be employed to create diverse card content or to simulate player interactions within such an open-ended framework. This unique approach to gameplay underscores the potential for systems where creativity and rule evolution are central, offering insights into human-computer interaction and adaptive intelligence.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Generative AI</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Emergent Gameplay</span><span class="tag tag-keyword">Dynamic Rule Systems</span><span class="tag tag-keyword">Computational Creativity</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-01-14 16:48:23</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.msn.com/en-in/entertainment/celebrities/matthew-mcconaughey-trademarks-himself-to-fight-ai-misuse/ar-AA1UaVvt" target="_blank" rel="noopener noreferrer">Matthew McConaughey trademarks himself to fight AI misuse</a></h3>
+    <p class="story-summary">Matthew McConaughey has taken a proactive stance against the unauthorized use of his likeness and voice by artificial intelligence technologies by trademarking himself. This move highlights a growing concern among celebrities and public figures regarding the potential for AI misuse, including the creation of deepfakes, voice clones, and other forms of synthetic media that could misrepresent or exploit their digital identity without consent. By establishing legal trademarks, McConaughey aims to protect his intellectual property and control the commercial utilization of his persona in an era increasingly influenced by advanced generative AI. This action underscores the urgent need for clearer legal frameworks and ethical guidelines to govern AI development and deployment, particularly in safeguarding individual rights and combating identity theft in the digital realm. It could also set a precedent for how public figures and content creators navigate the evolving challenges presented by AI-driven content generation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Misuse</span><span class="tag tag-keyword">Intellectual Property</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-keyword">Deepfakes</span><span class="tag tag-keyword">Voice Cloning</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-01-14 18:39:39</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.windowscentral.com/artificial-intelligence/jeff-bezos-says-the-quiet-part-out-loud-bezos-envisions-that-youll-give-up-your-pc-for-an-ai-cloud-version" target="_blank" rel="noopener noreferrer">Jeff Bezos hopes that you&#x27;ll give up your PC to rent one from the cloud</a></h3>
+    <p class="story-summary">Jeff Bezos, founder of Amazon, has articulated a vision for the future of personal computing, suggesting a paradigm shift where users transition from owning traditional PCs to renting AI-powered virtual machines from the cloud. This concept implies a fundamental change in how individuals access and utilize computational resources, moving away from local hardware dependencies towards a fully cloud-centric model. Such a transition would leverage artificial intelligence to optimize performance, manage resources, and potentially offer a more seamless and personalized user experience. The implications include reduced upfront hardware costs for consumers, enhanced security through centralized management, and greater flexibility to access powerful computing environments from any device with an internet connection. This strategic outlook aligns with the ongoing expansion of cloud computing services and the pervasive integration of AI across various technological domains, highlighting a potential future where the physical desktop computer could become obsolete, replaced by an on-demand, AI-driven digital workspace provided by cloud infrastructure.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Cloud Computing</span><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Virtual Desktops</span><span class="tag tag-keyword">Future of Computing</span><span class="tag tag-keyword">Cloud Services</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-01-14 14:40:51</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/tilework-tech/nori-cli" target="_blank" rel="noopener noreferrer">Show HN: Nori CLI, a better interface for Claude Code (no flicker)</a></h3>
+    <p class="story-summary">Clifford, a co-creator of Nori CLI, has unveiled a new command-line interface developed to resolve significant performance issues plaguing Claude Code&#x27;s existing Terminal User Interface (TUI). Experiencing persistent flicker and strobing since last summer, Clifford noted these visual artifacts across various terminal setups, including restricted terminal splits, less optimized emulators, and even in fundamental virtual TTY environments, despite Anthropics&#x27; previous attempts to improve the TUI. The core contention is that rendering performant monospace text output should not be a complex challenge, indicating a potential architectural limitation in Claude Code&#x27;s current interface. Nori CLI positions itself as a robust alternative, engineered to provide a smoother, more reliable interaction for developers who frequently use Claude Code. This community-driven solution emphasizes enhancing the daily productivity and user experience by eliminating distracting interface inconsistencies, underscoring the importance of efficient and stable developer tooling in modern software development workflows.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Nori CLI</span><span class="tag tag-keyword">Claude Code</span><span class="tag tag-keyword">Terminal User Interface</span><span class="tag tag-keyword">Command Line Interface</span><span class="tag tag-keyword">Performance Optimization</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-01-14 15:03:37</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/runkids/skillshare" target="_blank" rel="noopener noreferrer">Show HN: Skillshare – Sync skills across AI CLI tools</a></h3>
+    <p class="story-summary">Skillshare, a project recently showcased on Hacker News, introduces a novel approach to managing and synchronizing &#x27;skills&#x27; across disparate AI Command Line Interface (CLI) tools. The core concept behind Skillshare is to enable developers and AI practitioners to effortlessly share, update, and maintain consistent AI functionalities – which could include specific models, custom configurations, data processing scripts, or inference pipelines – across their entire suite of CLI-based AI applications. This centralized synchronization mechanism aims to significantly enhance development workflow efficiency by eliminating the redundant task of configuring each AI tool individually. By fostering greater reusability and consistency, Skillshare intends to streamline the integration of various AI capabilities within a unified operational framework, ultimately reducing development friction and accelerating the deployment of AI-powered solutions. This initiative could prove invaluable for teams looking to standardize their AI toolchains and promote collaborative skill development.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Tools</span><span class="tag tag-keyword">CLI</span><span class="tag tag-keyword">Skill Management</span><span class="tag tag-keyword">AI Development</span><span class="tag tag-keyword">Workflow Automation</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-01-13T18:59:09.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.08828" target="_blank" rel="noopener noreferrer">Motion Attribution for Video Generation</a></h3>
+    <p class="story-summary">Despite the rapid progress of video generation models, the role of data in influencing motion is poorly understood. We present Motive (MOTIon attribution for Video gEneration), a motion-centric, gradient-based data attribution framework that scales to modern, large, high-quality video datasets and models. We use this to study which fine-tuning clips improve or degrade temporal dynamics. Motive isolates temporal dynamics from static appearance via motion-weighted loss masks, yielding efficient and scalable motion-specific influence computation. On text-to-video models, Motive identifies clips that strongly affect motion and guides data curation that improves temporal consistency and physical plausibility. With Motive-selected high-influence data, our method improves both motion smoothness and dynamic degree on VBench, achieving a 74.1% human preference win rate compared with the pretrained base model. To our knowledge, this is the first framework to attribute motion rather than visual appearance in video generative models and to use it to curate fine-tuning data.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Motion Attribution</span><span class="tag tag-keyword">Video Generation</span><span class="tag tag-keyword">Data Attribution</span><span class="tag tag-keyword">Generative Models</span><span class="tag tag-keyword">Temporal Dynamics</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-01-13T07:46:46.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.08303" target="_blank" rel="noopener noreferrer">SnapGen++: Unleashing Diffusion Transformers for Efficient High-Fidelity Image Generation on Edge Devices</a></h3>
+    <p class="story-summary">Recent advances in diffusion transformers (DiTs) have set new standards in image generation, yet remain impractical for on-device deployment due to their high computational and memory costs. In this work, we present an efficient DiT framework tailored for mobile and edge devices that achieves transformer-level generation quality under strict resource constraints. Our design combines three key components. First, we propose a compact DiT architecture with an adaptive global-local sparse attention mechanism that balances global context modeling and local detail preservation. Second, we propose an elastic training framework that jointly optimizes sub-DiTs of varying capacities within a unified supernetwork, allowing a single model to dynamically adjust for efficient inference across different hardware. Finally, we develop Knowledge-Guided Distribution Matching Distillation, a step-distillation pipeline that integrates the DMD objective with knowledge transfer from few-step teacher models, producing high-fidelity and low-latency generation (e.g., 4-step) suitable for real-time on-device use. Together, these contributions enable scalable, efficient, and high-quality diffusion models for deployment on diverse hardware.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Diffusion Transformers</span><span class="tag tag-keyword">Image Generation</span><span class="tag tag-keyword">Edge Devices</span><span class="tag tag-keyword">Efficient Inference</span><span class="tag tag-keyword">Knowledge Distillation</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-01-12T23:44:59.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.08079" target="_blank" rel="noopener noreferrer">MemoBrain: Executive Memory as an Agentic Brain for Reasoning</a></h3>
+    <p class="story-summary">Complex reasoning in tool-augmented agent frameworks is inherently long-horizon, causing reasoning traces and transient tool artifacts to accumulate and strain the bounded working context of large language models. Without explicit memory mechanisms, such accumulation disrupts logical continuity and undermines task alignment. This positions memory not as an auxiliary efficiency concern, but as a core component for sustaining coherent, goal-directed reasoning over long horizons. We propose MemoBrain, an executive memory model for tool-augmented agents that constructs a dependency-aware memory over reasoning steps, capturing salient intermediate states and their logical relations. Operating as a co-pilot alongside the reasoning agent, MemoBrain organizes reasoning progress without blocking execution and actively manages the working context. Specifically, it prunes invalid steps, folds completed sub-trajectories, and preserves a compact, high-salience reasoning backbone under a fixed context budget. Together, these mechanisms enable explicit cognitive control over reasoning trajectories rather than passive context accumulation. We evaluate MemoBrain on challenging long-horizon benchmarks, including GAIA, WebWalker, and BrowseComp-Plus, demonstrating consistent improvements over strong baselines.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Executive Memory</span><span class="tag tag-keyword">Reasoning</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Context Management</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-01-12T07:10:35.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.07264" target="_blank" rel="noopener noreferrer">The Confidence Dichotomy: Analyzing and Mitigating Miscalibration in Tool-Use Agents</a></h3>
+    <p class="story-summary">Autonomous agents based on large language models (LLMs) are rapidly evolving to handle multi-turn tasks, but ensuring their trustworthiness remains a critical challenge. A fundamental pillar of this trustworthiness is calibration, which refers to an agent&#x27;s ability to express confidence that reliably reflects its actual performance. While calibration is well-established for static models, its dynamics in tool-integrated agentic workflows remain underexplored. In this work, we systematically investigate verbalized calibration in tool-use agents, revealing a fundamental confidence dichotomy driven by tool type. Specifically, our pilot study identifies that evidence tools (e.g., web search) systematically induce severe overconfidence due to inherent noise in retrieved information, while verification tools (e.g., code interpreters) can ground reasoning through deterministic feedback and mitigate miscalibration. To robustly improve calibration across tool types, we propose a reinforcement learning (RL) fine-tuning framework that jointly optimizes task accuracy and calibration, supported by a holistic benchmark of reward designs. We demonstrate that our trained agents not only achieve superior calibration but also exhibit robust generalization from local training environments to noisy web settings and to distinct domains such as mathematical reasoning. Our results highlight the necessity of domain-specific calibration strategies for tool-use agents. More broadly, this work establishes a foundation for building self-aware agents that can reliably communicate uncertainty in high-stakes, real-world deployments.</p>
+    <div class="story-tags"><span class="tag tag-keyword">tool-use agents</span><span class="tag tag-keyword">calibration</span><span class="tag tag-keyword">large language models</span><span class="tag tag-keyword">reinforcement learning</span><span class="tag tag-keyword">miscalibration</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-01-11T18:33:09.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.07022" target="_blank" rel="noopener noreferrer">Solar Open Technical Report</a></h3>
+    <p class="story-summary">We introduce Solar Open, a 102B-parameter bilingual Mixture-of-Experts language model for underserved languages. Solar Open demonstrates a systematic methodology for building competitive LLMs by addressing three interconnected challenges. First, to train effectively despite data scarcity for underserved languages, we synthesize 4.5T tokens of high-quality, domain-specific, and RL-oriented data. Second, we coordinate this data through a progressive curriculum jointly optimizing composition, quality thresholds, and domain coverage across 20 trillion tokens. Third, to enable reasoning capabilities through scalable RL, we apply our proposed framework SnapPO for efficient optimization. Across benchmarks in English and Korean, Solar Open achieves competitive performance, demonstrating the effectiveness of this methodology for underserved language AI development.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Solar Open</span><span class="tag tag-keyword">Mixture-of-Experts</span><span class="tag tag-keyword">LLMs</span><span class="tag tag-keyword">underserved languages</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-01-10T08:43:07.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.06487" target="_blank" rel="noopener noreferrer">ArenaRL: Scaling RL for Open-Ended Agents via Tournament-based Relative Ranking</a></h3>
+    <p class="story-summary">Reinforcement learning has substantially improved the performance of LLM agents on tasks with verifiable outcomes, but it still struggles on open-ended agent tasks with vast solution spaces (e.g., complex travel planning). Due to the absence of objective ground-truth for these tasks, current RL algorithms largely rely on reward models that assign scalar scores to individual responses. We contend that such pointwise scoring suffers from an inherent discrimination collapse: the reward model struggles to distinguish subtle advantages among different trajectories, resulting in scores within a group being compressed into a narrow range. Consequently, the effective reward signal becomes dominated by noise from the reward model, leading to optimization stagnation. To address this, we propose ArenaRL, a reinforcement learning paradigm that shifts from pointwise scalar scoring to intra-group relative ranking. ArenaRL introduces a process-aware pairwise evaluation mechanism, employing multi-level rubrics to assign fine-grained relative scores to trajectories. Additionally, we construct an intra-group adversarial arena and devise a tournament-based ranking scheme to obtain stable advantage signals. Empirical results confirm that the built seeded single-elimination scheme achieves nearly equivalent advantage estimation accuracy to full pairwise comparisons with O(N^2) complexity, while operating with only O(N) complexity, striking an optimal balance between efficiency and precision. Furthermore, to address the lack of full-cycle benchmarks for open-ended agents, we build Open-Travel and Open-DeepResearch, two high-quality benchmarks featuring a comprehensive pipeline covering SFT, RL training, and multi-dimensional evaluation. Extensive experiments show that ArenaRL substantially outperforms standard RL baselines, enabling LLM agents to generate more robust solutions for complex real-world tasks.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">LLM Agents</span><span class="tag tag-keyword">Open-ended Agents</span><span class="tag tag-keyword">Relative Ranking</span><span class="tag tag-keyword">Tournament-based Ranking</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>AI 辅助筛选，原始来源始终可查。</span></footer>
 </body>
 </html>

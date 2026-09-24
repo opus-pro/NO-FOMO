@@ -1,706 +1,209 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-06-10</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            border: 2px solid transparent;
-            font-size: 0.9em;
-        }
-
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-
-        .language-switch a.active {
-            background: var(--secondary-color);
-            border-color: var(--border-color);
-        }
-
-        @media (max-width: 768px) {
-            .language-switch {
-                position: static;
-                justify-content: center;
-                margin-bottom: 20px;
-            }
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2025-06-10</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="../">中文</a>
-                <a href="./" class="active">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-06-10</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../../home/en/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 Back to Homepage</a>
-            <a href="../../../daily/en/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 Latest Daily</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 About Us</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Twitter</h2>
-
-            <article class="item-card">
-                <h2>OpenAI_OpenAI_o3-pro Fully Rolls Out to Pro Users</h2>
-                <span class="published-time">Published: 2025-06-10T20:08:49.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-10/screenshot/twitter/OpenAI_1932530409684005048.png" alt="OpenAI_OpenAI_o3-pro Fully Rolls Out to Pro Users">
-                <p class="summary">OpenAI has announced that its latest model, o3-pro, is now fully rolling out to all ChatGPT Pro users and API developers. This update aims to enhance user experience and development efficiency, further expanding AI application scenarios. The launch of o3-pro is expected to bring more powerful features and stable services to professional users, solidifying OpenAI's leading position in the AI field.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>OpenAI</span><span>o3-pro</span><span>ChatGPT</span><span>API</span><span>Product Launch</span><span>Large Language Model</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Product Launch</span><span>Tech News</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/OpenAI/status/1932530409684005048" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>ArtificialAnlys_OpenAI Significantly Reduces o3 Model Pricing</h2>
-                <span class="published-time">Published: 2025-06-10T17:26:32.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-10/screenshot/twitter/ArtificialAnlys_1932489580592435301.png" alt="ArtificialAnlys_OpenAI Significantly Reduces o3 Model Pricing">
-                <p class="summary">OpenAI has announced an 80% reduction in the pricing of its o3 model, making it price-competitive with Gemini 2.5 Pro and Claude 4 Sonnet, and eight times cheaper than Claude 4 Opus. The o3 model is now priced at $2/$8 per 1M input/output tokens, down from $8/$40. Additionally, it offers a 75% discount for cached input tokens, significantly enhancing its market competitiveness.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>OpenAI</span><span>o3</span><span>Pricing Reduction</span><span>Large Language Model</span><span>Market Competition</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Product Launch</span><span>Industry News</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/ArtificialAnlys/status/1932489580592435301" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>MistralAI_Launches First Reasoning Model Magistral</h2>
-                <span class="published-time">Published: 2025-06-10T14:15:33.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-10/screenshot/twitter/MistralAI_1932445269611688315.png" alt="MistralAI_Launches First Reasoning Model Magistral">
-                <p class="summary">Mistral AI recently announced the launch of Magistral, its first reasoning model. This model is specifically designed to excel in domain-specific, transparent, and multilingual reasoning, aiming to provide more efficient and reliable AI inference capabilities. This release marks a new advancement for Mistral AI in the field of AI model development, expected to play a significant role in various application scenarios.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Mistral AI</span><span>Magistral</span><span>Reasoning Model</span><span>Multilingual Reasoning</span><span>Product Launch</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Product Launch</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/MistralAI/status/1932445269611688315" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>LangChainAI_Uber Uses LangGraph to Build AI Developer Agents for Code Fixes</h2>
-                <span class="published-time">Published: 2025-06-10T17:41:32.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-10/screenshot/twitter/LangChainAI_1932493346498543898.png" alt="LangChainAI_Uber Uses LangGraph to Build AI Developer Agents for Code Fixes">
-                <p class="summary">LangChainAI shared how Uber leveraged the LangGraph framework to build AI developer agents. These agents are capable of generating thousands of code fixes daily, serving an organization of 5,000 developers working with hundreds of millions of lines of code, and have already saved over 21,000 hours of development time. This case highlights the significant potential of AI in enhancing software development efficiency.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>LangChain</span><span>LangGraph</span><span>Uber</span><span>AI Developer Agents</span><span>Code Fixes</span><span>Automation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Tech News</span><span>Industry News</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/LangChainAI/status/1932493346498543898" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Kling_ai_Pengfei Wan to Share Kling Video Generation Models at CVPR</h2>
-                <span class="published-time">Published: 2025-06-10T15:48:33.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-10/screenshot/twitter/Kling_ai_1932464913018147291.png" alt="Kling_ai_Pengfei Wan to Share Kling Video Generation Models at CVPR">
-                <p class="summary">Kling AI announced that Pengfei Wan, Head of Kling Video Generation Models, will deliver a keynote speech at CVPR, the leading annual computer vision event hosted by IEEE. Wan's presentation, titled "An Introduction to Kling and Our Research towards More Powerful Video Generation Models," will delve into Kling's latest breakthroughs and cutting-edge advancements in video generation technology. The event is scheduled for June 11, 2025, from 9:00-17:00 (UTC-5), aiming to provide exceptional value to students, researchers, and industry professionals.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Kling AI</span><span>CVPR</span><span>Video Generation</span><span>Computer Vision</span><span>Pengfei Wan</span><span>Keynote</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Computer Vision</span><span>Generative AI</span><span>Research Progress</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/Kling_ai/status/1932464913018147291" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>summeryue0_Scale AI Releases LLM Red Teaming and System Safety Roadmap</h2>
-                <span class="published-time">Published: 2025-06-10T17:19:19.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-10/screenshot/twitter/summeryue0_1932487755034210475.png" alt="summeryue0_Scale AI Releases LLM Red Teaming and System Safety Roadmap">
-                <p class="summary">Summer Yue and Zifan (Sail) Wang from Scale AI, representing SEAL and Red Team, have jointly published a significant position paper. This document outlines key learnings from their extensive experience in red teaming Large Language Models (LLMs), addressing what truly matters, what remains to be explored, and how model safety is intrinsically linked to broader system safety and continuous monitoring. The paper emphasizes crucial research priorities for red teaming frontier AI models and proposes a comprehensive roadmap for achieving robust system-level safety and effective AI monitoring, integrating diverse perspectives from practitioners to researchers.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Red Teaming</span><span>LLM Safety</span><span>System Safety</span><span>AI Monitoring</span><span>Scale AI</span><span>Position Paper</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Research Progress</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/summeryue0/status/1932487755034210475" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">wechat</h2>
-
-            <article class="item-card">
-                <h2>NVIDIA and HKU Jointly Innovate Visual Attention Mechanism! GSPN Accelerates High-Resolution Generation by Over 84x</h2>
-                <span class="published-time">Published: 2025-06-10T05:16:42.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-10/screenshot/wechat/wechat_image_ZY8122LU_G2vL_T6Jxf8VA.png" alt="NVIDIA and HKU Jointly Innovate Visual Attention Mechanism! GSPN Accelerates High-Resolution Generation by Over 84x">
-                <p class="summary">The University of Hong Kong and NVIDIA have jointly introduced the Generalized Spatial Propagation Network (GSPN), revolutionizing visual attention mechanisms. GSPN employs 2D linear propagation combined with "stability-context conditions," reducing the computational complexity for high-resolution image processing from O(N²) or O(N) to O(√N) while fully preserving spatial coherence. This technology achieves significant improvements in both efficiency and accuracy across image classification and generation tasks. Notably, in the SD-XL model, GSPN accelerates 16K×8K image generation by over 84 times. GSPN inherently handles positional information without explicit embeddings and ensures stability, demonstrating immense potential for both academic and industrial applications. This innovation paves new directions for multimodal models and real-time visual applications.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Visual Attention Mechanism</span><span>GSPN</span><span>High-Resolution Generation</span><span>Linear Propagation</span><span>Image Generation</span><span>Image Classification</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Computer Vision</span><span>Deep Learning</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/ZY8122LU_G2vL_T6Jxf8VA" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Huawei Achieves New AI Computing Power Milestone: 98% Availability in Ten-Thousand-Card Cluster Training, Second-Level Recovery, Minute-Level Diagnostics</h2>
-                <span class="published-time">Published: 2025-06-10T05:16:42.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-10/screenshot/wechat/wechat_image_-uCPihMoc9vqaM6pbnJxPQ.png" alt="Huawei Achieves New AI Computing Power Milestone: 98% Availability in Ten-Thousand-Card Cluster Training, Second-Level Recovery, Minute-Level Diagnostics">
-                <p class="summary">Huawei has achieved groundbreaking advancements in AI computing power, setting new industry benchmarks for large-scale AI clusters. Through the implementation of an innovative "3+3" dual-dimension technical system, the company has significantly enhanced the availability, recovery speed, and linearity of its ten-thousand-card AI clusters. This comprehensive system integrates three fundamental capabilities—full-stack observability, advanced fault diagnosis, and robust self-healing fault tolerance—with three critical business support capabilities: optimized cluster linearity, rapid training recovery, and rapid inference recovery. As a result, Huawei has demonstrated an impressive 98% training availability for its ten-thousand-card clusters, achieving fault recovery in mere seconds, diagnostics within minutes, and linearity exceeding 95%. These pioneering innovations not only substantially boost the efficiency and stability of large model training and inference but also effectively address long-standing critical challenges associated with deploying and managing large-scale AI applications.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Huawei</span><span>AI Computing Power</span><span>Ten-Thousand-Card Cluster</span><span>High Availability</span><span>Fault Recovery</span><span>Large Models</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/-uCPihMoc9vqaM6pbnJxPQ" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Peking University and UC Berkeley Unveil IDA-Bench: A New Benchmark Exposing LLM Agents' Limitations in Iterative Data Analysis, Top Models Score Only 40%</h2>
-                <span class="published-time">Published: 2025-06-10T05:16:42.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-10/screenshot/wechat/wechat_image_0DVNQbifWQ5nWHKPNSwwHA.png" alt="Peking University and UC Berkeley Unveil IDA-Bench: A New Benchmark Exposing LLM Agents' Limitations in Iterative Data Analysis, Top Models Score Only 40%">
-                <p class="summary">Peking University and UC Berkeley have jointly introduced IDA-Bench, a novel benchmark designed to simulate real-world, iterative, and exploratory data analysis scenarios, specifically evaluating large language model agents' performance under multi-turn, dynamic instructions. Unlike traditional single-turn evaluations, IDA-Bench exposes the challenges of continuous interaction. Test results reveal that even top models like Claude-3.7 and Gemini-2.5 Pro achieve only a 40% task success rate, significantly below expectations. The research highlights current agents' profound difficulty in balancing strict instruction adherence with necessary autonomous reasoning, often exhibiting "overconfident" or "overcautious" behaviors that lead to critical task failures. This comprehensive evaluation underscores the critical need for substantial improvements in LLM agents' understanding, instruction following, and interactive capabilities to truly become reliable and effective data analysis assistants in complex, real-world settings.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Model</span><span>AI Agent</span><span>Data Analysis</span><span>Benchmark</span><span>Iterative Interaction</span><span>Instruction Following</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>AI Agent</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/0DVNQbifWQ5nWHKPNSwwHA" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Let AI Design Chips! Chinese Academy of Sciences Launches 'QiMeng' for Fully Automated Chip Design Flow</h2>
-                <span class="published-time">Published: 2025-06-10T04:06:16.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-10/screenshot/wechat/wechat_image_cNGAFt0FxbI0_WPwYZgEmA.png" alt="Let AI Design Chips! Chinese Academy of Sciences Launches 'QiMeng' for Fully Automated Chip Design Flow">
-                <p class="summary">The Institute of Computing Technology, Chinese Academy of Sciences, in collaboration with the Institute of Software, has unveiled 'QiMeng,' a fully automated design system for processor chips and foundational software, powered by large models and other AI technologies. This system can autonomously complete chip hardware and software design, partially or entirely surpassing human expert levels. It has successfully designed RISC-V CPUs automatically, achieving performance comparable to ARM Cortex A53. 'QiMeng' employs a three-tiered architecture comprising domain-specific large models, intelligent agents, and an application layer. It addresses challenges such as data scarcity, correctness, and solution scale through an iterative evolution approach, promising to significantly enhance chip design efficiency, shorten development cycles, enable rapid customization, and fundamentally transform the paradigm of processor chip hardware and software design.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Chip Design</span><span>Artificial Intelligence</span><span>Large Models</span><span>Automated Design</span><span>QiMeng System</span><span>Processor Chip</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/cNGAFt0FxbI0_WPwYZgEmA" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Are Large Language Models 'Observing the World from a Cave'? RL Expert Warns of LLM's Fatal Flaws</h2>
-                <span class="published-time">Published: 2025-06-10T03:59:40.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-10/screenshot/wechat/wechat_image__5M7uc86kCTWxqSUSPkIfg.png" alt="Are Large Language Models 'Observing the World from a Cave'? RL Expert Warns of LLM's Fatal Flaws">
-                <p class="summary">University of California, Berkeley reinforcement learning expert Sergey Levine argues that current Large Language Models (LLMs) do not learn directly from the world but rather indirectly "scan" the "projections" of human thought processes from internet text, akin to observers in Plato's Cave. He contends that LLMs' success stems from "reverse engineering" human cognitive processes, not from genuinely understanding the world or learning from direct experience. Levine questions the limitations of LLMs in physical world comprehension and autonomous skill acquisition, proposing that future AI development must explore new methods for acquiring representations directly from physical experience. This approach is crucial for achieving truly flexible and adaptive intelligence, moving beyond merely replicating the "shadows" of human minds. He contrasts this with the relative lack of success in video models, despite video containing richer real-world information. The core issue, according to Levine, is that LLMs are mimicking human intelligence by observing its output, not by developing their own understanding of reality. This perspective challenges the current trajectory of AGI research, advocating for AI systems that can learn and adapt from their own interactions with the physical world, rather than relying on human-mediated data.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>Reinforcement Learning</span><span>Plato's Cave</span><span>Artificial Intelligence</span><span>Cognitive Limitations</span><span>Sergey Levine</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Artificial Intelligence</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/_5M7uc86kCTWxqSUSPkIfg" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>🌟 Awesome LLM Apps</h2>
-                <span class="published-time">Published: 2025-06-06T22:50:54Z</span>
-                <img src="https://raw.githubusercontent.com/Shubhamsaboo/awesome-llm-apps/main/docs/banner/unwind_black.png" alt="🌟 Awesome LLM Apps">
-                <p class="summary">The "Awesome LLM Apps" GitHub repository presents a meticulously curated collection of practical large language model (LLM) applications. These applications are ingeniously built utilizing advanced techniques such as Retrieval-Augmented Generation (RAG), sophisticated AI Agents, collaborative Multi-agent Teams, Multi-Context Processing (MCP), and intuitive Voice Agents. The repository showcases the versatile integration of leading LLM providers like OpenAI, Anthropic, and Google, alongside powerful open-source models including DeepSeek, Qwen, and Llama, which can even be run locally. It illustrates how LLMs can address real-world challenges across diverse domains, from analyzing code repositories to managing email inboxes. This project's core objective is to offer tangible, innovative LLM application examples, thereby accelerating the practical deployment and advancement of large model technologies across various industries. Furthermore, it actively encourages community contributions, aiming to cultivate a vibrant and comprehensive open-source ecosystem for LLM-powered solutions.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Model</span><span>AI Agent</span><span>RAG</span><span>Multi-agent Systems</span><span>Generative AI</span><span>Application Development</span><span>Machine Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/Shubhamsaboo/awesome-llm-apps" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Boltz</h2>
-                <span class="published-time">Published: 2025-06-11T15:19:15Z</span>
-                <img src="https://github.com/jwohlwend/boltz/raw/main/docs/boltz2_title.png" alt="Boltz">
-                <p class="summary">Boltz is a family of models designed for biomolecular interaction prediction, with Boltz-2 being the latest foundational model. It surpasses AlphaFold3 and Boltz-1 by jointly modeling complex structures and binding affinities. Boltz-2 is the first deep learning model to achieve accuracy comparable to physics-based free-energy perturbation (FEP) methods, while being 1000 times faster. This breakthrough makes accurate in silico screening practical for early-stage drug discovery, including hit-discovery and ligand optimization. The Boltz models and code are open-sourced under the MIT license, available for both academic and commercial use.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Biomolecular Interaction</span><span>Binding Affinity</span><span>Drug Discovery</span><span>Deep Learning</span><span>Molecular Design</span><span>In Silico Screening</span><span>Open Source Model</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/jwohlwend/boltz" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>✨ YouTube Transcript API ✨</h2>
-                <span class="published-time">Published: 2025-04-23T07:30:48Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-10/screenshot/github/youtube-transcript-api.png" alt="✨ YouTube Transcript API ✨">
-                <p class="summary">The YouTube Transcript API is a Python library designed to retrieve transcripts and subtitles for YouTube videos. It supports both automatically generated subtitles and multi-language translation, operating efficiently without the need for headless browsers, which significantly improves performance. The API also features proxy support to circumvent IP blocks, cookie authentication for age-restricted content, and offers various output formats like JSON and SRT. Additionally, it includes a command-line interface, greatly simplifying the process for developers and users to access and process YouTube video content.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>YouTube Subtitles</span><span>Video Transcription</span><span>Python Library</span><span>API</span><span>Subtitle Translation</span><span>Proxy</span><span>Command Line Tool</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Natural Language Processing</span><span>Video Understanding</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/jdepoix/youtube-transcript-api" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Open-source Large Language Model Handbook</h2>
-                <span class="published-time">Published: 2025-06-11T14:30:51Z</span>
-                <img src="https://contrib.rocks/image?repo=datawhalechina/self-llm" alt="Open-source Large Language Model Handbook">
-                <p class="summary">This project presents a dedicated open-source large language model (LLM) tutorial, specifically designed for beginners in China and optimized for Linux platforms. It provides comprehensive, full-process guidance encompassing essential skills such as environment configuration, local deployment, and efficient fine-tuning for a wide array of open-source LLMs. By simplifying the complex deployment, usage, and application workflows, the initiative aims to make advanced LLM technologies more accessible to a broader audience of students and researchers. The tutorial covers mainstream models like LLaMA, ChatGLM, and InternLM, offering practical instructions on command-line invocation, setting up online demonstrations, and integrating with frameworks like LangChain. Furthermore, it delves into advanced topics such as distributed full fine-tuning, LoRA, and P-tuning methods. This resource is crucial for fostering the adoption of open-source, free large models, enabling learners to seamlessly incorporate them into their studies and future professional endeavors.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>Open-source</span><span>Environment Configuration</span><span>Model Deployment</span><span>Model Fine-tuning</span><span>Natural Language Processing</span><span>Linux</span><span>LangChain</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Natural Language Processing</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/datawhalechina/self-llm" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>MiniCPM</h2>
-                <span class="published-time">Published: 2025-06-11T06:36:09Z</span>
-                <img src="https://github.com/OpenBMB/MiniCPM/raw/main/assets/minicpm_logo.png" alt="MiniCPM">
-                <p class="summary">MiniCPM is an ultra-efficient series of large language models designed for edge devices, co-developed by ModelBest, Tsinghua University, and Renmin University of China. It achieves exceptional efficiency through innovative model architectures like InfLLM v2 sparse attention, efficient learning algorithms such as BitCPM 3-value quantization, and optimized inference systems like CPM.cu. While maintaining state-of-the-art performance for its size, MiniCPM models deliver over 5x generation speedup on typical edge chips. They also surpass similarly sized and even larger models in tasks like tool calling, code interpretation, and long-context processing, offering a powerful solution for edge AI applications.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Model</span><span>Edge AI</span><span>Efficient Inference</span><span>Sparse Attention</span><span>Model Quantization</span><span>Tool Calling</span><span>Long Context</span><span>Natural Language Processing</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Deep Learning</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/OpenBMB/MiniCPM" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>Reinforcement Pre-Training</h2>
-                <span class="published-time">Published: 2025-06-09T17:59:53.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2506.08007.png" alt="Reinforcement Pre-Training">
-                <p class="summary">In this work, we introduce Reinforcement Pre-Training (RPT) as a new scaling
-paradigm for large language models and reinforcement learning (RL).
-Specifically, we reframe next-token prediction as a reasoning task trained
-using RL, where it receives verifiable rewards for correctly predicting the
-next token for a given context. RPT offers a scalable method to leverage vast
-amounts of text data for general-purpose RL, rather than relying on
-domain-specific annotated answers. By incentivizing the capability of
-next-token reasoning, RPT significantly improves the language modeling accuracy
-of predicting the next tokens. Moreover, RPT provides a strong pre-trained
-foundation for further reinforcement fine-tuning. The scaling curves show that
-increased training compute consistently improves the next-token prediction
-accuracy. The results position RPT as an effective and promising scaling
-paradigm to advance language model pre-training.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Reinforcement Pre-Training</span><span>Large Language Models</span><span>Reinforcement Learning</span><span>Next-token prediction</span><span>Language Model Pre-training</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Machine Learning</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2506.08007" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>MiniCPM4: Ultra-Efficient LLMs on End Devices</h2>
-                <span class="published-time">Published: 2025-06-09T16:16:50.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2506.07900.png" alt="MiniCPM4: Ultra-Efficient LLMs on End Devices">
-                <p class="summary">This paper introduces MiniCPM4, a highly efficient large language model (LLM)
-designed explicitly for end-side devices. We achieve this efficiency through
-systematic innovation in four key dimensions: model architecture, training
-data, training algorithms, and inference systems. Specifically, in terms of
-model architecture, we propose InfLLM v2, a trainable sparse attention
-mechanism that accelerates both prefilling and decoding phases for long-context
-processing. Regarding training data, we propose UltraClean, an efficient and
-accurate pre-training data filtering and generation strategy, and UltraChat v2,
-a comprehensive supervised fine-tuning dataset. These datasets enable
-satisfactory model performance to be achieved using just 8 trillion training
-tokens. Regarding training algorithms, we propose ModelTunnel v2 for efficient
-pre-training strategy search, and improve existing post-training methods by
-introducing chunk-wise rollout for load-balanced reinforcement learning and
-data-efficient tenary LLM, BitCPM. Regarding inference systems, we propose
-CPM.cu that integrates sparse attention, model quantization, and speculative
-sampling to achieve efficient prefilling and decoding. To meet diverse
-on-device requirements, MiniCPM4 is available in two versions, with 0.5B and 8B
-parameters, respectively. Sufficient evaluation results show that MiniCPM4
-outperforms open-source models of similar size across multiple benchmarks,
-highlighting both its efficiency and effectiveness. Notably, MiniCPM4-8B
-demonstrates significant speed improvements over Qwen3-8B when processing long
-sequences. Through further adaptation, MiniCPM4 successfully powers diverse
-applications, including trustworthy survey generation and tool use with model
-context protocol, clearly showcasing its broad usability.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>MiniCPM4</span><span>Large Language Models</span><span>End Devices</span><span>Ultra-Efficient</span><span>Sparse Attention</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Natural Language Processing</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2506.07900" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>CyberV: Cybernetics for Test-time Scaling in Video Understanding</h2>
-                <span class="published-time">Published: 2025-06-09T17:45:18.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2506.07971.png" alt="CyberV: Cybernetics for Test-time Scaling in Video Understanding">
-                <p class="summary">Current Multimodal Large Language Models (MLLMs) may struggle with
-understanding long or complex videos due to computational demands at test time,
-lack of robustness, and limited accuracy, primarily stemming from their
-feed-forward processing nature. These limitations could be more severe for
-models with fewer parameters. To address these limitations, we propose a novel
-framework inspired by cybernetic principles, redesigning video MLLMs as
-adaptive systems capable of self-monitoring, self-correction, and dynamic
-resource allocation during inference. Our approach, CyberV, introduces a
-cybernetic loop consisting of an MLLM Inference System, a Sensor, and a
-Controller. Specifically, the sensor monitors forward processes of the MLLM and
-collects intermediate interpretations, such as attention drift, then the
-controller determines when and how to trigger self-correction and generate
-feedback to guide the next round. This test-time adaptive scaling framework
-enhances frozen MLLMs without requiring retraining or additional components.
-Experiments demonstrate significant improvements: CyberV boosts Qwen2.5-VL-7B
-by 8.3% and InternVL3-8B by 5.5% on VideoMMMU, surpassing the competitive
-proprietary model GPT-4o. When applied to Qwen2.5-VL-72B, it yields a 10.0%
-improvement, achieving performance even comparable to human experts.
-Furthermore, our method demonstrates consistent gains on general-purpose
-benchmarks, such as VideoMME and WorldSense, highlighting its effectiveness and
-generalization capabilities in making MLLMs more robust and accurate for
-dynamic video understanding. The code is released at
-https://github.com/marinero4972/CyberV.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Video Understanding</span><span>Multimodal Large Language Models</span><span>Cybernetics</span><span>Test-time Adaptation</span><span>Self-correction</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Video Understanding</span><span>Multimodal</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2506.07971" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>PolyVivid: Vivid Multi-Subject Video Generation with Cross-Modal
-  Interaction and Enhancement</h2>
-                <span class="published-time">Published: 2025-06-09T15:11:09.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2506.07848.png" alt="PolyVivid: Vivid Multi-Subject Video Generation with Cross-Modal
-  Interaction and Enhancement">
-                <p class="summary">Despite recent advances in video generation, existing models still lack
-fine-grained controllability, especially for multi-subject customization with
-consistent identity and interaction. In this paper, we propose PolyVivid, a
-multi-subject video customization framework that enables flexible and
-identity-consistent generation. To establish accurate correspondences between
-subject images and textual entities, we design a VLLM-based text-image fusion
-module that embeds visual identities into the textual space for precise
-grounding. To further enhance identity preservation and subject interaction, we
-propose a 3D-RoPE-based enhancement module that enables structured
-bidirectional fusion between text and image embeddings. Moreover, we develop an
-attention-inherited identity injection module to effectively inject fused
-identity features into the video generation process, mitigating identity drift.
-Finally, we construct an MLLM-based data pipeline that combines MLLM-based
-grounding, segmentation, and a clique-based subject consolidation strategy to
-produce high-quality multi-subject data, effectively enhancing subject
-distinction and reducing ambiguity in downstream video generation. Extensive
-experiments demonstrate that PolyVivid achieves superior performance in
-identity fidelity, video realism, and subject alignment, outperforming existing
-open-source and commercial baselines.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multi-subject video generation</span><span>Cross-modal interaction</span><span>Identity preservation</span><span>Video customization</span><span>Multimodal models</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Computer Vision</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2506.07848" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>GUI-Reflection: Empowering Multimodal GUI Models with Self-Reflection
-  Behavior</h2>
-                <span class="published-time">Published: 2025-06-09T17:59:57.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2506.08012.png" alt="GUI-Reflection: Empowering Multimodal GUI Models with Self-Reflection
-  Behavior">
-                <p class="summary">Multimodal Large Language Models (MLLMs) have shown great potential in
-revolutionizing Graphical User Interface (GUI) automation. However, existing
-GUI models mostly rely on learning from nearly error-free offline trajectories,
-thus lacking reflection and error recovery capabilities. To bridge this gap, we
-propose GUI-Reflection, a novel framework that explicitly integrates
-self-reflection and error correction capabilities into end-to-end multimodal
-GUI models throughout dedicated training stages: GUI-specific pre-training,
-offline supervised fine-tuning (SFT), and online reflection tuning.
-GUI-reflection enables self-reflection behavior emergence with fully automated
-data generation and learning processes without requiring any human annotation.
-Specifically, 1) we first propose scalable data pipelines to automatically
-construct reflection and error correction data from existing successful
-trajectories. While existing GUI models mainly focus on grounding and UI
-understanding ability, we propose the GUI-Reflection Task Suite to learn and
-evaluate reflection-oriented abilities explicitly. 2) Furthermore, we built a
-diverse and efficient environment for online training and data collection of
-GUI models on mobile devices. 3) We also present an iterative online reflection
-tuning algorithm leveraging the proposed environment, enabling the model to
-continuously enhance its reflection and error correction abilities. Our
-framework equips GUI agents with self-reflection and correction capabilities,
-paving the way for more robust, adaptable, and intelligent GUI automation, with
-all data, models, environments, and tools to be released publicly.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>GUI Automation</span><span>Multimodal Large Language Models</span><span>Self-reflection</span><span>Error Correction</span><span>AI Agent</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2506.08012" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>SAFEFLOW: A Principled Protocol for Trustworthy and Transactional
-  Autonomous Agent Systems</h2>
-                <span class="published-time">Published: 2025-06-09T09:04:37.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2506.07564.png" alt="SAFEFLOW: A Principled Protocol for Trustworthy and Transactional
-  Autonomous Agent Systems">
-                <p class="summary">Recent advances in large language models (LLMs) and vision-language models
-(VLMs) have enabled powerful autonomous agents capable of complex reasoning and
-multi-modal tool use. Despite their growing capabilities, today's agent
-frameworks remain fragile, lacking principled mechanisms for secure information
-flow, reliability, and multi-agent coordination. In this work, we introduce
-SAFEFLOW, a new protocol-level framework for building trustworthy LLM/VLM-based
-agents. SAFEFLOW enforces fine-grained information flow control (IFC),
-precisely tracking provenance, integrity, and confidentiality of all the data
-exchanged between agents, tools, users, and environments. By constraining LLM
-reasoning to respect these security labels, SAFEFLOW prevents untrusted or
-adversarial inputs from contaminating high-integrity decisions. To ensure
-robustness in concurrent multi-agent settings, SAFEFLOW introduces
-transactional execution, conflict resolution, and secure scheduling over shared
-state, preserving global consistency across agents. We further introduce
-mechanisms, including write-ahead logging, rollback, and secure caches, that
-further enhance resilience against runtime errors and policy violations. To
-validate the performances, we built SAFEFLOWBENCH, a comprehensive benchmark
-suite designed to evaluate agent reliability under adversarial, noisy, and
-concurrent operational conditions. Extensive experiments demonstrate that
-agents built with SAFEFLOW maintain impressive task performance and security
-guarantees even in hostile environments, substantially outperforming
-state-of-the-art. Together, SAFEFLOW and SAFEFLOWBENCH lay the groundwork for
-principled, robust, and secure agent ecosystems, advancing the frontier of
-reliable autonomy.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Autonomous Agents</span><span>Information Flow Control</span><span>Transactional Execution</span><span>Multi-Agent Systems</span><span>Trustworthy Protocol</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Large Language Model</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2506.07564" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/en/" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/en/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2025-06-10</strong><span>ENGLISH EDITION</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-06-10T20:08:49.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/OpenAI/status/1932530409684005048" target="_blank" rel="noopener noreferrer">OpenAI_OpenAI_o3-pro Fully Rolls Out to Pro Users</a></h3>
+    <p class="story-summary">OpenAI has announced that its latest model, o3-pro, is now fully rolling out to all ChatGPT Pro users and API developers. This update aims to enhance user experience and development efficiency, further expanding AI application scenarios. The launch of o3-pro is expected to bring more powerful features and stable services to professional users, solidifying OpenAI&#x27;s leading position in the AI field.</p>
+    <div class="story-tags"><span class="tag tag-keyword">OpenAI</span><span class="tag tag-keyword">o3-pro</span><span class="tag tag-keyword">ChatGPT</span><span class="tag tag-keyword">API</span><span class="tag tag-keyword">Product Launch</span><span class="tag tag-area">Product Launch</span><span class="tag tag-area">Tech News</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-06-10T17:26:32.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/ArtificialAnlys/status/1932489580592435301" target="_blank" rel="noopener noreferrer">ArtificialAnlys_OpenAI Significantly Reduces o3 Model Pricing</a></h3>
+    <p class="story-summary">OpenAI has announced an 80% reduction in the pricing of its o3 model, making it price-competitive with Gemini 2.5 Pro and Claude 4 Sonnet, and eight times cheaper than Claude 4 Opus. The o3 model is now priced at $2/$8 per 1M input/output tokens, down from $8/$40. Additionally, it offers a 75% discount for cached input tokens, significantly enhancing its market competitiveness.</p>
+    <div class="story-tags"><span class="tag tag-keyword">OpenAI</span><span class="tag tag-keyword">o3</span><span class="tag tag-keyword">Pricing Reduction</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Market Competition</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Product Launch</span><span class="tag tag-area">Industry News</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-06-10T14:15:33.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/MistralAI/status/1932445269611688315" target="_blank" rel="noopener noreferrer">MistralAI_Launches First Reasoning Model Magistral</a></h3>
+    <p class="story-summary">Mistral AI recently announced the launch of Magistral, its first reasoning model. This model is specifically designed to excel in domain-specific, transparent, and multilingual reasoning, aiming to provide more efficient and reliable AI inference capabilities. This release marks a new advancement for Mistral AI in the field of AI model development, expected to play a significant role in various application scenarios.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Mistral AI</span><span class="tag tag-keyword">Magistral</span><span class="tag tag-keyword">Reasoning Model</span><span class="tag tag-keyword">Multilingual Reasoning</span><span class="tag tag-keyword">Product Launch</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Product Launch</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-06-10T17:41:32.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/LangChainAI/status/1932493346498543898" target="_blank" rel="noopener noreferrer">LangChainAI_Uber Uses LangGraph to Build AI Developer Agents for Code Fixes</a></h3>
+    <p class="story-summary">LangChainAI shared how Uber leveraged the LangGraph framework to build AI developer agents. These agents are capable of generating thousands of code fixes daily, serving an organization of 5,000 developers working with hundreds of millions of lines of code, and have already saved over 21,000 hours of development time. This case highlights the significant potential of AI in enhancing software development efficiency.</p>
+    <div class="story-tags"><span class="tag tag-keyword">LangChain</span><span class="tag tag-keyword">LangGraph</span><span class="tag tag-keyword">Uber</span><span class="tag tag-keyword">AI Developer Agents</span><span class="tag tag-keyword">Code Fixes</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Tech News</span><span class="tag tag-area">Industry News</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-06-10T15:48:33.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/Kling_ai/status/1932464913018147291" target="_blank" rel="noopener noreferrer">Kling_ai_Pengfei Wan to Share Kling Video Generation Models at CVPR</a></h3>
+    <p class="story-summary">Kling AI announced that Pengfei Wan, Head of Kling Video Generation Models, will deliver a keynote speech at CVPR, the leading annual computer vision event hosted by IEEE. Wan&#x27;s presentation, titled &quot;An Introduction to Kling and Our Research towards More Powerful Video Generation Models,&quot; will delve into Kling&#x27;s latest breakthroughs and cutting-edge advancements in video generation technology. The event is scheduled for June 11, 2025, from 9:00-17:00 (UTC-5), aiming to provide exceptional value to students, researchers, and industry professionals.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Kling AI</span><span class="tag tag-keyword">CVPR</span><span class="tag tag-keyword">Video Generation</span><span class="tag tag-keyword">Computer Vision</span><span class="tag tag-keyword">Pengfei Wan</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Research Progress</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-06-10T17:19:19.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/summeryue0/status/1932487755034210475" target="_blank" rel="noopener noreferrer">summeryue0_Scale AI Releases LLM Red Teaming and System Safety Roadmap</a></h3>
+    <p class="story-summary">Summer Yue and Zifan (Sail) Wang from Scale AI, representing SEAL and Red Team, have jointly published a significant position paper. This document outlines key learnings from their extensive experience in red teaming Large Language Models (LLMs), addressing what truly matters, what remains to be explored, and how model safety is intrinsically linked to broader system safety and continuous monitoring. The paper emphasizes crucial research priorities for red teaming frontier AI models and proposes a comprehensive roadmap for achieving robust system-level safety and effective AI monitoring, integrating diverse perspectives from practitioners to researchers.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Red Teaming</span><span class="tag tag-keyword">LLM Safety</span><span class="tag tag-keyword">System Safety</span><span class="tag tag-keyword">AI Monitoring</span><span class="tag tag-keyword">Scale AI</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Research Progress</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>5 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-06-06T22:50:54Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/Shubhamsaboo/awesome-llm-apps" target="_blank" rel="noopener noreferrer">🌟 Awesome LLM Apps</a></h3>
+    <p class="story-summary">The &quot;Awesome LLM Apps&quot; GitHub repository presents a meticulously curated collection of practical large language model (LLM) applications. These applications are ingeniously built utilizing advanced techniques such as Retrieval-Augmented Generation (RAG), sophisticated AI Agents, collaborative Multi-agent Teams, Multi-Context Processing (MCP), and intuitive Voice Agents. The repository showcases the versatile integration of leading LLM providers like OpenAI, Anthropic, and Google, alongside powerful open-source models including DeepSeek, Qwen, and Llama, which can even be run locally. It illustrates how LLMs can address real-world challenges across diverse domains, from analyzing code repositories to managing email inboxes. This project&#x27;s core objective is to offer tangible, innovative LLM application examples, thereby accelerating the practical deployment and advancement of large model technologies across various industries. Furthermore, it actively encourages community contributions, aiming to cultivate a vibrant and comprehensive open-source ecosystem for LLM-powered solutions.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">RAG</span><span class="tag tag-keyword">Multi-agent Systems</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-06-11T15:19:15Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/jwohlwend/boltz" target="_blank" rel="noopener noreferrer">Boltz</a></h3>
+    <p class="story-summary">Boltz is a family of models designed for biomolecular interaction prediction, with Boltz-2 being the latest foundational model. It surpasses AlphaFold3 and Boltz-1 by jointly modeling complex structures and binding affinities. Boltz-2 is the first deep learning model to achieve accuracy comparable to physics-based free-energy perturbation (FEP) methods, while being 1000 times faster. This breakthrough makes accurate in silico screening practical for early-stage drug discovery, including hit-discovery and ligand optimization. The Boltz models and code are open-sourced under the MIT license, available for both academic and commercial use.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Biomolecular Interaction</span><span class="tag tag-keyword">Binding Affinity</span><span class="tag tag-keyword">Drug Discovery</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-keyword">Molecular Design</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-04-23T07:30:48Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/jdepoix/youtube-transcript-api" target="_blank" rel="noopener noreferrer">✨ YouTube Transcript API ✨</a></h3>
+    <p class="story-summary">The YouTube Transcript API is a Python library designed to retrieve transcripts and subtitles for YouTube videos. It supports both automatically generated subtitles and multi-language translation, operating efficiently without the need for headless browsers, which significantly improves performance. The API also features proxy support to circumvent IP blocks, cookie authentication for age-restricted content, and offers various output formats like JSON and SRT. Additionally, it includes a command-line interface, greatly simplifying the process for developers and users to access and process YouTube video content.</p>
+    <div class="story-tags"><span class="tag tag-keyword">YouTube Subtitles</span><span class="tag tag-keyword">Video Transcription</span><span class="tag tag-keyword">Python Library</span><span class="tag tag-keyword">API</span><span class="tag tag-keyword">Subtitle Translation</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Video Understanding</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-06-11T14:30:51Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/datawhalechina/self-llm" target="_blank" rel="noopener noreferrer">Open-source Large Language Model Handbook</a></h3>
+    <p class="story-summary">This project presents a dedicated open-source large language model (LLM) tutorial, specifically designed for beginners in China and optimized for Linux platforms. It provides comprehensive, full-process guidance encompassing essential skills such as environment configuration, local deployment, and efficient fine-tuning for a wide array of open-source LLMs. By simplifying the complex deployment, usage, and application workflows, the initiative aims to make advanced LLM technologies more accessible to a broader audience of students and researchers. The tutorial covers mainstream models like LLaMA, ChatGLM, and InternLM, offering practical instructions on command-line invocation, setting up online demonstrations, and integrating with frameworks like LangChain. Furthermore, it delves into advanced topics such as distributed full fine-tuning, LoRA, and P-tuning methods. This resource is crucial for fostering the adoption of open-source, free large models, enabling learners to seamlessly incorporate them into their studies and future professional endeavors.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Open-source</span><span class="tag tag-keyword">Environment Configuration</span><span class="tag tag-keyword">Model Deployment</span><span class="tag tag-keyword">Model Fine-tuning</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-06-11T06:36:09Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/OpenBMB/MiniCPM" target="_blank" rel="noopener noreferrer">MiniCPM</a></h3>
+    <p class="story-summary">MiniCPM is an ultra-efficient series of large language models designed for edge devices, co-developed by ModelBest, Tsinghua University, and Renmin University of China. It achieves exceptional efficiency through innovative model architectures like InfLLM v2 sparse attention, efficient learning algorithms such as BitCPM 3-value quantization, and optimized inference systems like CPM.cu. While maintaining state-of-the-art performance for its size, MiniCPM models deliver over 5x generation speedup on typical edge chips. They also surpass similarly sized and even larger models in tasks like tool calling, code interpretation, and long-context processing, offering a powerful solution for edge AI applications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Edge AI</span><span class="tag tag-keyword">Efficient Inference</span><span class="tag tag-keyword">Sparse Attention</span><span class="tag tag-keyword">Model Quantization</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> wechat</h2><span>5 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-06-10T05:16:42.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/ZY8122LU_G2vL_T6Jxf8VA" target="_blank" rel="noopener noreferrer">NVIDIA and HKU Jointly Innovate Visual Attention Mechanism! GSPN Accelerates High-Resolution Generation by Over 84x</a></h3>
+    <p class="story-summary">The University of Hong Kong and NVIDIA have jointly introduced the Generalized Spatial Propagation Network (GSPN), revolutionizing visual attention mechanisms. GSPN employs 2D linear propagation combined with &quot;stability-context conditions,&quot; reducing the computational complexity for high-resolution image processing from O(N²) or O(N) to O(√N) while fully preserving spatial coherence. This technology achieves significant improvements in both efficiency and accuracy across image classification and generation tasks. Notably, in the SD-XL model, GSPN accelerates 16K×8K image generation by over 84 times. GSPN inherently handles positional information without explicit embeddings and ensures stability, demonstrating immense potential for both academic and industrial applications. This innovation paves new directions for multimodal models and real-time visual applications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Visual Attention Mechanism</span><span class="tag tag-keyword">GSPN</span><span class="tag tag-keyword">High-Resolution Generation</span><span class="tag tag-keyword">Linear Propagation</span><span class="tag tag-keyword">Image Generation</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-06-10T05:16:42.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/-uCPihMoc9vqaM6pbnJxPQ" target="_blank" rel="noopener noreferrer">Huawei Achieves New AI Computing Power Milestone: 98% Availability in Ten-Thousand-Card Cluster Training, Second-Level Recovery, Minute-Level Diagnostics</a></h3>
+    <p class="story-summary">Huawei has achieved groundbreaking advancements in AI computing power, setting new industry benchmarks for large-scale AI clusters. Through the implementation of an innovative &quot;3+3&quot; dual-dimension technical system, the company has significantly enhanced the availability, recovery speed, and linearity of its ten-thousand-card AI clusters. This comprehensive system integrates three fundamental capabilities—full-stack observability, advanced fault diagnosis, and robust self-healing fault tolerance—with three critical business support capabilities: optimized cluster linearity, rapid training recovery, and rapid inference recovery. As a result, Huawei has demonstrated an impressive 98% training availability for its ten-thousand-card clusters, achieving fault recovery in mere seconds, diagnostics within minutes, and linearity exceeding 95%. These pioneering innovations not only substantially boost the efficiency and stability of large model training and inference but also effectively address long-standing critical challenges associated with deploying and managing large-scale AI applications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Huawei</span><span class="tag tag-keyword">AI Computing Power</span><span class="tag tag-keyword">Ten-Thousand-Card Cluster</span><span class="tag tag-keyword">High Availability</span><span class="tag tag-keyword">Fault Recovery</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-06-10T05:16:42.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/0DVNQbifWQ5nWHKPNSwwHA" target="_blank" rel="noopener noreferrer">Peking University and UC Berkeley Unveil IDA-Bench: A New Benchmark Exposing LLM Agents&#x27; Limitations in Iterative Data Analysis, Top Models Score Only 40%</a></h3>
+    <p class="story-summary">Peking University and UC Berkeley have jointly introduced IDA-Bench, a novel benchmark designed to simulate real-world, iterative, and exploratory data analysis scenarios, specifically evaluating large language model agents&#x27; performance under multi-turn, dynamic instructions. Unlike traditional single-turn evaluations, IDA-Bench exposes the challenges of continuous interaction. Test results reveal that even top models like Claude-3.7 and Gemini-2.5 Pro achieve only a 40% task success rate, significantly below expectations. The research highlights current agents&#x27; profound difficulty in balancing strict instruction adherence with necessary autonomous reasoning, often exhibiting &quot;overconfident&quot; or &quot;overcautious&quot; behaviors that lead to critical task failures. This comprehensive evaluation underscores the critical need for substantial improvements in LLM agents&#x27; understanding, instruction following, and interactive capabilities to truly become reliable and effective data analysis assistants in complex, real-world settings.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Data Analysis</span><span class="tag tag-keyword">Benchmark</span><span class="tag tag-keyword">Iterative Interaction</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-06-10T04:06:16.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/cNGAFt0FxbI0_WPwYZgEmA" target="_blank" rel="noopener noreferrer">Let AI Design Chips! Chinese Academy of Sciences Launches &#x27;QiMeng&#x27; for Fully Automated Chip Design Flow</a></h3>
+    <p class="story-summary">The Institute of Computing Technology, Chinese Academy of Sciences, in collaboration with the Institute of Software, has unveiled &#x27;QiMeng,&#x27; a fully automated design system for processor chips and foundational software, powered by large models and other AI technologies. This system can autonomously complete chip hardware and software design, partially or entirely surpassing human expert levels. It has successfully designed RISC-V CPUs automatically, achieving performance comparable to ARM Cortex A53. &#x27;QiMeng&#x27; employs a three-tiered architecture comprising domain-specific large models, intelligent agents, and an application layer. It addresses challenges such as data scarcity, correctness, and solution scale through an iterative evolution approach, promising to significantly enhance chip design efficiency, shorten development cycles, enable rapid customization, and fundamentally transform the paradigm of processor chip hardware and software design.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Chip Design</span><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Large Models</span><span class="tag tag-keyword">Automated Design</span><span class="tag tag-keyword">QiMeng System</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-06-10T03:59:40.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/_5M7uc86kCTWxqSUSPkIfg" target="_blank" rel="noopener noreferrer">Are Large Language Models &#x27;Observing the World from a Cave&#x27;? RL Expert Warns of LLM&#x27;s Fatal Flaws</a></h3>
+    <p class="story-summary">University of California, Berkeley reinforcement learning expert Sergey Levine argues that current Large Language Models (LLMs) do not learn directly from the world but rather indirectly &quot;scan&quot; the &quot;projections&quot; of human thought processes from internet text, akin to observers in Plato&#x27;s Cave. He contends that LLMs&#x27; success stems from &quot;reverse engineering&quot; human cognitive processes, not from genuinely understanding the world or learning from direct experience. Levine questions the limitations of LLMs in physical world comprehension and autonomous skill acquisition, proposing that future AI development must explore new methods for acquiring representations directly from physical experience. This approach is crucial for achieving truly flexible and adaptive intelligence, moving beyond merely replicating the &quot;shadows&quot; of human minds. He contrasts this with the relative lack of success in video models, despite video containing richer real-world information. The core issue, according to Levine, is that LLMs are mimicking human intelligence by observing its output, not by developing their own understanding of reality. This perspective challenges the current trajectory of AGI research, advocating for AI systems that can learn and adapt from their own interactions with the physical world, rather than relying on human-mediated data.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Plato&#x27;s Cave</span><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Cognitive Limitations</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-06-09T17:59:53.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2506.08007" target="_blank" rel="noopener noreferrer">Reinforcement Pre-Training</a></h3>
+    <p class="story-summary">In this work, we introduce Reinforcement Pre-Training (RPT) as a new scaling paradigm for large language models and reinforcement learning (RL). Specifically, we reframe next-token prediction as a reasoning task trained using RL, where it receives verifiable rewards for correctly predicting the next token for a given context. RPT offers a scalable method to leverage vast amounts of text data for general-purpose RL, rather than relying on domain-specific annotated answers. By incentivizing the capability of next-token reasoning, RPT significantly improves the language modeling accuracy of predicting the next tokens. Moreover, RPT provides a strong pre-trained foundation for further reinforcement fine-tuning. The scaling curves show that increased training compute consistently improves the next-token prediction accuracy. The results position RPT as an effective and promising scaling paradigm to advance language model pre-training.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Reinforcement Pre-Training</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Next-token prediction</span><span class="tag tag-keyword">Language Model Pre-training</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-06-09T16:16:50.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2506.07900" target="_blank" rel="noopener noreferrer">MiniCPM4: Ultra-Efficient LLMs on End Devices</a></h3>
+    <p class="story-summary">This paper introduces MiniCPM4, a highly efficient large language model (LLM) designed explicitly for end-side devices. We achieve this efficiency through systematic innovation in four key dimensions: model architecture, training data, training algorithms, and inference systems. Specifically, in terms of model architecture, we propose InfLLM v2, a trainable sparse attention mechanism that accelerates both prefilling and decoding phases for long-context processing. Regarding training data, we propose UltraClean, an efficient and accurate pre-training data filtering and generation strategy, and UltraChat v2, a comprehensive supervised fine-tuning dataset. These datasets enable satisfactory model performance to be achieved using just 8 trillion training tokens. Regarding training algorithms, we propose ModelTunnel v2 for efficient pre-training strategy search, and improve existing post-training methods by introducing chunk-wise rollout for load-balanced reinforcement learning and data-efficient tenary LLM, BitCPM. Regarding inference systems, we propose CPM.cu that integrates sparse attention, model quantization, and speculative sampling to achieve efficient prefilling and decoding. To meet diverse on-device requirements, MiniCPM4 is available in two versions, with 0.5B and 8B parameters, respectively. Sufficient evaluation results show that MiniCPM4 outperforms open-source models of similar size across multiple benchmarks, highlighting both its efficiency and effectiveness. Notably, MiniCPM4-8B demonstrates significant speed improvements over Qwen3-8B when processing long sequences. Through further adaptation, MiniCPM4 successfully powers diverse applications, including trustworthy survey generation and tool use with model context protocol, clearly showcasing its broad usability.</p>
+    <div class="story-tags"><span class="tag tag-keyword">MiniCPM4</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">End Devices</span><span class="tag tag-keyword">Ultra-Efficient</span><span class="tag tag-keyword">Sparse Attention</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-06-09T17:45:18.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2506.07971" target="_blank" rel="noopener noreferrer">CyberV: Cybernetics for Test-time Scaling in Video Understanding</a></h3>
+    <p class="story-summary">Current Multimodal Large Language Models (MLLMs) may struggle with understanding long or complex videos due to computational demands at test time, lack of robustness, and limited accuracy, primarily stemming from their feed-forward processing nature. These limitations could be more severe for models with fewer parameters. To address these limitations, we propose a novel framework inspired by cybernetic principles, redesigning video MLLMs as adaptive systems capable of self-monitoring, self-correction, and dynamic resource allocation during inference. Our approach, CyberV, introduces a cybernetic loop consisting of an MLLM Inference System, a Sensor, and a Controller. Specifically, the sensor monitors forward processes of the MLLM and collects intermediate interpretations, such as attention drift, then the controller determines when and how to trigger self-correction and generate feedback to guide the next round. This test-time adaptive scaling framework enhances frozen MLLMs without requiring retraining or additional components. Experiments demonstrate significant improvements: CyberV boosts Qwen2.5-VL-7B by 8.3% and InternVL3-8B by 5.5% on VideoMMMU, surpassing the competitive proprietary model GPT-4o. When applied to Qwen2.5-VL-72B, it yields a 10.0% improvement, achieving performance even comparable to human experts. Furthermore, our method demonstrates consistent gains on general-purpose benchmarks, such as VideoMME and WorldSense, highlighting its effectiveness and generalization capabilities in making MLLMs more robust and accurate for dynamic video understanding. The code is released at https://github.com/marinero4972/CyberV.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Video Understanding</span><span class="tag tag-keyword">Multimodal Large Language Models</span><span class="tag tag-keyword">Cybernetics</span><span class="tag tag-keyword">Test-time Adaptation</span><span class="tag tag-keyword">Self-correction</span><span class="tag tag-area">Video Understanding</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-06-09T15:11:09.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2506.07848" target="_blank" rel="noopener noreferrer">PolyVivid: Vivid Multi-Subject Video Generation with Cross-Modal Interaction and Enhancement</a></h3>
+    <p class="story-summary">Despite recent advances in video generation, existing models still lack fine-grained controllability, especially for multi-subject customization with consistent identity and interaction. In this paper, we propose PolyVivid, a multi-subject video customization framework that enables flexible and identity-consistent generation. To establish accurate correspondences between subject images and textual entities, we design a VLLM-based text-image fusion module that embeds visual identities into the textual space for precise grounding. To further enhance identity preservation and subject interaction, we propose a 3D-RoPE-based enhancement module that enables structured bidirectional fusion between text and image embeddings. Moreover, we develop an attention-inherited identity injection module to effectively inject fused identity features into the video generation process, mitigating identity drift. Finally, we construct an MLLM-based data pipeline that combines MLLM-based grounding, segmentation, and a clique-based subject consolidation strategy to produce high-quality multi-subject data, effectively enhancing subject distinction and reducing ambiguity in downstream video generation. Extensive experiments demonstrate that PolyVivid achieves superior performance in identity fidelity, video realism, and subject alignment, outperforming existing open-source and commercial baselines.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multi-subject video generation</span><span class="tag tag-keyword">Cross-modal interaction</span><span class="tag tag-keyword">Identity preservation</span><span class="tag tag-keyword">Video customization</span><span class="tag tag-keyword">Multimodal models</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-06-09T17:59:57.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2506.08012" target="_blank" rel="noopener noreferrer">GUI-Reflection: Empowering Multimodal GUI Models with Self-Reflection Behavior</a></h3>
+    <p class="story-summary">Multimodal Large Language Models (MLLMs) have shown great potential in revolutionizing Graphical User Interface (GUI) automation. However, existing GUI models mostly rely on learning from nearly error-free offline trajectories, thus lacking reflection and error recovery capabilities. To bridge this gap, we propose GUI-Reflection, a novel framework that explicitly integrates self-reflection and error correction capabilities into end-to-end multimodal GUI models throughout dedicated training stages: GUI-specific pre-training, offline supervised fine-tuning (SFT), and online reflection tuning. GUI-reflection enables self-reflection behavior emergence with fully automated data generation and learning processes without requiring any human annotation. Specifically, 1) we first propose scalable data pipelines to automatically construct reflection and error correction data from existing successful trajectories. While existing GUI models mainly focus on grounding and UI understanding ability, we propose the GUI-Reflection Task Suite to learn and evaluate reflection-oriented abilities explicitly. 2) Furthermore, we built a diverse and efficient environment for online training and data collection of GUI models on mobile devices. 3) We also present an iterative online reflection tuning algorithm leveraging the proposed environment, enabling the model to continuously enhance its reflection and error correction abilities. Our framework equips GUI agents with self-reflection and correction capabilities, paving the way for more robust, adaptable, and intelligent GUI automation, with all data, models, environments, and tools to be released publicly.</p>
+    <div class="story-tags"><span class="tag tag-keyword">GUI Automation</span><span class="tag tag-keyword">Multimodal Large Language Models</span><span class="tag tag-keyword">Self-reflection</span><span class="tag tag-keyword">Error Correction</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-06-09T09:04:37.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2506.07564" target="_blank" rel="noopener noreferrer">SAFEFLOW: A Principled Protocol for Trustworthy and Transactional Autonomous Agent Systems</a></h3>
+    <p class="story-summary">Recent advances in large language models (LLMs) and vision-language models (VLMs) have enabled powerful autonomous agents capable of complex reasoning and multi-modal tool use. Despite their growing capabilities, today&#x27;s agent frameworks remain fragile, lacking principled mechanisms for secure information flow, reliability, and multi-agent coordination. In this work, we introduce SAFEFLOW, a new protocol-level framework for building trustworthy LLM/VLM-based agents. SAFEFLOW enforces fine-grained information flow control (IFC), precisely tracking provenance, integrity, and confidentiality of all the data exchanged between agents, tools, users, and environments. By constraining LLM reasoning to respect these security labels, SAFEFLOW prevents untrusted or adversarial inputs from contaminating high-integrity decisions. To ensure robustness in concurrent multi-agent settings, SAFEFLOW introduces transactional execution, conflict resolution, and secure scheduling over shared state, preserving global consistency across agents. We further introduce mechanisms, including write-ahead logging, rollback, and secure caches, that further enhance resilience against runtime errors and policy violations. To validate the performances, we built SAFEFLOWBENCH, a comprehensive benchmark suite designed to evaluate agent reliability under adversarial, noisy, and concurrent operational conditions. Extensive experiments demonstrate that agents built with SAFEFLOW maintain impressive task performance and security guarantees even in hostile environments, substantially outperforming state-of-the-art. Together, SAFEFLOW and SAFEFLOWBENCH lay the groundwork for principled, robust, and secure agent ecosystems, advancing the frontier of reliable autonomy.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Autonomous Agents</span><span class="tag tag-keyword">Information Flow Control</span><span class="tag tag-keyword">Transactional Execution</span><span class="tag tag-keyword">Multi-Agent Systems</span><span class="tag tag-keyword">Trustworthy Protocol</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
 </body>
 </html>

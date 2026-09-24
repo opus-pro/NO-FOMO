@@ -1,287 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2026-01-17</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO AI 日报 — 2026-01-17</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"PingFang SC","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em}.issue h1{margin:0;max-width:820px;font:800 clamp(2.6rem,7vw,6.3rem)/1.02 Georgia,"Songti SC",serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:800 clamp(1.5rem,3vw,2.35rem)/1.2 Georgia,"Songti SC",serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.86 Georgia,"Songti SC",serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <h1>AI Daily Report</h1>
-            <p class="date">2026-01-17</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>OpenAI will start testing ads in ChatGPT free and Go tiers</h2>
-                <span class="published-time">Published: 2026-01-17 17:34:25</span>
-                
-                <p class="summary">OpenAI has announced a pivotal change to its business model, initiating tests for advertisements within the free and 'Go' tiers of its popular conversational AI, ChatGPT. This strategic move aims to diversify revenue streams and address the substantial operational costs associated with deploying and maintaining large language models at scale. The introduction of ads signifies an effort to further monetize ChatGPT's extensive user base, balancing the provision of free access to advanced AI capabilities with the imperative for financial sustainability. For users, this could mean an altered experience in the non-premium versions, potentially pushing some toward paid subscriptions for an ad-free interface. This development is likely to influence the broader AI industry, as companies grapple with effective monetization strategies for generative AI services, setting a potential precedent for how leading AI products integrate commercial content without compromising core utility or user perception of value in a competitive landscape.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>ChatGPT</span><span>OpenAI</span><span>AI monetization</span><span>Advertising</span><span>Generative AI</span><span>Business Model</span><span>Large Language Models</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/OpenAI/status/2012223373489614951" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>ClickHouse acquires Langfuse</h2>
-                <span class="published-time">Published: 2026-01-17 09:15:45</span>
-                
-                <p class="summary">ClickHouse, the high-performance analytical database company, has announced its acquisition of Langfuse, an open-source observability and analytics solution specifically designed for large language model (LLM) applications. This strategic move aims to integrate Langfuse's specialized capabilities for monitoring, debugging, and evaluating LLM-powered applications directly into ClickHouse's robust data infrastructure. The acquisition is expected to empower developers and organizations building AI applications with enhanced visibility into their LLM operations, offering tools for tracing, logging, and performance analysis directly alongside their analytical data. This will streamline the development lifecycle of AI agents and applications, providing a unified platform for managing and optimizing LLM interactions and outputs, thereby advancing the field of AI observability and MLOps.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>ClickHouse</span><span>Langfuse</span><span>LLM Observability</span><span>AI Applications</span><span>Analytics Database</span><span>MLOps</span><span>Generative AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://langfuse.com/blog/joining-clickhouse" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>The recurring dream of replacing developers</h2>
-                <span class="published-time">Published: 2026-01-17 14:31:33</span>
-                
-                <p class="summary">The article addresses the enduring concept of automating or fully replacing human software developers with advanced technology, a notion that has periodically resurfaced with each technological leap. Historically, this 'dream' has been propelled by advancements in code generation and automation tools, and more recently, by the rapid progress in Artificial Intelligence, particularly Large Language Models and AI agents. While these technologies show significant promise in automating routine coding tasks, debugging, and even generating initial code structures, the piece implicitly argues against the complete obsolescence of human developers. It highlights that software development encompasses far more than just writing code, including complex problem-solving, architectural design, understanding nuanced user requirements, collaborative teamwork, and continuous learning. The consensus remains that AI tools are more likely to augment human capabilities, acting as powerful assistants, rather than fully autonomous replacements, thereby evolving the developer's role to focus on higher-level abstraction and creative problem-solving.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Software Development</span><span>AI Automation</span><span>Code Generation</span><span>Developer Tools</span><span>Future of Work</span><span>Artificial Intelligence</span><span>Large Language Models</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.caimito.net/en/blog/2025/12/07/the-recurring-dream-of-replacing-developers.html" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>I built a tool to assist AI agents to know when a PR is good to go</h2>
-                <span class="published-time">Published: 2026-01-17 09:55:56</span>
-                
-                <p class="summary">A new tool, 'gtg' (Good To Go), has been developed to address a critical challenge faced by AI agents in software development workflows: deterministically knowing when a Pull Request (PR) is truly ready for merge. The creator, who heavily uses models like Claude Code, identified that AI agents often struggle with continuous integration (CI) polling loops, filtering actionable feedback from extensive suggestions (e.g., CodeRabbit), and resolving open discussion threads. This inability to accurately assess PR completion leads to inefficiencies, such as agents prematurely declaring victory or getting stuck in polling cycles. The 'gtg' tool provides a simple command-line interface that, given a PR number, offers a clear and definitive 'READY' status. This mechanism empowers AI agents to accurately determine when their tasks are complete and a PR is genuinely ready for merging, thereby enhancing the overall efficiency and reliability of AI-driven development processes by providing a concrete, unambiguous signal for PR status assessment.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agents</span><span>Pull Request Automation</span><span>Code Review</span><span>Continuous Integration</span><span>Software Development</span><span>Developer Tools</span><span>Deterministic Systems</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Artificial Intelligence</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://dsifry.github.io/goodtogo/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Map To Poster – Create Art of your favourite city</h2>
-                <span class="published-time">Published: 2026-01-17 10:13:57</span>
-                
-                <p class="summary">Map To Poster is an innovative open-source project, accessible via GitHub, designed to transform geographical map data into personalized poster art. This tool empowers users to select their preferred cities or locations and generate aesthetically unique visual representations, effectively converting complex urban layouts into decorative and customizable artworks. The project likely leverages various data visualization and image processing techniques to stylize map information, enabling the creation of distinct graphic designs that reflect the essence of a chosen locale. Its core appeal lies in bridging the gap between utilitarian cartography and artistic expression, offering a creative outlet for individuals interested in personalized decor, urban planning visualization, or digital art creation. By automating the artistic rendering of geospatial data, Map To Poster demonstrates a practical application of programming for generating visually compelling and unique outputs from abstract datasets.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Map Visualization</span><span>Generative Art</span><span>Geospatial Data</span><span>Data Art</span><span>Open Source Software</span><span>Creative Coding</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Computer Vision</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/originalankur/maptoposter" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: Streaming gigabyte medical images from S3 without downloading them</h2>
-                <span class="published-time">Published: 2026-01-17 08:46:08</span>
-                
-                <p class="summary">A new project, WSIStreamer, has been unveiled, addressing the significant challenge of efficiently handling gigabyte-sized medical images, such as Whole Slide Images (WSIs), that are commonly stored in Amazon S3 cloud storage. Traditionally, processing or analyzing such large files necessitates their full download, a process that is often time-consuming, bandwidth-intensive, and resource-heavy. WSIStreamer introduces an innovative approach that enables direct streaming of these massive datasets from S3 without the prerequisite of a complete local download. This method dramatically improves operational efficiency for medical imaging workflows, significantly reducing local storage demands and accelerating data access times. The solution holds particular promise for applications in computational pathology, advanced medical image analysis, and the development and training of AI/ML models, where rapid and on-demand access to high-resolution imagery is not just beneficial but critical for research, diagnostics, and real-time processing.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Medical Imaging</span><span>Whole Slide Imaging</span><span>Cloud Streaming</span><span>Amazon S3</span><span>Computational Pathology</span><span>Data Access Optimization</span><span>High-Performance Imaging</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Computer Vision</span><span>Machine Learning</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/PABannier/WSIStreamer" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">跳到新闻列表</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO 主页">NO<i>/</i>FOMO</a><nav class="nav" aria-label="日报导航"><a href="../../../home/">往期</a><a href="../en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">每天一次，过滤 AI 噪音</p><h1>值得打开的<br>AI 日报。</h1></div><div class="issue-meta"><span>发布日期</span><strong>2026-01-17</strong><span>中文版本</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-01-17 17:34:25</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/OpenAI/status/2012223373489614951" target="_blank" rel="noopener noreferrer">OpenAI will start testing ads in ChatGPT free and Go tiers</a></h3>
+    <p class="story-summary">OpenAI has announced a pivotal change to its business model, initiating tests for advertisements within the free and &#x27;Go&#x27; tiers of its popular conversational AI, ChatGPT. This strategic move aims to diversify revenue streams and address the substantial operational costs associated with deploying and maintaining large language models at scale. The introduction of ads signifies an effort to further monetize ChatGPT&#x27;s extensive user base, balancing the provision of free access to advanced AI capabilities with the imperative for financial sustainability. For users, this could mean an altered experience in the non-premium versions, potentially pushing some toward paid subscriptions for an ad-free interface. This development is likely to influence the broader AI industry, as companies grapple with effective monetization strategies for generative AI services, setting a potential precedent for how leading AI products integrate commercial content without compromising core utility or user perception of value in a competitive landscape.</p>
+    <div class="story-tags"><span class="tag tag-keyword">ChatGPT</span><span class="tag tag-keyword">OpenAI</span><span class="tag tag-keyword">AI monetization</span><span class="tag tag-keyword">Advertising</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-01-17 09:15:45</time></div>
+  <div class="story-body">
+    <h3><a href="https://langfuse.com/blog/joining-clickhouse" target="_blank" rel="noopener noreferrer">ClickHouse acquires Langfuse</a></h3>
+    <p class="story-summary">ClickHouse, the high-performance analytical database company, has announced its acquisition of Langfuse, an open-source observability and analytics solution specifically designed for large language model (LLM) applications. This strategic move aims to integrate Langfuse&#x27;s specialized capabilities for monitoring, debugging, and evaluating LLM-powered applications directly into ClickHouse&#x27;s robust data infrastructure. The acquisition is expected to empower developers and organizations building AI applications with enhanced visibility into their LLM operations, offering tools for tracing, logging, and performance analysis directly alongside their analytical data. This will streamline the development lifecycle of AI agents and applications, providing a unified platform for managing and optimizing LLM interactions and outputs, thereby advancing the field of AI observability and MLOps.</p>
+    <div class="story-tags"><span class="tag tag-keyword">ClickHouse</span><span class="tag tag-keyword">Langfuse</span><span class="tag tag-keyword">LLM Observability</span><span class="tag tag-keyword">AI Applications</span><span class="tag tag-keyword">Analytics Database</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-01-17 14:31:33</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.caimito.net/en/blog/2025/12/07/the-recurring-dream-of-replacing-developers.html" target="_blank" rel="noopener noreferrer">The recurring dream of replacing developers</a></h3>
+    <p class="story-summary">The article addresses the enduring concept of automating or fully replacing human software developers with advanced technology, a notion that has periodically resurfaced with each technological leap. Historically, this &#x27;dream&#x27; has been propelled by advancements in code generation and automation tools, and more recently, by the rapid progress in Artificial Intelligence, particularly Large Language Models and AI agents. While these technologies show significant promise in automating routine coding tasks, debugging, and even generating initial code structures, the piece implicitly argues against the complete obsolescence of human developers. It highlights that software development encompasses far more than just writing code, including complex problem-solving, architectural design, understanding nuanced user requirements, collaborative teamwork, and continuous learning. The consensus remains that AI tools are more likely to augment human capabilities, acting as powerful assistants, rather than fully autonomous replacements, thereby evolving the developer&#x27;s role to focus on higher-level abstraction and creative problem-solving.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Software Development</span><span class="tag tag-keyword">AI Automation</span><span class="tag tag-keyword">Code Generation</span><span class="tag tag-keyword">Developer Tools</span><span class="tag tag-keyword">Future of Work</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-01-17 09:55:56</time></div>
+  <div class="story-body">
+    <h3><a href="https://dsifry.github.io/goodtogo/" target="_blank" rel="noopener noreferrer">I built a tool to assist AI agents to know when a PR is good to go</a></h3>
+    <p class="story-summary">A new tool, &#x27;gtg&#x27; (Good To Go), has been developed to address a critical challenge faced by AI agents in software development workflows: deterministically knowing when a Pull Request (PR) is truly ready for merge. The creator, who heavily uses models like Claude Code, identified that AI agents often struggle with continuous integration (CI) polling loops, filtering actionable feedback from extensive suggestions (e.g., CodeRabbit), and resolving open discussion threads. This inability to accurately assess PR completion leads to inefficiencies, such as agents prematurely declaring victory or getting stuck in polling cycles. The &#x27;gtg&#x27; tool provides a simple command-line interface that, given a PR number, offers a clear and definitive &#x27;READY&#x27; status. This mechanism empowers AI agents to accurately determine when their tasks are complete and a PR is genuinely ready for merging, thereby enhancing the overall efficiency and reliability of AI-driven development processes by providing a concrete, unambiguous signal for PR status assessment.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Pull Request Automation</span><span class="tag tag-keyword">Code Review</span><span class="tag tag-keyword">Continuous Integration</span><span class="tag tag-keyword">Software Development</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-01-17 10:13:57</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/originalankur/maptoposter" target="_blank" rel="noopener noreferrer">Map To Poster – Create Art of your favourite city</a></h3>
+    <p class="story-summary">Map To Poster is an innovative open-source project, accessible via GitHub, designed to transform geographical map data into personalized poster art. This tool empowers users to select their preferred cities or locations and generate aesthetically unique visual representations, effectively converting complex urban layouts into decorative and customizable artworks. The project likely leverages various data visualization and image processing techniques to stylize map information, enabling the creation of distinct graphic designs that reflect the essence of a chosen locale. Its core appeal lies in bridging the gap between utilitarian cartography and artistic expression, offering a creative outlet for individuals interested in personalized decor, urban planning visualization, or digital art creation. By automating the artistic rendering of geospatial data, Map To Poster demonstrates a practical application of programming for generating visually compelling and unique outputs from abstract datasets.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Map Visualization</span><span class="tag tag-keyword">Generative Art</span><span class="tag tag-keyword">Geospatial Data</span><span class="tag tag-keyword">Data Art</span><span class="tag tag-keyword">Open Source Software</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-01-17 08:46:08</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/PABannier/WSIStreamer" target="_blank" rel="noopener noreferrer">Show HN: Streaming gigabyte medical images from S3 without downloading them</a></h3>
+    <p class="story-summary">A new project, WSIStreamer, has been unveiled, addressing the significant challenge of efficiently handling gigabyte-sized medical images, such as Whole Slide Images (WSIs), that are commonly stored in Amazon S3 cloud storage. Traditionally, processing or analyzing such large files necessitates their full download, a process that is often time-consuming, bandwidth-intensive, and resource-heavy. WSIStreamer introduces an innovative approach that enables direct streaming of these massive datasets from S3 without the prerequisite of a complete local download. This method dramatically improves operational efficiency for medical imaging workflows, significantly reducing local storage demands and accelerating data access times. The solution holds particular promise for applications in computational pathology, advanced medical image analysis, and the development and training of AI/ML models, where rapid and on-demand access to high-resolution imagery is not just beneficial but critical for research, diagnostics, and real-time processing.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Medical Imaging</span><span class="tag tag-keyword">Whole Slide Imaging</span><span class="tag tag-keyword">Cloud Streaming</span><span class="tag tag-keyword">Amazon S3</span><span class="tag tag-keyword">Computational Pathology</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>AI 辅助筛选，原始来源始终可查。</span></footer>
 </body>
 </html>

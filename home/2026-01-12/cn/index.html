@@ -1,374 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2026-01-12</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO AI 日报 — 2026-01-12</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"PingFang SC","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em}.issue h1{margin:0;max-width:820px;font:800 clamp(2.6rem,7vw,6.3rem)/1.02 Georgia,"Songti SC",serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:800 clamp(1.5rem,3vw,2.35rem)/1.2 Georgia,"Songti SC",serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.86 Georgia,"Songti SC",serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <h1>AI Daily Report</h1>
-            <p class="date">2026-01-12</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Apple picks Google's Gemini to power Siri</h2>
-                <span class="published-time">Published: 2026-01-12 15:22:21</span>
-                
-                <p class="summary">Apple has reportedly made a strategic decision to integrate Google's advanced Gemini artificial intelligence model into its virtual assistant, Siri. This move signifies a major collaboration between two of the tech industry's leading companies in the rapidly evolving AI landscape. The integration of Gemini is expected to significantly enhance Siri's capabilities, promising more sophisticated conversational interactions, improved natural language understanding, and more intelligent and contextually relevant responses across Apple's diverse ecosystem of devices. This partnership underscores Apple's pragmatic approach to leveraging cutting-edge external AI research and development to accelerate improvements in its own AI offerings, rather than exclusively relying on in-house solutions for all foundational aspects of its AI infrastructure. The decision highlights the immense resources and specialized expertise required to develop state-of-the-art AI, compelling even tech giants to seek external partnerships. This collaboration is poised to reshape the competitive dynamics among virtual assistants and reinforce Google's position as a premier provider of foundational AI models, ultimately leading to a more powerful and intuitive Siri for users.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Integration</span><span>Virtual Assistant Technology</span><span>Natural Language Processing</span><span>Machine Learning Partnership</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.cnbc.com/2026/01/12/apple-google-ai-siri-gemini.html" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Cowork: Claude Code for the rest of your work</h2>
-                <span class="published-time">Published: 2026-01-12 19:27:19</span>
-                
-                <p class="summary">Anthropic has announced 'Cowork,' a new research preview leveraging their Claude AI model, designed to seamlessly integrate into users' daily workflows for enhanced productivity. 'Cowork' aims to serve as an intelligent AI assistant, specifically focusing on aiding with coding tasks, but also extending its capabilities to other general work-related functions. This initiative signifies Anthropic's expansion of Claude's application beyond direct chat interfaces, positioning it as a collaborative 'coworker' that can assist in various stages of software development, problem-solving, and content generation. As a research preview, 'Cowork' represents an early-stage exploration into how advanced large language models can become more deeply embedded and helpful in professional environments, offering assistance from initial concept to execution and debugging. This development highlights the ongoing trend of transforming powerful AI models into practical, workflow-integrated tools.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Claude AI</span><span>AI assistant</span><span>Code generation</span><span>Productivity tools</span><span>Large Language Models</span><span>Software development</span><span>Research preview</span><span>Anthropic</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://claude.com/blog/cowork-research-preview" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>X Didn't Fix Grok's 'Undressing' Problem. It Just Makes People Pay for It</h2>
-                <span class="published-time">Published: 2026-01-12 19:11:33</span>
-                
-                <p class="summary">The article reports on a critical issue concerning Grok, the artificial intelligence model developed by xAI and integrated into the X platform. It highlights that a significant safety and ethical flaw, referred to as Grok's 'undressing' problem—implying the generation of inappropriate or explicit content—remains unaddressed. Instead of implementing a technical fix to prevent such outputs, the X platform has reportedly chosen to gate access to Grok behind a paywall. This decision sparks considerable debate regarding responsible AI development, content moderation strategies, and the monetization of potentially harmful generative AI capabilities. Critics argue that this approach prioritizes subscription revenue over user safety and ethical AI guidelines, raising concerns about the potential for misuse and the platform's commitment to mitigating risks associated with advanced AI systems. The situation underscores ongoing challenges in deploying large language models responsibly and the intricate balance between innovation, ethical considerations, and business models in the AI landscape.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI ethics</span><span>Generative AI</span><span>Large Language Model</span><span>Content Moderation</span><span>AI safety</span><span>Grok</span><span>Responsible AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.wired.com/story/x-didnt-fix-groks-undressing-problem-it-just-makes-people-pay-for-it/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Ireland fast tracks Bill to criminalise harmful voice or image misuse</h2>
-                <span class="published-time">Published: 2026-01-12 13:38:36</span>
-                
-                <p class="summary">Ireland is expediting new legislation aimed at criminalizing the harmful misuse of synthetic media, specifically targeting AI-generated voice and image manipulation, commonly known as deepfakes. This legislative push underscores growing concerns within the government regarding the potential for artificial intelligence technologies to facilitate identity hijacking, spread misinformation, and inflict significant digital harm on individuals. The Bill seeks to establish a robust legal framework to address these rapidly emerging threats, providing a clear mechanism for prosecution against those who maliciously create or disseminate deceptive content that exploits advanced AI capabilities. This proactive measure reflects an increasing global trend among nations to regulate the societal impact of generative AI, striving to safeguard personal privacy, prevent sophisticated fraud, and maintain public trust in digital information. The initiative highlights the critical need for legal frameworks to evolve alongside technological advancements, ensuring accountability in the evolving digital landscape and protecting citizens from the malicious use of powerful AI tools.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI regulation</span><span>Deepfake technology</span><span>Generative AI</span><span>Synthetic media</span><span>Digital identity</span><span>Voice synthesis</span><span>Image manipulation</span><span>Cybercrime legislation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Generative AI</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.irishtimes.com/ireland/2026/01/07/call-to-fast-track-bill-targeting-ai-deepfakes-and-identity-hijacking/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>TimeCapsuleLLM: LLM trained only on data from 1800-1875</h2>
-                <span class="published-time">Published: 2026-01-12 16:04:27</span>
-                
-                <p class="summary">TimeCapsuleLLM introduces a unique research initiative centered on the development of a Large Language Model (LLM) trained exclusively on textual data originating from the period spanning 1800 to 1875. This project seeks to thoroughly investigate the inherent capabilities and potential limitations of LLMs when their training is stringently confined to a historically specific dataset. The primary objective is to gain profound insights into the temporal biases present within training data and to understand their subsequent influence on an LLM's overall performance, factual accuracy, and the 'worldview' it encapsulates. By meticulously restricting the training corpus to this defined historical window, TimeCapsuleLLM explores how these models process and articulate knowledge, comprehend period-specific concepts, and generate text that accurately reflects the linguistic and intellectual landscape of that particular era. This innovative approach offers a valuable platform for examining the historical evolution of language models and assessing their capacity to effectively simulate and engage with past intellectual environments.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Model</span><span>Historical Data</span><span>Natural Language Processing</span><span>AI Research</span><span>Temporal AI</span><span>Dataset Bias</span><span>Linguistic History</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Natural Language Processing</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/haykgrigo3/TimeCapsuleLLM" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: AI in SolidWorks</h2>
-                <span class="published-time">Published: 2026-01-12 16:56:17</span>
-                
-                <p class="summary">Will and Jorge have launched LAD (Language-Aided Design), an innovative add-in for SolidWorks that integrates Large Language Models (LLMs) into the Computer-Aided Design (CAD) workflow. The developers, with backgrounds in software engineering, identified a gap in major CAD systems where direct text-to-modeling capabilities, akin to advanced AI tools in code generation, were absent. LAD addresses this by enabling users to generate sketches, features, assemblies, and macros within SolidWorks through conversational text inputs and uploaded documents or images. While acknowledging that current LLMs demonstrate greater proficiency in code writing than 3D object generation, the creators anticipate rapid advancements in this area. The add-in is designed with numerous tools that the LLM can invoke, offering a novel approach to design automation and interaction within the SolidWorks environment. This development signifies a notable step towards enhancing mechanical design and engineering with advanced AI.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI</span><span>SolidWorks</span><span>CAD</span><span>Large Language Model</span><span>Generative AI</span><span>Language-Aided Design</span><span>Design Automation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.trylad.com" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>Chaining the Evidence: Robust Reinforcement Learning for Deep Search Agents with Citation-Aware Rubric Rewards</h2>
-                <span class="published-time">Published: 2026-01-09T18:57:53.000Z</span>
-                
-                <p class="summary">Reinforcement learning (RL) has emerged as a critical technique for enhancing LLM-based deep search agents. However, existing approaches primarily rely on binary outcome rewards, which fail to capture the comprehensiveness and factuality of agents' reasoning process, and often lead to undesirable behaviors such as shortcut exploitation and hallucinations. To address these limitations, we propose Citation-aware Rubric Rewards (CaRR), a fine-grained reward framework for deep search agents that emphasizes reasoning comprehensiveness, factual grounding, and evidence connectivity. CaRR decomposes complex questions into verifiable single-hop rubrics and requires agents to satisfy these rubrics by explicitly identifying hidden entities, supporting them with correct citations, and constructing complete evidence chains that link to the predicted answer. We further introduce Citation-aware Group Relative Policy Optimization (C-GRPO), which combines CaRR and outcome rewards for training robust deep search agents. Experiments show that C-GRPO consistently outperforms standard outcome-based RL baselines across multiple deep search benchmarks. Our analysis also validates that C-GRPO effectively discourages shortcut exploitation, promotes comprehensive, evidence-grounded reasoning, and exhibits strong generalization to open-ended deep research tasks. Our code and data are available at https://github.com/THUDM/CaRR.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Reinforcement Learning</span><span>Deep Search Agents</span><span>Citation-aware Rewards</span><span>Large Language Models</span><span>Policy Optimization</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>AI Agent</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.06021" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>The Molecular Structure of Thought: Mapping the Topology of Long Chain-of-Thought Reasoning</h2>
-                <span class="published-time">Published: 2026-01-09T18:39:01.000Z</span>
-                
-                <p class="summary">Large language models (LLMs) often fail to learn effective long chain-of-thought (Long CoT) reasoning from human or non-Long-CoT LLMs imitation. To understand this, we propose that effective and learnable Long CoT trajectories feature stable molecular-like structures in unified view, which are formed by three interaction types: Deep-Reasoning (covalent-like), Self-Reflection (hydrogen-bond-like), and Self-Exploration (van der Waals-like). Analysis of distilled trajectories reveals these structures emerge from Long CoT fine-tuning, not keyword imitation. We introduce Effective Semantic Isomers and show that only bonds promoting fast entropy convergence support stable Long CoT learning, while structural competition impairs training. Drawing on these findings, we present Mole-Syn, a distribution-transfer-graph method that guides synthesis of effective Long CoT structures, boosting performance and RL stability across benchmarks.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Long Chain-of-Thought Reasoning</span><span>Large Language Models</span><span>Reasoning Structures</span><span>Entropy Convergence</span><span>Mole-Syn</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Natural Language Processing</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.06002" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>VideoAR: Autoregressive Video Generation via Next-Frame & Scale Prediction</h2>
-                <span class="published-time">Published: 2026-01-09T17:34:59.000Z</span>
-                
-                <p class="summary">Recent advances in video generation have been dominated by diffusion and flow-matching models, which produce high-quality results but remain computationally intensive and difficult to scale. In this work, we introduce VideoAR, the first large-scale Visual Autoregressive (VAR) framework for video generation that combines multi-scale next-frame prediction with autoregressive modeling. VideoAR disentangles spatial and temporal dependencies by integrating intra-frame VAR modeling with causal next-frame prediction, supported by a 3D multi-scale tokenizer that efficiently encodes spatio-temporal dynamics. To improve long-term consistency, we propose Multi-scale Temporal RoPE, Cross-Frame Error Correction, and Random Frame Mask, which collectively mitigate error propagation and stabilize temporal coherence. Our multi-stage pretraining pipeline progressively aligns spatial and temporal learning across increasing resolutions and durations. Empirically, VideoAR achieves new state-of-the-art results among autoregressive models, improving FVD on UCF-101 from 99.5 to 88.6 while reducing inference steps by over 10x, and reaching a VBench score of 81.74-competitive with diffusion-based models an order of magnitude larger. These results demonstrate that VideoAR narrows the performance gap between autoregressive and diffusion paradigms, offering a scalable, efficient, and temporally consistent foundation for future video generation research.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Video Generation</span><span>Autoregressive Models</span><span>Next-Frame Prediction</span><span>Multi-scale Prediction</span><span>VideoAR</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Computer Vision</span><span>Deep Learning</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.05966" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Can We Predict Before Executing Machine Learning Agents?</h2>
-                <span class="published-time">Published: 2026-01-09T16:44:17.000Z</span>
-                
-                <p class="summary">Autonomous machine learning agents have revolutionized scientific discovery, yet they remain constrained by a Generate-Execute-Feedback paradigm. Previous approaches suffer from a severe Execution Bottleneck, as hypothesis evaluation relies strictly on expensive physical execution. To bypass these physical constraints, we internalize execution priors to substitute costly runtime checks with instantaneous predictive reasoning, drawing inspiration from World Models. In this work, we formalize the task of Data-centric Solution Preference and construct a comprehensive corpus of 18,438 pairwise comparisons. We demonstrate that LLMs exhibit significant predictive capabilities when primed with a Verified Data Analysis Report, achieving 61.5% accuracy and robust confidence calibration. Finally, we instantiate this framework in FOREAGENT, an agent that employs a Predict-then-Verify loop, achieving a 6x acceleration in convergence while surpassing execution-based baselines by +6%. Our code and dataset will be publicly available soon at https://github.com/zjunlp/predict-before-execute.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Machine Learning Agents</span><span>Predictive Reasoning</span><span>Execution Bottleneck</span><span>Large Language Models</span><span>World Models</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Machine Learning</span><span>AI Agent</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.05930" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>EnvScaler: Scaling Tool-Interactive Environments for LLM Agent via Programmatic Synthesis</h2>
-                <span class="published-time">Published: 2026-01-09T14:32:06.000Z</span>
-                
-                <p class="summary">Large language models (LLMs) are expected to be trained to act as agents in various real-world environments, but this process relies on rich and varied tool-interaction sandboxes. However, access to real systems is often restricted; LLM-simulated environments are prone to hallucinations and inconsistencies; and manually built sandboxes are hard to scale. In this paper, we propose EnvScaler, an automated framework for scalable tool-interaction environments via programmatic synthesis. EnvScaler comprises two components. First, SkelBuilder constructs diverse environment skeletons through topic mining, logic modeling, and quality evaluation. Then, ScenGenerator generates multiple task scenarios and rule-based trajectory validation functions for each environment. With EnvScaler, we synthesize 191 environments and about 7K scenarios, and apply them to Supervised Fine-Tuning (SFT) and Reinforcement Learning (RL) for Qwen3 series models. Results on three benchmarks show that EnvScaler significantly improves LLMs' ability to solve tasks in complex environments involving multi-turn, multi-tool interactions. We release our code and data at https://github.com/RUC-NLPIR/EnvScaler.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>LLM Agent</span><span>Tool-Interactive Environments</span><span>Programmatic Synthesis</span><span>Environment Scaling</span><span>Automated Framework</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>AI Agent</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.05808" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Qwen3-VL-Embedding and Qwen3-VL-Reranker: A Unified Framework for State-of-the-Art Multimodal Retrieval and Ranking</h2>
-                <span class="published-time">Published: 2026-01-08T08:36:06.000Z</span>
-                
-                <p class="summary">In this report, we introduce the Qwen3-VL-Embedding and Qwen3-VL-Reranker model series, the latest extensions of the Qwen family built on the Qwen3-VL foundation model. Together, they provide an end-to-end pipeline for high-precision multimodal search by mapping diverse modalities, including text, images, document images, and video, into a unified representation space. The Qwen3-VL-Embedding model employs a multi-stage training paradigm, progressing from large-scale contrastive pre-training to reranking model distillation, to generate semantically rich high-dimensional vectors. It supports Matryoshka Representation Learning, enabling flexible embedding dimensions, and handles inputs up to 32k tokens. Complementing this, Qwen3-VL-Reranker performs fine-grained relevance estimation for query-document pairs using a cross-encoder architecture with cross-attention mechanisms. Both model series inherit the multilingual capabilities of Qwen3-VL, supporting more than 30 languages, and are released in 2B and 8B parameter sizes to accommodate diverse deployment requirements. Empirical evaluations demonstrate that the Qwen3-VL-Embedding series achieves state-of-the-art results across diverse multimodal embedding evaluation benchmarks. Specifically, Qwen3-VL-Embedding-8B attains an overall score of 77.8 on MMEB-V2, ranking first among all models (as of January 8, 2025). This report presents the architecture, training methodology, and practical capabilities of the series, demonstrating their effectiveness on various multimodal retrieval tasks, including image-text retrieval, visual question answering, and video-text matching.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multimodal Retrieval</span><span>Multimodal Ranking</span><span>Qwen3-VL-Embedding</span><span>Qwen3-VL-Reranker</span><span>Matryoshka Representation Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Deep Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.04720" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">跳到新闻列表</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO 主页">NO<i>/</i>FOMO</a><nav class="nav" aria-label="日报导航"><a href="../../../home/">往期</a><a href="../en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">每天一次，过滤 AI 噪音</p><h1>值得打开的<br>AI 日报。</h1></div><div class="issue-meta"><span>发布日期</span><strong>2026-01-12</strong><span>中文版本</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-01-12 15:22:21</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.cnbc.com/2026/01/12/apple-google-ai-siri-gemini.html" target="_blank" rel="noopener noreferrer">Apple picks Google&#x27;s Gemini to power Siri</a></h3>
+    <p class="story-summary">Apple has reportedly made a strategic decision to integrate Google&#x27;s advanced Gemini artificial intelligence model into its virtual assistant, Siri. This move signifies a major collaboration between two of the tech industry&#x27;s leading companies in the rapidly evolving AI landscape. The integration of Gemini is expected to significantly enhance Siri&#x27;s capabilities, promising more sophisticated conversational interactions, improved natural language understanding, and more intelligent and contextually relevant responses across Apple&#x27;s diverse ecosystem of devices. This partnership underscores Apple&#x27;s pragmatic approach to leveraging cutting-edge external AI research and development to accelerate improvements in its own AI offerings, rather than exclusively relying on in-house solutions for all foundational aspects of its AI infrastructure. The decision highlights the immense resources and specialized expertise required to develop state-of-the-art AI, compelling even tech giants to seek external partnerships. This collaboration is poised to reshape the competitive dynamics among virtual assistants and reinforce Google&#x27;s position as a premier provider of foundational AI models, ultimately leading to a more powerful and intuitive Siri for users.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">AI Integration</span><span class="tag tag-keyword">Virtual Assistant Technology</span><span class="tag tag-keyword">Natural Language Processing</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-01-12 19:27:19</time></div>
+  <div class="story-body">
+    <h3><a href="https://claude.com/blog/cowork-research-preview" target="_blank" rel="noopener noreferrer">Cowork: Claude Code for the rest of your work</a></h3>
+    <p class="story-summary">Anthropic has announced &#x27;Cowork,&#x27; a new research preview leveraging their Claude AI model, designed to seamlessly integrate into users&#x27; daily workflows for enhanced productivity. &#x27;Cowork&#x27; aims to serve as an intelligent AI assistant, specifically focusing on aiding with coding tasks, but also extending its capabilities to other general work-related functions. This initiative signifies Anthropic&#x27;s expansion of Claude&#x27;s application beyond direct chat interfaces, positioning it as a collaborative &#x27;coworker&#x27; that can assist in various stages of software development, problem-solving, and content generation. As a research preview, &#x27;Cowork&#x27; represents an early-stage exploration into how advanced large language models can become more deeply embedded and helpful in professional environments, offering assistance from initial concept to execution and debugging. This development highlights the ongoing trend of transforming powerful AI models into practical, workflow-integrated tools.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Claude AI</span><span class="tag tag-keyword">AI assistant</span><span class="tag tag-keyword">Code generation</span><span class="tag tag-keyword">Productivity tools</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-01-12 19:11:33</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.wired.com/story/x-didnt-fix-groks-undressing-problem-it-just-makes-people-pay-for-it/" target="_blank" rel="noopener noreferrer">X Didn&#x27;t Fix Grok&#x27;s &#x27;Undressing&#x27; Problem. It Just Makes People Pay for It</a></h3>
+    <p class="story-summary">The article reports on a critical issue concerning Grok, the artificial intelligence model developed by xAI and integrated into the X platform. It highlights that a significant safety and ethical flaw, referred to as Grok&#x27;s &#x27;undressing&#x27; problem—implying the generation of inappropriate or explicit content—remains unaddressed. Instead of implementing a technical fix to prevent such outputs, the X platform has reportedly chosen to gate access to Grok behind a paywall. This decision sparks considerable debate regarding responsible AI development, content moderation strategies, and the monetization of potentially harmful generative AI capabilities. Critics argue that this approach prioritizes subscription revenue over user safety and ethical AI guidelines, raising concerns about the potential for misuse and the platform&#x27;s commitment to mitigating risks associated with advanced AI systems. The situation underscores ongoing challenges in deploying large language models responsibly and the intricate balance between innovation, ethical considerations, and business models in the AI landscape.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI ethics</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Content Moderation</span><span class="tag tag-keyword">AI safety</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-01-12 13:38:36</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.irishtimes.com/ireland/2026/01/07/call-to-fast-track-bill-targeting-ai-deepfakes-and-identity-hijacking/" target="_blank" rel="noopener noreferrer">Ireland fast tracks Bill to criminalise harmful voice or image misuse</a></h3>
+    <p class="story-summary">Ireland is expediting new legislation aimed at criminalizing the harmful misuse of synthetic media, specifically targeting AI-generated voice and image manipulation, commonly known as deepfakes. This legislative push underscores growing concerns within the government regarding the potential for artificial intelligence technologies to facilitate identity hijacking, spread misinformation, and inflict significant digital harm on individuals. The Bill seeks to establish a robust legal framework to address these rapidly emerging threats, providing a clear mechanism for prosecution against those who maliciously create or disseminate deceptive content that exploits advanced AI capabilities. This proactive measure reflects an increasing global trend among nations to regulate the societal impact of generative AI, striving to safeguard personal privacy, prevent sophisticated fraud, and maintain public trust in digital information. The initiative highlights the critical need for legal frameworks to evolve alongside technological advancements, ensuring accountability in the evolving digital landscape and protecting citizens from the malicious use of powerful AI tools.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI regulation</span><span class="tag tag-keyword">Deepfake technology</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-keyword">Synthetic media</span><span class="tag tag-keyword">Digital identity</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-01-12 16:04:27</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/haykgrigo3/TimeCapsuleLLM" target="_blank" rel="noopener noreferrer">TimeCapsuleLLM: LLM trained only on data from 1800-1875</a></h3>
+    <p class="story-summary">TimeCapsuleLLM introduces a unique research initiative centered on the development of a Large Language Model (LLM) trained exclusively on textual data originating from the period spanning 1800 to 1875. This project seeks to thoroughly investigate the inherent capabilities and potential limitations of LLMs when their training is stringently confined to a historically specific dataset. The primary objective is to gain profound insights into the temporal biases present within training data and to understand their subsequent influence on an LLM&#x27;s overall performance, factual accuracy, and the &#x27;worldview&#x27; it encapsulates. By meticulously restricting the training corpus to this defined historical window, TimeCapsuleLLM explores how these models process and articulate knowledge, comprehend period-specific concepts, and generate text that accurately reflects the linguistic and intellectual landscape of that particular era. This innovative approach offers a valuable platform for examining the historical evolution of language models and assessing their capacity to effectively simulate and engage with past intellectual environments.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Historical Data</span><span class="tag tag-keyword">Natural Language Processing</span><span class="tag tag-keyword">AI Research</span><span class="tag tag-keyword">Temporal AI</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-01-12 16:56:17</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.trylad.com" target="_blank" rel="noopener noreferrer">Show HN: AI in SolidWorks</a></h3>
+    <p class="story-summary">Will and Jorge have launched LAD (Language-Aided Design), an innovative add-in for SolidWorks that integrates Large Language Models (LLMs) into the Computer-Aided Design (CAD) workflow. The developers, with backgrounds in software engineering, identified a gap in major CAD systems where direct text-to-modeling capabilities, akin to advanced AI tools in code generation, were absent. LAD addresses this by enabling users to generate sketches, features, assemblies, and macros within SolidWorks through conversational text inputs and uploaded documents or images. While acknowledging that current LLMs demonstrate greater proficiency in code writing than 3D object generation, the creators anticipate rapid advancements in this area. The add-in is designed with numerous tools that the LLM can invoke, offering a novel approach to design automation and interaction within the SolidWorks environment. This development signifies a notable step towards enhancing mechanical design and engineering with advanced AI.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-keyword">SolidWorks</span><span class="tag tag-keyword">CAD</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-01-09T18:57:53.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.06021" target="_blank" rel="noopener noreferrer">Chaining the Evidence: Robust Reinforcement Learning for Deep Search Agents with Citation-Aware Rubric Rewards</a></h3>
+    <p class="story-summary">Reinforcement learning (RL) has emerged as a critical technique for enhancing LLM-based deep search agents. However, existing approaches primarily rely on binary outcome rewards, which fail to capture the comprehensiveness and factuality of agents&#x27; reasoning process, and often lead to undesirable behaviors such as shortcut exploitation and hallucinations. To address these limitations, we propose Citation-aware Rubric Rewards (CaRR), a fine-grained reward framework for deep search agents that emphasizes reasoning comprehensiveness, factual grounding, and evidence connectivity. CaRR decomposes complex questions into verifiable single-hop rubrics and requires agents to satisfy these rubrics by explicitly identifying hidden entities, supporting them with correct citations, and constructing complete evidence chains that link to the predicted answer. We further introduce Citation-aware Group Relative Policy Optimization (C-GRPO), which combines CaRR and outcome rewards for training robust deep search agents. Experiments show that C-GRPO consistently outperforms standard outcome-based RL baselines across multiple deep search benchmarks. Our analysis also validates that C-GRPO effectively discourages shortcut exploitation, promotes comprehensive, evidence-grounded reasoning, and exhibits strong generalization to open-ended deep research tasks. Our code and data are available at https://github.com/THUDM/CaRR.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Deep Search Agents</span><span class="tag tag-keyword">Citation-aware Rewards</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Policy Optimization</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-01-09T18:39:01.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.06002" target="_blank" rel="noopener noreferrer">The Molecular Structure of Thought: Mapping the Topology of Long Chain-of-Thought Reasoning</a></h3>
+    <p class="story-summary">Large language models (LLMs) often fail to learn effective long chain-of-thought (Long CoT) reasoning from human or non-Long-CoT LLMs imitation. To understand this, we propose that effective and learnable Long CoT trajectories feature stable molecular-like structures in unified view, which are formed by three interaction types: Deep-Reasoning (covalent-like), Self-Reflection (hydrogen-bond-like), and Self-Exploration (van der Waals-like). Analysis of distilled trajectories reveals these structures emerge from Long CoT fine-tuning, not keyword imitation. We introduce Effective Semantic Isomers and show that only bonds promoting fast entropy convergence support stable Long CoT learning, while structural competition impairs training. Drawing on these findings, we present Mole-Syn, a distribution-transfer-graph method that guides synthesis of effective Long CoT structures, boosting performance and RL stability across benchmarks.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Long Chain-of-Thought Reasoning</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Reasoning Structures</span><span class="tag tag-keyword">Entropy Convergence</span><span class="tag tag-keyword">Mole-Syn</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-01-09T17:34:59.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.05966" target="_blank" rel="noopener noreferrer">VideoAR: Autoregressive Video Generation via Next-Frame &amp; Scale Prediction</a></h3>
+    <p class="story-summary">Recent advances in video generation have been dominated by diffusion and flow-matching models, which produce high-quality results but remain computationally intensive and difficult to scale. In this work, we introduce VideoAR, the first large-scale Visual Autoregressive (VAR) framework for video generation that combines multi-scale next-frame prediction with autoregressive modeling. VideoAR disentangles spatial and temporal dependencies by integrating intra-frame VAR modeling with causal next-frame prediction, supported by a 3D multi-scale tokenizer that efficiently encodes spatio-temporal dynamics. To improve long-term consistency, we propose Multi-scale Temporal RoPE, Cross-Frame Error Correction, and Random Frame Mask, which collectively mitigate error propagation and stabilize temporal coherence. Our multi-stage pretraining pipeline progressively aligns spatial and temporal learning across increasing resolutions and durations. Empirically, VideoAR achieves new state-of-the-art results among autoregressive models, improving FVD on UCF-101 from 99.5 to 88.6 while reducing inference steps by over 10x, and reaching a VBench score of 81.74-competitive with diffusion-based models an order of magnitude larger. These results demonstrate that VideoAR narrows the performance gap between autoregressive and diffusion paradigms, offering a scalable, efficient, and temporally consistent foundation for future video generation research.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Video Generation</span><span class="tag tag-keyword">Autoregressive Models</span><span class="tag tag-keyword">Next-Frame Prediction</span><span class="tag tag-keyword">Multi-scale Prediction</span><span class="tag tag-keyword">VideoAR</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-01-09T16:44:17.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.05930" target="_blank" rel="noopener noreferrer">Can We Predict Before Executing Machine Learning Agents?</a></h3>
+    <p class="story-summary">Autonomous machine learning agents have revolutionized scientific discovery, yet they remain constrained by a Generate-Execute-Feedback paradigm. Previous approaches suffer from a severe Execution Bottleneck, as hypothesis evaluation relies strictly on expensive physical execution. To bypass these physical constraints, we internalize execution priors to substitute costly runtime checks with instantaneous predictive reasoning, drawing inspiration from World Models. In this work, we formalize the task of Data-centric Solution Preference and construct a comprehensive corpus of 18,438 pairwise comparisons. We demonstrate that LLMs exhibit significant predictive capabilities when primed with a Verified Data Analysis Report, achieving 61.5% accuracy and robust confidence calibration. Finally, we instantiate this framework in FOREAGENT, an agent that employs a Predict-then-Verify loop, achieving a 6x acceleration in convergence while surpassing execution-based baselines by +6%. Our code and dataset will be publicly available soon at https://github.com/zjunlp/predict-before-execute.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Machine Learning Agents</span><span class="tag tag-keyword">Predictive Reasoning</span><span class="tag tag-keyword">Execution Bottleneck</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">World Models</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-01-09T14:32:06.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.05808" target="_blank" rel="noopener noreferrer">EnvScaler: Scaling Tool-Interactive Environments for LLM Agent via Programmatic Synthesis</a></h3>
+    <p class="story-summary">Large language models (LLMs) are expected to be trained to act as agents in various real-world environments, but this process relies on rich and varied tool-interaction sandboxes. However, access to real systems is often restricted; LLM-simulated environments are prone to hallucinations and inconsistencies; and manually built sandboxes are hard to scale. In this paper, we propose EnvScaler, an automated framework for scalable tool-interaction environments via programmatic synthesis. EnvScaler comprises two components. First, SkelBuilder constructs diverse environment skeletons through topic mining, logic modeling, and quality evaluation. Then, ScenGenerator generates multiple task scenarios and rule-based trajectory validation functions for each environment. With EnvScaler, we synthesize 191 environments and about 7K scenarios, and apply them to Supervised Fine-Tuning (SFT) and Reinforcement Learning (RL) for Qwen3 series models. Results on three benchmarks show that EnvScaler significantly improves LLMs&#x27; ability to solve tasks in complex environments involving multi-turn, multi-tool interactions. We release our code and data at https://github.com/RUC-NLPIR/EnvScaler.</p>
+    <div class="story-tags"><span class="tag tag-keyword">LLM Agent</span><span class="tag tag-keyword">Tool-Interactive Environments</span><span class="tag tag-keyword">Programmatic Synthesis</span><span class="tag tag-keyword">Environment Scaling</span><span class="tag tag-keyword">Automated Framework</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-01-08T08:36:06.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.04720" target="_blank" rel="noopener noreferrer">Qwen3-VL-Embedding and Qwen3-VL-Reranker: A Unified Framework for State-of-the-Art Multimodal Retrieval and Ranking</a></h3>
+    <p class="story-summary">In this report, we introduce the Qwen3-VL-Embedding and Qwen3-VL-Reranker model series, the latest extensions of the Qwen family built on the Qwen3-VL foundation model. Together, they provide an end-to-end pipeline for high-precision multimodal search by mapping diverse modalities, including text, images, document images, and video, into a unified representation space. The Qwen3-VL-Embedding model employs a multi-stage training paradigm, progressing from large-scale contrastive pre-training to reranking model distillation, to generate semantically rich high-dimensional vectors. It supports Matryoshka Representation Learning, enabling flexible embedding dimensions, and handles inputs up to 32k tokens. Complementing this, Qwen3-VL-Reranker performs fine-grained relevance estimation for query-document pairs using a cross-encoder architecture with cross-attention mechanisms. Both model series inherit the multilingual capabilities of Qwen3-VL, supporting more than 30 languages, and are released in 2B and 8B parameter sizes to accommodate diverse deployment requirements. Empirical evaluations demonstrate that the Qwen3-VL-Embedding series achieves state-of-the-art results across diverse multimodal embedding evaluation benchmarks. Specifically, Qwen3-VL-Embedding-8B attains an overall score of 77.8 on MMEB-V2, ranking first among all models (as of January 8, 2025). This report presents the architecture, training methodology, and practical capabilities of the series, demonstrating their effectiveness on various multimodal retrieval tasks, including image-text retrieval, visual question answering, and video-text matching.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multimodal Retrieval</span><span class="tag tag-keyword">Multimodal Ranking</span><span class="tag tag-keyword">Qwen3-VL-Embedding</span><span class="tag tag-keyword">Qwen3-VL-Reranker</span><span class="tag tag-keyword">Matryoshka Representation Learning</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>AI 辅助筛选，原始来源始终可查。</span></footer>
 </body>
 </html>

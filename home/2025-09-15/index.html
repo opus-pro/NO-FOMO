@@ -1,553 +1,201 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-09-15</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2025-09-15</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="." class="active">中文</a>
-                <a href="en/" class="">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-09-15</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../home/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 返回主页</a>
-            <a href="../../daily/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 最新日报</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 关于我们</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Addendum to GPT-5 system card: GPT-5-Codex</h2>
-                <span class="published-time">Published: 2025-09-15 18:45:32</span>
-                
-                <p class="summary">OpenAI has issued an addendum to its GPT-5 system card, formally introducing GPT-5-Codex. This development signals the imminent arrival of a specialized variant of the next-generation GPT-5 large language model, specifically engineered for advanced code-related applications. Building on the legacy of previous Codex models, GPT-5-Codex is anticipated to offer significantly enhanced capabilities in areas such as automated code generation, intelligent debugging assistance, and sophisticated code understanding across a wide array of programming languages. The addendum likely details the model's architectural innovations, performance metrics, and the rigorous safety and ethical considerations applied to its development and deployment within software engineering workflows. This strategic release highlights OpenAI's commitment to pushing the boundaries of AI in developer tools, aiming to boost productivity, streamline development cycles, and foster innovation in the tech industry. The system card addendum is crucial for understanding the model's specific functionalities, limitations, and responsible use guidelines.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>GPT-5</span><span>Codex</span><span>Code Generation</span><span>Large Language Model</span><span>AI Development</span><span>Programming Tools</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Generative AI</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://openai.com/index/gpt-5-system-card-addendum-gpt-5-codex/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Microsoft to force install the Microsoft 365 Copilot app in October</h2>
-                <span class="published-time">Published: 2025-09-15 16:22:23</span>
-                
-                <p class="summary">Microsoft is reportedly planning to implement a mandatory installation of its Microsoft 365 Copilot application for users starting in October. This strategic move signifies a significant push by the tech giant to integrate its AI-powered productivity assistant more deeply into its widely used enterprise suite. The forced installation could have substantial implications for IT administrators, who will need to manage the deployment across their organizations, and for end-users, who will find the AI assistant automatically available within their Microsoft 365 environment. While the initiative aims to accelerate the adoption of AI tools and enhance user productivity by leveraging Copilot's capabilities in document creation, data analysis, and communication, it also raises questions regarding user control over software installations, potential resource allocation on devices, and data privacy considerations. This aggressive deployment strategy underscores Microsoft's commitment to embedding artificial intelligence as a core component of its software ecosystem, potentially reshaping how businesses interact with their productivity applications and accelerating the mainstream adoption of generative AI in the workplace.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Microsoft 365</span><span>Copilot</span><span>AI Assistant</span><span>Software Deployment</span><span>Enterprise Software</span><span>Productivity Tools</span><span>Artificial Intelligence</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-to-force-install-the-microsoft-365-copilot-app-in-october/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>AI hype is masking recession signals in the market</h2>
-                <span class="published-time">Published: 2025-09-15 19:37:02</span>
-                
-                <p class="summary">The article raises a significant concern that the pervasive enthusiasm and investment frenzy surrounding Artificial Intelligence (AI) are currently masking crucial economic signals indicative of a potential recession. Despite the robust performance and investor confidence in AI-related stocks, this intense hype may be causing market participants to overlook broader macroeconomic challenges, including persistent inflation, escalating interest rates, and geopolitical uncertainties. The analysis posits that the market's singular focus on AI's transformative capabilities could be fostering an environment of overvaluation within specific technology sectors, drawing parallels to historical market bubbles. Consequently, investors are advised to adopt a more discerning approach, extending their analysis beyond the immediate allure of AI advancements to thoroughly evaluate underlying economic fundamentals. The piece advocates for a balanced perspective, emphasizing the necessity for market participants to weigh both the promising opportunities presented by AI and the overarching risks threatening the global economy, thereby preventing an unexpected downturn.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI hype</span><span>Recession</span><span>Market analysis</span><span>Economic indicators</span><span>Investor sentiment</span><span>Tech stocks</span><span>Market bubble</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.axios.com/2025/09/15/ai-stocks-recession" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Launch HN: Trigger.dev (YC W23) – Open-source platform to build reliable AI apps</h2>
-                <span class="published-time">Published: 2025-09-15 15:20:18</span>
-                
-                <p class="summary">Trigger.dev, an open-source developer platform under the Apache 2.0 license, has launched to enable the creation and management of reliable AI agents and workflows. Founded in 2023, the platform provides comprehensive tools for building production-grade AI applications directly within a codebase. It supports deployment, execution, monitoring, and debugging of these agents. Developers have the flexibility to utilize Trigger.dev's core primitives or integrate with popular AI development frameworks such as Mastra, LangChain, and Vercel AI SDK. The platform offers both self-hosting options for complete control and a cloud service that handles scaling, ensuring robust performance for asynchronous background jobs and workflows. A demo is available to showcase its capabilities.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Open-source</span><span>AI agents</span><span>Developer platform</span><span>Workflows</span><span>Apache 2.0</span><span>Production-grade</span><span>Self-hosting</span><span>Cloud scaling</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://news.ycombinator.com/item?id=45250720" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>RustGPT: A pure-Rust transformer LLM built from scratch</h2>
-                <span class="published-time">Published: 2025-09-15 09:47:18</span>
-                
-                <p class="summary">RustGPT represents a significant development in the field of large language models, offering a pure-Rust transformer LLM meticulously built from scratch. This ambitious project capitalizes on Rust's inherent strengths, including its exceptional performance, guaranteed memory safety, and robust concurrency primitives, to establish a highly efficient and reliable foundation for advanced AI models. Diverging from the prevalent Python-centric ecosystem for LLM development, RustGPT provides a compelling alternative for engineers and researchers who prioritize granular control over system resources, seek enhanced execution speeds, or operate within environments demanding strict safety and security protocols. This initiative underscores a broader trend towards diversifying the technological stack for deep learning infrastructure, challenging the status quo and opening new avenues for innovation. The emergence of RustGPT could accelerate the creation of more secure, performant, and deployable AI solutions, thereby enriching the machine learning landscape and expanding its practical applications.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Rust</span><span>Transformer Architecture</span><span>Large Language Model</span><span>Deep Learning</span><span>AI Development</span><span>Memory Safety</span><span>High Performance Computing</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/tekaratzas/RustGPT" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Programming Deflation</h2>
-                <span class="published-time">Published: 2025-09-15 14:11:43</span>
-                
-                <p class="summary">The article "Programming Deflation" likely explores the concept of a decreasing value or cost associated with programming tasks, primarily driven by rapid advancements in artificial intelligence, automation, and sophisticated development tools. It is expected to discuss how technologies such as large language models (LLMs) and other AI-powered assistants are significantly boosting developer productivity, enabling faster code generation, more efficient debugging, and streamlined maintenance processes. The piece probably analyzes the economic ramifications of these trends, including potential shifts in the job market for software engineers, the commoditization of certain coding skills, and the overall reduction in software development expenditures. Furthermore, it may delve into the evolving role of programmers, emphasizing a greater focus on high-level design, architectural planning, and complex problem-solving, rather than routine coding. This suggests a future where human creativity and strategic thinking become paramount as AI handles more repetitive tasks, ultimately examining the long-term effects on the tech industry and the necessary adaptations for professionals.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Programming</span><span>Software Development</span><span>Artificial Intelligence</span><span>Large Language Models</span><span>Automation</span><span>Developer Productivity</span><span>Economic Impact</span><span>Future of Work</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://tidyfirst.substack.com/p/programming-deflation" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>Build a Large Language Model (From Scratch)</h2>
-                <span class="published-time">Published: 2025-09-14T20:46:48Z</span>
-                
-                <p class="summary">This GitHub repository provides the official code for "Build a Large Language Model (From Scratch)," a book guiding users through developing, pretraining, and finetuning GPT-like LLMs from the ground up. It offers a step-by-step approach to understanding LLM mechanics by coding them from scratch, mirroring the methods used for large-scale foundational models. The project includes comprehensive code examples for implementing attention mechanisms, building a GPT model, pretraining on unlabeled data, and finetuning for tasks like text classification and instruction following. Utilizing PyTorch, the repository avoids external LLM libraries, making it an excellent educational resource for those seeking deep insights into LLM architecture and training processes. It also supports loading weights from larger pretrained models for finetuning and provides extensive bonus materials covering advanced topics like BPE tokenizers, efficient attention, hyperparameter tuning, and various LLM implementations (Llama, Qwen, Gemma). The code is designed to run on conventional hardware, making LLM development accessible.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>GPT</span><span>Deep Learning</span><span>PyTorch</span><span>Pretraining</span><span>Finetuning</span><span>Natural Language Processing</span><span>Attention Mechanisms</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Deep Learning</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/rasbt/LLMs-from-scratch" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>MarkItDown</h2>
-                <span class="published-time">Published: 2025-08-26T22:30:47Z</span>
-                
-                <p class="summary">MarkItDown is a lightweight Python utility designed for converting diverse file formats into Markdown, primarily for integration with Large Language Models (LLMs) and text analysis pipelines. It supports a wide array of input types, including PDF, PowerPoint, Word, Excel, images (with OCR), audio (with speech transcription), HTML, various text-based formats, ZIP archives, YouTube URLs, and EPubs. A key focus of MarkItDown is to preserve essential document structure, such as headings, lists, tables, and links, ensuring that the output Markdown is both human-readable and machine-consumable. The tool leverages Markdown's inherent token efficiency and its native understanding by mainstream LLMs, which are often trained on Markdown-formatted text. MarkItDown offers flexible installation with optional dependencies, a command-line interface, a Python API, and Docker support. It also features extensibility through a plugin system and integrates with Azure Document Intelligence for enhanced conversion capabilities, and can use LLMs for image descriptions.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Markdown Conversion</span><span>LLM Applications</span><span>Document Processing</span><span>Text Analysis</span><span>Python Utility</span><span>File Conversion</span><span>OCR</span><span>Speech Transcription</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/microsoft/markitdown" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>AI Hedge Fund</h2>
-                <span class="published-time">Published: 2025-09-15T19:33:45Z</span>
-                
-                <p class="summary">The AI Hedge Fund is a proof-of-concept project exploring the application of artificial intelligence in making trading decisions, primarily for educational and research purposes. It features a sophisticated multi-agent system where various AI agents, inspired by renowned investors like Warren Buffett, Ben Graham, and Michael Burry, collaborate to analyze financial data. Key agents include those focused on disciplined valuation, market sentiment, fundamental analysis, technical indicators, risk management, and portfolio management, which collectively generate trading signals and simulated investment decisions. The system is explicitly not intended for real trading, emphasizing its role as a learning tool. It offers both a command-line interface for granular control and a user-friendly web application, requiring API keys for large language models (like OpenAI) and comprehensive financial datasets. This project provides a robust, agent-based framework for understanding and experimenting with AI's potential in financial markets and advanced investment strategies.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Hedge Fund</span><span>Algorithmic Trading</span><span>Multi-Agent System</span><span>Financial AI</span><span>Investment Strategy</span><span>Valuation</span><span>Risk Management</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/virattt/ai-hedge-fund" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>回报递减的错觉：衡量大型语言模型中的长周期执行能力</h2>
-                <span class="published-time">Published: 2025-09-11T17:59:34.000Z</span>
-                
-                <p class="summary">大型语言模型（LLMs）的持续扩展是否会产生回报递减？现实世界的价值往往源于智能体能够完成的任务长度。本研究首先观察到一个简单但反直觉的事实：单步准确率的边际增益可以复合为模型成功完成任务长度的指数级提升。接着，我们认为LLMs在简单任务变长时出现的失败源于执行错误，而非推理能力的不足。我们提出通过明确提供解决长周期任务所需的知识和计划来隔离执行能力。我们发现，即使小型模型具有100%的单步准确率，大型模型也能正确执行显著更多的轮次。我们观察到，模型的每步准确率会随着步数的增加而下降。这不仅仅是由于长上下文限制——奇怪的是，我们观察到一种自条件效应——当上下文包含模型先前轮次的错误时，模型更容易犯错。自条件效应并不会仅仅通过扩展模型规模而减少。相比之下，最近的思维模型不会出现自条件效应，并且可以在单轮中执行更长的任务。最后，我们对前沿思维模型在单轮中可执行的任务长度进行了基准测试。总的来说，通过关注执行能力，我们希望调和关于LLMs如何解决复杂推理问题却在简单任务变长时失败的争论，并强调扩展模型规模和顺序测试时计算对于长周期任务的巨大益处。</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>大型语言模型</span><span>长周期执行</span><span>执行能力</span><span>自条件效应</span><span>思维模型</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>大模型</span><span>自然语言处理</span><span>智能体</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.09677" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>InfGen：一种面向可扩展图像合成的分辨率无关范式</h2>
-                <span class="published-time">Published: 2025-09-12T17:48:57.000Z</span>
-                
-                <p class="summary">任意分辨率的图像生成为跨设备提供了统一的视觉体验，在生产者和消费者中都有广泛的应用。当前的扩散模型计算需求随分辨率呈二次方增长，导致生成4K图像需要超过100秒的延迟。为了解决这个问题，我们探索了基于潜在扩散模型的第二代方法，其中扩散模型生成的固定潜在表示被视为内容表示，我们提出使用一步生成器从紧凑的生成潜在表示中解码任意分辨率的图像。因此，我们提出了InfGen，它用新的生成器取代了VAE解码器，可以在不重新训练扩散模型的情况下，从固定大小的潜在表示生成任意分辨率的图像，这简化了过程，降低了计算复杂度，并且可以应用于使用相同潜在空间的任何模型。实验表明，InfGen能够将许多模型提升到任意高分辨率时代，同时将4K图像生成时间缩短到10秒以内。</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>任意分辨率图像生成</span><span>扩散模型</span><span>潜在扩散模型</span><span>图像合成</span><span>分辨率无关</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>计算机视觉</span><span>深度学习</span><span>生成式AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.10441" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>HANRAG：用于多跳问答的启发式精确抗噪检索增强生成</h2>
-                <span class="published-time">Published: 2025-09-08T06:22:38.000Z</span>
-                
-                <p class="summary">检索增强生成（RAG）方法通过将信息检索（IR）技术与大型语言模型（LLM）相结合，增强了问答系统和对话生成任务。这种从外部知识库检索信息以增强生成模型响应能力的方法已取得一定成功。然而，当前的RAG方法在处理多跳查询时仍面临诸多挑战。例如，一些方法过度依赖迭代检索，在复合查询上浪费了过多的检索步骤。此外，使用原始复杂查询进行检索可能无法捕获与特定子查询相关的内容，导致检索到的内容存在噪声。如果噪声得不到有效管理，可能导致噪声累积问题。为解决这些问题，我们引入了HANRAG，一个新颖的基于启发式框架，旨在高效处理不同复杂程度的问题。在强大的揭示器驱动下，HANRAG路由查询，将其分解为子查询，并从检索到的文档中过滤噪声。这增强了系统的适应性和抗噪能力，使其能够高效处理各种查询。我们将所提出的框架与各种基准上的其他领先行业方法进行了比较。结果表明，我们的框架在单跳和多跳问答任务中均取得了卓越的性能。</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>检索增强生成</span><span>多跳问答</span><span>大型语言模型</span><span>噪声过滤</span><span>启发式框架</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>自然语言处理</span><span>大模型</span><span>生成式AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.09713" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>扩散大语言模型的修复引导策略优化</h2>
-                <span class="published-time">Published: 2025-09-12T16:44:31.000Z</span>
-                
-                <p class="summary">掩码扩散大语言模型（dLLMs）正作为自回归LLMs的有前景替代方案出现，它们在提供有竞争力的性能的同时，支持诸如修复（inpainting）等独特的生成能力。我们探索了修复如何为dLLMs的强化学习算法设计提供信息。将LLMs与强化学习对齐面临一个探索挑战：当模型未能发现正确解决方案时，奖励信号稀疏且样本浪费。尽管这种低效率广泛影响LLMs，但dLLMs提供了一个独特的机会——它们的修复能力可以指导探索。我们引入了IGPO（修复引导策略优化），这是一个强化学习框架，它在在线采样期间策略性地插入部分真实推理轨迹。与提供完整解决方案不同，修复将探索引向有前景的轨迹空间，同时保留了自生成的推理，从而弥合了监督微调和强化学习之间的鸿沟。我们将IGPO应用于基于群组的优化方法，例如GRPO，在这些方法中，探索失败会导致零优势和梯度。IGPO恢复了有意义的梯度，同时提高了样本效率。我们还提出了对合成重写的简洁轨迹进行监督微调，这些轨迹更好地与dLLM的生成模式对齐。结合包括基于熵的过滤在内的额外技术，我们的训练方案在三个数学基准测试（GSM8K、Math500和AMC）上取得了显著提升，为全注意力掩码dLLMs实现了新的最先进结果。</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>扩散大语言模型</span><span>修复</span><span>强化学习</span><span>策略优化</span><span>数学基准</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>大模型</span><span>生成式AI</span><span>自然语言处理</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.10396" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>MCP-AgentBench：使用MCP介导工具评估真实世界语言智能体性能</h2>
-                <span class="published-time">Published: 2025-09-10T14:08:40.000Z</span>
-                
-                <p class="summary">模型上下文协议（MCP）正迅速成为一个关键的开放标准，旨在增强智能体与工具的集成和互操作性，并有望开启一个强大、互联且真正实用的智能体AI新时代。然而，尽管MCP日益普及，现有基准测试往往未能在此新范式下捕捉真实世界的智能体性能，导致对其真实操作价值的认知偏差，并无法可靠地区分其熟练程度。为了弥合这一关键评估差距，我们引入了MCP-AgentBench——一个专门设计用于严格评估语言智能体在MCP介导工具交互中能力的综合基准测试。MCP-AgentBench的核心贡献包括：建立了一个由33个操作服务器和188个不同工具组成的强大MCP测试平台；开发了一个包含600个系统设计查询的基准测试，这些查询分布在6个不同交互复杂度的类别中；以及引入了MCP-Eval，一种新颖的、以结果为导向的评估方法，优先考虑真实世界的任务成功。通过对领先语言智能体进行广泛的实证评估，我们提供了基础性见解。MCP-AgentBench旨在为研究社区提供一个标准化、可靠的框架，以构建、验证和推进能够充分利用MCP变革性优势的智能体，从而加速实现真正有能力和可互操作的AI系统。</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>MCP-AgentBench</span><span>语言智能体</span><span>基准测试</span><span>工具交互</span><span>模型上下文协议</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>人工智能</span><span>智能体</span><span>自然语言处理</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.09734" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>基于概率结构整合的世界建模</h2>
-                <span class="published-time">Published: 2025-09-10T18:01:04.000Z</span>
-                
-                <p class="summary">我们提出了概率结构整合（PSI），这是一个旨在从数据中学习高度可控且灵活可提示的世界模型的系统。PSI 包含一个三步循环。第一步是概率预测，涉及构建一个数据的概率图模型Psi，其形式为随机访问自回归序列模型。Psi 支持一套完整的学习条件分布，描述数据中任何变量对其他变量集的依赖关系。第二步是结构提取，我们展示了如何通过对Psi进行因果推断，以零样本方式提取数据中潜在的低维属性，这些属性对应于一系列有意义的“中间结构”。第三步是整合，通过将这些结构转换为新的令牌类型，并将其作为条件信号和预测目标持续混合回训练数据中，从而完成循环。每个这样的循环都增强了Psi的能力，不仅能更好地建模底层数据，还创造了新的控制句柄——类似于大型语言模型（LLM）的通用提示语言。我们使用1.4万亿个互联网视频数据令牌训练了一个Psi实例；我们利用它执行各种有用的视频预测和理解推断；我们提取了最先进的光流、自监督深度和对象分割；并且我们利用这些结构来支持一个完整的预测改进循环。</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>世界建模</span><span>概率结构整合</span><span>视频理解</span><span>自回归模型</span><span>结构提取</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>机器学习</span><span>视频理解</span><span>大模型</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.09737" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">Twitter</h2>
-
-            <article class="item-card">
-                <h2>sama_GPT-5-Codex Launch</h2>
-                <span class="published-time">Published: 2025-09-15 18:01:57</span>
-                
-                <p class="summary">Sam Altman announced the release of GPT-5-Codex, a specialized version of GPT-5 engineered for enhanced agentic coding capabilities. This new iteration boasts significant improvements in speed and intelligence, alongside the introduction of novel functionalities. The team behind its development has been highly productive, making the process engaging to observe. The announcement invites user feedback on the new model, signaling a commitment to iterative improvement and community engagement in the advancement of AI-powered coding tools. This development represents a notable step forward in large language models tailored for software development and automation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>GPT-5-Codex</span><span>Agentic Coding</span><span>AI</span><span>LLM</span><span>Product Launch</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Product Launch</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/sama/status/1967650108285259822" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>polynoamial_GPT-5-Codex Performance</h2>
-                <span class="published-time">Published: 2025-09-15 19:11:38</span>
-                
-                <p class="summary">The tweet highlights the performance characteristics of GPT-5-Codex, a new iteration of AI language models. It states that GPT-5-Codex demonstrates a significant speed improvement, being 10 times faster for simpler queries. Conversely, for more complex tasks that benefit from extensive computational resources, the model is designed to allocate twice the processing time. This suggests a sophisticated approach to resource management and query optimization, aiming to balance efficiency for common tasks with enhanced performance for computationally intensive challenges. The accompanying URL likely leads to further details or a demonstration of these capabilities, positioning GPT-5-Codex as a notable advancement in AI model efficiency and power.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>GPT-5-Codex</span><span>AI Performance</span><span>Compute</span><span>Query Optimization</span><span>Language Models</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Tech News</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/polynoamial/status/1967667644905251156" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>NaveenGRao_Databricks Departure</h2>
-                <span class="published-time">Published: 2025-09-15 15:30:50</span>
-                
-                <p class="summary">Naveen Rao announced his departure from Databricks after approximately 2.5 years, coinciding with the company's valuation surpassing $100 billion, a goal set by co-founder Ali Ghodsi. Rao highlighted his involvement in Databricks' growth, particularly its AI integration, and thanked founders Ali Ghodsi, Matei Zaharia, Patrick Wendell, Arsalan Tavakoli-Shiraji, and Ion Stoica for the journey. He is spinning out a new venture focused on foundational AI and computing challenges, while remaining an advisor to Databricks. Rao also reflected on the five years since initial discussions about efficient neural networks with Jeff Dean, Misha Parikh, and Hanlin Tang, emphasizing AI's potential to impact every human life and Databricks' strong position in enterprise AI adoption.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Databricks</span><span>AI</span><span>Valuation</span><span>Foundational AI</span><span>Neural Networks</span><span>Enterprise AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Industry News</span><span>Tech News</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/NaveenGRao/status/1967612077255864505" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>ylecun_Vision Language Model</h2>
-                <span class="published-time">Published: 2025-09-15 01:25:44</span>
-                
-                <p class="summary">This tweet highlights a significant advancement in AI research by AI at Meta, which has developed a novel vision-language world model. This model possesses the capability to transform video content into textual plans, enabling it to reason and select optimal actions. This breakthrough represents a substantial step forward in multimodal AI, bridging the gap between visual perception and intelligent decision-making. The ability to process video, generate descriptive text plans, and guide action selection has broad implications for various AI applications, including robotics, autonomous systems, and sophisticated content analysis. The development signifies progress in creating AI systems that can understand and interact with the world in a more human-like manner, processing complex visual information and translating it into actionable strategies.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Vision Language Model</span><span>AI at Meta</span><span>Video Understanding</span><span>AI Research</span><span>Action Selection</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Video Understanding</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/ylecun/status/1967399402039066641" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>natolambert_Model Size and Training</h2>
-                <span class="published-time">Published: 2025-09-15 02:30:09</span>
-                
-                <p class="summary">The tweet discusses the relationship between model size and training methodology in AI development. It suggests that smaller models, under 15 billion parameters, are effectively trained using Supervised Fine-Tuning (SFT). Conversely, larger models, exceeding 70 billion parameters, benefit most from Reinforcement Learning (RL). The author notes that the middle ground, in terms of model size, presents challenges. Larger models demonstrate a reduced need for extensive training data (signal) to learn effectively, and pre-trained large base models are already quite capable of following instructions. This implies a scaling law where increased model size correlates with improved learning efficiency and inherent instruction-following abilities, simplifying the training process for very large models.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>model size</span><span>training methodology</span><span>Supervised Fine-Tuning</span><span>Reinforcement Learning</span><span>large models</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/natolambert/status/1967415613573452211" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>GaryMarcus_AI Desperation</h2>
-                <span class="published-time">Published: 2025-09-15 14:47:46</span>
-                
-                <p class="summary">Gary Marcus expresses a sense of desperation regarding the current state of Artificial Intelligence development. He highlights concerns about the lack of genuine understanding and reasoning in current AI models, particularly large language models. Marcus suggests that the field is prioritizing scale and performance metrics over fundamental progress in AI's ability to truly comprehend and interact with the world. He implies that the current trajectory might be leading to a dead end or at least a significant plateau in achieving artificial general intelligence, emphasizing the need for a shift in research focus towards more robust and theoretically grounded approaches to AI.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI</span><span>Artificial Intelligence</span><span>LLM</span><span>Reasoning</span><span>Understanding</span><span>AGI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Research Progress</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/GaryMarcus/status/1967601240717902207" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../">Archive</a><a href="cn/">中文</a><a href="en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2025-09-15</strong><span>DEFAULT EDITION</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-15 18:45:32</time></div>
+  <div class="story-body">
+    <h3><a href="https://openai.com/index/gpt-5-system-card-addendum-gpt-5-codex/" target="_blank" rel="noopener noreferrer">Addendum to GPT-5 system card: GPT-5-Codex</a></h3>
+    <p class="story-summary">OpenAI has issued an addendum to its GPT-5 system card, formally introducing GPT-5-Codex. This development signals the imminent arrival of a specialized variant of the next-generation GPT-5 large language model, specifically engineered for advanced code-related applications. Building on the legacy of previous Codex models, GPT-5-Codex is anticipated to offer significantly enhanced capabilities in areas such as automated code generation, intelligent debugging assistance, and sophisticated code understanding across a wide array of programming languages. The addendum likely details the model&#x27;s architectural innovations, performance metrics, and the rigorous safety and ethical considerations applied to its development and deployment within software engineering workflows. This strategic release highlights OpenAI&#x27;s commitment to pushing the boundaries of AI in developer tools, aiming to boost productivity, streamline development cycles, and foster innovation in the tech industry. The system card addendum is crucial for understanding the model&#x27;s specific functionalities, limitations, and responsible use guidelines.</p>
+    <div class="story-tags"><span class="tag tag-keyword">GPT-5</span><span class="tag tag-keyword">Codex</span><span class="tag tag-keyword">Code Generation</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">AI Development</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-15 16:22:23</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-to-force-install-the-microsoft-365-copilot-app-in-october/" target="_blank" rel="noopener noreferrer">Microsoft to force install the Microsoft 365 Copilot app in October</a></h3>
+    <p class="story-summary">Microsoft is reportedly planning to implement a mandatory installation of its Microsoft 365 Copilot application for users starting in October. This strategic move signifies a significant push by the tech giant to integrate its AI-powered productivity assistant more deeply into its widely used enterprise suite. The forced installation could have substantial implications for IT administrators, who will need to manage the deployment across their organizations, and for end-users, who will find the AI assistant automatically available within their Microsoft 365 environment. While the initiative aims to accelerate the adoption of AI tools and enhance user productivity by leveraging Copilot&#x27;s capabilities in document creation, data analysis, and communication, it also raises questions regarding user control over software installations, potential resource allocation on devices, and data privacy considerations. This aggressive deployment strategy underscores Microsoft&#x27;s commitment to embedding artificial intelligence as a core component of its software ecosystem, potentially reshaping how businesses interact with their productivity applications and accelerating the mainstream adoption of generative AI in the workplace.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Microsoft 365</span><span class="tag tag-keyword">Copilot</span><span class="tag tag-keyword">AI Assistant</span><span class="tag tag-keyword">Software Deployment</span><span class="tag tag-keyword">Enterprise Software</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-15 19:37:02</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.axios.com/2025/09/15/ai-stocks-recession" target="_blank" rel="noopener noreferrer">AI hype is masking recession signals in the market</a></h3>
+    <p class="story-summary">The article raises a significant concern that the pervasive enthusiasm and investment frenzy surrounding Artificial Intelligence (AI) are currently masking crucial economic signals indicative of a potential recession. Despite the robust performance and investor confidence in AI-related stocks, this intense hype may be causing market participants to overlook broader macroeconomic challenges, including persistent inflation, escalating interest rates, and geopolitical uncertainties. The analysis posits that the market&#x27;s singular focus on AI&#x27;s transformative capabilities could be fostering an environment of overvaluation within specific technology sectors, drawing parallels to historical market bubbles. Consequently, investors are advised to adopt a more discerning approach, extending their analysis beyond the immediate allure of AI advancements to thoroughly evaluate underlying economic fundamentals. The piece advocates for a balanced perspective, emphasizing the necessity for market participants to weigh both the promising opportunities presented by AI and the overarching risks threatening the global economy, thereby preventing an unexpected downturn.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI hype</span><span class="tag tag-keyword">Recession</span><span class="tag tag-keyword">Market analysis</span><span class="tag tag-keyword">Economic indicators</span><span class="tag tag-keyword">Investor sentiment</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-15 15:20:18</time></div>
+  <div class="story-body">
+    <h3><a href="https://news.ycombinator.com/item?id=45250720" target="_blank" rel="noopener noreferrer">Launch HN: Trigger.dev (YC W23) – Open-source platform to build reliable AI apps</a></h3>
+    <p class="story-summary">Trigger.dev, an open-source developer platform under the Apache 2.0 license, has launched to enable the creation and management of reliable AI agents and workflows. Founded in 2023, the platform provides comprehensive tools for building production-grade AI applications directly within a codebase. It supports deployment, execution, monitoring, and debugging of these agents. Developers have the flexibility to utilize Trigger.dev&#x27;s core primitives or integrate with popular AI development frameworks such as Mastra, LangChain, and Vercel AI SDK. The platform offers both self-hosting options for complete control and a cloud service that handles scaling, ensuring robust performance for asynchronous background jobs and workflows. A demo is available to showcase its capabilities.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Open-source</span><span class="tag tag-keyword">AI agents</span><span class="tag tag-keyword">Developer platform</span><span class="tag tag-keyword">Workflows</span><span class="tag tag-keyword">Apache 2.0</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-09-15 09:47:18</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/tekaratzas/RustGPT" target="_blank" rel="noopener noreferrer">RustGPT: A pure-Rust transformer LLM built from scratch</a></h3>
+    <p class="story-summary">RustGPT represents a significant development in the field of large language models, offering a pure-Rust transformer LLM meticulously built from scratch. This ambitious project capitalizes on Rust&#x27;s inherent strengths, including its exceptional performance, guaranteed memory safety, and robust concurrency primitives, to establish a highly efficient and reliable foundation for advanced AI models. Diverging from the prevalent Python-centric ecosystem for LLM development, RustGPT provides a compelling alternative for engineers and researchers who prioritize granular control over system resources, seek enhanced execution speeds, or operate within environments demanding strict safety and security protocols. This initiative underscores a broader trend towards diversifying the technological stack for deep learning infrastructure, challenging the status quo and opening new avenues for innovation. The emergence of RustGPT could accelerate the creation of more secure, performant, and deployable AI solutions, thereby enriching the machine learning landscape and expanding its practical applications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Rust</span><span class="tag tag-keyword">Transformer Architecture</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-keyword">AI Development</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-09-15 14:11:43</time></div>
+  <div class="story-body">
+    <h3><a href="https://tidyfirst.substack.com/p/programming-deflation" target="_blank" rel="noopener noreferrer">Programming Deflation</a></h3>
+    <p class="story-summary">The article &quot;Programming Deflation&quot; likely explores the concept of a decreasing value or cost associated with programming tasks, primarily driven by rapid advancements in artificial intelligence, automation, and sophisticated development tools. It is expected to discuss how technologies such as large language models (LLMs) and other AI-powered assistants are significantly boosting developer productivity, enabling faster code generation, more efficient debugging, and streamlined maintenance processes. The piece probably analyzes the economic ramifications of these trends, including potential shifts in the job market for software engineers, the commoditization of certain coding skills, and the overall reduction in software development expenditures. Furthermore, it may delve into the evolving role of programmers, emphasizing a greater focus on high-level design, architectural planning, and complex problem-solving, rather than routine coding. This suggests a future where human creativity and strategic thinking become paramount as AI handles more repetitive tasks, ultimately examining the long-term effects on the tech industry and the necessary adaptations for professionals.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Programming</span><span class="tag tag-keyword">Software Development</span><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Automation</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-15 18:01:57</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/sama/status/1967650108285259822" target="_blank" rel="noopener noreferrer">sama_GPT-5-Codex Launch</a></h3>
+    <p class="story-summary">Sam Altman announced the release of GPT-5-Codex, a specialized version of GPT-5 engineered for enhanced agentic coding capabilities. This new iteration boasts significant improvements in speed and intelligence, alongside the introduction of novel functionalities. The team behind its development has been highly productive, making the process engaging to observe. The announcement invites user feedback on the new model, signaling a commitment to iterative improvement and community engagement in the advancement of AI-powered coding tools. This development represents a notable step forward in large language models tailored for software development and automation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">GPT-5-Codex</span><span class="tag tag-keyword">Agentic Coding</span><span class="tag tag-keyword">AI</span><span class="tag tag-keyword">LLM</span><span class="tag tag-keyword">Product Launch</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Product Launch</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-15 19:11:38</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/polynoamial/status/1967667644905251156" target="_blank" rel="noopener noreferrer">polynoamial_GPT-5-Codex Performance</a></h3>
+    <p class="story-summary">The tweet highlights the performance characteristics of GPT-5-Codex, a new iteration of AI language models. It states that GPT-5-Codex demonstrates a significant speed improvement, being 10 times faster for simpler queries. Conversely, for more complex tasks that benefit from extensive computational resources, the model is designed to allocate twice the processing time. This suggests a sophisticated approach to resource management and query optimization, aiming to balance efficiency for common tasks with enhanced performance for computationally intensive challenges. The accompanying URL likely leads to further details or a demonstration of these capabilities, positioning GPT-5-Codex as a notable advancement in AI model efficiency and power.</p>
+    <div class="story-tags"><span class="tag tag-keyword">GPT-5-Codex</span><span class="tag tag-keyword">AI Performance</span><span class="tag tag-keyword">Compute</span><span class="tag tag-keyword">Query Optimization</span><span class="tag tag-keyword">Language Models</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Tech News</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-15 15:30:50</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/NaveenGRao/status/1967612077255864505" target="_blank" rel="noopener noreferrer">NaveenGRao_Databricks Departure</a></h3>
+    <p class="story-summary">Naveen Rao announced his departure from Databricks after approximately 2.5 years, coinciding with the company&#x27;s valuation surpassing $100 billion, a goal set by co-founder Ali Ghodsi. Rao highlighted his involvement in Databricks&#x27; growth, particularly its AI integration, and thanked founders Ali Ghodsi, Matei Zaharia, Patrick Wendell, Arsalan Tavakoli-Shiraji, and Ion Stoica for the journey. He is spinning out a new venture focused on foundational AI and computing challenges, while remaining an advisor to Databricks. Rao also reflected on the five years since initial discussions about efficient neural networks with Jeff Dean, Misha Parikh, and Hanlin Tang, emphasizing AI&#x27;s potential to impact every human life and Databricks&#x27; strong position in enterprise AI adoption.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Databricks</span><span class="tag tag-keyword">AI</span><span class="tag tag-keyword">Valuation</span><span class="tag tag-keyword">Foundational AI</span><span class="tag tag-keyword">Neural Networks</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Industry News</span><span class="tag tag-area">Tech News</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-15 01:25:44</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ylecun/status/1967399402039066641" target="_blank" rel="noopener noreferrer">ylecun_Vision Language Model</a></h3>
+    <p class="story-summary">This tweet highlights a significant advancement in AI research by AI at Meta, which has developed a novel vision-language world model. This model possesses the capability to transform video content into textual plans, enabling it to reason and select optimal actions. This breakthrough represents a substantial step forward in multimodal AI, bridging the gap between visual perception and intelligent decision-making. The ability to process video, generate descriptive text plans, and guide action selection has broad implications for various AI applications, including robotics, autonomous systems, and sophisticated content analysis. The development signifies progress in creating AI systems that can understand and interact with the world in a more human-like manner, processing complex visual information and translating it into actionable strategies.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Vision Language Model</span><span class="tag tag-keyword">AI at Meta</span><span class="tag tag-keyword">Video Understanding</span><span class="tag tag-keyword">AI Research</span><span class="tag tag-keyword">Action Selection</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Video Understanding</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-09-15 02:30:09</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/natolambert/status/1967415613573452211" target="_blank" rel="noopener noreferrer">natolambert_Model Size and Training</a></h3>
+    <p class="story-summary">The tweet discusses the relationship between model size and training methodology in AI development. It suggests that smaller models, under 15 billion parameters, are effectively trained using Supervised Fine-Tuning (SFT). Conversely, larger models, exceeding 70 billion parameters, benefit most from Reinforcement Learning (RL). The author notes that the middle ground, in terms of model size, presents challenges. Larger models demonstrate a reduced need for extensive training data (signal) to learn effectively, and pre-trained large base models are already quite capable of following instructions. This implies a scaling law where increased model size correlates with improved learning efficiency and inherent instruction-following abilities, simplifying the training process for very large models.</p>
+    <div class="story-tags"><span class="tag tag-keyword">model size</span><span class="tag tag-keyword">training methodology</span><span class="tag tag-keyword">Supervised Fine-Tuning</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">large models</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-09-15 14:47:46</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/GaryMarcus/status/1967601240717902207" target="_blank" rel="noopener noreferrer">GaryMarcus_AI Desperation</a></h3>
+    <p class="story-summary">Gary Marcus expresses a sense of desperation regarding the current state of Artificial Intelligence development. He highlights concerns about the lack of genuine understanding and reasoning in current AI models, particularly large language models. Marcus suggests that the field is prioritizing scale and performance metrics over fundamental progress in AI&#x27;s ability to truly comprehend and interact with the world. He implies that the current trajectory might be leading to a dead end or at least a significant plateau in achieving artificial general intelligence, emphasizing the need for a shift in research focus towards more robust and theoretically grounded approaches to AI.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">LLM</span><span class="tag tag-keyword">Reasoning</span><span class="tag tag-keyword">Understanding</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Research Progress</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>3 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-14T20:46:48Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/rasbt/LLMs-from-scratch" target="_blank" rel="noopener noreferrer">Build a Large Language Model (From Scratch)</a></h3>
+    <p class="story-summary">This GitHub repository provides the official code for &quot;Build a Large Language Model (From Scratch),&quot; a book guiding users through developing, pretraining, and finetuning GPT-like LLMs from the ground up. It offers a step-by-step approach to understanding LLM mechanics by coding them from scratch, mirroring the methods used for large-scale foundational models. The project includes comprehensive code examples for implementing attention mechanisms, building a GPT model, pretraining on unlabeled data, and finetuning for tasks like text classification and instruction following. Utilizing PyTorch, the repository avoids external LLM libraries, making it an excellent educational resource for those seeking deep insights into LLM architecture and training processes. It also supports loading weights from larger pretrained models for finetuning and provides extensive bonus materials covering advanced topics like BPE tokenizers, efficient attention, hyperparameter tuning, and various LLM implementations (Llama, Qwen, Gemma). The code is designed to run on conventional hardware, making LLM development accessible.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">GPT</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-keyword">PyTorch</span><span class="tag tag-keyword">Pretraining</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-08-26T22:30:47Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/microsoft/markitdown" target="_blank" rel="noopener noreferrer">MarkItDown</a></h3>
+    <p class="story-summary">MarkItDown is a lightweight Python utility designed for converting diverse file formats into Markdown, primarily for integration with Large Language Models (LLMs) and text analysis pipelines. It supports a wide array of input types, including PDF, PowerPoint, Word, Excel, images (with OCR), audio (with speech transcription), HTML, various text-based formats, ZIP archives, YouTube URLs, and EPubs. A key focus of MarkItDown is to preserve essential document structure, such as headings, lists, tables, and links, ensuring that the output Markdown is both human-readable and machine-consumable. The tool leverages Markdown&#x27;s inherent token efficiency and its native understanding by mainstream LLMs, which are often trained on Markdown-formatted text. MarkItDown offers flexible installation with optional dependencies, a command-line interface, a Python API, and Docker support. It also features extensibility through a plugin system and integrates with Azure Document Intelligence for enhanced conversion capabilities, and can use LLMs for image descriptions.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Markdown Conversion</span><span class="tag tag-keyword">LLM Applications</span><span class="tag tag-keyword">Document Processing</span><span class="tag tag-keyword">Text Analysis</span><span class="tag tag-keyword">Python Utility</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-15T19:33:45Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/virattt/ai-hedge-fund" target="_blank" rel="noopener noreferrer">AI Hedge Fund</a></h3>
+    <p class="story-summary">The AI Hedge Fund is a proof-of-concept project exploring the application of artificial intelligence in making trading decisions, primarily for educational and research purposes. It features a sophisticated multi-agent system where various AI agents, inspired by renowned investors like Warren Buffett, Ben Graham, and Michael Burry, collaborate to analyze financial data. Key agents include those focused on disciplined valuation, market sentiment, fundamental analysis, technical indicators, risk management, and portfolio management, which collectively generate trading signals and simulated investment decisions. The system is explicitly not intended for real trading, emphasizing its role as a learning tool. It offers both a command-line interface for granular control and a user-friendly web application, requiring API keys for large language models (like OpenAI) and comprehensive financial datasets. This project provides a robust, agent-based framework for understanding and experimenting with AI&#x27;s potential in financial markets and advanced investment strategies.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Hedge Fund</span><span class="tag tag-keyword">Algorithmic Trading</span><span class="tag tag-keyword">Multi-Agent System</span><span class="tag tag-keyword">Financial AI</span><span class="tag tag-keyword">Investment Strategy</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-11T17:59:34.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.09677" target="_blank" rel="noopener noreferrer">回报递减的错觉：衡量大型语言模型中的长周期执行能力</a></h3>
+    <p class="story-summary">大型语言模型（LLMs）的持续扩展是否会产生回报递减？现实世界的价值往往源于智能体能够完成的任务长度。本研究首先观察到一个简单但反直觉的事实：单步准确率的边际增益可以复合为模型成功完成任务长度的指数级提升。接着，我们认为LLMs在简单任务变长时出现的失败源于执行错误，而非推理能力的不足。我们提出通过明确提供解决长周期任务所需的知识和计划来隔离执行能力。我们发现，即使小型模型具有100%的单步准确率，大型模型也能正确执行显著更多的轮次。我们观察到，模型的每步准确率会随着步数的增加而下降。这不仅仅是由于长上下文限制——奇怪的是，我们观察到一种自条件效应——当上下文包含模型先前轮次的错误时，模型更容易犯错。自条件效应并不会仅仅通过扩展模型规模而减少。相比之下，最近的思维模型不会出现自条件效应，并且可以在单轮中执行更长的任务。最后，我们对前沿思维模型在单轮中可执行的任务长度进行了基准测试。总的来说，通过关注执行能力，我们希望调和关于LLMs如何解决复杂推理问题却在简单任务变长时失败的争论，并强调扩展模型规模和顺序测试时计算对于长周期任务的巨大益处。</p>
+    <div class="story-tags"><span class="tag tag-keyword">大型语言模型</span><span class="tag tag-keyword">长周期执行</span><span class="tag tag-keyword">执行能力</span><span class="tag tag-keyword">自条件效应</span><span class="tag tag-keyword">思维模型</span><span class="tag tag-area">大模型</span><span class="tag tag-area">自然语言处理</span><span class="tag tag-area">智能体</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-12T17:48:57.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.10441" target="_blank" rel="noopener noreferrer">InfGen：一种面向可扩展图像合成的分辨率无关范式</a></h3>
+    <p class="story-summary">任意分辨率的图像生成为跨设备提供了统一的视觉体验，在生产者和消费者中都有广泛的应用。当前的扩散模型计算需求随分辨率呈二次方增长，导致生成4K图像需要超过100秒的延迟。为了解决这个问题，我们探索了基于潜在扩散模型的第二代方法，其中扩散模型生成的固定潜在表示被视为内容表示，我们提出使用一步生成器从紧凑的生成潜在表示中解码任意分辨率的图像。因此，我们提出了InfGen，它用新的生成器取代了VAE解码器，可以在不重新训练扩散模型的情况下，从固定大小的潜在表示生成任意分辨率的图像，这简化了过程，降低了计算复杂度，并且可以应用于使用相同潜在空间的任何模型。实验表明，InfGen能够将许多模型提升到任意高分辨率时代，同时将4K图像生成时间缩短到10秒以内。</p>
+    <div class="story-tags"><span class="tag tag-keyword">任意分辨率图像生成</span><span class="tag tag-keyword">扩散模型</span><span class="tag tag-keyword">潜在扩散模型</span><span class="tag tag-keyword">图像合成</span><span class="tag tag-keyword">分辨率无关</span><span class="tag tag-area">计算机视觉</span><span class="tag tag-area">深度学习</span><span class="tag tag-area">生成式AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-08T06:22:38.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.09713" target="_blank" rel="noopener noreferrer">HANRAG：用于多跳问答的启发式精确抗噪检索增强生成</a></h3>
+    <p class="story-summary">检索增强生成（RAG）方法通过将信息检索（IR）技术与大型语言模型（LLM）相结合，增强了问答系统和对话生成任务。这种从外部知识库检索信息以增强生成模型响应能力的方法已取得一定成功。然而，当前的RAG方法在处理多跳查询时仍面临诸多挑战。例如，一些方法过度依赖迭代检索，在复合查询上浪费了过多的检索步骤。此外，使用原始复杂查询进行检索可能无法捕获与特定子查询相关的内容，导致检索到的内容存在噪声。如果噪声得不到有效管理，可能导致噪声累积问题。为解决这些问题，我们引入了HANRAG，一个新颖的基于启发式框架，旨在高效处理不同复杂程度的问题。在强大的揭示器驱动下，HANRAG路由查询，将其分解为子查询，并从检索到的文档中过滤噪声。这增强了系统的适应性和抗噪能力，使其能够高效处理各种查询。我们将所提出的框架与各种基准上的其他领先行业方法进行了比较。结果表明，我们的框架在单跳和多跳问答任务中均取得了卓越的性能。</p>
+    <div class="story-tags"><span class="tag tag-keyword">检索增强生成</span><span class="tag tag-keyword">多跳问答</span><span class="tag tag-keyword">大型语言模型</span><span class="tag tag-keyword">噪声过滤</span><span class="tag tag-keyword">启发式框架</span><span class="tag tag-area">自然语言处理</span><span class="tag tag-area">大模型</span><span class="tag tag-area">生成式AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-12T16:44:31.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.10396" target="_blank" rel="noopener noreferrer">扩散大语言模型的修复引导策略优化</a></h3>
+    <p class="story-summary">掩码扩散大语言模型（dLLMs）正作为自回归LLMs的有前景替代方案出现，它们在提供有竞争力的性能的同时，支持诸如修复（inpainting）等独特的生成能力。我们探索了修复如何为dLLMs的强化学习算法设计提供信息。将LLMs与强化学习对齐面临一个探索挑战：当模型未能发现正确解决方案时，奖励信号稀疏且样本浪费。尽管这种低效率广泛影响LLMs，但dLLMs提供了一个独特的机会——它们的修复能力可以指导探索。我们引入了IGPO（修复引导策略优化），这是一个强化学习框架，它在在线采样期间策略性地插入部分真实推理轨迹。与提供完整解决方案不同，修复将探索引向有前景的轨迹空间，同时保留了自生成的推理，从而弥合了监督微调和强化学习之间的鸿沟。我们将IGPO应用于基于群组的优化方法，例如GRPO，在这些方法中，探索失败会导致零优势和梯度。IGPO恢复了有意义的梯度，同时提高了样本效率。我们还提出了对合成重写的简洁轨迹进行监督微调，这些轨迹更好地与dLLM的生成模式对齐。结合包括基于熵的过滤在内的额外技术，我们的训练方案在三个数学基准测试（GSM8K、Math500和AMC）上取得了显著提升，为全注意力掩码dLLMs实现了新的最先进结果。</p>
+    <div class="story-tags"><span class="tag tag-keyword">扩散大语言模型</span><span class="tag tag-keyword">修复</span><span class="tag tag-keyword">强化学习</span><span class="tag tag-keyword">策略优化</span><span class="tag tag-keyword">数学基准</span><span class="tag tag-area">大模型</span><span class="tag tag-area">生成式AI</span><span class="tag tag-area">自然语言处理</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-09-10T14:08:40.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.09734" target="_blank" rel="noopener noreferrer">MCP-AgentBench：使用MCP介导工具评估真实世界语言智能体性能</a></h3>
+    <p class="story-summary">模型上下文协议（MCP）正迅速成为一个关键的开放标准，旨在增强智能体与工具的集成和互操作性，并有望开启一个强大、互联且真正实用的智能体AI新时代。然而，尽管MCP日益普及，现有基准测试往往未能在此新范式下捕捉真实世界的智能体性能，导致对其真实操作价值的认知偏差，并无法可靠地区分其熟练程度。为了弥合这一关键评估差距，我们引入了MCP-AgentBench——一个专门设计用于严格评估语言智能体在MCP介导工具交互中能力的综合基准测试。MCP-AgentBench的核心贡献包括：建立了一个由33个操作服务器和188个不同工具组成的强大MCP测试平台；开发了一个包含600个系统设计查询的基准测试，这些查询分布在6个不同交互复杂度的类别中；以及引入了MCP-Eval，一种新颖的、以结果为导向的评估方法，优先考虑真实世界的任务成功。通过对领先语言智能体进行广泛的实证评估，我们提供了基础性见解。MCP-AgentBench旨在为研究社区提供一个标准化、可靠的框架，以构建、验证和推进能够充分利用MCP变革性优势的智能体，从而加速实现真正有能力和可互操作的AI系统。</p>
+    <div class="story-tags"><span class="tag tag-keyword">MCP-AgentBench</span><span class="tag tag-keyword">语言智能体</span><span class="tag tag-keyword">基准测试</span><span class="tag tag-keyword">工具交互</span><span class="tag tag-keyword">模型上下文协议</span><span class="tag tag-area">人工智能</span><span class="tag tag-area">智能体</span><span class="tag tag-area">自然语言处理</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-09-10T18:01:04.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.09737" target="_blank" rel="noopener noreferrer">基于概率结构整合的世界建模</a></h3>
+    <p class="story-summary">我们提出了概率结构整合（PSI），这是一个旨在从数据中学习高度可控且灵活可提示的世界模型的系统。PSI 包含一个三步循环。第一步是概率预测，涉及构建一个数据的概率图模型Psi，其形式为随机访问自回归序列模型。Psi 支持一套完整的学习条件分布，描述数据中任何变量对其他变量集的依赖关系。第二步是结构提取，我们展示了如何通过对Psi进行因果推断，以零样本方式提取数据中潜在的低维属性，这些属性对应于一系列有意义的“中间结构”。第三步是整合，通过将这些结构转换为新的令牌类型，并将其作为条件信号和预测目标持续混合回训练数据中，从而完成循环。每个这样的循环都增强了Psi的能力，不仅能更好地建模底层数据，还创造了新的控制句柄——类似于大型语言模型（LLM）的通用提示语言。我们使用1.4万亿个互联网视频数据令牌训练了一个Psi实例；我们利用它执行各种有用的视频预测和理解推断；我们提取了最先进的光流、自监督深度和对象分割；并且我们利用这些结构来支持一个完整的预测改进循环。</p>
+    <div class="story-tags"><span class="tag tag-keyword">世界建模</span><span class="tag tag-keyword">概率结构整合</span><span class="tag tag-keyword">视频理解</span><span class="tag tag-keyword">自回归模型</span><span class="tag tag-keyword">结构提取</span><span class="tag tag-area">机器学习</span><span class="tag tag-area">视频理解</span><span class="tag tag-area">大模型</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
 </body>
 </html>

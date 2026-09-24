@@ -1,334 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2026-02-15</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2026-02-15</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="." class="active">中文</a>
-                <a href="en/" class="">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2026-02-15</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../home/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 返回主页</a>
-            <a href="../../daily/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 最新日报</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 关于我们</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Towards Autonomous Mathematics Research</h2>
-                <span class="published-time">Published: 2026-02-15 18:35:40</span>
-                
-                <p class="summary">The article titled "Towards Autonomous Mathematics Research" explores the burgeoning field of leveraging advanced artificial intelligence, particularly large language models and AI agents, to automate and accelerate the process of mathematical discovery and theorem proving. This initiative aims to move beyond computational verification to active generation of novel mathematical conjectures and proofs, thereby pushing the boundaries of human-machine collaboration in abstract sciences. The core idea involves developing intelligent systems capable of understanding mathematical concepts, formulating hypotheses, designing experiments, and rigorously validating results, mirroring the scientific method in a mathematical context. Such autonomous systems could potentially uncover complex patterns and derive new theorems that are challenging for human mathematicians, opening new avenues for research and applications across various scientific disciplines. The development marks a significant step towards creating AI tools that not only assist but actively participate in fundamental scientific breakthroughs.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Autonomous Research</span><span>Mathematical Discovery</span><span>AI for Mathematics</span><span>Theorem Proving</span><span>Large Language Models</span><span>AI Agents</span><span>Automated Reasoning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://arxiv.org/abs/2602.10177" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Two different tricks for fast LLM inference</h2>
-                <span class="published-time">Published: 2026-02-15 09:27:33</span>
-                
-                <p class="summary">This article explores two distinct strategies aimed at significantly accelerating Large Language Model (LLM) inference, a critical challenge in deploying and scaling AI applications. The first trick discussed involves advanced quantization techniques, specifically focusing on how to reduce model size and computational load by representing weights and activations with lower precision (e.g., 8-bit or 4-bit integers) without a substantial loss in model accuracy. This method enables LLMs to run on less powerful hardware and process prompts more quickly. The second trick delves into speculative decoding, an innovative approach where a smaller, faster draft model predicts a sequence of tokens, which are then validated in parallel by the larger, more accurate target LLM. This technique effectively bypasses sequential decoding for multiple tokens, leading to a substantial speedup in token generation, especially for models with high-quality draft generators. Both methods offer practical pathways to enhance the efficiency and accessibility of state-of-the-art LLMs.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>LLM inference</span><span>Quantization</span><span>Speculative Decoding</span><span>Model Optimization</span><span>Deep Learning</span><span>Computational Efficiency</span><span>AI Acceleration</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Machine Learning</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.seangoedecke.com/fast-llm-inference/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>DjVu and its connection to Deep Learning (2023)</h2>
-                <span class="published-time">Published: 2026-02-15 09:05:35</span>
-                
-                <p class="summary">The article "DjVu and its connection to Deep Learning (2023)" delves into the often-overlooked yet profound relationship between DjVu, a sophisticated document compression technology developed in the late 1990s, and the burgeoning field of Deep Learning. The discussion likely explores how DjVu's innovative approach, which involves separating text from background images and encoding them independently, shares conceptual parallels with modern deep learning techniques employed in computer vision and document analysis. It may examine whether DjVu's multi-layered image model and pattern recognition capabilities can be viewed as precursors to certain neural network architectures or how deep learning can now be leveraged to significantly enhance DjVu's performance. This could include using deep neural networks for more robust content segmentation, superior optical character recognition, or developing adaptive compression algorithms that surpass traditional methods. The article bridges foundational digital document processing standards with contemporary artificial intelligence methodologies, proposing a symbiotic relationship where deep learning could reinvigorate DjVu's utility and DjVu's principles offer historical context for current AI challenges.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>DjVu</span><span>Deep Learning</span><span>Image Compression</span><span>Document Analysis</span><span>Computer Vision</span><span>Machine Learning</span><span>Neural Networks</span><span>Optical Character Recognition</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Deep Learning</span><span>Computer Vision</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://scottlocklin.wordpress.com/2023/05/31/djvu-and-its-connection-to-deep-learning/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>The Mega-Rich Are Turning Their Mansions into Impenetrable Fortresses</h2>
-                <span class="published-time">Published: 2026-02-15 16:55:38</span>
-                
-                <p class="summary">The ultra-wealthy are increasingly investing in sophisticated security measures to transform their luxury residences into highly fortified and virtually impenetrable fortresses. This trend is driven by heightened concerns over privacy, asset protection, and personal safety. These advanced security systems go beyond traditional alarms, incorporating state-of-the-art technologies such as multi-layered perimeter defenses, biometric access control, advanced surveillance networks utilizing AI-powered video analytics, and smart home integration for comprehensive environmental control. Some installations even include safe rooms, underground bunkers, and drone detection systems. This trend reflects a growing demand for holistic security solutions that leverage cutting-edge innovations to protect high-value assets and individuals. These sophisticated installations often involve integrating advanced sensor technology, hardened architectural elements, and redundant power systems, alongside digital security protocols to safeguard data and privacy within these secure environments. The objective is to create a resilient and proactive defense infrastructure, effectively turning residences into self-contained, high-security zones capable of withstanding various external threats, highlighting a significant evolution in luxury real estate security practices.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Luxury Home Security</span><span>Physical Security</span><span>Surveillance Systems</span><span>Access Control</span><span>Biometric Authentication</span><span>Smart Home Automation</span><span>Perimeter Defense</span><span>AI-Powered Security</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Computer Vision</span><span>AI Agent</span><span>Robotics</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.wsj.com/real-estate/luxury-homes/luxury-home-security-aca080d7" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Knock-Knock.net – Visualizing the bots knocking on my server's door</h2>
-                <span class="published-time">Published: 2026-02-15 17:06:25</span>
-                
-                <p class="summary">Knock-Knock.net has been unveiled as a novel project designed to offer server administrators a comprehensive visual interface for monitoring and analyzing automated network traffic. The platform's primary objective is to graphically represent the activities of bots attempting to access a server, thereby providing critical insights into their behavioral patterns, origins, and intentions. By transforming complex server log data into an intuitive and accessible visual format, Knock-Knock.net empowers users to effectively identify potentially malicious or unwanted automated interactions, which are often obscured within raw data streams. This tool is crucial for enhancing server security awareness, facilitating a clearer distinction between legitimate and bot-generated traffic, and supporting proactive network defense strategies. Ultimately, the visualization capability aims to demystify the constant stream of server access attempts, making it significantly easier to detect, analyze, and respond to persistent or suspicious bot behaviors that might otherwise remain undetected.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Server monitoring</span><span>Network security</span><span>Data visualization</span><span>Bot detection</span><span>Cybersecurity</span><span>Web traffic analysis</span><span>Anomaly detection</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://knock-knock.net" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Western Digital sells out 2026 HDD capacity as AI demand pushes prices higher</h2>
-                <span class="published-time">Published: 2026-02-15 16:43:50</span>
-                
-                <p class="summary">Western Digital has reportedly announced a complete sell-out of its Hard Disk Drive (HDD) manufacturing capacity extending through 2026, a significant event driven primarily by the escalating demand from the artificial intelligence industry. This unprecedented surge in orders for high-capacity data storage solutions is a direct consequence of the immense data requirements inherent in AI training, the development of large language models, and sophisticated data analytics initiatives. The burgeoning need for storing vast datasets, critical for developing and deploying advanced AI applications, has created substantial pressure on hardware suppliers. Consequently, this high demand is not only exhausting future production capacities but is also anticipated to drive HDD prices upward in the coming years. This development highlights the critical and growing role of robust data infrastructure in facilitating the rapid expansion and computational intensity of AI technologies, signaling a potential bottleneck in hardware supply chains as AI adoption continues its global acceleration. The reliance of AI on large-scale data storage is clearly shaping market dynamics for traditional hardware components.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>HDD</span><span>Data Storage</span><span>AI Infrastructure</span><span>Enterprise Storage</span><span>Supply Chain</span><span>AI Hardware</span><span>Storage Technology</span><span>Market Trends</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.eteknix.com/western-digital-sells-out-2026-hdd-capacity-as-ai-demand-pushes-prices-higher/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../">Archive</a><a href="cn/">中文</a><a href="en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-02-15</strong><span>DEFAULT EDITION</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-02-15 18:35:40</time></div>
+  <div class="story-body">
+    <h3><a href="https://arxiv.org/abs/2602.10177" target="_blank" rel="noopener noreferrer">Towards Autonomous Mathematics Research</a></h3>
+    <p class="story-summary">The article titled &quot;Towards Autonomous Mathematics Research&quot; explores the burgeoning field of leveraging advanced artificial intelligence, particularly large language models and AI agents, to automate and accelerate the process of mathematical discovery and theorem proving. This initiative aims to move beyond computational verification to active generation of novel mathematical conjectures and proofs, thereby pushing the boundaries of human-machine collaboration in abstract sciences. The core idea involves developing intelligent systems capable of understanding mathematical concepts, formulating hypotheses, designing experiments, and rigorously validating results, mirroring the scientific method in a mathematical context. Such autonomous systems could potentially uncover complex patterns and derive new theorems that are challenging for human mathematicians, opening new avenues for research and applications across various scientific disciplines. The development marks a significant step towards creating AI tools that not only assist but actively participate in fundamental scientific breakthroughs.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Autonomous Research</span><span class="tag tag-keyword">Mathematical Discovery</span><span class="tag tag-keyword">AI for Mathematics</span><span class="tag tag-keyword">Theorem Proving</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-02-15 09:27:33</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.seangoedecke.com/fast-llm-inference/" target="_blank" rel="noopener noreferrer">Two different tricks for fast LLM inference</a></h3>
+    <p class="story-summary">This article explores two distinct strategies aimed at significantly accelerating Large Language Model (LLM) inference, a critical challenge in deploying and scaling AI applications. The first trick discussed involves advanced quantization techniques, specifically focusing on how to reduce model size and computational load by representing weights and activations with lower precision (e.g., 8-bit or 4-bit integers) without a substantial loss in model accuracy. This method enables LLMs to run on less powerful hardware and process prompts more quickly. The second trick delves into speculative decoding, an innovative approach where a smaller, faster draft model predicts a sequence of tokens, which are then validated in parallel by the larger, more accurate target LLM. This technique effectively bypasses sequential decoding for multiple tokens, leading to a substantial speedup in token generation, especially for models with high-quality draft generators. Both methods offer practical pathways to enhance the efficiency and accessibility of state-of-the-art LLMs.</p>
+    <div class="story-tags"><span class="tag tag-keyword">LLM inference</span><span class="tag tag-keyword">Quantization</span><span class="tag tag-keyword">Speculative Decoding</span><span class="tag tag-keyword">Model Optimization</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-02-15 09:05:35</time></div>
+  <div class="story-body">
+    <h3><a href="https://scottlocklin.wordpress.com/2023/05/31/djvu-and-its-connection-to-deep-learning/" target="_blank" rel="noopener noreferrer">DjVu and its connection to Deep Learning (2023)</a></h3>
+    <p class="story-summary">The article &quot;DjVu and its connection to Deep Learning (2023)&quot; delves into the often-overlooked yet profound relationship between DjVu, a sophisticated document compression technology developed in the late 1990s, and the burgeoning field of Deep Learning. The discussion likely explores how DjVu&#x27;s innovative approach, which involves separating text from background images and encoding them independently, shares conceptual parallels with modern deep learning techniques employed in computer vision and document analysis. It may examine whether DjVu&#x27;s multi-layered image model and pattern recognition capabilities can be viewed as precursors to certain neural network architectures or how deep learning can now be leveraged to significantly enhance DjVu&#x27;s performance. This could include using deep neural networks for more robust content segmentation, superior optical character recognition, or developing adaptive compression algorithms that surpass traditional methods. The article bridges foundational digital document processing standards with contemporary artificial intelligence methodologies, proposing a symbiotic relationship where deep learning could reinvigorate DjVu&#x27;s utility and DjVu&#x27;s principles offer historical context for current AI challenges.</p>
+    <div class="story-tags"><span class="tag tag-keyword">DjVu</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-keyword">Image Compression</span><span class="tag tag-keyword">Document Analysis</span><span class="tag tag-keyword">Computer Vision</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-02-15 16:55:38</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.wsj.com/real-estate/luxury-homes/luxury-home-security-aca080d7" target="_blank" rel="noopener noreferrer">The Mega-Rich Are Turning Their Mansions into Impenetrable Fortresses</a></h3>
+    <p class="story-summary">The ultra-wealthy are increasingly investing in sophisticated security measures to transform their luxury residences into highly fortified and virtually impenetrable fortresses. This trend is driven by heightened concerns over privacy, asset protection, and personal safety. These advanced security systems go beyond traditional alarms, incorporating state-of-the-art technologies such as multi-layered perimeter defenses, biometric access control, advanced surveillance networks utilizing AI-powered video analytics, and smart home integration for comprehensive environmental control. Some installations even include safe rooms, underground bunkers, and drone detection systems. This trend reflects a growing demand for holistic security solutions that leverage cutting-edge innovations to protect high-value assets and individuals. These sophisticated installations often involve integrating advanced sensor technology, hardened architectural elements, and redundant power systems, alongside digital security protocols to safeguard data and privacy within these secure environments. The objective is to create a resilient and proactive defense infrastructure, effectively turning residences into self-contained, high-security zones capable of withstanding various external threats, highlighting a significant evolution in luxury real estate security practices.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Luxury Home Security</span><span class="tag tag-keyword">Physical Security</span><span class="tag tag-keyword">Surveillance Systems</span><span class="tag tag-keyword">Access Control</span><span class="tag tag-keyword">Biometric Authentication</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Robotics</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-02-15 17:06:25</time></div>
+  <div class="story-body">
+    <h3><a href="https://knock-knock.net" target="_blank" rel="noopener noreferrer">Knock-Knock.net – Visualizing the bots knocking on my server&#x27;s door</a></h3>
+    <p class="story-summary">Knock-Knock.net has been unveiled as a novel project designed to offer server administrators a comprehensive visual interface for monitoring and analyzing automated network traffic. The platform&#x27;s primary objective is to graphically represent the activities of bots attempting to access a server, thereby providing critical insights into their behavioral patterns, origins, and intentions. By transforming complex server log data into an intuitive and accessible visual format, Knock-Knock.net empowers users to effectively identify potentially malicious or unwanted automated interactions, which are often obscured within raw data streams. This tool is crucial for enhancing server security awareness, facilitating a clearer distinction between legitimate and bot-generated traffic, and supporting proactive network defense strategies. Ultimately, the visualization capability aims to demystify the constant stream of server access attempts, making it significantly easier to detect, analyze, and respond to persistent or suspicious bot behaviors that might otherwise remain undetected.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Server monitoring</span><span class="tag tag-keyword">Network security</span><span class="tag tag-keyword">Data visualization</span><span class="tag tag-keyword">Bot detection</span><span class="tag tag-keyword">Cybersecurity</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-02-15 16:43:50</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.eteknix.com/western-digital-sells-out-2026-hdd-capacity-as-ai-demand-pushes-prices-higher/" target="_blank" rel="noopener noreferrer">Western Digital sells out 2026 HDD capacity as AI demand pushes prices higher</a></h3>
+    <p class="story-summary">Western Digital has reportedly announced a complete sell-out of its Hard Disk Drive (HDD) manufacturing capacity extending through 2026, a significant event driven primarily by the escalating demand from the artificial intelligence industry. This unprecedented surge in orders for high-capacity data storage solutions is a direct consequence of the immense data requirements inherent in AI training, the development of large language models, and sophisticated data analytics initiatives. The burgeoning need for storing vast datasets, critical for developing and deploying advanced AI applications, has created substantial pressure on hardware suppliers. Consequently, this high demand is not only exhausting future production capacities but is also anticipated to drive HDD prices upward in the coming years. This development highlights the critical and growing role of robust data infrastructure in facilitating the rapid expansion and computational intensity of AI technologies, signaling a potential bottleneck in hardware supply chains as AI adoption continues its global acceleration. The reliance of AI on large-scale data storage is clearly shaping market dynamics for traditional hardware components.</p>
+    <div class="story-tags"><span class="tag tag-keyword">HDD</span><span class="tag tag-keyword">Data Storage</span><span class="tag tag-keyword">AI Infrastructure</span><span class="tag tag-keyword">Enterprise Storage</span><span class="tag tag-keyword">Supply Chain</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
 </body>
 </html>

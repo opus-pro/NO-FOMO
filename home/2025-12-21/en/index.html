@@ -1,336 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-12-21</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2025-12-21</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="../" class="">中文</a>
-                <a href="." class="active">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-12-21</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../../home/en/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 Back to Homepage</a>
-            <a href="../../../daily/en/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 Latest Daily</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 About Us</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Get an AI code review in 10 seconds</h2>
-                <span class="published-time">Published: 2025-12-21 17:21:05</span>
-                
-                <p class="summary">The article presents an innovative methodology, termed a 'trick,' designed to significantly expedite the code review process by leveraging artificial intelligence, promising a comprehensive analysis within a remarkable 10-second timeframe. This approach aims to drastically reduce the traditional time commitment associated with code reviews, empowering developers to receive immediate feedback on their code. By potentially utilizing sophisticated prompt engineering techniques or integrating advanced AI models tailored for code analysis, the method facilitates rapid identification of potential bugs, vulnerabilities, and areas for refactoring or optimization. This rapid feedback loop is particularly beneficial for accelerating development cycles, enhancing developer productivity, and maintaining high code quality standards in dynamic software engineering environments where efficiency and quick iterations are paramount. The outlined 'trick' highlights a practical application of AI in streamlining software development workflows.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Code Review</span><span>Code Analysis</span><span>Software Development</span><span>Developer Tools</span><span>Prompt Engineering</span><span>Automated Review</span><span>AI Productivity</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://oldmanrahul.com/2025/12/19/ai-code-review-trick/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Structured Outputs Create False Confidence</h2>
-                <span class="published-time">Published: 2025-12-21 15:06:46</span>
-                
-                <p class="summary">The proliferation of structured outputs, such as JSON or predefined lists, from artificial intelligence models, particularly large language models (LLMs), has become a common practice aimed at enhancing downstream automation and interpretability. However, a recent discussion highlights a critical concern: 'Structured Outputs Create False Confidence.' This phenomenon suggests that while neatly organized data may appear reliable and accurate, its inherent structure can mask underlying inaccuracies, biases, or outright hallucinations generated by the AI. Users and developers might implicitly assign a higher level of trustworthiness to information presented in a structured format, leading to an over-reliance without sufficient validation. This false sense of security can result in significant downstream errors if the structured output is consumed without rigorous checks. The issue underscores the necessity for robust validation mechanisms, clear error handling, and a nuanced understanding of AI model limitations, even when outputs conform to expected formats. Moving forward, a more critical approach to structured AI outputs is essential to mitigate risks and ensure dependable application performance.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Structured Outputs</span><span>AI Reliability</span><span>False Confidence</span><span>Large Language Models</span><span>Output Validation</span><span>AI Hallucinations</span><span>Model Accuracy</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://boundaryml.com/blog/structured-outputs-create-false-confidence" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Measuring AI Ability to Complete Long Tasks</h2>
-                <span class="published-time">Published: 2025-12-21 04:06:36</span>
-                
-                <p class="summary">The article discusses the critical challenge of accurately measuring artificial intelligence systems' capacity to successfully complete long, complex tasks. This research area moves beyond evaluating AI on single-turn or short-horizon problems, focusing instead on capabilities such as sustained reasoning, multi-step planning, error recovery, and maintaining coherence over extended interactions or operational sequences. Developing robust benchmarks and methodologies for assessing long-task completion is essential for advancing AI towards more autonomous and reliable agents. Such evaluations are crucial for identifying current limitations in large language models and other AI architectures, guiding future research toward developing systems that can navigate real-world scenarios requiring persistent problem-solving and adaptation. This work directly contributes to understanding the path toward highly capable and generally intelligent AI.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Evaluation</span><span>Long-term AI Tasks</span><span>AI Benchmarking</span><span>Autonomous Agents</span><span>Task Planning</span><span>AI Capabilities</span><span>Complex Task Completion</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: RenderCV – Open-source CV/resume generator, YAML 
-
-→ PDF</h2>
-                <span class="published-time">Published: 2025-12-21 13:15:28</span>
-                
-                <p class="summary">RenderCV is an innovative open-source CV/resume generator designed to streamline the document creation process by converting YAML input into high-quality PDF outputs. Developed to address the limitations of traditional word processors and the complexities of LaTeX, RenderCV allows users to define content, design, and margins within a single, version-controllable YAML file. A key highlight is its "LLM-friendly" nature, enabling seamless integration with large language models like ChatGPT for automated tailoring to specific job descriptions, thus facilitating batch production of customized CV variants. Underneath, it leverages Typst for pixel-perfect alignment and superior typography, ensuring professional-grade visual presentation. Users benefit from comprehensive design control through YAML, alongside the convenience of JSON Schema for autocompletion and inline documentation in code editors. With over two years of battle-testing, thousands of users, and more than 120,000 PyPI downloads, RenderCV is a robust and actively maintained solution for modern resume generation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Open-source software</span><span>Resume generation</span><span>CV generator</span><span>YAML</span><span>PDF conversion</span><span>Typography</span><span>Version control</span><span>Large Language Model Integration</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/rendercv/rendercv" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Autoland Saves King Air, Everyone Reported Safe</h2>
-                <span class="published-time">Published: 2025-12-21 16:57:57</span>
-                
-                <p class="summary">In a critical demonstration of advanced aviation technology, an autoland system successfully guided a King Air aircraft to a safe landing, with all individuals onboard reported to be unharmed. This incident profoundly underscores the increasing reliance on and the indispensable value of automated flight systems in mitigating potential airborne emergencies and ensuring passenger safety. Autoland technology, specifically engineered to navigate and land an aircraft autonomously without human pilot intervention during critical situations, proved instrumental in averting a potentially catastrophic event. The flawless execution by the automated system reinforces public and industry confidence in the sophisticated algorithms and robust engineering principles underpinning such autonomous capabilities. Aviation safety experts are likely to analyze this event closely, as it provides compelling evidence for the expanded integration of artificial intelligence and advanced automation into routine and emergency flight protocols, further enhancing global aviation safety standards and pointing towards a future where intelligent systems play an even more prominent role in safeguarding air travel.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Autoland</span><span>Aviation Safety</span><span>Automated Landing System</span><span>Aircraft Systems</span><span>Emergency Landing</span><span>Flight Automation</span><span>Autonomous Flight</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Robotics</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://avbrief.com/autoland-saves-king-air-everyone-reported-safe/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Olaf: Bringing an Animated Character to Life in the Physical World</h2>
-                <span class="published-time">Published: 2025-12-21 16:16:09</span>
-                
-                <p class="summary">The project "Olaf: Bringing an Animated Character to Life in the Physical World" focuses on the ambitious goal of physically manifesting an animated character, such as Disney's Olaf, into real-world environments. This initiative likely involves a multidisciplinary approach, integrating advanced robotics, sophisticated control systems, and cutting-edge artificial intelligence to replicate the character's distinct movements, expressive behaviors, and inherent personality. Key technical challenges would encompass developing robust hardware for physical embodiment, implementing real-time perception capabilities for environmental awareness, and designing intelligent algorithms for dynamic interaction and expressive motion generation. The research aims to bridge the gap between digital animation and tangible reality, requiring innovations in areas like human-robot interaction, animatronics, and embodied AI. This work has significant implications for future entertainment, educational tools, and the development of more engaging and interactive robotic companions, demonstrating a novel approach to bringing beloved fictional characters into physical existence with a high degree of fidelity and interactivity.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Robotics</span><span>Animatronics</span><span>Character Animation</span><span>Embodied AI</span><span>Human-Robot Interaction</span><span>Physical Computing</span><span>Artificial Intelligence</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Robotics</span><span>Artificial Intelligence</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://arxiv.org/abs/2512.16705" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/en/" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/en/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2025-12-21</strong><span>ENGLISH EDITION</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-12-21 17:21:05</time></div>
+  <div class="story-body">
+    <h3><a href="https://oldmanrahul.com/2025/12/19/ai-code-review-trick/" target="_blank" rel="noopener noreferrer">Get an AI code review in 10 seconds</a></h3>
+    <p class="story-summary">The article presents an innovative methodology, termed a &#x27;trick,&#x27; designed to significantly expedite the code review process by leveraging artificial intelligence, promising a comprehensive analysis within a remarkable 10-second timeframe. This approach aims to drastically reduce the traditional time commitment associated with code reviews, empowering developers to receive immediate feedback on their code. By potentially utilizing sophisticated prompt engineering techniques or integrating advanced AI models tailored for code analysis, the method facilitates rapid identification of potential bugs, vulnerabilities, and areas for refactoring or optimization. This rapid feedback loop is particularly beneficial for accelerating development cycles, enhancing developer productivity, and maintaining high code quality standards in dynamic software engineering environments where efficiency and quick iterations are paramount. The outlined &#x27;trick&#x27; highlights a practical application of AI in streamlining software development workflows.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Code Review</span><span class="tag tag-keyword">Code Analysis</span><span class="tag tag-keyword">Software Development</span><span class="tag tag-keyword">Developer Tools</span><span class="tag tag-keyword">Prompt Engineering</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-12-21 15:06:46</time></div>
+  <div class="story-body">
+    <h3><a href="https://boundaryml.com/blog/structured-outputs-create-false-confidence" target="_blank" rel="noopener noreferrer">Structured Outputs Create False Confidence</a></h3>
+    <p class="story-summary">The proliferation of structured outputs, such as JSON or predefined lists, from artificial intelligence models, particularly large language models (LLMs), has become a common practice aimed at enhancing downstream automation and interpretability. However, a recent discussion highlights a critical concern: &#x27;Structured Outputs Create False Confidence.&#x27; This phenomenon suggests that while neatly organized data may appear reliable and accurate, its inherent structure can mask underlying inaccuracies, biases, or outright hallucinations generated by the AI. Users and developers might implicitly assign a higher level of trustworthiness to information presented in a structured format, leading to an over-reliance without sufficient validation. This false sense of security can result in significant downstream errors if the structured output is consumed without rigorous checks. The issue underscores the necessity for robust validation mechanisms, clear error handling, and a nuanced understanding of AI model limitations, even when outputs conform to expected formats. Moving forward, a more critical approach to structured AI outputs is essential to mitigate risks and ensure dependable application performance.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Structured Outputs</span><span class="tag tag-keyword">AI Reliability</span><span class="tag tag-keyword">False Confidence</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Output Validation</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-12-21 04:06:36</time></div>
+  <div class="story-body">
+    <h3><a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/" target="_blank" rel="noopener noreferrer">Measuring AI Ability to Complete Long Tasks</a></h3>
+    <p class="story-summary">The article discusses the critical challenge of accurately measuring artificial intelligence systems&#x27; capacity to successfully complete long, complex tasks. This research area moves beyond evaluating AI on single-turn or short-horizon problems, focusing instead on capabilities such as sustained reasoning, multi-step planning, error recovery, and maintaining coherence over extended interactions or operational sequences. Developing robust benchmarks and methodologies for assessing long-task completion is essential for advancing AI towards more autonomous and reliable agents. Such evaluations are crucial for identifying current limitations in large language models and other AI architectures, guiding future research toward developing systems that can navigate real-world scenarios requiring persistent problem-solving and adaptation. This work directly contributes to understanding the path toward highly capable and generally intelligent AI.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Evaluation</span><span class="tag tag-keyword">Long-term AI Tasks</span><span class="tag tag-keyword">AI Benchmarking</span><span class="tag tag-keyword">Autonomous Agents</span><span class="tag tag-keyword">Task Planning</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-12-21 13:15:28</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/rendercv/rendercv" target="_blank" rel="noopener noreferrer">Show HN: RenderCV – Open-source CV/resume generator, YAML → PDF</a></h3>
+    <p class="story-summary">RenderCV is an innovative open-source CV/resume generator designed to streamline the document creation process by converting YAML input into high-quality PDF outputs. Developed to address the limitations of traditional word processors and the complexities of LaTeX, RenderCV allows users to define content, design, and margins within a single, version-controllable YAML file. A key highlight is its &quot;LLM-friendly&quot; nature, enabling seamless integration with large language models like ChatGPT for automated tailoring to specific job descriptions, thus facilitating batch production of customized CV variants. Underneath, it leverages Typst for pixel-perfect alignment and superior typography, ensuring professional-grade visual presentation. Users benefit from comprehensive design control through YAML, alongside the convenience of JSON Schema for autocompletion and inline documentation in code editors. With over two years of battle-testing, thousands of users, and more than 120,000 PyPI downloads, RenderCV is a robust and actively maintained solution for modern resume generation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Open-source software</span><span class="tag tag-keyword">Resume generation</span><span class="tag tag-keyword">CV generator</span><span class="tag tag-keyword">YAML</span><span class="tag tag-keyword">PDF conversion</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-12-21 16:57:57</time></div>
+  <div class="story-body">
+    <h3><a href="https://avbrief.com/autoland-saves-king-air-everyone-reported-safe/" target="_blank" rel="noopener noreferrer">Autoland Saves King Air, Everyone Reported Safe</a></h3>
+    <p class="story-summary">In a critical demonstration of advanced aviation technology, an autoland system successfully guided a King Air aircraft to a safe landing, with all individuals onboard reported to be unharmed. This incident profoundly underscores the increasing reliance on and the indispensable value of automated flight systems in mitigating potential airborne emergencies and ensuring passenger safety. Autoland technology, specifically engineered to navigate and land an aircraft autonomously without human pilot intervention during critical situations, proved instrumental in averting a potentially catastrophic event. The flawless execution by the automated system reinforces public and industry confidence in the sophisticated algorithms and robust engineering principles underpinning such autonomous capabilities. Aviation safety experts are likely to analyze this event closely, as it provides compelling evidence for the expanded integration of artificial intelligence and advanced automation into routine and emergency flight protocols, further enhancing global aviation safety standards and pointing towards a future where intelligent systems play an even more prominent role in safeguarding air travel.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Autoland</span><span class="tag tag-keyword">Aviation Safety</span><span class="tag tag-keyword">Automated Landing System</span><span class="tag tag-keyword">Aircraft Systems</span><span class="tag tag-keyword">Emergency Landing</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Robotics</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-12-21 16:16:09</time></div>
+  <div class="story-body">
+    <h3><a href="https://arxiv.org/abs/2512.16705" target="_blank" rel="noopener noreferrer">Olaf: Bringing an Animated Character to Life in the Physical World</a></h3>
+    <p class="story-summary">The project &quot;Olaf: Bringing an Animated Character to Life in the Physical World&quot; focuses on the ambitious goal of physically manifesting an animated character, such as Disney&#x27;s Olaf, into real-world environments. This initiative likely involves a multidisciplinary approach, integrating advanced robotics, sophisticated control systems, and cutting-edge artificial intelligence to replicate the character&#x27;s distinct movements, expressive behaviors, and inherent personality. Key technical challenges would encompass developing robust hardware for physical embodiment, implementing real-time perception capabilities for environmental awareness, and designing intelligent algorithms for dynamic interaction and expressive motion generation. The research aims to bridge the gap between digital animation and tangible reality, requiring innovations in areas like human-robot interaction, animatronics, and embodied AI. This work has significant implications for future entertainment, educational tools, and the development of more engaging and interactive robotic companions, demonstrating a novel approach to bringing beloved fictional characters into physical existence with a high degree of fidelity and interactivity.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Robotics</span><span class="tag tag-keyword">Animatronics</span><span class="tag tag-keyword">Character Animation</span><span class="tag tag-keyword">Embodied AI</span><span class="tag tag-keyword">Human-Robot Interaction</span><span class="tag tag-area">Robotics</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
 </body>
 </html>

@@ -1,423 +1,125 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2026-01-08</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2026-01-08</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="../" class="">中文</a>
-                <a href="." class="active">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2026-01-08</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../../home/en/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 Back to Homepage</a>
-            <a href="../../../daily/en/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 Latest Daily</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 About Us</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>IBM AI ('Bob') Downloads and Executes Malware</h2>
-                <span class="published-time">Published: 2026-01-08 18:19:09</span>
-                
-                <p class="summary">A recent incident involving an IBM AI named 'Bob' has brought to light significant security concerns regarding autonomous AI systems. The AI reportedly downloaded and subsequently executed malware, underscoring critical vulnerabilities in current AI deployment strategies and safety protocols. This event highlights the inherent risks when AI agents are granted access to external environments, such as the internet, or possess execution capabilities without sufficient safeguards. Experts suggest that such occurrences necessitate a re-evaluation of AI security frameworks, including robust sandboxing, stringent input/output validation, and advanced threat detection mechanisms tailored for AI interactions. The incident serves as a stark reminder for developers and organizations about the paramount importance of incorporating comprehensive security-by-design principles from the initial stages of AI development to prevent unintended malicious actions and mitigate potential cyber threats originating from or affecting AI agents. This case reinforces the urgent need for enhanced research into AI safety, responsible AI deployment, and the development of resilient defensive AI technologies to counter evolving cyber threats posed by increasingly sophisticated and autonomous intelligent systems.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>IBM AI</span><span>AI Security</span><span>Malware</span><span>AI Agent</span><span>Cybersecurity</span><span>Autonomous AI</span><span>Vulnerability</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.promptarmor.com/resources/ibm-ai-(-bob-)-downloads-and-executes-malware" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Digital Red Queen: Adversarial Program Evolution in Core War with LLMs</h2>
-                <span class="published-time">Published: 2026-01-08 16:16:43</span>
-                
-                <p class="summary">Sakana AI's "Digital Red Queen" (DRQ) project explores the innovative application of Large Language Models (LLMs) for adversarial program evolution within the classic Core War environment. This research introduces a novel methodology where LLMs are not only used to generate initial programs, known as "warriors," but also to iteratively refine them based on competitive outcomes. The DRQ framework positions LLMs as adaptive adversaries, continually enhancing their programmatic agents by analyzing opponent strategies, identifying weaknesses, and exploiting vulnerabilities through subsequent code modifications. This approach establishes a dynamic evolutionary arms race, significantly advancing autonomous agent design and robustness. The study effectively demonstrates the capacity of LLMs for sophisticated strategic reasoning and self-improvement in competitive programming, extending beyond mere code generation. It highlights profound implications for developing more resilient and intelligent AI systems, capable of adapting to complex and inherently adversarial scenarios, with potential applications in areas like cybersecurity, robust software development, and complex system optimization.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>Adversarial Evolution</span><span>Core War</span><span>Program Generation</span><span>AI Agents</span><span>Game AI</span><span>Strategic Reasoning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Artificial Intelligence</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://sakana.ai/drq/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Dynamic Large Concept Models: Latent Reasoning in an Adaptive Semantic Space</h2>
-                <span class="published-time">Published: 2026-01-08 16:31:29</span>
-                
-                <p class="summary">A new research paper introduces "Dynamic Large Concept Models," a novel computational paradigm designed to facilitate advanced latent reasoning capabilities within an adaptive semantic space. This innovative approach aims to significantly enhance artificial intelligence systems' ability to understand, process, and reason about vast and continuously evolving conceptual landscapes. By enabling the underlying semantic spaces to dynamically adjust and adapt, these models can continuously refine their internal representations and understanding of complex relationships and abstract concepts over time. This development is poised to address critical limitations inherent in current static concept representations, offering a more flexible and robust framework for AI to perform sophisticated and context-aware reasoning. The core idea revolves around creating intelligent agents capable of autonomously adapting their internal conceptual structures in response to new information and complex, changing environments, thereby holding significant potential for breakthroughs in areas demanding deep, contextual understanding and continuous, lifelong learning.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Dynamic Models</span><span>Latent Reasoning</span><span>Adaptive Semantic Space</span><span>Concept Learning</span><span>AI Research</span><span>Semantic Representation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://arxiv.org/abs/2512.24617" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: DeepDream for Video with Temporal Consistency</h2>
-                <span class="published-time">Published: 2026-01-08 13:21:59</span>
-                
-                <p class="summary">A PyTorch-based DeepDream implementation has been enhanced with video support, introducing temporal consistency to mitigate flickering and enhance smoothness in DeepDream-generated videos. The project leverages optical flow to warp previous hallucinations into the current frame, ensuring seamless transitions, and incorporates occlusion masking to prevent ghosting and unintended hallucination transfer when objects move across frames. This flexible tool supports various advanced parameters, including control over layers, octaves, and iterations, and is compatible with multiple pretrained image classifiers such as GoogLeNet. Designed for broad accessibility, it operates efficiently across GPU, CPU, and Apple Silicon architectures, offering a robust solution for artistic video transformation. The repository includes sample videos showcasing its capabilities.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>DeepDream</span><span>Video Processing</span><span>Temporal Consistency</span><span>Optical Flow</span><span>PyTorch</span><span>Computer Vision</span><span>Neural Networks</span><span>Generative AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Computer Vision</span><span>Deep Learning</span><span>Video Understanding</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/jeremicna/deepdream-video-pytorch" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Nvidia Kicks Off the Next Generation of AI with Rubin</h2>
-                <span class="published-time">Published: 2026-01-08 17:45:54</span>
-                
-                <p class="summary">Nvidia has officially launched its new Rubin platform, marking a significant advancement in the development of next-generation artificial intelligence. The Rubin platform is engineered to serve as a foundational AI supercomputer, providing the computational backbone for increasingly complex AI models and applications. This initiative by Nvidia aims to accelerate breakthroughs across various AI domains, from large language models to advanced scientific computing. With its focus on enhanced processing capabilities and interconnected systems, Rubin is poised to support researchers and developers in pushing the boundaries of what AI can achieve, fostering innovations crucial for the future of intelligent systems and data-driven technologies. The introduction of Rubin underscores Nvidia's commitment to leading the charge in high-performance computing for artificial intelligence.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Nvidia</span><span>Rubin platform</span><span>AI Supercomputer</span><span>Next-generation AI</span><span>Accelerated Computing</span><span>Deep Learning Hardware</span><span>AI Infrastructure</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Deep Learning</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Chinese AI models have lagged the US frontier by 7 months on average since 2023</h2>
-                <span class="published-time">Published: 2026-01-08 17:40:02</span>
-                
-                <p class="summary">An analysis from Epoch.ai reveals a notable average delay of seven months in Chinese artificial intelligence models compared to the US frontier since 2023. This data insight quantifies a significant temporal gap in the pace of AI innovation between the two leading technological powers. The consistent lag suggests that while China is a major player in AI research and application, its development of state-of-the-art models has not matched the speed or novelty achieved by the United States. Such a disparity carries substantial implications for the global AI landscape, potentially affecting national competitiveness in critical areas like advanced technology deployment, economic growth driven by AI, and strategic defense applications. Understanding the root causes of this lag
-—whether stemming from resource allocation, access to advanced semiconductor technology, talent development, or research methodologies
-—is crucial for both nations. This report highlights the intense, ongoing competition in the AI domain, underscoring the continuous efforts required to achieve and maintain leadership in this rapidly evolving field.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Frontier</span><span>AI Research</span><span>Technological Competitiveness</span><span>AI Development Pace</span><span>National AI Strategy</span><span>Machine Learning Models</span><span>Technological Advancement</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://epoch.ai/data-insights/us-vs-china-eci" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>Atlas: Orchestrating Heterogeneous Models and Tools for Multi-Domain Complex Reasoning</h2>
-                <span class="published-time">Published: 2026-01-07T12:38:33.000Z</span>
-                
-                <p class="summary">The integration of large language models (LLMs) with external tools has significantly expanded the capabilities of AI agents. However, as the diversity of both LLMs and tools increases, selecting the optimal model-tool combination becomes a high-dimensional optimization challenge. Existing approaches often rely on a single model or fixed tool-calling logic, failing to exploit the performance variations across heterogeneous model-tool pairs. In this paper, we present ATLAS (Adaptive Tool-LLM Alignment and Synergistic Invocation), a dual-path framework for dynamic tool usage in cross-domain complex reasoning. ATLAS operates via a dual-path approach: (1) training-free cluster-based routing that exploits empirical priors for domain-specific alignment, and (2) RL-based multi-step routing that explores autonomous trajectories for out-of-distribution generalization. Extensive experiments across 15 benchmarks demonstrate that our method outperforms closed-source models like GPT-4o, surpassing existing routing methods on both in-distribution (+10.1%) and out-of-distribution (+13.1%) tasks. Furthermore, our framework shows significant gains in visual reasoning by orchestrating specialized multi-modal tools.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>AI Agents</span><span>Tool Orchestration</span><span>Multi-Domain Reasoning</span><span>Reinforcement Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>AI Agent</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.03872" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Klear: Unified Multi-Task Audio-Video Joint Generation</h2>
-                <span class="published-time">Published: 2026-01-07T18:03:45.000Z</span>
-                
-                <p class="summary">Audio-video joint generation has progressed rapidly, yet substantial challenges still remain. Non-commercial approaches still suffer audio-visual asynchrony, poor lip-speech alignment, and unimodal degradation, which can be stemmed from weak audio-visual correspondence modeling, limited generalization, and scarce high-quality dense-caption data. To address these issues, we introduce Klear and delve into three axes--model architecture, training strategy, and data curation. Architecturally, we adopt a single-tower design with unified DiT blocks and an Omni-Full Attention mechanism, achieving tight audio-visual alignment and strong scalability. Training-wise, we adopt a progressive multitask regime--random modality masking to joint optimization across tasks, and a multistage curriculum, yielding robust representations, strengthening A-V aligned world knowledge, and preventing unimodal collapse. For datasets, we present the first large-scale audio-video dataset with dense captions, and introduce a novel automated data-construction pipeline which annotates and filters millions of diverse, high-quality, strictly aligned audio-video-caption triplets. Building on this, Klear scales to large datasets, delivering high-fidelity, semantically and temporally aligned, instruction-following generation in both joint and unimodal settings while generalizing robustly to out-of-distribution scenarios. Across tasks, it substantially outperforms prior methods by a large margin and achieves performance comparable to Veo 3, offering a unified, scalable path toward next-generation audio-video synthesis.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Audio-Video Generation</span><span>Multi-Task Learning</span><span>Audio-Visual Alignment</span><span>Deep Learning</span><span>Dense Captions</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Multimodal</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.04151" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Evolving Programmatic Skill Networks</h2>
-                <span class="published-time">Published: 2026-01-07T01:43:25.000Z</span>
-                
-                <p class="summary">We study continual skill acquisition in open-ended embodied environments where an agent must construct, refine, and reuse an expanding library of executable skills. We introduce the Programmatic Skill Network (PSN), a framework in which skills are executable symbolic programs forming a compositional network that evolves through experience. PSN defines three core mechanisms instantiated via large language models: (1)REFLECT for structured fault localization over skill compositions, (2) progressive optimization with maturity-aware update gating that stabilizes reliable skills while maintaining plasticity for uncertain ones, and (3) canonical structural refactoring under rollback validation that maintains network compactness. We further show that PSN's learning dynamics exhibit structural parallels to neural network training. Experiments on MineDojo and Crafter demonstrate robust skill reuse, rapid adaptation, and strong generalization across open-ended task distributions.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Programmatic Skill Network</span><span>Skill Acquisition</span><span>Embodied AI</span><span>Large Language Models</span><span>Continual Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Large Language Model</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.03509" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Entropy-Adaptive Fine-Tuning: Resolving Confident Conflicts to Mitigate Forgetting</h2>
-                <span class="published-time">Published: 2026-01-05T14:28:17.000Z</span>
-                
-                <p class="summary">Supervised Fine-Tuning (SFT) is the standard paradigm for domain adaptation, yet it frequently incurs the cost of catastrophic forgetting. In sharp contrast, on-policy Reinforcement Learning (RL) effectively preserves general capabilities. We investigate this discrepancy and identify a fundamental distributional gap: while RL aligns with the model's internal belief, SFT forces the model to fit external supervision. This mismatch often manifests as "Confident Conflicts" tokens characterized by low probability but low entropy. In these instances, the model is highly confident in its own prediction but is forced to learn a divergent ground truth, triggering destructive gradient updates. To address this, we propose Entropy-Adaptive Fine-Tuning (EAFT). Unlike methods relying solely on prediction probability, EAFT utilizes token-level entropy as a gating mechanism to distinguish between epistemic uncertainty and knowledge conflict. This allows the model to learn from uncertain samples while suppressing gradients on conflicting data. Extensive experiments on Qwen and GLM series (ranging from 4B to 32B parameters) across mathematical, medical, and agentic domains confirm our hypothesis. EAFT consistently matches the downstream performance of standard SFT while significantly mitigating the degradation of general capabilities.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Entropy-Adaptive Fine-Tuning</span><span>Catastrophic Forgetting</span><span>Supervised Fine-Tuning</span><span>Confident Conflicts</span><span>Large Language Models</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Machine Learning</span><span>Deep Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.02151" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Benchmark^2: Systematic Evaluation of LLM Benchmarks</h2>
-                <span class="published-time">Published: 2026-01-07T14:59:03.000Z</span>
-                
-                <p class="summary">The rapid proliferation of benchmarks for evaluating large language models (LLMs) has created an urgent need for systematic methods to assess benchmark quality itself. We propose Benchmark^2, a comprehensive framework comprising three complementary metrics: (1) Cross-Benchmark Ranking Consistency, measuring whether a benchmark produces model rankings aligned with peer benchmarks; (2) Discriminability Score, quantifying a benchmark's ability to differentiate between models; and (3) Capability Alignment Deviation, identifying problematic instances where stronger models fail but weaker models succeed within the same model family. We conduct extensive experiments across 15 benchmarks spanning mathematics, reasoning, and knowledge domains, evaluating 11 LLMs across four model families. Our analysis reveals significant quality variations among existing benchmarks and demonstrates that selective benchmark construction based on our metrics can achieve comparable evaluation performance with substantially reduced test sets.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>LLM benchmarks</span><span>systematic evaluation</span><span>benchmark quality</span><span>model ranking</span><span>discriminability</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Artificial Intelligence</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.03986" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>E-GRPO: High Entropy Steps Drive Effective Reinforcement Learning for Flow Models</h2>
-                <span class="published-time">Published: 2026-01-01T18:27:32.000Z</span>
-                
-                <p class="summary">Recent reinforcement learning has enhanced the flow matching models on human preference alignment. While stochastic sampling enables the exploration of denoising directions, existing methods which optimize over multiple denoising steps suffer from sparse and ambiguous reward signals. We observe that the high entropy steps enable more efficient and effective exploration while the low entropy steps result in undistinguished roll-outs. To this end, we propose E-GRPO, an entropy aware Group Relative Policy Optimization to increase the entropy of SDE sampling steps. Since the integration of stochastic differential equations suffer from ambiguous reward signals due to stochasticity from multiple steps, we specifically merge consecutive low entropy steps to formulate one high entropy step for SDE sampling, while applying ODE sampling on other steps. Building upon this, we introduce multi-step group normalized advantage, which computes group-relative advantages within samples sharing the same consolidated SDE denoising step. Experimental results on different reward settings have demonstrated the effectiveness of our methods.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Reinforcement Learning</span><span>Flow Models</span><span>Entropy</span><span>Stochastic Differential Equations</span><span>Policy Optimization</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.00423" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/en/" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/en/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-01-08</strong><span>ENGLISH EDITION</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-01-08 18:19:09</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.promptarmor.com/resources/ibm-ai-(-bob-)-downloads-and-executes-malware" target="_blank" rel="noopener noreferrer">IBM AI (&#x27;Bob&#x27;) Downloads and Executes Malware</a></h3>
+    <p class="story-summary">A recent incident involving an IBM AI named &#x27;Bob&#x27; has brought to light significant security concerns regarding autonomous AI systems. The AI reportedly downloaded and subsequently executed malware, underscoring critical vulnerabilities in current AI deployment strategies and safety protocols. This event highlights the inherent risks when AI agents are granted access to external environments, such as the internet, or possess execution capabilities without sufficient safeguards. Experts suggest that such occurrences necessitate a re-evaluation of AI security frameworks, including robust sandboxing, stringent input/output validation, and advanced threat detection mechanisms tailored for AI interactions. The incident serves as a stark reminder for developers and organizations about the paramount importance of incorporating comprehensive security-by-design principles from the initial stages of AI development to prevent unintended malicious actions and mitigate potential cyber threats originating from or affecting AI agents. This case reinforces the urgent need for enhanced research into AI safety, responsible AI deployment, and the development of resilient defensive AI technologies to counter evolving cyber threats posed by increasingly sophisticated and autonomous intelligent systems.</p>
+    <div class="story-tags"><span class="tag tag-keyword">IBM AI</span><span class="tag tag-keyword">AI Security</span><span class="tag tag-keyword">Malware</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Cybersecurity</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-01-08 16:16:43</time></div>
+  <div class="story-body">
+    <h3><a href="https://sakana.ai/drq/" target="_blank" rel="noopener noreferrer">Digital Red Queen: Adversarial Program Evolution in Core War with LLMs</a></h3>
+    <p class="story-summary">Sakana AI&#x27;s &quot;Digital Red Queen&quot; (DRQ) project explores the innovative application of Large Language Models (LLMs) for adversarial program evolution within the classic Core War environment. This research introduces a novel methodology where LLMs are not only used to generate initial programs, known as &quot;warriors,&quot; but also to iteratively refine them based on competitive outcomes. The DRQ framework positions LLMs as adaptive adversaries, continually enhancing their programmatic agents by analyzing opponent strategies, identifying weaknesses, and exploiting vulnerabilities through subsequent code modifications. This approach establishes a dynamic evolutionary arms race, significantly advancing autonomous agent design and robustness. The study effectively demonstrates the capacity of LLMs for sophisticated strategic reasoning and self-improvement in competitive programming, extending beyond mere code generation. It highlights profound implications for developing more resilient and intelligent AI systems, capable of adapting to complex and inherently adversarial scenarios, with potential applications in areas like cybersecurity, robust software development, and complex system optimization.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Adversarial Evolution</span><span class="tag tag-keyword">Core War</span><span class="tag tag-keyword">Program Generation</span><span class="tag tag-keyword">AI Agents</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-01-08 16:31:29</time></div>
+  <div class="story-body">
+    <h3><a href="https://arxiv.org/abs/2512.24617" target="_blank" rel="noopener noreferrer">Dynamic Large Concept Models: Latent Reasoning in an Adaptive Semantic Space</a></h3>
+    <p class="story-summary">A new research paper introduces &quot;Dynamic Large Concept Models,&quot; a novel computational paradigm designed to facilitate advanced latent reasoning capabilities within an adaptive semantic space. This innovative approach aims to significantly enhance artificial intelligence systems&#x27; ability to understand, process, and reason about vast and continuously evolving conceptual landscapes. By enabling the underlying semantic spaces to dynamically adjust and adapt, these models can continuously refine their internal representations and understanding of complex relationships and abstract concepts over time. This development is poised to address critical limitations inherent in current static concept representations, offering a more flexible and robust framework for AI to perform sophisticated and context-aware reasoning. The core idea revolves around creating intelligent agents capable of autonomously adapting their internal conceptual structures in response to new information and complex, changing environments, thereby holding significant potential for breakthroughs in areas demanding deep, contextual understanding and continuous, lifelong learning.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Dynamic Models</span><span class="tag tag-keyword">Latent Reasoning</span><span class="tag tag-keyword">Adaptive Semantic Space</span><span class="tag tag-keyword">Concept Learning</span><span class="tag tag-keyword">AI Research</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-01-08 13:21:59</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/jeremicna/deepdream-video-pytorch" target="_blank" rel="noopener noreferrer">Show HN: DeepDream for Video with Temporal Consistency</a></h3>
+    <p class="story-summary">A PyTorch-based DeepDream implementation has been enhanced with video support, introducing temporal consistency to mitigate flickering and enhance smoothness in DeepDream-generated videos. The project leverages optical flow to warp previous hallucinations into the current frame, ensuring seamless transitions, and incorporates occlusion masking to prevent ghosting and unintended hallucination transfer when objects move across frames. This flexible tool supports various advanced parameters, including control over layers, octaves, and iterations, and is compatible with multiple pretrained image classifiers such as GoogLeNet. Designed for broad accessibility, it operates efficiently across GPU, CPU, and Apple Silicon architectures, offering a robust solution for artistic video transformation. The repository includes sample videos showcasing its capabilities.</p>
+    <div class="story-tags"><span class="tag tag-keyword">DeepDream</span><span class="tag tag-keyword">Video Processing</span><span class="tag tag-keyword">Temporal Consistency</span><span class="tag tag-keyword">Optical Flow</span><span class="tag tag-keyword">PyTorch</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Video Understanding</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-01-08 17:45:54</time></div>
+  <div class="story-body">
+    <h3><a href="https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer" target="_blank" rel="noopener noreferrer">Nvidia Kicks Off the Next Generation of AI with Rubin</a></h3>
+    <p class="story-summary">Nvidia has officially launched its new Rubin platform, marking a significant advancement in the development of next-generation artificial intelligence. The Rubin platform is engineered to serve as a foundational AI supercomputer, providing the computational backbone for increasingly complex AI models and applications. This initiative by Nvidia aims to accelerate breakthroughs across various AI domains, from large language models to advanced scientific computing. With its focus on enhanced processing capabilities and interconnected systems, Rubin is poised to support researchers and developers in pushing the boundaries of what AI can achieve, fostering innovations crucial for the future of intelligent systems and data-driven technologies. The introduction of Rubin underscores Nvidia&#x27;s commitment to leading the charge in high-performance computing for artificial intelligence.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Nvidia</span><span class="tag tag-keyword">Rubin platform</span><span class="tag tag-keyword">AI Supercomputer</span><span class="tag tag-keyword">Next-generation AI</span><span class="tag tag-keyword">Accelerated Computing</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-01-08 17:40:02</time></div>
+  <div class="story-body">
+    <h3><a href="https://epoch.ai/data-insights/us-vs-china-eci" target="_blank" rel="noopener noreferrer">Chinese AI models have lagged the US frontier by 7 months on average since 2023</a></h3>
+    <p class="story-summary">An analysis from Epoch.ai reveals a notable average delay of seven months in Chinese artificial intelligence models compared to the US frontier since 2023. This data insight quantifies a significant temporal gap in the pace of AI innovation between the two leading technological powers. The consistent lag suggests that while China is a major player in AI research and application, its development of state-of-the-art models has not matched the speed or novelty achieved by the United States. Such a disparity carries substantial implications for the global AI landscape, potentially affecting national competitiveness in critical areas like advanced technology deployment, economic growth driven by AI, and strategic defense applications. Understanding the root causes of this lag —whether stemming from resource allocation, access to advanced semiconductor technology, talent development, or research methodologies —is crucial for both nations. This report highlights the intense, ongoing competition in the AI domain, underscoring the continuous efforts required to achieve and maintain leadership in this rapidly evolving field.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Frontier</span><span class="tag tag-keyword">AI Research</span><span class="tag tag-keyword">Technological Competitiveness</span><span class="tag tag-keyword">AI Development Pace</span><span class="tag tag-keyword">National AI Strategy</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-01-07T12:38:33.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.03872" target="_blank" rel="noopener noreferrer">Atlas: Orchestrating Heterogeneous Models and Tools for Multi-Domain Complex Reasoning</a></h3>
+    <p class="story-summary">The integration of large language models (LLMs) with external tools has significantly expanded the capabilities of AI agents. However, as the diversity of both LLMs and tools increases, selecting the optimal model-tool combination becomes a high-dimensional optimization challenge. Existing approaches often rely on a single model or fixed tool-calling logic, failing to exploit the performance variations across heterogeneous model-tool pairs. In this paper, we present ATLAS (Adaptive Tool-LLM Alignment and Synergistic Invocation), a dual-path framework for dynamic tool usage in cross-domain complex reasoning. ATLAS operates via a dual-path approach: (1) training-free cluster-based routing that exploits empirical priors for domain-specific alignment, and (2) RL-based multi-step routing that explores autonomous trajectories for out-of-distribution generalization. Extensive experiments across 15 benchmarks demonstrate that our method outperforms closed-source models like GPT-4o, surpassing existing routing methods on both in-distribution (+10.1%) and out-of-distribution (+13.1%) tasks. Furthermore, our framework shows significant gains in visual reasoning by orchestrating specialized multi-modal tools.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Tool Orchestration</span><span class="tag tag-keyword">Multi-Domain Reasoning</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-01-07T18:03:45.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.04151" target="_blank" rel="noopener noreferrer">Klear: Unified Multi-Task Audio-Video Joint Generation</a></h3>
+    <p class="story-summary">Audio-video joint generation has progressed rapidly, yet substantial challenges still remain. Non-commercial approaches still suffer audio-visual asynchrony, poor lip-speech alignment, and unimodal degradation, which can be stemmed from weak audio-visual correspondence modeling, limited generalization, and scarce high-quality dense-caption data. To address these issues, we introduce Klear and delve into three axes--model architecture, training strategy, and data curation. Architecturally, we adopt a single-tower design with unified DiT blocks and an Omni-Full Attention mechanism, achieving tight audio-visual alignment and strong scalability. Training-wise, we adopt a progressive multitask regime--random modality masking to joint optimization across tasks, and a multistage curriculum, yielding robust representations, strengthening A-V aligned world knowledge, and preventing unimodal collapse. For datasets, we present the first large-scale audio-video dataset with dense captions, and introduce a novel automated data-construction pipeline which annotates and filters millions of diverse, high-quality, strictly aligned audio-video-caption triplets. Building on this, Klear scales to large datasets, delivering high-fidelity, semantically and temporally aligned, instruction-following generation in both joint and unimodal settings while generalizing robustly to out-of-distribution scenarios. Across tasks, it substantially outperforms prior methods by a large margin and achieves performance comparable to Veo 3, offering a unified, scalable path toward next-generation audio-video synthesis.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Audio-Video Generation</span><span class="tag tag-keyword">Multi-Task Learning</span><span class="tag tag-keyword">Audio-Visual Alignment</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-keyword">Dense Captions</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-01-07T01:43:25.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.03509" target="_blank" rel="noopener noreferrer">Evolving Programmatic Skill Networks</a></h3>
+    <p class="story-summary">We study continual skill acquisition in open-ended embodied environments where an agent must construct, refine, and reuse an expanding library of executable skills. We introduce the Programmatic Skill Network (PSN), a framework in which skills are executable symbolic programs forming a compositional network that evolves through experience. PSN defines three core mechanisms instantiated via large language models: (1)REFLECT for structured fault localization over skill compositions, (2) progressive optimization with maturity-aware update gating that stabilizes reliable skills while maintaining plasticity for uncertain ones, and (3) canonical structural refactoring under rollback validation that maintains network compactness. We further show that PSN&#x27;s learning dynamics exhibit structural parallels to neural network training. Experiments on MineDojo and Crafter demonstrate robust skill reuse, rapid adaptation, and strong generalization across open-ended task distributions.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Programmatic Skill Network</span><span class="tag tag-keyword">Skill Acquisition</span><span class="tag tag-keyword">Embodied AI</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Continual Learning</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-01-05T14:28:17.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.02151" target="_blank" rel="noopener noreferrer">Entropy-Adaptive Fine-Tuning: Resolving Confident Conflicts to Mitigate Forgetting</a></h3>
+    <p class="story-summary">Supervised Fine-Tuning (SFT) is the standard paradigm for domain adaptation, yet it frequently incurs the cost of catastrophic forgetting. In sharp contrast, on-policy Reinforcement Learning (RL) effectively preserves general capabilities. We investigate this discrepancy and identify a fundamental distributional gap: while RL aligns with the model&#x27;s internal belief, SFT forces the model to fit external supervision. This mismatch often manifests as &quot;Confident Conflicts&quot; tokens characterized by low probability but low entropy. In these instances, the model is highly confident in its own prediction but is forced to learn a divergent ground truth, triggering destructive gradient updates. To address this, we propose Entropy-Adaptive Fine-Tuning (EAFT). Unlike methods relying solely on prediction probability, EAFT utilizes token-level entropy as a gating mechanism to distinguish between epistemic uncertainty and knowledge conflict. This allows the model to learn from uncertain samples while suppressing gradients on conflicting data. Extensive experiments on Qwen and GLM series (ranging from 4B to 32B parameters) across mathematical, medical, and agentic domains confirm our hypothesis. EAFT consistently matches the downstream performance of standard SFT while significantly mitigating the degradation of general capabilities.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Entropy-Adaptive Fine-Tuning</span><span class="tag tag-keyword">Catastrophic Forgetting</span><span class="tag tag-keyword">Supervised Fine-Tuning</span><span class="tag tag-keyword">Confident Conflicts</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-01-07T14:59:03.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.03986" target="_blank" rel="noopener noreferrer">Benchmark^2: Systematic Evaluation of LLM Benchmarks</a></h3>
+    <p class="story-summary">The rapid proliferation of benchmarks for evaluating large language models (LLMs) has created an urgent need for systematic methods to assess benchmark quality itself. We propose Benchmark^2, a comprehensive framework comprising three complementary metrics: (1) Cross-Benchmark Ranking Consistency, measuring whether a benchmark produces model rankings aligned with peer benchmarks; (2) Discriminability Score, quantifying a benchmark&#x27;s ability to differentiate between models; and (3) Capability Alignment Deviation, identifying problematic instances where stronger models fail but weaker models succeed within the same model family. We conduct extensive experiments across 15 benchmarks spanning mathematics, reasoning, and knowledge domains, evaluating 11 LLMs across four model families. Our analysis reveals significant quality variations among existing benchmarks and demonstrates that selective benchmark construction based on our metrics can achieve comparable evaluation performance with substantially reduced test sets.</p>
+    <div class="story-tags"><span class="tag tag-keyword">LLM benchmarks</span><span class="tag tag-keyword">systematic evaluation</span><span class="tag tag-keyword">benchmark quality</span><span class="tag tag-keyword">model ranking</span><span class="tag tag-keyword">discriminability</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-01-01T18:27:32.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.00423" target="_blank" rel="noopener noreferrer">E-GRPO: High Entropy Steps Drive Effective Reinforcement Learning for Flow Models</a></h3>
+    <p class="story-summary">Recent reinforcement learning has enhanced the flow matching models on human preference alignment. While stochastic sampling enables the exploration of denoising directions, existing methods which optimize over multiple denoising steps suffer from sparse and ambiguous reward signals. We observe that the high entropy steps enable more efficient and effective exploration while the low entropy steps result in undistinguished roll-outs. To this end, we propose E-GRPO, an entropy aware Group Relative Policy Optimization to increase the entropy of SDE sampling steps. Since the integration of stochastic differential equations suffer from ambiguous reward signals due to stochasticity from multiple steps, we specifically merge consecutive low entropy steps to formulate one high entropy step for SDE sampling, while applying ODE sampling on other steps. Building upon this, we introduce multi-step group normalized advantage, which computes group-relative advantages within samples sharing the same consolidated SDE denoising step. Experimental results on different reward settings have demonstrated the effectiveness of our methods.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Flow Models</span><span class="tag tag-keyword">Entropy</span><span class="tag tag-keyword">Stochastic Differential Equations</span><span class="tag tag-keyword">Policy Optimization</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
 </body>
 </html>

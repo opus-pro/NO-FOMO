@@ -1,334 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-12-27</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2025-12-27</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="../" class="">中文</a>
-                <a href="." class="active">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-12-27</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../../home/en/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 Back to Homepage</a>
-            <a href="../../../daily/en/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 Latest Daily</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 About Us</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Apple releases open-source model that instantly turns 2D photos into 3D views</h2>
-                <span class="published-time">Published: 2025-12-27 12:58:12</span>
-                
-                <p class="summary">Apple has unveiled an open-source machine learning model designed to instantly transform standard 2D photographs into immersive 3D views. This innovative technology, hosted on GitHub under `apple/ml-sharp`, represents a significant advancement in computer vision and 3D reconstruction. The model employs sophisticated neural network architectures to infer depth and spatial relationships from flat images, enabling rapid generation of three-dimensional representations. This capability holds substantial promise for diverse applications, including augmented reality, virtual reality, gaming development, e-commerce visualization, and creative content production. By making this technology accessible to the public, Apple aims to foster broader adoption, collaboration, and further research within the global developer and academic communities. The focus on instant conversion streamlines workflows for various applications requiring efficient 3D asset generation from conventional imagery.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Machine Learning</span><span>Computer Vision</span><span>3D Reconstruction</span><span>Open Source</span><span>Depth Estimation</span><span>Generative AI</span><span>Neural Networks</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Computer Vision</span><span>Machine Learning</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/apple/ml-sharp" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>More than 20% of videos shown to new YouTube users are 'AI slop', study finds</h2>
-                <span class="published-time">Published: 2025-12-27 18:10:49</span>
-                
-                <p class="summary">A recent study has uncovered that a significant proportion, exceeding 20%, of the videos presented to new YouTube users falls under the category of 'AI slop.' This term describes low-quality, often unoriginal content predominantly created or substantially augmented by artificial intelligence. The research highlights growing challenges for major online video platforms in effectively moderating and curating content amidst the proliferation of advanced generative AI tools. The prevalence of such content, especially in initial user experiences, raises questions about content authenticity, platform quality control, and potential impacts on user engagement and trust. The findings underscore an urgent necessity for improved AI content detection mechanisms and revised policies to ensure high standards of quality and originality within the digital content landscape. This trend reflects a broader industry challenge concerning the distinction and management of synthetic media.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI-generated content</span><span>YouTube</span><span>content moderation</span><span>generative AI</span><span>video platforms</span><span>AI slop</span><span>content quality</span><span>synthetic media</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Generative AI</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.theguardian.com/technology/2025/dec/27/more-than-20-of-videos-shown-to-new-youtube-users-are-ai-slop-study-finds" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Nvidia's $20B Antitrust Loophole (Not an Acquisition)</h2>
-                <span class="published-time">Published: 2025-12-27 17:42:46</span>
-                
-                <p class="summary">The article "Nvidia's $20B Antitrust Loophole (Not an Acquisition)" explores strategic mechanisms through which Nvidia may be reinforcing its formidable market leadership in AI hardware and accelerators, effectively circumventing traditional antitrust reviews typically associated with mergers or acquisitions. Valued at an approximate $20 billion in market impact, this "loophole" is posited to stem not from direct corporate takeovers, but potentially from the strength of its integrated ecosystem, most notably the CUDA software platform. The analysis likely focuses on how such deep-seated infrastructure creates significant barriers to entry for emerging competitors, including innovative AI chip developers like Groq. This investigation aims to shed light on the broader implications for competition within the artificial intelligence industry, examining how market dynamics and technological lock-in can shape the landscape for innovation and prevent a more diversified hardware ecosystem, without triggering conventional regulatory oversight.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Nvidia</span><span>Antitrust</span><span>Groq</span><span>AI Hardware</span><span>Semiconductor Industry</span><span>Market Dominance</span><span>CUDA</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://ossa-ma.github.io/blog/groq" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Nvidia just paid $20B for a company that missed its revenue target by 75%</h2>
-                <span class="published-time">Published: 2025-12-27 16:47:13</span>
-                
-                <p class="summary">Nvidia, a leading entity in high-performance computing and artificial intelligence, has reportedly completed a substantial acquisition, investing $20 billion in an unnamed company. This significant transaction has drawn considerable scrutiny due to reports indicating that the acquired firm substantially missed its revenue targets, reportedly by as much as 75%. While the specific details regarding the identity of the acquired company and its core technological offerings are not elaborated in the available information, this high-stakes investment by Nvidia signals its ongoing commitment to aggressive strategic growth and market consolidation within the technology sector. Such a bold move by a dominant player in AI, machine learning, and advanced GPU development suggests a calculated long-term strategy, potentially aimed at integrating new capabilities, securing vital intellectual property, or expanding its ecosystem, irrespective of the immediate financial performance challenges faced by the acquired entity. The acquisition underscores the intricate balance between strategic value and financial metrics in today's dynamic tech industry.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Nvidia</span><span>Acquisition</span><span>Technology Investment</span><span>Financial Performance</span><span>Market Strategy</span><span>AI Industry</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://blog.drjoshcsimmons.com/p/nvidia-just-paid-20-billion-for-a" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>OrangePi 6 Plus Review</h2>
-                <span class="published-time">Published: 2025-12-27 12:51:15</span>
-                
-                <p class="summary">This article presents an in-depth review of the Orange Pi 6 Plus, a contemporary single-board computer (SBC) targeted at a broad spectrum of computing applications. The evaluation likely encompasses a detailed examination of its hardware architecture, including processing unit, memory configurations, storage interfaces, and various connectivity options such as Wi-Fi, Bluetooth, and expansion ports. Key aspects will involve performance benchmarking across typical workloads, assessing its capabilities in areas like general-purpose computing, multimedia processing, and potential for embedded AI tasks. Furthermore, the review is expected to cover software compatibility, focusing on operating system support—particularly various Linux distributions—and the availability of development tools and libraries crucial for leveraging the device's full potential. The analysis will also consider its suitability for specific use cases such as IoT deployments, home automation projects, educational platforms, and robotics, often drawing comparisons with competing SBCs. The overall assessment will highlight the Orange Pi 6 Plus's strengths, weaknesses, value proposition, and user experience.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Single-Board Computer</span><span>Orange Pi 6 Plus</span><span>Hardware Review</span><span>SBC</span><span>Embedded Systems</span><span>Performance Benchmarks</span><span>Linux</span><span>Edge Computing</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Robotics</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://boilingsteam.com/orange-pi-6-plus-review/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>More dynamic cronjobs</h2>
-                <span class="published-time">Published: 2025-12-27 06:10:42</span>
-                
-                <p class="summary">The article delves into the evolving concept of "more dynamic cronjobs," proposing a significant departure from conventional static, time-based task scheduling. This modern approach emphasizes the integration of advanced automation techniques that allow for greater flexibility and adaptability in executing background processes. Unlike traditional cron, dynamic cronjobs can be triggered by a broader range of conditions, including specific system events, API calls, changes in data states, or even resource availability, rather than just predefined time intervals. Such a system offers substantial operational advantages, including optimized resource utilization, enhanced system responsiveness, and improved robustness in handling variable workloads inherent in cloud-native and distributed architectures. The adoption of dynamic scheduling is presented as a critical step for organizations aiming to achieve higher levels of automation, reduce manual intervention, and build more resilient and efficient infrastructure for their applications and data pipelines. This shift reflects a broader trend towards intelligent and adaptive system management.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Cronjobs</span><span>Task Scheduling</span><span>Automation</span><span>Dynamic Scheduling</span><span>Job Orchestration</span><span>System Administration</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Others</span><span>AI Agent</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://george.mand.is/2025/09/more-dynamic-cronjobs/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/en/" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/en/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2025-12-27</strong><span>ENGLISH EDITION</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-12-27 12:58:12</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/apple/ml-sharp" target="_blank" rel="noopener noreferrer">Apple releases open-source model that instantly turns 2D photos into 3D views</a></h3>
+    <p class="story-summary">Apple has unveiled an open-source machine learning model designed to instantly transform standard 2D photographs into immersive 3D views. This innovative technology, hosted on GitHub under `apple/ml-sharp`, represents a significant advancement in computer vision and 3D reconstruction. The model employs sophisticated neural network architectures to infer depth and spatial relationships from flat images, enabling rapid generation of three-dimensional representations. This capability holds substantial promise for diverse applications, including augmented reality, virtual reality, gaming development, e-commerce visualization, and creative content production. By making this technology accessible to the public, Apple aims to foster broader adoption, collaboration, and further research within the global developer and academic communities. The focus on instant conversion streamlines workflows for various applications requiring efficient 3D asset generation from conventional imagery.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Machine Learning</span><span class="tag tag-keyword">Computer Vision</span><span class="tag tag-keyword">3D Reconstruction</span><span class="tag tag-keyword">Open Source</span><span class="tag tag-keyword">Depth Estimation</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-12-27 18:10:49</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.theguardian.com/technology/2025/dec/27/more-than-20-of-videos-shown-to-new-youtube-users-are-ai-slop-study-finds" target="_blank" rel="noopener noreferrer">More than 20% of videos shown to new YouTube users are &#x27;AI slop&#x27;, study finds</a></h3>
+    <p class="story-summary">A recent study has uncovered that a significant proportion, exceeding 20%, of the videos presented to new YouTube users falls under the category of &#x27;AI slop.&#x27; This term describes low-quality, often unoriginal content predominantly created or substantially augmented by artificial intelligence. The research highlights growing challenges for major online video platforms in effectively moderating and curating content amidst the proliferation of advanced generative AI tools. The prevalence of such content, especially in initial user experiences, raises questions about content authenticity, platform quality control, and potential impacts on user engagement and trust. The findings underscore an urgent necessity for improved AI content detection mechanisms and revised policies to ensure high standards of quality and originality within the digital content landscape. This trend reflects a broader industry challenge concerning the distinction and management of synthetic media.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI-generated content</span><span class="tag tag-keyword">YouTube</span><span class="tag tag-keyword">content moderation</span><span class="tag tag-keyword">generative AI</span><span class="tag tag-keyword">video platforms</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-12-27 17:42:46</time></div>
+  <div class="story-body">
+    <h3><a href="https://ossa-ma.github.io/blog/groq" target="_blank" rel="noopener noreferrer">Nvidia&#x27;s $20B Antitrust Loophole (Not an Acquisition)</a></h3>
+    <p class="story-summary">The article &quot;Nvidia&#x27;s $20B Antitrust Loophole (Not an Acquisition)&quot; explores strategic mechanisms through which Nvidia may be reinforcing its formidable market leadership in AI hardware and accelerators, effectively circumventing traditional antitrust reviews typically associated with mergers or acquisitions. Valued at an approximate $20 billion in market impact, this &quot;loophole&quot; is posited to stem not from direct corporate takeovers, but potentially from the strength of its integrated ecosystem, most notably the CUDA software platform. The analysis likely focuses on how such deep-seated infrastructure creates significant barriers to entry for emerging competitors, including innovative AI chip developers like Groq. This investigation aims to shed light on the broader implications for competition within the artificial intelligence industry, examining how market dynamics and technological lock-in can shape the landscape for innovation and prevent a more diversified hardware ecosystem, without triggering conventional regulatory oversight.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Nvidia</span><span class="tag tag-keyword">Antitrust</span><span class="tag tag-keyword">Groq</span><span class="tag tag-keyword">AI Hardware</span><span class="tag tag-keyword">Semiconductor Industry</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-12-27 16:47:13</time></div>
+  <div class="story-body">
+    <h3><a href="https://blog.drjoshcsimmons.com/p/nvidia-just-paid-20-billion-for-a" target="_blank" rel="noopener noreferrer">Nvidia just paid $20B for a company that missed its revenue target by 75%</a></h3>
+    <p class="story-summary">Nvidia, a leading entity in high-performance computing and artificial intelligence, has reportedly completed a substantial acquisition, investing $20 billion in an unnamed company. This significant transaction has drawn considerable scrutiny due to reports indicating that the acquired firm substantially missed its revenue targets, reportedly by as much as 75%. While the specific details regarding the identity of the acquired company and its core technological offerings are not elaborated in the available information, this high-stakes investment by Nvidia signals its ongoing commitment to aggressive strategic growth and market consolidation within the technology sector. Such a bold move by a dominant player in AI, machine learning, and advanced GPU development suggests a calculated long-term strategy, potentially aimed at integrating new capabilities, securing vital intellectual property, or expanding its ecosystem, irrespective of the immediate financial performance challenges faced by the acquired entity. The acquisition underscores the intricate balance between strategic value and financial metrics in today&#x27;s dynamic tech industry.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Nvidia</span><span class="tag tag-keyword">Acquisition</span><span class="tag tag-keyword">Technology Investment</span><span class="tag tag-keyword">Financial Performance</span><span class="tag tag-keyword">Market Strategy</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-12-27 12:51:15</time></div>
+  <div class="story-body">
+    <h3><a href="https://boilingsteam.com/orange-pi-6-plus-review/" target="_blank" rel="noopener noreferrer">OrangePi 6 Plus Review</a></h3>
+    <p class="story-summary">This article presents an in-depth review of the Orange Pi 6 Plus, a contemporary single-board computer (SBC) targeted at a broad spectrum of computing applications. The evaluation likely encompasses a detailed examination of its hardware architecture, including processing unit, memory configurations, storage interfaces, and various connectivity options such as Wi-Fi, Bluetooth, and expansion ports. Key aspects will involve performance benchmarking across typical workloads, assessing its capabilities in areas like general-purpose computing, multimedia processing, and potential for embedded AI tasks. Furthermore, the review is expected to cover software compatibility, focusing on operating system support—particularly various Linux distributions—and the availability of development tools and libraries crucial for leveraging the device&#x27;s full potential. The analysis will also consider its suitability for specific use cases such as IoT deployments, home automation projects, educational platforms, and robotics, often drawing comparisons with competing SBCs. The overall assessment will highlight the Orange Pi 6 Plus&#x27;s strengths, weaknesses, value proposition, and user experience.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Single-Board Computer</span><span class="tag tag-keyword">Orange Pi 6 Plus</span><span class="tag tag-keyword">Hardware Review</span><span class="tag tag-keyword">SBC</span><span class="tag tag-keyword">Embedded Systems</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Robotics</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-12-27 06:10:42</time></div>
+  <div class="story-body">
+    <h3><a href="https://george.mand.is/2025/09/more-dynamic-cronjobs/" target="_blank" rel="noopener noreferrer">More dynamic cronjobs</a></h3>
+    <p class="story-summary">The article delves into the evolving concept of &quot;more dynamic cronjobs,&quot; proposing a significant departure from conventional static, time-based task scheduling. This modern approach emphasizes the integration of advanced automation techniques that allow for greater flexibility and adaptability in executing background processes. Unlike traditional cron, dynamic cronjobs can be triggered by a broader range of conditions, including specific system events, API calls, changes in data states, or even resource availability, rather than just predefined time intervals. Such a system offers substantial operational advantages, including optimized resource utilization, enhanced system responsiveness, and improved robustness in handling variable workloads inherent in cloud-native and distributed architectures. The adoption of dynamic scheduling is presented as a critical step for organizations aiming to achieve higher levels of automation, reduce manual intervention, and build more resilient and efficient infrastructure for their applications and data pipelines. This shift reflects a broader trend towards intelligent and adaptive system management.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Cronjobs</span><span class="tag tag-keyword">Task Scheduling</span><span class="tag tag-keyword">Automation</span><span class="tag tag-keyword">Dynamic Scheduling</span><span class="tag tag-keyword">Job Orchestration</span><span class="tag tag-area">Others</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
 </body>
 </html>

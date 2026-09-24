@@ -1,407 +1,117 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2026-02-11</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2026-02-11</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="../" class="">中文</a>
-                <a href="." class="active">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2026-02-11</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../../home/en/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 Back to Homepage</a>
-            <a href="../../../daily/en/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 Latest Daily</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 About Us</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Claude Code Is Being Dumbed Down</h2>
-                <span class="published-time">Published: 2026-02-11 18:23:39</span>
-                
-                <p class="summary">Recent discussions and anecdotal reports circulating within the developer community suggest a potential decline in the quality and sophistication of code generated by Claude, a prominent large language model developed by Anthropic. The sentiment, encapsulated by the phrase 'dumbed down,' indicates that the AI's programming output may be becoming simpler, less accurate, or less robust compared to previous iterations. This perceived degradation could have significant implications for developers and users who depend on Claude for generating complex algorithms, refactoring code, or assisting with intricate software development tasks. Potential reasons for such a trend might include strategic internal model updates, recalibrations to optimize computational resources and reduce inference costs, or a shift in fine-tuning objectives that inadvertently prioritizes broader accessibility or specific simpler use-cases over advanced coding capabilities. If these observations are substantiated, it raises important questions regarding the consistency, reliability, and long-term utility of AI-powered code generation tools, emphasizing the continuous challenge for AI providers to balance innovation, performance, cost-efficiency, and the integrity of their models amidst rapid technological evolution. This situation underscores the dynamic nature of AI model development and the ongoing need for transparency regarding model changes and their impact on user experience.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Claude</span><span>Code Generation</span><span>Large Language Model</span><span>AI Performance</span><span>Model Degradation</span><span>Anthropic</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://symmetrybreak.ing/blog/claude-code-is-being-dumbed-down/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>GLM-5: From Vibe Coding to Agentic Engineering</h2>
-                <span class="published-time">Published: 2026-02-11 16:41:33</span>
-                
-                <p class="summary">The article "GLM-5: From Vibe Coding to Agentic Engineering" highlights a significant advancement in the application of large language models (LLMs) to software development, focusing on the introduction of GLM-5. This new iteration, presumably a sophisticated General Language Model, is presented as a catalyst for evolving development methodologies from informal "vibe coding" to a more structured and automated paradigm termed "Agentic Engineering." The core premise is that GLM-5 empowers AI agents to undertake increasingly complex and autonomous engineering tasks, thereby streamlining the entire software development lifecycle. This includes everything from design and coding to testing and deployment, driven by intelligent agents. The shift signifies a move towards leveraging advanced LLMs to build more reliable, efficient, and sophisticated AI systems, emphasizing an future where AI itself plays a central, agent-driven role in its own creation and refinement. This transition underscores the growing impact of powerful language models in transforming modern engineering practices.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>AI Agents</span><span>Software Engineering</span><span>AI Development</span><span>Generative AI</span><span>Autonomous Systems</span><span>AI Engineering</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://z.ai/blog/glm-5" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>AI-First Company Memos</h2>
-                <span class="published-time">Published: 2026-02-11 15:41:18</span>
-                
-                <p class="summary">This resource, titled "AI-First Company Memos" and hosted on the "the-ai-native.company" platform, delves into the strategic framework and practical guidelines for organizations aiming to embed artificial intelligence at the core of their operations and culture. It outlines a vision where AI is not merely a tool but a fundamental driver of business strategy, product innovation, and operational efficiency. The concept revolves around designing systems, processes, and products with AI as the primary consideration, influencing everything from data infrastructure to talent acquisition. Such memos would articulate the imperative for leadership to champion AI integration, empower teams with AI-driven insights, and foster an organizational mindset that prioritizes AI literacy and experimentation. This proactive adoption strategy is presented as essential for achieving sustainable competitive advantage, enabling rapid decision-making, and unlocking new avenues for growth in a rapidly evolving, technology-driven market.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Strategy</span><span>Enterprise AI</span><span>Digital Transformation</span><span>Organizational Change</span><span>AI Adoption</span><span>Business Innovation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://the-ai-native.company/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>End of an era for me: no more self-hosted git</h2>
-                <span class="published-time">Published: 2026-02-11 01:50:44</span>
-                
-                <p class="summary">An individual has publicly announced the cessation of their self-hosted Git repository, framing this decision as "the end of an era" for their personal development workflow. The accompanying blog post, titled "thank-you-ai," strongly implies that artificial intelligence or AI-powered tools and managed services have played a significant role in this transition. This move signifies a broader industry shift where developers are increasingly migrating from traditional, self-managed version control systems to cloud-based or commercially hosted solutions. These modern platforms often integrate advanced AI capabilities for features like automated code review, intelligent code suggestions, vulnerability detection, and streamlined deployment pipelines, significantly reducing the operational overhead associated with infrastructure maintenance. The discontinuation of self-hosting, therefore, highlights a strategic embrace of the efficiencies, scalability, and innovative functionalities offered by AI-augmented development platforms. This pivot allows the individual to reallocate resources and focus from managing underlying infrastructure to concentrating on core development tasks, underscoring the transformative impact of AI on contemporary software engineering practices and infrastructure choices.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Self-hosted Git</span><span>Version Control</span><span>Artificial Intelligence</span><span>Developer Workflow</span><span>Cloud Services</span><span>Software Development</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.kraxel.org/blog/2026/01/thank-you-ai/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>GLM5 Released on Z.ai Platform</h2>
-                <span class="published-time">Published: 2026-02-11 13:42:16</span>
-                
-                <p class="summary">Z.ai Platform has officially announced the release of GLM5, introducing a new iteration of their general language model technology. This launch represents a significant development in the realm of artificial intelligence, likely offering enhanced capabilities in natural language understanding, generation, and complex reasoning tasks, building upon previous generations. The availability of GLM5 on the Z.ai platform suggests a strategic move to provide developers and enterprises with accessible, high-performance AI tools, potentially streamlining the deployment and integration of advanced language-centric applications across diverse industries. This release underscores the ongoing efforts within the AI community to refine and disseminate powerful models, fostering innovation across various sectors from content creation and data analysis to customer service and intelligent automation. The platform's role in hosting GLM5 aims to lower barriers to entry for integrating state-of-the-art AI, propelling further advancements in the practical application and adoption of large language models globally.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Model</span><span>AI Platform</span><span>Model Release</span><span>Natural Language Processing</span><span>Generative AI</span><span>AI Development</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://chat.z.ai/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>OPUS: Towards Efficient and Principled Data Selection in Large Language Model Pre-training in Every Iteration</h2>
-                <span class="published-time">Published: 2026-02-05T07:34:23.000Z</span>
-                
-                <p class="summary">As high-quality public text approaches exhaustion, a phenomenon known as the Data Wall, pre-training is shifting from more tokens to better tokens. However, existing methods either rely on heuristic static filters that ignore training dynamics, or use dynamic yet optimizer-agnostic criteria based on raw gradients. We propose OPUS (Optimizer-induced Projected Utility Selection), a dynamic data selection framework that defines utility in the optimizer-induced update space. OPUS scores candidates by projecting their effective updates, shaped by modern optimizers, onto a target direction derived from a stable, in-distribution proxy. To ensure scalability, we employ Ghost technique with CountSketch for computational efficiency, and Boltzmann sampling for data diversity, incurring only 4.7% additional compute overhead. OPUS achieves remarkable results across diverse corpora, quality tiers, optimizers, and model scales. In pre-training of GPT-2 Large/XL on FineWeb and FineWeb-Edu with 30B tokens, OPUS outperforms industrial-level baselines and even full 200B-token training. Moreover, when combined with industrial-level static filters, OPUS further improves pre-training efficiency, even with lower-quality data. Furthermore, in continued pre-training of Qwen3-8B-Base on SciencePedia, OPUS achieves superior performance using only 0.5B tokens compared to full training with 3B tokens, demonstrating significant data efficiency gains in specialized domains.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Data Selection</span><span>Large Language Model</span><span>Pre-training</span><span>Optimizer</span><span>Data Efficiency</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Deep Learning</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2602.05400" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>UI-Venus-1.5 Technical Report</h2>
-                <span class="published-time">Published: 2026-02-09T18:43:40.000Z</span>
-                
-                <p class="summary">GUI agents have emerged as a powerful paradigm for automating interactions in digital environments, yet achieving both broad generality and consistently strong task performance remains challenging.In this report, we present UI-Venus-1.5, a unified, end-to-end GUI Agent designed for robust real-world applications.The proposed model family comprises two dense variants (2B and 8B) and one mixture-of-experts variant (30B-A3B) to meet various downstream application scenarios.Compared to our previous version, UI-Venus-1.5 introduces three key technical advances: (1) a comprehensive Mid-Training stage leveraging 10 billion tokens across 30+ datasets to establish foundational GUI semantics; (2) Online Reinforcement Learning with full-trajectory rollouts, aligning training objectives with long-horizon, dynamic navigation in large-scale environments; and (3) a single unified GUI Agent constructed via Model Merging, which synthesizes domain-specific models (grounding, web, and mobile) into one cohesive checkpoint. Extensive evaluations demonstrate that UI-Venus-1.5 establishes new state-of-the-art performance on benchmarks such as ScreenSpot-Pro (69.6%), VenusBench-GD (75.0%), and AndroidWorld (77.6%), significantly outperforming previous strong baselines. In addition, UI-Venus-1.5 demonstrates robust navigation capabilities across a variety of Chinese mobile apps, effectively executing user instructions in real-world scenarios. Code: https://github.com/inclusionAI/UI-Venus; Model: https://huggingface.co/collections/inclusionAI/ui-venus</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>GUI Agent</span><span>Reinforcement Learning</span><span>Model Merging</span><span>Task Automation</span><span>Digital Environments</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Deep Learning</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2602.09082" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Chain of Mindset: Reasoning with Adaptive Cognitive Modes</h2>
-                <span class="published-time">Published: 2026-02-10T18:31:47.000Z</span>
-                
-                <p class="summary">Human problem-solving is never the repetition of a single mindset, by which we mean a distinct mode of cognitive processing. When tackling a specific task, we do not rely on a single mindset; instead, we integrate multiple mindsets within the single solution process. However, existing LLM reasoning methods fall into a common trap: they apply the same fixed mindset across all steps, overlooking that different stages of solving the same problem require fundamentally different mindsets. This single-minded assumption prevents models from reaching the next level of intelligence. To address this limitation, we propose Chain of Mindset (CoM), a training-free agentic framework that enables step-level adaptive mindset orchestration. CoM decomposes reasoning into four functionally heterogeneous mindsets: Spatial, Convergent, Divergent, and Algorithmic. A Meta-Agent dynamically selects the optimal mindset based on the evolving reasoning state, while a bidirectional Context Gate filters cross-module information flow to maintain effectiveness and efficiency. Experiments across six challenging benchmarks spanning mathematics, code generation, scientific QA, and spatial reasoning demonstrate that CoM achieves state-of-the-art performance, outperforming the strongest baseline by 4.96% and 4.72% in overall accuracy on Qwen3-VL-32B-Instruct and Gemini-2.0-Flash, while balancing reasoning efficiency. Our code is publicly available at https://github.com/QuantaAlpha/chain-of-mindset.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Chain of Mindset</span><span>LLM Reasoning</span><span>Adaptive Cognitive Modes</span><span>AI Agent</span><span>Mindset Orchestration</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>AI Agent</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2602.10063" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Dr. MAS: Stable Reinforcement Learning for Multi-Agent LLM Systems</h2>
-                <span class="published-time">Published: 2026-02-09T16:13:39.000Z</span>
-                
-                <p class="summary">Multi-agent LLM systems enable advanced reasoning and tool use via role specialization, yet reliable reinforcement learning (RL) post-training for such systems remains difficult. In this work, we theoretically pinpoint a key reason for training instability when extending group-based RL to multi-agent LLM systems. We show that under GRPO-style optimization, a global normalization baseline may deviate from diverse agents' reward distributions, which ultimately leads to gradient-norm instability. Based on this finding, we propose Dr. MAS, a simple and stable RL training recipe for multi-agent LLM systems. Dr. MAS uses an agent-wise remedy: normalizing advantages per agent using each agent's own reward statistics, which calibrates gradient scales and dramatically stabilizes training, both theoretically and empirically. Beyond the algorithm, Dr. MAS provides an end-to-end RL training framework for multi-agent LLM systems, supporting scalable orchestration, flexible per-agent LLM serving and optimization configs, and shared resource scheduling of LLM actor backends. We evaluate Dr. MAS on multi-agent math reasoning and multi-turn search benchmarks using Qwen2.5 and Qwen3 series models. Dr. MAS achieves clear gains over vanilla GRPO (e.g., +5.6% avg@16 and +4.6% pass@16 on math, and +15.2% avg@16 and +13.1% pass@16 on search) while largely eliminating gradient spikes. Moreover, it remains highly effective under heterogeneous agent-model assignments while improving efficiency.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multi-Agent LLM Systems</span><span>Reinforcement Learning</span><span>Training Stability</span><span>Gradient Normalization</span><span>AI Agent</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>AI Agent</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2602.08847" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>VideoWorld 2: Learning Transferable Knowledge from Real-world Videos</h2>
-                <span class="published-time">Published: 2026-02-10T18:58:19.000Z</span>
-                
-                <p class="summary">Learning transferable knowledge from unlabeled video data and applying it in new environments is a fundamental capability of intelligent agents. This work presents VideoWorld 2, which extends VideoWorld and offers the first investigation into learning transferable knowledge directly from raw real-world videos. At its core, VideoWorld 2 introduces a dynamic-enhanced Latent Dynamics Model (dLDM) that decouples action dynamics from visual appearance: a pretrained video diffusion model handles visual appearance modeling, enabling the dLDM to learn latent codes that focus on compact and meaningful task-related dynamics. These latent codes are then modeled autoregressively to learn task policies and support long-horizon reasoning. We evaluate VideoWorld 2 on challenging real-world handcraft making tasks, where prior video generation and latent-dynamics models struggle to operate reliably. Remarkably, VideoWorld 2 achieves up to 70% improvement in task success rate and produces coherent long execution videos. In robotics, we show that VideoWorld 2 can acquire effective manipulation knowledge from the Open-X dataset, which substantially improves task performance on CALVIN. This study reveals the potential of learning transferable world knowledge directly from raw videos, with all code, data, and models to be open-sourced for further research.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>VideoWorld 2</span><span>Transferable Knowledge</span><span>Latent Dynamics Model</span><span>Video Diffusion Model</span><span>Robotics</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Robotics</span><span>Video Understanding</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2602.10102" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Autoregressive Image Generation with Masked Bit Modeling</h2>
-                <span class="published-time">Published: 2026-02-09T18:59:58.000Z</span>
-                
-                <p class="summary">This paper challenges the dominance of continuous pipelines in visual generation. We systematically investigate the performance gap between discrete and continuous methods. Contrary to the belief that discrete tokenizers are intrinsically inferior, we demonstrate that the disparity arises primarily from the total number of bits allocated in the latent space (i.e., the compression ratio). We show that scaling up the codebook size effectively bridges this gap, allowing discrete tokenizers to match or surpass their continuous counterparts. However, existing discrete generation methods struggle to capitalize on this insight, suffering from performance degradation or prohibitive training costs with scaled codebook. To address this, we propose masked Bit AutoRegressive modeling (BAR), a scalable framework that supports arbitrary codebook sizes. By equipping an autoregressive transformer with a masked bit modeling head, BAR predicts discrete tokens through progressively generating their constituent bits. BAR achieves a new state-of-the-art gFID of 0.99 on ImageNet-256, outperforming leading methods across both continuous and discrete paradigms, while significantly reducing sampling costs and converging faster than prior continuous approaches. Project page is available at https://bar-gen.github.io/</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Autoregressive Image Generation</span><span>Masked Bit Modeling</span><span>Discrete Latent Space</span><span>Generative Models</span><span>Codebook Scaling</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Deep Learning</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2602.09024" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/en/" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/en/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-02-11</strong><span>ENGLISH EDITION</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>5 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-02-11 18:23:39</time></div>
+  <div class="story-body">
+    <h3><a href="https://symmetrybreak.ing/blog/claude-code-is-being-dumbed-down/" target="_blank" rel="noopener noreferrer">Claude Code Is Being Dumbed Down</a></h3>
+    <p class="story-summary">Recent discussions and anecdotal reports circulating within the developer community suggest a potential decline in the quality and sophistication of code generated by Claude, a prominent large language model developed by Anthropic. The sentiment, encapsulated by the phrase &#x27;dumbed down,&#x27; indicates that the AI&#x27;s programming output may be becoming simpler, less accurate, or less robust compared to previous iterations. This perceived degradation could have significant implications for developers and users who depend on Claude for generating complex algorithms, refactoring code, or assisting with intricate software development tasks. Potential reasons for such a trend might include strategic internal model updates, recalibrations to optimize computational resources and reduce inference costs, or a shift in fine-tuning objectives that inadvertently prioritizes broader accessibility or specific simpler use-cases over advanced coding capabilities. If these observations are substantiated, it raises important questions regarding the consistency, reliability, and long-term utility of AI-powered code generation tools, emphasizing the continuous challenge for AI providers to balance innovation, performance, cost-efficiency, and the integrity of their models amidst rapid technological evolution. This situation underscores the dynamic nature of AI model development and the ongoing need for transparency regarding model changes and their impact on user experience.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Claude</span><span class="tag tag-keyword">Code Generation</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">AI Performance</span><span class="tag tag-keyword">Model Degradation</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-02-11 16:41:33</time></div>
+  <div class="story-body">
+    <h3><a href="https://z.ai/blog/glm-5" target="_blank" rel="noopener noreferrer">GLM-5: From Vibe Coding to Agentic Engineering</a></h3>
+    <p class="story-summary">The article &quot;GLM-5: From Vibe Coding to Agentic Engineering&quot; highlights a significant advancement in the application of large language models (LLMs) to software development, focusing on the introduction of GLM-5. This new iteration, presumably a sophisticated General Language Model, is presented as a catalyst for evolving development methodologies from informal &quot;vibe coding&quot; to a more structured and automated paradigm termed &quot;Agentic Engineering.&quot; The core premise is that GLM-5 empowers AI agents to undertake increasingly complex and autonomous engineering tasks, thereby streamlining the entire software development lifecycle. This includes everything from design and coding to testing and deployment, driven by intelligent agents. The shift signifies a move towards leveraging advanced LLMs to build more reliable, efficient, and sophisticated AI systems, emphasizing an future where AI itself plays a central, agent-driven role in its own creation and refinement. This transition underscores the growing impact of powerful language models in transforming modern engineering practices.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Software Engineering</span><span class="tag tag-keyword">AI Development</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-02-11 15:41:18</time></div>
+  <div class="story-body">
+    <h3><a href="https://the-ai-native.company/" target="_blank" rel="noopener noreferrer">AI-First Company Memos</a></h3>
+    <p class="story-summary">This resource, titled &quot;AI-First Company Memos&quot; and hosted on the &quot;the-ai-native.company&quot; platform, delves into the strategic framework and practical guidelines for organizations aiming to embed artificial intelligence at the core of their operations and culture. It outlines a vision where AI is not merely a tool but a fundamental driver of business strategy, product innovation, and operational efficiency. The concept revolves around designing systems, processes, and products with AI as the primary consideration, influencing everything from data infrastructure to talent acquisition. Such memos would articulate the imperative for leadership to champion AI integration, empower teams with AI-driven insights, and foster an organizational mindset that prioritizes AI literacy and experimentation. This proactive adoption strategy is presented as essential for achieving sustainable competitive advantage, enabling rapid decision-making, and unlocking new avenues for growth in a rapidly evolving, technology-driven market.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Strategy</span><span class="tag tag-keyword">Enterprise AI</span><span class="tag tag-keyword">Digital Transformation</span><span class="tag tag-keyword">Organizational Change</span><span class="tag tag-keyword">AI Adoption</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-02-11 01:50:44</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.kraxel.org/blog/2026/01/thank-you-ai/" target="_blank" rel="noopener noreferrer">End of an era for me: no more self-hosted git</a></h3>
+    <p class="story-summary">An individual has publicly announced the cessation of their self-hosted Git repository, framing this decision as &quot;the end of an era&quot; for their personal development workflow. The accompanying blog post, titled &quot;thank-you-ai,&quot; strongly implies that artificial intelligence or AI-powered tools and managed services have played a significant role in this transition. This move signifies a broader industry shift where developers are increasingly migrating from traditional, self-managed version control systems to cloud-based or commercially hosted solutions. These modern platforms often integrate advanced AI capabilities for features like automated code review, intelligent code suggestions, vulnerability detection, and streamlined deployment pipelines, significantly reducing the operational overhead associated with infrastructure maintenance. The discontinuation of self-hosting, therefore, highlights a strategic embrace of the efficiencies, scalability, and innovative functionalities offered by AI-augmented development platforms. This pivot allows the individual to reallocate resources and focus from managing underlying infrastructure to concentrating on core development tasks, underscoring the transformative impact of AI on contemporary software engineering practices and infrastructure choices.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Self-hosted Git</span><span class="tag tag-keyword">Version Control</span><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Developer Workflow</span><span class="tag tag-keyword">Cloud Services</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-02-11 13:42:16</time></div>
+  <div class="story-body">
+    <h3><a href="https://chat.z.ai/" target="_blank" rel="noopener noreferrer">GLM5 Released on Z.ai Platform</a></h3>
+    <p class="story-summary">Z.ai Platform has officially announced the release of GLM5, introducing a new iteration of their general language model technology. This launch represents a significant development in the realm of artificial intelligence, likely offering enhanced capabilities in natural language understanding, generation, and complex reasoning tasks, building upon previous generations. The availability of GLM5 on the Z.ai platform suggests a strategic move to provide developers and enterprises with accessible, high-performance AI tools, potentially streamlining the deployment and integration of advanced language-centric applications across diverse industries. This release underscores the ongoing efforts within the AI community to refine and disseminate powerful models, fostering innovation across various sectors from content creation and data analysis to customer service and intelligent automation. The platform&#x27;s role in hosting GLM5 aims to lower barriers to entry for integrating state-of-the-art AI, propelling further advancements in the practical application and adoption of large language models globally.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">AI Platform</span><span class="tag tag-keyword">Model Release</span><span class="tag tag-keyword">Natural Language Processing</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-02-05T07:34:23.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2602.05400" target="_blank" rel="noopener noreferrer">OPUS: Towards Efficient and Principled Data Selection in Large Language Model Pre-training in Every Iteration</a></h3>
+    <p class="story-summary">As high-quality public text approaches exhaustion, a phenomenon known as the Data Wall, pre-training is shifting from more tokens to better tokens. However, existing methods either rely on heuristic static filters that ignore training dynamics, or use dynamic yet optimizer-agnostic criteria based on raw gradients. We propose OPUS (Optimizer-induced Projected Utility Selection), a dynamic data selection framework that defines utility in the optimizer-induced update space. OPUS scores candidates by projecting their effective updates, shaped by modern optimizers, onto a target direction derived from a stable, in-distribution proxy. To ensure scalability, we employ Ghost technique with CountSketch for computational efficiency, and Boltzmann sampling for data diversity, incurring only 4.7% additional compute overhead. OPUS achieves remarkable results across diverse corpora, quality tiers, optimizers, and model scales. In pre-training of GPT-2 Large/XL on FineWeb and FineWeb-Edu with 30B tokens, OPUS outperforms industrial-level baselines and even full 200B-token training. Moreover, when combined with industrial-level static filters, OPUS further improves pre-training efficiency, even with lower-quality data. Furthermore, in continued pre-training of Qwen3-8B-Base on SciencePedia, OPUS achieves superior performance using only 0.5B tokens compared to full training with 3B tokens, demonstrating significant data efficiency gains in specialized domains.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Data Selection</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Pre-training</span><span class="tag tag-keyword">Optimizer</span><span class="tag tag-keyword">Data Efficiency</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-02-09T18:43:40.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2602.09082" target="_blank" rel="noopener noreferrer">UI-Venus-1.5 Technical Report</a></h3>
+    <p class="story-summary">GUI agents have emerged as a powerful paradigm for automating interactions in digital environments, yet achieving both broad generality and consistently strong task performance remains challenging.In this report, we present UI-Venus-1.5, a unified, end-to-end GUI Agent designed for robust real-world applications.The proposed model family comprises two dense variants (2B and 8B) and one mixture-of-experts variant (30B-A3B) to meet various downstream application scenarios.Compared to our previous version, UI-Venus-1.5 introduces three key technical advances: (1) a comprehensive Mid-Training stage leveraging 10 billion tokens across 30+ datasets to establish foundational GUI semantics; (2) Online Reinforcement Learning with full-trajectory rollouts, aligning training objectives with long-horizon, dynamic navigation in large-scale environments; and (3) a single unified GUI Agent constructed via Model Merging, which synthesizes domain-specific models (grounding, web, and mobile) into one cohesive checkpoint. Extensive evaluations demonstrate that UI-Venus-1.5 establishes new state-of-the-art performance on benchmarks such as ScreenSpot-Pro (69.6%), VenusBench-GD (75.0%), and AndroidWorld (77.6%), significantly outperforming previous strong baselines. In addition, UI-Venus-1.5 demonstrates robust navigation capabilities across a variety of Chinese mobile apps, effectively executing user instructions in real-world scenarios. Code: https://github.com/inclusionAI/UI-Venus; Model: https://huggingface.co/collections/inclusionAI/ui-venus</p>
+    <div class="story-tags"><span class="tag tag-keyword">GUI Agent</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Model Merging</span><span class="tag tag-keyword">Task Automation</span><span class="tag tag-keyword">Digital Environments</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-02-10T18:31:47.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2602.10063" target="_blank" rel="noopener noreferrer">Chain of Mindset: Reasoning with Adaptive Cognitive Modes</a></h3>
+    <p class="story-summary">Human problem-solving is never the repetition of a single mindset, by which we mean a distinct mode of cognitive processing. When tackling a specific task, we do not rely on a single mindset; instead, we integrate multiple mindsets within the single solution process. However, existing LLM reasoning methods fall into a common trap: they apply the same fixed mindset across all steps, overlooking that different stages of solving the same problem require fundamentally different mindsets. This single-minded assumption prevents models from reaching the next level of intelligence. To address this limitation, we propose Chain of Mindset (CoM), a training-free agentic framework that enables step-level adaptive mindset orchestration. CoM decomposes reasoning into four functionally heterogeneous mindsets: Spatial, Convergent, Divergent, and Algorithmic. A Meta-Agent dynamically selects the optimal mindset based on the evolving reasoning state, while a bidirectional Context Gate filters cross-module information flow to maintain effectiveness and efficiency. Experiments across six challenging benchmarks spanning mathematics, code generation, scientific QA, and spatial reasoning demonstrate that CoM achieves state-of-the-art performance, outperforming the strongest baseline by 4.96% and 4.72% in overall accuracy on Qwen3-VL-32B-Instruct and Gemini-2.0-Flash, while balancing reasoning efficiency. Our code is publicly available at https://github.com/QuantaAlpha/chain-of-mindset.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Chain of Mindset</span><span class="tag tag-keyword">LLM Reasoning</span><span class="tag tag-keyword">Adaptive Cognitive Modes</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Mindset Orchestration</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-02-09T16:13:39.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2602.08847" target="_blank" rel="noopener noreferrer">Dr. MAS: Stable Reinforcement Learning for Multi-Agent LLM Systems</a></h3>
+    <p class="story-summary">Multi-agent LLM systems enable advanced reasoning and tool use via role specialization, yet reliable reinforcement learning (RL) post-training for such systems remains difficult. In this work, we theoretically pinpoint a key reason for training instability when extending group-based RL to multi-agent LLM systems. We show that under GRPO-style optimization, a global normalization baseline may deviate from diverse agents&#x27; reward distributions, which ultimately leads to gradient-norm instability. Based on this finding, we propose Dr. MAS, a simple and stable RL training recipe for multi-agent LLM systems. Dr. MAS uses an agent-wise remedy: normalizing advantages per agent using each agent&#x27;s own reward statistics, which calibrates gradient scales and dramatically stabilizes training, both theoretically and empirically. Beyond the algorithm, Dr. MAS provides an end-to-end RL training framework for multi-agent LLM systems, supporting scalable orchestration, flexible per-agent LLM serving and optimization configs, and shared resource scheduling of LLM actor backends. We evaluate Dr. MAS on multi-agent math reasoning and multi-turn search benchmarks using Qwen2.5 and Qwen3 series models. Dr. MAS achieves clear gains over vanilla GRPO (e.g., +5.6% avg@16 and +4.6% pass@16 on math, and +15.2% avg@16 and +13.1% pass@16 on search) while largely eliminating gradient spikes. Moreover, it remains highly effective under heterogeneous agent-model assignments while improving efficiency.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multi-Agent LLM Systems</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Training Stability</span><span class="tag tag-keyword">Gradient Normalization</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-02-10T18:58:19.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2602.10102" target="_blank" rel="noopener noreferrer">VideoWorld 2: Learning Transferable Knowledge from Real-world Videos</a></h3>
+    <p class="story-summary">Learning transferable knowledge from unlabeled video data and applying it in new environments is a fundamental capability of intelligent agents. This work presents VideoWorld 2, which extends VideoWorld and offers the first investigation into learning transferable knowledge directly from raw real-world videos. At its core, VideoWorld 2 introduces a dynamic-enhanced Latent Dynamics Model (dLDM) that decouples action dynamics from visual appearance: a pretrained video diffusion model handles visual appearance modeling, enabling the dLDM to learn latent codes that focus on compact and meaningful task-related dynamics. These latent codes are then modeled autoregressively to learn task policies and support long-horizon reasoning. We evaluate VideoWorld 2 on challenging real-world handcraft making tasks, where prior video generation and latent-dynamics models struggle to operate reliably. Remarkably, VideoWorld 2 achieves up to 70% improvement in task success rate and produces coherent long execution videos. In robotics, we show that VideoWorld 2 can acquire effective manipulation knowledge from the Open-X dataset, which substantially improves task performance on CALVIN. This study reveals the potential of learning transferable world knowledge directly from raw videos, with all code, data, and models to be open-sourced for further research.</p>
+    <div class="story-tags"><span class="tag tag-keyword">VideoWorld 2</span><span class="tag tag-keyword">Transferable Knowledge</span><span class="tag tag-keyword">Latent Dynamics Model</span><span class="tag tag-keyword">Video Diffusion Model</span><span class="tag tag-keyword">Robotics</span><span class="tag tag-area">Robotics</span><span class="tag tag-area">Video Understanding</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-02-09T18:59:58.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2602.09024" target="_blank" rel="noopener noreferrer">Autoregressive Image Generation with Masked Bit Modeling</a></h3>
+    <p class="story-summary">This paper challenges the dominance of continuous pipelines in visual generation. We systematically investigate the performance gap between discrete and continuous methods. Contrary to the belief that discrete tokenizers are intrinsically inferior, we demonstrate that the disparity arises primarily from the total number of bits allocated in the latent space (i.e., the compression ratio). We show that scaling up the codebook size effectively bridges this gap, allowing discrete tokenizers to match or surpass their continuous counterparts. However, existing discrete generation methods struggle to capitalize on this insight, suffering from performance degradation or prohibitive training costs with scaled codebook. To address this, we propose masked Bit AutoRegressive modeling (BAR), a scalable framework that supports arbitrary codebook sizes. By equipping an autoregressive transformer with a masked bit modeling head, BAR predicts discrete tokens through progressively generating their constituent bits. BAR achieves a new state-of-the-art gFID of 0.99 on ImageNet-256, outperforming leading methods across both continuous and discrete paradigms, while significantly reducing sampling costs and converging faster than prior continuous approaches. Project page is available at https://bar-gen.github.io/</p>
+    <div class="story-tags"><span class="tag tag-keyword">Autoregressive Image Generation</span><span class="tag tag-keyword">Masked Bit Modeling</span><span class="tag tag-keyword">Discrete Latent Space</span><span class="tag tag-keyword">Generative Models</span><span class="tag tag-keyword">Codebook Scaling</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
 </body>
 </html>

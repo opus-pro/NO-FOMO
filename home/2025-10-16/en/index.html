@@ -1,452 +1,143 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-10-16</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2025-10-16</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="../" class="">中文</a>
-                <a href="." class="active">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-10-16</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../../home/en/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 Back to Homepage</a>
-            <a href="../../../daily/en/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 Latest Daily</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 About Us</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Claude Skills</h2>
-                <span class="published-time">Published: 2025-10-16 16:05:47</span>
-                
-                <p class="summary">Anthropic is significantly advancing its Claude AI models by integrating "Agent Skills," an initiative aimed at equipping AI agents to interact effectively and autonomously within real-world environments. This development focuses on enabling Claude to leverage external tools and APIs, thereby allowing it to perform complex, multi-step tasks that extend beyond mere conversational generation. By developing sophisticated mechanisms for dynamic tool use and function calling, Anthropic seeks to enhance Claude's problem-solving capabilities, allowing it to retrieve current information, execute actions, and interact with various digital and potentially physical systems more efficiently. This strategic enhancement is pivotal for creating more capable, reliable, and adaptable AI agents, expanding the practical applications and overall utility of large language models. The emphasis is on improving the model's ability to understand when and how to select and utilize appropriate tools, manage conversational flow, and make intelligent decisions to achieve user objectives in diverse and dynamic scenarios.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agents</span><span>Tool Use</span><span>Function Calling</span><span>Large Language Models</span><span>Anthropic Claude</span><span>Real-world Interaction</span><span>Agentic AI</span><span>AI Capabilities</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.anthropic.com/news/skills" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Gemini 3.0 spotted in the wild through A/B testing</h2>
-                <span class="published-time">Published: 2025-10-16 16:54:26</span>
-                
-                <p class="summary">Google's next-generation artificial intelligence model, speculated to be Gemini 3.0, has reportedly been detected undergoing A/B testing in live user environments. This sighting indicates that significant advancements have been made in the model's development, moving it closer to a potential public release. Users engaging with certain Google services have observed what appears to be a distinct version of the Gemini model, exhibiting characteristics different from its predecessors. The utilization of A/B testing methodologies suggests that Google is rigorously evaluating the new model's performance, stability, and user experience in real-world scenarios. This strategic approach allows for the collection of valuable feedback and data, ensuring optimal functionality before a broader rollout. The emergence of Gemini 3.0 highlights the continuous and rapid evolution within the large language model space, hinting at potential improvements in areas such as reasoning, natural language understanding, or enhanced multimodal capabilities. This development solidifies Google's commitment to advancing AI research and deployment, maintaining its competitive edge in the rapidly innovating artificial intelligence landscape.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Gemini</span><span>Large Language Model</span><span>A/B Testing</span><span>AI Model</span><span>Google AI</span><span>Model Deployment</span><span>Generative AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://ricklamers.io/posts/gemini-3-spotted-in-the-wild/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>SWE-Grep and SWE-Grep-Mini: RL for Fast Multi-Turn Context Retrieval</h2>
-                <span class="published-time">Published: 2025-10-16 16:59:30</span>
-                
-                <p class="summary">Cognition AI has introduced SWE-Grep and SWE-Grep-Mini, innovative systems designed for fast multi-turn context retrieval utilizing Reinforcement Learning (RL). These tools aim to significantly enhance the efficiency and relevance of information gathering in complex AI agent workflows, particularly within software engineering tasks. By employing RL, SWE-Grep and its smaller counterpart, SWE-Grep-Mini, are optimized to quickly identify and retrieve pertinent contextual data over extended interactive sessions. This approach addresses a critical challenge in AI development where agents often require access to a wide array of information across multiple turns to perform effectively. The systems promise to improve the performance of AI models by ensuring they have the most relevant information at their disposal, thereby streamlining processes and potentially leading to more accurate and contextually aware outputs. This advancement highlights the growing integration of RL techniques for optimizing underlying mechanisms of sophisticated AI systems.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Reinforcement Learning</span><span>Context Retrieval</span><span>Multi-Turn Interactions</span><span>AI Agents</span><span>Information Retrieval</span><span>Software Engineering</span><span>Machine Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://cognition.ai/blog/swe-grep" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>A stateful browser agent using self-healing DOM maps</h2>
-                <span class="published-time">Published: 2025-10-16 12:21:36</span>
-                
-                <p class="summary">This article details the development of a stateful browser agent that incorporates 'self-healing DOM maps' to enhance its resilience and performance in dynamic web environments. The primary objective is to enable AI agents to execute complex, multi-step tasks within web browsers, maintaining continuity and state across interactions. The innovative aspect lies in the self-healing mechanism, which allows the agent to automatically adjust and re-identify elements on the Document Object Model (DOM) even when web page structures undergo minor changes. This addresses a common fragility in web automation where scripts fail due to UI updates. By intelligently mapping and adapting to shifts in the DOM, the agent ensures operational flow and task integrity. This technology significantly improves the reliability of automated web interactions, data extraction, and AI-driven web applications, making them more robust against the ever-evolving nature of the web.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Browser agent</span><span>Web automation</span><span>DOM maps</span><span>Self-healing</span><span>Stateful systems</span><span>AI agent</span><span>Robustness</span><span>UI automation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Artificial Intelligence</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://100x.bot/a/a-stateful-browser-agent-using-self-healing-dom-maps" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>New coding models and integrations</h2>
-                <span class="published-time">Published: 2025-10-16 05:46:50</span>
-                
-                <p class="summary">Ollama has announced the introduction of new coding models and enhanced integrations, signaling a significant leap forward in developer tooling and productivity. These advancements are centered around specialized large language models, optimized for tasks such as code generation, intelligent completion, and sophisticated code analysis, with an emphasis on local execution capabilities. The accompanying integrations are designed to embed these powerful AI assistants directly into existing development environments, offering developers a streamlined workflow for various programming tasks. This strategic update aims to empower engineers with private, efficient, and locally runnable AI solutions, reducing reliance on cloud-based services for sensitive code. By providing advanced AI directly at the developer's fingertips, Ollama seeks to accelerate the software development lifecycle, foster innovation, and enhance the overall quality and maintainability of codebases across diverse projects.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Ollama</span><span>Coding Models</span><span>Code Generation</span><span>Large Language Models</span><span>Developer Tools</span><span>AI Integrations</span><span>Local LLMs</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Artificial Intelligence</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://ollama.com/blog/coding-models" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Tor browser removing various Firefox AI features</h2>
-                <span class="published-time">Published: 2025-10-16 14:33:10</span>
-                
-                <p class="summary">The Tor Project has released Tor Browser 15.0a4, an alpha version that significantly departs from its Firefox upstream by removing several newly integrated Artificial Intelligence features. This strategic decision underscores Tor's unwavering commitment to user privacy and anonymity, as the project identifies potential risks associated with these AI functionalities. While designed to enhance user experience in conventional browsers, features such as on-device machine learning for content processing, image analysis, or advanced search suggestions are deemed to potentially create new deanonymization vectors or facilitate unwanted data collection within Tor Browser's highly secure environment. The Tor Project emphasizes that any component that could inadvertently expose user data or browsing patterns, even through client-side processing, contravenes its core privacy principles. By proactively stripping out these AI components, the release reinforces Tor's stance on prioritizing stringent privacy and security measures above convenience, ensuring the browser remains a robust shield against surveillance, tracking, and the evolving challenges posed by data-intensive technologies. This move highlights an ongoing vigilance in adapting to new browser technologies while safeguarding user anonymity.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Tor Browser</span><span>Firefox</span><span>Privacy</span><span>Anonymity</span><span>AI features</span><span>Data security</span><span>Browser technology</span><span>Machine Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Natural Language Processing</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://blog.torproject.org/new-alpha-release-tor-browser-150a4/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>Qwen3-VL</h2>
-                <span class="published-time">Published: 2025-10-15T06:07:47Z</span>
-                
-                <p class="summary">Qwen3-VL is introduced as the most advanced vision-language model in the Qwen series, delivering substantial enhancements across its functionalities. It features superior text comprehension and generation, profound visual perception and reasoning, an expanded context length up to 1M tokens, and refined understanding of spatial and video dynamics. The model also boasts strengthened agent interaction capabilities, including PC/mobile GUI operation and visual coding (generating HTML/CSS/JS from images/videos). Key architectural innovations, such as Interleaved-MRoPE, DeepStack, and Text–Timestamp Alignment, underpin its advanced video reasoning and image-text alignment. Qwen3-VL further excels in advanced spatial perception with 2D/3D grounding, enhanced multimodal reasoning for STEM/Math, broad visual recognition, and an expanded OCR supporting 32 languages. Its text understanding is comparable to pure Large Language Models, achieved through seamless text-vision fusion. The model offers flexible deployment options, available in Dense and MoE architectures, as well as Instruct and Thinking editions.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Vision-Language Model</span><span>Multimodal AI</span><span>Large Language Model</span><span>AI Agent</span><span>Video Understanding</span><span>OCR</span><span>Spatial Reasoning</span><span>Deep Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Multimodal</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/QwenLM/Qwen3-VL" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>nanoGPT</h2>
-                <span class="published-time">Published: 2024-12-09T23:53:04Z</span>
-                
-                <p class="summary">nanoGPT is a streamlined, high-performance GitHub repository designed for training and finetuning medium-sized Generative Pre-trained Transformers (GPTs). A minimalist rewrite of minGPT, it emphasizes practical implementation over pedagogical detail, making it highly hackable. The project successfully reproduces GPT-2 (124M) training on the OpenWebText dataset within approximately four days using an 8XA100 40GB node. Its core consists of a concise 300-line training loop (`train.py`) and an equally compact GPT model definition (`model.py`), capable of loading official OpenAI GPT-2 weights. nanoGPT facilitates training new models from scratch or finetuning existing checkpoints, supporting diverse computational environments from single GPUs (including Apple Silicon's MPS) to distributed multi-node clusters via PyTorch DDP. It also leverages PyTorch 2.0's `torch.compile()` for significant performance enhancements, offering a robust platform for both deep learning professionals reproducing benchmarks and beginners exploring character-level GPTs.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>GPT</span><span>Large Language Model</span><span>Finetuning</span><span>Deep Learning</span><span>PyTorch</span><span>Transformer</span><span>Distributed Training</span><span>OpenWebText</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Deep Learning</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/karpathy/nanoGPT" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>UniMoE-Audio: Unified Speech and Music Generation with Dynamic-Capacity MoE</h2>
-                <span class="published-time">Published: 2025-10-15T09:30:25.000Z</span>
-                
-                <p class="summary">Recent advances in unified multimodal models indicate a clear trend towards comprehensive content generation. However, the auditory domain remains a significant challenge, with music and speech often developed in isolation, hindering progress towards universal audio synthesis. This separation stems from inherent task conflicts and severe data imbalances, which impede the development of a truly unified audio generation model. To address this challenge, we propose UniMoE-Audio, a unified speech and music generation model within a novel Dynamic-Capacity Mixture-of-Experts (MoE) framework. Architecturally, UniMoE-Audio introduces a Top-P routing strategy for dynamic expert number allocation, and a hybrid expert design comprising routed experts for domain-specific knowledge, shared experts for domain-agnostic features, and null experts for adaptive computation skipping. To tackle data imbalance, we introduce a three-stage training curriculum: 1) Independent Specialist Training leverages original datasets to instill domain-specific knowledge into each "proto-expert" without interference; 2) MoE Integration and Warmup incorporates these specialists into the UniMoE-Audio architecture, warming up the gate module and shared expert using a subset of balanced dataset; and 3) Synergistic Joint Training trains the entire model end-to-end on the fully balanced dataset, fostering enhanced cross-domain synergy. Extensive experiments show that UniMoE-Audio not only achieves state-of-the-art performance on major speech and music generation benchmarks, but also demonstrates superior synergistic learning, mitigating the performance degradation typically seen in naive joint training. Our findings highlight the substantial potential of specialized MoE architecture and curated training strategies in advancing the field of universal audio generation. Homepage: https://mukioxun.github.io/Uni-MoE-site/home.html</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Unified Audio Generation</span><span>Mixture-of-Experts</span><span>Speech Synthesis</span><span>Music Synthesis</span><span>Dynamic-Capacity MoE</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Deep Learning</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.13344" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>FlashWorld: High-quality 3D Scene Generation within Seconds</h2>
-                <span class="published-time">Published: 2025-10-15T15:35:48.000Z</span>
-                
-                <p class="summary">We propose FlashWorld, a generative model that produces 3D scenes from a single image or text prompt in seconds, 10~100times faster than previous works while possessing superior rendering quality. Our approach shifts from the conventional multi-view-oriented (MV-oriented) paradigm, which generates multi-view images for subsequent 3D reconstruction, to a 3D-oriented approach where the model directly produces 3D Gaussian representations during multi-view generation. While ensuring 3D consistency, 3D-oriented method typically suffers poor visual quality. FlashWorld includes a dual-mode pre-training phase followed by a cross-mode post-training phase, effectively integrating the strengths of both paradigms. Specifically, leveraging the prior from a video diffusion model, we first pre-train a dual-mode multi-view diffusion model, which jointly supports MV-oriented and 3D-oriented generation modes. To bridge the quality gap in 3D-oriented generation, we further propose a cross-mode post-training distillation by matching distribution from consistent 3D-oriented mode to high-quality MV-oriented mode. This not only enhances visual quality while maintaining 3D consistency, but also reduces the required denoising steps for inference. Also, we propose a strategy to leverage massive single-view images and text prompts during this process to enhance the model's generalization to out-of-distribution inputs. Extensive experiments demonstrate the superiority and efficiency of our method.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>3D Scene Generation</span><span>Generative Model</span><span>Diffusion Models</span><span>Multi-view Generation</span><span>3D Gaussian Representations</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Computer Vision</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.13678" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Attention Illuminates LLM Reasoning: The Preplan-and-Anchor Rhythm Enables Fine-Grained Policy Optimization</h2>
-                <span class="published-time">Published: 2025-10-15T13:49:51.000Z</span>
-                
-                <p class="summary">The reasoning pattern of Large language models (LLMs) remains opaque, and Reinforcement learning (RL) typically applies uniform credit across an entire generation, blurring the distinction between pivotal and routine steps. This work positions attention as a privileged substrate that renders the internal logic of LLMs legible, not merely as a byproduct of computation, but as a mechanistic blueprint of reasoning itself. We first distinguish attention heads between locally and globally focused information processing and reveal that locally focused heads produce a sawtooth pattern near the diagonal indicating phrasal chunks, while globally focused heads expose tokens that exert broad downstream influence over future tokens. We formalize these with two metrics: 1) Windowed Average Attention Distance, which measures the extent of backward attention within a clipped window; 2) Future Attention Influence, which quantifies a token's global importance as the average attention it receives from subsequent tokens. Taken together, these signals reveal a recurring preplan-and-anchor mechanism, where the model first performs a long-range contextual reference to generate an introductory token, which is immediately followed by or coincides with a semantic anchor token that organizes subsequent reasoning. Leveraging these insights, we introduce three novel RL strategies that dynamically perform targeted credit assignment to critical nodes (preplan tokens, anchor tokens, and their temporal coupling) and show consistent performance gains across various reasoning tasks. By aligning optimization with the model's intrinsic reasoning rhythm, we aim to transform opaque optimization into an actionable structure-aware process, hoping to offer a potential step toward more transparent and effective optimization of LLM reasoning.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>Attention Mechanisms</span><span>Reasoning</span><span>Reinforcement Learning</span><span>Policy Optimization</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Natural Language Processing</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.13554" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Bee: A High-Quality Corpus and Full-Stack Suite to Unlock Advanced Fully Open MLLMs</h2>
-                <span class="published-time">Published: 2025-10-15T17:52:59.000Z</span>
-                
-                <p class="summary">Fully open multimodal large language models (MLLMs) currently lag behind proprietary counterparts, primarily due to a significant gap in data quality for supervised fine-tuning (SFT). Existing open-source datasets are often plagued by widespread noise and a critical deficit in complex reasoning data, such as Chain-of-Thought (CoT), which hinders the development of advanced model capabilities. Addressing these challenges, our work makes three primary contributions. First, we introduce Honey-Data-15M, a new SFT dataset comprising approximately 15 million QA pairs, processed through multiple cleaning techniques and enhanced with a novel dual-level (short and long) CoT enrichment strategy. Second, we introduce HoneyPipe, the data curation pipeline, and its underlying framework DataStudio, providing the community with a transparent and adaptable methodology for data curation that moves beyond static dataset releases. Finally, to validate our dataset and pipeline, we train Bee-8B, an 8B model on Honey-Data-15M. Experiments show that Bee-8B establishes a new state-of-the-art (SOTA) for fully open MLLMs, achieving performance that is competitive with, and in some cases surpasses, recent semi-open models such as InternVL3.5-8B. Our work delivers to the community a suite of foundational resources, including: the Honey-Data-15M corpus; the full-stack suite comprising HoneyPipe and DataStudio; training recipes; an evaluation harness; and the model weights. This effort demonstrates that a principled focus on data quality is a key pathway to developing fully open MLLMs that are highly competitive with their semi-open counterparts.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>MLLMs</span><span>Data Quality</span><span>Supervised Fine-tuning</span><span>Chain-of-Thought</span><span>Data Curation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Large Language Model</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.13795" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>InternVLA-M1: A Spatially Guided Vision-Language-Action Framework for Generalist Robot Policy</h2>
-                <span class="published-time">Published: 2025-10-15T17:30:05.000Z</span>
-                
-                <p class="summary">We introduce InternVLA-M1, a unified framework for spatial grounding and robot control that advances instruction-following robots toward scalable, general-purpose intelligence. Its core idea is spatially guided vision-language-action training, where spatial grounding serves as the critical link between instructions and robot actions. InternVLA-M1 employs a two-stage pipeline: (i) spatial grounding pre-training on over 2.3M spatial reasoning data to determine "where to act" by aligning instructions with visual, embodiment-agnostic positions, and (ii) spatially guided action post-training to decide "how to act" by generating embodiment-aware actions through plug-and-play spatial prompting. This spatially guided training recipe yields consistent gains: InternVLA-M1 outperforms its variant without spatial guidance by +14.6% on SimplerEnv Google Robot, +17% on WidowX, and +4.3% on LIBERO Franka, while demonstrating stronger spatial reasoning capability in box, point, and trace prediction. To further scale instruction following, we built a simulation engine to collect 244K generalizable pick-and-place episodes, enabling a 6.2% average improvement across 200 tasks and 3K+ objects. In real-world clustered pick-and-place, InternVLA-M1 improved by 7.3%, and with synthetic co-training, achieved +20.6% on unseen objects and novel configurations. Moreover, in long-horizon reasoning-intensive scenarios, it surpassed existing works by over 10%. These results highlight spatially guided training as a unifying principle for scalable and resilient generalist robots. Code and models are available at https://github.com/InternRobotics/InternVLA-M1.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Vision-Language-Action</span><span>Generalist Robot Policy</span><span>Spatial Grounding</span><span>Robot Control</span><span>Instruction Following</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Robotics</span><span>Multimodal</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.13778" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>The Art of Scaling Reinforcement Learning Compute for LLMs</h2>
-                <span class="published-time">Published: 2025-10-15T17:43:03.000Z</span>
-                
-                <p class="summary">Reinforcement learning (RL) has become central to training large language models (LLMs), yet the field lacks predictive scaling methodologies comparable to those established for pre-training. Despite rapidly rising compute budgets, there is no principled understanding of how to evaluate algorithmic improvements for scaling RL compute. We present the first large-scale systematic study, amounting to more than 400,000 GPU-hours, that defines a principled framework for analyzing and predicting RL scaling in LLMs. We fit sigmoidal compute-performance curves for RL training and ablate a wide range of common design choices to analyze their effects on asymptotic performance and compute efficiency. We observe: (1) Not all recipes yield similar asymptotic performance, (2) Details such as loss aggregation, normalization, curriculum, and off-policy algorithm primarily modulate compute efficiency without materially shifting the asymptote, and (3) Stable, scalable recipes follow predictable scaling trajectories, enabling extrapolation from smaller-scale runs. Combining these insights, we propose a best-practice recipe, ScaleRL, and demonstrate its effectiveness by successfully scaling and predicting validation performance on a single RL run scaled up to 100,000 GPU-hours. Our work provides both a scientific framework for analyzing scaling in RL and a practical recipe that brings RL training closer to the predictability long achieved in pre-training.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Reinforcement Learning</span><span>Large Language Models</span><span>Compute Scaling</span><span>Algorithmic Improvements</span><span>Compute Efficiency</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Machine Learning</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.13786" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/en/" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/en/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2025-10-16</strong><span>ENGLISH EDITION</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-10-16 16:05:47</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.anthropic.com/news/skills" target="_blank" rel="noopener noreferrer">Claude Skills</a></h3>
+    <p class="story-summary">Anthropic is significantly advancing its Claude AI models by integrating &quot;Agent Skills,&quot; an initiative aimed at equipping AI agents to interact effectively and autonomously within real-world environments. This development focuses on enabling Claude to leverage external tools and APIs, thereby allowing it to perform complex, multi-step tasks that extend beyond mere conversational generation. By developing sophisticated mechanisms for dynamic tool use and function calling, Anthropic seeks to enhance Claude&#x27;s problem-solving capabilities, allowing it to retrieve current information, execute actions, and interact with various digital and potentially physical systems more efficiently. This strategic enhancement is pivotal for creating more capable, reliable, and adaptable AI agents, expanding the practical applications and overall utility of large language models. The emphasis is on improving the model&#x27;s ability to understand when and how to select and utilize appropriate tools, manage conversational flow, and make intelligent decisions to achieve user objectives in diverse and dynamic scenarios.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Tool Use</span><span class="tag tag-keyword">Function Calling</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Anthropic Claude</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-10-16 16:54:26</time></div>
+  <div class="story-body">
+    <h3><a href="https://ricklamers.io/posts/gemini-3-spotted-in-the-wild/" target="_blank" rel="noopener noreferrer">Gemini 3.0 spotted in the wild through A/B testing</a></h3>
+    <p class="story-summary">Google&#x27;s next-generation artificial intelligence model, speculated to be Gemini 3.0, has reportedly been detected undergoing A/B testing in live user environments. This sighting indicates that significant advancements have been made in the model&#x27;s development, moving it closer to a potential public release. Users engaging with certain Google services have observed what appears to be a distinct version of the Gemini model, exhibiting characteristics different from its predecessors. The utilization of A/B testing methodologies suggests that Google is rigorously evaluating the new model&#x27;s performance, stability, and user experience in real-world scenarios. This strategic approach allows for the collection of valuable feedback and data, ensuring optimal functionality before a broader rollout. The emergence of Gemini 3.0 highlights the continuous and rapid evolution within the large language model space, hinting at potential improvements in areas such as reasoning, natural language understanding, or enhanced multimodal capabilities. This development solidifies Google&#x27;s commitment to advancing AI research and deployment, maintaining its competitive edge in the rapidly innovating artificial intelligence landscape.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Gemini</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">A/B Testing</span><span class="tag tag-keyword">AI Model</span><span class="tag tag-keyword">Google AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-10-16 16:59:30</time></div>
+  <div class="story-body">
+    <h3><a href="https://cognition.ai/blog/swe-grep" target="_blank" rel="noopener noreferrer">SWE-Grep and SWE-Grep-Mini: RL for Fast Multi-Turn Context Retrieval</a></h3>
+    <p class="story-summary">Cognition AI has introduced SWE-Grep and SWE-Grep-Mini, innovative systems designed for fast multi-turn context retrieval utilizing Reinforcement Learning (RL). These tools aim to significantly enhance the efficiency and relevance of information gathering in complex AI agent workflows, particularly within software engineering tasks. By employing RL, SWE-Grep and its smaller counterpart, SWE-Grep-Mini, are optimized to quickly identify and retrieve pertinent contextual data over extended interactive sessions. This approach addresses a critical challenge in AI development where agents often require access to a wide array of information across multiple turns to perform effectively. The systems promise to improve the performance of AI models by ensuring they have the most relevant information at their disposal, thereby streamlining processes and potentially leading to more accurate and contextually aware outputs. This advancement highlights the growing integration of RL techniques for optimizing underlying mechanisms of sophisticated AI systems.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Context Retrieval</span><span class="tag tag-keyword">Multi-Turn Interactions</span><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Information Retrieval</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-10-16 12:21:36</time></div>
+  <div class="story-body">
+    <h3><a href="https://100x.bot/a/a-stateful-browser-agent-using-self-healing-dom-maps" target="_blank" rel="noopener noreferrer">A stateful browser agent using self-healing DOM maps</a></h3>
+    <p class="story-summary">This article details the development of a stateful browser agent that incorporates &#x27;self-healing DOM maps&#x27; to enhance its resilience and performance in dynamic web environments. The primary objective is to enable AI agents to execute complex, multi-step tasks within web browsers, maintaining continuity and state across interactions. The innovative aspect lies in the self-healing mechanism, which allows the agent to automatically adjust and re-identify elements on the Document Object Model (DOM) even when web page structures undergo minor changes. This addresses a common fragility in web automation where scripts fail due to UI updates. By intelligently mapping and adapting to shifts in the DOM, the agent ensures operational flow and task integrity. This technology significantly improves the reliability of automated web interactions, data extraction, and AI-driven web applications, making them more robust against the ever-evolving nature of the web.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Browser agent</span><span class="tag tag-keyword">Web automation</span><span class="tag tag-keyword">DOM maps</span><span class="tag tag-keyword">Self-healing</span><span class="tag tag-keyword">Stateful systems</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-10-16 05:46:50</time></div>
+  <div class="story-body">
+    <h3><a href="https://ollama.com/blog/coding-models" target="_blank" rel="noopener noreferrer">New coding models and integrations</a></h3>
+    <p class="story-summary">Ollama has announced the introduction of new coding models and enhanced integrations, signaling a significant leap forward in developer tooling and productivity. These advancements are centered around specialized large language models, optimized for tasks such as code generation, intelligent completion, and sophisticated code analysis, with an emphasis on local execution capabilities. The accompanying integrations are designed to embed these powerful AI assistants directly into existing development environments, offering developers a streamlined workflow for various programming tasks. This strategic update aims to empower engineers with private, efficient, and locally runnable AI solutions, reducing reliance on cloud-based services for sensitive code. By providing advanced AI directly at the developer&#x27;s fingertips, Ollama seeks to accelerate the software development lifecycle, foster innovation, and enhance the overall quality and maintainability of codebases across diverse projects.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Ollama</span><span class="tag tag-keyword">Coding Models</span><span class="tag tag-keyword">Code Generation</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Developer Tools</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-10-16 14:33:10</time></div>
+  <div class="story-body">
+    <h3><a href="https://blog.torproject.org/new-alpha-release-tor-browser-150a4/" target="_blank" rel="noopener noreferrer">Tor browser removing various Firefox AI features</a></h3>
+    <p class="story-summary">The Tor Project has released Tor Browser 15.0a4, an alpha version that significantly departs from its Firefox upstream by removing several newly integrated Artificial Intelligence features. This strategic decision underscores Tor&#x27;s unwavering commitment to user privacy and anonymity, as the project identifies potential risks associated with these AI functionalities. While designed to enhance user experience in conventional browsers, features such as on-device machine learning for content processing, image analysis, or advanced search suggestions are deemed to potentially create new deanonymization vectors or facilitate unwanted data collection within Tor Browser&#x27;s highly secure environment. The Tor Project emphasizes that any component that could inadvertently expose user data or browsing patterns, even through client-side processing, contravenes its core privacy principles. By proactively stripping out these AI components, the release reinforces Tor&#x27;s stance on prioritizing stringent privacy and security measures above convenience, ensuring the browser remains a robust shield against surveillance, tracking, and the evolving challenges posed by data-intensive technologies. This move highlights an ongoing vigilance in adapting to new browser technologies while safeguarding user anonymity.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Tor Browser</span><span class="tag tag-keyword">Firefox</span><span class="tag tag-keyword">Privacy</span><span class="tag tag-keyword">Anonymity</span><span class="tag tag-keyword">AI features</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>2 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-10-15T06:07:47Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/QwenLM/Qwen3-VL" target="_blank" rel="noopener noreferrer">Qwen3-VL</a></h3>
+    <p class="story-summary">Qwen3-VL is introduced as the most advanced vision-language model in the Qwen series, delivering substantial enhancements across its functionalities. It features superior text comprehension and generation, profound visual perception and reasoning, an expanded context length up to 1M tokens, and refined understanding of spatial and video dynamics. The model also boasts strengthened agent interaction capabilities, including PC/mobile GUI operation and visual coding (generating HTML/CSS/JS from images/videos). Key architectural innovations, such as Interleaved-MRoPE, DeepStack, and Text–Timestamp Alignment, underpin its advanced video reasoning and image-text alignment. Qwen3-VL further excels in advanced spatial perception with 2D/3D grounding, enhanced multimodal reasoning for STEM/Math, broad visual recognition, and an expanded OCR supporting 32 languages. Its text understanding is comparable to pure Large Language Models, achieved through seamless text-vision fusion. The model offers flexible deployment options, available in Dense and MoE architectures, as well as Instruct and Thinking editions.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Vision-Language Model</span><span class="tag tag-keyword">Multimodal AI</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Video Understanding</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2024-12-09T23:53:04Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/karpathy/nanoGPT" target="_blank" rel="noopener noreferrer">nanoGPT</a></h3>
+    <p class="story-summary">nanoGPT is a streamlined, high-performance GitHub repository designed for training and finetuning medium-sized Generative Pre-trained Transformers (GPTs). A minimalist rewrite of minGPT, it emphasizes practical implementation over pedagogical detail, making it highly hackable. The project successfully reproduces GPT-2 (124M) training on the OpenWebText dataset within approximately four days using an 8XA100 40GB node. Its core consists of a concise 300-line training loop (`train.py`) and an equally compact GPT model definition (`model.py`), capable of loading official OpenAI GPT-2 weights. nanoGPT facilitates training new models from scratch or finetuning existing checkpoints, supporting diverse computational environments from single GPUs (including Apple Silicon&#x27;s MPS) to distributed multi-node clusters via PyTorch DDP. It also leverages PyTorch 2.0&#x27;s `torch.compile()` for significant performance enhancements, offering a robust platform for both deep learning professionals reproducing benchmarks and beginners exploring character-level GPTs.</p>
+    <div class="story-tags"><span class="tag tag-keyword">GPT</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Finetuning</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-keyword">PyTorch</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-10-15T09:30:25.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.13344" target="_blank" rel="noopener noreferrer">UniMoE-Audio: Unified Speech and Music Generation with Dynamic-Capacity MoE</a></h3>
+    <p class="story-summary">Recent advances in unified multimodal models indicate a clear trend towards comprehensive content generation. However, the auditory domain remains a significant challenge, with music and speech often developed in isolation, hindering progress towards universal audio synthesis. This separation stems from inherent task conflicts and severe data imbalances, which impede the development of a truly unified audio generation model. To address this challenge, we propose UniMoE-Audio, a unified speech and music generation model within a novel Dynamic-Capacity Mixture-of-Experts (MoE) framework. Architecturally, UniMoE-Audio introduces a Top-P routing strategy for dynamic expert number allocation, and a hybrid expert design comprising routed experts for domain-specific knowledge, shared experts for domain-agnostic features, and null experts for adaptive computation skipping. To tackle data imbalance, we introduce a three-stage training curriculum: 1) Independent Specialist Training leverages original datasets to instill domain-specific knowledge into each &quot;proto-expert&quot; without interference; 2) MoE Integration and Warmup incorporates these specialists into the UniMoE-Audio architecture, warming up the gate module and shared expert using a subset of balanced dataset; and 3) Synergistic Joint Training trains the entire model end-to-end on the fully balanced dataset, fostering enhanced cross-domain synergy. Extensive experiments show that UniMoE-Audio not only achieves state-of-the-art performance on major speech and music generation benchmarks, but also demonstrates superior synergistic learning, mitigating the performance degradation typically seen in naive joint training. Our findings highlight the substantial potential of specialized MoE architecture and curated training strategies in advancing the field of universal audio generation. Homepage: https://mukioxun.github.io/Uni-MoE-site/home.html</p>
+    <div class="story-tags"><span class="tag tag-keyword">Unified Audio Generation</span><span class="tag tag-keyword">Mixture-of-Experts</span><span class="tag tag-keyword">Speech Synthesis</span><span class="tag tag-keyword">Music Synthesis</span><span class="tag tag-keyword">Dynamic-Capacity MoE</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-10-15T15:35:48.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.13678" target="_blank" rel="noopener noreferrer">FlashWorld: High-quality 3D Scene Generation within Seconds</a></h3>
+    <p class="story-summary">We propose FlashWorld, a generative model that produces 3D scenes from a single image or text prompt in seconds, 10~100times faster than previous works while possessing superior rendering quality. Our approach shifts from the conventional multi-view-oriented (MV-oriented) paradigm, which generates multi-view images for subsequent 3D reconstruction, to a 3D-oriented approach where the model directly produces 3D Gaussian representations during multi-view generation. While ensuring 3D consistency, 3D-oriented method typically suffers poor visual quality. FlashWorld includes a dual-mode pre-training phase followed by a cross-mode post-training phase, effectively integrating the strengths of both paradigms. Specifically, leveraging the prior from a video diffusion model, we first pre-train a dual-mode multi-view diffusion model, which jointly supports MV-oriented and 3D-oriented generation modes. To bridge the quality gap in 3D-oriented generation, we further propose a cross-mode post-training distillation by matching distribution from consistent 3D-oriented mode to high-quality MV-oriented mode. This not only enhances visual quality while maintaining 3D consistency, but also reduces the required denoising steps for inference. Also, we propose a strategy to leverage massive single-view images and text prompts during this process to enhance the model&#x27;s generalization to out-of-distribution inputs. Extensive experiments demonstrate the superiority and efficiency of our method.</p>
+    <div class="story-tags"><span class="tag tag-keyword">3D Scene Generation</span><span class="tag tag-keyword">Generative Model</span><span class="tag tag-keyword">Diffusion Models</span><span class="tag tag-keyword">Multi-view Generation</span><span class="tag tag-keyword">3D Gaussian Representations</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-10-15T13:49:51.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.13554" target="_blank" rel="noopener noreferrer">Attention Illuminates LLM Reasoning: The Preplan-and-Anchor Rhythm Enables Fine-Grained Policy Optimization</a></h3>
+    <p class="story-summary">The reasoning pattern of Large language models (LLMs) remains opaque, and Reinforcement learning (RL) typically applies uniform credit across an entire generation, blurring the distinction between pivotal and routine steps. This work positions attention as a privileged substrate that renders the internal logic of LLMs legible, not merely as a byproduct of computation, but as a mechanistic blueprint of reasoning itself. We first distinguish attention heads between locally and globally focused information processing and reveal that locally focused heads produce a sawtooth pattern near the diagonal indicating phrasal chunks, while globally focused heads expose tokens that exert broad downstream influence over future tokens. We formalize these with two metrics: 1) Windowed Average Attention Distance, which measures the extent of backward attention within a clipped window; 2) Future Attention Influence, which quantifies a token&#x27;s global importance as the average attention it receives from subsequent tokens. Taken together, these signals reveal a recurring preplan-and-anchor mechanism, where the model first performs a long-range contextual reference to generate an introductory token, which is immediately followed by or coincides with a semantic anchor token that organizes subsequent reasoning. Leveraging these insights, we introduce three novel RL strategies that dynamically perform targeted credit assignment to critical nodes (preplan tokens, anchor tokens, and their temporal coupling) and show consistent performance gains across various reasoning tasks. By aligning optimization with the model&#x27;s intrinsic reasoning rhythm, we aim to transform opaque optimization into an actionable structure-aware process, hoping to offer a potential step toward more transparent and effective optimization of LLM reasoning.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Attention Mechanisms</span><span class="tag tag-keyword">Reasoning</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Policy Optimization</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-10-15T17:52:59.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.13795" target="_blank" rel="noopener noreferrer">Bee: A High-Quality Corpus and Full-Stack Suite to Unlock Advanced Fully Open MLLMs</a></h3>
+    <p class="story-summary">Fully open multimodal large language models (MLLMs) currently lag behind proprietary counterparts, primarily due to a significant gap in data quality for supervised fine-tuning (SFT). Existing open-source datasets are often plagued by widespread noise and a critical deficit in complex reasoning data, such as Chain-of-Thought (CoT), which hinders the development of advanced model capabilities. Addressing these challenges, our work makes three primary contributions. First, we introduce Honey-Data-15M, a new SFT dataset comprising approximately 15 million QA pairs, processed through multiple cleaning techniques and enhanced with a novel dual-level (short and long) CoT enrichment strategy. Second, we introduce HoneyPipe, the data curation pipeline, and its underlying framework DataStudio, providing the community with a transparent and adaptable methodology for data curation that moves beyond static dataset releases. Finally, to validate our dataset and pipeline, we train Bee-8B, an 8B model on Honey-Data-15M. Experiments show that Bee-8B establishes a new state-of-the-art (SOTA) for fully open MLLMs, achieving performance that is competitive with, and in some cases surpasses, recent semi-open models such as InternVL3.5-8B. Our work delivers to the community a suite of foundational resources, including: the Honey-Data-15M corpus; the full-stack suite comprising HoneyPipe and DataStudio; training recipes; an evaluation harness; and the model weights. This effort demonstrates that a principled focus on data quality is a key pathway to developing fully open MLLMs that are highly competitive with their semi-open counterparts.</p>
+    <div class="story-tags"><span class="tag tag-keyword">MLLMs</span><span class="tag tag-keyword">Data Quality</span><span class="tag tag-keyword">Supervised Fine-tuning</span><span class="tag tag-keyword">Chain-of-Thought</span><span class="tag tag-keyword">Data Curation</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-10-15T17:30:05.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.13778" target="_blank" rel="noopener noreferrer">InternVLA-M1: A Spatially Guided Vision-Language-Action Framework for Generalist Robot Policy</a></h3>
+    <p class="story-summary">We introduce InternVLA-M1, a unified framework for spatial grounding and robot control that advances instruction-following robots toward scalable, general-purpose intelligence. Its core idea is spatially guided vision-language-action training, where spatial grounding serves as the critical link between instructions and robot actions. InternVLA-M1 employs a two-stage pipeline: (i) spatial grounding pre-training on over 2.3M spatial reasoning data to determine &quot;where to act&quot; by aligning instructions with visual, embodiment-agnostic positions, and (ii) spatially guided action post-training to decide &quot;how to act&quot; by generating embodiment-aware actions through plug-and-play spatial prompting. This spatially guided training recipe yields consistent gains: InternVLA-M1 outperforms its variant without spatial guidance by +14.6% on SimplerEnv Google Robot, +17% on WidowX, and +4.3% on LIBERO Franka, while demonstrating stronger spatial reasoning capability in box, point, and trace prediction. To further scale instruction following, we built a simulation engine to collect 244K generalizable pick-and-place episodes, enabling a 6.2% average improvement across 200 tasks and 3K+ objects. In real-world clustered pick-and-place, InternVLA-M1 improved by 7.3%, and with synthetic co-training, achieved +20.6% on unseen objects and novel configurations. Moreover, in long-horizon reasoning-intensive scenarios, it surpassed existing works by over 10%. These results highlight spatially guided training as a unifying principle for scalable and resilient generalist robots. Code and models are available at https://github.com/InternRobotics/InternVLA-M1.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Vision-Language-Action</span><span class="tag tag-keyword">Generalist Robot Policy</span><span class="tag tag-keyword">Spatial Grounding</span><span class="tag tag-keyword">Robot Control</span><span class="tag tag-keyword">Instruction Following</span><span class="tag tag-area">Robotics</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-10-15T17:43:03.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.13786" target="_blank" rel="noopener noreferrer">The Art of Scaling Reinforcement Learning Compute for LLMs</a></h3>
+    <p class="story-summary">Reinforcement learning (RL) has become central to training large language models (LLMs), yet the field lacks predictive scaling methodologies comparable to those established for pre-training. Despite rapidly rising compute budgets, there is no principled understanding of how to evaluate algorithmic improvements for scaling RL compute. We present the first large-scale systematic study, amounting to more than 400,000 GPU-hours, that defines a principled framework for analyzing and predicting RL scaling in LLMs. We fit sigmoidal compute-performance curves for RL training and ablate a wide range of common design choices to analyze their effects on asymptotic performance and compute efficiency. We observe: (1) Not all recipes yield similar asymptotic performance, (2) Details such as loss aggregation, normalization, curriculum, and off-policy algorithm primarily modulate compute efficiency without materially shifting the asymptote, and (3) Stable, scalable recipes follow predictable scaling trajectories, enabling extrapolation from smaller-scale runs. Combining these insights, we propose a best-practice recipe, ScaleRL, and demonstrate its effectiveness by successfully scaling and predicting validation performance on a single RL run scaled up to 100,000 GPU-hours. Our work provides both a scientific framework for analyzing scaling in RL and a practical recipe that brings RL training closer to the predictability long achieved in pre-training.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Compute Scaling</span><span class="tag tag-keyword">Algorithmic Improvements</span><span class="tag tag-keyword">Compute Efficiency</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
 </body>
 </html>

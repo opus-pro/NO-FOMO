@@ -1,466 +1,151 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-10-01</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2025-10-01</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="." class="active">中文</a>
-                <a href="en/" class="">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-10-01</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../home/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 返回主页</a>
-            <a href="../../daily/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 最新日报</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 关于我们</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>OpenAI won't say whose content trained its video tool. We found some clues.</h2>
-                <span class="published-time">Published: 2025-10-01 19:48:23</span>
-                
-                <p class="summary">A recent investigation explores the undisclosed training data used for OpenAI's video generation tool, Sora. Despite OpenAI's lack of transparency regarding the origins of its training content, researchers and journalists are actively seeking clues to identify potential sources. The inquiry aims to understand the dataset composition, which is critical for evaluating the model's biases, intellectual property implications, and the ethical considerations surrounding generative AI development. Early findings suggest a diverse range of content might have been utilized, though specific creators or copyright holders remain unconfirmed. This ongoing effort highlights the growing demand for greater accountability and transparency from AI developers regarding their data practices, especially as advanced generative models become more prevalent and influential across various industries. The investigation underscores the challenges in tracing digital content back to its original creators when it's incorporated into large-scale AI training datasets, prompting broader discussions on data provenance in the AI era.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>OpenAI</span><span>Sora</span><span>Generative AI</span><span>Training Data</span><span>Video Generation</span><span>AI Ethics</span><span>Data Provenance</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Generative AI</span><span>Video Understanding</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.washingtonpost.com/technology/interactive/2025/openai-training-data-sora/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>OpenTSLM: Language models that understand time series</h2>
-                <span class="published-time">Published: 2025-10-01 17:25:33</span>
-                
-                <p class="summary">OpenTSLM presents a groundbreaking initiative focused on developing language models specifically designed to understand and process time series data. This project, spearheaded by StanfordBDHG, re-contextualizes the highly successful transformer architectures, traditionally applied in natural language processing, for temporal sequence analysis. By treating time series points as tokens within a sequence, OpenTSLM aims to leverage the contextual understanding and predictive power inherent in large language models to tackle complex challenges in diverse domains. The project provides an open-source framework and an accompanying whitepaper that details its innovative methodology and potential applications. It explores how these specialized language models can improve performance in critical time series tasks such as forecasting, anomaly detection, and classification, offering a robust and scalable solution that could significantly advance the field of temporal data analysis. This paradigm shift promises enhanced model interpretability and more accurate predictive capabilities across various industries, from finance and healthcare to industrial monitoring and scientific research.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Time Series Analysis</span><span>Language Models</span><span>Deep Learning</span><span>Transformer Networks</span><span>Machine Learning</span><span>Forecasting</span><span>Anomaly Detection</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.opentslm.com/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Unix philosophy and filesystem access makes Claude Code amazing</h2>
-                <span class="published-time">Published: 2025-10-01 14:05:45</span>
-                
-                <p class="summary">The article underscores the transformative impact of adopting the Unix philosophy, particularly concerning sophisticated filesystem access, on the performance and utility of Claude Code. By enabling Claude to interact with project files and directories akin to a human developer operating within a command-line environment, its proficiency in comprehending, generating, and debugging code within intricate software architectures is substantially elevated. This methodological integration allows the AI to perform a wider array of development tasks that demand extensive contextual awareness and iterative problem-solving, moving beyond mere code snippet generation towards managing comprehensive development workflows. Such an approach fosters a more dynamic and effective collaborative ecosystem between AI and human developers, capitalizing on the inherent simplicity, modularity, and composability of Unix principles. This paradigm shift not only enhances Claude's ability to tackle complex programming challenges but also redefines its role as an indispensable, versatile tool in modern software engineering, promising remarkable advancements in AI-driven code development and project management.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Unix philosophy</span><span>Filesystem access</span><span>Claude Code</span><span>AI agent</span><span>Code generation</span><span>Software development</span><span>Large Language Models</span><span>Development workflow</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.alephic.com/writing/the-magic-of-claude-code" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Cursor 1.7</h2>
-                <span class="published-time">Published: 2025-10-01 13:51:03</span>
-                
-                <p class="summary">Cursor 1.7 marks a significant update for the AI-powered code editor, primarily focused on bolstering developer productivity and refining the intelligent coding experience. This iteration brings substantial enhancements to its core AI capabilities, including more accurate code generation, smarter context-aware suggestions, and improved debugging assistance through interactive AI chat. Users can expect a more fluid and responsive interface due to extensive performance optimizations, resulting in quicker startup times and reduced latency during intensive coding sessions. The update also introduces advanced refactoring tools, alongside more robust integration with popular version control systems like Git, facilitating seamless collaboration and project management. Furthermore, improvements to syntax highlighting and code navigation contribute to a more intuitive development environment. These enhancements are designed to empower developers to leverage AI assistance more effectively, making complex tasks simpler and accelerating the overall software development lifecycle. Cursor 1.7 solidifies its position as a leading intelligent development platform, offering a more stable, efficient, and feature-rich tool for modern software engineering.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI code editor</span><span>Software development</span><span>Integrated Development Environment</span><span>Code generation</span><span>Debugging tools</span><span>Developer productivity</span><span>Version control</span><span>Programming</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://cursor.com/changelog/1-7" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Fossabot: AI code review for Dependabot/Renovate on breaking changes and impacts</h2>
-                <span class="published-time">Published: 2025-10-01 16:30:16</span>
-                
-                <p class="summary">Fossabot introduces an advanced AI-powered code review solution specifically designed to enhance the dependency upgrade process managed by popular tools like Dependabot and Renovate. This innovative AI agent aims to streamline the often-complex task of updating software dependencies by automatically identifying and analyzing potential breaking changes and their downstream impacts within a codebase. By leveraging artificial intelligence and machine learning techniques, Fossabot provides developers with more profound insights than traditional static analysis tools, predicting how dependency updates might affect an application's functionality and stability. Its primary goal is to mitigate the inherent risks associated with integrating new library or framework versions, significantly reducing the manual effort typically required to review pull requests generated by automated dependency bots. This capability is crucial for maintaining robust software health, ensuring security, and optimizing performance. Fossabot empowers development teams to proactively address compatibility issues and facilitates smoother, more reliable update cycles, ultimately accelerating the adoption of critical updates while minimizing the risk of introducing regressions or vulnerabilities.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Code Review</span><span>Dependency Management</span><span>Automated Code Review</span><span>Breaking Changes</span><span>Impact Analysis</span><span>AI Agent</span><span>DevOps</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://fossa.com/blog/fossabot-dependency-upgrade-ai-agent/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: ChartDB Agent – Cursor for DB schema design</h2>
-                <span class="published-time">Published: 2025-10-01 13:38:36</span>
-                
-                <p class="summary">ChartDB has announced the launch of its new product, ChartDB Agent, a tool designed to revolutionize database schema design through natural language processing and artificial intelligence. This new offering builds upon the success of ChartDB OSS, an open-source solution that generates Entity-Relationship (ER) diagrams from existing databases without requiring direct access. The ChartDB Agent empowers users to design databases from scratch or implement schema modifications by simply describing their requirements in plain English. Key functionalities include the ability to generate complete schemas from natural language input, brainstorm new tables, columns, and relationships with AI-driven suggestions, and visually refine designs within an interactive ER diagram interface. Furthermore, the agent ensures deterministic export of SQL scripts, facilitating seamless integration into development workflows. ChartDB Agent is available for immediate trial without requiring a signup, with an option to sign up for use with personal databases, and the team is actively soliciting user feedback.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Database Schema Design</span><span>Natural Language Processing</span><span>AI Agent</span><span>Entity-Relationship Diagrams</span><span>SQL Script Generation</span><span>Database Tools</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Natural Language Processing</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://app.chartdb.io/ai" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>MoneyPrinterTurbo</h2>
-                <span class="published-time">Published: 2025-05-16T03:03:36Z</span>
-                
-                <p class="summary">MoneyPrinterTurbo is an innovative open-source project that automates the entire process of short video creation. By simply providing a video topic or keywords, the system intelligently generates video scripts, curates relevant visual assets, produces synchronized subtitles, selects appropriate background music, and finally synthesizes a high-definition short video. The project boasts a robust MVC architecture, offering both a user-friendly Web interface and a comprehensive API for integration. It supports various high-definition video dimensions, including vertical 9:16 and horizontal 16:9, and features batch video generation capabilities. Users can customize video clip durations, select from multiple languages for scripts and voice synthesis, and fine-tune subtitle appearance. Furthermore, MoneyPrinterTurbo integrates with a wide array of large language models, such as OpenAI, Moonshot, Azure, DeepSeek, and Google Gemini, for advanced script generation and leverages high-quality, copyright-free video materials, making it an efficient solution for streamlined digital content creation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Video Generation</span><span>Short Video Creation</span><span>Large Language Models</span><span>Speech Synthesis</span><span>Subtitle Generation</span><span>Content Automation</span><span>Generative AI</span><span>Video Editing</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Generative AI</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/harry0703/MoneyPrinterTurbo" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Claude Agent SDK for Python</h2>
-                <span class="published-time">Published: 2025-09-30T19:59:14Z</span>
-                
-                <p class="summary">The Claude Agent SDK for Python provides a robust toolkit for developers to integrate Claude's agent capabilities into their Python applications. This SDK offers core functionalities through its `query()` function for single-turn interactions and the `ClaudeSDKClient` for more complex, bidirectional conversations. Key technical features include asynchronous programming support, enabling efficient handling of AI agent responses, and the ability to define custom tools as in-process MCP (Message-Passing Protocol) servers. This significantly simplifies development by eliminating subprocess management and improving performance compared to external servers. Additionally, the SDK supports customizable hooks, allowing developers to inject deterministic processing and automated feedback at various points in the Claude agent's operational loop, enhancing control and safety. The SDK facilitates building sophisticated AI agent applications by providing structured methods for interaction, tool integration, and error handling, making it a critical component for leveraging Claude's intelligence in a programmatic manner.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Claude Agent SDK</span><span>Python</span><span>AI Agent</span><span>Asynchronous Programming</span><span>Custom Tools</span><span>Hooks</span><span>MCP Servers</span><span>API</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/anthropics/claude-agent-sdk-python" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Lobe Chat</h2>
-                <span class="published-time">Published: 2025-10-01T19:41:54Z</span>
-                
-                <p class="summary">Lobe Chat is an open-source, modern-designed UI/framework for ChatGPT and other Large Language Models (LLMs), offering a comprehensive suite of features for building advanced conversational AI applications. It supports speech synthesis, multi-modal interactions, and an extensible plugin system based on function calling, enabling seamless integration with external tools and data sources. Users can deploy a private chat application for various LLMs like OpenAI, Claude, Gemini, Groq, and Ollama with a single click. Key functionalities include a Model Context Protocol (MCP) plugin marketplace, a dedicated desktop application, smart internet search for real-time knowledge, Chain of Thought visualization for AI reasoning, branching conversations, and support for Claude Artifacts. Furthermore, Lobe Chat facilitates file uploads for knowledge bases, integrates with 42 multi-model service providers (including local LLM support via Ollama), provides visual recognition capabilities for image understanding, and offers TTS & STT for voice conversations. It also enables text-to-image generation using models like DALL-E 3, features an Agent Market (GPTs), supports both local and remote databases with CRDT for synchronization, allows multi-user management, and is available as a Progressive Web App (PWA) with mobile device adaptation and custom themes.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>ChatGPT framework</span><span>LLMs UI</span><span>Function Calling</span><span>AI Agents</span><span>Multi-modal AI</span><span>Self-hosting</span><span>Plugin System</span><span>Knowledge Base</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/lobehub/lobe-chat" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>MCPMark: A Benchmark for Stress-Testing Realistic and Comprehensive MCP</h2>
-                <span class="published-time">Published: 2025-09-28T17:53:27.000Z</span>
-                
-                <p class="summary">MCP standardizes how LLMs interact with external systems, forming the foundation for general agents. However, existing MCP benchmarks remain narrow in scope: they focus on read-heavy tasks or tasks with limited interaction depth, and fail to capture the complexity and realism of real-world workflows. To address this gap, we propose MCPMark, a benchmark designed to evaluate MCP use in a more realistic and comprehensive manner. It consists of 127 high-quality tasks collaboratively created by domain experts and AI agents. Each task begins with a curated initial state and includes a programmatic script for automatic verification. These tasks demand richer and more diverse interactions with the environment, involving a broad range of create, read, update, and delete (CRUD) operations. We conduct a comprehensive evaluation of cutting-edge LLMs using a minimal agent framework that operates in a tool-calling loop. Empirical results show that the best-performing model, gpt-5-medium, reaches only 52.56% pass@1 and 33.86% pass^4, while other widely regarded strong models, including claude-sonnet-4 and o3, fall below 30% pass@1 and 15% pass^4. On average, LLMs require 16.2 execution turns and 17.4 tool calls per task, significantly surpassing those in previous MCP benchmarks and highlighting the stress-testing nature of MCPMark.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>MCP</span><span>LLM benchmarks</span><span>AI agents</span><span>Stress-testing</span><span>CRUD operations</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>AI Agent</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.24002" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>The Dragon Hatchling: The Missing Link between the Transformer and Models of the Brain</h2>
-                <span class="published-time">Published: 2025-09-30T16:49:01.000Z</span>
-                
-                <p class="summary">The relationship between computing systems and the brain has served asmotivation for pioneering theoreticians since John von Neumann and Alan Turing.Uniform, scale-free biological networks, such as the brain, have powerfulproperties, including generalizing over time, which is the main barrier forMachine Learning on the path to Universal Reasoning Models. We introduce `Dragon Hatchling' (BDH), a new Large Language Modelarchitecture based on a scale-free biologically inspired network of locally-interacting neuron particles. BDH couples strong theoreticalfoundations and inherent interpretability without sacrificing Transformer-likeperformance.BDH is a practical, performant state-of-the-art attention-based state spacesequence learning architecture. In addition to being a graph model, BDH admitsa GPU-friendly formulation. It exhibits Transformer-like scaling laws:empirically BDH rivals GPT2 performance on language and translation tasks, atthe same number of parameters (10M to 1B), for the same training data.BDH can be represented as a brain model. The working memory of BDH duringinference entirely relies on synaptic plasticity with Hebbian learning usingspiking neurons. We confirm empirically that specific, individual synapsesstrengthen connection whenever BDH hears or reasons about a specific conceptwhile processing language inputs. The neuron interaction network of BDH is agraph of high modularity with heavy-tailed degree distribution. The BDH modelis biologically plausible, explaining one possible mechanism which humanneurons could use to achieve speech.BDH is designed for interpretability. Activation vectors of BDH are sparseand positive. We demonstrate monosemanticity in BDH on language tasks.Interpretability of state, which goes beyond interpretability of neurons andmodel parameters, is an inherent feature of the BDH architecture.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>Biologically Inspired AI</span><span>Brain Models</span><span>Transformer Architecture</span><span>Interpretability</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Natural Language Processing</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.26507" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>TruthRL: Incentivizing Truthful LLMs via Reinforcement Learning</h2>
-                <span class="published-time">Published: 2025-09-30T04:25:17.000Z</span>
-                
-                <p class="summary">While large language models (LLMs) have demonstrated strong performance on factoid question answering, they are still prone to hallucination and untruthful responses, particularly when tasks demand information outside their parametric knowledge. Indeed, truthfulness requires more than accuracy -- models must also recognize uncertainty and abstain when unsure to avoid hallucinations. This presents a fundamental challenge for existing methods: approaches that optimize for accuracy often amplify hallucinations, while those that encourage abstention can become overly conservative, sacrificing correct answers. Both extremes ultimately compromise truthfulness. In this work, we present TruthRL, a general reinforcement learning (RL) framework that directly optimizes the truthfulness of LLMs. Specifically, we implement TruthRL using GRPO with a simple yet effective ternary reward that distinguishes correct answers, hallucinations, and abstentions. It incentivizes models to reduce hallucinations not only by providing correct responses, but also by enabling abstention when uncertain, thereby improving truthfulness. Extensive experiments across four knowledge-intensive benchmarks show that, compared to vanilla RL, TruthRL significantly reduces hallucinations by 28.9% and improves truthfulness by 21.1%, with consistent gains across various backbone models (e.g., Qwen, Llama) under both retrieval and non-retrieval setups. In-depth ablation study demonstrates that vanilla accuracy-driven methods, such as supervised fine-tuning or RL with a binary reward, struggle to balance factual correctness and uncertainty. In contrast, our proposed truthfulness-driven TruthRL achieves strong performance in both accuracy and truthfulness, underscoring the importance of learning objective design for developing truthful LLMs.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>Reinforcement Learning</span><span>Truthfulness</span><span>Hallucinations</span><span>Abstention</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Natural Language Processing</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.25760" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>VitaBench: Benchmarking LLM Agents with Versatile Interactive Tasks in Real-world Applications</h2>
-                <span class="published-time">Published: 2025-09-30T16:33:49.000Z</span>
-                
-                <p class="summary">As LLM-based agents are increasingly deployed in real-life scenarios, existing benchmarks fail to capture their inherent complexity of handling extensive information, leveraging diverse resources, and managing dynamic user interactions. To address this gap, we introduce VitaBench, a challenging benchmark that evaluates agents on versatile interactive tasks grounded in real-world settings. Drawing from daily applications in food delivery, in-store consumption, and online travel services, VitaBench presents agents with the most complex life-serving simulation environment to date, comprising 66 tools. Through a framework that eliminates domain-specific policies, we enable flexible composition of these scenarios and tools, yielding 100 cross-scenario tasks (main results) and 300 single-scenario tasks. Each task is derived from multiple real user requests and requires agents to reason across temporal and spatial dimensions, utilize complex tool sets, proactively clarify ambiguous instructions, and track shifting user intent throughout multi-turn conversations. Moreover, we propose a rubric-based sliding window evaluator, enabling robust assessment of diverse solution pathways in complex environments and stochastic interactions. Our comprehensive evaluation reveals that even the most advanced models achieve only 30% success rate on cross-scenario tasks, and less than 50% success rate on others. Overall, we believe VitaBench will serve as a valuable resource for advancing the development of AI agents in practical real-world applications. The code, dataset, and leaderboard are available at https://vitabench.github.io/.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>LLM Agents</span><span>Benchmarking</span><span>Interactive Tasks</span><span>Real-world Applications</span><span>VitaBench</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.26490" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>DC-VideoGen: Efficient Video Generation with Deep Compression Video Autoencoder</h2>
-                <span class="published-time">Published: 2025-09-29T17:59:31.000Z</span>
-                
-                <p class="summary">We introduce DC-VideoGen, a post-training acceleration framework for efficient video generation. DC-VideoGen can be applied to any pre-trained video diffusion model, improving efficiency by adapting it to a deep compression latent space with lightweight fine-tuning. The framework builds on two key innovations: (i) a Deep Compression Video Autoencoder with a novel chunk-causal temporal design that achieves 32x/64x spatial and 4x temporal compression while preserving reconstruction quality and generalization to longer videos; and (ii) AE-Adapt-V, a robust adaptation strategy that enables rapid and stable transfer of pre-trained models into the new latent space. Adapting the pre-trained Wan-2.1-14B model with DC-VideoGen requires only 10 GPU days on the NVIDIA H100 GPU. The accelerated models achieve up to 14.8x lower inference latency than their base counterparts without compromising quality, and further enable 2160x3840 video generation on a single GPU. Code: https://github.com/dc-ai-projects/DC-VideoGen.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>DC-VideoGen</span><span>video generation</span><span>deep compression</span><span>video autoencoder</span><span>diffusion model</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Deep Learning</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.25182" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Learning Human-Perceived Fakeness in AI-Generated Videos via Multimodal LLMs</h2>
-                <span class="published-time">Published: 2025-09-26T17:59:54.000Z</span>
-                
-                <p class="summary">Can humans identify AI-generated (fake) videos and provide grounded reasons? While video generation models have advanced rapidly, a critical dimension -- whether humans can detect deepfake traces within a generated video, i.e., spatiotemporal grounded visual artifacts that reveal a video as machine generated -- has been largely overlooked. We introduce DeeptraceReward, the first fine-grained, spatially- and temporally- aware benchmark that annotates human-perceived fake traces for video generation reward. The dataset comprises 4.3K detailed annotations across 3.3K high-quality generated videos. Each annotation provides a natural-language explanation, pinpoints a bounding-box region containing the perceived trace, and marks precise onset and offset timestamps. We consolidate these annotations into 9 major categories of deepfake traces that lead humans to identify a video as AI-generated, and train multimodal language models (LMs) as reward models to mimic human judgments and localizations. On DeeptraceReward, our 7B reward model outperforms GPT-5 by 34.7% on average across fake clue identification, grounding, and explanation. Interestingly, we observe a consistent difficulty gradient: binary fake v.s. real classification is substantially easier than fine-grained deepfake trace detection; within the latter, performance degrades from natural language explanations (easiest), to spatial grounding, to temporal labeling (hardest). By foregrounding human-perceived deepfake traces, DeeptraceReward provides a rigorous testbed and training signal for socially aware and trustworthy video generation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI-generated videos</span><span>Deepfake detection</span><span>Multimodal LLMs</span><span>Video generation reward</span><span>Human perception</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Multimodal</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.22646" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../">Archive</a><a href="cn/">中文</a><a href="en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2025-10-01</strong><span>DEFAULT EDITION</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-10-01 19:48:23</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.washingtonpost.com/technology/interactive/2025/openai-training-data-sora/" target="_blank" rel="noopener noreferrer">OpenAI won&#x27;t say whose content trained its video tool. We found some clues.</a></h3>
+    <p class="story-summary">A recent investigation explores the undisclosed training data used for OpenAI&#x27;s video generation tool, Sora. Despite OpenAI&#x27;s lack of transparency regarding the origins of its training content, researchers and journalists are actively seeking clues to identify potential sources. The inquiry aims to understand the dataset composition, which is critical for evaluating the model&#x27;s biases, intellectual property implications, and the ethical considerations surrounding generative AI development. Early findings suggest a diverse range of content might have been utilized, though specific creators or copyright holders remain unconfirmed. This ongoing effort highlights the growing demand for greater accountability and transparency from AI developers regarding their data practices, especially as advanced generative models become more prevalent and influential across various industries. The investigation underscores the challenges in tracing digital content back to its original creators when it&#x27;s incorporated into large-scale AI training datasets, prompting broader discussions on data provenance in the AI era.</p>
+    <div class="story-tags"><span class="tag tag-keyword">OpenAI</span><span class="tag tag-keyword">Sora</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-keyword">Training Data</span><span class="tag tag-keyword">Video Generation</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Video Understanding</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-10-01 17:25:33</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.opentslm.com/" target="_blank" rel="noopener noreferrer">OpenTSLM: Language models that understand time series</a></h3>
+    <p class="story-summary">OpenTSLM presents a groundbreaking initiative focused on developing language models specifically designed to understand and process time series data. This project, spearheaded by StanfordBDHG, re-contextualizes the highly successful transformer architectures, traditionally applied in natural language processing, for temporal sequence analysis. By treating time series points as tokens within a sequence, OpenTSLM aims to leverage the contextual understanding and predictive power inherent in large language models to tackle complex challenges in diverse domains. The project provides an open-source framework and an accompanying whitepaper that details its innovative methodology and potential applications. It explores how these specialized language models can improve performance in critical time series tasks such as forecasting, anomaly detection, and classification, offering a robust and scalable solution that could significantly advance the field of temporal data analysis. This paradigm shift promises enhanced model interpretability and more accurate predictive capabilities across various industries, from finance and healthcare to industrial monitoring and scientific research.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Time Series Analysis</span><span class="tag tag-keyword">Language Models</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-keyword">Transformer Networks</span><span class="tag tag-keyword">Machine Learning</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-10-01 14:05:45</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.alephic.com/writing/the-magic-of-claude-code" target="_blank" rel="noopener noreferrer">Unix philosophy and filesystem access makes Claude Code amazing</a></h3>
+    <p class="story-summary">The article underscores the transformative impact of adopting the Unix philosophy, particularly concerning sophisticated filesystem access, on the performance and utility of Claude Code. By enabling Claude to interact with project files and directories akin to a human developer operating within a command-line environment, its proficiency in comprehending, generating, and debugging code within intricate software architectures is substantially elevated. This methodological integration allows the AI to perform a wider array of development tasks that demand extensive contextual awareness and iterative problem-solving, moving beyond mere code snippet generation towards managing comprehensive development workflows. Such an approach fosters a more dynamic and effective collaborative ecosystem between AI and human developers, capitalizing on the inherent simplicity, modularity, and composability of Unix principles. This paradigm shift not only enhances Claude&#x27;s ability to tackle complex programming challenges but also redefines its role as an indispensable, versatile tool in modern software engineering, promising remarkable advancements in AI-driven code development and project management.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Unix philosophy</span><span class="tag tag-keyword">Filesystem access</span><span class="tag tag-keyword">Claude Code</span><span class="tag tag-keyword">AI agent</span><span class="tag tag-keyword">Code generation</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-10-01 13:51:03</time></div>
+  <div class="story-body">
+    <h3><a href="https://cursor.com/changelog/1-7" target="_blank" rel="noopener noreferrer">Cursor 1.7</a></h3>
+    <p class="story-summary">Cursor 1.7 marks a significant update for the AI-powered code editor, primarily focused on bolstering developer productivity and refining the intelligent coding experience. This iteration brings substantial enhancements to its core AI capabilities, including more accurate code generation, smarter context-aware suggestions, and improved debugging assistance through interactive AI chat. Users can expect a more fluid and responsive interface due to extensive performance optimizations, resulting in quicker startup times and reduced latency during intensive coding sessions. The update also introduces advanced refactoring tools, alongside more robust integration with popular version control systems like Git, facilitating seamless collaboration and project management. Furthermore, improvements to syntax highlighting and code navigation contribute to a more intuitive development environment. These enhancements are designed to empower developers to leverage AI assistance more effectively, making complex tasks simpler and accelerating the overall software development lifecycle. Cursor 1.7 solidifies its position as a leading intelligent development platform, offering a more stable, efficient, and feature-rich tool for modern software engineering.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI code editor</span><span class="tag tag-keyword">Software development</span><span class="tag tag-keyword">Integrated Development Environment</span><span class="tag tag-keyword">Code generation</span><span class="tag tag-keyword">Debugging tools</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-10-01 16:30:16</time></div>
+  <div class="story-body">
+    <h3><a href="https://fossa.com/blog/fossabot-dependency-upgrade-ai-agent/" target="_blank" rel="noopener noreferrer">Fossabot: AI code review for Dependabot/Renovate on breaking changes and impacts</a></h3>
+    <p class="story-summary">Fossabot introduces an advanced AI-powered code review solution specifically designed to enhance the dependency upgrade process managed by popular tools like Dependabot and Renovate. This innovative AI agent aims to streamline the often-complex task of updating software dependencies by automatically identifying and analyzing potential breaking changes and their downstream impacts within a codebase. By leveraging artificial intelligence and machine learning techniques, Fossabot provides developers with more profound insights than traditional static analysis tools, predicting how dependency updates might affect an application&#x27;s functionality and stability. Its primary goal is to mitigate the inherent risks associated with integrating new library or framework versions, significantly reducing the manual effort typically required to review pull requests generated by automated dependency bots. This capability is crucial for maintaining robust software health, ensuring security, and optimizing performance. Fossabot empowers development teams to proactively address compatibility issues and facilitates smoother, more reliable update cycles, ultimately accelerating the adoption of critical updates while minimizing the risk of introducing regressions or vulnerabilities.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Code Review</span><span class="tag tag-keyword">Dependency Management</span><span class="tag tag-keyword">Automated Code Review</span><span class="tag tag-keyword">Breaking Changes</span><span class="tag tag-keyword">Impact Analysis</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-10-01 13:38:36</time></div>
+  <div class="story-body">
+    <h3><a href="https://app.chartdb.io/ai" target="_blank" rel="noopener noreferrer">Show HN: ChartDB Agent – Cursor for DB schema design</a></h3>
+    <p class="story-summary">ChartDB has announced the launch of its new product, ChartDB Agent, a tool designed to revolutionize database schema design through natural language processing and artificial intelligence. This new offering builds upon the success of ChartDB OSS, an open-source solution that generates Entity-Relationship (ER) diagrams from existing databases without requiring direct access. The ChartDB Agent empowers users to design databases from scratch or implement schema modifications by simply describing their requirements in plain English. Key functionalities include the ability to generate complete schemas from natural language input, brainstorm new tables, columns, and relationships with AI-driven suggestions, and visually refine designs within an interactive ER diagram interface. Furthermore, the agent ensures deterministic export of SQL scripts, facilitating seamless integration into development workflows. ChartDB Agent is available for immediate trial without requiring a signup, with an option to sign up for use with personal databases, and the team is actively soliciting user feedback.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Database Schema Design</span><span class="tag tag-keyword">Natural Language Processing</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Entity-Relationship Diagrams</span><span class="tag tag-keyword">SQL Script Generation</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>3 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-05-16T03:03:36Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/harry0703/MoneyPrinterTurbo" target="_blank" rel="noopener noreferrer">MoneyPrinterTurbo</a></h3>
+    <p class="story-summary">MoneyPrinterTurbo is an innovative open-source project that automates the entire process of short video creation. By simply providing a video topic or keywords, the system intelligently generates video scripts, curates relevant visual assets, produces synchronized subtitles, selects appropriate background music, and finally synthesizes a high-definition short video. The project boasts a robust MVC architecture, offering both a user-friendly Web interface and a comprehensive API for integration. It supports various high-definition video dimensions, including vertical 9:16 and horizontal 16:9, and features batch video generation capabilities. Users can customize video clip durations, select from multiple languages for scripts and voice synthesis, and fine-tune subtitle appearance. Furthermore, MoneyPrinterTurbo integrates with a wide array of large language models, such as OpenAI, Moonshot, Azure, DeepSeek, and Google Gemini, for advanced script generation and leverages high-quality, copyright-free video materials, making it an efficient solution for streamlined digital content creation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Video Generation</span><span class="tag tag-keyword">Short Video Creation</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Speech Synthesis</span><span class="tag tag-keyword">Subtitle Generation</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-30T19:59:14Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/anthropics/claude-agent-sdk-python" target="_blank" rel="noopener noreferrer">Claude Agent SDK for Python</a></h3>
+    <p class="story-summary">The Claude Agent SDK for Python provides a robust toolkit for developers to integrate Claude&#x27;s agent capabilities into their Python applications. This SDK offers core functionalities through its `query()` function for single-turn interactions and the `ClaudeSDKClient` for more complex, bidirectional conversations. Key technical features include asynchronous programming support, enabling efficient handling of AI agent responses, and the ability to define custom tools as in-process MCP (Message-Passing Protocol) servers. This significantly simplifies development by eliminating subprocess management and improving performance compared to external servers. Additionally, the SDK supports customizable hooks, allowing developers to inject deterministic processing and automated feedback at various points in the Claude agent&#x27;s operational loop, enhancing control and safety. The SDK facilitates building sophisticated AI agent applications by providing structured methods for interaction, tool integration, and error handling, making it a critical component for leveraging Claude&#x27;s intelligence in a programmatic manner.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Claude Agent SDK</span><span class="tag tag-keyword">Python</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Asynchronous Programming</span><span class="tag tag-keyword">Custom Tools</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-10-01T19:41:54Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/lobehub/lobe-chat" target="_blank" rel="noopener noreferrer">Lobe Chat</a></h3>
+    <p class="story-summary">Lobe Chat is an open-source, modern-designed UI/framework for ChatGPT and other Large Language Models (LLMs), offering a comprehensive suite of features for building advanced conversational AI applications. It supports speech synthesis, multi-modal interactions, and an extensible plugin system based on function calling, enabling seamless integration with external tools and data sources. Users can deploy a private chat application for various LLMs like OpenAI, Claude, Gemini, Groq, and Ollama with a single click. Key functionalities include a Model Context Protocol (MCP) plugin marketplace, a dedicated desktop application, smart internet search for real-time knowledge, Chain of Thought visualization for AI reasoning, branching conversations, and support for Claude Artifacts. Furthermore, Lobe Chat facilitates file uploads for knowledge bases, integrates with 42 multi-model service providers (including local LLM support via Ollama), provides visual recognition capabilities for image understanding, and offers TTS &amp; STT for voice conversations. It also enables text-to-image generation using models like DALL-E 3, features an Agent Market (GPTs), supports both local and remote databases with CRDT for synchronization, allows multi-user management, and is available as a Progressive Web App (PWA) with mobile device adaptation and custom themes.</p>
+    <div class="story-tags"><span class="tag tag-keyword">ChatGPT framework</span><span class="tag tag-keyword">LLMs UI</span><span class="tag tag-keyword">Function Calling</span><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Multi-modal AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-28T17:53:27.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.24002" target="_blank" rel="noopener noreferrer">MCPMark: A Benchmark for Stress-Testing Realistic and Comprehensive MCP</a></h3>
+    <p class="story-summary">MCP standardizes how LLMs interact with external systems, forming the foundation for general agents. However, existing MCP benchmarks remain narrow in scope: they focus on read-heavy tasks or tasks with limited interaction depth, and fail to capture the complexity and realism of real-world workflows. To address this gap, we propose MCPMark, a benchmark designed to evaluate MCP use in a more realistic and comprehensive manner. It consists of 127 high-quality tasks collaboratively created by domain experts and AI agents. Each task begins with a curated initial state and includes a programmatic script for automatic verification. These tasks demand richer and more diverse interactions with the environment, involving a broad range of create, read, update, and delete (CRUD) operations. We conduct a comprehensive evaluation of cutting-edge LLMs using a minimal agent framework that operates in a tool-calling loop. Empirical results show that the best-performing model, gpt-5-medium, reaches only 52.56% pass@1 and 33.86% pass^4, while other widely regarded strong models, including claude-sonnet-4 and o3, fall below 30% pass@1 and 15% pass^4. On average, LLMs require 16.2 execution turns and 17.4 tool calls per task, significantly surpassing those in previous MCP benchmarks and highlighting the stress-testing nature of MCPMark.</p>
+    <div class="story-tags"><span class="tag tag-keyword">MCP</span><span class="tag tag-keyword">LLM benchmarks</span><span class="tag tag-keyword">AI agents</span><span class="tag tag-keyword">Stress-testing</span><span class="tag tag-keyword">CRUD operations</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-30T16:49:01.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.26507" target="_blank" rel="noopener noreferrer">The Dragon Hatchling: The Missing Link between the Transformer and Models of the Brain</a></h3>
+    <p class="story-summary">The relationship between computing systems and the brain has served asmotivation for pioneering theoreticians since John von Neumann and Alan Turing.Uniform, scale-free biological networks, such as the brain, have powerfulproperties, including generalizing over time, which is the main barrier forMachine Learning on the path to Universal Reasoning Models. We introduce `Dragon Hatchling&#x27; (BDH), a new Large Language Modelarchitecture based on a scale-free biologically inspired network of locally-interacting neuron particles. BDH couples strong theoreticalfoundations and inherent interpretability without sacrificing Transformer-likeperformance.BDH is a practical, performant state-of-the-art attention-based state spacesequence learning architecture. In addition to being a graph model, BDH admitsa GPU-friendly formulation. It exhibits Transformer-like scaling laws:empirically BDH rivals GPT2 performance on language and translation tasks, atthe same number of parameters (10M to 1B), for the same training data.BDH can be represented as a brain model. The working memory of BDH duringinference entirely relies on synaptic plasticity with Hebbian learning usingspiking neurons. We confirm empirically that specific, individual synapsesstrengthen connection whenever BDH hears or reasons about a specific conceptwhile processing language inputs. The neuron interaction network of BDH is agraph of high modularity with heavy-tailed degree distribution. The BDH modelis biologically plausible, explaining one possible mechanism which humanneurons could use to achieve speech.BDH is designed for interpretability. Activation vectors of BDH are sparseand positive. We demonstrate monosemanticity in BDH on language tasks.Interpretability of state, which goes beyond interpretability of neurons andmodel parameters, is an inherent feature of the BDH architecture.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Biologically Inspired AI</span><span class="tag tag-keyword">Brain Models</span><span class="tag tag-keyword">Transformer Architecture</span><span class="tag tag-keyword">Interpretability</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-30T04:25:17.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.25760" target="_blank" rel="noopener noreferrer">TruthRL: Incentivizing Truthful LLMs via Reinforcement Learning</a></h3>
+    <p class="story-summary">While large language models (LLMs) have demonstrated strong performance on factoid question answering, they are still prone to hallucination and untruthful responses, particularly when tasks demand information outside their parametric knowledge. Indeed, truthfulness requires more than accuracy -- models must also recognize uncertainty and abstain when unsure to avoid hallucinations. This presents a fundamental challenge for existing methods: approaches that optimize for accuracy often amplify hallucinations, while those that encourage abstention can become overly conservative, sacrificing correct answers. Both extremes ultimately compromise truthfulness. In this work, we present TruthRL, a general reinforcement learning (RL) framework that directly optimizes the truthfulness of LLMs. Specifically, we implement TruthRL using GRPO with a simple yet effective ternary reward that distinguishes correct answers, hallucinations, and abstentions. It incentivizes models to reduce hallucinations not only by providing correct responses, but also by enabling abstention when uncertain, thereby improving truthfulness. Extensive experiments across four knowledge-intensive benchmarks show that, compared to vanilla RL, TruthRL significantly reduces hallucinations by 28.9% and improves truthfulness by 21.1%, with consistent gains across various backbone models (e.g., Qwen, Llama) under both retrieval and non-retrieval setups. In-depth ablation study demonstrates that vanilla accuracy-driven methods, such as supervised fine-tuning or RL with a binary reward, struggle to balance factual correctness and uncertainty. In contrast, our proposed truthfulness-driven TruthRL achieves strong performance in both accuracy and truthfulness, underscoring the importance of learning objective design for developing truthful LLMs.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Truthfulness</span><span class="tag tag-keyword">Hallucinations</span><span class="tag tag-keyword">Abstention</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-30T16:33:49.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.26490" target="_blank" rel="noopener noreferrer">VitaBench: Benchmarking LLM Agents with Versatile Interactive Tasks in Real-world Applications</a></h3>
+    <p class="story-summary">As LLM-based agents are increasingly deployed in real-life scenarios, existing benchmarks fail to capture their inherent complexity of handling extensive information, leveraging diverse resources, and managing dynamic user interactions. To address this gap, we introduce VitaBench, a challenging benchmark that evaluates agents on versatile interactive tasks grounded in real-world settings. Drawing from daily applications in food delivery, in-store consumption, and online travel services, VitaBench presents agents with the most complex life-serving simulation environment to date, comprising 66 tools. Through a framework that eliminates domain-specific policies, we enable flexible composition of these scenarios and tools, yielding 100 cross-scenario tasks (main results) and 300 single-scenario tasks. Each task is derived from multiple real user requests and requires agents to reason across temporal and spatial dimensions, utilize complex tool sets, proactively clarify ambiguous instructions, and track shifting user intent throughout multi-turn conversations. Moreover, we propose a rubric-based sliding window evaluator, enabling robust assessment of diverse solution pathways in complex environments and stochastic interactions. Our comprehensive evaluation reveals that even the most advanced models achieve only 30% success rate on cross-scenario tasks, and less than 50% success rate on others. Overall, we believe VitaBench will serve as a valuable resource for advancing the development of AI agents in practical real-world applications. The code, dataset, and leaderboard are available at https://vitabench.github.io/.</p>
+    <div class="story-tags"><span class="tag tag-keyword">LLM Agents</span><span class="tag tag-keyword">Benchmarking</span><span class="tag tag-keyword">Interactive Tasks</span><span class="tag tag-keyword">Real-world Applications</span><span class="tag tag-keyword">VitaBench</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-09-29T17:59:31.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.25182" target="_blank" rel="noopener noreferrer">DC-VideoGen: Efficient Video Generation with Deep Compression Video Autoencoder</a></h3>
+    <p class="story-summary">We introduce DC-VideoGen, a post-training acceleration framework for efficient video generation. DC-VideoGen can be applied to any pre-trained video diffusion model, improving efficiency by adapting it to a deep compression latent space with lightweight fine-tuning. The framework builds on two key innovations: (i) a Deep Compression Video Autoencoder with a novel chunk-causal temporal design that achieves 32x/64x spatial and 4x temporal compression while preserving reconstruction quality and generalization to longer videos; and (ii) AE-Adapt-V, a robust adaptation strategy that enables rapid and stable transfer of pre-trained models into the new latent space. Adapting the pre-trained Wan-2.1-14B model with DC-VideoGen requires only 10 GPU days on the NVIDIA H100 GPU. The accelerated models achieve up to 14.8x lower inference latency than their base counterparts without compromising quality, and further enable 2160x3840 video generation on a single GPU. Code: https://github.com/dc-ai-projects/DC-VideoGen.</p>
+    <div class="story-tags"><span class="tag tag-keyword">DC-VideoGen</span><span class="tag tag-keyword">video generation</span><span class="tag tag-keyword">deep compression</span><span class="tag tag-keyword">video autoencoder</span><span class="tag tag-keyword">diffusion model</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-09-26T17:59:54.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.22646" target="_blank" rel="noopener noreferrer">Learning Human-Perceived Fakeness in AI-Generated Videos via Multimodal LLMs</a></h3>
+    <p class="story-summary">Can humans identify AI-generated (fake) videos and provide grounded reasons? While video generation models have advanced rapidly, a critical dimension -- whether humans can detect deepfake traces within a generated video, i.e., spatiotemporal grounded visual artifacts that reveal a video as machine generated -- has been largely overlooked. We introduce DeeptraceReward, the first fine-grained, spatially- and temporally- aware benchmark that annotates human-perceived fake traces for video generation reward. The dataset comprises 4.3K detailed annotations across 3.3K high-quality generated videos. Each annotation provides a natural-language explanation, pinpoints a bounding-box region containing the perceived trace, and marks precise onset and offset timestamps. We consolidate these annotations into 9 major categories of deepfake traces that lead humans to identify a video as AI-generated, and train multimodal language models (LMs) as reward models to mimic human judgments and localizations. On DeeptraceReward, our 7B reward model outperforms GPT-5 by 34.7% on average across fake clue identification, grounding, and explanation. Interestingly, we observe a consistent difficulty gradient: binary fake v.s. real classification is substantially easier than fine-grained deepfake trace detection; within the latter, performance degrades from natural language explanations (easiest), to spatial grounding, to temporal labeling (hardest). By foregrounding human-perceived deepfake traces, DeeptraceReward provides a rigorous testbed and training signal for socially aware and trustworthy video generation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI-generated videos</span><span class="tag tag-keyword">Deepfake detection</span><span class="tag tag-keyword">Multimodal LLMs</span><span class="tag tag-keyword">Video generation reward</span><span class="tag tag-keyword">Human perception</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
 </body>
 </html>

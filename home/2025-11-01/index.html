@@ -1,395 +1,109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-11-01</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2025-11-01</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="." class="active">中文</a>
-                <a href="en/" class="">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-11-01</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../home/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 返回主页</a>
-            <a href="../../daily/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 最新日报</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 关于我们</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Sanders: Government should break up OpenAI</h2>
-                <span class="published-time">Published: 2025-11-01 19:40:04</span>
-                
-                <p class="summary">Senator Bernie Sanders has expressed profound apprehension regarding the accelerating pace of Artificial Intelligence development and its potential for substantial disruption within the labor market. Specifically targeting leading AI development firms such as OpenAI, Sanders advocated for strong governmental intervention, proposing that the federal government should explore measures to break up these entities. His concerns are rooted in preventing the consolidation of power and potential monopolistic practices by a few technology giants in the burgeoning AI sector. Sanders warned against the widespread job displacement that could ensue from the unchecked deployment of advanced AI systems, emphasizing the urgent need for a regulatory framework. This framework, he suggests, should be designed to safeguard workers' interests, ensure fair competition, and distribute the benefits of AI progress more equitably across society, rather than allowing wealth and technological control to concentrate in the hands of a select few corporations. This stance underscores a growing debate about the economic and social governance of powerful AI technologies.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Artificial Intelligence</span><span>AI Regulation</span><span>OpenAI</span><span>Job Displacement</span><span>Monopoly</span><span>Technology Policy</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://thehill.com/policy/technology/5571789-ai-threatens-jobs-sanders-warns/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Powell 
-
- unlike the dotcom boom, AI spending isn't a bubble</h2>
-                <span class="published-time">Published: 2025-11-01 18:40:33</span>
-                
-                <p class="summary">Federal Reserve Chair Jerome Powell has articulated a distinct perspective on the current wave of investment in artificial intelligence, drawing a clear differentiation from the speculative excesses of the dot-com bubble. Powell posits that, unlike the late 1990s where significant capital flowed into companies with unproven business models and often limited tangible products, today's AI spending is grounded in substantial technological advancements and demonstrable productivity gains. This assessment suggests a more sustainable and less speculative expansion within the AI sector, driven by innovations across machine learning, data processing, and enterprise-level applications. His viewpoint implies that the capital allocated to AI research and development is fostering genuine economic value and transformative capabilities. This nuanced distinction by a key economic leader is vital for both investors navigating market trends and policymakers shaping future economic strategies. It frames the AI revolution as a fundamental and enduring shift in technological and economic landscapes, rather than a transient market euphoria, highlighting its potential for long-term growth and societal impact.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Investment</span><span>Economic Trends</span><span>Federal Reserve Policy</span><span>Technology Markets</span><span>Innovation Cycles</span><span>Market Analysis</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://fortune.com/2025/10/29/powell-says-ai-is-not-a-bubble-unlike-dot-com-federal-reserve-interest-rates/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Data centers contribute to high prices as energy bills electrify local politics</h2>
-                <span class="published-time">Published: 2025-11-01 16:16:53</span>
-                
-                <p class="summary">The rapid expansion of data centers, a critical backbone for digital services and the burgeoning field of artificial intelligence, is becoming a significant factor in the escalation of electricity prices for consumers. As reported by the Wall Street Journal, the immense energy demands of these facilities are exerting considerable pressure on local power grids, directly translating into higher utility bills for households and businesses. This economic burden is increasingly politicizing energy discussions at the local level, forcing communities and policymakers to confront the trade-offs between fostering technological growth and ensuring affordable, sustainable energy for residents. The debate involves concerns over infrastructure capacity, environmental impact, and the financial strain on ordinary citizens, sparking public discussions and political actions regarding data center development. The situation underscores a critical challenge in managing the energy footprint of digital infrastructure and highlights the urgent need for more energy-efficient technologies, renewable energy integration, and strategic urban planning to reconcile technological progress with community well-being and environmental sustainability.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Data Centers</span><span>Energy Consumption</span><span>Electricity Markets</span><span>Power Grids</span><span>Infrastructure Development</span><span>Economic Impact</span><span>Sustainable Computing</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.wsj.com/economy/consumers/surging-power-costs-are-putting-the-squeeze-on-customers-f8b2c04b" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>The giant basket case countries</h2>
-                <span class="published-time">Published: 2025-11-01 17:24:57</span>
-                
-                <p class="summary">This analysis metaphorically addresses the concept of 'giant basket case countries' through the lens of Artificial Intelligence, interpreting these as complex, large-scale socio-economic systems facing significant operational and societal challenges. The discussion explores how advanced AI methodologies, including machine learning, predictive analytics, and reinforcement learning, could be leveraged to understand the underlying systemic failures, identify critical interdependencies, and model potential intervention strategies. Such systems often exhibit emergent properties, profound resource misallocation, and complex governance issues that traditional analytical approaches struggle to effectively diagnose or resolve. AI's capacity for processing vast, heterogeneous datasets, identifying subtle patterns, and simulating complex, dynamic scenarios offers a promising avenue for developing robust diagnostic tools and optimizing resource allocation within these challenging environments. Furthermore, the potential role of AI agents in monitoring real-time socio-economic indicators, predicting future instabilities, and proposing adaptive policy adjustments is considered. The core technical value lies in the potential for AI to move beyond mere data description to proactive system management and resilience building, transforming seemingly intractable geopolitical or economic problems into tractable computational challenges solvable through advanced algorithmic frameworks.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>System Optimization</span><span>Predictive Analytics</span><span>Complex Systems</span><span>AI for Governance</span><span>Resource Management</span><span>Machine Learning</span><span>Societal Impact of AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.noahpinion.blog/p/the-giant-basket-case-countries" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Reconfigurable Analog Computers</h2>
-                <span class="published-time">Published: 2025-11-01 18:03:56</span>
-                
-                <p class="summary">This paper introduces the concept of Reconfigurable Analog Computers, representing a significant departure from conventional digital and fixed-function analog computing paradigms. These systems are designed with the inherent capability to dynamically alter their operational parameters and internal architecture, enabling them to adapt to a diverse range of computational tasks. The reconfigurability addresses long-standing limitations of traditional analog circuits, such as their lack of programmability and specificity to a single function. By allowing on-the-fly modifications to processing pathways, these computers promise enhanced versatility and efficiency. Potential applications include specialized hardware acceleration for tasks demanding high parallelism, low power consumption, and real-time processing, such as advanced signal processing, complex scientific simulations, and potentially specific machine learning workloads. The research likely delves into the architectural designs, underlying principles, and performance characteristics that distinguish reconfigurable analog systems, potentially opening new avenues for high-performance computing in scenarios where digital systems face energy or speed bottlenecks. This could lead to a new era of energy-efficient and highly adaptable computing hardware.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Analog Computing</span><span>Reconfigurable Hardware</span><span>Hardware Acceleration</span><span>Computational Architectures</span><span>Energy Efficiency</span><span>Specialized Processors</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://arxiv.org/abs/2510.25942" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Czech police forced to turn off facial recognition cameras at the Prague airport</h2>
-                <span class="published-time">Published: 2025-11-01 18:42:39</span>
-                
-                <p class="summary">Czech police have been compelled to deactivate facial recognition cameras at Prague's Václav Havel Airport, a decision directly influenced by the European Union's upcoming Artificial Intelligence Act. This significant development highlights a growing global trend towards scrutinizing and regulating the deployment of advanced surveillance technologies in public spaces, particularly those utilizing biometric identification. The deactivation underscores the increasing legal and ethical challenges associated with extensive biometric data collection and processing, raising critical questions about privacy rights and civil liberties in an increasingly digitized world. The incident at Prague Airport serves as a significant precedent, demonstrating the tangible impact of emerging AI legislation on the practical application of AI systems by governmental bodies and law enforcement. Experts suggest this action could signal a broader re-evaluation of how facial recognition and similar technologies are utilized across the EU and potentially beyond, emphasizing the necessity for clear legal frameworks, robust data protection, and public oversight in the development and deployment of AI that impacts fundamental rights. This case exemplifies the critical balance that must be struck between enhancing security measures and upholding individual privacy, driven by legislative efforts to ensure responsible, ethical, and rights-respecting AI governance across various sectors.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Facial Recognition</span><span>AI Act</span><span>Surveillance Technology</span><span>Biometric Data</span><span>Privacy</span><span>AI Regulation</span><span>Computer Vision</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Computer Vision</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://edri.org/our-work/czech-police-forced-to-turn-off-facial-recognition-cameras-at-the-prague-airport-thanks-to-the-ai-act/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>Chef by Convex</h2>
-                <span class="published-time">Published: 2025-10-23T22:49:01Z</span>
-                
-                <p class="summary">Chef is a cutting-edge AI app builder that revolutionizes the development of full-stack web applications by inherently understanding backend requirements. Leveraging Convex, an open-source reactive database, Chef utilizes its APIs for seamless code generation, enabling the rapid deployment of applications featuring integrated databases, zero-configuration authentication, file uploads, real-time user interfaces, and sophisticated background workflows. This platform significantly accelerates development cycles by abstracting away complex infrastructure, allowing developers to focus on core application logic. Chef offers both a free-tier hosted web app and comprehensive documentation for local setup, making it accessible for various development needs. Its architecture includes distinct modules for client-side code, an AI agent orchestrating system prompts and model provider calls, a CLI, and a dedicated database for chats and user metadata. Maintained by the Convex team, Chef is presented as a powerful, community-supported tool for modern AI-driven web development, ideal for creating interactive and data-rich applications efficiently.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI app builder</span><span>full-stack development</span><span>reactive database</span><span>code generation</span><span>web applications</span><span>real-time UIs</span><span>Convex</span><span>OAuth</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/get-convex/chef" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>💡 WeKnora - LLM-Powered Document Understanding & Retrieval Framework</h2>
-                <span class="published-time">Published: 2025-10-31T07:09:40Z</span>
-                
-                <p class="summary">WeKnora is an LLM-powered framework for deep document understanding and semantic retrieval, specializing in complex, heterogeneous documents. It operates on the Retrieval-Augmented Generation (RAG) paradigm, delivering high-quality, context-aware answers by combining relevant document chunks with large language model reasoning. The modular architecture integrates multimodal preprocessing, semantic vector indexing, intelligent retrieval, and LLM inference, ensuring flexible configuration and extensibility. Key features include precise content extraction from diverse formats (PDF, Word, images with OCR), intelligent reasoning for Q&A, efficient hybrid retrieval (keywords, vectors, knowledge graphs), and user-friendly web interfaces and APIs. WeKnora supports local and private cloud deployments, ensuring data sovereignty and includes login authentication for security. Its applications span enterprise knowledge management, academic research analysis, product technical support, legal review, and medical assistance, significantly enhancing knowledge discovery and operational efficiency across various sectors.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>LLM</span><span>Document Understanding</span><span>Retrieval-Augmented Generation</span><span>Semantic Retrieval</span><span>Multimodal Processing</span><span>Vector Indexing</span><span>Hybrid Retrieval</span><span>Knowledge Graph</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/Tencent/WeKnora" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Jan - Open-source ChatGPT replacement</h2>
-                <span class="published-time">Published: 2025-11-01T18:00:49Z</span>
-                
-                <p class="summary">Jan is an open-source, local-first platform designed as a ChatGPT replacement, emphasizing user control and privacy. It allows users to download and run various large language models (LLMs) such as Llama, Gemma, Qwen, and GPT-oss directly from HuggingFace on their desktop (Windows, macOS, Linux). Beyond local execution, Jan offers cloud integration for connecting to models from OpenAI, Anthropic, Mistral, and Groq. Key features include the ability to create custom AI assistants for specific tasks and an OpenAI-compatible API that runs a local server at `localhost:1337`, enabling integration with other applications. The platform also supports Model Context Protocol (MCP) for advanced agentic capabilities. Jan prioritizes user privacy by ensuring all operations can run entirely locally. The project can be easily installed via pre-built binaries or compiled from source, making it accessible for both end-users and developers who require a robust, private, and customizable AI solution.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Open-source AI</span><span>Large Language Model</span><span>Local AI</span><span>ChatGPT Replacement</span><span>Privacy</span><span>Desktop Application</span><span>AI Assistants</span><span>OpenAI API Compatible</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/janhq/jan" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Web Development for Beginners - A Curriculum</h2>
-                <span class="published-time">Published: 2025-10-30T23:07:29Z</span>
-                
-                <p class="summary">The "Web Development for Beginners" is a comprehensive 12-week curriculum developed by Microsoft Cloud Advocates, designed to teach fundamental web development skills. Comprising 24 lessons, the course immerses learners in JavaScript, CSS, and HTML through hands-on projects, including building interactive terrariums, browser extensions, and space games. This project-based pedagogy is reinforced with quizzes, discussions, and practical assignments to maximize skill acquisition and knowledge retention. The curriculum also features updated content, incorporating challenges for GitHub Copilot Agent mode and introducing a new Generative AI for JavaScript course, which guides students in building an AI assistant project. It covers a wide range of topics from basic programming concepts, data types, and DOM manipulation to event-driven programming, APIs, and state management. The repository supports multi-language translations and provides detailed setup instructions for local development environments or cloud-based Codespaces, making it accessible for students and a valuable resource for teachers.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Web Development</span><span>JavaScript</span><span>HTML</span><span>CSS</span><span>Generative AI</span><span>Project-based Learning</span><span>GitHub</span><span>Programming Course</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Generative AI</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/microsoft/Web-Dev-For-Beginners" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../">Archive</a><a href="cn/">中文</a><a href="en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2025-11-01</strong><span>DEFAULT EDITION</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-11-01 19:40:04</time></div>
+  <div class="story-body">
+    <h3><a href="https://thehill.com/policy/technology/5571789-ai-threatens-jobs-sanders-warns/" target="_blank" rel="noopener noreferrer">Sanders: Government should break up OpenAI</a></h3>
+    <p class="story-summary">Senator Bernie Sanders has expressed profound apprehension regarding the accelerating pace of Artificial Intelligence development and its potential for substantial disruption within the labor market. Specifically targeting leading AI development firms such as OpenAI, Sanders advocated for strong governmental intervention, proposing that the federal government should explore measures to break up these entities. His concerns are rooted in preventing the consolidation of power and potential monopolistic practices by a few technology giants in the burgeoning AI sector. Sanders warned against the widespread job displacement that could ensue from the unchecked deployment of advanced AI systems, emphasizing the urgent need for a regulatory framework. This framework, he suggests, should be designed to safeguard workers&#x27; interests, ensure fair competition, and distribute the benefits of AI progress more equitably across society, rather than allowing wealth and technological control to concentrate in the hands of a select few corporations. This stance underscores a growing debate about the economic and social governance of powerful AI technologies.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">AI Regulation</span><span class="tag tag-keyword">OpenAI</span><span class="tag tag-keyword">Job Displacement</span><span class="tag tag-keyword">Monopoly</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-11-01 18:40:33</time></div>
+  <div class="story-body">
+    <h3><a href="https://fortune.com/2025/10/29/powell-says-ai-is-not-a-bubble-unlike-dot-com-federal-reserve-interest-rates/" target="_blank" rel="noopener noreferrer">Powell unlike the dotcom boom, AI spending isn&#x27;t a bubble</a></h3>
+    <p class="story-summary">Federal Reserve Chair Jerome Powell has articulated a distinct perspective on the current wave of investment in artificial intelligence, drawing a clear differentiation from the speculative excesses of the dot-com bubble. Powell posits that, unlike the late 1990s where significant capital flowed into companies with unproven business models and often limited tangible products, today&#x27;s AI spending is grounded in substantial technological advancements and demonstrable productivity gains. This assessment suggests a more sustainable and less speculative expansion within the AI sector, driven by innovations across machine learning, data processing, and enterprise-level applications. His viewpoint implies that the capital allocated to AI research and development is fostering genuine economic value and transformative capabilities. This nuanced distinction by a key economic leader is vital for both investors navigating market trends and policymakers shaping future economic strategies. It frames the AI revolution as a fundamental and enduring shift in technological and economic landscapes, rather than a transient market euphoria, highlighting its potential for long-term growth and societal impact.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Investment</span><span class="tag tag-keyword">Economic Trends</span><span class="tag tag-keyword">Federal Reserve Policy</span><span class="tag tag-keyword">Technology Markets</span><span class="tag tag-keyword">Innovation Cycles</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-11-01 16:16:53</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.wsj.com/economy/consumers/surging-power-costs-are-putting-the-squeeze-on-customers-f8b2c04b" target="_blank" rel="noopener noreferrer">Data centers contribute to high prices as energy bills electrify local politics</a></h3>
+    <p class="story-summary">The rapid expansion of data centers, a critical backbone for digital services and the burgeoning field of artificial intelligence, is becoming a significant factor in the escalation of electricity prices for consumers. As reported by the Wall Street Journal, the immense energy demands of these facilities are exerting considerable pressure on local power grids, directly translating into higher utility bills for households and businesses. This economic burden is increasingly politicizing energy discussions at the local level, forcing communities and policymakers to confront the trade-offs between fostering technological growth and ensuring affordable, sustainable energy for residents. The debate involves concerns over infrastructure capacity, environmental impact, and the financial strain on ordinary citizens, sparking public discussions and political actions regarding data center development. The situation underscores a critical challenge in managing the energy footprint of digital infrastructure and highlights the urgent need for more energy-efficient technologies, renewable energy integration, and strategic urban planning to reconcile technological progress with community well-being and environmental sustainability.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Data Centers</span><span class="tag tag-keyword">Energy Consumption</span><span class="tag tag-keyword">Electricity Markets</span><span class="tag tag-keyword">Power Grids</span><span class="tag tag-keyword">Infrastructure Development</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-11-01 17:24:57</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.noahpinion.blog/p/the-giant-basket-case-countries" target="_blank" rel="noopener noreferrer">The giant basket case countries</a></h3>
+    <p class="story-summary">This analysis metaphorically addresses the concept of &#x27;giant basket case countries&#x27; through the lens of Artificial Intelligence, interpreting these as complex, large-scale socio-economic systems facing significant operational and societal challenges. The discussion explores how advanced AI methodologies, including machine learning, predictive analytics, and reinforcement learning, could be leveraged to understand the underlying systemic failures, identify critical interdependencies, and model potential intervention strategies. Such systems often exhibit emergent properties, profound resource misallocation, and complex governance issues that traditional analytical approaches struggle to effectively diagnose or resolve. AI&#x27;s capacity for processing vast, heterogeneous datasets, identifying subtle patterns, and simulating complex, dynamic scenarios offers a promising avenue for developing robust diagnostic tools and optimizing resource allocation within these challenging environments. Furthermore, the potential role of AI agents in monitoring real-time socio-economic indicators, predicting future instabilities, and proposing adaptive policy adjustments is considered. The core technical value lies in the potential for AI to move beyond mere data description to proactive system management and resilience building, transforming seemingly intractable geopolitical or economic problems into tractable computational challenges solvable through advanced algorithmic frameworks.</p>
+    <div class="story-tags"><span class="tag tag-keyword">System Optimization</span><span class="tag tag-keyword">Predictive Analytics</span><span class="tag tag-keyword">Complex Systems</span><span class="tag tag-keyword">AI for Governance</span><span class="tag tag-keyword">Resource Management</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-11-01 18:03:56</time></div>
+  <div class="story-body">
+    <h3><a href="https://arxiv.org/abs/2510.25942" target="_blank" rel="noopener noreferrer">Reconfigurable Analog Computers</a></h3>
+    <p class="story-summary">This paper introduces the concept of Reconfigurable Analog Computers, representing a significant departure from conventional digital and fixed-function analog computing paradigms. These systems are designed with the inherent capability to dynamically alter their operational parameters and internal architecture, enabling them to adapt to a diverse range of computational tasks. The reconfigurability addresses long-standing limitations of traditional analog circuits, such as their lack of programmability and specificity to a single function. By allowing on-the-fly modifications to processing pathways, these computers promise enhanced versatility and efficiency. Potential applications include specialized hardware acceleration for tasks demanding high parallelism, low power consumption, and real-time processing, such as advanced signal processing, complex scientific simulations, and potentially specific machine learning workloads. The research likely delves into the architectural designs, underlying principles, and performance characteristics that distinguish reconfigurable analog systems, potentially opening new avenues for high-performance computing in scenarios where digital systems face energy or speed bottlenecks. This could lead to a new era of energy-efficient and highly adaptable computing hardware.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Analog Computing</span><span class="tag tag-keyword">Reconfigurable Hardware</span><span class="tag tag-keyword">Hardware Acceleration</span><span class="tag tag-keyword">Computational Architectures</span><span class="tag tag-keyword">Energy Efficiency</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-11-01 18:42:39</time></div>
+  <div class="story-body">
+    <h3><a href="https://edri.org/our-work/czech-police-forced-to-turn-off-facial-recognition-cameras-at-the-prague-airport-thanks-to-the-ai-act/" target="_blank" rel="noopener noreferrer">Czech police forced to turn off facial recognition cameras at the Prague airport</a></h3>
+    <p class="story-summary">Czech police have been compelled to deactivate facial recognition cameras at Prague&#x27;s Václav Havel Airport, a decision directly influenced by the European Union&#x27;s upcoming Artificial Intelligence Act. This significant development highlights a growing global trend towards scrutinizing and regulating the deployment of advanced surveillance technologies in public spaces, particularly those utilizing biometric identification. The deactivation underscores the increasing legal and ethical challenges associated with extensive biometric data collection and processing, raising critical questions about privacy rights and civil liberties in an increasingly digitized world. The incident at Prague Airport serves as a significant precedent, demonstrating the tangible impact of emerging AI legislation on the practical application of AI systems by governmental bodies and law enforcement. Experts suggest this action could signal a broader re-evaluation of how facial recognition and similar technologies are utilized across the EU and potentially beyond, emphasizing the necessity for clear legal frameworks, robust data protection, and public oversight in the development and deployment of AI that impacts fundamental rights. This case exemplifies the critical balance that must be struck between enhancing security measures and upholding individual privacy, driven by legislative efforts to ensure responsible, ethical, and rights-respecting AI governance across various sectors.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Facial Recognition</span><span class="tag tag-keyword">AI Act</span><span class="tag tag-keyword">Surveillance Technology</span><span class="tag tag-keyword">Biometric Data</span><span class="tag tag-keyword">Privacy</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>4 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-10-23T22:49:01Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/get-convex/chef" target="_blank" rel="noopener noreferrer">Chef by Convex</a></h3>
+    <p class="story-summary">Chef is a cutting-edge AI app builder that revolutionizes the development of full-stack web applications by inherently understanding backend requirements. Leveraging Convex, an open-source reactive database, Chef utilizes its APIs for seamless code generation, enabling the rapid deployment of applications featuring integrated databases, zero-configuration authentication, file uploads, real-time user interfaces, and sophisticated background workflows. This platform significantly accelerates development cycles by abstracting away complex infrastructure, allowing developers to focus on core application logic. Chef offers both a free-tier hosted web app and comprehensive documentation for local setup, making it accessible for various development needs. Its architecture includes distinct modules for client-side code, an AI agent orchestrating system prompts and model provider calls, a CLI, and a dedicated database for chats and user metadata. Maintained by the Convex team, Chef is presented as a powerful, community-supported tool for modern AI-driven web development, ideal for creating interactive and data-rich applications efficiently.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI app builder</span><span class="tag tag-keyword">full-stack development</span><span class="tag tag-keyword">reactive database</span><span class="tag tag-keyword">code generation</span><span class="tag tag-keyword">web applications</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-10-31T07:09:40Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/Tencent/WeKnora" target="_blank" rel="noopener noreferrer">💡 WeKnora - LLM-Powered Document Understanding &amp; Retrieval Framework</a></h3>
+    <p class="story-summary">WeKnora is an LLM-powered framework for deep document understanding and semantic retrieval, specializing in complex, heterogeneous documents. It operates on the Retrieval-Augmented Generation (RAG) paradigm, delivering high-quality, context-aware answers by combining relevant document chunks with large language model reasoning. The modular architecture integrates multimodal preprocessing, semantic vector indexing, intelligent retrieval, and LLM inference, ensuring flexible configuration and extensibility. Key features include precise content extraction from diverse formats (PDF, Word, images with OCR), intelligent reasoning for Q&amp;A, efficient hybrid retrieval (keywords, vectors, knowledge graphs), and user-friendly web interfaces and APIs. WeKnora supports local and private cloud deployments, ensuring data sovereignty and includes login authentication for security. Its applications span enterprise knowledge management, academic research analysis, product technical support, legal review, and medical assistance, significantly enhancing knowledge discovery and operational efficiency across various sectors.</p>
+    <div class="story-tags"><span class="tag tag-keyword">LLM</span><span class="tag tag-keyword">Document Understanding</span><span class="tag tag-keyword">Retrieval-Augmented Generation</span><span class="tag tag-keyword">Semantic Retrieval</span><span class="tag tag-keyword">Multimodal Processing</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-11-01T18:00:49Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/janhq/jan" target="_blank" rel="noopener noreferrer">Jan - Open-source ChatGPT replacement</a></h3>
+    <p class="story-summary">Jan is an open-source, local-first platform designed as a ChatGPT replacement, emphasizing user control and privacy. It allows users to download and run various large language models (LLMs) such as Llama, Gemma, Qwen, and GPT-oss directly from HuggingFace on their desktop (Windows, macOS, Linux). Beyond local execution, Jan offers cloud integration for connecting to models from OpenAI, Anthropic, Mistral, and Groq. Key features include the ability to create custom AI assistants for specific tasks and an OpenAI-compatible API that runs a local server at `localhost:1337`, enabling integration with other applications. The platform also supports Model Context Protocol (MCP) for advanced agentic capabilities. Jan prioritizes user privacy by ensuring all operations can run entirely locally. The project can be easily installed via pre-built binaries or compiled from source, making it accessible for both end-users and developers who require a robust, private, and customizable AI solution.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Open-source AI</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Local AI</span><span class="tag tag-keyword">ChatGPT Replacement</span><span class="tag tag-keyword">Privacy</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-10-30T23:07:29Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/microsoft/Web-Dev-For-Beginners" target="_blank" rel="noopener noreferrer">Web Development for Beginners - A Curriculum</a></h3>
+    <p class="story-summary">The &quot;Web Development for Beginners&quot; is a comprehensive 12-week curriculum developed by Microsoft Cloud Advocates, designed to teach fundamental web development skills. Comprising 24 lessons, the course immerses learners in JavaScript, CSS, and HTML through hands-on projects, including building interactive terrariums, browser extensions, and space games. This project-based pedagogy is reinforced with quizzes, discussions, and practical assignments to maximize skill acquisition and knowledge retention. The curriculum also features updated content, incorporating challenges for GitHub Copilot Agent mode and introducing a new Generative AI for JavaScript course, which guides students in building an AI assistant project. It covers a wide range of topics from basic programming concepts, data types, and DOM manipulation to event-driven programming, APIs, and state management. The repository supports multi-language translations and provides detailed setup instructions for local development environments or cloud-based Codespaces, making it accessible for students and a valuable resource for teachers.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Web Development</span><span class="tag tag-keyword">JavaScript</span><span class="tag tag-keyword">HTML</span><span class="tag tag-keyword">CSS</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
 </body>
 </html>

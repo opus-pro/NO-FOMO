@@ -1,380 +1,127 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-10-30</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO AI 日报 — 2025-10-30</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"PingFang SC","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em}.issue h1{margin:0;max-width:820px;font:800 clamp(2.6rem,7vw,6.3rem)/1.02 Georgia,"Songti SC",serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:800 clamp(1.5rem,3vw,2.35rem)/1.2 Georgia,"Songti SC",serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.86 Georgia,"Songti SC",serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-10-30</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Launch HN: Propolis (YC X25) 
- Browser agents that QA your web app autonomously</h2>
-                <span class="published-time">Published: 2025-10-30 16:40:02</span>
-                
-                <p class="summary">Propolis, a YC X25 company established by Marc and Matt, has launched an innovative autonomous quality assurance (QA) system designed to proactively identify bugs and generate end-to-end (e2e) tests for web applications. The core of their offering consists of browser agents that simulate real user behavior, collaboratively exploring a website to uncover pain points and report issues. This system enables the deployment of numerous agents
- from tens to hundreds
- which then propose e2e tests suitable for integration into a Continuous Integration (CI) workflow. Drawing on their combined decade of experience in software quality, including Matt's background in infrastructure at Airtable, the founders aim to fundamentally improve how bugs are caught before software deployments. Propolis emphasizes enhancing web app reliability and significantly reducing the labor-intensive aspects of traditional QA. The platform provides a free initial run, offering a practical demonstration of its capability to automate and optimize the software testing lifecycle.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Browser agents</span><span>Autonomous QA</span><span>Web application testing</span><span>End-to-end testing</span><span>Bug reporting</span><span>Continuous Integration (CI)</span><span>Software quality</span><span>Automated testing</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Artificial Intelligence</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://app.propolis.tech/#/launch" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: I made a heatmap diff viewer for code reviews</h2>
-                <span class="published-time">Published: 2025-10-30 14:21:58</span>
-                
-                <p class="summary">0github.com is presented as an innovative pull request viewer aimed at significantly enhancing the code review process by identifying specific code lines and tokens that demand heightened human attention. Departing from conventional PR-review bots, which typically focus on detecting explicit bugs, this tool prioritizes flagging areas that warrant a more thorough human examination. Examples include the presence of hard-coded secrets, potentially insecure or unusual cryptographic modes, convoluted logical constructs, or generally suboptimal code. The platform is user-friendly, allowing developers to activate its functionality by simply replacing "github.com" with "0github.com" in any pull request URL. Beneath the surface, the system divides the pull request into its constituent files. For each file, a sophisticated Large Language Model (LLM) is utilized to meticulously annotate every line, generating a detailed data structure. This structure is then parsed and visualized as a color-coded heatmap, intuitively indicating the recommended level of human scrutiny for various code segments. This AI-driven methodology offers a more nuanced and context-aware layer to code reviews, streamlining the development workflow by strategically directing developer focus towards critical or complex modifications.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Code Review</span><span>Heatmap</span><span>Pull Request Viewer</span><span>Large Language Model (LLM)</span><span>AI Code Analysis</span><span>Software Development Tools</span><span>Code Quality</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://0github.com" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>You can't turn off Copilot in the web versions of Word, Excel, or PowerPoint</h2>
-                <span class="published-time">Published: 2025-10-30 17:10:27</span>
-                
-                <p class="summary">A notable restriction has been brought to light concerning the integration of Microsoft's Copilot AI assistant within the web-based versions of Word, Excel, and PowerPoint. Users currently face an inability to disable or turn off Copilot directly from these widely utilized Microsoft 365 web applications. This absence of an opt-out mechanism poses questions regarding user autonomy and data management, particularly for enterprise clients and individual users who may require granular control over AI feature integration to align with their operational policies or privacy preferences. The mandatory presence of Copilot, a sophisticated generative AI tool designed to enhance content creation, data analysis, and productivity, indicates a default integration strategy within Microsoft's browser-based suite. This scenario underscores a growing challenge in the deployment of AI products, where advanced capabilities are deeply embedded without providing adaptable user configuration options, potentially influencing user experience, administrative oversight, and data governance for AI-powered assistance in essential productivity platforms.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Copilot</span><span>Microsoft 365</span><span>AI integration</span><span>Web applications</span><span>User control</span><span>Productivity software</span><span>Generative AI</span><span>Enterprise software</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://support.microsoft.com/en-us/office/turn-off-copilot-in-microsoft-365-apps-bc7e530b-152d-4123-8e78-edc06f8b85f1" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Language models are injective and hence invertible</h2>
-                <span class="published-time">Published: 2025-10-30 09:47:24</span>
-                
-                <p class="summary">A novel theoretical proposition suggests that language models possess the property of injectivity, thereby implying their inherent invertibility. This assertion posits that every distinct input sequence processed by a language model maps to a unique internal representation or output, effectively precluding any two different inputs from yielding identical results. If this claim is rigorously substantiated, it signifies that, in principle, the original input could be precisely reconstructed from a model's output or its intermediate states. This perspective offers a profound re-evaluation of information processing within large neural networks, particularly concerning the widely assumed phenomenon of data compression and potential loss during the encoding phase. The ramifications of such injectivity extend broadly across AI research, promising advancements in model interpretability by tracing outputs back to their origins, fostering new methodologies for exact input reconstruction, and pushing the boundaries of information retention capabilities in sophisticated models. Investigating the specific conditions and practical implications of this proposed injectivity could pave the way for innovations in areas like explainable AI, enhanced data generation fidelity, and a more comprehensive theoretical framework for understanding how language models intrinsically manage and store linguistic data.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Language Models</span><span>Injective Functions</span><span>Invertibility</span><span>Neural Networks</span><span>Information Theory</span><span>AI Theory</span><span>Model Interpretability</span><span>Input Reconstruction</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://arxiv.org/abs/2510.15511" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Signs of introspection in large language models</h2>
-                <span class="published-time">Published: 2025-10-30 16:45:06</span>
-                
-                <p class="summary">Recent research by Anthropic explores the emerging phenomenon of introspection within large language models (LLMs), investigating their capacity to reason about their own internal states, processes, and outputs. This work delves into methods by which LLMs might exhibit self-awareness or self-monitoring capabilities, moving beyond simply generating responses to actively evaluating and understanding their own performance. Such introspection could manifest as the ability for LLMs to explain their reasoning, identify uncertainties in their predictions, or even self-correct errors, leading to more reliable and transparent AI systems. The study aims to understand the mechanisms underlying these signs of introspection and their implications for developing more robust and controllable AI. This area of research is critical for enhancing model interpretability and building trust in advanced AI applications.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>Introspection</span><span>AI Research</span><span>Self-Correction</span><span>Interpretability</span><span>Cognitive AI</span><span>Neural Networks</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.anthropic.com/research/introspection" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>AI Engineering Hub</h2>
-                <span class="published-time">Published: 2025-10-26T17:58:38Z</span>
-                
-                <p class="summary">The AI Engineering Hub is a comprehensive GitHub repository designed as a central resource for individuals seeking to learn, build, and stay current with advancements in AI engineering. It features over 93 production-ready projects categorized by difficultybeginner, intermediate, and advancedoffering hands-on experience across various AI domains. The hub provides in-depth tutorials and practical examples on crucial topics such as Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), and sophisticated AI agents. Projects range from simple OCR applications and basic RAG workflows to complex multi-component agentic systems, including fine-tuning models like DeepSeek, and robust production deployments. It also covers multimodal AI, model comparison, and advanced infrastructure utilizing the Model Context Protocol (MCP). This resource caters to beginners, experienced practitioners, and researchers, enabling them to experiment and succeed in developing real-world AI applications and staying at the forefront of the rapidly evolving AI landscape.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Engineering</span><span>Large Language Model</span><span>RAG</span><span>AI Agents</span><span>Multimodal AI</span><span>Fine-tuning</span><span>Machine Learning</span><span>Deep Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/patchy631/ai-engineering-hub" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>Scaling Latent Reasoning via Looped Language Models</h2>
-                <span class="published-time">Published: 2025-10-29T17:45:42.000Z</span>
-                
-                <p class="summary">Modern LLMs are trained to "think" primarily via explicit text generation, such as chain-of-thought (CoT), which defers reasoning to post-training and under-leverages pre-training data. We present and open-source Ouro, named after the recursive Ouroboros, a family of pre-trained Looped Language Models (LoopLM) that instead build reasoning into the pre-training phase through (i) iterative computation in latent space, (ii) an entropy-regularized objective for learned depth allocation, and (iii) scaling to 7.7T tokens. Ouro 1.4B and 2.6B models enjoy superior performance that match the results of up to 12B SOTA LLMs across a wide range of benchmarks. Through controlled experiments, we show this advantage stems not from increased knowledge capacity, but from superior knowledge manipulation capabilities. We also show that LoopLM yields reasoning traces more aligned with final outputs than explicit CoT. We hope our results show the potential of LoopLM as a novel scaling direction in the reasoning era. Our model could be found in: http://ouro-llm.github.io.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Looped Language Models</span><span>Latent Reasoning</span><span>Pre-training</span><span>Scaling</span><span>Knowledge manipulation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Natural Language Processing</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.25741" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>The Tool Decathlon: Benchmarking Language Agents for Diverse, Realistic, and Long-Horizon Task Execution</h2>
-                <span class="published-time">Published: 2025-10-29T17:32:49.000Z</span>
-                
-                <p class="summary">Real-world language agents must handle complex, multi-step workflows across diverse Apps. For instance, an agent may manage emails by coordinating with calendars and file systems, or monitor a production database to detect anomalies and generate reports following an operating manual. However, existing language agent benchmarks often focus on narrow domains or simplified tasks that lack the diversity, realism, and long-horizon complexity required to evaluate agents' real-world performance. To address this gap, we introduce the Tool Decathlon (dubbed as Toolathlon), a benchmark for language agents offering diverse Apps and tools, realistic environment setup, and reliable execution-based evaluation. Toolathlon spans 32 software applications and 604 tools, ranging from everyday platforms such as Google Calendar and Notion to professional ones like WooCommerce, Kubernetes, and BigQuery. Most of the tools are based on a high-quality set of Model Context Protocol (MCP) servers that we may have revised or implemented ourselves. Unlike prior works, which primarily ensure functional realism but offer limited environment state diversity, we provide realistic initial environment states from real software, such as Canvas courses with dozens of students or real financial spreadsheets. This benchmark includes 108 manually sourced or crafted tasks in total, requiring interacting with multiple Apps over around 20 turns on average to complete. Each task is strictly verifiable through dedicated evaluation scripts. Comprehensive evaluation of SOTA models highlights their significant shortcomings: the best-performing model, Claude-4.5-Sonnet, achieves only a 38.6% success rate with 20.2 tool calling turns on average, while the top open-weights model DeepSeek-V3.2-Exp reaches 20.1%. We expect Toolathlon to drive the development of more capable language agents for real-world, long-horizon task execution.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Language Agents</span><span>Benchmarking</span><span>Tool Decathlon</span><span>Long-Horizon Tasks</span><span>Multi-step Workflows</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Natural Language Processing</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.25726" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>VFXMaster: Unlocking Dynamic Visual Effect Generation via In-Context Learning</h2>
-                <span class="published-time">Published: 2025-10-29T17:59:53.000Z</span>
-                
-                <p class="summary">Visual effects (VFX) are crucial to the expressive power of digital media, yet their creation remains a major challenge for generative AI. Prevailing methods often rely on the one-LoRA-per-effect paradigm, which is resource-intensive and fundamentally incapable of generalizing to unseen effects, thus limiting scalability and creation. To address this challenge, we introduce VFXMaster, the first unified, reference-based framework for VFX video generation. It recasts effect generation as an in-context learning task, enabling it to reproduce diverse dynamic effects from a reference video onto target content. In addition, it demonstrates remarkable generalization to unseen effect categories. Specifically, we design an in-context conditioning strategy that prompts the model with a reference example. An in-context attention mask is designed to precisely decouple and inject the essential effect attributes, allowing a single unified model to master the effect imitation without information leakage. In addition, we propose an efficient one-shot effect adaptation mechanism to boost generalization capability on tough unseen effects from a single user-provided video rapidly. Extensive experiments demonstrate that our method effectively imitates various categories of effect information and exhibits outstanding generalization to out-of-domain effects. To foster future research, we will release our code, models, and a comprehensive dataset to the community.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Visual Effects (VFX)</span><span>Generative AI</span><span>In-Context Learning</span><span>Video Generation</span><span>Effect Adaptation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Computer Vision</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.25772" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Ming-Flash-Omni: A Sparse, Unified Architecture for Multimodal Perception and Generation</h2>
-                <span class="published-time">Published: 2025-10-28T15:24:13.000Z</span>
-                
-                <p class="summary">We propose Ming-Flash-Omni, an upgraded version of Ming-Omni, built upon a sparser Mixture-of-Experts (MoE) variant of Ling-Flash-2.0 with 100 billion total parameters, of which only 6.1 billion are active per token. This architecture enables highly efficient scaling (dramatically improving computational efficiency while significantly expanding model capacity) and empowers stronger unified multimodal intelligence across vision, speech, and language, representing a key step toward Artificial General Intelligence (AGI). Compared to its predecessor, the upgraded version exhibits substantial improvements across multimodal understanding and generation. We significantly advance speech recognition capabilities, achieving state-of-the-art performance in contextual ASR and highly competitive results in dialect-aware ASR. In image generation, Ming-Flash-Omni introduces high-fidelity text rendering and demonstrates marked gains in scene consistency and identity preservation during image editing. Furthermore, Ming-Flash-Omni introduces generative segmentation, a capability that not only achieves strong standalone segmentation performance but also enhances spatial control in image generation and improves editing consistency. Notably, Ming-Flash-Omni achieves state-of-the-art results in text-to-image generation and generative segmentation, and sets new records on all 12 contextual ASR benchmarks, all within a single unified architecture.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Ming-Flash-Omni</span><span>Multimodal AI</span><span>Generative AI</span><span>Mixture-of-Experts</span><span>Unified Architecture</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Generative AI</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.24821" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Evolving Diagnostic Agents in a Virtual Clinical Environment</h2>
-                <span class="published-time">Published: 2025-10-28T17:19:47.000Z</span>
-                
-                <p class="summary">In this paper, we present a framework for training large language models (LLMs) as diagnostic agents with reinforcement learning, enabling them to manage multi-turn diagnostic processes, adaptively select examinations, and commit to final diagnoses. Unlike instruction-tuned models trained on static case summaries, our method acquires diagnostic strategies through interactive exploration and outcome-based feedback. Our contributions are fourfold: (i) We present DiagGym, a diagnostics world model trained with electronic health records that emits examination outcomes conditioned on patient history and recommended examination, serving as a virtual clinical environment for realistic diagnosis training and evaluation; (ii) We train DiagAgent via end-to-end, multi-turn reinforcement learning to learn diagnostic policies that optimize both information yield and diagnostic accuracy; (iii) We introduce DiagBench, a diagnostic benchmark comprising 750 cases with physician-validated examination recommendations and 99 cases annotated with 973 physician-written rubrics on diagnosis process; (iv) we demonstrate superior performance across diverse diagnostic settings. DiagAgent significantly outperforms 10 state-of-the-art LLMs, including DeepSeek-v3 and GPT-4o, as well as two prompt-engineered agents. In single-turn settings, DiagAgent achieves 9.34% higher diagnostic accuracy and 44.03% improvement in examination recommendation hit ratio. In end-to-end settings, it delivers 15.12% increase in diagnostic accuracy and 23.09% boost in examination recommendation F1 score. In rubric-based evaluation, it surpasses the next-best model, Claude-sonnet-4, by 7.1% in weighted rubric score. These findings indicate that learning policies in interactive clinical environments confers dynamic and clinically meaningful diagnostic management abilities unattainable through passive training alone.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Diagnostic Agents</span><span>Reinforcement Learning</span><span>Large Language Models</span><span>Virtual Clinical Environment</span><span>Electronic Health Records</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>AI Agent</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.24654" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>FAPO: Flawed-Aware Policy Optimization for Efficient and Reliable Reasoning</h2>
-                <span class="published-time">Published: 2025-10-26T05:49:38.000Z</span>
-                
-                <p class="summary">Reinforcement learning with verifiable rewards (RLVR) has emerged as a promising paradigm for enhancing the reasoning capabilities of large language models (LLMs). In this context, models explore reasoning trajectories and exploit rollouts with correct answers as positive signals for policy optimization. However, these rollouts might involve flawed patterns such as answer-guessing and jump-in-reasoning. Such flawed-positive rollouts are rewarded identically to fully correct ones, causing policy models to internalize these unreliable reasoning patterns. In this work, we first conduct a systematic study of flawed-positive rollouts in RL and find that they enable rapid capability gains during the early optimization stage, while constraining reasoning capability later by reinforcing unreliable patterns. Building on these insights, we propose Flawed-Aware Policy Optimization (FAPO), which presents a parameter-free reward penalty for flawed-positive rollouts, enabling the policy to leverage them as useful shortcuts in the warm-up stage, securing stable early gains, while gradually shifting optimization toward reliable reasoning in the later refinement stage. To accurately and comprehensively detect flawed-positive rollouts, we introduce a generative reward model (GenRM) with a process-level reward that precisely localizes reasoning errors. Experiments show that FAPO is effective in broad domains, improving outcome correctness, process reliability, and training stability without increasing the token budget.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Reinforcement Learning</span><span>Large Language Models</span><span>Policy Optimization</span><span>Flawed-Positive Rollouts</span><span>Generative Reward Model</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.22543" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">跳到新闻列表</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO 主页">NO<i>/</i>FOMO</a><nav class="nav" aria-label="日报导航"><a href="../../../home/">往期</a><a href="../en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">每天一次，过滤 AI 噪音</p><h1>值得打开的<br>AI 日报。</h1></div><div class="issue-meta"><span>发布日期</span><strong>2025-10-30</strong><span>中文版本</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>5 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-10-30 16:40:02</time></div>
+  <div class="story-body">
+    <h3><a href="https://app.propolis.tech/#/launch" target="_blank" rel="noopener noreferrer">Launch HN: Propolis (YC X25) Browser agents that QA your web app autonomously</a></h3>
+    <p class="story-summary">Propolis, a YC X25 company established by Marc and Matt, has launched an innovative autonomous quality assurance (QA) system designed to proactively identify bugs and generate end-to-end (e2e) tests for web applications. The core of their offering consists of browser agents that simulate real user behavior, collaboratively exploring a website to uncover pain points and report issues. This system enables the deployment of numerous agents from tens to hundreds which then propose e2e tests suitable for integration into a Continuous Integration (CI) workflow. Drawing on their combined decade of experience in software quality, including Matt&#x27;s background in infrastructure at Airtable, the founders aim to fundamentally improve how bugs are caught before software deployments. Propolis emphasizes enhancing web app reliability and significantly reducing the labor-intensive aspects of traditional QA. The platform provides a free initial run, offering a practical demonstration of its capability to automate and optimize the software testing lifecycle.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Browser agents</span><span class="tag tag-keyword">Autonomous QA</span><span class="tag tag-keyword">Web application testing</span><span class="tag tag-keyword">End-to-end testing</span><span class="tag tag-keyword">Bug reporting</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-10-30 14:21:58</time></div>
+  <div class="story-body">
+    <h3><a href="https://0github.com" target="_blank" rel="noopener noreferrer">Show HN: I made a heatmap diff viewer for code reviews</a></h3>
+    <p class="story-summary">0github.com is presented as an innovative pull request viewer aimed at significantly enhancing the code review process by identifying specific code lines and tokens that demand heightened human attention. Departing from conventional PR-review bots, which typically focus on detecting explicit bugs, this tool prioritizes flagging areas that warrant a more thorough human examination. Examples include the presence of hard-coded secrets, potentially insecure or unusual cryptographic modes, convoluted logical constructs, or generally suboptimal code. The platform is user-friendly, allowing developers to activate its functionality by simply replacing &quot;github.com&quot; with &quot;0github.com&quot; in any pull request URL. Beneath the surface, the system divides the pull request into its constituent files. For each file, a sophisticated Large Language Model (LLM) is utilized to meticulously annotate every line, generating a detailed data structure. This structure is then parsed and visualized as a color-coded heatmap, intuitively indicating the recommended level of human scrutiny for various code segments. This AI-driven methodology offers a more nuanced and context-aware layer to code reviews, streamlining the development workflow by strategically directing developer focus towards critical or complex modifications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Code Review</span><span class="tag tag-keyword">Heatmap</span><span class="tag tag-keyword">Pull Request Viewer</span><span class="tag tag-keyword">Large Language Model (LLM)</span><span class="tag tag-keyword">AI Code Analysis</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-10-30 17:10:27</time></div>
+  <div class="story-body">
+    <h3><a href="https://support.microsoft.com/en-us/office/turn-off-copilot-in-microsoft-365-apps-bc7e530b-152d-4123-8e78-edc06f8b85f1" target="_blank" rel="noopener noreferrer">You can&#x27;t turn off Copilot in the web versions of Word, Excel, or PowerPoint</a></h3>
+    <p class="story-summary">A notable restriction has been brought to light concerning the integration of Microsoft&#x27;s Copilot AI assistant within the web-based versions of Word, Excel, and PowerPoint. Users currently face an inability to disable or turn off Copilot directly from these widely utilized Microsoft 365 web applications. This absence of an opt-out mechanism poses questions regarding user autonomy and data management, particularly for enterprise clients and individual users who may require granular control over AI feature integration to align with their operational policies or privacy preferences. The mandatory presence of Copilot, a sophisticated generative AI tool designed to enhance content creation, data analysis, and productivity, indicates a default integration strategy within Microsoft&#x27;s browser-based suite. This scenario underscores a growing challenge in the deployment of AI products, where advanced capabilities are deeply embedded without providing adaptable user configuration options, potentially influencing user experience, administrative oversight, and data governance for AI-powered assistance in essential productivity platforms.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Copilot</span><span class="tag tag-keyword">Microsoft 365</span><span class="tag tag-keyword">AI integration</span><span class="tag tag-keyword">Web applications</span><span class="tag tag-keyword">User control</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-10-30 09:47:24</time></div>
+  <div class="story-body">
+    <h3><a href="https://arxiv.org/abs/2510.15511" target="_blank" rel="noopener noreferrer">Language models are injective and hence invertible</a></h3>
+    <p class="story-summary">A novel theoretical proposition suggests that language models possess the property of injectivity, thereby implying their inherent invertibility. This assertion posits that every distinct input sequence processed by a language model maps to a unique internal representation or output, effectively precluding any two different inputs from yielding identical results. If this claim is rigorously substantiated, it signifies that, in principle, the original input could be precisely reconstructed from a model&#x27;s output or its intermediate states. This perspective offers a profound re-evaluation of information processing within large neural networks, particularly concerning the widely assumed phenomenon of data compression and potential loss during the encoding phase. The ramifications of such injectivity extend broadly across AI research, promising advancements in model interpretability by tracing outputs back to their origins, fostering new methodologies for exact input reconstruction, and pushing the boundaries of information retention capabilities in sophisticated models. Investigating the specific conditions and practical implications of this proposed injectivity could pave the way for innovations in areas like explainable AI, enhanced data generation fidelity, and a more comprehensive theoretical framework for understanding how language models intrinsically manage and store linguistic data.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Language Models</span><span class="tag tag-keyword">Injective Functions</span><span class="tag tag-keyword">Invertibility</span><span class="tag tag-keyword">Neural Networks</span><span class="tag tag-keyword">Information Theory</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-10-30 16:45:06</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.anthropic.com/research/introspection" target="_blank" rel="noopener noreferrer">Signs of introspection in large language models</a></h3>
+    <p class="story-summary">Recent research by Anthropic explores the emerging phenomenon of introspection within large language models (LLMs), investigating their capacity to reason about their own internal states, processes, and outputs. This work delves into methods by which LLMs might exhibit self-awareness or self-monitoring capabilities, moving beyond simply generating responses to actively evaluating and understanding their own performance. Such introspection could manifest as the ability for LLMs to explain their reasoning, identify uncertainties in their predictions, or even self-correct errors, leading to more reliable and transparent AI systems. The study aims to understand the mechanisms underlying these signs of introspection and their implications for developing more robust and controllable AI. This area of research is critical for enhancing model interpretability and building trust in advanced AI applications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Introspection</span><span class="tag tag-keyword">AI Research</span><span class="tag tag-keyword">Self-Correction</span><span class="tag tag-keyword">Interpretability</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>1 story</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-10-26T17:58:38Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/patchy631/ai-engineering-hub" target="_blank" rel="noopener noreferrer">AI Engineering Hub</a></h3>
+    <p class="story-summary">The AI Engineering Hub is a comprehensive GitHub repository designed as a central resource for individuals seeking to learn, build, and stay current with advancements in AI engineering. It features over 93 production-ready projects categorized by difficultybeginner, intermediate, and advancedoffering hands-on experience across various AI domains. The hub provides in-depth tutorials and practical examples on crucial topics such as Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), and sophisticated AI agents. Projects range from simple OCR applications and basic RAG workflows to complex multi-component agentic systems, including fine-tuning models like DeepSeek, and robust production deployments. It also covers multimodal AI, model comparison, and advanced infrastructure utilizing the Model Context Protocol (MCP). This resource caters to beginners, experienced practitioners, and researchers, enabling them to experiment and succeed in developing real-world AI applications and staying at the forefront of the rapidly evolving AI landscape.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Engineering</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">RAG</span><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Multimodal AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-10-29T17:45:42.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.25741" target="_blank" rel="noopener noreferrer">Scaling Latent Reasoning via Looped Language Models</a></h3>
+    <p class="story-summary">Modern LLMs are trained to &quot;think&quot; primarily via explicit text generation, such as chain-of-thought (CoT), which defers reasoning to post-training and under-leverages pre-training data. We present and open-source Ouro, named after the recursive Ouroboros, a family of pre-trained Looped Language Models (LoopLM) that instead build reasoning into the pre-training phase through (i) iterative computation in latent space, (ii) an entropy-regularized objective for learned depth allocation, and (iii) scaling to 7.7T tokens. Ouro 1.4B and 2.6B models enjoy superior performance that match the results of up to 12B SOTA LLMs across a wide range of benchmarks. Through controlled experiments, we show this advantage stems not from increased knowledge capacity, but from superior knowledge manipulation capabilities. We also show that LoopLM yields reasoning traces more aligned with final outputs than explicit CoT. We hope our results show the potential of LoopLM as a novel scaling direction in the reasoning era. Our model could be found in: http://ouro-llm.github.io.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Looped Language Models</span><span class="tag tag-keyword">Latent Reasoning</span><span class="tag tag-keyword">Pre-training</span><span class="tag tag-keyword">Scaling</span><span class="tag tag-keyword">Knowledge manipulation</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-10-29T17:32:49.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.25726" target="_blank" rel="noopener noreferrer">The Tool Decathlon: Benchmarking Language Agents for Diverse, Realistic, and Long-Horizon Task Execution</a></h3>
+    <p class="story-summary">Real-world language agents must handle complex, multi-step workflows across diverse Apps. For instance, an agent may manage emails by coordinating with calendars and file systems, or monitor a production database to detect anomalies and generate reports following an operating manual. However, existing language agent benchmarks often focus on narrow domains or simplified tasks that lack the diversity, realism, and long-horizon complexity required to evaluate agents&#x27; real-world performance. To address this gap, we introduce the Tool Decathlon (dubbed as Toolathlon), a benchmark for language agents offering diverse Apps and tools, realistic environment setup, and reliable execution-based evaluation. Toolathlon spans 32 software applications and 604 tools, ranging from everyday platforms such as Google Calendar and Notion to professional ones like WooCommerce, Kubernetes, and BigQuery. Most of the tools are based on a high-quality set of Model Context Protocol (MCP) servers that we may have revised or implemented ourselves. Unlike prior works, which primarily ensure functional realism but offer limited environment state diversity, we provide realistic initial environment states from real software, such as Canvas courses with dozens of students or real financial spreadsheets. This benchmark includes 108 manually sourced or crafted tasks in total, requiring interacting with multiple Apps over around 20 turns on average to complete. Each task is strictly verifiable through dedicated evaluation scripts. Comprehensive evaluation of SOTA models highlights their significant shortcomings: the best-performing model, Claude-4.5-Sonnet, achieves only a 38.6% success rate with 20.2 tool calling turns on average, while the top open-weights model DeepSeek-V3.2-Exp reaches 20.1%. We expect Toolathlon to drive the development of more capable language agents for real-world, long-horizon task execution.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Language Agents</span><span class="tag tag-keyword">Benchmarking</span><span class="tag tag-keyword">Tool Decathlon</span><span class="tag tag-keyword">Long-Horizon Tasks</span><span class="tag tag-keyword">Multi-step Workflows</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-10-29T17:59:53.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.25772" target="_blank" rel="noopener noreferrer">VFXMaster: Unlocking Dynamic Visual Effect Generation via In-Context Learning</a></h3>
+    <p class="story-summary">Visual effects (VFX) are crucial to the expressive power of digital media, yet their creation remains a major challenge for generative AI. Prevailing methods often rely on the one-LoRA-per-effect paradigm, which is resource-intensive and fundamentally incapable of generalizing to unseen effects, thus limiting scalability and creation. To address this challenge, we introduce VFXMaster, the first unified, reference-based framework for VFX video generation. It recasts effect generation as an in-context learning task, enabling it to reproduce diverse dynamic effects from a reference video onto target content. In addition, it demonstrates remarkable generalization to unseen effect categories. Specifically, we design an in-context conditioning strategy that prompts the model with a reference example. An in-context attention mask is designed to precisely decouple and inject the essential effect attributes, allowing a single unified model to master the effect imitation without information leakage. In addition, we propose an efficient one-shot effect adaptation mechanism to boost generalization capability on tough unseen effects from a single user-provided video rapidly. Extensive experiments demonstrate that our method effectively imitates various categories of effect information and exhibits outstanding generalization to out-of-domain effects. To foster future research, we will release our code, models, and a comprehensive dataset to the community.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Visual Effects (VFX)</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-keyword">In-Context Learning</span><span class="tag tag-keyword">Video Generation</span><span class="tag tag-keyword">Effect Adaptation</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-10-28T15:24:13.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.24821" target="_blank" rel="noopener noreferrer">Ming-Flash-Omni: A Sparse, Unified Architecture for Multimodal Perception and Generation</a></h3>
+    <p class="story-summary">We propose Ming-Flash-Omni, an upgraded version of Ming-Omni, built upon a sparser Mixture-of-Experts (MoE) variant of Ling-Flash-2.0 with 100 billion total parameters, of which only 6.1 billion are active per token. This architecture enables highly efficient scaling (dramatically improving computational efficiency while significantly expanding model capacity) and empowers stronger unified multimodal intelligence across vision, speech, and language, representing a key step toward Artificial General Intelligence (AGI). Compared to its predecessor, the upgraded version exhibits substantial improvements across multimodal understanding and generation. We significantly advance speech recognition capabilities, achieving state-of-the-art performance in contextual ASR and highly competitive results in dialect-aware ASR. In image generation, Ming-Flash-Omni introduces high-fidelity text rendering and demonstrates marked gains in scene consistency and identity preservation during image editing. Furthermore, Ming-Flash-Omni introduces generative segmentation, a capability that not only achieves strong standalone segmentation performance but also enhances spatial control in image generation and improves editing consistency. Notably, Ming-Flash-Omni achieves state-of-the-art results in text-to-image generation and generative segmentation, and sets new records on all 12 contextual ASR benchmarks, all within a single unified architecture.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Ming-Flash-Omni</span><span class="tag tag-keyword">Multimodal AI</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-keyword">Mixture-of-Experts</span><span class="tag tag-keyword">Unified Architecture</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-10-28T17:19:47.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.24654" target="_blank" rel="noopener noreferrer">Evolving Diagnostic Agents in a Virtual Clinical Environment</a></h3>
+    <p class="story-summary">In this paper, we present a framework for training large language models (LLMs) as diagnostic agents with reinforcement learning, enabling them to manage multi-turn diagnostic processes, adaptively select examinations, and commit to final diagnoses. Unlike instruction-tuned models trained on static case summaries, our method acquires diagnostic strategies through interactive exploration and outcome-based feedback. Our contributions are fourfold: (i) We present DiagGym, a diagnostics world model trained with electronic health records that emits examination outcomes conditioned on patient history and recommended examination, serving as a virtual clinical environment for realistic diagnosis training and evaluation; (ii) We train DiagAgent via end-to-end, multi-turn reinforcement learning to learn diagnostic policies that optimize both information yield and diagnostic accuracy; (iii) We introduce DiagBench, a diagnostic benchmark comprising 750 cases with physician-validated examination recommendations and 99 cases annotated with 973 physician-written rubrics on diagnosis process; (iv) we demonstrate superior performance across diverse diagnostic settings. DiagAgent significantly outperforms 10 state-of-the-art LLMs, including DeepSeek-v3 and GPT-4o, as well as two prompt-engineered agents. In single-turn settings, DiagAgent achieves 9.34% higher diagnostic accuracy and 44.03% improvement in examination recommendation hit ratio. In end-to-end settings, it delivers 15.12% increase in diagnostic accuracy and 23.09% boost in examination recommendation F1 score. In rubric-based evaluation, it surpasses the next-best model, Claude-sonnet-4, by 7.1% in weighted rubric score. These findings indicate that learning policies in interactive clinical environments confers dynamic and clinically meaningful diagnostic management abilities unattainable through passive training alone.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Diagnostic Agents</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Virtual Clinical Environment</span><span class="tag tag-keyword">Electronic Health Records</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-10-26T05:49:38.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.22543" target="_blank" rel="noopener noreferrer">FAPO: Flawed-Aware Policy Optimization for Efficient and Reliable Reasoning</a></h3>
+    <p class="story-summary">Reinforcement learning with verifiable rewards (RLVR) has emerged as a promising paradigm for enhancing the reasoning capabilities of large language models (LLMs). In this context, models explore reasoning trajectories and exploit rollouts with correct answers as positive signals for policy optimization. However, these rollouts might involve flawed patterns such as answer-guessing and jump-in-reasoning. Such flawed-positive rollouts are rewarded identically to fully correct ones, causing policy models to internalize these unreliable reasoning patterns. In this work, we first conduct a systematic study of flawed-positive rollouts in RL and find that they enable rapid capability gains during the early optimization stage, while constraining reasoning capability later by reinforcing unreliable patterns. Building on these insights, we propose Flawed-Aware Policy Optimization (FAPO), which presents a parameter-free reward penalty for flawed-positive rollouts, enabling the policy to leverage them as useful shortcuts in the warm-up stage, securing stable early gains, while gradually shifting optimization toward reliable reasoning in the later refinement stage. To accurately and comprehensively detect flawed-positive rollouts, we introduce a generative reward model (GenRM) with a process-level reward that precisely localizes reasoning errors. Experiments show that FAPO is effective in broad domains, improving outcome correctness, process reliability, and training stability without increasing the token budget.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Policy Optimization</span><span class="tag tag-keyword">Flawed-Positive Rollouts</span><span class="tag tag-keyword">Generative Reward Model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>AI 辅助筛选，原始来源始终可查。</span></footer>
 </body>
 </html>

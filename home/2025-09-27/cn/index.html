@@ -1,350 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-09-27</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO AI 日报 — 2025-09-27</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"PingFang SC","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em}.issue h1{margin:0;max-width:820px;font:800 clamp(2.6rem,7vw,6.3rem)/1.02 Georgia,"Songti SC",serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:800 clamp(1.5rem,3vw,2.35rem)/1.2 Georgia,"Songti SC",serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.86 Georgia,"Songti SC",serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-09-27</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Greenland Is a Beautiful Nightmare</h2>
-                <span class="published-time">Published: 2025-09-27 15:46:46</span>
-                
-                <p class="summary">This article metaphorically frames the formidable computational and analytical challenges inherent in climate science, particularly when modeling the complex environmental dynamics of regions such as Greenland. It posits the integration of vast, heterogeneous datasets
-ranging from high-resolution satellite imagery and ground-based sensor readings to historical climate archives
-as a 'beautiful nightmare' for AI researchers. The core discussion revolves around the development of advanced machine learning models capable of processing this immense data volume to derive accurate, long-term climate predictions. Emphasis is placed on overcoming obstacles such as data sparsity in remote, extreme environments, the inherent non-linearity of climatic systems, and the imperative for model interpretability in high-stakes environmental policy. The piece underscores the dual nature of these endeavors: the scientific elegance of leveraging cutting-edge AI for planetary health, juxtaposed with the profound technical difficulties and ethical considerations in deploying such powerful, yet imperfect, predictive tools. It advocates for continued innovation in resilient and explainable AI architectures to better understand and mitigate global environmental shifts.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Climate Modeling</span><span>Environmental AI</span><span>Satellite Data Analysis</span><span>Machine Learning</span><span>Predictive Analytics</span><span>Large-Scale Data</span><span>Remote Sensing</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://matduggan.com/greenland-is-a-beautiful-nightmare/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>LLM Observability in the Wild – Why OpenTelemetry Should Be the Standard</h2>
-                <span class="published-time">Published: 2025-09-27 18:56:18</span>
-                
-                <p class="summary">The emergence of Large Language Models (LLMs) in various applications has underscored the critical need for robust observability, a concept crucial for monitoring, debugging, and optimizing these complex systems. This article advocates for OpenTelemetry as the definitive standard for achieving comprehensive LLM observability in real-world deployments. It highlights the inherent challenges in tracking LLM behavior, including their probabilistic outputs, multi-stage reasoning chains, and significant operational costs associated with token usage and API calls. OpenTelemetry, an open-source framework, offers a vendor-agnostic solution for collecting telemetry data
-traces, metrics, and logs
-across diverse technology stacks. By standardizing data collection and instrumentation, OpenTelemetry enables developers and MLOps teams to gain deep insights into LLM performance, latency, error rates, and resource consumption. Adopting this standard ensures a unified approach to understanding LLM lifecycles, facilitating proactive issue identification, performance optimization, and the development of more reliable and efficient AI-powered applications, thereby solidifying its role in modern LLM operations.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>LLM Observability</span><span>OpenTelemetry</span><span>Large Language Models</span><span>Distributed Tracing</span><span>MLOps</span><span>Monitoring</span><span>Instrumentation</span><span>AI Operations</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Artificial Intelligence</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://signoz.io/blog/llm-observability-opentelemetry/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Why We Think</h2>
-                <span class="published-time">Published: 2025-09-27 12:27:46</span>
-                
-                <p class="summary">This insightful piece, 'Why We Think,' delves into the intricate mechanisms and foundational principles that underpin cognitive processes in both biological and artificial systems. It explores the computational and neurological architectures that enable complex thought, reasoning, and sophisticated decision-making, offering a comparative analysis of how intelligence manifests across different substrates. The discussion critically examines various approaches to simulating cognition, ranging from symbolic AI frameworks to the latest advancements in neural network-based models, scrutinizing how these systems perceive, learn, and interact with their environments to generate intelligent and adaptive behaviors. By elucidating the core components of thinking, the article aims to inform the design and development of more robust, general-purpose artificial intelligence systems, addressing both the practical challenges and profound philosophical implications of replicating human-like cognitive faculties. This exploration is crucial for advancing AI's capabilities toward achieving more autonomous and truly intelligent agents.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Cognitive Architecture</span><span>AI Reasoning</span><span>Artificial General Intelligence</span><span>Neural Networks</span><span>Computational Neuroscience</span><span>Cognition</span><span>Intelligent Systems</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://lilianweng.github.io/posts/2025-05-01-thinking/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Are We in an A.I. Bubble? I Suspect So</h2>
-                <span class="published-time">Published: 2025-09-27 18:09:06</span>
-                
-                <p class="summary">The rapid acceleration of innovation and investment within the artificial intelligence sector has ignited considerable debate regarding the stability of its current economic trajectory, leading to suspicions of an 'AI bubble.' This perspective examines the prevailing market conditions, where substantial capital inflows into AI startups, often with nascent revenue models, have led to soaring valuations. Drawing parallels with historical technological booms and subsequent busts, such as the dot-com era, the analysis highlights key indicators like speculative fervor, aggressive venture capital funding rounds, and the widespread belief in AI's transformative, yet sometimes unproven, commercial potential. The discussion questions whether the impressive technical breakthroughs, especially in large language models and generative AI, genuinely warrant the current market enthusiasm or if market sentiment is outstripping tangible returns and sustainable business models. The overall implication is one of caution, suggesting that despite AI's profound long-term promise, the immediate investment environment may exhibit unsustainable characteristics, potentially foreshadowing a future market correction for AI-centric enterprises.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Bubble</span><span>Artificial Intelligence</span><span>Market Speculation</span><span>Investment Trends</span><span>Venture Capital</span><span>Economic Outlook</span><span>Generative AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://gideons.substack.com/p/are-we-in-an-ai-bubble-i-suspect" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>AI model trapped in a Raspberry Pi</h2>
-                <span class="published-time">Published: 2025-09-27 15:34:55</span>
-                
-                <p class="summary">The article, titled "AI model trapped in a Raspberry Pi," highlights the practical application and challenges of deploying artificial intelligence models on resource-constrained embedded systems. This scenario typically involves optimizing machine learning algorithms for low-power, compact hardware like the Raspberry Pi, emphasizing efficiency in computation and memory usage. Such deployments are crucial for edge computing, enabling real-time processing and decision-making directly at the data source, without constant reliance on cloud infrastructure. This approach minimizes latency, enhances data privacy, and reduces bandwidth consumption, making AI accessible for a wider range of applications, from smart home devices and industrial IoT to educational robotics and portable analytical tools. The concept underscores the ongoing innovation in making powerful AI capabilities viable on modest hardware, pushing the boundaries of what is possible in decentralized intelligent systems. This development is pivotal for expanding AI's reach into pervasive computing environments, addressing the growing demand for intelligent functionalities in diverse, real-world settings.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Raspberry Pi</span><span>Edge AI</span><span>Embedded Systems</span><span>Machine Learning Deployment</span><span>Resource-constrained AI</span><span>AI Optimization</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://blog.adafruit.com/2025/09/26/ai-model-trapped-in-raspberry-pi-piday-raspberrypi/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>GPT-OSS Reinforcement Learning</h2>
-                <span class="published-time">Published: 2025-09-27 02:01:35</span>
-                
-                <p class="summary">The document, titled "GPT-OSS Reinforcement Learning" and located within Unsloth's documentation, highlights an important initiative focused on integrating reinforcement learning (RL) techniques with open-source Generative Pre-trained Transformer (GPT) models. This advanced approach is specifically designed to enhance the performance, alignment, and specialized capabilities of these large language models (LLMs) beyond what traditional supervised fine-tuning methods can achieve. Reinforcement learning, particularly techniques like Reinforcement Learning from Human Feedback (RLHF), has been pivotal in refining the conversational quality, improving instruction adherence, and bolstering the safety features of state-of-the-art proprietary LLMs. By applying similar sophisticated training paradigms to open-source alternatives, this project aims to democratize access to advanced LLM training methodologies. Unsloth's platform, recognized for its efficiency in fine-tuning LLMs, is expected to play a crucial role in making these RL-based training processes more accessible and less computationally intensive for open-source models. This will undoubtedly foster greater innovation and wider adoption within the broader AI community, marking a significant step in advancing both the capabilities and practical deployment of open-source large language models.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Model</span><span>Reinforcement Learning</span><span>Open Source AI</span><span>LLM Fine-tuning</span><span>AI Training</span><span>Generative AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://docs.unsloth.ai/new/gpt-oss-reinforcement-learning" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>Close your editor forever.</h2>
-                <span class="published-time">Published: 2025-09-27T17:44:25Z</span>
-                
-                <p class="summary">CodeLayer is an open-source, AI-first Integrated Development Environment (IDE) designed to empower developers by orchestrating AI coding agents. Built on Claude Code, it offers battle-tested workflows specifically tailored to address complex problems within large codebases. Key features include keyboard-first workflows for speed and control, advanced context engineering to scale AI-driven development across teams, and 'MULTICLAUDE' functionality enabling parallel Claude Code sessions and remote cloud workers. The platform emphasizes investing in outcomes, offering tailored solutions, custom integrations, and expert engineering support for teams. It also champions principles like "Advanced Context Engineering for Coding Agents" and "12 Factor Agents" for building reliable and scalable LLM applications, making it a powerful tool for enhancing developer productivity and efficiency in AI-powered software development.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI coding agents</span><span>IDE</span><span>CodeLayer</span><span>Claude Code</span><span>Context Engineering</span><span>LLM applications</span><span>open source</span><span>workflow orchestration</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Large Language Model</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/humanlayer/humanlayer" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Open Source AI Platform</h2>
-                <span class="published-time">Published: 2025-09-27T00:15:40Z</span>
-                
-                <p class="summary">Onyx is an open-source, self-hostable AI platform providing a feature-rich chat UI compatible with any Large Language Model (LLM), including proprietary APIs like OpenAI and Anthropic, and self-hosted solutions like Ollama. Designed for easy deployment, it can operate in air-gapped environments. Key features include custom AI Agents with unique instructions and actions, advanced Retrieval-Augmented Generation (RAG) utilizing hybrid-search and knowledge graphs for various document types, and Web Search capabilities through multiple providers and in-house scrapers. Onyx also integrates over 40 knowledge source connectors, offers Deep Research through agentic multi-step search, supports actions for external system interaction, a Code Interpreter for data analysis, and image generation. Built for scalability, it caters to teams of all sizes, offering enterprise-grade features such as robust enterprise search, comprehensive security (SSO, RBAC), and advanced management UIs with document permissioning, ensuring performant and accurate retrieval for millions of documents.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Platform</span><span>LLM</span><span>AI Agent</span><span>RAG</span><span>Self-hostable</span><span>Chat UI</span><span>Enterprise Search</span><span>Knowledge Graph</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/onyx-dot-app/onyx" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>x402 payments protocol</h2>
-                <span class="published-time">Published: 2025-09-25T21:07:02Z</span>
-                
-                <p class="summary">The x402 payments protocol introduces an open, internet-native standard for digital dollar payments, aiming to overcome the limitations of traditional credit cards. It offers a streamlined experience with no fees, 2-second settlement, and a minimum payment of $0.001, integrating seamlessly with existing HTTP services. Designed for both human and AI agent interactions, the protocol abstracts complex cryptocurrency details, providing a "1 line of code" integration for servers. Key principles include being open, HTTP-native, chain and token agnostic, and trust-minimizing, ensuring clients and servers avoid direct blockchain complexities like gas or RPC calls. The protocol leverages the 402 Payment Required HTTP status code, specifying schemas for payment requirements, client payment headers (X-PAYMENT), and a flow for verification and settlement, often facilitated by a facilitator server. This system supports various payment schemes, such as exact transfers, adaptable across different blockchain networks, making it a flexible solution for modern internet resource monetization.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>x402 protocol</span><span>digital payments</span><span>blockchain payments</span><span>HTTP protocol</span><span>web3 payments</span><span>payment standard</span><span>facilitator server</span><span>AI agents</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/coinbase/x402" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>🚀 RAG-Anything: All-in-One RAG Framework</h2>
-                <span class="published-time">Published: 2025-09-25T01:34:30Z</span>
-                
-                <p class="summary">RAG-Anything is a comprehensive, all-in-one multimodal Retrieval-Augmented Generation (RAG) system built on LightRAG, engineered to overcome the limitations of traditional text-focused RAG systems in processing diverse content. It offers seamless integration and querying across all content modalities, including text, images, tables, equations, charts, and multimedia, within a single unified framework, thereby eliminating the need for specialized tools. Key technical features include an end-to-end multimodal pipeline, universal document support, and specialized content analysis engines for visual data, structured tables, and mathematical expressions. The architecture further incorporates a multimodal knowledge graph for automatic entity extraction and cross-modal relationship discovery, alongside an adaptive, hybrid intelligent retrieval system. This consolidated approach makes RAG-Anything particularly valuable for sectors like academic research, technical documentation, financial reports, and enterprise knowledge management, where complex, mixed-content documents demand a unified and intelligent processing solution.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multimodal RAG</span><span>Retrieval-Augmented Generation</span><span>Document Processing</span><span>Knowledge Graph</span><span>AI Framework</span><span>Large Language Model</span><span>Multimodal AI</span><span>Information Retrieval</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Multimodal</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/HKUDS/RAG-Anything" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">跳到新闻列表</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO 主页">NO<i>/</i>FOMO</a><nav class="nav" aria-label="日报导航"><a href="../../../home/">往期</a><a href="../en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">每天一次，过滤 AI 噪音</p><h1>值得打开的<br>AI 日报。</h1></div><div class="issue-meta"><span>发布日期</span><strong>2025-09-27</strong><span>中文版本</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-27 15:46:46</time></div>
+  <div class="story-body">
+    <h3><a href="https://matduggan.com/greenland-is-a-beautiful-nightmare/" target="_blank" rel="noopener noreferrer">Greenland Is a Beautiful Nightmare</a></h3>
+    <p class="story-summary">This article metaphorically frames the formidable computational and analytical challenges inherent in climate science, particularly when modeling the complex environmental dynamics of regions such as Greenland. It posits the integration of vast, heterogeneous datasets ranging from high-resolution satellite imagery and ground-based sensor readings to historical climate archives as a &#x27;beautiful nightmare&#x27; for AI researchers. The core discussion revolves around the development of advanced machine learning models capable of processing this immense data volume to derive accurate, long-term climate predictions. Emphasis is placed on overcoming obstacles such as data sparsity in remote, extreme environments, the inherent non-linearity of climatic systems, and the imperative for model interpretability in high-stakes environmental policy. The piece underscores the dual nature of these endeavors: the scientific elegance of leveraging cutting-edge AI for planetary health, juxtaposed with the profound technical difficulties and ethical considerations in deploying such powerful, yet imperfect, predictive tools. It advocates for continued innovation in resilient and explainable AI architectures to better understand and mitigate global environmental shifts.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Climate Modeling</span><span class="tag tag-keyword">Environmental AI</span><span class="tag tag-keyword">Satellite Data Analysis</span><span class="tag tag-keyword">Machine Learning</span><span class="tag tag-keyword">Predictive Analytics</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-27 18:56:18</time></div>
+  <div class="story-body">
+    <h3><a href="https://signoz.io/blog/llm-observability-opentelemetry/" target="_blank" rel="noopener noreferrer">LLM Observability in the Wild – Why OpenTelemetry Should Be the Standard</a></h3>
+    <p class="story-summary">The emergence of Large Language Models (LLMs) in various applications has underscored the critical need for robust observability, a concept crucial for monitoring, debugging, and optimizing these complex systems. This article advocates for OpenTelemetry as the definitive standard for achieving comprehensive LLM observability in real-world deployments. It highlights the inherent challenges in tracking LLM behavior, including their probabilistic outputs, multi-stage reasoning chains, and significant operational costs associated with token usage and API calls. OpenTelemetry, an open-source framework, offers a vendor-agnostic solution for collecting telemetry data traces, metrics, and logs across diverse technology stacks. By standardizing data collection and instrumentation, OpenTelemetry enables developers and MLOps teams to gain deep insights into LLM performance, latency, error rates, and resource consumption. Adopting this standard ensures a unified approach to understanding LLM lifecycles, facilitating proactive issue identification, performance optimization, and the development of more reliable and efficient AI-powered applications, thereby solidifying its role in modern LLM operations.</p>
+    <div class="story-tags"><span class="tag tag-keyword">LLM Observability</span><span class="tag tag-keyword">OpenTelemetry</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Distributed Tracing</span><span class="tag tag-keyword">MLOps</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-27 12:27:46</time></div>
+  <div class="story-body">
+    <h3><a href="https://lilianweng.github.io/posts/2025-05-01-thinking/" target="_blank" rel="noopener noreferrer">Why We Think</a></h3>
+    <p class="story-summary">This insightful piece, &#x27;Why We Think,&#x27; delves into the intricate mechanisms and foundational principles that underpin cognitive processes in both biological and artificial systems. It explores the computational and neurological architectures that enable complex thought, reasoning, and sophisticated decision-making, offering a comparative analysis of how intelligence manifests across different substrates. The discussion critically examines various approaches to simulating cognition, ranging from symbolic AI frameworks to the latest advancements in neural network-based models, scrutinizing how these systems perceive, learn, and interact with their environments to generate intelligent and adaptive behaviors. By elucidating the core components of thinking, the article aims to inform the design and development of more robust, general-purpose artificial intelligence systems, addressing both the practical challenges and profound philosophical implications of replicating human-like cognitive faculties. This exploration is crucial for advancing AI&#x27;s capabilities toward achieving more autonomous and truly intelligent agents.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Cognitive Architecture</span><span class="tag tag-keyword">AI Reasoning</span><span class="tag tag-keyword">Artificial General Intelligence</span><span class="tag tag-keyword">Neural Networks</span><span class="tag tag-keyword">Computational Neuroscience</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-27 18:09:06</time></div>
+  <div class="story-body">
+    <h3><a href="https://gideons.substack.com/p/are-we-in-an-ai-bubble-i-suspect" target="_blank" rel="noopener noreferrer">Are We in an A.I. Bubble? I Suspect So</a></h3>
+    <p class="story-summary">The rapid acceleration of innovation and investment within the artificial intelligence sector has ignited considerable debate regarding the stability of its current economic trajectory, leading to suspicions of an &#x27;AI bubble.&#x27; This perspective examines the prevailing market conditions, where substantial capital inflows into AI startups, often with nascent revenue models, have led to soaring valuations. Drawing parallels with historical technological booms and subsequent busts, such as the dot-com era, the analysis highlights key indicators like speculative fervor, aggressive venture capital funding rounds, and the widespread belief in AI&#x27;s transformative, yet sometimes unproven, commercial potential. The discussion questions whether the impressive technical breakthroughs, especially in large language models and generative AI, genuinely warrant the current market enthusiasm or if market sentiment is outstripping tangible returns and sustainable business models. The overall implication is one of caution, suggesting that despite AI&#x27;s profound long-term promise, the immediate investment environment may exhibit unsustainable characteristics, potentially foreshadowing a future market correction for AI-centric enterprises.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Bubble</span><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Market Speculation</span><span class="tag tag-keyword">Investment Trends</span><span class="tag tag-keyword">Venture Capital</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-09-27 15:34:55</time></div>
+  <div class="story-body">
+    <h3><a href="https://blog.adafruit.com/2025/09/26/ai-model-trapped-in-raspberry-pi-piday-raspberrypi/" target="_blank" rel="noopener noreferrer">AI model trapped in a Raspberry Pi</a></h3>
+    <p class="story-summary">The article, titled &quot;AI model trapped in a Raspberry Pi,&quot; highlights the practical application and challenges of deploying artificial intelligence models on resource-constrained embedded systems. This scenario typically involves optimizing machine learning algorithms for low-power, compact hardware like the Raspberry Pi, emphasizing efficiency in computation and memory usage. Such deployments are crucial for edge computing, enabling real-time processing and decision-making directly at the data source, without constant reliance on cloud infrastructure. This approach minimizes latency, enhances data privacy, and reduces bandwidth consumption, making AI accessible for a wider range of applications, from smart home devices and industrial IoT to educational robotics and portable analytical tools. The concept underscores the ongoing innovation in making powerful AI capabilities viable on modest hardware, pushing the boundaries of what is possible in decentralized intelligent systems. This development is pivotal for expanding AI&#x27;s reach into pervasive computing environments, addressing the growing demand for intelligent functionalities in diverse, real-world settings.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Raspberry Pi</span><span class="tag tag-keyword">Edge AI</span><span class="tag tag-keyword">Embedded Systems</span><span class="tag tag-keyword">Machine Learning Deployment</span><span class="tag tag-keyword">Resource-constrained AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-09-27 02:01:35</time></div>
+  <div class="story-body">
+    <h3><a href="https://docs.unsloth.ai/new/gpt-oss-reinforcement-learning" target="_blank" rel="noopener noreferrer">GPT-OSS Reinforcement Learning</a></h3>
+    <p class="story-summary">The document, titled &quot;GPT-OSS Reinforcement Learning&quot; and located within Unsloth&#x27;s documentation, highlights an important initiative focused on integrating reinforcement learning (RL) techniques with open-source Generative Pre-trained Transformer (GPT) models. This advanced approach is specifically designed to enhance the performance, alignment, and specialized capabilities of these large language models (LLMs) beyond what traditional supervised fine-tuning methods can achieve. Reinforcement learning, particularly techniques like Reinforcement Learning from Human Feedback (RLHF), has been pivotal in refining the conversational quality, improving instruction adherence, and bolstering the safety features of state-of-the-art proprietary LLMs. By applying similar sophisticated training paradigms to open-source alternatives, this project aims to democratize access to advanced LLM training methodologies. Unsloth&#x27;s platform, recognized for its efficiency in fine-tuning LLMs, is expected to play a crucial role in making these RL-based training processes more accessible and less computationally intensive for open-source models. This will undoubtedly foster greater innovation and wider adoption within the broader AI community, marking a significant step in advancing both the capabilities and practical deployment of open-source large language models.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Open Source AI</span><span class="tag tag-keyword">LLM Fine-tuning</span><span class="tag tag-keyword">AI Training</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>4 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-27T17:44:25Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/humanlayer/humanlayer" target="_blank" rel="noopener noreferrer">Close your editor forever.</a></h3>
+    <p class="story-summary">CodeLayer is an open-source, AI-first Integrated Development Environment (IDE) designed to empower developers by orchestrating AI coding agents. Built on Claude Code, it offers battle-tested workflows specifically tailored to address complex problems within large codebases. Key features include keyboard-first workflows for speed and control, advanced context engineering to scale AI-driven development across teams, and &#x27;MULTICLAUDE&#x27; functionality enabling parallel Claude Code sessions and remote cloud workers. The platform emphasizes investing in outcomes, offering tailored solutions, custom integrations, and expert engineering support for teams. It also champions principles like &quot;Advanced Context Engineering for Coding Agents&quot; and &quot;12 Factor Agents&quot; for building reliable and scalable LLM applications, making it a powerful tool for enhancing developer productivity and efficiency in AI-powered software development.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI coding agents</span><span class="tag tag-keyword">IDE</span><span class="tag tag-keyword">CodeLayer</span><span class="tag tag-keyword">Claude Code</span><span class="tag tag-keyword">Context Engineering</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-27T00:15:40Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/onyx-dot-app/onyx" target="_blank" rel="noopener noreferrer">Open Source AI Platform</a></h3>
+    <p class="story-summary">Onyx is an open-source, self-hostable AI platform providing a feature-rich chat UI compatible with any Large Language Model (LLM), including proprietary APIs like OpenAI and Anthropic, and self-hosted solutions like Ollama. Designed for easy deployment, it can operate in air-gapped environments. Key features include custom AI Agents with unique instructions and actions, advanced Retrieval-Augmented Generation (RAG) utilizing hybrid-search and knowledge graphs for various document types, and Web Search capabilities through multiple providers and in-house scrapers. Onyx also integrates over 40 knowledge source connectors, offers Deep Research through agentic multi-step search, supports actions for external system interaction, a Code Interpreter for data analysis, and image generation. Built for scalability, it caters to teams of all sizes, offering enterprise-grade features such as robust enterprise search, comprehensive security (SSO, RBAC), and advanced management UIs with document permissioning, ensuring performant and accurate retrieval for millions of documents.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Platform</span><span class="tag tag-keyword">LLM</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">RAG</span><span class="tag tag-keyword">Self-hostable</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-25T21:07:02Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/coinbase/x402" target="_blank" rel="noopener noreferrer">x402 payments protocol</a></h3>
+    <p class="story-summary">The x402 payments protocol introduces an open, internet-native standard for digital dollar payments, aiming to overcome the limitations of traditional credit cards. It offers a streamlined experience with no fees, 2-second settlement, and a minimum payment of $0.001, integrating seamlessly with existing HTTP services. Designed for both human and AI agent interactions, the protocol abstracts complex cryptocurrency details, providing a &quot;1 line of code&quot; integration for servers. Key principles include being open, HTTP-native, chain and token agnostic, and trust-minimizing, ensuring clients and servers avoid direct blockchain complexities like gas or RPC calls. The protocol leverages the 402 Payment Required HTTP status code, specifying schemas for payment requirements, client payment headers (X-PAYMENT), and a flow for verification and settlement, often facilitated by a facilitator server. This system supports various payment schemes, such as exact transfers, adaptable across different blockchain networks, making it a flexible solution for modern internet resource monetization.</p>
+    <div class="story-tags"><span class="tag tag-keyword">x402 protocol</span><span class="tag tag-keyword">digital payments</span><span class="tag tag-keyword">blockchain payments</span><span class="tag tag-keyword">HTTP protocol</span><span class="tag tag-keyword">web3 payments</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-25T01:34:30Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/HKUDS/RAG-Anything" target="_blank" rel="noopener noreferrer">🚀 RAG-Anything: All-in-One RAG Framework</a></h3>
+    <p class="story-summary">RAG-Anything is a comprehensive, all-in-one multimodal Retrieval-Augmented Generation (RAG) system built on LightRAG, engineered to overcome the limitations of traditional text-focused RAG systems in processing diverse content. It offers seamless integration and querying across all content modalities, including text, images, tables, equations, charts, and multimedia, within a single unified framework, thereby eliminating the need for specialized tools. Key technical features include an end-to-end multimodal pipeline, universal document support, and specialized content analysis engines for visual data, structured tables, and mathematical expressions. The architecture further incorporates a multimodal knowledge graph for automatic entity extraction and cross-modal relationship discovery, alongside an adaptive, hybrid intelligent retrieval system. This consolidated approach makes RAG-Anything particularly valuable for sectors like academic research, technical documentation, financial reports, and enterprise knowledge management, where complex, mixed-content documents demand a unified and intelligent processing solution.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multimodal RAG</span><span class="tag tag-keyword">Retrieval-Augmented Generation</span><span class="tag tag-keyword">Document Processing</span><span class="tag tag-keyword">Knowledge Graph</span><span class="tag tag-keyword">AI Framework</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>AI 辅助筛选，原始来源始终可查。</span></footer>
 </body>
 </html>

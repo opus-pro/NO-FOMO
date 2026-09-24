@@ -1,351 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-10-18</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2025-10-18</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="." class="active">中文</a>
-                <a href="en/" class="">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-10-18</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../home/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 返回主页</a>
-            <a href="../../daily/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 最新日报</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 关于我们</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Root System Drawings</h2>
-                <span class="published-time">Published: 2025-10-18 13:52:24</span>
-                
-                <p class="summary">This Hacker News story highlights an exceptional digital repository from Wageningen University & Research, featuring an extensive collection of meticulously detailed root system drawings. Available at images.wur.nl, this archive serves as an invaluable resource for a diverse range of disciplines, including botany, agricultural science, and environmental education. The collection not only preserves historical scientific illustrations but also provides profound insights into the complex and often hidden underground architectures of various plant species. Furthermore, in an era of advanced data analytics, such a comprehensive visual dataset presents significant opportunities for modern research. It could be leveraged for sophisticated image analysis, potentially using artificial intelligence and computer vision techniques to automatically identify, classify, and quantify root characteristics, or even inspire generative AI models for creating novel botanical illustrations based on scientific principles. The resource underscores the enduring value of scientific illustration coupled with digital accessibility for future research and innovation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Root Systems</span><span>Botanical Art</span><span>Scientific Illustration</span><span>Digital Archives</span><span>Plant Morphology</span><span>Agricultural Science</span><span>Horticulture</span><span>Computer Vision</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Computer Vision</span><span>Machine Learning</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://images.wur.nl/digital/collection/coll13/search" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Attention is a luxury good</h2>
-                <span class="published-time">Published: 2025-10-18 15:39:47</span>
-                
-                <p class="summary">The statement 'Attention is a luxury good' emphasizes the increasing value and scarcity of focused cognitive resources in the contemporary digital landscape. Within the realm of Artificial Intelligence, this perspective significantly influences system design and practical applications. AI agents and Large Language Models, for instance, are increasingly developed with an underlying objective to optimize and manage human attention. By efficiently processing vast datasets, filtering extraneous information, and synthesizing complex data into actionable insights, these AI systems aim to mitigate information overload and alleviate cognitive load on users. The core technical challenge involves constructing intelligent systems capable of effectively identifying, prioritizing, and presenting the most relevant information, thereby acting as custodians of this valuable 'attention.' This includes continuous advancements in efficient information retrieval, context-aware summarization techniques, and personalized content delivery mechanisms, all engineered to ensure human engagement is directed towards high-value tasks. The philosophical foundation of attention as a luxury good thus drives a critical technical imperative for AI to evolve into a sophisticated curator of digital experiences, enhancing human productivity and well-being by preserving mental focus.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Attention Economy</span><span>Information Overload</span><span>Cognitive Load Management</span><span>AI System Design</span><span>Data Curation</span><span>Human-AI Interaction</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://seths.blog/2025/10/attention-is-a-luxury-good/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Fast calculation of the distance to cubic Bezier curves on the GPU</h2>
-                <span class="published-time">Published: 2025-10-18 09:25:30</span>
-                
-                <p class="summary">This article investigates advanced techniques for the rapid calculation of distances between a given point and cubic Bezier curves, leveraging the parallel processing capabilities of Graphics Processing Units (GPUs). This optimization is crucial for various computationally intensive fields, including real-time computer graphics, computer-aided design (CAD), virtual reality, and simulation. The intrinsic complexity of evaluating distances to higher-order curves often poses a significant performance challenge for traditional CPU-based algorithms, particularly in scenarios demanding high frame rates or immediate feedback. By re-architecting these calculations for GPU execution, the proposed methods aim to exploit massive parallelism, potentially employing strategies such as bounding volume hierarchies, adaptive tessellation, or specialized numerical solvers optimized for shader units. The primary objective is to dramatically reduce computation time, thereby enabling developers to render more intricate scenes, perform faster collision detection, facilitate more responsive user interactions, or accelerate path planning in robotic systems. This work offers valuable insights into improving the efficiency of fundamental geometric algorithms through hardware acceleration, contributing to the broader field of high-performance computing in graphics and related domains.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Cubic Bezier curves</span><span>GPU computing</span><span>Distance calculation</span><span>Computer Graphics</span><span>Real-time rendering</span><span>Geometric algorithms</span><span>High-performance computing</span><span>Optimization</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Robotics</span><span>Computer Vision</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://blog.pkh.me/p/46-fast-calculation-of-the-distance-to-cubic-bezier-curves-on-the-gpu.html" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>AMD's Chiplet APU: An Overview of Strix Halo</h2>
-                <span class="published-time">Published: 2025-10-18 04:26:19</span>
-                
-                <p class="summary">AMD's Strix Halo represents a significant advancement in Accelerated Processing Unit (APU) design, leveraging a sophisticated chiplet architecture to deliver high-performance computing. This overview details the integration of multiple dies on a single package, combining powerful Zen-based CPU cores with RDNA-based integrated graphics. The chiplet approach allows for greater scalability, improved manufacturing yields, and optimized resource allocation compared to traditional monolithic designs. Strix Halo is expected to offer a compelling balance of CPU and GPU performance, making it suitable for a wide range of applications from gaming to content creation and professional workloads. Furthermore, modern APU designs increasingly incorporate dedicated neural processing units (NPUs) or optimize GPU compute for AI and machine learning tasks, positioning Strix Halo as a versatile solution for accelerating AI workloads on client platforms. This innovative architecture aims to redefine expectations for integrated processing power and efficiency.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AMD</span><span>APU</span><span>Chiplet Technology</span><span>Strix Halo</span><span>Processor Architecture</span><span>Integrated Graphics</span><span>Zen Architecture</span><span>RDNA Graphics</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://chipsandcheese.com/p/amds-chiplet-apu-an-overview-of-strix" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>📌 Introduction</h2>
-                <span class="published-time">Published: 2025-10-17T16:24:36Z</span>
-                
-                <p class="summary">The MiniMind open-source project introduces a novel approach to training ultra-small language models from scratch, emphasizing accessibility and low-cost training. It demonstrates how to train a 25.8M model in just two hours with minimal GPU server costs, making advanced AI model development feasible for individuals. The project provides a complete, simplified architecture for large language models, including components like a custom tokenizer, pre-training, supervised fine-tuning (SFT), LoRA adaptation, direct preference optimization (DPO), and model distillation, all re-implemented from native PyTorch without heavy reliance on third-party abstractions. MiniMind also extends to a vision-language model, MiniMind-V, and ensures compatibility with popular inference engines like `llama.cpp` and `vllm`. This initiative serves as both a practical guide for LLM beginners and a platform for pushing broader AI community progress through transparent, low-barrier access to full-stack LLM development.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Model</span><span>Lightweight AI Models</span><span>PyTorch</span><span>Model Training</span><span>Supervised Fine-Tuning</span><span>LoRA</span><span>DPO</span><span>Knowledge Distillation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Deep Learning</span><span>Natural Language Processing</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/jingyaogong/minimind" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Claude Cookbooks</h2>
-                <span class="published-time">Published: 2025-10-16T16:03:38Z</span>
-                
-                <p class="summary">The Claude Cookbooks repository offers a comprehensive collection of code and guides for developers looking to build practical applications using the Claude API. It provides readily usable code snippets, primarily in Python, covering a wide array of AI functionalities. Key capabilities explored include text and data classification, Retrieval Augmented Generation (RAG) to enhance Claude's responses with external knowledge, and effective text summarization. The cookbooks also delve into advanced tool use for integrating Claude with external systems like calculators and SQL databases, and demonstrate third-party integrations with vector databases, Wikipedia, web pages, and internet search. Furthermore, the repository covers Claude's multimodal capabilities, such as vision for interpreting images, charts, and forms, and generating images in conjunction with Stable Diffusion. Advanced techniques like utilizing sub-agents, parsing and uploading PDFs, automating prompt evaluations, enabling consistent JSON output, creating moderation filters, and prompt caching are also detailed, making it an invaluable resource for both new and experienced Claude developers.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Claude API</span><span>Large Language Model</span><span>AI Agent</span><span>Retrieval Augmented Generation</span><span>Multimodal AI</span><span>Tool Use</span><span>Prompt Engineering</span><span>Python</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/anthropics/claude-cookbooks" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Wave Terminal</h2>
-                <span class="published-time">Published: 2025-10-18T00:55:04Z</span>
-                
-                <p class="summary">Wave Terminal is an open-source, cross-platform terminal application designed for macOS, Linux, and Windows, which enhances the traditional command-line interface with integrated graphical capabilities. It aims to streamline modern development workflows by allowing users to access tools like file previews, web browsers, and AI assistants directly within the terminal environment. Key features include a flexible drag-and-drop interface for organizing terminal blocks and tools, a built-in editor for remote files with syntax highlighting, a comprehensive file preview system for various formats, and integrated AI chat supporting multiple models like OpenAI and Claude. The terminal also offers command blocks for isolated execution, one-click remote connections with file system access, and extensive customization options. Wave Terminal allows developers to maintain focus on their CLI tasks while leveraging visual aids and intelligent assistance, promoting a more integrated and efficient development experience.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Terminal</span><span>Open-source</span><span>Cross-platform</span><span>AI Assistance</span><span>File Preview</span><span>Web Browsing</span><span>Remote Connections</span><span>Developer Tools</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/wavetermdev/waveterm" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../">Archive</a><a href="cn/">中文</a><a href="en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2025-10-18</strong><span>DEFAULT EDITION</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>4 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-10-18 13:52:24</time></div>
+  <div class="story-body">
+    <h3><a href="https://images.wur.nl/digital/collection/coll13/search" target="_blank" rel="noopener noreferrer">Root System Drawings</a></h3>
+    <p class="story-summary">This Hacker News story highlights an exceptional digital repository from Wageningen University &amp; Research, featuring an extensive collection of meticulously detailed root system drawings. Available at images.wur.nl, this archive serves as an invaluable resource for a diverse range of disciplines, including botany, agricultural science, and environmental education. The collection not only preserves historical scientific illustrations but also provides profound insights into the complex and often hidden underground architectures of various plant species. Furthermore, in an era of advanced data analytics, such a comprehensive visual dataset presents significant opportunities for modern research. It could be leveraged for sophisticated image analysis, potentially using artificial intelligence and computer vision techniques to automatically identify, classify, and quantify root characteristics, or even inspire generative AI models for creating novel botanical illustrations based on scientific principles. The resource underscores the enduring value of scientific illustration coupled with digital accessibility for future research and innovation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Root Systems</span><span class="tag tag-keyword">Botanical Art</span><span class="tag tag-keyword">Scientific Illustration</span><span class="tag tag-keyword">Digital Archives</span><span class="tag tag-keyword">Plant Morphology</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-10-18 15:39:47</time></div>
+  <div class="story-body">
+    <h3><a href="https://seths.blog/2025/10/attention-is-a-luxury-good/" target="_blank" rel="noopener noreferrer">Attention is a luxury good</a></h3>
+    <p class="story-summary">The statement &#x27;Attention is a luxury good&#x27; emphasizes the increasing value and scarcity of focused cognitive resources in the contemporary digital landscape. Within the realm of Artificial Intelligence, this perspective significantly influences system design and practical applications. AI agents and Large Language Models, for instance, are increasingly developed with an underlying objective to optimize and manage human attention. By efficiently processing vast datasets, filtering extraneous information, and synthesizing complex data into actionable insights, these AI systems aim to mitigate information overload and alleviate cognitive load on users. The core technical challenge involves constructing intelligent systems capable of effectively identifying, prioritizing, and presenting the most relevant information, thereby acting as custodians of this valuable &#x27;attention.&#x27; This includes continuous advancements in efficient information retrieval, context-aware summarization techniques, and personalized content delivery mechanisms, all engineered to ensure human engagement is directed towards high-value tasks. The philosophical foundation of attention as a luxury good thus drives a critical technical imperative for AI to evolve into a sophisticated curator of digital experiences, enhancing human productivity and well-being by preserving mental focus.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Attention Economy</span><span class="tag tag-keyword">Information Overload</span><span class="tag tag-keyword">Cognitive Load Management</span><span class="tag tag-keyword">AI System Design</span><span class="tag tag-keyword">Data Curation</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-10-18 09:25:30</time></div>
+  <div class="story-body">
+    <h3><a href="https://blog.pkh.me/p/46-fast-calculation-of-the-distance-to-cubic-bezier-curves-on-the-gpu.html" target="_blank" rel="noopener noreferrer">Fast calculation of the distance to cubic Bezier curves on the GPU</a></h3>
+    <p class="story-summary">This article investigates advanced techniques for the rapid calculation of distances between a given point and cubic Bezier curves, leveraging the parallel processing capabilities of Graphics Processing Units (GPUs). This optimization is crucial for various computationally intensive fields, including real-time computer graphics, computer-aided design (CAD), virtual reality, and simulation. The intrinsic complexity of evaluating distances to higher-order curves often poses a significant performance challenge for traditional CPU-based algorithms, particularly in scenarios demanding high frame rates or immediate feedback. By re-architecting these calculations for GPU execution, the proposed methods aim to exploit massive parallelism, potentially employing strategies such as bounding volume hierarchies, adaptive tessellation, or specialized numerical solvers optimized for shader units. The primary objective is to dramatically reduce computation time, thereby enabling developers to render more intricate scenes, perform faster collision detection, facilitate more responsive user interactions, or accelerate path planning in robotic systems. This work offers valuable insights into improving the efficiency of fundamental geometric algorithms through hardware acceleration, contributing to the broader field of high-performance computing in graphics and related domains.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Cubic Bezier curves</span><span class="tag tag-keyword">GPU computing</span><span class="tag tag-keyword">Distance calculation</span><span class="tag tag-keyword">Computer Graphics</span><span class="tag tag-keyword">Real-time rendering</span><span class="tag tag-area">Robotics</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-10-18 04:26:19</time></div>
+  <div class="story-body">
+    <h3><a href="https://chipsandcheese.com/p/amds-chiplet-apu-an-overview-of-strix" target="_blank" rel="noopener noreferrer">AMD&#x27;s Chiplet APU: An Overview of Strix Halo</a></h3>
+    <p class="story-summary">AMD&#x27;s Strix Halo represents a significant advancement in Accelerated Processing Unit (APU) design, leveraging a sophisticated chiplet architecture to deliver high-performance computing. This overview details the integration of multiple dies on a single package, combining powerful Zen-based CPU cores with RDNA-based integrated graphics. The chiplet approach allows for greater scalability, improved manufacturing yields, and optimized resource allocation compared to traditional monolithic designs. Strix Halo is expected to offer a compelling balance of CPU and GPU performance, making it suitable for a wide range of applications from gaming to content creation and professional workloads. Furthermore, modern APU designs increasingly incorporate dedicated neural processing units (NPUs) or optimize GPU compute for AI and machine learning tasks, positioning Strix Halo as a versatile solution for accelerating AI workloads on client platforms. This innovative architecture aims to redefine expectations for integrated processing power and efficiency.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AMD</span><span class="tag tag-keyword">APU</span><span class="tag tag-keyword">Chiplet Technology</span><span class="tag tag-keyword">Strix Halo</span><span class="tag tag-keyword">Processor Architecture</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>3 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-10-17T16:24:36Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/jingyaogong/minimind" target="_blank" rel="noopener noreferrer">📌 Introduction</a></h3>
+    <p class="story-summary">The MiniMind open-source project introduces a novel approach to training ultra-small language models from scratch, emphasizing accessibility and low-cost training. It demonstrates how to train a 25.8M model in just two hours with minimal GPU server costs, making advanced AI model development feasible for individuals. The project provides a complete, simplified architecture for large language models, including components like a custom tokenizer, pre-training, supervised fine-tuning (SFT), LoRA adaptation, direct preference optimization (DPO), and model distillation, all re-implemented from native PyTorch without heavy reliance on third-party abstractions. MiniMind also extends to a vision-language model, MiniMind-V, and ensures compatibility with popular inference engines like `llama.cpp` and `vllm`. This initiative serves as both a practical guide for LLM beginners and a platform for pushing broader AI community progress through transparent, low-barrier access to full-stack LLM development.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Lightweight AI Models</span><span class="tag tag-keyword">PyTorch</span><span class="tag tag-keyword">Model Training</span><span class="tag tag-keyword">Supervised Fine-Tuning</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-10-16T16:03:38Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/anthropics/claude-cookbooks" target="_blank" rel="noopener noreferrer">Claude Cookbooks</a></h3>
+    <p class="story-summary">The Claude Cookbooks repository offers a comprehensive collection of code and guides for developers looking to build practical applications using the Claude API. It provides readily usable code snippets, primarily in Python, covering a wide array of AI functionalities. Key capabilities explored include text and data classification, Retrieval Augmented Generation (RAG) to enhance Claude&#x27;s responses with external knowledge, and effective text summarization. The cookbooks also delve into advanced tool use for integrating Claude with external systems like calculators and SQL databases, and demonstrate third-party integrations with vector databases, Wikipedia, web pages, and internet search. Furthermore, the repository covers Claude&#x27;s multimodal capabilities, such as vision for interpreting images, charts, and forms, and generating images in conjunction with Stable Diffusion. Advanced techniques like utilizing sub-agents, parsing and uploading PDFs, automating prompt evaluations, enabling consistent JSON output, creating moderation filters, and prompt caching are also detailed, making it an invaluable resource for both new and experienced Claude developers.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Claude API</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Retrieval Augmented Generation</span><span class="tag tag-keyword">Multimodal AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-10-18T00:55:04Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/wavetermdev/waveterm" target="_blank" rel="noopener noreferrer">Wave Terminal</a></h3>
+    <p class="story-summary">Wave Terminal is an open-source, cross-platform terminal application designed for macOS, Linux, and Windows, which enhances the traditional command-line interface with integrated graphical capabilities. It aims to streamline modern development workflows by allowing users to access tools like file previews, web browsers, and AI assistants directly within the terminal environment. Key features include a flexible drag-and-drop interface for organizing terminal blocks and tools, a built-in editor for remote files with syntax highlighting, a comprehensive file preview system for various formats, and integrated AI chat supporting multiple models like OpenAI and Claude. The terminal also offers command blocks for isolated execution, one-click remote connections with file system access, and extensive customization options. Wave Terminal allows developers to maintain focus on their CLI tasks while leveraging visual aids and intelligent assistance, promoting a more integrated and efficient development experience.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Terminal</span><span class="tag tag-keyword">Open-source</span><span class="tag tag-keyword">Cross-platform</span><span class="tag tag-keyword">AI Assistance</span><span class="tag tag-keyword">File Preview</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
 </body>
 </html>

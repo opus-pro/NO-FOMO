@@ -1,273 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2026-03-29</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO AI 日报 — 2026-03-29</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"PingFang SC","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em}.issue h1{margin:0;max-width:820px;font:800 clamp(2.6rem,7vw,6.3rem)/1.02 Georgia,"Songti SC",serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:800 clamp(1.5rem,3vw,2.35rem)/1.2 Georgia,"Songti SC",serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.86 Georgia,"Songti SC",serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <h1>AI Daily Report</h1>
-            <p class="date">2026-03-29</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Artificial Cleverness: The system that knows everything and understands nothing</h2>
-                <span class="published-time">Published: 2026-03-29 19:22:43</span>
-                
-                <p class="summary">The article "Artificial Cleverness: The system that knows everything and understands nothing" critically analyzes the current capabilities and inherent limitations of artificial intelligence. It introduces the concept of "artificial cleverness," suggesting that while contemporary AI systems, such as large language models, can access and process immense datasets to generate sophisticated responses and appear to possess comprehensive knowledge, they ultimately lack true semantic understanding. The core argument distinguishes between the algorithmic ability to correlate information and recognize patterns ("knowing everything") and the deeper cognitive capacity for comprehension, context, and meaning ("understanding nothing"). This perspective challenges the perception of AI progress, positing that current advancements, though impressive, may represent a form of advanced data manipulation rather than genuine intelligence. The piece likely calls for a deeper philosophical and technical inquiry into the nature of understanding itself, urging researchers to re-evaluate the pathways toward creating truly intelligent machines that transcend mere cleverness.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Artificial Intelligence</span><span>AI Limitations</span><span>Cognitive AI</span><span>Semantic Understanding</span><span>Large Language Models</span><span>Knowledge Representation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://formallycurious.substack.com/p/artificial-cleverness" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Personal AI Development Environment</h2>
-                <span class="published-time">Published: 2026-03-29 19:21:06</span>
-                
-                <p class="summary">The project 'Personal AI Development Environment', hosted on GitHub, offers a streamlined solution for individuals engaged in artificial intelligence development. This initiative aims to simplify the often complex setup process of an AI development workspace by providing a pre-configured, isolated environment. It is designed to equip developers with essential tools, libraries, and frameworks commonly used in machine learning and deep learning projects, thereby reducing initial friction and accelerating the project kickoff phase. The concept emphasizes portability and ease of deployment, allowing users to quickly establish a consistent and reproducible development sandbox on their local machines. Such an environment is crucial for experimentation, prototyping, and training AI models without extensive system-level configurations. By offering a readily accessible and standardized setup, the 'Personal AI Development Environment' enhances productivity and accessibility for solo developers and small teams working on AI-driven applications.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Development</span><span>Development Environment</span><span>Machine Learning</span><span>Deep Learning</span><span>Developer Tools</span><span>AI Workflows</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/rbren/personal-ai-devbox" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>The bot situation on the internet is worse than you could imagine</h2>
-                <span class="published-time">Published: 2026-03-29 16:17:30</span>
-                
-                <p class="summary">The internet is reportedly grappling with a pervasive and escalating bot problem, described as significantly more severe than commonly perceived. This situation encompasses a wide array of automated programs, ranging from sophisticated malicious entities engaged in cybersecurity threats like credential stuffing, distributed denial-of-service (DDoS) attacks, and large-scale spam campaigns, to bots influencing social media narratives, generating synthetic content, and performing extensive web scraping. The article implies that the sheer volume and increasing sophistication of these bots, often leveraging artificial intelligence to mimic human behavior, are undermining the integrity of online platforms, distorting information, and creating significant challenges for digital trust and security. Effectively identifying and neutralizing these automated threats has become a critical concern for web administrators and cybersecurity professionals, as traditional defenses struggle to keep pace with evolving bot technologies. The widespread impact extends across various sectors, demanding more robust and adaptive detection and mitigation strategies to safeguard the digital ecosystem.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Internet bots</span><span>Cybersecurity</span><span>Bot detection</span><span>Web security</span><span>Online fraud</span><span>Automated threats</span><span>Digital integrity</span><span>Artificial intelligence</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://gladeart.com/blog/the-bot-situation-on-the-internet-is-actually-worse-than-you-could-imagine-heres-why" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Police used AI facial recognition to wrongly arrest TN woman for crimes in ND</h2>
-                <span class="published-time">Published: 2026-03-29 14:20:23</span>
-                
-                <p class="summary">The incident involved the erroneous arrest of a Tennessee woman, Angela Lipps, who was wrongly implicated in crimes committed in North Dakota, solely based on a match generated by artificial intelligence facial recognition technology used by law enforcement. This case highlights critical concerns regarding the precision, reliability, and potential for error inherent in current AI-powered identification systems deployed in policing. Such wrongful identifications raise significant questions about due process, individual civil liberties, and the ethical deployment of advanced technological tools within the criminal justice system. Experts often caution that while facial recognition AI can be a powerful investigative aid, its outputs should not be treated as infallible evidence, especially given issues like algorithmic bias, varying image quality, and potential for misidentification. The incident underscores the urgent need for stringent regulatory frameworks, comprehensive auditing of AI systems used by law enforcement, and mandatory human oversight to prevent similar miscarriages of justice and ensure accountability when AI systems fail. It serves as a stark reminder of the broader societal implications when sophisticated AI technologies are integrated into sensitive domains like law enforcement without adequate safeguards.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Facial Recognition</span><span>Artificial Intelligence</span><span>Law Enforcement</span><span>Wrongful Arrest</span><span>Algorithmic Bias</span><span>Computer Vision</span><span>Civil Liberties</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Computer Vision</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.cnn.com/2026/03/29/us/angela-lipps-ai-facial-recognition" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Miasma: A tool to trap AI web scrapers in an endless poison pit</h2>
-                <span class="published-time">Published: 2026-03-29 10:10:12</span>
-                
-                <p class="summary">Miasma is an innovative open-source tool engineered to counteract the pervasive issue of AI-driven web scraping by creating an "endless poison pit." This defense mechanism is designed to trap automated AI agents, rendering their data collection efforts inefficient, resource-intensive, and potentially yielding corrupted datasets. By strategically generating misleading or infinite content, Miasma aims to consume the computational and storage resources of scrapers, making the process of illicit data extraction economically unviable. The tool serves as a proactive measure for website operators seeking to protect their digital assets and intellectual property from large-scale, automated data harvesting operations often employed in training large language models or other AI systems. Its primary objective is to disrupt and deter malicious scraping activities, thereby safeguarding content integrity and operational bandwidth against evolving AI threats. Miasma represents a growing trend in digital self-defense, offering a practical solution for webmasters to combat sophisticated AI-powered data extraction techniques.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI web scraping</span><span>Anti-scraping</span><span>Web security</span><span>Data poisoning</span><span>Bot mitigation</span><span>Digital self-defense</span><span>Open source tool</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/austin-weeks/miasma" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">跳到新闻列表</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO 主页">NO<i>/</i>FOMO</a><nav class="nav" aria-label="日报导航"><a href="../../../home/">往期</a><a href="../en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">每天一次，过滤 AI 噪音</p><h1>值得打开的<br>AI 日报。</h1></div><div class="issue-meta"><span>发布日期</span><strong>2026-03-29</strong><span>中文版本</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>5 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-03-29 19:22:43</time></div>
+  <div class="story-body">
+    <h3><a href="https://formallycurious.substack.com/p/artificial-cleverness" target="_blank" rel="noopener noreferrer">Artificial Cleverness: The system that knows everything and understands nothing</a></h3>
+    <p class="story-summary">The article &quot;Artificial Cleverness: The system that knows everything and understands nothing&quot; critically analyzes the current capabilities and inherent limitations of artificial intelligence. It introduces the concept of &quot;artificial cleverness,&quot; suggesting that while contemporary AI systems, such as large language models, can access and process immense datasets to generate sophisticated responses and appear to possess comprehensive knowledge, they ultimately lack true semantic understanding. The core argument distinguishes between the algorithmic ability to correlate information and recognize patterns (&quot;knowing everything&quot;) and the deeper cognitive capacity for comprehension, context, and meaning (&quot;understanding nothing&quot;). This perspective challenges the perception of AI progress, positing that current advancements, though impressive, may represent a form of advanced data manipulation rather than genuine intelligence. The piece likely calls for a deeper philosophical and technical inquiry into the nature of understanding itself, urging researchers to re-evaluate the pathways toward creating truly intelligent machines that transcend mere cleverness.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">AI Limitations</span><span class="tag tag-keyword">Cognitive AI</span><span class="tag tag-keyword">Semantic Understanding</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-03-29 19:21:06</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/rbren/personal-ai-devbox" target="_blank" rel="noopener noreferrer">Personal AI Development Environment</a></h3>
+    <p class="story-summary">The project &#x27;Personal AI Development Environment&#x27;, hosted on GitHub, offers a streamlined solution for individuals engaged in artificial intelligence development. This initiative aims to simplify the often complex setup process of an AI development workspace by providing a pre-configured, isolated environment. It is designed to equip developers with essential tools, libraries, and frameworks commonly used in machine learning and deep learning projects, thereby reducing initial friction and accelerating the project kickoff phase. The concept emphasizes portability and ease of deployment, allowing users to quickly establish a consistent and reproducible development sandbox on their local machines. Such an environment is crucial for experimentation, prototyping, and training AI models without extensive system-level configurations. By offering a readily accessible and standardized setup, the &#x27;Personal AI Development Environment&#x27; enhances productivity and accessibility for solo developers and small teams working on AI-driven applications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Development</span><span class="tag tag-keyword">Development Environment</span><span class="tag tag-keyword">Machine Learning</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-keyword">Developer Tools</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-03-29 16:17:30</time></div>
+  <div class="story-body">
+    <h3><a href="https://gladeart.com/blog/the-bot-situation-on-the-internet-is-actually-worse-than-you-could-imagine-heres-why" target="_blank" rel="noopener noreferrer">The bot situation on the internet is worse than you could imagine</a></h3>
+    <p class="story-summary">The internet is reportedly grappling with a pervasive and escalating bot problem, described as significantly more severe than commonly perceived. This situation encompasses a wide array of automated programs, ranging from sophisticated malicious entities engaged in cybersecurity threats like credential stuffing, distributed denial-of-service (DDoS) attacks, and large-scale spam campaigns, to bots influencing social media narratives, generating synthetic content, and performing extensive web scraping. The article implies that the sheer volume and increasing sophistication of these bots, often leveraging artificial intelligence to mimic human behavior, are undermining the integrity of online platforms, distorting information, and creating significant challenges for digital trust and security. Effectively identifying and neutralizing these automated threats has become a critical concern for web administrators and cybersecurity professionals, as traditional defenses struggle to keep pace with evolving bot technologies. The widespread impact extends across various sectors, demanding more robust and adaptive detection and mitigation strategies to safeguard the digital ecosystem.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Internet bots</span><span class="tag tag-keyword">Cybersecurity</span><span class="tag tag-keyword">Bot detection</span><span class="tag tag-keyword">Web security</span><span class="tag tag-keyword">Online fraud</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-03-29 14:20:23</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.cnn.com/2026/03/29/us/angela-lipps-ai-facial-recognition" target="_blank" rel="noopener noreferrer">Police used AI facial recognition to wrongly arrest TN woman for crimes in ND</a></h3>
+    <p class="story-summary">The incident involved the erroneous arrest of a Tennessee woman, Angela Lipps, who was wrongly implicated in crimes committed in North Dakota, solely based on a match generated by artificial intelligence facial recognition technology used by law enforcement. This case highlights critical concerns regarding the precision, reliability, and potential for error inherent in current AI-powered identification systems deployed in policing. Such wrongful identifications raise significant questions about due process, individual civil liberties, and the ethical deployment of advanced technological tools within the criminal justice system. Experts often caution that while facial recognition AI can be a powerful investigative aid, its outputs should not be treated as infallible evidence, especially given issues like algorithmic bias, varying image quality, and potential for misidentification. The incident underscores the urgent need for stringent regulatory frameworks, comprehensive auditing of AI systems used by law enforcement, and mandatory human oversight to prevent similar miscarriages of justice and ensure accountability when AI systems fail. It serves as a stark reminder of the broader societal implications when sophisticated AI technologies are integrated into sensitive domains like law enforcement without adequate safeguards.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Facial Recognition</span><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Law Enforcement</span><span class="tag tag-keyword">Wrongful Arrest</span><span class="tag tag-keyword">Algorithmic Bias</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-03-29 10:10:12</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/austin-weeks/miasma" target="_blank" rel="noopener noreferrer">Miasma: A tool to trap AI web scrapers in an endless poison pit</a></h3>
+    <p class="story-summary">Miasma is an innovative open-source tool engineered to counteract the pervasive issue of AI-driven web scraping by creating an &quot;endless poison pit.&quot; This defense mechanism is designed to trap automated AI agents, rendering their data collection efforts inefficient, resource-intensive, and potentially yielding corrupted datasets. By strategically generating misleading or infinite content, Miasma aims to consume the computational and storage resources of scrapers, making the process of illicit data extraction economically unviable. The tool serves as a proactive measure for website operators seeking to protect their digital assets and intellectual property from large-scale, automated data harvesting operations often employed in training large language models or other AI systems. Its primary objective is to disrupt and deter malicious scraping activities, thereby safeguarding content integrity and operational bandwidth against evolving AI threats. Miasma represents a growing trend in digital self-defense, offering a practical solution for webmasters to combat sophisticated AI-powered data extraction techniques.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI web scraping</span><span class="tag tag-keyword">Anti-scraping</span><span class="tag tag-keyword">Web security</span><span class="tag tag-keyword">Data poisoning</span><span class="tag tag-keyword">Bot mitigation</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>AI 辅助筛选，原始来源始终可查。</span></footer>
 </body>
 </html>

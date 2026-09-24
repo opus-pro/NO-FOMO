@@ -1,721 +1,217 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-09-04</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            border: 2px solid transparent;
-            font-size: 0.9em;
-        }
-
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-
-        .language-switch a.active {
-            background: var(--secondary-color);
-            border-color: var(--border-color);
-        }
-
-        @media (max-width: 768px) {
-            .language-switch {
-                position: static;
-                justify-content: center;
-                margin-bottom: 20px;
-            }
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2025-09-04</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="../">中文</a>
-                <a href="./" class="active">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-09-04</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../../home/en/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 Back to Homepage</a>
-            <a href="../../../daily/en/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 Latest Daily</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 About Us</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Twitter</h2>
-            
-            <article class="item-card">
-                <h2>GoogleDeepMind Releases Lightweight On-Device AI Embedding Model EmbeddingGemma</h2>
-                <span class="published-time">Published: 2025-09-04T16:09:02.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-09-04/screenshot/twitter/GoogleDeepMind_1963635422698856705.png" alt="GoogleDeepMind Releases Lightweight On-Device AI Embedding Model EmbeddingGemma">
-                <p class="summary">Google DeepMind has released its latest and leading open embedding model, EmbeddingGemma, designed specifically for on-device AI. With only 308 million parameters, this model delivers state-of-the-art performance while remaining compact and efficient. It can run without network connectivity, enabling deployment anytime, anywhere.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords: </span><span>EmbeddingGemma</span><span>Embedding Model</span><span>On-device AI</span><span>Offline Operation</span><span>Google DeepMind</span><span>Open Source Model</span></div>
-                    <div class="area"><span class="label">Areas: </span><span>Artificial Intelligence</span><span>Product Launch</span><span>Open Source Project</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/GoogleDeepMind/status/1963635422698856705" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>OpenAI_ChatGPT Adds Conversation Branching Feature</h2>
-                <span class="published-time">Published: 2025-09-04T20:13:46.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-09-04/screenshot/twitter/OpenAI_1963697012014215181.png" alt="OpenAI_ChatGPT Adds Conversation Branching Feature">
-                <p class="summary">OpenAI has announced a highly anticipated new feature for ChatGPT: conversation branching. This allows users to explore different conversational paths from a specific point without losing the original thread. It provides greater flexibility for pursuing multiple branches or conducting short side-prompt conversations without muddying the main context. The feature is now available to logged-in web users.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>OpenAI</span><span>ChatGPT</span><span>Conversation Branching</span><span>New Feature</span><span>AI Tool</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Product Launch</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/OpenAI/status/1963697012014215181" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>GroqInc_Groq's First Agentic System Compound Now Generally Available</h2>
-                <span class="published-time">Published: 2025-09-04T16:08:10.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-09-04/screenshot/twitter/GroqInc_1963635205899710798.png" alt="GroqInc_Groq's First Agentic System Compound Now Generally Available">
-                <p class="summary">Groq Inc. has officially announced that its groundbreaking first agentic system, Compound, is now generally available (GA) for all users on GroqCloud. This robust system has undergone extensive real-world validation, being battle-tested by over 100,000 developers and processing more than 5 million requests, proving its exceptional readiness for production at scale. This significant milestone underscores Groq's commitment to delivering advanced, scalable AI solutions and marks a pivotal moment in the broader commercialization of intelligent agent technology.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Groq</span><span>Agentic System</span><span>Compound</span><span>GroqCloud</span><span>General Availability</span><span>AI Production</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Product Launch</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/GroqInc/status/1963635205899710798" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>GordonWetzstein_Breakthrough in Long Video Generation: Introducing Mixture of Contexts</h2>
-                <span class="published-time">Published: 2025-09-04T12:40:55.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-09-04/screenshot/twitter/GordonWetzstein_1963583050744250879.png" alt="GordonWetzstein_Breakthrough in Long Video Generation: Introducing Mixture of Contexts">
-                <p class="summary">Gordon Wetzstein's team introduces the "Mixture of Contexts" model, designed to address the challenges of content drift and historical context forgetting in long-duration video generation. This innovative model can directly produce minute-long videos in a single pass, eliminating the need for post-processing, stitching, or editing. This development represents a significant advancement in video generation technology, enabling seamless and coherent video creation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Video Generation</span><span>Mixture of Contexts</span><span>Long Video</span><span>AI Model</span><span>Drift-free</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Video Understanding</span><span>Research Progress</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/GordonWetzstein/status/1963583050744250879" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>ZhihuFrontier_Efficient RL Training: Slime Framework Weight Sync Optimization</h2>
-                <span class="published-time">Published: 2025-09-04T09:20:03.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-09-04/screenshot/twitter/ZhihuFrontier_1963532501336695282.png" alt="ZhihuFrontier_Efficient RL Training: Slime Framework Weight Sync Optimization">
-                <p class="summary">Zhihu Frontier highly recommends a blog post detailing efficient RL training, specifically optimizing weight synchronization within the slime framework. The post explains its server-based architecture and key achievements, including slashing Qwen3-30B-A3B weight update time from 60s to 7s, and completing GLM4.5-355B-A32B FP8 blockwise quantization and parameter updates in 100s. The team continues to optimize aspects like async collect/send, async loading, and zero redundancy layout to further advance RL infrastructure.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Reinforcement Learning</span><span>AI Infrastructure</span><span>Large Language Models</span><span>Slime Framework</span><span>Weight Synchronization</span><span>Efficient Training</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Machine Learning</span><span>Large Language Model</span><span>Tech News</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/ZhihuFrontier/status/1963532501336695282" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Gradio_Gradio One-Command Deployment of MCP Servers to Google Cloud</h2>
-                <span class="published-time">Published: 2025-09-04T16:15:07.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-09-04/screenshot/twitter/Gradio_1963636954999754955.png" alt="Gradio_Gradio One-Command Deployment of MCP Servers to Google Cloud">
-                <p class="summary">Gradio has announced a new feature enabling users to deploy powerful MCP servers to Google Cloud with just a single command. This functionality includes a built-in queue for scaling up to production workloads, significantly simplifying the server deployment process and enhancing efficiency and scalability.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Gradio</span><span>Cloud Deployment</span><span>Google Cloud</span><span>Servers</span><span>Scalability</span><span>Product Launch</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Product Launch</span><span>Tech News</span><span>Open Source</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/Gradio/status/1963636954999754955" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">wechat</h2>
-
-            <article class="item-card">
-                <h2>Tsinghua IDEA's GUAVA Framework Generates Upper-Body 3D Avatars from Single Image in 0.1s, Accepted by ICCV 2025</h2>
-                <span class="published-time">Published: 2025-09-04T16:01:27.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-09-04/screenshot/wechat/wechat_image_1cMniJgVQQDGaDdaDASFTg.png" alt="Tsinghua IDEA's GUAVA Framework Generates Upper-Body 3D Avatars from Single Image in 0.1s, Accepted by ICCV 2025">
-                <p class="summary">Tsinghua University and IDEA Research Institute have jointly introduced the GUAVA framework, capable of rapidly generating realistic upper-body 3D avatars from a single image in just 0.1 seconds. This innovative framework has been accepted by ICCV 2025. GUAVA overcomes the limitations of traditional methods that rely on multi-view videos or extensive single-person training, effectively addressing challenges in identity consistency and real-time performance. It innovatively employs 3D Gaussian representation and introduces the Expressive Human Model (EHM) to capture intricate facial expressions. Combined with inverse texture mapping technology, GUAVA significantly enhances rendering quality and efficiency. Experimental results demonstrate that GUAVA surpasses existing 2D and 3D methods in terms of rendering quality, identity preservation, and real-time animation capabilities (achieving 50 FPS). This provides an efficient and high-quality solution for virtual content creation in fields such as film and gaming.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>GUAVA</span><span>3D Avatar</span><span>Single Image Generation</span><span>Real-time Rendering</span><span>3D Gaussian</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Computer Vision</span><span>Generative AI</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/1cMniJgVQQDGaDdaDASFTg" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Minute-Level Long Video Generation Ushers in a "Memory Revolution," with 7x Cost Reduction and 2.2x End-to-End Generation Speed Improvement! | Stanford & ByteDance</h2>
-                <span class="published-time">Published: 2025-09-04T16:01:27.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-09-04/screenshot/wechat/wechat_image_58lCMBPOF3JEWOnkOhGPHQ.png" alt="Minute-Level Long Video Generation Ushers in a "Memory Revolution," with 7x Cost Reduction and 2.2x End-to-End Generation Speed Improvement! | Stanford & ByteDance">
-                <p class="summary">This paper introduces Mixture of Contexts (MoC), an innovative adaptive, content-aligned context mixing layer designed for long video generation. MoC replaces the dense attention mechanism in Diffusion Transformers (DiT) to mitigate the quadratic computational cost associated with standard self-attention. By implementing a learnable routing strategy, which includes top-k selection and content-aware block partitioning, MoC achieves a remarkable reduction in FLOPs by over 7 times and boosts end-to-end generation speed by 2.2 times for extensive video sequences (e.g., 180k tokens). This enables minute-level video generation at a computational cost comparable to that of short videos. The method demonstrates improved performance, particularly in motion diversity, while preserving overall quality. MoC's ability to learn long-term dependencies directly from data facilitates scalable and controllable long video generation, marking a significant step towards emergent long-term memory capabilities in video synthesis.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Long Video Generation</span><span>Mixture of Contexts</span><span>Sparse Attention</span><span>Diffusion Models</span><span>Computational Efficiency</span><span>Memory Revolution</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Deep Learning</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/58lCMBPOF3JEWOnkOhGPHQ" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Empowering Embodied Agents with Spatial Cognition: Tsinghua and Beihang Universities Introduce Brain-Inspired Framework for Navigation, Reasoning, and Complex Tasks</h2>
-                <span class="published-time">Published: 2025-09-04T16:01:27.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-09-04/screenshot/wechat/wechat_image_gnWF2S6JhwhQGWIcDbNuWQ.png" alt="Empowering Embodied Agents with Spatial Cognition: Tsinghua and Beihang Universities Introduce Brain-Inspired Framework for Navigation, Reasoning, and Complex Tasks">
-                <p class="summary">Tsinghua University and Beihang University have jointly introduced the BSC-Nav framework, aiming to equip embodied agents with brain-inspired spatial cognition, addressing the current bottleneck of AI lacking long-term, structured memory in complex physical environments. Inspired by biological brain spatial memory mechanisms, BSC-Nav integrates Landmark Memory, Cognitive Map, and Working Memory modules with multimodal large models to construct a dynamic and continuously updated spatial memory system. Experimental results demonstrate that BSC-Nav significantly outperforms existing methods across various navigation tasks. It also exhibits robust generalization capabilities in real-world settings, enabling complex instruction understanding, active embodied question answering, and multi-step mobile manipulation tasks such as preparing breakfast. This research underscores that memory, rather than mere computational power, is crucial for the evolution of embodied intelligence from reactive behavior to proactive cognition, offering a new paradigm for the development of general artificial intelligence.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Embodied AI</span><span>Spatial Cognition</span><span>Brain-Inspired AI</span><span>Multimodal Large Models</span><span>Navigation</span><span>Memory</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Robotics</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/gnWF2S6JhwhQGWIcDbNuWQ" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Small Language Models are the Future of Agentic AI</h2>
-                <span class="published-time">Published: 2025-09-04T10:07:01.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-09-04/screenshot/wechat/wechat_image_QRegQQtn3U6cl9oYjBSy9w.png" alt="Small Language Models are the Future of Agentic AI">
-                <p class="summary">NVIDIA's latest research indicates that most Large Language Model (LLM) applications struggle with profitability and exhibit computational resource mismatch in Agentic AI systems. Their paper, "Small Language Models are the Future of Agentic AI," proposes that Small Language Models (SLMs), defined as having fewer than 10 billion parameters, are better suited as the future core of Agentic AI due to their cost-effectiveness, efficiency, and adaptability to repetitive, convergent tasks. The study reveals that SLMs are 10-30 times cheaper than LLMs in inference efficiency and are easier to fine-tune and deploy on edge devices. NVIDIA's experiments demonstrate that SLMs can reliably handle 40%-70% of query tasks within Agentic AI. The paper also outlines a six-step conversion algorithm for migrating agent systems from LLMs to SLMs, emphasizing SLMs' modularity, flexibility, and cost advantages in Agentic AI. Several high-performing SLMs are recommended.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Small Language Models</span><span>AI Agent</span><span>Large Language Models</span><span>NVIDIA</span><span>Cost-effectiveness</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/QRegQQtn3U6cl9oYjBSy9w" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Core Knowledge Deficits in Multi-Modal Language Models</h2>
-                <span class="published-time">Published: 2025-09-04T09:26:10.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-09-04/screenshot/wechat/wechat_image_qKNwEHyzF3eIE1x9A8_bvA.png" alt="Core Knowledge Deficits in Multi-Modal Language Models">
-                <p class="summary">A high-scoring ICML 2025 paper reveals significant core knowledge deficits in Multi-Modal Language Models (MLLMs), particularly in "child-level" foundational cognitive tasks such as object permanence and conservation. The research, utilizing an innovative evaluation system called CoreCognition and an "intervention test" method named Concept Hacking, systematically demonstrates that mainstream MLLMs widely lack fundamental core cognitive abilities. Crucially, this capability cannot be naturally acquired through simply scaling up model size; in some cases, larger models even exhibit worse performance. This finding poses a fundamental challenge to the current AI development paradigm, which primarily relies on scale expansion, indicating that models have not established a robust cognitive system where advanced reasoning is built upon solid foundational understanding. Future directions suggest explicitly injecting common sense knowledge, such as physics and spatial reasoning, during pre-training, or introducing cognitively-guided training mechanisms to address this core deficiency and advance AI towards general intelligence.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multi-Modal Large Models</span><span>Core Knowledge</span><span>Cognitive Deficits</span><span>Model Evaluation</span><span>Scaling Laws</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Large Language Model</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/qKNwEHyzF3eIE1x9A8_bvA" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Figure Humanoid Robot Finally Learns to Load Dishwashers</h2>
-                <span class="published-time">Published: 2025-09-04T04:38:55.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-09-04/screenshot/wechat/wechat_image_iJcKc4r62mnQV1UXU_QTxw.png" alt="Figure Humanoid Robot Finally Learns to Load Dishwashers">
-                <p class="summary">Figure's humanoid robot, Figure 02, has successfully learned to load dishwashers, building upon its previous capabilities in package sorting and towel folding. This new skill was achieved using the same versatile Helix architecture, an end-to-end "vision-language-action" (VLA) model, without requiring new algorithms or specialized engineering. Instead, the robot acquired complex abilities such as separating stacked dishes, delicately handling glassware, adapting to cluttered initial states, and recovering from grasping errors, simply by incorporating new data. This demonstrates the remarkable generality and scalability of the Helix architecture, highlighting its potential to progressively learn a wide range of new tasks through data-driven training within a single system. This achievement marks a significant stride for Figure towards realizing scalable humanoid intelligence, showcasing a unified model's ability to perform diverse household chores with human-like dexterity and adaptability.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Humanoid Robot</span><span>Figure 02</span><span>Helix Architecture</span><span>Dishwasher Loading</span><span>General Intelligence</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Robotics</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/iJcKc4r62mnQV1UXU_QTxw" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>Bytebot: Open-Source AI Desktop Agent</h2>
-                <span class="published-time">Published: 2025-09-05T00:24:02Z</span>
-                <img src="https://github.com/bytebot-ai/bytebot/raw/main/docs/images/bytebot-logo.png" alt="Bytebot: Open-Source AI Desktop Agent">
-                <p class="summary">Bytebot is an open-source AI desktop agent designed to empower AI with its own complete virtual computer, allowing it to interact with a desktop environment just like a human. This innovative agent can seamlessly utilize any application, manage files, securely log into websites, process diverse documents, and execute intricate multi-step workflows across various programs. Its architecture integrates a virtual desktop, an intelligent AI agent, a user-friendly task interface, and robust APIs. Bytebot supports leading AI providers such as Anthropic, OpenAI, and Google Gemini, and is easily deployable via Docker containers, offering unparalleled data privacy, full control, and customization for users. It is ideally suited for automating business processes, streamlining development and testing, and enhancing research and analysis tasks.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Desktop Agent</span><span>Virtual Desktop</span><span>Task Automation</span><span>AI Agent</span><span>Multi-Application Workflow</span><span>Document Processing</span><span>Docker</span><span>Open Source</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Artificial Intelligence</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/bytebot-ai/bytebot" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Fast and Flexible Multi-Agent Automation Framework</h2>
-                <span class="published-time">Published: 2025-09-04T19:32:47Z</span>
-                <img src="https://github.com/crewAIInc/crewAI/raw/main/docs/images/crewai_logo.png" alt="Fast and Flexible Multi-Agent Automation Framework">
-                <p class="summary">CrewAI is a lean, lightning-fast Python framework built for multi-AI agent orchestration, entirely independent of other frameworks like LangChain. It empowers developers to create highly autonomous yet precisely controllable AI agents through its core mechanisms: CrewAI Crews, which optimize for collaborative intelligence and autonomy, and CrewAI Flows, enabling granular, event-driven control. The framework supports enterprise-grade applications with features like real-time tracing, observability, a unified control plane, and advanced security. Designed to transform complex business processes into efficient, intelligent automations, CrewAI is backed by a robust community of over 100,000 certified developers.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multi-Agent</span><span>AI Agent</span><span>Automation Framework</span><span>Agent Orchestration</span><span>Python</span><span>Enterprise AI</span><span>Observability</span><span>Collaborative Intelligence</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/crewAIInc/crewAI" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>TensorZero</h2>
-                <span class="published-time">Published: 2025-09-04T21:57:36Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-09-04/screenshot/github/tensorzero.png" alt="TensorZero">
-                <p class="summary">TensorZero is an open-source stack engineered for industrial-grade LLM applications. It features a unified LLM gateway, enabling low-latency access to major LLM providers. The platform integrates comprehensive observability, optimization, evaluation, and experimentation capabilities. It supports collecting production metrics, incorporating human feedback, fine-tuning models, advanced prompt engineering, and A/B testing. Designed for high performance and scalability, TensorZero empowers developers to build, deploy, and continuously optimize robust LLM applications, ensuring reliability and efficiency in production environments.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>LLM Applications</span><span>LLM Gateway</span><span>Observability</span><span>Model Optimization</span><span>Prompt Engineering</span><span>A/B Testing</span><span>Open Source</span><span>LLMOps</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Artificial Intelligence</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/tensorzero/tensorzero" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Elysia: Agentic Framework Powered by Decision Trees</h2>
-                <span class="published-time">Published: 2025-09-03T10:58:24Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-09-04/screenshot/github/elysia.png" alt="Elysia: Agentic Framework Powered by Decision Trees">
-                <p class="summary">Elysia is an agentic framework powered by decision trees, designed to dynamically utilize tools based on environmental context. It supports both custom tools and pre-built integrations for efficient data retrieval from Weaviate databases. The platform offers a Python API and a web application interface, allowing users to easily configure API keys and models. Elysia is suitable for developing AI applications such as intelligent search, data analysis, and customized workflows.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Agentic Framework</span><span>Decision Trees</span><span>Tool Calling</span><span>Weaviate</span><span>Large Language Model</span><span>Artificial Intelligence</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/weaviate/elysia" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Machine Learning From Scratch</h2>
-                <span class="published-time">Published: 2019-10-18T21:42:16Z</span>
-                <img src="http://eriklindernoren.se/images/p_reg.gif" alt="Machine Learning From Scratch">
-                <p class="summary">This GitHub repository offers Python implementations of fundamental machine learning models and algorithms from scratch. Its primary goal is to transparently and accessibly illustrate their inner workings, rather than focusing on computational efficiency. The project spans various machine learning paradigms, including supervised learning, unsupervised learning, reinforcement learning, and deep learning, featuring classic algorithms like linear regression, decision trees, K-Means, GANs, and DQNs. With numerous practical examples such as polynomial regression, CNN-based image classification, DBSCAN clustering, and generative adversarial networks for handwritten digit generation, this repository serves as an excellent practical platform for learners to deeply understand core machine learning concepts.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Machine Learning</span><span>Deep Learning</span><span>Supervised Learning</span><span>Unsupervised Learning</span><span>Reinforcement Learning</span><span>Neural Networks</span><span>Algorithms</span><span>Python</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Machine Learning</span><span>Deep Learning</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/eriklindernoren/ML-From-Scratch" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>Open Data Synthesis For Deep Research</h2>
-                <span class="published-time">Published: 2025-08-30T06:02:56.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2509.00375.png" alt="Open Data Synthesis For Deep Research">
-                <p class="summary">Large language models (LLMs) are increasingly expected to go beyond simple
-factual queries toward Deep Research-tasks that require decomposing questions
-into sub-problems, coordinating multi-step reasoning, and synthesizing evidence
-from diverse sources. We formalize Deep Research tasks with verifiable answers
-as Hierarchical Constraint Satisfaction Problems (HCSPs), which are
-fundamentally different from single-constraint, multi-hop, or flat CSP
-formulations. However, existing benchmarks (e.g., Natural Questions, HotpotQA)
-fail to capture this complexity, while recent synthetic datasets often
-introduce shortcut reasoning, knowledge leakage, or lack sufficient structural
-depth. To address this gap, we introduce InfoSeek, a scalable framework for
-synthesizing complex Deep Research tasks. InfoSeek uses a dual-agent system to
-recursively build a Research Tree from large-scale webpages, blurring
-intermediate nodes into valid sub-problems, and converting these trees into
-natural language questions that require traversing the full hierarchy. It also
-enables rapid scaling, yielding over 50K training examples, a curated test set,
-and reasoning trajectories generated via reject sampling. Experiments show that
-models trained on InfoSeek consistently outperform strong baselines. On a
-challenging benchmark BrowseComp-Plus, 3B LLMs optimized with InfoSeek surpass
-much larger 32B models and lightweight commercial APIs (e.g., Gemini2.5-Flash),
-while achieving performance comparable to stronger APIs (e.g., Gemini2.5-Pro).
-By preserving meta-information such as intermediate steps and retrieval labels,
-InfoSeek further supports advanced optimization strategies, including compound
-reward design and trajectory-level exploration. We provide our codes and
-datasets in https://github.com/VectorSpaceLab/InfoSeek{this repository}.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>Deep Research</span><span>Data Synthesis</span><span>Hierarchical Constraint Satisfaction Problems</span><span>InfoSeek</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Natural Language Processing</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.00375" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Robix: A Unified Model for Robot Interaction, Reasoning and Planning</h2>
-                <span class="published-time">Published: 2025-09-01T03:53:47.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2509.01106.png" alt="Robix: A Unified Model for Robot Interaction, Reasoning and Planning">
-                <p class="summary">We introduce Robix, a unified model that integrates robot reasoning, task
-planning, and natural language interaction within a single vision-language
-architecture. Acting as the high-level cognitive layer in a hierarchical robot
-system, Robix dynamically generates atomic commands for the low-level
-controller and verbal responses for human interaction, enabling robots to
-follow complex instructions, plan long-horizon tasks, and interact naturally
-with human within an end-to-end framework. Robix further introduces novel
-capabilities such as proactive dialogue, real-time interruption handling, and
-context-aware commonsense reasoning during task execution. At its core, Robix
-leverages chain-of-thought reasoning and adopts a three-stage training
-strategy: (1) continued pretraining to enhance foundational embodied reasoning
-abilities including 3D spatial understanding, visual grounding, and
-task-centric reasoning; (2) supervised finetuning to model human-robot
-interaction and task planning as a unified reasoning-action sequence; and (3)
-reinforcement learning to improve reasoning-action consistency and long-horizon
-task coherence. Extensive experiments demonstrate that Robix outperforms both
-open-source and commercial baselines (e.g., GPT-4o and Gemini 2.5 Pro) in
-interactive task execution, demonstrating strong generalization across diverse
-instruction types (e.g., open-ended, multi-stage, constrained, invalid, and
-interrupted) and various user-involved tasks such as table bussing, grocery
-shopping, and dietary filtering.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Robotics</span><span>Unified Model</span><span>Human-Robot Interaction</span><span>Embodied AI</span><span>Chain-of-Thought</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Robotics</span><span>Multimodal</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.01106" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>LMEnt: A Suite for Analyzing Knowledge in Language Models from
-  Pretraining Data to Representations</h2>
-                <span class="published-time">Published: 2025-09-03T15:31:18.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2509.03405.png" alt="LMEnt: A Suite for Analyzing Knowledge in Language Models from
-  Pretraining Data to Representations">
-                <p class="summary">Language models (LMs) increasingly drive real-world applications that require
-world knowledge. However, the internal processes through which models turn data
-into representations of knowledge and beliefs about the world, are poorly
-understood. Insights into these processes could pave the way for developing LMs
-with knowledge representations that are more consistent, robust, and complete.
-To facilitate studying these questions, we present LMEnt, a suite for analyzing
-knowledge acquisition in LMs during pretraining. LMEnt introduces: (1) a
-knowledge-rich pretraining corpus, fully annotated with entity mentions, based
-on Wikipedia, (2) an entity-based retrieval method over pretraining data that
-outperforms previous approaches by as much as 80.4%, and (3) 12 pretrained
-models with up to 1B parameters and 4K intermediate checkpoints, with
-comparable performance to popular open-sourced models on knowledge benchmarks.
-Together, these resources provide a controlled environment for analyzing
-connections between entity mentions in pretraining and downstream performance,
-and the effects of causal interventions in pretraining data. We show the
-utility of LMEnt by studying knowledge acquisition across checkpoints, finding
-that fact frequency is key, but does not fully explain learning trends. We
-release LMEnt to support studies of knowledge in LMs, including knowledge
-representations, plasticity, editing, attribution, and learning dynamics.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Language Models</span><span>Knowledge Acquisition</span><span>Pretraining</span><span>Entity Mentions</span><span>Knowledge Representation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Natural Language Processing</span><span>Deep Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.03405" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Beyond Correctness: Harmonizing Process and Outcome Rewards through RL
-  Training</h2>
-                <span class="published-time">Published: 2025-09-03T15:28:51.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2509.03403.png" alt="Beyond Correctness: Harmonizing Process and Outcome Rewards through RL
-  Training">
-                <p class="summary">Reinforcement learning with verifiable rewards (RLVR) has emerged to be a
-predominant paradigm for mathematical reasoning tasks, offering stable
-improvements in reasoning ability. However, Outcome Reward Models (ORMs) in
-RLVR are too coarse-grained to distinguish flawed reasoning within correct
-answers or valid reasoning within incorrect answers. This lack of granularity
-introduces noisy and misleading gradients significantly and hinders further
-progress in reasoning process quality. While Process Reward Models (PRMs) offer
-fine-grained guidance for intermediate steps, they frequently suffer from
-inaccuracies and are susceptible to reward hacking.
-  To resolve this dilemma, we introduce PRocess cOnsistency Filter (PROF), an
-effective data process curation method that harmonizes noisy, fine-grained
-process rewards with accurate, coarse-grained outcome rewards. Rather than
-naively blending PRM and ORM in the objective function
-(arXiv:archive/2506.18896), PROF leverages their complementary strengths
-through consistency-driven sample selection. Our approach retains correct
-responses with higher averaged process values and incorrect responses with
-lower averaged process values, while maintaining positive/negative training
-sample balance. Extensive experiments demonstrate that our method not only
-consistently improves the final accuracy over 4% compared to the blending
-approaches, but also strengthens the quality of intermediate reasoning steps.
-Codes and training recipes are available at https://github.com/Chenluye99/PROF.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Reinforcement Learning</span><span>Process Reward Models</span><span>Outcome Reward Models</span><span>Mathematical Reasoning</span><span>Data Curation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Machine Learning</span><span>Deep Learning</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.03403" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Planning with Reasoning using Vision Language World Model</h2>
-                <span class="published-time">Published: 2025-09-02T18:18:57.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2509.02722.png" alt="Planning with Reasoning using Vision Language World Model">
-                <p class="summary">Effective planning requires strong world models, but high-level world models
-that can understand and reason about actions with semantic and temporal
-abstraction remain largely underdeveloped. We introduce the Vision Language
-World Model (VLWM), a foundation model trained for language-based world
-modeling on natural videos. Given visual observations, the VLWM first infers
-the overall goal achievements then predicts a trajectory composed of
-interleaved actions and world state changes. Those targets are extracted by
-iterative LLM Self-Refine conditioned on compressed future observations
-represented by Tree of Captions. The VLWM learns both an action policy and a
-dynamics model, which respectively facilitates reactive system-1 plan decoding
-and reflective system-2 planning via cost minimization. The cost evaluates the
-semantic distance between the hypothetical future states given by VLWM
-roll-outs and the expected goal state, and is measured by a critic model that
-we trained in a self-supervised manner. The VLWM achieves state-of-the-art
-Visual Planning for Assistance (VPA) performance on both benchmark evaluations
-and our proposed PlannerArena human evaluations, where system-2 improves the
-Elo score by +27% upon system-1. The VLWM models also outperforms strong VLM
-baselines on RoboVQA and WorldPrediction benchmark.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Vision Language World Model</span><span>Reasoning Planning</span><span>World Model</span><span>Foundation Model</span><span>Visual Planning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Large Language Model</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.02722" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>MOSAIC: Multi-Subject Personalized Generation via Correspondence-Aware
-  Alignment and Disentanglement</h2>
-                <span class="published-time">Published: 2025-09-02T05:40:07.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2509.01977.png" alt="MOSAIC: Multi-Subject Personalized Generation via Correspondence-Aware
-  Alignment and Disentanglement">
-                <p class="summary">Multi-subject personalized generation presents unique challenges in
-maintaining identity fidelity and semantic coherence when synthesizing images
-conditioned on multiple reference subjects. Existing methods often suffer from
-identity blending and attribute leakage due to inadequate modeling of how
-different subjects should interact within shared representation spaces. We
-present MOSAIC, a representation-centric framework that rethinks multi-subject
-generation through explicit semantic correspondence and orthogonal feature
-disentanglement. Our key insight is that multi-subject generation requires
-precise semantic alignment at the representation level - knowing exactly which
-regions in the generated image should attend to which parts of each reference.
-To enable this, we introduce SemAlign-MS, a meticulously annotated dataset
-providing fine-grained semantic correspondences between multiple reference
-subjects and target images, previously unavailable in this domain. Building on
-this foundation, we propose the semantic correspondence attention loss to
-enforce precise point-to-point semantic alignment, ensuring high consistency
-from each reference to its designated regions. Furthermore, we develop the
-multi-reference disentanglement loss to push different subjects into orthogonal
-attention subspaces, preventing feature interference while preserving
-individual identity characteristics. Extensive experiments demonstrate that
-MOSAIC achieves state-of-the-art performance on multiple benchmarks. Notably,
-while existing methods typically degrade beyond 3 subjects, MOSAIC maintains
-high fidelity with 4+ reference subjects, opening new possibilities for complex
-multi-subject synthesis applications.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multi-subject generation</span><span>Personalized generation</span><span>Semantic correspondence</span><span>Feature disentanglement</span><span>Identity fidelity</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Computer Vision</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.01977" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/en/" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/en/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2025-09-04</strong><span>ENGLISH EDITION</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-04T16:09:02.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/GoogleDeepMind/status/1963635422698856705" target="_blank" rel="noopener noreferrer">GoogleDeepMind Releases Lightweight On-Device AI Embedding Model EmbeddingGemma</a></h3>
+    <p class="story-summary">Google DeepMind has released its latest and leading open embedding model, EmbeddingGemma, designed specifically for on-device AI. With only 308 million parameters, this model delivers state-of-the-art performance while remaining compact and efficient. It can run without network connectivity, enabling deployment anytime, anywhere.</p>
+    <div class="story-tags"><span class="tag tag-keyword">EmbeddingGemma</span><span class="tag tag-keyword">Embedding Model</span><span class="tag tag-keyword">On-device AI</span><span class="tag tag-keyword">Offline Operation</span><span class="tag tag-keyword">Google DeepMind</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Product Launch</span><span class="tag tag-area">Open Source Project</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-04T20:13:46.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/OpenAI/status/1963697012014215181" target="_blank" rel="noopener noreferrer">OpenAI_ChatGPT Adds Conversation Branching Feature</a></h3>
+    <p class="story-summary">OpenAI has announced a highly anticipated new feature for ChatGPT: conversation branching. This allows users to explore different conversational paths from a specific point without losing the original thread. It provides greater flexibility for pursuing multiple branches or conducting short side-prompt conversations without muddying the main context. The feature is now available to logged-in web users.</p>
+    <div class="story-tags"><span class="tag tag-keyword">OpenAI</span><span class="tag tag-keyword">ChatGPT</span><span class="tag tag-keyword">Conversation Branching</span><span class="tag tag-keyword">New Feature</span><span class="tag tag-keyword">AI Tool</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Product Launch</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-04T16:08:10.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/GroqInc/status/1963635205899710798" target="_blank" rel="noopener noreferrer">GroqInc_Groq&#x27;s First Agentic System Compound Now Generally Available</a></h3>
+    <p class="story-summary">Groq Inc. has officially announced that its groundbreaking first agentic system, Compound, is now generally available (GA) for all users on GroqCloud. This robust system has undergone extensive real-world validation, being battle-tested by over 100,000 developers and processing more than 5 million requests, proving its exceptional readiness for production at scale. This significant milestone underscores Groq&#x27;s commitment to delivering advanced, scalable AI solutions and marks a pivotal moment in the broader commercialization of intelligent agent technology.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Groq</span><span class="tag tag-keyword">Agentic System</span><span class="tag tag-keyword">Compound</span><span class="tag tag-keyword">GroqCloud</span><span class="tag tag-keyword">General Availability</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Product Launch</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-04T12:40:55.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/GordonWetzstein/status/1963583050744250879" target="_blank" rel="noopener noreferrer">GordonWetzstein_Breakthrough in Long Video Generation: Introducing Mixture of Contexts</a></h3>
+    <p class="story-summary">Gordon Wetzstein&#x27;s team introduces the &quot;Mixture of Contexts&quot; model, designed to address the challenges of content drift and historical context forgetting in long-duration video generation. This innovative model can directly produce minute-long videos in a single pass, eliminating the need for post-processing, stitching, or editing. This development represents a significant advancement in video generation technology, enabling seamless and coherent video creation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Video Generation</span><span class="tag tag-keyword">Mixture of Contexts</span><span class="tag tag-keyword">Long Video</span><span class="tag tag-keyword">AI Model</span><span class="tag tag-keyword">Drift-free</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Video Understanding</span><span class="tag tag-area">Research Progress</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-09-04T09:20:03.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/ZhihuFrontier/status/1963532501336695282" target="_blank" rel="noopener noreferrer">ZhihuFrontier_Efficient RL Training: Slime Framework Weight Sync Optimization</a></h3>
+    <p class="story-summary">Zhihu Frontier highly recommends a blog post detailing efficient RL training, specifically optimizing weight synchronization within the slime framework. The post explains its server-based architecture and key achievements, including slashing Qwen3-30B-A3B weight update time from 60s to 7s, and completing GLM4.5-355B-A32B FP8 blockwise quantization and parameter updates in 100s. The team continues to optimize aspects like async collect/send, async loading, and zero redundancy layout to further advance RL infrastructure.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">AI Infrastructure</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Slime Framework</span><span class="tag tag-keyword">Weight Synchronization</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Tech News</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-09-04T16:15:07.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/Gradio/status/1963636954999754955" target="_blank" rel="noopener noreferrer">Gradio_Gradio One-Command Deployment of MCP Servers to Google Cloud</a></h3>
+    <p class="story-summary">Gradio has announced a new feature enabling users to deploy powerful MCP servers to Google Cloud with just a single command. This functionality includes a built-in queue for scaling up to production workloads, significantly simplifying the server deployment process and enhancing efficiency and scalability.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Gradio</span><span class="tag tag-keyword">Cloud Deployment</span><span class="tag tag-keyword">Google Cloud</span><span class="tag tag-keyword">Servers</span><span class="tag tag-keyword">Scalability</span><span class="tag tag-area">Product Launch</span><span class="tag tag-area">Tech News</span><span class="tag tag-area">Open Source</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>5 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-05T00:24:02Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/bytebot-ai/bytebot" target="_blank" rel="noopener noreferrer">Bytebot: Open-Source AI Desktop Agent</a></h3>
+    <p class="story-summary">Bytebot is an open-source AI desktop agent designed to empower AI with its own complete virtual computer, allowing it to interact with a desktop environment just like a human. This innovative agent can seamlessly utilize any application, manage files, securely log into websites, process diverse documents, and execute intricate multi-step workflows across various programs. Its architecture integrates a virtual desktop, an intelligent AI agent, a user-friendly task interface, and robust APIs. Bytebot supports leading AI providers such as Anthropic, OpenAI, and Google Gemini, and is easily deployable via Docker containers, offering unparalleled data privacy, full control, and customization for users. It is ideally suited for automating business processes, streamlining development and testing, and enhancing research and analysis tasks.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Desktop Agent</span><span class="tag tag-keyword">Virtual Desktop</span><span class="tag tag-keyword">Task Automation</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Multi-Application Workflow</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-04T19:32:47Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/crewAIInc/crewAI" target="_blank" rel="noopener noreferrer">Fast and Flexible Multi-Agent Automation Framework</a></h3>
+    <p class="story-summary">CrewAI is a lean, lightning-fast Python framework built for multi-AI agent orchestration, entirely independent of other frameworks like LangChain. It empowers developers to create highly autonomous yet precisely controllable AI agents through its core mechanisms: CrewAI Crews, which optimize for collaborative intelligence and autonomy, and CrewAI Flows, enabling granular, event-driven control. The framework supports enterprise-grade applications with features like real-time tracing, observability, a unified control plane, and advanced security. Designed to transform complex business processes into efficient, intelligent automations, CrewAI is backed by a robust community of over 100,000 certified developers.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multi-Agent</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Automation Framework</span><span class="tag tag-keyword">Agent Orchestration</span><span class="tag tag-keyword">Python</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-04T21:57:36Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/tensorzero/tensorzero" target="_blank" rel="noopener noreferrer">TensorZero</a></h3>
+    <p class="story-summary">TensorZero is an open-source stack engineered for industrial-grade LLM applications. It features a unified LLM gateway, enabling low-latency access to major LLM providers. The platform integrates comprehensive observability, optimization, evaluation, and experimentation capabilities. It supports collecting production metrics, incorporating human feedback, fine-tuning models, advanced prompt engineering, and A/B testing. Designed for high performance and scalability, TensorZero empowers developers to build, deploy, and continuously optimize robust LLM applications, ensuring reliability and efficiency in production environments.</p>
+    <div class="story-tags"><span class="tag tag-keyword">LLM Applications</span><span class="tag tag-keyword">LLM Gateway</span><span class="tag tag-keyword">Observability</span><span class="tag tag-keyword">Model Optimization</span><span class="tag tag-keyword">Prompt Engineering</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-03T10:58:24Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/weaviate/elysia" target="_blank" rel="noopener noreferrer">Elysia: Agentic Framework Powered by Decision Trees</a></h3>
+    <p class="story-summary">Elysia is an agentic framework powered by decision trees, designed to dynamically utilize tools based on environmental context. It supports both custom tools and pre-built integrations for efficient data retrieval from Weaviate databases. The platform offers a Python API and a web application interface, allowing users to easily configure API keys and models. Elysia is suitable for developing AI applications such as intelligent search, data analysis, and customized workflows.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agentic Framework</span><span class="tag tag-keyword">Decision Trees</span><span class="tag tag-keyword">Tool Calling</span><span class="tag tag-keyword">Weaviate</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2019-10-18T21:42:16Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/eriklindernoren/ML-From-Scratch" target="_blank" rel="noopener noreferrer">Machine Learning From Scratch</a></h3>
+    <p class="story-summary">This GitHub repository offers Python implementations of fundamental machine learning models and algorithms from scratch. Its primary goal is to transparently and accessibly illustrate their inner workings, rather than focusing on computational efficiency. The project spans various machine learning paradigms, including supervised learning, unsupervised learning, reinforcement learning, and deep learning, featuring classic algorithms like linear regression, decision trees, K-Means, GANs, and DQNs. With numerous practical examples such as polynomial regression, CNN-based image classification, DBSCAN clustering, and generative adversarial networks for handwritten digit generation, this repository serves as an excellent practical platform for learners to deeply understand core machine learning concepts.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Machine Learning</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-keyword">Supervised Learning</span><span class="tag tag-keyword">Unsupervised Learning</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> wechat</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-04T16:01:27.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/1cMniJgVQQDGaDdaDASFTg" target="_blank" rel="noopener noreferrer">Tsinghua IDEA&#x27;s GUAVA Framework Generates Upper-Body 3D Avatars from Single Image in 0.1s, Accepted by ICCV 2025</a></h3>
+    <p class="story-summary">Tsinghua University and IDEA Research Institute have jointly introduced the GUAVA framework, capable of rapidly generating realistic upper-body 3D avatars from a single image in just 0.1 seconds. This innovative framework has been accepted by ICCV 2025. GUAVA overcomes the limitations of traditional methods that rely on multi-view videos or extensive single-person training, effectively addressing challenges in identity consistency and real-time performance. It innovatively employs 3D Gaussian representation and introduces the Expressive Human Model (EHM) to capture intricate facial expressions. Combined with inverse texture mapping technology, GUAVA significantly enhances rendering quality and efficiency. Experimental results demonstrate that GUAVA surpasses existing 2D and 3D methods in terms of rendering quality, identity preservation, and real-time animation capabilities (achieving 50 FPS). This provides an efficient and high-quality solution for virtual content creation in fields such as film and gaming.</p>
+    <div class="story-tags"><span class="tag tag-keyword">GUAVA</span><span class="tag tag-keyword">3D Avatar</span><span class="tag tag-keyword">Single Image Generation</span><span class="tag tag-keyword">Real-time Rendering</span><span class="tag tag-keyword">3D Gaussian</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-04T16:01:27.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/58lCMBPOF3JEWOnkOhGPHQ" target="_blank" rel="noopener noreferrer">Minute-Level Long Video Generation Ushers in a &quot;Memory Revolution,&quot; with 7x Cost Reduction and 2.2x End-to-End Generation Speed Improvement! | Stanford &amp; ByteDance</a></h3>
+    <p class="story-summary">This paper introduces Mixture of Contexts (MoC), an innovative adaptive, content-aligned context mixing layer designed for long video generation. MoC replaces the dense attention mechanism in Diffusion Transformers (DiT) to mitigate the quadratic computational cost associated with standard self-attention. By implementing a learnable routing strategy, which includes top-k selection and content-aware block partitioning, MoC achieves a remarkable reduction in FLOPs by over 7 times and boosts end-to-end generation speed by 2.2 times for extensive video sequences (e.g., 180k tokens). This enables minute-level video generation at a computational cost comparable to that of short videos. The method demonstrates improved performance, particularly in motion diversity, while preserving overall quality. MoC&#x27;s ability to learn long-term dependencies directly from data facilitates scalable and controllable long video generation, marking a significant step towards emergent long-term memory capabilities in video synthesis.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Long Video Generation</span><span class="tag tag-keyword">Mixture of Contexts</span><span class="tag tag-keyword">Sparse Attention</span><span class="tag tag-keyword">Diffusion Models</span><span class="tag tag-keyword">Computational Efficiency</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-04T16:01:27.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/gnWF2S6JhwhQGWIcDbNuWQ" target="_blank" rel="noopener noreferrer">Empowering Embodied Agents with Spatial Cognition: Tsinghua and Beihang Universities Introduce Brain-Inspired Framework for Navigation, Reasoning, and Complex Tasks</a></h3>
+    <p class="story-summary">Tsinghua University and Beihang University have jointly introduced the BSC-Nav framework, aiming to equip embodied agents with brain-inspired spatial cognition, addressing the current bottleneck of AI lacking long-term, structured memory in complex physical environments. Inspired by biological brain spatial memory mechanisms, BSC-Nav integrates Landmark Memory, Cognitive Map, and Working Memory modules with multimodal large models to construct a dynamic and continuously updated spatial memory system. Experimental results demonstrate that BSC-Nav significantly outperforms existing methods across various navigation tasks. It also exhibits robust generalization capabilities in real-world settings, enabling complex instruction understanding, active embodied question answering, and multi-step mobile manipulation tasks such as preparing breakfast. This research underscores that memory, rather than mere computational power, is crucial for the evolution of embodied intelligence from reactive behavior to proactive cognition, offering a new paradigm for the development of general artificial intelligence.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Embodied AI</span><span class="tag tag-keyword">Spatial Cognition</span><span class="tag tag-keyword">Brain-Inspired AI</span><span class="tag tag-keyword">Multimodal Large Models</span><span class="tag tag-keyword">Navigation</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Robotics</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-04T10:07:01.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/QRegQQtn3U6cl9oYjBSy9w" target="_blank" rel="noopener noreferrer">Small Language Models are the Future of Agentic AI</a></h3>
+    <p class="story-summary">NVIDIA&#x27;s latest research indicates that most Large Language Model (LLM) applications struggle with profitability and exhibit computational resource mismatch in Agentic AI systems. Their paper, &quot;Small Language Models are the Future of Agentic AI,&quot; proposes that Small Language Models (SLMs), defined as having fewer than 10 billion parameters, are better suited as the future core of Agentic AI due to their cost-effectiveness, efficiency, and adaptability to repetitive, convergent tasks. The study reveals that SLMs are 10-30 times cheaper than LLMs in inference efficiency and are easier to fine-tune and deploy on edge devices. NVIDIA&#x27;s experiments demonstrate that SLMs can reliably handle 40%-70% of query tasks within Agentic AI. The paper also outlines a six-step conversion algorithm for migrating agent systems from LLMs to SLMs, emphasizing SLMs&#x27; modularity, flexibility, and cost advantages in Agentic AI. Several high-performing SLMs are recommended.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Small Language Models</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">NVIDIA</span><span class="tag tag-keyword">Cost-effectiveness</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-09-04T09:26:10.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/qKNwEHyzF3eIE1x9A8_bvA" target="_blank" rel="noopener noreferrer">Core Knowledge Deficits in Multi-Modal Language Models</a></h3>
+    <p class="story-summary">A high-scoring ICML 2025 paper reveals significant core knowledge deficits in Multi-Modal Language Models (MLLMs), particularly in &quot;child-level&quot; foundational cognitive tasks such as object permanence and conservation. The research, utilizing an innovative evaluation system called CoreCognition and an &quot;intervention test&quot; method named Concept Hacking, systematically demonstrates that mainstream MLLMs widely lack fundamental core cognitive abilities. Crucially, this capability cannot be naturally acquired through simply scaling up model size; in some cases, larger models even exhibit worse performance. This finding poses a fundamental challenge to the current AI development paradigm, which primarily relies on scale expansion, indicating that models have not established a robust cognitive system where advanced reasoning is built upon solid foundational understanding. Future directions suggest explicitly injecting common sense knowledge, such as physics and spatial reasoning, during pre-training, or introducing cognitively-guided training mechanisms to address this core deficiency and advance AI towards general intelligence.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multi-Modal Large Models</span><span class="tag tag-keyword">Core Knowledge</span><span class="tag tag-keyword">Cognitive Deficits</span><span class="tag tag-keyword">Model Evaluation</span><span class="tag tag-keyword">Scaling Laws</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-09-04T04:38:55.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/iJcKc4r62mnQV1UXU_QTxw" target="_blank" rel="noopener noreferrer">Figure Humanoid Robot Finally Learns to Load Dishwashers</a></h3>
+    <p class="story-summary">Figure&#x27;s humanoid robot, Figure 02, has successfully learned to load dishwashers, building upon its previous capabilities in package sorting and towel folding. This new skill was achieved using the same versatile Helix architecture, an end-to-end &quot;vision-language-action&quot; (VLA) model, without requiring new algorithms or specialized engineering. Instead, the robot acquired complex abilities such as separating stacked dishes, delicately handling glassware, adapting to cluttered initial states, and recovering from grasping errors, simply by incorporating new data. This demonstrates the remarkable generality and scalability of the Helix architecture, highlighting its potential to progressively learn a wide range of new tasks through data-driven training within a single system. This achievement marks a significant stride for Figure towards realizing scalable humanoid intelligence, showcasing a unified model&#x27;s ability to perform diverse household chores with human-like dexterity and adaptability.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Humanoid Robot</span><span class="tag tag-keyword">Figure 02</span><span class="tag tag-keyword">Helix Architecture</span><span class="tag tag-keyword">Dishwasher Loading</span><span class="tag tag-keyword">General Intelligence</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Robotics</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-08-30T06:02:56.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.00375" target="_blank" rel="noopener noreferrer">Open Data Synthesis For Deep Research</a></h3>
+    <p class="story-summary">Large language models (LLMs) are increasingly expected to go beyond simple factual queries toward Deep Research-tasks that require decomposing questions into sub-problems, coordinating multi-step reasoning, and synthesizing evidence from diverse sources. We formalize Deep Research tasks with verifiable answers as Hierarchical Constraint Satisfaction Problems (HCSPs), which are fundamentally different from single-constraint, multi-hop, or flat CSP formulations. However, existing benchmarks (e.g., Natural Questions, HotpotQA) fail to capture this complexity, while recent synthetic datasets often introduce shortcut reasoning, knowledge leakage, or lack sufficient structural depth. To address this gap, we introduce InfoSeek, a scalable framework for synthesizing complex Deep Research tasks. InfoSeek uses a dual-agent system to recursively build a Research Tree from large-scale webpages, blurring intermediate nodes into valid sub-problems, and converting these trees into natural language questions that require traversing the full hierarchy. It also enables rapid scaling, yielding over 50K training examples, a curated test set, and reasoning trajectories generated via reject sampling. Experiments show that models trained on InfoSeek consistently outperform strong baselines. On a challenging benchmark BrowseComp-Plus, 3B LLMs optimized with InfoSeek surpass much larger 32B models and lightweight commercial APIs (e.g., Gemini2.5-Flash), while achieving performance comparable to stronger APIs (e.g., Gemini2.5-Pro). By preserving meta-information such as intermediate steps and retrieval labels, InfoSeek further supports advanced optimization strategies, including compound reward design and trajectory-level exploration. We provide our codes and datasets in https://github.com/VectorSpaceLab/InfoSeek{this repository}.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Deep Research</span><span class="tag tag-keyword">Data Synthesis</span><span class="tag tag-keyword">Hierarchical Constraint Satisfaction Problems</span><span class="tag tag-keyword">InfoSeek</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-01T03:53:47.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.01106" target="_blank" rel="noopener noreferrer">Robix: A Unified Model for Robot Interaction, Reasoning and Planning</a></h3>
+    <p class="story-summary">We introduce Robix, a unified model that integrates robot reasoning, task planning, and natural language interaction within a single vision-language architecture. Acting as the high-level cognitive layer in a hierarchical robot system, Robix dynamically generates atomic commands for the low-level controller and verbal responses for human interaction, enabling robots to follow complex instructions, plan long-horizon tasks, and interact naturally with human within an end-to-end framework. Robix further introduces novel capabilities such as proactive dialogue, real-time interruption handling, and context-aware commonsense reasoning during task execution. At its core, Robix leverages chain-of-thought reasoning and adopts a three-stage training strategy: (1) continued pretraining to enhance foundational embodied reasoning abilities including 3D spatial understanding, visual grounding, and task-centric reasoning; (2) supervised finetuning to model human-robot interaction and task planning as a unified reasoning-action sequence; and (3) reinforcement learning to improve reasoning-action consistency and long-horizon task coherence. Extensive experiments demonstrate that Robix outperforms both open-source and commercial baselines (e.g., GPT-4o and Gemini 2.5 Pro) in interactive task execution, demonstrating strong generalization across diverse instruction types (e.g., open-ended, multi-stage, constrained, invalid, and interrupted) and various user-involved tasks such as table bussing, grocery shopping, and dietary filtering.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Robotics</span><span class="tag tag-keyword">Unified Model</span><span class="tag tag-keyword">Human-Robot Interaction</span><span class="tag tag-keyword">Embodied AI</span><span class="tag tag-keyword">Chain-of-Thought</span><span class="tag tag-area">Robotics</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-03T15:31:18.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.03405" target="_blank" rel="noopener noreferrer">LMEnt: A Suite for Analyzing Knowledge in Language Models from Pretraining Data to Representations</a></h3>
+    <p class="story-summary">Language models (LMs) increasingly drive real-world applications that require world knowledge. However, the internal processes through which models turn data into representations of knowledge and beliefs about the world, are poorly understood. Insights into these processes could pave the way for developing LMs with knowledge representations that are more consistent, robust, and complete. To facilitate studying these questions, we present LMEnt, a suite for analyzing knowledge acquisition in LMs during pretraining. LMEnt introduces: (1) a knowledge-rich pretraining corpus, fully annotated with entity mentions, based on Wikipedia, (2) an entity-based retrieval method over pretraining data that outperforms previous approaches by as much as 80.4%, and (3) 12 pretrained models with up to 1B parameters and 4K intermediate checkpoints, with comparable performance to popular open-sourced models on knowledge benchmarks. Together, these resources provide a controlled environment for analyzing connections between entity mentions in pretraining and downstream performance, and the effects of causal interventions in pretraining data. We show the utility of LMEnt by studying knowledge acquisition across checkpoints, finding that fact frequency is key, but does not fully explain learning trends. We release LMEnt to support studies of knowledge in LMs, including knowledge representations, plasticity, editing, attribution, and learning dynamics.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Language Models</span><span class="tag tag-keyword">Knowledge Acquisition</span><span class="tag tag-keyword">Pretraining</span><span class="tag tag-keyword">Entity Mentions</span><span class="tag tag-keyword">Knowledge Representation</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-03T15:28:51.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.03403" target="_blank" rel="noopener noreferrer">Beyond Correctness: Harmonizing Process and Outcome Rewards through RL Training</a></h3>
+    <p class="story-summary">Reinforcement learning with verifiable rewards (RLVR) has emerged to be a predominant paradigm for mathematical reasoning tasks, offering stable improvements in reasoning ability. However, Outcome Reward Models (ORMs) in RLVR are too coarse-grained to distinguish flawed reasoning within correct answers or valid reasoning within incorrect answers. This lack of granularity introduces noisy and misleading gradients significantly and hinders further progress in reasoning process quality. While Process Reward Models (PRMs) offer fine-grained guidance for intermediate steps, they frequently suffer from inaccuracies and are susceptible to reward hacking. To resolve this dilemma, we introduce PRocess cOnsistency Filter (PROF), an effective data process curation method that harmonizes noisy, fine-grained process rewards with accurate, coarse-grained outcome rewards. Rather than naively blending PRM and ORM in the objective function (arXiv:archive/2506.18896), PROF leverages their complementary strengths through consistency-driven sample selection. Our approach retains correct responses with higher averaged process values and incorrect responses with lower averaged process values, while maintaining positive/negative training sample balance. Extensive experiments demonstrate that our method not only consistently improves the final accuracy over 4% compared to the blending approaches, but also strengthens the quality of intermediate reasoning steps. Codes and training recipes are available at https://github.com/Chenluye99/PROF.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Process Reward Models</span><span class="tag tag-keyword">Outcome Reward Models</span><span class="tag tag-keyword">Mathematical Reasoning</span><span class="tag tag-keyword">Data Curation</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-09-02T18:18:57.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.02722" target="_blank" rel="noopener noreferrer">Planning with Reasoning using Vision Language World Model</a></h3>
+    <p class="story-summary">Effective planning requires strong world models, but high-level world models that can understand and reason about actions with semantic and temporal abstraction remain largely underdeveloped. We introduce the Vision Language World Model (VLWM), a foundation model trained for language-based world modeling on natural videos. Given visual observations, the VLWM first infers the overall goal achievements then predicts a trajectory composed of interleaved actions and world state changes. Those targets are extracted by iterative LLM Self-Refine conditioned on compressed future observations represented by Tree of Captions. The VLWM learns both an action policy and a dynamics model, which respectively facilitates reactive system-1 plan decoding and reflective system-2 planning via cost minimization. The cost evaluates the semantic distance between the hypothetical future states given by VLWM roll-outs and the expected goal state, and is measured by a critic model that we trained in a self-supervised manner. The VLWM achieves state-of-the-art Visual Planning for Assistance (VPA) performance on both benchmark evaluations and our proposed PlannerArena human evaluations, where system-2 improves the Elo score by +27% upon system-1. The VLWM models also outperforms strong VLM baselines on RoboVQA and WorldPrediction benchmark.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Vision Language World Model</span><span class="tag tag-keyword">Reasoning Planning</span><span class="tag tag-keyword">World Model</span><span class="tag tag-keyword">Foundation Model</span><span class="tag tag-keyword">Visual Planning</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-09-02T05:40:07.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.01977" target="_blank" rel="noopener noreferrer">MOSAIC: Multi-Subject Personalized Generation via Correspondence-Aware Alignment and Disentanglement</a></h3>
+    <p class="story-summary">Multi-subject personalized generation presents unique challenges in maintaining identity fidelity and semantic coherence when synthesizing images conditioned on multiple reference subjects. Existing methods often suffer from identity blending and attribute leakage due to inadequate modeling of how different subjects should interact within shared representation spaces. We present MOSAIC, a representation-centric framework that rethinks multi-subject generation through explicit semantic correspondence and orthogonal feature disentanglement. Our key insight is that multi-subject generation requires precise semantic alignment at the representation level - knowing exactly which regions in the generated image should attend to which parts of each reference. To enable this, we introduce SemAlign-MS, a meticulously annotated dataset providing fine-grained semantic correspondences between multiple reference subjects and target images, previously unavailable in this domain. Building on this foundation, we propose the semantic correspondence attention loss to enforce precise point-to-point semantic alignment, ensuring high consistency from each reference to its designated regions. Furthermore, we develop the multi-reference disentanglement loss to push different subjects into orthogonal attention subspaces, preventing feature interference while preserving individual identity characteristics. Extensive experiments demonstrate that MOSAIC achieves state-of-the-art performance on multiple benchmarks. Notably, while existing methods typically degrade beyond 3 subjects, MOSAIC maintains high fidelity with 4+ reference subjects, opening new possibilities for complex multi-subject synthesis applications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multi-subject generation</span><span class="tag tag-keyword">Personalized generation</span><span class="tag tag-keyword">Semantic correspondence</span><span class="tag tag-keyword">Feature disentanglement</span><span class="tag tag-keyword">Identity fidelity</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
 </body>
 </html>

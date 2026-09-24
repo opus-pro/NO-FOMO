@@ -1,334 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2026-04-11</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2026-04-11</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="." class="active">中文</a>
-                <a href="en/" class="">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2026-04-11</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../home/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 返回主页</a>
-            <a href="../../daily/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 最新日报</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 关于我们</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Small models also found the vulnerabilities that Mythos found</h2>
-                <span class="published-time">Published: 2026-04-11 16:47:28</span>
-                
-                <p class="summary">A recent analysis, prompted by discussions around advanced AI systems like Mythos in cybersecurity, highlights the unexpected efficacy of smaller AI models in identifying critical vulnerabilities. Contrary to the common assumption that only large, complex models can deliver high-performance security analysis, research indicates that more compact and resource-efficient AI models are capable of detecting vulnerabilities with comparable accuracy to their larger counterparts. This finding is significant for the field of AI cybersecurity, suggesting a "jagged frontier" where innovation isn't solely driven by model size but also by strategic application and design. The implication is that organizations might not need to invest in prohibitively large AI systems for robust vulnerability assessment, potentially democratizing access to advanced cybersecurity tools and enabling more agile and cost-effective security strategies. This paradigm shift could lead to broader adoption of AI in security operations, fostering a more resilient digital landscape by making sophisticated threat detection accessible to a wider range of entities.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Cybersecurity</span><span>Vulnerability Detection</span><span>Small AI Models</span><span>Mythos</span><span>Machine Learning</span><span>Security Research</span><span>AI Models</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://aisle.com/blog/ai-cybersecurity-after-mythos-the-jagged-frontier" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>How We Broke Top AI Agent Benchmarks: And What Comes Next</h2>
-                <span class="published-time">Published: 2026-04-11 19:15:56</span>
-                
-                <p class="summary">A recent report from RDI Berkeley details a significant breakthrough in AI agent evaluation, outlining the methodologies employed to surpass established top AI agent benchmarks. The research highlights critical vulnerabilities or limitations within existing evaluation frameworks, demonstrating how targeted strategies can lead to inflated performance metrics. This work underscores the ongoing challenge of creating robust and trustworthy benchmarks that accurately reflect an AI agent's true capabilities rather than its ability to exploit evaluation quirks. The authors discuss the specific techniques utilized to achieve these results and elaborate on the broader implications for the development and deployment of AI agents. Furthermore, the report delves into the proposed next steps for the research community, advocating for the urgent need to evolve current benchmarking practices towards more resilient and representative assessment tools to foster genuine progress in AI agent research and development, ensuring that advancements are meaningful and reliable.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agents</span><span>Benchmarks</span><span>AI Evaluation</span><span>Performance Metrics</span><span>Trustworthy AI</span><span>Research Breakthrough</span><span>AI Development</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Artificial Intelligence</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://rdi.berkeley.edu/blog/trustworthy-benchmarks-cont/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Cirrus Labs to join OpenAI</h2>
-                <span class="published-time">Published: 2026-04-11 13:01:34</span>
-                
-                <p class="summary">Cirrus Labs, a company highly regarded for its robust continuous integration and continuous delivery (CI/CD) solutions, particularly tailored for cloud-native and macOS development environments, has announced its integration with OpenAI. This strategic development highlights OpenAI's proactive approach to fortifying its core engineering infrastructure and optimizing its sophisticated AI research and development workflows. The incorporation of Cirrus Labs' specialized knowledge in automating software delivery, along with its MLOps capabilities, is anticipated to significantly enhance the speed and reliability of deploying and iterating on OpenAI's cutting-edge artificial intelligence models, including large language models and advanced generative AI systems. This collaboration is poised to streamline the entire lifecycle of AI model development, from experimentation to production. The move underscores the critical role of scalable and efficient operational foundations in sustaining rapid innovation within the competitive and fast-evolving artificial intelligence domain, thereby enabling OpenAI to accelerate its ambitious goals in advancing safe and beneficial AI technologies.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>CI/CD</span><span>DevOps</span><span>MLOps</span><span>Cloud Infrastructure</span><span>AI Development</span><span>Software Engineering</span><span>AI Research</span><span>Large Language Models</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://cirruslabs.org/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Artemis II safely splashes down</h2>
-                <span class="published-time">Published: 2026-04-11 00:10:51</span>
-                
-                <p class="summary">The Artemis II mission has successfully concluded with the safe splashdown of its uncrewed Orion spacecraft, marking a pivotal achievement for NASA's lunar exploration program. This test flight, which orbited the Moon without a human crew, was designed to thoroughly evaluate the Orion capsule's critical systems, including its life support, navigation, and heat shield capabilities, under deep-space conditions. The flawless re-entry and recovery in the Pacific Ocean provide invaluable data, confirming the spacecraft's readiness and resilience for future crewed expeditions. Engineers will meticulously analyze the telemetry and physical condition of the recovered capsule to inform design refinements and operational procedures for subsequent missions. The success of Artemis II is a significant step forward, directly enabling the planned Artemis III mission, which aims to return astronauts to the lunar surface, and ultimately establish a sustainable human presence on and around the Moon. This mission's completion reinforces the international collaboration and technological advancements essential for deep-space human exploration.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Artemis program</span><span>Orion spacecraft</span><span>Space robotics</span><span>Autonomous navigation</span><span>Mission data analysis</span><span>Lunar exploration</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Robotics</span><span>Artificial Intelligence</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.cbsnews.com/live-updates/artemis-ii-splashdown-return/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Borges' cartographers and the tacit skill of reading LM output</h2>
-                <span class="published-time">Published: 2026-04-11 13:06:34</span>
-                
-                <p class="summary">The article explores the complex challenge of interpreting outputs generated by large language models (LLMs), drawing a compelling analogy to Jorge Luis Borges' fictional cartographers who created a map as vast as the empire itself. This comparison highlights the potential for LLM outputs to be overwhelmingly comprehensive yet difficult to navigate or extract practical insights from without a specialized, often tacit, human skill. It posits that effectively leveraging LLMs requires more than just generating text; it necessitates an intuitive understanding and nuanced ability to discern relevant information, identify patterns, and filter noise from the vast datasets produced. Furthermore, it suggests that developing this 'tacit skill' is crucial for practitioners and researchers alike. The discussion underscores the critical role of human expertise in evaluating, contextualizing, and applying LLM-generated content, emphasizing that the subtle art of reading these outputs is paramount for transforming raw data into actionable intelligence and avoiding the pitfalls of information overload and misinterpretation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>AI Interpretation</span><span>Tacit Knowledge</span><span>Human-AI Interaction</span><span>Output Analysis</span><span>Information Overload</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://galsapir.github.io/sparse-thoughts/2026/04/11/map-and-territory/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Now is the best time to write code by hand</h2>
-                <span class="published-time">Published: 2026-04-11 11:24:41</span>
-                
-                <p class="summary">In an era increasingly dominated by advanced AI-powered code generation tools and programming assistants, the argument is made that cultivating the discipline of writing code by hand has never been more vital. The core premise posits that while AI can accelerate development, a deep understanding of underlying programming paradigms, algorithms, and data structures is paramount for developers. Manually crafting code fosters critical thinking, enhances debugging capabilities, and strengthens the foundational knowledge necessary to effectively utilize, audit, and debug AI-generated code. This approach ensures developers maintain mastery over their craft, preventing over-reliance on automated systems that may produce suboptimal or insecure solutions. By prioritizing hands-on coding, practitioners cultivate a more robust problem-solving mindset, crucial for tackling complex challenges and innovating beyond the current capabilities of artificial intelligence. The article implicitly suggests that this foundational skill set becomes a differentiator and an essential safeguard against the potential pitfalls of blindly accepting AI outputs.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Programming fundamentals</span><span>Manual coding</span><span>Software development</span><span>Developer skills</span><span>Coding education</span><span>AI influence on programming</span><span>Algorithmic thinking</span><span>Code quality</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>AI Agent</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://sitebloom.ch/writing/now-is-the-best-time-to-write-code-by-hand/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../">Archive</a><a href="cn/">中文</a><a href="en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-04-11</strong><span>DEFAULT EDITION</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-04-11 16:47:28</time></div>
+  <div class="story-body">
+    <h3><a href="https://aisle.com/blog/ai-cybersecurity-after-mythos-the-jagged-frontier" target="_blank" rel="noopener noreferrer">Small models also found the vulnerabilities that Mythos found</a></h3>
+    <p class="story-summary">A recent analysis, prompted by discussions around advanced AI systems like Mythos in cybersecurity, highlights the unexpected efficacy of smaller AI models in identifying critical vulnerabilities. Contrary to the common assumption that only large, complex models can deliver high-performance security analysis, research indicates that more compact and resource-efficient AI models are capable of detecting vulnerabilities with comparable accuracy to their larger counterparts. This finding is significant for the field of AI cybersecurity, suggesting a &quot;jagged frontier&quot; where innovation isn&#x27;t solely driven by model size but also by strategic application and design. The implication is that organizations might not need to invest in prohibitively large AI systems for robust vulnerability assessment, potentially democratizing access to advanced cybersecurity tools and enabling more agile and cost-effective security strategies. This paradigm shift could lead to broader adoption of AI in security operations, fostering a more resilient digital landscape by making sophisticated threat detection accessible to a wider range of entities.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Cybersecurity</span><span class="tag tag-keyword">Vulnerability Detection</span><span class="tag tag-keyword">Small AI Models</span><span class="tag tag-keyword">Mythos</span><span class="tag tag-keyword">Machine Learning</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-04-11 19:15:56</time></div>
+  <div class="story-body">
+    <h3><a href="https://rdi.berkeley.edu/blog/trustworthy-benchmarks-cont/" target="_blank" rel="noopener noreferrer">How We Broke Top AI Agent Benchmarks: And What Comes Next</a></h3>
+    <p class="story-summary">A recent report from RDI Berkeley details a significant breakthrough in AI agent evaluation, outlining the methodologies employed to surpass established top AI agent benchmarks. The research highlights critical vulnerabilities or limitations within existing evaluation frameworks, demonstrating how targeted strategies can lead to inflated performance metrics. This work underscores the ongoing challenge of creating robust and trustworthy benchmarks that accurately reflect an AI agent&#x27;s true capabilities rather than its ability to exploit evaluation quirks. The authors discuss the specific techniques utilized to achieve these results and elaborate on the broader implications for the development and deployment of AI agents. Furthermore, the report delves into the proposed next steps for the research community, advocating for the urgent need to evolve current benchmarking practices towards more resilient and representative assessment tools to foster genuine progress in AI agent research and development, ensuring that advancements are meaningful and reliable.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Benchmarks</span><span class="tag tag-keyword">AI Evaluation</span><span class="tag tag-keyword">Performance Metrics</span><span class="tag tag-keyword">Trustworthy AI</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-04-11 13:01:34</time></div>
+  <div class="story-body">
+    <h3><a href="https://cirruslabs.org/" target="_blank" rel="noopener noreferrer">Cirrus Labs to join OpenAI</a></h3>
+    <p class="story-summary">Cirrus Labs, a company highly regarded for its robust continuous integration and continuous delivery (CI/CD) solutions, particularly tailored for cloud-native and macOS development environments, has announced its integration with OpenAI. This strategic development highlights OpenAI&#x27;s proactive approach to fortifying its core engineering infrastructure and optimizing its sophisticated AI research and development workflows. The incorporation of Cirrus Labs&#x27; specialized knowledge in automating software delivery, along with its MLOps capabilities, is anticipated to significantly enhance the speed and reliability of deploying and iterating on OpenAI&#x27;s cutting-edge artificial intelligence models, including large language models and advanced generative AI systems. This collaboration is poised to streamline the entire lifecycle of AI model development, from experimentation to production. The move underscores the critical role of scalable and efficient operational foundations in sustaining rapid innovation within the competitive and fast-evolving artificial intelligence domain, thereby enabling OpenAI to accelerate its ambitious goals in advancing safe and beneficial AI technologies.</p>
+    <div class="story-tags"><span class="tag tag-keyword">CI/CD</span><span class="tag tag-keyword">DevOps</span><span class="tag tag-keyword">MLOps</span><span class="tag tag-keyword">Cloud Infrastructure</span><span class="tag tag-keyword">AI Development</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-04-11 00:10:51</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.cbsnews.com/live-updates/artemis-ii-splashdown-return/" target="_blank" rel="noopener noreferrer">Artemis II safely splashes down</a></h3>
+    <p class="story-summary">The Artemis II mission has successfully concluded with the safe splashdown of its uncrewed Orion spacecraft, marking a pivotal achievement for NASA&#x27;s lunar exploration program. This test flight, which orbited the Moon without a human crew, was designed to thoroughly evaluate the Orion capsule&#x27;s critical systems, including its life support, navigation, and heat shield capabilities, under deep-space conditions. The flawless re-entry and recovery in the Pacific Ocean provide invaluable data, confirming the spacecraft&#x27;s readiness and resilience for future crewed expeditions. Engineers will meticulously analyze the telemetry and physical condition of the recovered capsule to inform design refinements and operational procedures for subsequent missions. The success of Artemis II is a significant step forward, directly enabling the planned Artemis III mission, which aims to return astronauts to the lunar surface, and ultimately establish a sustainable human presence on and around the Moon. This mission&#x27;s completion reinforces the international collaboration and technological advancements essential for deep-space human exploration.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Artemis program</span><span class="tag tag-keyword">Orion spacecraft</span><span class="tag tag-keyword">Space robotics</span><span class="tag tag-keyword">Autonomous navigation</span><span class="tag tag-keyword">Mission data analysis</span><span class="tag tag-area">Robotics</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-04-11 13:06:34</time></div>
+  <div class="story-body">
+    <h3><a href="https://galsapir.github.io/sparse-thoughts/2026/04/11/map-and-territory/" target="_blank" rel="noopener noreferrer">Borges&#x27; cartographers and the tacit skill of reading LM output</a></h3>
+    <p class="story-summary">The article explores the complex challenge of interpreting outputs generated by large language models (LLMs), drawing a compelling analogy to Jorge Luis Borges&#x27; fictional cartographers who created a map as vast as the empire itself. This comparison highlights the potential for LLM outputs to be overwhelmingly comprehensive yet difficult to navigate or extract practical insights from without a specialized, often tacit, human skill. It posits that effectively leveraging LLMs requires more than just generating text; it necessitates an intuitive understanding and nuanced ability to discern relevant information, identify patterns, and filter noise from the vast datasets produced. Furthermore, it suggests that developing this &#x27;tacit skill&#x27; is crucial for practitioners and researchers alike. The discussion underscores the critical role of human expertise in evaluating, contextualizing, and applying LLM-generated content, emphasizing that the subtle art of reading these outputs is paramount for transforming raw data into actionable intelligence and avoiding the pitfalls of information overload and misinterpretation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">AI Interpretation</span><span class="tag tag-keyword">Tacit Knowledge</span><span class="tag tag-keyword">Human-AI Interaction</span><span class="tag tag-keyword">Output Analysis</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-04-11 11:24:41</time></div>
+  <div class="story-body">
+    <h3><a href="https://sitebloom.ch/writing/now-is-the-best-time-to-write-code-by-hand/" target="_blank" rel="noopener noreferrer">Now is the best time to write code by hand</a></h3>
+    <p class="story-summary">In an era increasingly dominated by advanced AI-powered code generation tools and programming assistants, the argument is made that cultivating the discipline of writing code by hand has never been more vital. The core premise posits that while AI can accelerate development, a deep understanding of underlying programming paradigms, algorithms, and data structures is paramount for developers. Manually crafting code fosters critical thinking, enhances debugging capabilities, and strengthens the foundational knowledge necessary to effectively utilize, audit, and debug AI-generated code. This approach ensures developers maintain mastery over their craft, preventing over-reliance on automated systems that may produce suboptimal or insecure solutions. By prioritizing hands-on coding, practitioners cultivate a more robust problem-solving mindset, crucial for tackling complex challenges and innovating beyond the current capabilities of artificial intelligence. The article implicitly suggests that this foundational skill set becomes a differentiator and an essential safeguard against the potential pitfalls of blindly accepting AI outputs.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Programming fundamentals</span><span class="tag tag-keyword">Manual coding</span><span class="tag tag-keyword">Software development</span><span class="tag tag-keyword">Developer skills</span><span class="tag tag-keyword">Coding education</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
 </body>
 </html>

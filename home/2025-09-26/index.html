@@ -1,452 +1,143 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-09-26</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2025-09-26</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="." class="active">中文</a>
-                <a href="en/" class="">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-09-26</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../home/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 返回主页</a>
-            <a href="../../daily/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 最新日报</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 关于我们</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>SimpleFold: Folding proteins is simpler than you think</h2>
-                <span class="published-time">Published: 2025-09-26 18:01:26</span>
-                
-                <p class="summary">Apple's machine learning division has unveiled 'SimpleFold,' a novel initiative addressing the complex challenge of protein folding. This project, detailed in an arXiv publication (2509.18480) and supported by an open-source GitHub repository (github.com/apple/ml-simplefold), aims to simplify the intricate process of predicting three-dimensional protein structures. The title, 'Folding proteins is simpler than you think,' suggests that SimpleFold introduces innovative algorithms or a more streamlined methodology, departing from traditional, often computationally intensive, approaches. This development holds significant implications for various scientific fields, including drug discovery, biotechnology, and fundamental biological research, as accurate protein structure prediction is critical for understanding cellular functions and disease mechanisms. The release of SimpleFold demonstrates Apple's growing commitment to contributing to foundational scientific problems through advanced machine learning. By potentially making protein structure prediction more accessible and efficient, SimpleFold could accelerate research and development efforts globally, fostering new insights into biological processes and therapeutic innovations.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Protein Folding</span><span>Machine Learning</span><span>Computational Biology</span><span>Protein Structure Prediction</span><span>Deep Learning</span><span>Bioinformatics</span><span>Apple Research</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/apple/ml-simplefold" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>How to stop AI's "lethal trifecta"</h2>
-                <span class="published-time">Published: 2025-09-26 14:49:07</span>
-                
-                <p class="summary">This article from The Economist addresses the critical challenge of mitigating the most severe risks posed by advanced artificial intelligence, conceptualizing these threats as a "lethal trifecta." It likely discusses how to counter the three major dangers: the potential for autonomous weapon systems to escalate conflicts, the risk of AI-driven misinformation and deepfakes destabilizing societies, and the challenge of maintaining human control over increasingly powerful and opaque AI decision-making systems. The piece advocates for a multifaceted approach involving robust international governance frameworks, the implementation of stringent safety and ethical guidelines for AI development, and enhanced public-private sector collaboration. It emphasizes the urgent need for proactive regulatory measures, fostering research into explainable AI, and ensuring transparency to align AI systems with human values, thereby safeguarding global stability and preventing catastrophic outcomes associated with uncontrolled or misused artificial intelligence.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Safety</span><span>AI Regulation</span><span>AI Ethics</span><span>Risk Management</span><span>Autonomous AI</span><span>International Governance</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.economist.com/leaders/2025/09/25/how-to-stop-ais-lethal-trifecta" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>DeepFabric \u2013 Generate high-quality synthetic datasets at scale</h2>
-                <span class="published-time">Published: 2025-09-26 14:26:44</span>
-                
-                <p class="summary">DeepFabric introduces a novel approach for generating high-quality synthetic datasets at scale, addressing critical challenges in machine learning development such as data scarcity, privacy concerns, and bias. This technology provides a robust solution for developers and researchers to create diverse and representative synthetic data, which can significantly enhance the training, testing, and validation processes of AI models. By enabling the generation of data that mimics real-world distributions without exposing sensitive information, DeepFabric facilitates the development of more accurate and ethical AI systems. Its ability to operate at scale ensures that even large-scale projects can benefit from tailored synthetic data, thereby accelerating innovation and deployment in various domains. The system emphasizes data utility and fidelity, ensuring that the generated datasets are not only private but also effective substitutes for real data.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Synthetic Data</span><span>Data Generation</span><span>Machine Learning</span><span>Dataset Generation</span><span>Data Privacy</span><span>AI Development</span><span>Data Synthesis</span><span>Scalable Data</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Machine Learning</span><span>Artificial Intelligence</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://lukehinds.github.io/deepfabric/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Context is the bottleneck for coding agents now</h2>
-                <span class="published-time">Published: 2025-09-26 15:06:42</span>
-                
-                <p class="summary">The assertion that "Context is the bottleneck for coding agents now" underscores a significant challenge in the ongoing advancement of AI-driven software development tools. Modern coding agents, predominantly powered by Large Language Models (LLMs), critically depend on the breadth and depth of contextual information to effectively interpret user requirements, navigate intricate codebases, debug complex issues, and generate precise, functional code. The inherent limitation of an LLM's 'context window'u2014the maximum token count it can process simultaneouslyu2014becomes a formidable barrier as software projects increase in scale and complexity. When the necessary contextual data, including extensive code files, architectural documentation, and historical discussions, surpasses this window, agent performance diminishes, leading to an increase in errors, a reduction in the quality of generated code, and difficulty in managing interdependencies within large systems. This bottleneck significantly curtails the practical scalability and overall efficacy of coding agents. Consequently, researchers and developers are actively exploring and implementing sophisticated strategies such as intelligent context summarization, advanced retrieval-augmented generation (RAG) techniques, and multi-turn, iterative prompting to mitigate these constraints. However, these workarounds often introduce additional complexity and processing overhead. Addressing and overcoming this fundamental context limitation is paramount for unlocking the next generation of truly autonomous and highly capable programming assistants, pushing the boundaries of what AI can achieve in software engineering.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Coding Agents</span><span>Large Language Models</span><span>Context Window</span><span>AI Development</span><span>Software Engineering</span><span>Bottleneck</span><span>Retrieval-Augmented Generation (RAG)</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Large Language Model</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://runnercode.com/blog/context-is-the-bottleneck-for-coding-agents-now" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Why AI systems may never be secure, and what to do about it</h2>
-                <span class="published-time">Published: 2025-09-26 17:08:04</span>
-                
-                <p class="summary">This article explores the inherent challenges in securing Artificial Intelligence systems, suggesting that achieving absolute security may be an unattainable goal due to their probabilistic and adaptive nature. It delves into the fundamental vulnerabilities that make AI models susceptible to a range of sophisticated threats, including adversarial attacks, data poisoning, model inversion, and membership inference. Traditional cybersecurity paradigms, designed for deterministic software, are often ill-equipped to address these novel attack vectors and the dynamic threat landscape presented by AI. The discussion highlights the critical need for a paradigm shift in AI security strategies. The piece advocates for a comprehensive approach centered on building resilient AI systems through robust architectural design, continuous monitoring for anomalous behavior, and the integration of explainable AI techniques to enhance transparency and detect malicious manipulations. It underscores the necessity for developers and organizations to adopt a proactive stance, focusing on risk mitigation, ethical AI development, and establishing robust governance frameworks to manage the persistent and evolving security risks associated with advanced AI technologies, rather than pursuing the illusion of perfect, impregnable security. This re-evaluation of security expectations is crucial for the safe and responsible deployment of AI.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Security</span><span>Adversarial Attacks</span><span>Machine Learning Vulnerabilities</span><span>Data Poisoning</span><span>Robust AI</span><span>AI Safety</span><span>Cybersecurity</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.economist.com/science-and-technology/2025/09/22/why-ai-systems-may-never-be-secure-and-what-to-do-about-it" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Better health conversations: Research on a "wayfinding" AI agent based on Gemini</h2>
-                <span class="published-time">Published: 2025-09-26 15:16:57</span>
-                
-                <p class="summary">Google Research is actively investigating a novel "wayfinding" AI agent, powered by the Gemini large language model, with the goal of significantly improving health-related conversations. This research focuses on developing an intelligent system capable of guiding individuals through complex medical information, assisting them in navigating health resources, comprehending diagnoses, and making informed decisions about their well-being. The "wayfinding" paradigm emphasizes personalized and context-aware assistance, aiming to move beyond simplistic question-answering to provide structured pathways for users seeking health knowledge. Initial insights from this research are expected to demonstrate how advanced AI, particularly large language models like Gemini, can be effectively leveraged to enhance patient engagement, mitigate information overload, and foster more productive dialogues between individuals and healthcare systems. The project ultimately seeks to empower users with improved access to accurate and relevant health information, thereby elevating health literacy and outcomes through sophisticated conversational interfaces.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agent</span><span>Large Language Model</span><span>Health AI</span><span>Conversational AI</span><span>Gemini</span><span>Healthcare Technology</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://research.google/blog/towards-better-health-conversations-research-insights-on-a-wayfinding-ai-agent-based-on-gemini/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>🚀 RAG-Anything: All-in-One RAG Framework</h2>
-                <span class="published-time">Published: 2025-09-25T01:34:30Z</span>
-                
-                <p class="summary">RAG-Anything is a comprehensive, all-in-one multimodal document processing RAG (Retrieval-Augmented Generation) system, designed to overcome the limitations of traditional text-centric RAGs. Built on LightRAG, it provides a unified framework for seamlessly processing and querying diverse content modalities including text, images, tables, equations, and multimedia, eliminating the need for multiple specialized tools. The system features an end-to-end multimodal pipeline, universal support for various document formats (PDFs, Office documents, images), and specialized analysis engines for visual, structured, and mathematical content. Its multi-stage architecture includes high-fidelity document parsing via MinerU, intelligent content understanding, a multimodal analysis engine, a knowledge graph index for cross-modal relationships, and modality-aware hybrid retrieval. RAG-Anything also supports advanced VLM-enhanced queries and direct content list insertion. This makes it an invaluable tool for academic research, technical documentation, financial reports, and enterprise knowledge management, delivering comprehensive insights from rich, mixed-content documents through a single interface.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multimodal RAG</span><span>Retrieval-Augmented Generation</span><span>Document Processing</span><span>Knowledge Graph</span><span>AI Framework</span><span>Visual Language Models</span><span>Information Retrieval</span><span>LightRAG</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Multimodal</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/HKUDS/RAG-Anything" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>HumanLayer</h2>
-                <span class="published-time">Published: 2025-09-26T19:30:45Z</span>
-                
-                <p class="summary">HumanLayer is a project designed to address the critical challenge of safely integrating high-stakes functions into AI agent workflows. While Large Language Models (LLMs) excel at interacting with the outside world via tools, giving them direct access to sensitive operations carries significant risks due to potential inaccuracies or hallucinations. HumanLayer provides a robust set of tools, notably the `@require_approval` decorator and `human_as_tool` functionality, to deterministically guarantee human oversight for these critical function calls. This ensures a human-in-the-loop mechanism, even if the LLM makes an error. The framework is built to empower next-generation autonomous agents, enabling them to operate in "outer loop" scenarios where they initiate interactions and manage complex workflows, while still obtaining necessary human input for sensitive tasks. By bridging the gap between highly capable LLMs and the need for reliability in high-impact applications, HumanLayer facilitates the development of more trustworthy and impactful AI solutions for complex business processes.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agents</span><span>LLMs</span><span>Function Calling</span><span>Human-in-the-Loop</span><span>Autonomous Agents</span><span>Workflow Automation</span><span>Agentic Workflows</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/humanlayer/humanlayer" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>Tree Search for LLM Agent Reinforcement Learning</h2>
-                <span class="published-time">Published: 2025-09-25T14:37:09.000Z</span>
-                
-                <p class="summary">Recent advances in reinforcement learning (RL) have significantly enhanced the agentic capabilities of large language models (LLMs). In long-term and multi-turn agent tasks, existing approaches driven solely by outcome rewards often suffer from the problem of sparse supervision. To address the challenge, we propose Tree-based Group Relative Policy Optimization (Tree-GRPO), a grouped agent RL method based on tree search, where each tree node represents the complete agent interaction step. By sharing common prefixes, the tree search sampling increases the number of rollouts achievable within a fixed budget of tokens or tool calls. Moreover, we find that the tree-structured trajectory naturally allows the construction of step-wise process supervised signals even using only the outcome reward. Based on this, Tree-GRPO estimates the grouped relative advantages both on intra-tree and inter-tree levels. Through theoretical analysis, we demonstrate that the objective of intra-tree level group relative policy optimization is equivalent to that of step-level direct preference learning. Experiments across 11 datasets and 3 types of QA tasks demonstrate the superiority of the proposed tree-based RL over the chain-based RL method.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Reinforcement Learning</span><span>Large Language Models</span><span>Tree Search</span><span>AI Agent</span><span>Policy Optimization</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Machine Learning</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.21240" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>MMR1: Enhancing Multimodal Reasoning with Variance-Aware Sampling and Open Resources</h2>
-                <span class="published-time">Published: 2025-09-25T14:58:29.000Z</span>
-                
-                <p class="summary">Large multimodal reasoning models have achieved rapid progress, but their advancement is constrained by two major limitations: the absence of open, large-scale, high-quality long chain-of-thought (CoT) data, and the instability of reinforcement learning (RL) algorithms in post-training. Group Relative Policy Optimization (GRPO), the standard framework for RL fine-tuning, is prone to gradient vanishing when reward variance is low, which weakens optimization signals and impairs convergence. This work makes three contributions: (1) We propose Variance-Aware Sampling (VAS), a data selection strategy guided by Variance Promotion Score (VPS) that combines outcome variance and trajectory diversity to promote reward variance and stabilize policy optimization. (2) We release large-scale, carefully curated resources containing ~1.6M long CoT cold-start data and ~15k RL QA pairs, designed to ensure quality, difficulty, and diversity, along with a fully reproducible end-to-end training codebase. (3) We open-source a family of multimodal reasoning models in multiple scales, establishing standardized baselines for the community. Experiments across mathematical reasoning benchmarks demonstrate the effectiveness of both the curated data and the proposed VAS. Comprehensive ablation studies and analyses provide further insight into the contributions of each component. In addition, we theoretically establish that reward variance lower-bounds the expected policy gradient magnitude, with VAS serving as a practical mechanism to realize this guarantee. Our code, data, and checkpoints are available at https://github.com/LengSicong/MMR1.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multimodal Reasoning</span><span>Reinforcement Learning</span><span>Variance-Aware Sampling</span><span>Chain-of-Thought</span><span>Policy Optimization</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Machine Learning</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.21268" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Seedream 4.0: Toward Next-generation Multimodal Image Generation</h2>
-                <span class="published-time">Published: 2025-09-24T17:59:04.000Z</span>
-                
-                <p class="summary">We introduce Seedream 4.0, an efficient and high-performance multimodal image generation system that unifies text-to-image (T2I) synthesis, image editing, and multi-image composition within a single framework. We develop a highly efficient diffusion transformer with a powerful VAE which also can reduce the number of image tokens considerably. This allows for efficient training of our model, and enables it to fast generate native high-resolution images (e.g., 1K-4K). Seedream 4.0 is pretrained on billions of text-image pairs spanning diverse taxonomies and knowledge-centric concepts. Comprehensive data collection across hundreds of vertical scenarios, coupled with optimized strategies, ensures stable and large-scale training, with strong generalization. By incorporating a carefully fine-tuned VLM model, we perform multi-modal post-training for training both T2I and image editing tasks jointly. For inference acceleration, we integrate adversarial distillation, distribution matching, and quantization, as well as speculative decoding. It achieves an inference time of up to 1.8 seconds for generating a 2K image (without a LLM/VLM as PE model). Comprehensive evaluations reveal that Seedream 4.0 can achieve state-of-the-art results on both T2I and multimodal image editing. In particular, it demonstrates exceptional multimodal capabilities in complex tasks, including precise image editing and in-context reasoning, and also allows for multi-image reference, and can generate multiple output images. This extends traditional T2I systems into an more interactive and multidimensional creative tool, pushing the boundary of generative AI for both creativity and professional applications. Seedream 4.0 is now accessible on https://www.volcengine.com/experience/ark?launch=seedream.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multimodal Image Generation</span><span>Diffusion Transformer</span><span>Text-to-Image Synthesis</span><span>Image Editing</span><span>Generative AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Generative AI</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.20427" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>ScaleDiff: Scaling Difficult Problems for Advanced Mathematical Reasoning</h2>
-                <span class="published-time">Published: 2025-09-25T12:22:44.000Z</span>
-                
-                <p class="summary">Large Reasoning Models (LRMs) have shown impressive capabilities in complex problem-solving, often benefiting from training on difficult mathematical problems that stimulate intricate reasoning. Recent efforts have explored automated synthesis of mathematical problems by prompting proprietary models or large-scale open-source models from seed data or inherent mathematical concepts. However, scaling up these methods remains challenging due to their high computational/API cost, complexity of prompting, and limited difficulty level of the generated problems. To overcome these limitations, we propose ScaleDiff, a simple yet effective pipeline designed to scale the creation of difficult problems. We efficiently identify difficult problems from existing datasets with only a single forward pass using an adaptive thinking model, which can perceive problem difficulty and automatically switch between "Thinking" and "NoThinking" modes. We then train a specialized difficult problem generator (DiffGen-8B) on this filtered difficult data, which can produce new difficult problems in large scale, eliminating the need for complex, per-instance prompting and its associated high API costs. Fine-tuning Qwen2.5-Math-7B-Instruct on the ScaleDiff-Math dataset yields a substantial performance increase of 11.3% compared to the original dataset and achieves a 65.9% average accuracy on AIME'24, AIME'25, HMMT-Feb'25, BRUMO'25, and MATH500, outperforming recent strong LRMs like OpenThinker3. Notably, this performance is achieved using the cost-efficient Qwen3-8B model as a teacher, demonstrating that our pipeline can effectively transfer advanced reasoning capabilities without relying on larger, more expensive teacher models. Furthermore, we observe a clear scaling phenomenon in model performance on difficult benchmarks as the quantity of difficult problems increases. Code: https://github.com/QizhiPei/ScaleDiff.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>mathematical reasoning</span><span>Large Reasoning Models</span><span>problem generation</span><span>difficulty scaling</span><span>adaptive thinking model</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Deep Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.21070" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>SceneWeaver: All-in-One 3D Scene Synthesis with an Extensible and Self-Reflective Agent</h2>
-                <span class="published-time">Published: 2025-09-24T09:06:41.000Z</span>
-                
-                <p class="summary">Indoor scene synthesis has become increasingly important with the rise of Embodied AI, which requires 3D environments that are not only visually realistic but also physically plausible and functionally diverse. While recent approaches have advanced visual fidelity, they often remain constrained to fixed scene categories, lack sufficient object-level detail and physical consistency, and struggle to align with complex user instructions. In this work, we present SceneWeaver, a reflective agentic framework that unifies diverse scene synthesis paradigms through tool-based iterative refinement. At its core, SceneWeaver employs a language model-based planner to select from a suite of extensible scene generation tools, ranging from data-driven generative models to visual- and LLM-based methods, guided by self-evaluation of physical plausibility, visual realism, and semantic alignment with user input. This closed-loop reason-act-reflect design enables the agent to identify semantic inconsistencies, invoke targeted tools, and update the environment over successive iterations. Extensive experiments on both common and open-vocabulary room types demonstrate that SceneWeaver not only outperforms prior methods on physical, visual, and semantic metrics, but also generalizes effectively to complex scenes with diverse instructions, marking a step toward general-purpose 3D environment generation. Project website: https://scene-weaver.github.io/.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>3D Scene Synthesis</span><span>AI Agent</span><span>Large Language Model</span><span>Iterative Refinement</span><span>Embodied AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>AI Agent</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.20414" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Discrete Diffusion for Reflective Vision-Language-Action Models in Autonomous Driving</h2>
-                <span class="published-time">Published: 2025-09-24T13:35:15.000Z</span>
-                
-                <p class="summary">End-to-End (E2E) solutions have emerged as a mainstream approach for autonomous driving systems, with Vision-Language-Action (VLA) models representing a new paradigm that leverages pre-trained multimodal knowledge from Vision-Language Models (VLMs) to interpret and interact with complex real-world environments. However, these methods remain constrained by the limitations of imitation learning, which struggles to inherently encode physical rules during training. Existing approaches often rely on complex rule-based post-refinement, employ reinforcement learning that remains largely limited to simulation, or utilize diffusion guidance that requires computationally expensive gradient calculations. To address these challenges, we introduce ReflectDrive, a novel learning-based framework that integrates a reflection mechanism for safe trajectory generation via discrete diffusion. We first discretize the two-dimensional driving space to construct an action codebook, enabling the use of pre-trained Diffusion Language Models for planning tasks through fine-tuning. Central to our approach is a safety-aware reflection mechanism that performs iterative self-correction without gradient computation. Our method begins with goal-conditioned trajectory generation to model multi-modal driving behaviors. Based on this, we apply local search methods to identify unsafe tokens and determine feasible solutions, which then serve as safe anchors for inpainting-based regeneration. Evaluated on the NAVSIM benchmark, ReflectDrive demonstrates significant advantages in safety-critical trajectory generation, offering a scalable and reliable solution for autonomous driving systems.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Autonomous Driving</span><span>Vision-Language-Action Models</span><span>Discrete Diffusion</span><span>Trajectory Generation</span><span>Reflection Mechanism</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Generative AI</span><span>Robotics</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.20109" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../">Archive</a><a href="cn/">中文</a><a href="en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2025-09-26</strong><span>DEFAULT EDITION</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-26 18:01:26</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/apple/ml-simplefold" target="_blank" rel="noopener noreferrer">SimpleFold: Folding proteins is simpler than you think</a></h3>
+    <p class="story-summary">Apple&#x27;s machine learning division has unveiled &#x27;SimpleFold,&#x27; a novel initiative addressing the complex challenge of protein folding. This project, detailed in an arXiv publication (2509.18480) and supported by an open-source GitHub repository (github.com/apple/ml-simplefold), aims to simplify the intricate process of predicting three-dimensional protein structures. The title, &#x27;Folding proteins is simpler than you think,&#x27; suggests that SimpleFold introduces innovative algorithms or a more streamlined methodology, departing from traditional, often computationally intensive, approaches. This development holds significant implications for various scientific fields, including drug discovery, biotechnology, and fundamental biological research, as accurate protein structure prediction is critical for understanding cellular functions and disease mechanisms. The release of SimpleFold demonstrates Apple&#x27;s growing commitment to contributing to foundational scientific problems through advanced machine learning. By potentially making protein structure prediction more accessible and efficient, SimpleFold could accelerate research and development efforts globally, fostering new insights into biological processes and therapeutic innovations.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Protein Folding</span><span class="tag tag-keyword">Machine Learning</span><span class="tag tag-keyword">Computational Biology</span><span class="tag tag-keyword">Protein Structure Prediction</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-26 14:49:07</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.economist.com/leaders/2025/09/25/how-to-stop-ais-lethal-trifecta" target="_blank" rel="noopener noreferrer">How to stop AI&#x27;s &quot;lethal trifecta&quot;</a></h3>
+    <p class="story-summary">This article from The Economist addresses the critical challenge of mitigating the most severe risks posed by advanced artificial intelligence, conceptualizing these threats as a &quot;lethal trifecta.&quot; It likely discusses how to counter the three major dangers: the potential for autonomous weapon systems to escalate conflicts, the risk of AI-driven misinformation and deepfakes destabilizing societies, and the challenge of maintaining human control over increasingly powerful and opaque AI decision-making systems. The piece advocates for a multifaceted approach involving robust international governance frameworks, the implementation of stringent safety and ethical guidelines for AI development, and enhanced public-private sector collaboration. It emphasizes the urgent need for proactive regulatory measures, fostering research into explainable AI, and ensuring transparency to align AI systems with human values, thereby safeguarding global stability and preventing catastrophic outcomes associated with uncontrolled or misused artificial intelligence.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Safety</span><span class="tag tag-keyword">AI Regulation</span><span class="tag tag-keyword">AI Ethics</span><span class="tag tag-keyword">Risk Management</span><span class="tag tag-keyword">Autonomous AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-26 14:26:44</time></div>
+  <div class="story-body">
+    <h3><a href="https://lukehinds.github.io/deepfabric/" target="_blank" rel="noopener noreferrer">DeepFabric \u2013 Generate high-quality synthetic datasets at scale</a></h3>
+    <p class="story-summary">DeepFabric introduces a novel approach for generating high-quality synthetic datasets at scale, addressing critical challenges in machine learning development such as data scarcity, privacy concerns, and bias. This technology provides a robust solution for developers and researchers to create diverse and representative synthetic data, which can significantly enhance the training, testing, and validation processes of AI models. By enabling the generation of data that mimics real-world distributions without exposing sensitive information, DeepFabric facilitates the development of more accurate and ethical AI systems. Its ability to operate at scale ensures that even large-scale projects can benefit from tailored synthetic data, thereby accelerating innovation and deployment in various domains. The system emphasizes data utility and fidelity, ensuring that the generated datasets are not only private but also effective substitutes for real data.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Synthetic Data</span><span class="tag tag-keyword">Data Generation</span><span class="tag tag-keyword">Machine Learning</span><span class="tag tag-keyword">Dataset Generation</span><span class="tag tag-keyword">Data Privacy</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-26 15:06:42</time></div>
+  <div class="story-body">
+    <h3><a href="https://runnercode.com/blog/context-is-the-bottleneck-for-coding-agents-now" target="_blank" rel="noopener noreferrer">Context is the bottleneck for coding agents now</a></h3>
+    <p class="story-summary">The assertion that &quot;Context is the bottleneck for coding agents now&quot; underscores a significant challenge in the ongoing advancement of AI-driven software development tools. Modern coding agents, predominantly powered by Large Language Models (LLMs), critically depend on the breadth and depth of contextual information to effectively interpret user requirements, navigate intricate codebases, debug complex issues, and generate precise, functional code. The inherent limitation of an LLM&#x27;s &#x27;context window&#x27;u2014the maximum token count it can process simultaneouslyu2014becomes a formidable barrier as software projects increase in scale and complexity. When the necessary contextual data, including extensive code files, architectural documentation, and historical discussions, surpasses this window, agent performance diminishes, leading to an increase in errors, a reduction in the quality of generated code, and difficulty in managing interdependencies within large systems. This bottleneck significantly curtails the practical scalability and overall efficacy of coding agents. Consequently, researchers and developers are actively exploring and implementing sophisticated strategies such as intelligent context summarization, advanced retrieval-augmented generation (RAG) techniques, and multi-turn, iterative prompting to mitigate these constraints. However, these workarounds often introduce additional complexity and processing overhead. Addressing and overcoming this fundamental context limitation is paramount for unlocking the next generation of truly autonomous and highly capable programming assistants, pushing the boundaries of what AI can achieve in software engineering.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Coding Agents</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Context Window</span><span class="tag tag-keyword">AI Development</span><span class="tag tag-keyword">Software Engineering</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-09-26 17:08:04</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.economist.com/science-and-technology/2025/09/22/why-ai-systems-may-never-be-secure-and-what-to-do-about-it" target="_blank" rel="noopener noreferrer">Why AI systems may never be secure, and what to do about it</a></h3>
+    <p class="story-summary">This article explores the inherent challenges in securing Artificial Intelligence systems, suggesting that achieving absolute security may be an unattainable goal due to their probabilistic and adaptive nature. It delves into the fundamental vulnerabilities that make AI models susceptible to a range of sophisticated threats, including adversarial attacks, data poisoning, model inversion, and membership inference. Traditional cybersecurity paradigms, designed for deterministic software, are often ill-equipped to address these novel attack vectors and the dynamic threat landscape presented by AI. The discussion highlights the critical need for a paradigm shift in AI security strategies. The piece advocates for a comprehensive approach centered on building resilient AI systems through robust architectural design, continuous monitoring for anomalous behavior, and the integration of explainable AI techniques to enhance transparency and detect malicious manipulations. It underscores the necessity for developers and organizations to adopt a proactive stance, focusing on risk mitigation, ethical AI development, and establishing robust governance frameworks to manage the persistent and evolving security risks associated with advanced AI technologies, rather than pursuing the illusion of perfect, impregnable security. This re-evaluation of security expectations is crucial for the safe and responsible deployment of AI.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Security</span><span class="tag tag-keyword">Adversarial Attacks</span><span class="tag tag-keyword">Machine Learning Vulnerabilities</span><span class="tag tag-keyword">Data Poisoning</span><span class="tag tag-keyword">Robust AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-09-26 15:16:57</time></div>
+  <div class="story-body">
+    <h3><a href="https://research.google/blog/towards-better-health-conversations-research-insights-on-a-wayfinding-ai-agent-based-on-gemini/" target="_blank" rel="noopener noreferrer">Better health conversations: Research on a &quot;wayfinding&quot; AI agent based on Gemini</a></h3>
+    <p class="story-summary">Google Research is actively investigating a novel &quot;wayfinding&quot; AI agent, powered by the Gemini large language model, with the goal of significantly improving health-related conversations. This research focuses on developing an intelligent system capable of guiding individuals through complex medical information, assisting them in navigating health resources, comprehending diagnoses, and making informed decisions about their well-being. The &quot;wayfinding&quot; paradigm emphasizes personalized and context-aware assistance, aiming to move beyond simplistic question-answering to provide structured pathways for users seeking health knowledge. Initial insights from this research are expected to demonstrate how advanced AI, particularly large language models like Gemini, can be effectively leveraged to enhance patient engagement, mitigate information overload, and foster more productive dialogues between individuals and healthcare systems. The project ultimately seeks to empower users with improved access to accurate and relevant health information, thereby elevating health literacy and outcomes through sophisticated conversational interfaces.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Health AI</span><span class="tag tag-keyword">Conversational AI</span><span class="tag tag-keyword">Gemini</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>2 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-25T01:34:30Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/HKUDS/RAG-Anything" target="_blank" rel="noopener noreferrer">🚀 RAG-Anything: All-in-One RAG Framework</a></h3>
+    <p class="story-summary">RAG-Anything is a comprehensive, all-in-one multimodal document processing RAG (Retrieval-Augmented Generation) system, designed to overcome the limitations of traditional text-centric RAGs. Built on LightRAG, it provides a unified framework for seamlessly processing and querying diverse content modalities including text, images, tables, equations, and multimedia, eliminating the need for multiple specialized tools. The system features an end-to-end multimodal pipeline, universal support for various document formats (PDFs, Office documents, images), and specialized analysis engines for visual, structured, and mathematical content. Its multi-stage architecture includes high-fidelity document parsing via MinerU, intelligent content understanding, a multimodal analysis engine, a knowledge graph index for cross-modal relationships, and modality-aware hybrid retrieval. RAG-Anything also supports advanced VLM-enhanced queries and direct content list insertion. This makes it an invaluable tool for academic research, technical documentation, financial reports, and enterprise knowledge management, delivering comprehensive insights from rich, mixed-content documents through a single interface.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multimodal RAG</span><span class="tag tag-keyword">Retrieval-Augmented Generation</span><span class="tag tag-keyword">Document Processing</span><span class="tag tag-keyword">Knowledge Graph</span><span class="tag tag-keyword">AI Framework</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-26T19:30:45Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/humanlayer/humanlayer" target="_blank" rel="noopener noreferrer">HumanLayer</a></h3>
+    <p class="story-summary">HumanLayer is a project designed to address the critical challenge of safely integrating high-stakes functions into AI agent workflows. While Large Language Models (LLMs) excel at interacting with the outside world via tools, giving them direct access to sensitive operations carries significant risks due to potential inaccuracies or hallucinations. HumanLayer provides a robust set of tools, notably the `@require_approval` decorator and `human_as_tool` functionality, to deterministically guarantee human oversight for these critical function calls. This ensures a human-in-the-loop mechanism, even if the LLM makes an error. The framework is built to empower next-generation autonomous agents, enabling them to operate in &quot;outer loop&quot; scenarios where they initiate interactions and manage complex workflows, while still obtaining necessary human input for sensitive tasks. By bridging the gap between highly capable LLMs and the need for reliability in high-impact applications, HumanLayer facilitates the development of more trustworthy and impactful AI solutions for complex business processes.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">LLMs</span><span class="tag tag-keyword">Function Calling</span><span class="tag tag-keyword">Human-in-the-Loop</span><span class="tag tag-keyword">Autonomous Agents</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-25T14:37:09.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.21240" target="_blank" rel="noopener noreferrer">Tree Search for LLM Agent Reinforcement Learning</a></h3>
+    <p class="story-summary">Recent advances in reinforcement learning (RL) have significantly enhanced the agentic capabilities of large language models (LLMs). In long-term and multi-turn agent tasks, existing approaches driven solely by outcome rewards often suffer from the problem of sparse supervision. To address the challenge, we propose Tree-based Group Relative Policy Optimization (Tree-GRPO), a grouped agent RL method based on tree search, where each tree node represents the complete agent interaction step. By sharing common prefixes, the tree search sampling increases the number of rollouts achievable within a fixed budget of tokens or tool calls. Moreover, we find that the tree-structured trajectory naturally allows the construction of step-wise process supervised signals even using only the outcome reward. Based on this, Tree-GRPO estimates the grouped relative advantages both on intra-tree and inter-tree levels. Through theoretical analysis, we demonstrate that the objective of intra-tree level group relative policy optimization is equivalent to that of step-level direct preference learning. Experiments across 11 datasets and 3 types of QA tasks demonstrate the superiority of the proposed tree-based RL over the chain-based RL method.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Tree Search</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Policy Optimization</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-25T14:58:29.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.21268" target="_blank" rel="noopener noreferrer">MMR1: Enhancing Multimodal Reasoning with Variance-Aware Sampling and Open Resources</a></h3>
+    <p class="story-summary">Large multimodal reasoning models have achieved rapid progress, but their advancement is constrained by two major limitations: the absence of open, large-scale, high-quality long chain-of-thought (CoT) data, and the instability of reinforcement learning (RL) algorithms in post-training. Group Relative Policy Optimization (GRPO), the standard framework for RL fine-tuning, is prone to gradient vanishing when reward variance is low, which weakens optimization signals and impairs convergence. This work makes three contributions: (1) We propose Variance-Aware Sampling (VAS), a data selection strategy guided by Variance Promotion Score (VPS) that combines outcome variance and trajectory diversity to promote reward variance and stabilize policy optimization. (2) We release large-scale, carefully curated resources containing ~1.6M long CoT cold-start data and ~15k RL QA pairs, designed to ensure quality, difficulty, and diversity, along with a fully reproducible end-to-end training codebase. (3) We open-source a family of multimodal reasoning models in multiple scales, establishing standardized baselines for the community. Experiments across mathematical reasoning benchmarks demonstrate the effectiveness of both the curated data and the proposed VAS. Comprehensive ablation studies and analyses provide further insight into the contributions of each component. In addition, we theoretically establish that reward variance lower-bounds the expected policy gradient magnitude, with VAS serving as a practical mechanism to realize this guarantee. Our code, data, and checkpoints are available at https://github.com/LengSicong/MMR1.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multimodal Reasoning</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Variance-Aware Sampling</span><span class="tag tag-keyword">Chain-of-Thought</span><span class="tag tag-keyword">Policy Optimization</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-24T17:59:04.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.20427" target="_blank" rel="noopener noreferrer">Seedream 4.0: Toward Next-generation Multimodal Image Generation</a></h3>
+    <p class="story-summary">We introduce Seedream 4.0, an efficient and high-performance multimodal image generation system that unifies text-to-image (T2I) synthesis, image editing, and multi-image composition within a single framework. We develop a highly efficient diffusion transformer with a powerful VAE which also can reduce the number of image tokens considerably. This allows for efficient training of our model, and enables it to fast generate native high-resolution images (e.g., 1K-4K). Seedream 4.0 is pretrained on billions of text-image pairs spanning diverse taxonomies and knowledge-centric concepts. Comprehensive data collection across hundreds of vertical scenarios, coupled with optimized strategies, ensures stable and large-scale training, with strong generalization. By incorporating a carefully fine-tuned VLM model, we perform multi-modal post-training for training both T2I and image editing tasks jointly. For inference acceleration, we integrate adversarial distillation, distribution matching, and quantization, as well as speculative decoding. It achieves an inference time of up to 1.8 seconds for generating a 2K image (without a LLM/VLM as PE model). Comprehensive evaluations reveal that Seedream 4.0 can achieve state-of-the-art results on both T2I and multimodal image editing. In particular, it demonstrates exceptional multimodal capabilities in complex tasks, including precise image editing and in-context reasoning, and also allows for multi-image reference, and can generate multiple output images. This extends traditional T2I systems into an more interactive and multidimensional creative tool, pushing the boundary of generative AI for both creativity and professional applications. Seedream 4.0 is now accessible on https://www.volcengine.com/experience/ark?launch=seedream.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multimodal Image Generation</span><span class="tag tag-keyword">Diffusion Transformer</span><span class="tag tag-keyword">Text-to-Image Synthesis</span><span class="tag tag-keyword">Image Editing</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-25T12:22:44.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.21070" target="_blank" rel="noopener noreferrer">ScaleDiff: Scaling Difficult Problems for Advanced Mathematical Reasoning</a></h3>
+    <p class="story-summary">Large Reasoning Models (LRMs) have shown impressive capabilities in complex problem-solving, often benefiting from training on difficult mathematical problems that stimulate intricate reasoning. Recent efforts have explored automated synthesis of mathematical problems by prompting proprietary models or large-scale open-source models from seed data or inherent mathematical concepts. However, scaling up these methods remains challenging due to their high computational/API cost, complexity of prompting, and limited difficulty level of the generated problems. To overcome these limitations, we propose ScaleDiff, a simple yet effective pipeline designed to scale the creation of difficult problems. We efficiently identify difficult problems from existing datasets with only a single forward pass using an adaptive thinking model, which can perceive problem difficulty and automatically switch between &quot;Thinking&quot; and &quot;NoThinking&quot; modes. We then train a specialized difficult problem generator (DiffGen-8B) on this filtered difficult data, which can produce new difficult problems in large scale, eliminating the need for complex, per-instance prompting and its associated high API costs. Fine-tuning Qwen2.5-Math-7B-Instruct on the ScaleDiff-Math dataset yields a substantial performance increase of 11.3% compared to the original dataset and achieves a 65.9% average accuracy on AIME&#x27;24, AIME&#x27;25, HMMT-Feb&#x27;25, BRUMO&#x27;25, and MATH500, outperforming recent strong LRMs like OpenThinker3. Notably, this performance is achieved using the cost-efficient Qwen3-8B model as a teacher, demonstrating that our pipeline can effectively transfer advanced reasoning capabilities without relying on larger, more expensive teacher models. Furthermore, we observe a clear scaling phenomenon in model performance on difficult benchmarks as the quantity of difficult problems increases. Code: https://github.com/QizhiPei/ScaleDiff.</p>
+    <div class="story-tags"><span class="tag tag-keyword">mathematical reasoning</span><span class="tag tag-keyword">Large Reasoning Models</span><span class="tag tag-keyword">problem generation</span><span class="tag tag-keyword">difficulty scaling</span><span class="tag tag-keyword">adaptive thinking model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-09-24T09:06:41.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.20414" target="_blank" rel="noopener noreferrer">SceneWeaver: All-in-One 3D Scene Synthesis with an Extensible and Self-Reflective Agent</a></h3>
+    <p class="story-summary">Indoor scene synthesis has become increasingly important with the rise of Embodied AI, which requires 3D environments that are not only visually realistic but also physically plausible and functionally diverse. While recent approaches have advanced visual fidelity, they often remain constrained to fixed scene categories, lack sufficient object-level detail and physical consistency, and struggle to align with complex user instructions. In this work, we present SceneWeaver, a reflective agentic framework that unifies diverse scene synthesis paradigms through tool-based iterative refinement. At its core, SceneWeaver employs a language model-based planner to select from a suite of extensible scene generation tools, ranging from data-driven generative models to visual- and LLM-based methods, guided by self-evaluation of physical plausibility, visual realism, and semantic alignment with user input. This closed-loop reason-act-reflect design enables the agent to identify semantic inconsistencies, invoke targeted tools, and update the environment over successive iterations. Extensive experiments on both common and open-vocabulary room types demonstrate that SceneWeaver not only outperforms prior methods on physical, visual, and semantic metrics, but also generalizes effectively to complex scenes with diverse instructions, marking a step toward general-purpose 3D environment generation. Project website: https://scene-weaver.github.io/.</p>
+    <div class="story-tags"><span class="tag tag-keyword">3D Scene Synthesis</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Iterative Refinement</span><span class="tag tag-keyword">Embodied AI</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-09-24T13:35:15.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.20109" target="_blank" rel="noopener noreferrer">Discrete Diffusion for Reflective Vision-Language-Action Models in Autonomous Driving</a></h3>
+    <p class="story-summary">End-to-End (E2E) solutions have emerged as a mainstream approach for autonomous driving systems, with Vision-Language-Action (VLA) models representing a new paradigm that leverages pre-trained multimodal knowledge from Vision-Language Models (VLMs) to interpret and interact with complex real-world environments. However, these methods remain constrained by the limitations of imitation learning, which struggles to inherently encode physical rules during training. Existing approaches often rely on complex rule-based post-refinement, employ reinforcement learning that remains largely limited to simulation, or utilize diffusion guidance that requires computationally expensive gradient calculations. To address these challenges, we introduce ReflectDrive, a novel learning-based framework that integrates a reflection mechanism for safe trajectory generation via discrete diffusion. We first discretize the two-dimensional driving space to construct an action codebook, enabling the use of pre-trained Diffusion Language Models for planning tasks through fine-tuning. Central to our approach is a safety-aware reflection mechanism that performs iterative self-correction without gradient computation. Our method begins with goal-conditioned trajectory generation to model multi-modal driving behaviors. Based on this, we apply local search methods to identify unsafe tokens and determine feasible solutions, which then serve as safe anchors for inpainting-based regeneration. Evaluated on the NAVSIM benchmark, ReflectDrive demonstrates significant advantages in safety-critical trajectory generation, offering a scalable and reliable solution for autonomous driving systems.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Autonomous Driving</span><span class="tag tag-keyword">Vision-Language-Action Models</span><span class="tag tag-keyword">Discrete Diffusion</span><span class="tag tag-keyword">Trajectory Generation</span><span class="tag tag-keyword">Reflection Mechanism</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Robotics</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
 </body>
 </html>

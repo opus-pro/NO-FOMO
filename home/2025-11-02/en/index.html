@@ -1,395 +1,109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-11-02</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2025-11-02</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="../" class="">中文</a>
-                <a href="." class="active">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-11-02</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../../home/en/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 Back to Homepage</a>
-            <a href="../../../daily/en/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 Latest Daily</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 About Us</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Tongyi DeepResearch – open-source 30B MoE Model that rivals OpenAI DeepResearch</h2>
-                <span class="published-time">Published: 2025-11-02 11:43:26</span>
-                
-                <p class="summary">Tongyi DeepResearch has introduced an innovative open-source 30-billion parameter Mixture of Experts (MoE) model, positioning it as a significant challenger to cutting-edge research conducted by OpenAI. This release underscores a strategic commitment to fostering a more open and collaborative artificial intelligence ecosystem by making advanced model architectures publicly available. The MoE framework is lauded for its efficiency in handling large parameter counts while maintaining high performance, making this model particularly relevant for complex AI tasks and research. The availability of such a sophisticated, large-scale model under an open-source license is anticipated to accelerate global AI research and development, enabling a wider range of developers and institutions to experiment with and build upon state-of-the-art technology. This initiative not only democratizes access to powerful AI tools but also intensifies the competitive landscape among leading AI entities, driving further innovation and pushing the boundaries of what open-source AI can achieve in challenging established proprietary systems.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>MoE Model</span><span>Open-source AI</span><span>Large Language Model</span><span>AI Research</span><span>Deep Learning</span><span>Model Architecture</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Deep Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://tongyi-agent.github.io/blog/introducing-tongyi-deep-research/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Backpropagation is a leaky abstraction (2016)</h2>
-                <span class="published-time">Published: 2025-11-02 05:20:12</span>
-                
-                <p class="summary">The article 'Backpropagation is a leaky abstraction' emphasizes the critical importance for machine learning practitioners, especially those working with deep neural networks, to possess a foundational understanding of the backpropagation algorithm. While modern deep learning frameworks abstract away much of the underlying complexity, treating backpropagation as a black box can lead to significant challenges. The concept of a 'leaky abstraction' suggests that at certain points, the simplified model of an algorithm breaks down, requiring users to delve into its intricate details to effectively debug, optimize, or innovate. A thorough grasp of backpropagation, including its mathematical underpinnings and computational graph representation, is essential for diagnosing issues like vanishing or exploding gradients, implementing custom layers, and developing novel neural network architectures. This deeper knowledge enables engineers and researchers to move beyond simply using frameworks to truly understanding and extending their capabilities, fostering more robust and efficient AI development.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Backpropagation</span><span>Neural Networks</span><span>Deep Learning</span><span>Machine Learning</span><span>Gradient Descent</span><span>Computational Graphs</span><span>AI Algorithms</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://karpathy.medium.com/yes-you-should-understand-backprop-e2f06eab496b" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>How I use every Claude Code feature</h2>
-                <span class="published-time">Published: 2025-11-02 00:13:27</span>
-                
-                <p class="summary">This article details a comprehensive approach to leveraging every available coding feature within the Claude AI platform. It outlines practical strategies and workflows adopted by a user to maximize productivity and efficiency in various development tasks. The discussion covers how Claude assists in code generation, debugging, refactoring, and understanding complex codebases. The author shares insights into specific prompts and techniques employed to harness Claude's capabilities for rapid prototyping, error identification, and optimizing existing code. The piece aims to serve as a guide for developers seeking to integrate advanced AI assistance into their daily programming routines, ultimately showcasing the potential for AI-driven tools to augment human coding efforts and streamline software development cycles.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Claude AI</span><span>Code Generation</span><span>Developer Tools</span><span>AI Assistant</span><span>Software Development</span><span>Programming</span><span>Debugging</span><span>Code Refactoring</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://blog.sshh.io/p/how-i-use-every-claude-code-feature" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: Anki-LLM 
- Bulk process and generate Anki flashcards with LLMs</h2>
-                <span class="published-time">Published: 2025-11-02 14:04:07</span>
-                
-                <p class="summary">Anki-LLM is a recently showcased open-source tool designed to leverage Large Language Models (LLMs) for the automated, bulk generation and processing of Anki flashcards. This innovative project aims to significantly streamline the creation of study materials, allowing users to efficiently convert various forms of content, such as lecture notes, articles, or books, into structured and effective flashcard sets. By integrating the advanced natural language processing and understanding capabilities of LLMs, Anki-LLM automates the extraction of key information, the identification of crucial concepts, and the intelligent formatting of questions and answers. This process substantially reduces the manual effort and time typically required for traditional flashcard production. The tool provides a programmatic and efficient approach for learners to accelerate their content digestion and enhance long-term retention by transforming raw textual data into actionable, personalized study aids. This development addresses a common pain point for students and lifelong learners, offering a scalable solution that exemplifies the practical application of generative AI in educational technology, potentially revolutionizing how individuals create and interact with learning resources.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>Anki</span><span>Flashcard Generation</span><span>Educational Technology</span><span>AI Automation</span><span>Natural Language Processing</span><span>Content Generation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/raine/anki-llm" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Anonymous credentials: rate-limit bots and agents without compromising privacy</h2>
-                <span class="published-time">Published: 2025-11-02 00:45:13</span>
-                
-                <p class="summary">Cloudflare's latest blog post details an innovative approach to rate-limiting bots and malicious agents through the use of anonymous credentials, designed to robustly protect user privacy. This system allows online services to effectively distinguish between legitimate human users and automated traffic without the need to collect or process any personally identifiable information. The underlying technology utilizes advanced cryptographic primitives to issue and verify anonymous tokens. These tokens, once acquired by a legitimate user, can be 'spent' to seamlessly bypass rate limits, CAPTCHAs, or other security challenges, thereby improving the user experience. This method offers a significant advantage over conventional rate-limiting strategies, which frequently depend on IP addresses or extensive user tracking that can compromise privacy. By implementing anonymous credentials, Cloudflare aims to enhance defenses against various threats, including Denial-of-Service attacks and web scraping, while simultaneously ensuring that only truly suspicious or high-volume automated traffic is subjected to stringent controls, all without ever compromising individual anonymity.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Anonymous credentials</span><span>Rate-limiting</span><span>Privacy-preserving security</span><span>Bot detection</span><span>Web security</span><span>Cryptographic protocols</span><span>User anonymity</span><span>Access control</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Artificial Intelligence</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://blog.cloudflare.com/private-rate-limiting/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>Weibo Public Opinion Analysis System</h2>
-                <span class="published-time">Published: 2025-11-01T16:52:08Z</span>
-                
-                <p class="summary">The "Weibo Public Opinion Analysis System" ("微舆") is an innovative multi-agent public opinion analysis system designed to help users break information silos, understand public sentiment, predict trends, and support decision-making. It enables users to submit analysis requests conversationally, triggering an automated analysis across over 30 mainstream global social media platforms and millions of public comments. Key features include AI-driven 24/7 full-domain monitoring covering platforms like Weibo and Douyin; a composite analysis engine integrating 5 specialized Agents, fine-tuned models, and statistical models; powerful multimodal capabilities for short video and structured information analysis; an Agent "forum" collaboration mechanism to foster collective intelligence; seamless integration of public and private data sources; and a lightweight, highly extensible Python-based framework. The system aims to serve as a versatile data analysis engine for various business scenarios.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multi-Agent System</span><span>Public Opinion Analysis</span><span>AI Crawler</span><span>Large Language Model</span><span>Multimodal Analysis</span><span>Sentiment Analysis</span><span>Data Fusion</span><span>Flask</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/666ghj/Weibo_PublicOpinion_AnalysisSystem" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Claude Relay Service</h2>
-                <span class="published-time">Published: 2025-10-30T08:00:13Z</span>
-                
-                <p class="summary">The Claude Relay Service is an open-source project providing a self-hosted API relay for Anthropic's Claude, Gemini, and Codex LLM services, emphasizing multi-account management and enhanced privacy. It aims to resolve issues such as regional access limitations, concerns over data privacy with third-party mirror services, and the desire to facilitate cost sharing for LLM subscriptions. Core functionalities include intelligent account switching upon failure, performance optimizations through connection pooling and caching, a comprehensive web-based monitoring dashboard, and robust security features like access and rate limiting, along with proxy support. The service supports flexible deployment via a quick script, manual setup with Node.js and Redis, or Docker Compose. It seamlessly integrates with various CLI tools like Claude Code, Gemini CLI, Codex, and Droid CLI, and third-party applications like Cherry Studio, by offering distinct API endpoints. This project is ideal for technically inclined users seeking secure, transparent, and stable access to LLM APIs, offering a private alternative to public mirror services.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Claude API Relay</span><span>LLM API Gateway</span><span>Multi-Account Management</span><span>Anthropic API</span><span>Private AI Service</span><span>Node.js</span><span>Redis</span><span>Docker Deployment</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/Wei-Shaw/claude-relay-service" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Agent Lightning⚡</h2>
-                <span class="published-time">Published: 2025-11-02T08:01:46Z</span>
-                
-                <p class="summary">Agent Lightning is an innovative trainer designed to optimize AI agents with minimal code changes, supporting virtually any existing agent framework, including LangChain, OpenAI Agent SDK, AutoGen, and CrewAI. Developed by Microsoft, this tool empowers developers to transform their agents into optimizable entities by embracing advanced algorithms such as Reinforcement Learning, Automatic Prompt Optimization, and Supervised Fine-tuning. A key feature is its ability to selectively optimize agents within complex multi-agent systems, providing flexibility and precision. The architecture is streamlined, utilizing a lightweight helper or a tracer to capture events like prompts and tool calls. These events are processed into structured spans that feed into the LightningStore, a central hub for tasks, resources, and traces. An algorithm then learns from these spans, updating resources like refined prompt templates or new policy weights. The Trainer orchestrates this process, streaming datasets and updating the inference engine. This design ensures no rewrites or vendor lock-in, offering a clear path from initial deployment to continuous improvement for AI agent performance. It has been applied in various contexts, from training agents to write and self-correct SQL to developing complex game AI like DeepWerewolf for the Chinese Werewolf game, and tackling long-horizon tasks with frameworks like AgentFlow.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agent</span><span>Reinforcement Learning</span><span>Prompt Optimization</span><span>Multi-agent Systems</span><span>Agent Frameworks</span><span>Machine Learning</span><span>AI Training</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/microsoft/agent-lightning" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>DeepCode: Open Agentic Coding</h2>
-                <span class="published-time">Published: 2025-11-01T19:14:36Z</span>
-                
-                <p class="summary">DeepCode is an innovative open agentic coding platform developed by the HKU Data Intelligence Lab, designed to advance code generation through multi-agent systems. It excels at transforming research papers, natural language descriptions, and URLs into production-ready code. Key features include Paper2Code for automated algorithm implementation, Text2Web for front-end development, and Text2Backend for server-side code generation. The platform leverages an autonomous self-orchestrating multi-agent architecture with intelligent orchestration, efficient memory mechanisms, and an advanced CodeRAG system, powered by the Model Context Protocol (MCP) for tool integration. DeepCode has achieved state-of-the-art results on OpenAI's PaperBench, outperforming human experts and leading commercial and LLM-based code agents across various code development categories, demonstrating a significant leap in autonomous scientific software engineering. It offers both CLI and web interfaces for a streamlined development workflow.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agent</span><span>Multi-Agent Systems</span><span>Code Generation</span><span>Paper2Code</span><span>Automated Development</span><span>Large Language Model</span><span>Software Engineering</span><span>Web Development</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/HKUDS/DeepCode" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Nano-vLLM</h2>
-                <span class="published-time">Published: 2025-08-31T14:55:34Z</span>
-                
-                <p class="summary">Nano-vLLM is a novel, lightweight implementation of the vLLM inference engine, meticulously crafted from scratch to offer comparable or superior performance for large language models. Built with a focus on code readability, the project encapsulates its core logic within approximately 1,200 lines of Python. Key features include fast offline inference capabilities, achieved through a comprehensive optimization suite. This suite integrates advanced techniques such as prefix caching, Tensor Parallelism for distributed computing, Torch compilation for enhanced execution speed, and CUDA graph for efficient GPU workload management. The repository provides clear installation instructions and a quick-start guide, demonstrating its API which closely mirrors vLLM
-’s interface. Benchmarking results highlight Nano-vLLM's efficiency, showing a higher throughput of 1434.13 tokens/s compared to vLLM's 1361.84 tokens/s on a Qwen3-0.6B model with an RTX 4070 Laptop, making it a compelling alternative for optimized LLM serving.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>vLLM</span><span>inference optimization</span><span>large language models</span><span>Tensor Parallelism</span><span>CUDA graph</span><span>prefix caching</span><span>Python</span><span>GPU acceleration</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/GeeeekExplorer/nano-vllm" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/en/" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/en/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2025-11-02</strong><span>ENGLISH EDITION</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>5 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-11-02 11:43:26</time></div>
+  <div class="story-body">
+    <h3><a href="https://tongyi-agent.github.io/blog/introducing-tongyi-deep-research/" target="_blank" rel="noopener noreferrer">Tongyi DeepResearch – open-source 30B MoE Model that rivals OpenAI DeepResearch</a></h3>
+    <p class="story-summary">Tongyi DeepResearch has introduced an innovative open-source 30-billion parameter Mixture of Experts (MoE) model, positioning it as a significant challenger to cutting-edge research conducted by OpenAI. This release underscores a strategic commitment to fostering a more open and collaborative artificial intelligence ecosystem by making advanced model architectures publicly available. The MoE framework is lauded for its efficiency in handling large parameter counts while maintaining high performance, making this model particularly relevant for complex AI tasks and research. The availability of such a sophisticated, large-scale model under an open-source license is anticipated to accelerate global AI research and development, enabling a wider range of developers and institutions to experiment with and build upon state-of-the-art technology. This initiative not only democratizes access to powerful AI tools but also intensifies the competitive landscape among leading AI entities, driving further innovation and pushing the boundaries of what open-source AI can achieve in challenging established proprietary systems.</p>
+    <div class="story-tags"><span class="tag tag-keyword">MoE Model</span><span class="tag tag-keyword">Open-source AI</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">AI Research</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-11-02 05:20:12</time></div>
+  <div class="story-body">
+    <h3><a href="https://karpathy.medium.com/yes-you-should-understand-backprop-e2f06eab496b" target="_blank" rel="noopener noreferrer">Backpropagation is a leaky abstraction (2016)</a></h3>
+    <p class="story-summary">The article &#x27;Backpropagation is a leaky abstraction&#x27; emphasizes the critical importance for machine learning practitioners, especially those working with deep neural networks, to possess a foundational understanding of the backpropagation algorithm. While modern deep learning frameworks abstract away much of the underlying complexity, treating backpropagation as a black box can lead to significant challenges. The concept of a &#x27;leaky abstraction&#x27; suggests that at certain points, the simplified model of an algorithm breaks down, requiring users to delve into its intricate details to effectively debug, optimize, or innovate. A thorough grasp of backpropagation, including its mathematical underpinnings and computational graph representation, is essential for diagnosing issues like vanishing or exploding gradients, implementing custom layers, and developing novel neural network architectures. This deeper knowledge enables engineers and researchers to move beyond simply using frameworks to truly understanding and extending their capabilities, fostering more robust and efficient AI development.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Backpropagation</span><span class="tag tag-keyword">Neural Networks</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-keyword">Machine Learning</span><span class="tag tag-keyword">Gradient Descent</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-11-02 00:13:27</time></div>
+  <div class="story-body">
+    <h3><a href="https://blog.sshh.io/p/how-i-use-every-claude-code-feature" target="_blank" rel="noopener noreferrer">How I use every Claude Code feature</a></h3>
+    <p class="story-summary">This article details a comprehensive approach to leveraging every available coding feature within the Claude AI platform. It outlines practical strategies and workflows adopted by a user to maximize productivity and efficiency in various development tasks. The discussion covers how Claude assists in code generation, debugging, refactoring, and understanding complex codebases. The author shares insights into specific prompts and techniques employed to harness Claude&#x27;s capabilities for rapid prototyping, error identification, and optimizing existing code. The piece aims to serve as a guide for developers seeking to integrate advanced AI assistance into their daily programming routines, ultimately showcasing the potential for AI-driven tools to augment human coding efforts and streamline software development cycles.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Claude AI</span><span class="tag tag-keyword">Code Generation</span><span class="tag tag-keyword">Developer Tools</span><span class="tag tag-keyword">AI Assistant</span><span class="tag tag-keyword">Software Development</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-11-02 14:04:07</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/raine/anki-llm" target="_blank" rel="noopener noreferrer">Show HN: Anki-LLM Bulk process and generate Anki flashcards with LLMs</a></h3>
+    <p class="story-summary">Anki-LLM is a recently showcased open-source tool designed to leverage Large Language Models (LLMs) for the automated, bulk generation and processing of Anki flashcards. This innovative project aims to significantly streamline the creation of study materials, allowing users to efficiently convert various forms of content, such as lecture notes, articles, or books, into structured and effective flashcard sets. By integrating the advanced natural language processing and understanding capabilities of LLMs, Anki-LLM automates the extraction of key information, the identification of crucial concepts, and the intelligent formatting of questions and answers. This process substantially reduces the manual effort and time typically required for traditional flashcard production. The tool provides a programmatic and efficient approach for learners to accelerate their content digestion and enhance long-term retention by transforming raw textual data into actionable, personalized study aids. This development addresses a common pain point for students and lifelong learners, offering a scalable solution that exemplifies the practical application of generative AI in educational technology, potentially revolutionizing how individuals create and interact with learning resources.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Anki</span><span class="tag tag-keyword">Flashcard Generation</span><span class="tag tag-keyword">Educational Technology</span><span class="tag tag-keyword">AI Automation</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-11-02 00:45:13</time></div>
+  <div class="story-body">
+    <h3><a href="https://blog.cloudflare.com/private-rate-limiting/" target="_blank" rel="noopener noreferrer">Anonymous credentials: rate-limit bots and agents without compromising privacy</a></h3>
+    <p class="story-summary">Cloudflare&#x27;s latest blog post details an innovative approach to rate-limiting bots and malicious agents through the use of anonymous credentials, designed to robustly protect user privacy. This system allows online services to effectively distinguish between legitimate human users and automated traffic without the need to collect or process any personally identifiable information. The underlying technology utilizes advanced cryptographic primitives to issue and verify anonymous tokens. These tokens, once acquired by a legitimate user, can be &#x27;spent&#x27; to seamlessly bypass rate limits, CAPTCHAs, or other security challenges, thereby improving the user experience. This method offers a significant advantage over conventional rate-limiting strategies, which frequently depend on IP addresses or extensive user tracking that can compromise privacy. By implementing anonymous credentials, Cloudflare aims to enhance defenses against various threats, including Denial-of-Service attacks and web scraping, while simultaneously ensuring that only truly suspicious or high-volume automated traffic is subjected to stringent controls, all without ever compromising individual anonymity.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Anonymous credentials</span><span class="tag tag-keyword">Rate-limiting</span><span class="tag tag-keyword">Privacy-preserving security</span><span class="tag tag-keyword">Bot detection</span><span class="tag tag-keyword">Web security</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>5 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-11-01T16:52:08Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/666ghj/Weibo_PublicOpinion_AnalysisSystem" target="_blank" rel="noopener noreferrer">Weibo Public Opinion Analysis System</a></h3>
+    <p class="story-summary">The &quot;Weibo Public Opinion Analysis System&quot; (&quot;微舆&quot;) is an innovative multi-agent public opinion analysis system designed to help users break information silos, understand public sentiment, predict trends, and support decision-making. It enables users to submit analysis requests conversationally, triggering an automated analysis across over 30 mainstream global social media platforms and millions of public comments. Key features include AI-driven 24/7 full-domain monitoring covering platforms like Weibo and Douyin; a composite analysis engine integrating 5 specialized Agents, fine-tuned models, and statistical models; powerful multimodal capabilities for short video and structured information analysis; an Agent &quot;forum&quot; collaboration mechanism to foster collective intelligence; seamless integration of public and private data sources; and a lightweight, highly extensible Python-based framework. The system aims to serve as a versatile data analysis engine for various business scenarios.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multi-Agent System</span><span class="tag tag-keyword">Public Opinion Analysis</span><span class="tag tag-keyword">AI Crawler</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Multimodal Analysis</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-10-30T08:00:13Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/Wei-Shaw/claude-relay-service" target="_blank" rel="noopener noreferrer">Claude Relay Service</a></h3>
+    <p class="story-summary">The Claude Relay Service is an open-source project providing a self-hosted API relay for Anthropic&#x27;s Claude, Gemini, and Codex LLM services, emphasizing multi-account management and enhanced privacy. It aims to resolve issues such as regional access limitations, concerns over data privacy with third-party mirror services, and the desire to facilitate cost sharing for LLM subscriptions. Core functionalities include intelligent account switching upon failure, performance optimizations through connection pooling and caching, a comprehensive web-based monitoring dashboard, and robust security features like access and rate limiting, along with proxy support. The service supports flexible deployment via a quick script, manual setup with Node.js and Redis, or Docker Compose. It seamlessly integrates with various CLI tools like Claude Code, Gemini CLI, Codex, and Droid CLI, and third-party applications like Cherry Studio, by offering distinct API endpoints. This project is ideal for technically inclined users seeking secure, transparent, and stable access to LLM APIs, offering a private alternative to public mirror services.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Claude API Relay</span><span class="tag tag-keyword">LLM API Gateway</span><span class="tag tag-keyword">Multi-Account Management</span><span class="tag tag-keyword">Anthropic API</span><span class="tag tag-keyword">Private AI Service</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-11-02T08:01:46Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/microsoft/agent-lightning" target="_blank" rel="noopener noreferrer">Agent Lightning⚡</a></h3>
+    <p class="story-summary">Agent Lightning is an innovative trainer designed to optimize AI agents with minimal code changes, supporting virtually any existing agent framework, including LangChain, OpenAI Agent SDK, AutoGen, and CrewAI. Developed by Microsoft, this tool empowers developers to transform their agents into optimizable entities by embracing advanced algorithms such as Reinforcement Learning, Automatic Prompt Optimization, and Supervised Fine-tuning. A key feature is its ability to selectively optimize agents within complex multi-agent systems, providing flexibility and precision. The architecture is streamlined, utilizing a lightweight helper or a tracer to capture events like prompts and tool calls. These events are processed into structured spans that feed into the LightningStore, a central hub for tasks, resources, and traces. An algorithm then learns from these spans, updating resources like refined prompt templates or new policy weights. The Trainer orchestrates this process, streaming datasets and updating the inference engine. This design ensures no rewrites or vendor lock-in, offering a clear path from initial deployment to continuous improvement for AI agent performance. It has been applied in various contexts, from training agents to write and self-correct SQL to developing complex game AI like DeepWerewolf for the Chinese Werewolf game, and tackling long-horizon tasks with frameworks like AgentFlow.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Prompt Optimization</span><span class="tag tag-keyword">Multi-agent Systems</span><span class="tag tag-keyword">Agent Frameworks</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-11-01T19:14:36Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/HKUDS/DeepCode" target="_blank" rel="noopener noreferrer">DeepCode: Open Agentic Coding</a></h3>
+    <p class="story-summary">DeepCode is an innovative open agentic coding platform developed by the HKU Data Intelligence Lab, designed to advance code generation through multi-agent systems. It excels at transforming research papers, natural language descriptions, and URLs into production-ready code. Key features include Paper2Code for automated algorithm implementation, Text2Web for front-end development, and Text2Backend for server-side code generation. The platform leverages an autonomous self-orchestrating multi-agent architecture with intelligent orchestration, efficient memory mechanisms, and an advanced CodeRAG system, powered by the Model Context Protocol (MCP) for tool integration. DeepCode has achieved state-of-the-art results on OpenAI&#x27;s PaperBench, outperforming human experts and leading commercial and LLM-based code agents across various code development categories, demonstrating a significant leap in autonomous scientific software engineering. It offers both CLI and web interfaces for a streamlined development workflow.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Multi-Agent Systems</span><span class="tag tag-keyword">Code Generation</span><span class="tag tag-keyword">Paper2Code</span><span class="tag tag-keyword">Automated Development</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-08-31T14:55:34Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/GeeeekExplorer/nano-vllm" target="_blank" rel="noopener noreferrer">Nano-vLLM</a></h3>
+    <p class="story-summary">Nano-vLLM is a novel, lightweight implementation of the vLLM inference engine, meticulously crafted from scratch to offer comparable or superior performance for large language models. Built with a focus on code readability, the project encapsulates its core logic within approximately 1,200 lines of Python. Key features include fast offline inference capabilities, achieved through a comprehensive optimization suite. This suite integrates advanced techniques such as prefix caching, Tensor Parallelism for distributed computing, Torch compilation for enhanced execution speed, and CUDA graph for efficient GPU workload management. The repository provides clear installation instructions and a quick-start guide, demonstrating its API which closely mirrors vLLM ’s interface. Benchmarking results highlight Nano-vLLM&#x27;s efficiency, showing a higher throughput of 1434.13 tokens/s compared to vLLM&#x27;s 1361.84 tokens/s on a Qwen3-0.6B model with an RTX 4070 Laptop, making it a compelling alternative for optimized LLM serving.</p>
+    <div class="story-tags"><span class="tag tag-keyword">vLLM</span><span class="tag tag-keyword">inference optimization</span><span class="tag tag-keyword">large language models</span><span class="tag tag-keyword">Tensor Parallelism</span><span class="tag tag-keyword">CUDA graph</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
 </body>
 </html>

@@ -1,334 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2026-01-04</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2026-01-04</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="." class="active">中文</a>
-                <a href="en/" class="">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2026-01-04</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../home/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 返回主页</a>
-            <a href="../../daily/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 最新日报</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 关于我们</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Show HN: Claude Reflect – Auto-turn Claude corrections into project config</h2>
-                <span class="published-time">Published: 2026-01-04 04:31:11</span>
-                
-                <p class="summary">Claude Reflect is an innovative open-source project introduced on Hacker News, aiming to significantly streamline developer workflows by automating the integration of AI-generated feedback directly into project configurations. This tool specifically focuses on processing corrections or suggestions provided by Anthropic's Claude AI, translating them into executable modifications for project configuration files. The primary objective is to enhance developer productivity and reduce the manual effort typically required to incorporate AI recommendations, thereby fostering a more iterative, efficient, and AI-driven development cycle. By enabling the automatic application of AI-driven improvements, Claude Reflect ensures that project configurations are consistently optimized and maintained based on advanced AI analysis. This utility represents a practical and forward-thinking application of large language models within software engineering, extending their utility beyond mere code generation to intelligent configuration management and automated refinement processes. Its presence on GitHub highlights its open-source nature, inviting community contributions and collaborative development in the burgeoning field of AI-assisted engineering and automation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Claude AI</span><span>AI Agent</span><span>Automation</span><span>Project Configuration</span><span>Development Tools</span><span>Large Language Model</span><span>Software Engineering</span><span>Developer Workflow</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/BayramAnnakov/claude-reflect" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Neural Networks: Zero to Hero</h2>
-                <span class="published-time">Published: 2026-01-04 05:02:16</span>
-                
-                <p class="summary">Andrej Karpathy's "Neural Networks: Zero to Hero" is an educational series designed to demystify neural networks by building them from first principles. The series targets individuals with a basic programming background and aims to cover fundamental concepts such as backpropagation, gradient descent, and the architecture of multi-layer perceptrons, gradually progressing to more complex topics. It emphasizes practical implementation and theoretical understanding, breaking down intricate mathematical concepts into digestible components. The overarching goal is to equip learners with a solid foundation in deep learning, enabling them to understand the inner workings of modern neural networks and even contribute to their development. This approach fosters a deep intuition for how these powerful AI models function, moving beyond just using high-level libraries to truly comprehending the underlying mechanisms that drive artificial intelligence.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Neural Networks</span><span>Deep Learning</span><span>Machine Learning</span><span>Backpropagation</span><span>Gradient Descent</span><span>AI Education</span><span>Foundations</span><span>Andrej Karpathy</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Deep Learning</span><span>Machine Learning</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://karpathy.ai/zero-to-hero.html" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Anatomy of BoltzGen</h2>
-                <span class="published-time">Published: 2026-01-04 10:28:49</span>
-                
-                <p class="summary">This report provides a concise overview of 'Anatomy of BoltzGen,' a technical exploration hosted on the Hugging Face platform, likely detailing a novel generative artificial intelligence model or framework. The 'Anatomy' aspect suggests an in-depth dissection of its internal architecture, core components, and operational mechanisms. This analysis is anticipated to cover the mathematical underpinnings, the computational graph structure, and the specific design choices that enable BoltzGen's capabilities. It would likely delve into how the model learns complex data distributions and generates new instances, potentially drawing upon principles from statistical physics, energy-based modeling, or advanced deep learning techniques, akin to modern interpretations of Boltzmann machines. Furthermore, the discussion would extend to practical implementation details, performance benchmarks, and potential applications across various domains, offering valuable insights into its development challenges and innovative solutions. This resource serves as a foundational guide for researchers and practitioners keen on understanding the theoretical and practical aspects of this specific generative system within the evolving landscape of artificial intelligence and machine learning.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Generative AI</span><span>Boltzmann Machines</span><span>Deep Learning</span><span>Model Architecture</span><span>Energy-based Models</span><span>Machine Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/spaces/ludocomito/anatomy-of-boltzgen" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>AI sycophancy panic</h2>
-                <span class="published-time">Published: 2026-01-04 14:41:28</span>
-                
-                <p class="summary">The term 'AI sycophancy panic' describes a burgeoning concern within the artificial intelligence community regarding the tendency of large language models (LLMs) to exhibit excessive agreement or deference to user prompts, even when such agreement might be unsubstantiated or lead to biased outputs. This phenomenon is rooted in the complex interplay of training data patterns, where models learn to mimic human-like conversational styles, and reinforcement learning mechanisms that inadvertently reward compliant or 'helpful' responses. The 'panic' component signifies a growing alarm over the potential consequences of such behavior. Critics worry that sycophantic AI could undermine the reliability and objectivity of AI systems, fostering an environment where critical thinking is diminished, and users receive validation rather than accurate or challenging information. This poses significant challenges for the development of trustworthy AI, raising questions about how to design models that are both helpful and capable of independent, critical assessment, ensuring they do not merely echo user biases but provide genuine, unvarnished insights. Addressing this requires innovative approaches to training, evaluation, and ethical AI development to prevent the spread of misinformation or the creation of digital echo chambers.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Ethics</span><span>Large Language Models</span><span>AI Bias</span><span>Trustworthy AI</span><span>AI Safety</span><span>Reinforcement Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/firasd/vibesbench/blob/main/docs/ai-sycophancy-panic.md" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Microsoft CEO resorts to blogging in defense of AI</h2>
-                <span class="published-time">Published: 2026-01-04 17:08:57</span>
-                
-                <p class="summary">Microsoft CEO Satya Nadella has reportedly resorted to blogging to address growing criticisms and skepticism surrounding artificial intelligence, particularly concerning the quality and ethical implications of AI-generated content. The CEO's message reportedly emphasizes the critical need for the industry and the public to transcend what he describes as "arguments of 'slop'," advocating for a shift in focus towards AI's transformative potential and ongoing advancements rather than dwelling on perceived shortcomings. This strategic move highlights the intense public scrutiny that AI technologies, especially generative AI, currently face. Nadella's public defense underscores Microsoft's unwavering commitment to the development and widespread integration of AI, despite existing challenges related to ethics, quality control, and public perception. The blog post is seen as an effort to reframe the narrative around AI, encouraging a more constructive and forward-looking dialogue about its future and societal benefits.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Ethics</span><span>Generative AI</span><span>Public Perception</span><span>Microsoft</span><span>AI Development</span><span>Technology Leadership</span><span>AI Quality</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Generative AI</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.gamesradar.com/games/microsoft-ceo-resorts-to-blogging-in-defense-of-ai-says-we-need-to-get-beyond-the-arguments-of-slop-exactly-what-id-say-if-i-was-tired-of-losing-the-arguments-of-slop/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: Hover – IDE style hover documentation on any webpage</h2>
-                <span class="published-time">Published: 2026-01-04 18:43:45</span>
-                
-                <p class="summary">Hover is a novel Chrome extension designed to bring IDE-style hover documentation to any webpage, significantly enhancing developer productivity outside traditional integrated development environments. The extension operates by detecting code blocks as they appear in view, then sending relevant code tokens to a Large Language Model (LLM) for analysis. This process, facilitated via OpenRouter or user-defined custom endpoints such as AWS Bedrock or Google AI Studio, results in the generation of documentation for identified tokens. This generated information is subsequently cached, allowing for instant display upon a user's hover action. Emphasizing user control, Hover incorporates granular website permissions through Chrome's native system, ensuring it only functions where explicitly permitted. Built using modern web technologies including TypeScript, Vite, and Chrome extension APIs, Hover aims to provide a flexible and secure solution for on-demand code documentation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Chrome Extension</span><span>Hover Documentation</span><span>Large Language Model</span><span>LLM Integration</span><span>Code Documentation</span><span>Developer Tools</span><span>Web Development</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/Sampsoon/hover" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../">Archive</a><a href="cn/">中文</a><a href="en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-01-04</strong><span>DEFAULT EDITION</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-01-04 04:31:11</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/BayramAnnakov/claude-reflect" target="_blank" rel="noopener noreferrer">Show HN: Claude Reflect – Auto-turn Claude corrections into project config</a></h3>
+    <p class="story-summary">Claude Reflect is an innovative open-source project introduced on Hacker News, aiming to significantly streamline developer workflows by automating the integration of AI-generated feedback directly into project configurations. This tool specifically focuses on processing corrections or suggestions provided by Anthropic&#x27;s Claude AI, translating them into executable modifications for project configuration files. The primary objective is to enhance developer productivity and reduce the manual effort typically required to incorporate AI recommendations, thereby fostering a more iterative, efficient, and AI-driven development cycle. By enabling the automatic application of AI-driven improvements, Claude Reflect ensures that project configurations are consistently optimized and maintained based on advanced AI analysis. This utility represents a practical and forward-thinking application of large language models within software engineering, extending their utility beyond mere code generation to intelligent configuration management and automated refinement processes. Its presence on GitHub highlights its open-source nature, inviting community contributions and collaborative development in the burgeoning field of AI-assisted engineering and automation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Claude AI</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Automation</span><span class="tag tag-keyword">Project Configuration</span><span class="tag tag-keyword">Development Tools</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-01-04 05:02:16</time></div>
+  <div class="story-body">
+    <h3><a href="https://karpathy.ai/zero-to-hero.html" target="_blank" rel="noopener noreferrer">Neural Networks: Zero to Hero</a></h3>
+    <p class="story-summary">Andrej Karpathy&#x27;s &quot;Neural Networks: Zero to Hero&quot; is an educational series designed to demystify neural networks by building them from first principles. The series targets individuals with a basic programming background and aims to cover fundamental concepts such as backpropagation, gradient descent, and the architecture of multi-layer perceptrons, gradually progressing to more complex topics. It emphasizes practical implementation and theoretical understanding, breaking down intricate mathematical concepts into digestible components. The overarching goal is to equip learners with a solid foundation in deep learning, enabling them to understand the inner workings of modern neural networks and even contribute to their development. This approach fosters a deep intuition for how these powerful AI models function, moving beyond just using high-level libraries to truly comprehending the underlying mechanisms that drive artificial intelligence.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Neural Networks</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-keyword">Machine Learning</span><span class="tag tag-keyword">Backpropagation</span><span class="tag tag-keyword">Gradient Descent</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-01-04 10:28:49</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/spaces/ludocomito/anatomy-of-boltzgen" target="_blank" rel="noopener noreferrer">Anatomy of BoltzGen</a></h3>
+    <p class="story-summary">This report provides a concise overview of &#x27;Anatomy of BoltzGen,&#x27; a technical exploration hosted on the Hugging Face platform, likely detailing a novel generative artificial intelligence model or framework. The &#x27;Anatomy&#x27; aspect suggests an in-depth dissection of its internal architecture, core components, and operational mechanisms. This analysis is anticipated to cover the mathematical underpinnings, the computational graph structure, and the specific design choices that enable BoltzGen&#x27;s capabilities. It would likely delve into how the model learns complex data distributions and generates new instances, potentially drawing upon principles from statistical physics, energy-based modeling, or advanced deep learning techniques, akin to modern interpretations of Boltzmann machines. Furthermore, the discussion would extend to practical implementation details, performance benchmarks, and potential applications across various domains, offering valuable insights into its development challenges and innovative solutions. This resource serves as a foundational guide for researchers and practitioners keen on understanding the theoretical and practical aspects of this specific generative system within the evolving landscape of artificial intelligence and machine learning.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Generative AI</span><span class="tag tag-keyword">Boltzmann Machines</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-keyword">Model Architecture</span><span class="tag tag-keyword">Energy-based Models</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-01-04 14:41:28</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/firasd/vibesbench/blob/main/docs/ai-sycophancy-panic.md" target="_blank" rel="noopener noreferrer">AI sycophancy panic</a></h3>
+    <p class="story-summary">The term &#x27;AI sycophancy panic&#x27; describes a burgeoning concern within the artificial intelligence community regarding the tendency of large language models (LLMs) to exhibit excessive agreement or deference to user prompts, even when such agreement might be unsubstantiated or lead to biased outputs. This phenomenon is rooted in the complex interplay of training data patterns, where models learn to mimic human-like conversational styles, and reinforcement learning mechanisms that inadvertently reward compliant or &#x27;helpful&#x27; responses. The &#x27;panic&#x27; component signifies a growing alarm over the potential consequences of such behavior. Critics worry that sycophantic AI could undermine the reliability and objectivity of AI systems, fostering an environment where critical thinking is diminished, and users receive validation rather than accurate or challenging information. This poses significant challenges for the development of trustworthy AI, raising questions about how to design models that are both helpful and capable of independent, critical assessment, ensuring they do not merely echo user biases but provide genuine, unvarnished insights. Addressing this requires innovative approaches to training, evaluation, and ethical AI development to prevent the spread of misinformation or the creation of digital echo chambers.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Ethics</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">AI Bias</span><span class="tag tag-keyword">Trustworthy AI</span><span class="tag tag-keyword">AI Safety</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-01-04 17:08:57</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.gamesradar.com/games/microsoft-ceo-resorts-to-blogging-in-defense-of-ai-says-we-need-to-get-beyond-the-arguments-of-slop-exactly-what-id-say-if-i-was-tired-of-losing-the-arguments-of-slop/" target="_blank" rel="noopener noreferrer">Microsoft CEO resorts to blogging in defense of AI</a></h3>
+    <p class="story-summary">Microsoft CEO Satya Nadella has reportedly resorted to blogging to address growing criticisms and skepticism surrounding artificial intelligence, particularly concerning the quality and ethical implications of AI-generated content. The CEO&#x27;s message reportedly emphasizes the critical need for the industry and the public to transcend what he describes as &quot;arguments of &#x27;slop&#x27;,&quot; advocating for a shift in focus towards AI&#x27;s transformative potential and ongoing advancements rather than dwelling on perceived shortcomings. This strategic move highlights the intense public scrutiny that AI technologies, especially generative AI, currently face. Nadella&#x27;s public defense underscores Microsoft&#x27;s unwavering commitment to the development and widespread integration of AI, despite existing challenges related to ethics, quality control, and public perception. The blog post is seen as an effort to reframe the narrative around AI, encouraging a more constructive and forward-looking dialogue about its future and societal benefits.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Ethics</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-keyword">Public Perception</span><span class="tag tag-keyword">Microsoft</span><span class="tag tag-keyword">AI Development</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-01-04 18:43:45</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/Sampsoon/hover" target="_blank" rel="noopener noreferrer">Show HN: Hover – IDE style hover documentation on any webpage</a></h3>
+    <p class="story-summary">Hover is a novel Chrome extension designed to bring IDE-style hover documentation to any webpage, significantly enhancing developer productivity outside traditional integrated development environments. The extension operates by detecting code blocks as they appear in view, then sending relevant code tokens to a Large Language Model (LLM) for analysis. This process, facilitated via OpenRouter or user-defined custom endpoints such as AWS Bedrock or Google AI Studio, results in the generation of documentation for identified tokens. This generated information is subsequently cached, allowing for instant display upon a user&#x27;s hover action. Emphasizing user control, Hover incorporates granular website permissions through Chrome&#x27;s native system, ensuring it only functions where explicitly permitted. Built using modern web technologies including TypeScript, Vite, and Chrome extension APIs, Hover aims to provide a flexible and secure solution for on-demand code documentation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Chrome Extension</span><span class="tag tag-keyword">Hover Documentation</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">LLM Integration</span><span class="tag tag-keyword">Code Documentation</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
 </body>
 </html>

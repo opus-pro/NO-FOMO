@@ -1,292 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-11-22</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO AI 日报 — 2025-11-22</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"PingFang SC","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em}.issue h1{margin:0;max-width:820px;font:800 clamp(2.6rem,7vw,6.3rem)/1.02 Georgia,"Songti SC",serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:800 clamp(1.5rem,3vw,2.35rem)/1.2 Georgia,"Songti SC",serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.86 Georgia,"Songti SC",serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-11-22</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Agent design is still hard</h2>
-                <span class="published-time">Published: 2025-11-22 11:27:24</span>
-                
-                <p class="summary">The persistent challenge in designing effective AI agents remains a significant hurdle in the advancement of artificial intelligence, as highlighted by the statement "Agent design is still hard." This difficulty stems from numerous factors, including the complexity of creating robust decision-making processes, enabling agents to operate effectively in dynamic and unpredictable environments, and ensuring their long-term adaptability. Developing agents that can autonomously perceive, reason, plan, and act requires sophisticated integration of various AI paradigms, such as machine learning for perception and prediction, symbolic AI for reasoning, and reinforcement learning for optimal control. Furthermore, challenges arise in defining clear objectives, managing emergent behaviors, and ensuring ethical alignment and safety, especially when agents interact with real-world systems or human users. Debugging and validating these complex systems also present considerable engineering difficulties. The journey toward truly intelligent and autonomous agents necessitates continuous research into better architectures, more efficient learning algorithms, and comprehensive evaluation methodologies, underscoring that the design phase is far from being a trivial undertaking.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agents</span><span>Agent Design</span><span>Artificial Intelligence</span><span>Autonomy</span><span>System Design</span><span>Decision Making</span><span>Reinforcement Learning</span><span>Complex Systems</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Artificial Intelligence</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://lucumr.pocoo.org/2025/11/21/agents-are-hard/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>New Apple Study Shows LLMs Can Tell What You're Doing from Audio and Motion Data</h2>
-                <span class="published-time">Published: 2025-11-22 15:45:26</span>
-                
-                <p class="summary">Apple's latest research indicates a significant advancement in the capabilities of Large Language Models (LLMs), demonstrating their capacity to accurately infer user activities by analyzing a combination of audio and motion data. This groundbreaking study highlights how sophisticated AI models can interpret complex patterns from these diverse data streams, moving beyond traditional text-based understanding. The findings suggest a future where devices could offer highly contextual and proactive assistance by understanding user intent and current actions without explicit input. This research paves the way for more intuitive human-computer interaction, enhancing personalized experiences across Apple's ecosystem. Potential applications range from advanced health monitoring and fitness tracking to more intelligent smart home integrations and adaptive device interfaces. The study underscores the ongoing expansion of LLM functionality into multimodal perception, marking a crucial step towards truly intelligent ambient computing environments.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>Multimodal AI</span><span>Activity Recognition</span><span>Audio Analysis</span><span>Motion Data</span><span>Apple Research</span><span>Contextual Computing</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://9to5mac.com/2025/11/21/apple-research-llm-study-audio-motion-activity/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: PolyGPT 
-
-ChatGPT, Claude, Gemini, Perplexity responses side-by-side</h2>
-                <span class="published-time">Published: 2025-11-22 11:36:31</span>
-                
-                <p class="summary">PolyGPT is a newly developed, free, and open-source desktop application designed to streamline the comparison of responses from leading AI models such as ChatGPT, Claude, Gemini, and Perplexity. Available for Mac, Windows, and Linux, the application allows users to input a single prompt and simultaneously view outputs from multiple AI large language models in a split-screen interface. This functionality directly addresses the common inconvenience of constantly tab-switching between different platforms, offering a unified and efficient environment for comparative analysis. Key use cases highlighted by its developer include critically evaluating technical explanations, gaining diverse perspectives on complex coding challenges, and rigorously cross-referencing information for fact-checking purposes. A significant feature is its emphasis on user privacy and security, as the application runs entirely locally on the user's machine, ensuring that credentials remain secure. The project's creator is actively seeking feedback from the Hacker News community to guide future feature development and enhance its overall utility for a broader user base.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>AI Tools</span><span>Model Comparison</span><span>Desktop Application</span><span>Open Source Software</span><span>Generative AI</span><span>Developer Tools</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://polygpt.app" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>TrendRadar</h2>
-                <span class="published-time">Published: 2025-11-22T02:18:52Z</span>
-                
-                <p class="summary">TrendRadar is a lightweight and easily deployable open-source project designed to combat information overload by aggregating hot news from over 11 mainstream platforms, including Zhihu, Douyin, Weibo, and Wallstreetcn. It offers intelligent content filtering based on user-defined keywords (supporting normal, mandatory, and exclusion terms), personalized hotness algorithms, and real-time trend analysis. Users can choose from daily summaries, current list, or incremental monitoring push modes. The platform supports multi-channel notifications (WeChat, Feishu, DingTalk, Telegram, Email, ntfy) and multi-device adaptation via GitHub Pages and Docker. A key feature in v3.0.0 is AI intelligent analysis, leveraging the Model Context Protocol (MCP) to enable natural language querying, deep data insights, and trend prediction on local news data, catering to investors, self-media, and PR professionals seeking efficient and precise information acquisition.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Hot News Aggregation</span><span>Content Filtering</span><span>AI Analysis</span><span>Multi-channel Notification</span><span>Docker Deployment</span><span>Trend Analysis</span><span>Model Context Protocol</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/sansan0/TrendRadar" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Agent Development Kit (ADK) for Go</h2>
-                <span class="published-time">Published: 2025-11-21T07:50:33Z</span>
-                
-                <p class="summary">The Agent Development Kit (ADK) for Go is an open-source, code-first toolkit designed to simplify the building, evaluation, and deployment of sophisticated AI agents. It applies robust software development principles to agent creation, offering a flexible and modular framework for orchestrating agent workflows from simple tasks to complex multi-agent systems. While optimized for Google's Gemini, ADK is model-agnostic and deployment-agnostic, ensuring broad compatibility across various AI models and deployment environments. This Go-specific version leverages Go's strengths in concurrency and performance, making it ideal for cloud-native agent applications. Key features include idiomatic Go design, a rich ecosystem for integrating pre-built or custom tools, code-first development for ultimate flexibility and testability, and strong support for containerization and deployment in cloud environments like Google Cloud Run. ADK empowers developers to design scalable and highly performant AI agent solutions.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Agent Development Kit</span><span>Go</span><span>AI Agents</span><span>Cloud-Native</span><span>Software Development Kit</span><span>Modular Systems</span><span>Tool Ecosystem</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/google/adk-go" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>➤ Cursor Free VIP</h2>
-                <span class="published-time">Published: 2025-09-16T03:47:39Z</span>
-                
-                <p class="summary">Cursor Free VIP is an open-source tool engineered for educational and research applications, extending functionalities for the Cursor AI coding assistant across Windows, macOS, and Linux operating systems. This utility is designed to streamline user experience by enabling automated configuration resets for Cursor and offering comprehensive multi-language support, including English, Simplified Chinese, Traditional Chinese, and Vietnamese. The project is implemented as a script-based solution, supporting auto-run capabilities via `curl` and `powershell` for easy deployment. It emphasizes the necessity of running with administrative privileges to achieve optimal performance and advises users to ensure Cursor is closed before execution. The tool explicitly guarantees it does not generate fake email accounts or facilitate OAuth access, promoting responsible use and encouraging users to support the original Cursor project, all while aiming to provide a 'free VIP' experience.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Cursor AI</span><span>Development Tool</span><span>Configuration Management</span><span>Cross-platform</span><span>Automation Script</span><span>Educational Tool</span><span>Windows</span><span>macOS</span><span>Linux</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/yeongpin/cursor-free-vip" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">跳到新闻列表</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO 主页">NO<i>/</i>FOMO</a><nav class="nav" aria-label="日报导航"><a href="../../../home/">往期</a><a href="../en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">每天一次，过滤 AI 噪音</p><h1>值得打开的<br>AI 日报。</h1></div><div class="issue-meta"><span>发布日期</span><strong>2025-11-22</strong><span>中文版本</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>3 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-11-22 11:27:24</time></div>
+  <div class="story-body">
+    <h3><a href="https://lucumr.pocoo.org/2025/11/21/agents-are-hard/" target="_blank" rel="noopener noreferrer">Agent design is still hard</a></h3>
+    <p class="story-summary">The persistent challenge in designing effective AI agents remains a significant hurdle in the advancement of artificial intelligence, as highlighted by the statement &quot;Agent design is still hard.&quot; This difficulty stems from numerous factors, including the complexity of creating robust decision-making processes, enabling agents to operate effectively in dynamic and unpredictable environments, and ensuring their long-term adaptability. Developing agents that can autonomously perceive, reason, plan, and act requires sophisticated integration of various AI paradigms, such as machine learning for perception and prediction, symbolic AI for reasoning, and reinforcement learning for optimal control. Furthermore, challenges arise in defining clear objectives, managing emergent behaviors, and ensuring ethical alignment and safety, especially when agents interact with real-world systems or human users. Debugging and validating these complex systems also present considerable engineering difficulties. The journey toward truly intelligent and autonomous agents necessitates continuous research into better architectures, more efficient learning algorithms, and comprehensive evaluation methodologies, underscoring that the design phase is far from being a trivial undertaking.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Agent Design</span><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Autonomy</span><span class="tag tag-keyword">System Design</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-11-22 15:45:26</time></div>
+  <div class="story-body">
+    <h3><a href="https://9to5mac.com/2025/11/21/apple-research-llm-study-audio-motion-activity/" target="_blank" rel="noopener noreferrer">New Apple Study Shows LLMs Can Tell What You&#x27;re Doing from Audio and Motion Data</a></h3>
+    <p class="story-summary">Apple&#x27;s latest research indicates a significant advancement in the capabilities of Large Language Models (LLMs), demonstrating their capacity to accurately infer user activities by analyzing a combination of audio and motion data. This groundbreaking study highlights how sophisticated AI models can interpret complex patterns from these diverse data streams, moving beyond traditional text-based understanding. The findings suggest a future where devices could offer highly contextual and proactive assistance by understanding user intent and current actions without explicit input. This research paves the way for more intuitive human-computer interaction, enhancing personalized experiences across Apple&#x27;s ecosystem. Potential applications range from advanced health monitoring and fitness tracking to more intelligent smart home integrations and adaptive device interfaces. The study underscores the ongoing expansion of LLM functionality into multimodal perception, marking a crucial step towards truly intelligent ambient computing environments.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Multimodal AI</span><span class="tag tag-keyword">Activity Recognition</span><span class="tag tag-keyword">Audio Analysis</span><span class="tag tag-keyword">Motion Data</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-11-22 11:36:31</time></div>
+  <div class="story-body">
+    <h3><a href="https://polygpt.app" target="_blank" rel="noopener noreferrer">Show HN: PolyGPT ChatGPT, Claude, Gemini, Perplexity responses side-by-side</a></h3>
+    <p class="story-summary">PolyGPT is a newly developed, free, and open-source desktop application designed to streamline the comparison of responses from leading AI models such as ChatGPT, Claude, Gemini, and Perplexity. Available for Mac, Windows, and Linux, the application allows users to input a single prompt and simultaneously view outputs from multiple AI large language models in a split-screen interface. This functionality directly addresses the common inconvenience of constantly tab-switching between different platforms, offering a unified and efficient environment for comparative analysis. Key use cases highlighted by its developer include critically evaluating technical explanations, gaining diverse perspectives on complex coding challenges, and rigorously cross-referencing information for fact-checking purposes. A significant feature is its emphasis on user privacy and security, as the application runs entirely locally on the user&#x27;s machine, ensuring that credentials remain secure. The project&#x27;s creator is actively seeking feedback from the Hacker News community to guide future feature development and enhance its overall utility for a broader user base.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">AI Tools</span><span class="tag tag-keyword">Model Comparison</span><span class="tag tag-keyword">Desktop Application</span><span class="tag tag-keyword">Open Source Software</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>3 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-11-22T02:18:52Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/sansan0/TrendRadar" target="_blank" rel="noopener noreferrer">TrendRadar</a></h3>
+    <p class="story-summary">TrendRadar is a lightweight and easily deployable open-source project designed to combat information overload by aggregating hot news from over 11 mainstream platforms, including Zhihu, Douyin, Weibo, and Wallstreetcn. It offers intelligent content filtering based on user-defined keywords (supporting normal, mandatory, and exclusion terms), personalized hotness algorithms, and real-time trend analysis. Users can choose from daily summaries, current list, or incremental monitoring push modes. The platform supports multi-channel notifications (WeChat, Feishu, DingTalk, Telegram, Email, ntfy) and multi-device adaptation via GitHub Pages and Docker. A key feature in v3.0.0 is AI intelligent analysis, leveraging the Model Context Protocol (MCP) to enable natural language querying, deep data insights, and trend prediction on local news data, catering to investors, self-media, and PR professionals seeking efficient and precise information acquisition.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Hot News Aggregation</span><span class="tag tag-keyword">Content Filtering</span><span class="tag tag-keyword">AI Analysis</span><span class="tag tag-keyword">Multi-channel Notification</span><span class="tag tag-keyword">Docker Deployment</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-11-21T07:50:33Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/google/adk-go" target="_blank" rel="noopener noreferrer">Agent Development Kit (ADK) for Go</a></h3>
+    <p class="story-summary">The Agent Development Kit (ADK) for Go is an open-source, code-first toolkit designed to simplify the building, evaluation, and deployment of sophisticated AI agents. It applies robust software development principles to agent creation, offering a flexible and modular framework for orchestrating agent workflows from simple tasks to complex multi-agent systems. While optimized for Google&#x27;s Gemini, ADK is model-agnostic and deployment-agnostic, ensuring broad compatibility across various AI models and deployment environments. This Go-specific version leverages Go&#x27;s strengths in concurrency and performance, making it ideal for cloud-native agent applications. Key features include idiomatic Go design, a rich ecosystem for integrating pre-built or custom tools, code-first development for ultimate flexibility and testability, and strong support for containerization and deployment in cloud environments like Google Cloud Run. ADK empowers developers to design scalable and highly performant AI agent solutions.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agent Development Kit</span><span class="tag tag-keyword">Go</span><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Cloud-Native</span><span class="tag tag-keyword">Software Development Kit</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-16T03:47:39Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/yeongpin/cursor-free-vip" target="_blank" rel="noopener noreferrer">➤ Cursor Free VIP</a></h3>
+    <p class="story-summary">Cursor Free VIP is an open-source tool engineered for educational and research applications, extending functionalities for the Cursor AI coding assistant across Windows, macOS, and Linux operating systems. This utility is designed to streamline user experience by enabling automated configuration resets for Cursor and offering comprehensive multi-language support, including English, Simplified Chinese, Traditional Chinese, and Vietnamese. The project is implemented as a script-based solution, supporting auto-run capabilities via `curl` and `powershell` for easy deployment. It emphasizes the necessity of running with administrative privileges to achieve optimal performance and advises users to ensure Cursor is closed before execution. The tool explicitly guarantees it does not generate fake email accounts or facilitate OAuth access, promoting responsible use and encouraging users to support the original Cursor project, all while aiming to provide a &#x27;free VIP&#x27; experience.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Cursor AI</span><span class="tag tag-keyword">Development Tool</span><span class="tag tag-keyword">Configuration Management</span><span class="tag tag-keyword">Cross-platform</span><span class="tag tag-keyword">Automation Script</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>AI 辅助筛选，原始来源始终可查。</span></footer>
 </body>
 </html>

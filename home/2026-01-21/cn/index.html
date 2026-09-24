@@ -1,360 +1,117 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2026-01-21</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO AI 日报 — 2026-01-21</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"PingFang SC","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em}.issue h1{margin:0;max-width:820px;font:800 clamp(2.6rem,7vw,6.3rem)/1.02 Georgia,"Songti SC",serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta strong{display:block;font-size:1.05rem}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:800 clamp(1.5rem,3vw,2.35rem)/1.2 Georgia,"Songti SC",serif;letter-spacing:-.025em}.story h3 a{text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.86 Georgia,"Songti SC",serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:1fr;gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <h1>AI Daily Report</h1>
-            <p class="date">2026-01-21</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>How are you automating your coding work?</h2>
-                <span class="published-time">Published: 2026-01-21 19:13:44</span>
-                
-                <p class="summary">A recent Hacker News discussion thread invites software developers to share their strategies and innovative methods for automating various aspects of their coding work. The inquiry is specifically framed within the context of an observed rise in "vibe coding," which can be interpreted as a more intuitive, perhaps less structured, or highly personalized approach to programming. The post aims to uncover creative solutions that extend beyond conventional automation techniques, seeking insights into how developers are leveraging tools, scripts, and potentially AI-driven systems to streamline repetitive tasks. This includes automating code generation, testing, deployment, refactoring, debugging, and documentation. The overarching goal is to enhance developer efficiency, reduce manual effort, and allow programmers to focus on more complex or creative problem-solving, thereby optimizing the modern software development workflow in an era increasingly characterized by intelligent assistance and productivity-focused practices.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Coding Automation</span><span>Developer Productivity</span><span>Software Development</span><span>Workflow Automation</span><span>Programming Tools</span><span>AI in Programming</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://news.ycombinator.com/item?id=46710108" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: Company hiring trends and insights from job postings</h2>
-                <span class="published-time">Published: 2026-01-21 17:52:17</span>
-                
-                <p class="summary">The Hacker News submission highlights a new platform, "jobswithgpt.com," developed to offer unique insights into companies through the systematic analysis of their job postings. The core objective of this tool is to furnish users with a concise yet informative snapshot of an organization, proving especially valuable for activities like interview preparation, market research, or simply gaining a deeper understanding of a company's strategic direction and growth areas. By meticulously processing and interpreting data extracted from numerous job advertisements, the platform aims to reveal evolving hiring trends, preferred skill sets, and technological emphases within various companies. The developer acknowledges that the project is still a Work In Progress, with continuous efforts focused on refining data quality and ensuring the accuracy of its presented insights. Illustrative examples provided include detailed company profiles for prominent entities such as OpenAI and Advanced Micro Devices Inc., demonstrating the practical application of the tool in transforming raw job market data into actionable business intelligence for job seekers and industry observers.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Job Market Analysis</span><span>Hiring Trends</span><span>Company Insights</span><span>Recruitment Data</span><span>Business Intelligence</span><span>AI Tools</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://jobswithgpt.com/company-profiles/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Claude's New Constitution</h2>
-                <span class="published-time">Published: 2026-01-21 16:04:49</span>
-                
-                <p class="summary">Anthropic has introduced "Claude's New Constitution," marking a significant stride in the development of safe and ethically aligned artificial intelligence. This constitution refers to Anthropic's innovative Constitutional AI approach, a training methodology designed to align large language models with human values without extensive human feedback. Instead, the AI critiques and revises its own responses based on a codified set of principles derived from ethical guidelines. This iterative process allows Claude to self-correct and refine its behavior, minimizing the generation of harmful, biased, or unhelpful content. The framework aims to instill a robust understanding of ethical considerations directly into the AI's operational structure, offering a scalable solution for AI alignment. This initiative reinforces Anthropic's commitment to responsible AI development, providing a blueprint for building more trustworthy and beneficial general-purpose AI systems.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Constitutional AI</span><span>AI Safety</span><span>Large Language Model</span><span>AI Alignment</span><span>Ethical AI</span><span>Machine Learning</span><span>Generative AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.anthropic.com/news/claude-new-constitution" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: yolo-cage – AI coding agents that can't exfiltrate secrets</h2>
-                <span class="published-time">Published: 2026-01-21 15:13:29</span>
-                
-                <p class="summary">A new open-source tool named "yolo-cage" has been introduced on Hacker News, designed to securely sandbox AI coding agents, such as Claude, to prevent sensitive data exfiltration and control Git access. The developer created this solution to address "decision fatigue" stemming from managing multiple parallel AI agents, which frequently demand permission prompts during complex development tasks like building financial analysis tools. The yolo-cage enables a "YOLO mode" for agents, where their operations are contained within a secure environment, thus mitigating potential harm. This approach aims to streamline development workflows by reducing the need for continuous permission reviews, allowing developers to consolidate agent output assessments into a single review process. The tool is shared to solicit community feedback on its threat model and overall utility in enhancing AI agent safety and efficiency.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agents</span><span>Sandboxing</span><span>Security</span><span>Data Exfiltration</span><span>Git Access</span><span>Developer Tools</span><span>Secure Coding</span><span>Claude</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Artificial Intelligence</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/borenstein/yolo-cage" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Anthropic's original take home assignment open sourced</h2>
-                <span class="published-time">Published: 2026-01-21 02:54:32</span>
-                
-                <p class="summary">Anthropic, a leading artificial intelligence research company, has recently open-sourced its original take-home assignment, providing an unprecedented insight into the rigorous evaluation process for potential hires. This development is particularly significant for aspiring AI professionals and software engineers seeking roles within top-tier AI organizations. The publicly available assignment offers a practical framework for understanding the types of technical challenges and problem-solving skills highly valued by companies at the forefront of AI innovation. It likely encompasses a blend of theoretical AI/ML concepts and their practical implementation, demanding robust coding abilities and analytical thinking. This strategic release not only enriches the open-source community with high-quality educational material but also fosters greater transparency in Anthropic's recruitment methodology. Consequently, it could serve as a valuable preparatory tool for candidates globally and potentially influence industry standards for technical assessments in the competitive AI landscape, ensuring candidates are well-equipped to contribute to cutting-edge AI research and development.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Anthropic</span><span>Open Source</span><span>Take-home assignment</span><span>AI Hiring</span><span>Machine Learning Engineering</span><span>Technical Assessment</span><span>AI Research</span><span>Software Development</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/anthropics/original_performance_takehome" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>Being-H0.5: Scaling Human-Centric Robot Learning for Cross-Embodiment Generalization</h2>
-                <span class="published-time">Published: 2026-01-19T12:20:38.000Z</span>
-                
-                <p class="summary">We introduce Being-H0.5, a foundational Vision-Language-Action (VLA) model designed for robust cross-embodiment generalization across diverse robotic platforms. While existing VLAs often struggle with morphological heterogeneity and data scarcity, we propose a human-centric learning paradigm that treats human interaction traces as a universal "mother tongue" for physical interaction. To support this, we present UniHand-2.0, the largest embodied pre-training recipe to date, comprising over 35,000 hours of multimodal data across 30 distinct robotic embodiments. Our approach introduces a Unified Action Space that maps heterogeneous robot controls into semantically aligned slots, enabling low-resource robots to bootstrap skills from human data and high-resource platforms. Built upon this human-centric foundation, we design a unified sequential modeling and multi-task pre-training paradigm to bridge human demonstrations and robotic execution. Architecturally, Being-H0.5 utilizes a Mixture-of-Transformers design featuring a novel Mixture-of-Flow (MoF) framework to decouple shared motor primitives from specialized embodiment-specific experts. Finally, to make cross-embodiment policies stable in the real world, we introduce Manifold-Preserving Gating for robustness under sensory shift and Universal Async Chunking to universalize chunked control across embodiments with different latency and control profiles. We empirically demonstrate that Being-H0.5 achieves state-of-the-art results on simulated benchmarks, such as LIBERO (98.9%) and RoboCasa (53.9%), while also exhibiting strong cross-embodiment capabilities on five robotic platforms.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Being-H0.5</span><span>Human-Centric Robot Learning</span><span>Cross-Embodiment Generalization</span><span>Vision-Language-Action Models</span><span>Embodied Pre-training</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Robotics</span><span>Machine Learning</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.12993" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Toward Efficient Agents: Memory, Tool learning, and Planning</h2>
-                <span class="published-time">Published: 2026-01-20T17:51:56.000Z</span>
-                
-                <p class="summary">Recent years have witnessed increasing interest in extending large language models into agentic systems. While the effectiveness of agents has continued to improve, efficiency, which is crucial for real-world deployment, has often been overlooked. This paper therefore investigates efficiency from three core components of agents: memory, tool learning, and planning, considering costs such as latency, tokens, steps, etc. Aimed at conducting comprehensive research addressing the efficiency of the agentic system itself, we review a broad range of recent approaches that differ in implementation yet frequently converge on shared high-level principles including but not limited to bounding context via compression and management, designing reinforcement learning rewards to minimize tool invocation, and employing controlled search mechanisms to enhance efficiency, which we discuss in detail. Accordingly, we characterize efficiency in two complementary ways: comparing effectiveness under a fixed cost budget, and comparing cost at a comparable level of effectiveness. This trade-off can also be viewed through the Pareto frontier between effectiveness and cost. From this perspective, we also examine efficiency oriented benchmarks by summarizing evaluation protocols for these components and consolidating commonly reported efficiency metrics from both benchmark and methodological studies. Moreover, we discuss the key challenges and future directions, with the goal of providing promising insights.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agents</span><span>Efficiency</span><span>Memory</span><span>Tool Learning</span><span>Planning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Large Language Model</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.14192" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>OmniTransfer: All-in-one Framework for Spatio-temporal Video Transfer</h2>
-                <span class="published-time">Published: 2026-01-20T18:58:11.000Z</span>
-                
-                <p class="summary">Videos convey richer information than images or text, capturing both spatial and temporal dynamics. However, most existing video customization methods rely on reference images or task-specific temporal priors, failing to fully exploit the rich spatio-temporal information inherent in videos, thereby limiting flexibility and generalization in video generation. To address these limitations, we propose OmniTransfer, a unified framework for spatio-temporal video transfer. It leverages multi-view information across frames to enhance appearance consistency and exploits temporal cues to enable fine-grained temporal control. To unify various video transfer tasks, OmniTransfer incorporates three key designs: Task-aware Positional Bias that adaptively leverages reference video information to improve temporal alignment or appearance consistency; Reference-decoupled Causal Learning separating reference and target branches to enable precise reference transfer while improving efficiency; and Task-adaptive Multimodal Alignment using multimodal semantic guidance to dynamically distinguish and tackle different tasks. Extensive experiments show that OmniTransfer outperforms existing methods in appearance (ID and style) and temporal transfer (camera movement and video effects), while matching pose-guided methods in motion transfer without using pose, establishing a new paradigm for flexible, high-fidelity video generation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Spatio-temporal Video Transfer</span><span>Video Generation</span><span>Multimodal Alignment</span><span>Video Customization</span><span>Appearance Consistency</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Computer Vision</span><span>Generative AI</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.14250" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>FutureOmni: Evaluating Future Forecasting from Omni-Modal Context for Multimodal LLMs</h2>
-                <span class="published-time">Published: 2026-01-20T10:47:20.000Z</span>
-                
-                <p class="summary">Although Multimodal Large Language Models (MLLMs) demonstrate strong omni-modal perception, their ability to forecast future events from audio-visual cues remains largely unexplored, as existing benchmarks focus mainly on retrospective understanding. To bridge this gap, we introduce FutureOmni, the first benchmark designed to evaluate omni-modal future forecasting from audio-visual environments. The evaluated models are required to perform cross-modal causal and temporal reasoning, as well as effectively leverage internal knowledge to predict future events. FutureOmni is constructed via a scalable LLM-assisted, human-in-the-loop pipeline and contains 919 videos and 1,034 multiple-choice QA pairs across 8 primary domains. Evaluations on 13 omni-modal and 7 video-only models show that current systems struggle with audio-visual future prediction, particularly in speech-heavy scenarios, with the best accuracy of 64.8% achieved by Gemini 3 Flash. To mitigate this limitation, we curate a 7K-sample instruction-tuning dataset and propose an Omni-Modal Future Forecasting (OFF) training strategy. Evaluations on FutureOmni and popular audio-visual and video-only benchmarks demonstrate that OFF enhances future forecasting and generalization. We publicly release all code (https://github.com/OpenMOSS/FutureOmni) and datasets (https://huggingface.co/datasets/OpenMOSS-Team/FutureOmni).</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multimodal LLMs</span><span>Future Forecasting</span><span>Omni-Modal Context</span><span>Audio-Visual Cues</span><span>Benchmark</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Large Language Model</span><span>Video Understanding</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.13836" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>InT: Self-Proposed Interventions Enable Credit Assignment in LLM Reasoning</h2>
-                <span class="published-time">Published: 2026-01-20T18:15:38.000Z</span>
-                
-                <p class="summary">Outcome-reward reinforcement learning (RL) has proven effective at improving the reasoning capabilities of large language models (LLMs). However, standard RL assigns credit only at the level of the final answer, penalizing entire reasoning traces when the outcome is incorrect and uniformly reinforcing all steps when it is correct. As a result, correct intermediate steps may be discouraged in failed traces, while spurious steps may be reinforced in successful ones. We refer to this failure mode as the problem of credit assignment. While a natural remedy is to train a process reward model, accurately optimizing such models to identify corrective reasoning steps remains challenging. We introduce Intervention Training (InT), a training paradigm in which the model performs fine-grained credit assignment on its own reasoning traces by proposing short, targeted corrections that steer trajectories toward higher reward. Using reference solutions commonly available in mathematical reasoning datasets and exploiting the fact that verifying a model-generated solution is easier than generating a correct one from scratch, the model identifies the first error in its reasoning and proposes a single-step intervention to redirect the trajectory toward the correct solution. We then apply supervised fine-tuning (SFT) to the on-policy rollout up to the point of error concatenated with the intervention, localizing error to the specific step that caused failure. We show that the resulting model serves as a far better initialization for RL training. After running InT and subsequent fine-tuning with RL, we improve accuracy by nearly 14% over a 4B-parameter base model on IMO-AnswerBench, outperforming larger open-source models such as gpt-oss-20b.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>Reinforcement Learning</span><span>Credit Assignment</span><span>Intervention Training</span><span>LLM Reasoning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Machine Learning</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.14209" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>DSAEval: Evaluating Data Science Agents on a Wide Range of Real-World Data Science Problems</h2>
-                <span class="published-time">Published: 2026-01-20T04:44:36.000Z</span>
-                
-                <p class="summary">Recent LLM-based data agents aim to automate data science tasks ranging from data analysis to deep learning. However, the open-ended nature of real-world data science problems, which often span multiple taxonomies and lack standard answers, poses a significant challenge for evaluation. To address this, we introduce DSAEval, a benchmark comprising 641 real-world data science problems grounded in 285 diverse datasets, covering both structured and unstructured data (e.g., vision and text). DSAEval incorporates three distinctive features: (1) Multimodal Environment Perception, which enables agents to interpret observations from multiple modalities including text and vision; (2) Multi-Query Interactions, which mirror the iterative and cumulative nature of real-world data science projects; and (3) Multi-Dimensional Evaluation, which provides a holistic assessment across reasoning, code, and results. We systematically evaluate 11 advanced agentic LLMs using DSAEval. Our results show that Claude-Sonnet-4.5 achieves the strongest overall performance, GPT-5.2 is the most efficient, and MiMo-V2-Flash is the most cost-effective. We further demonstrate that multimodal perception consistently improves performance on vision-related tasks, with gains ranging from 2.04% to 11.30%. Overall, while current data science agents perform well on structured data and routine data anlysis workflows, substantial challenges remain in unstructured domains. Finally, we offer critical insights and outline future research directions to advance the development of data science agents.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Data Science Agents</span><span>LLMs</span><span>Evaluation</span><span>Multimodal</span><span>Benchmark</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Large Language Model</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2601.13591" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <a class="skip" href="#stories">跳到新闻列表</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO 主页">NO<i>/</i>FOMO</a><nav class="nav" aria-label="日报导航"><a href="../../../home/">往期</a><a href="../en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">每天一次，过滤 AI 噪音</p><h1>值得打开的<br>AI 日报。</h1></div><div class="issue-meta"><span>发布日期</span><strong>2026-01-21</strong><span>中文版本</span></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>5 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-01-21 19:13:44</time></div>
+  <div class="story-body">
+    <h3><a href="https://news.ycombinator.com/item?id=46710108" target="_blank" rel="noopener noreferrer">How are you automating your coding work?</a></h3>
+    <p class="story-summary">A recent Hacker News discussion thread invites software developers to share their strategies and innovative methods for automating various aspects of their coding work. The inquiry is specifically framed within the context of an observed rise in &quot;vibe coding,&quot; which can be interpreted as a more intuitive, perhaps less structured, or highly personalized approach to programming. The post aims to uncover creative solutions that extend beyond conventional automation techniques, seeking insights into how developers are leveraging tools, scripts, and potentially AI-driven systems to streamline repetitive tasks. This includes automating code generation, testing, deployment, refactoring, debugging, and documentation. The overarching goal is to enhance developer efficiency, reduce manual effort, and allow programmers to focus on more complex or creative problem-solving, thereby optimizing the modern software development workflow in an era increasingly characterized by intelligent assistance and productivity-focused practices.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Coding Automation</span><span class="tag tag-keyword">Developer Productivity</span><span class="tag tag-keyword">Software Development</span><span class="tag tag-keyword">Workflow Automation</span><span class="tag tag-keyword">Programming Tools</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-01-21 17:52:17</time></div>
+  <div class="story-body">
+    <h3><a href="https://jobswithgpt.com/company-profiles/" target="_blank" rel="noopener noreferrer">Show HN: Company hiring trends and insights from job postings</a></h3>
+    <p class="story-summary">The Hacker News submission highlights a new platform, &quot;jobswithgpt.com,&quot; developed to offer unique insights into companies through the systematic analysis of their job postings. The core objective of this tool is to furnish users with a concise yet informative snapshot of an organization, proving especially valuable for activities like interview preparation, market research, or simply gaining a deeper understanding of a company&#x27;s strategic direction and growth areas. By meticulously processing and interpreting data extracted from numerous job advertisements, the platform aims to reveal evolving hiring trends, preferred skill sets, and technological emphases within various companies. The developer acknowledges that the project is still a Work In Progress, with continuous efforts focused on refining data quality and ensuring the accuracy of its presented insights. Illustrative examples provided include detailed company profiles for prominent entities such as OpenAI and Advanced Micro Devices Inc., demonstrating the practical application of the tool in transforming raw job market data into actionable business intelligence for job seekers and industry observers.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Job Market Analysis</span><span class="tag tag-keyword">Hiring Trends</span><span class="tag tag-keyword">Company Insights</span><span class="tag tag-keyword">Recruitment Data</span><span class="tag tag-keyword">Business Intelligence</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-01-21 16:04:49</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.anthropic.com/news/claude-new-constitution" target="_blank" rel="noopener noreferrer">Claude&#x27;s New Constitution</a></h3>
+    <p class="story-summary">Anthropic has introduced &quot;Claude&#x27;s New Constitution,&quot; marking a significant stride in the development of safe and ethically aligned artificial intelligence. This constitution refers to Anthropic&#x27;s innovative Constitutional AI approach, a training methodology designed to align large language models with human values without extensive human feedback. Instead, the AI critiques and revises its own responses based on a codified set of principles derived from ethical guidelines. This iterative process allows Claude to self-correct and refine its behavior, minimizing the generation of harmful, biased, or unhelpful content. The framework aims to instill a robust understanding of ethical considerations directly into the AI&#x27;s operational structure, offering a scalable solution for AI alignment. This initiative reinforces Anthropic&#x27;s commitment to responsible AI development, providing a blueprint for building more trustworthy and beneficial general-purpose AI systems.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Constitutional AI</span><span class="tag tag-keyword">AI Safety</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">AI Alignment</span><span class="tag tag-keyword">Ethical AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-01-21 15:13:29</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/borenstein/yolo-cage" target="_blank" rel="noopener noreferrer">Show HN: yolo-cage – AI coding agents that can&#x27;t exfiltrate secrets</a></h3>
+    <p class="story-summary">A new open-source tool named &quot;yolo-cage&quot; has been introduced on Hacker News, designed to securely sandbox AI coding agents, such as Claude, to prevent sensitive data exfiltration and control Git access. The developer created this solution to address &quot;decision fatigue&quot; stemming from managing multiple parallel AI agents, which frequently demand permission prompts during complex development tasks like building financial analysis tools. The yolo-cage enables a &quot;YOLO mode&quot; for agents, where their operations are contained within a secure environment, thus mitigating potential harm. This approach aims to streamline development workflows by reducing the need for continuous permission reviews, allowing developers to consolidate agent output assessments into a single review process. The tool is shared to solicit community feedback on its threat model and overall utility in enhancing AI agent safety and efficiency.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Sandboxing</span><span class="tag tag-keyword">Security</span><span class="tag tag-keyword">Data Exfiltration</span><span class="tag tag-keyword">Git Access</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-01-21 02:54:32</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/anthropics/original_performance_takehome" target="_blank" rel="noopener noreferrer">Anthropic&#x27;s original take home assignment open sourced</a></h3>
+    <p class="story-summary">Anthropic, a leading artificial intelligence research company, has recently open-sourced its original take-home assignment, providing an unprecedented insight into the rigorous evaluation process for potential hires. This development is particularly significant for aspiring AI professionals and software engineers seeking roles within top-tier AI organizations. The publicly available assignment offers a practical framework for understanding the types of technical challenges and problem-solving skills highly valued by companies at the forefront of AI innovation. It likely encompasses a blend of theoretical AI/ML concepts and their practical implementation, demanding robust coding abilities and analytical thinking. This strategic release not only enriches the open-source community with high-quality educational material but also fosters greater transparency in Anthropic&#x27;s recruitment methodology. Consequently, it could serve as a valuable preparatory tool for candidates globally and potentially influence industry standards for technical assessments in the competitive AI landscape, ensuring candidates are well-equipped to contribute to cutting-edge AI research and development.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Anthropic</span><span class="tag tag-keyword">Open Source</span><span class="tag tag-keyword">Take-home assignment</span><span class="tag tag-keyword">AI Hiring</span><span class="tag tag-keyword">Machine Learning Engineering</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-01-19T12:20:38.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.12993" target="_blank" rel="noopener noreferrer">Being-H0.5: Scaling Human-Centric Robot Learning for Cross-Embodiment Generalization</a></h3>
+    <p class="story-summary">We introduce Being-H0.5, a foundational Vision-Language-Action (VLA) model designed for robust cross-embodiment generalization across diverse robotic platforms. While existing VLAs often struggle with morphological heterogeneity and data scarcity, we propose a human-centric learning paradigm that treats human interaction traces as a universal &quot;mother tongue&quot; for physical interaction. To support this, we present UniHand-2.0, the largest embodied pre-training recipe to date, comprising over 35,000 hours of multimodal data across 30 distinct robotic embodiments. Our approach introduces a Unified Action Space that maps heterogeneous robot controls into semantically aligned slots, enabling low-resource robots to bootstrap skills from human data and high-resource platforms. Built upon this human-centric foundation, we design a unified sequential modeling and multi-task pre-training paradigm to bridge human demonstrations and robotic execution. Architecturally, Being-H0.5 utilizes a Mixture-of-Transformers design featuring a novel Mixture-of-Flow (MoF) framework to decouple shared motor primitives from specialized embodiment-specific experts. Finally, to make cross-embodiment policies stable in the real world, we introduce Manifold-Preserving Gating for robustness under sensory shift and Universal Async Chunking to universalize chunked control across embodiments with different latency and control profiles. We empirically demonstrate that Being-H0.5 achieves state-of-the-art results on simulated benchmarks, such as LIBERO (98.9%) and RoboCasa (53.9%), while also exhibiting strong cross-embodiment capabilities on five robotic platforms.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Being-H0.5</span><span class="tag tag-keyword">Human-Centric Robot Learning</span><span class="tag tag-keyword">Cross-Embodiment Generalization</span><span class="tag tag-keyword">Vision-Language-Action Models</span><span class="tag tag-keyword">Embodied Pre-training</span><span class="tag tag-area">Robotics</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-01-20T17:51:56.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.14192" target="_blank" rel="noopener noreferrer">Toward Efficient Agents: Memory, Tool learning, and Planning</a></h3>
+    <p class="story-summary">Recent years have witnessed increasing interest in extending large language models into agentic systems. While the effectiveness of agents has continued to improve, efficiency, which is crucial for real-world deployment, has often been overlooked. This paper therefore investigates efficiency from three core components of agents: memory, tool learning, and planning, considering costs such as latency, tokens, steps, etc. Aimed at conducting comprehensive research addressing the efficiency of the agentic system itself, we review a broad range of recent approaches that differ in implementation yet frequently converge on shared high-level principles including but not limited to bounding context via compression and management, designing reinforcement learning rewards to minimize tool invocation, and employing controlled search mechanisms to enhance efficiency, which we discuss in detail. Accordingly, we characterize efficiency in two complementary ways: comparing effectiveness under a fixed cost budget, and comparing cost at a comparable level of effectiveness. This trade-off can also be viewed through the Pareto frontier between effectiveness and cost. From this perspective, we also examine efficiency oriented benchmarks by summarizing evaluation protocols for these components and consolidating commonly reported efficiency metrics from both benchmark and methodological studies. Moreover, we discuss the key challenges and future directions, with the goal of providing promising insights.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Efficiency</span><span class="tag tag-keyword">Memory</span><span class="tag tag-keyword">Tool Learning</span><span class="tag tag-keyword">Planning</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-01-20T18:58:11.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.14250" target="_blank" rel="noopener noreferrer">OmniTransfer: All-in-one Framework for Spatio-temporal Video Transfer</a></h3>
+    <p class="story-summary">Videos convey richer information than images or text, capturing both spatial and temporal dynamics. However, most existing video customization methods rely on reference images or task-specific temporal priors, failing to fully exploit the rich spatio-temporal information inherent in videos, thereby limiting flexibility and generalization in video generation. To address these limitations, we propose OmniTransfer, a unified framework for spatio-temporal video transfer. It leverages multi-view information across frames to enhance appearance consistency and exploits temporal cues to enable fine-grained temporal control. To unify various video transfer tasks, OmniTransfer incorporates three key designs: Task-aware Positional Bias that adaptively leverages reference video information to improve temporal alignment or appearance consistency; Reference-decoupled Causal Learning separating reference and target branches to enable precise reference transfer while improving efficiency; and Task-adaptive Multimodal Alignment using multimodal semantic guidance to dynamically distinguish and tackle different tasks. Extensive experiments show that OmniTransfer outperforms existing methods in appearance (ID and style) and temporal transfer (camera movement and video effects), while matching pose-guided methods in motion transfer without using pose, establishing a new paradigm for flexible, high-fidelity video generation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Spatio-temporal Video Transfer</span><span class="tag tag-keyword">Video Generation</span><span class="tag tag-keyword">Multimodal Alignment</span><span class="tag tag-keyword">Video Customization</span><span class="tag tag-keyword">Appearance Consistency</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-01-20T10:47:20.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.13836" target="_blank" rel="noopener noreferrer">FutureOmni: Evaluating Future Forecasting from Omni-Modal Context for Multimodal LLMs</a></h3>
+    <p class="story-summary">Although Multimodal Large Language Models (MLLMs) demonstrate strong omni-modal perception, their ability to forecast future events from audio-visual cues remains largely unexplored, as existing benchmarks focus mainly on retrospective understanding. To bridge this gap, we introduce FutureOmni, the first benchmark designed to evaluate omni-modal future forecasting from audio-visual environments. The evaluated models are required to perform cross-modal causal and temporal reasoning, as well as effectively leverage internal knowledge to predict future events. FutureOmni is constructed via a scalable LLM-assisted, human-in-the-loop pipeline and contains 919 videos and 1,034 multiple-choice QA pairs across 8 primary domains. Evaluations on 13 omni-modal and 7 video-only models show that current systems struggle with audio-visual future prediction, particularly in speech-heavy scenarios, with the best accuracy of 64.8% achieved by Gemini 3 Flash. To mitigate this limitation, we curate a 7K-sample instruction-tuning dataset and propose an Omni-Modal Future Forecasting (OFF) training strategy. Evaluations on FutureOmni and popular audio-visual and video-only benchmarks demonstrate that OFF enhances future forecasting and generalization. We publicly release all code (https://github.com/OpenMOSS/FutureOmni) and datasets (https://huggingface.co/datasets/OpenMOSS-Team/FutureOmni).</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multimodal LLMs</span><span class="tag tag-keyword">Future Forecasting</span><span class="tag tag-keyword">Omni-Modal Context</span><span class="tag tag-keyword">Audio-Visual Cues</span><span class="tag tag-keyword">Benchmark</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Video Understanding</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-01-20T18:15:38.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.14209" target="_blank" rel="noopener noreferrer">InT: Self-Proposed Interventions Enable Credit Assignment in LLM Reasoning</a></h3>
+    <p class="story-summary">Outcome-reward reinforcement learning (RL) has proven effective at improving the reasoning capabilities of large language models (LLMs). However, standard RL assigns credit only at the level of the final answer, penalizing entire reasoning traces when the outcome is incorrect and uniformly reinforcing all steps when it is correct. As a result, correct intermediate steps may be discouraged in failed traces, while spurious steps may be reinforced in successful ones. We refer to this failure mode as the problem of credit assignment. While a natural remedy is to train a process reward model, accurately optimizing such models to identify corrective reasoning steps remains challenging. We introduce Intervention Training (InT), a training paradigm in which the model performs fine-grained credit assignment on its own reasoning traces by proposing short, targeted corrections that steer trajectories toward higher reward. Using reference solutions commonly available in mathematical reasoning datasets and exploiting the fact that verifying a model-generated solution is easier than generating a correct one from scratch, the model identifies the first error in its reasoning and proposes a single-step intervention to redirect the trajectory toward the correct solution. We then apply supervised fine-tuning (SFT) to the on-policy rollout up to the point of error concatenated with the intervention, localizing error to the specific step that caused failure. We show that the resulting model serves as a far better initialization for RL training. After running InT and subsequent fine-tuning with RL, we improve accuracy by nearly 14% over a 4B-parameter base model on IMO-AnswerBench, outperforming larger open-source models such as gpt-oss-20b.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Credit Assignment</span><span class="tag tag-keyword">Intervention Training</span><span class="tag tag-keyword">LLM Reasoning</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-01-20T04:44:36.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2601.13591" target="_blank" rel="noopener noreferrer">DSAEval: Evaluating Data Science Agents on a Wide Range of Real-World Data Science Problems</a></h3>
+    <p class="story-summary">Recent LLM-based data agents aim to automate data science tasks ranging from data analysis to deep learning. However, the open-ended nature of real-world data science problems, which often span multiple taxonomies and lack standard answers, poses a significant challenge for evaluation. To address this, we introduce DSAEval, a benchmark comprising 641 real-world data science problems grounded in 285 diverse datasets, covering both structured and unstructured data (e.g., vision and text). DSAEval incorporates three distinctive features: (1) Multimodal Environment Perception, which enables agents to interpret observations from multiple modalities including text and vision; (2) Multi-Query Interactions, which mirror the iterative and cumulative nature of real-world data science projects; and (3) Multi-Dimensional Evaluation, which provides a holistic assessment across reasoning, code, and results. We systematically evaluate 11 advanced agentic LLMs using DSAEval. Our results show that Claude-Sonnet-4.5 achieves the strongest overall performance, GPT-5.2 is the most efficient, and MiMo-V2-Flash is the most cost-effective. We further demonstrate that multimodal perception consistently improves performance on vision-related tasks, with gains ranging from 2.04% to 11.30%. Overall, while current data science agents perform well on structured data and routine data anlysis workflows, substantial challenges remain in unstructured domains. Finally, we offer critical insights and outline future research directions to advance the development of data science agents.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Data Science Agents</span><span class="tag tag-keyword">LLMs</span><span class="tag tag-keyword">Evaluation</span><span class="tag tag-keyword">Multimodal</span><span class="tag tag-keyword">Benchmark</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>AI 辅助筛选，原始来源始终可查。</span></footer>
 </body>
 </html>
