@@ -10,5 +10,8 @@ Public GitHub Pages site for the NO-FOMO AI newsletter.
 - Historical pages intentionally omit legacy screenshots so this site has no
   dependency on a personal Pages origin. New publications may include images
   only when they are copied into this repository or company-managed storage.
+- Public aggregate view counts use the `no-fomo` GoatCounter site. English,
+  Chinese, and default variants of one edition share the same issue path;
+  referrers are suppressed and local previews are not counted.
 - No credentials, personal browser state, or private runtime archives belong in
   this repository.
