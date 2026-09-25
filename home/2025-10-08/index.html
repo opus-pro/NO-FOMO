@@ -1,452 +1,148 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-10-08</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2025-10-08</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="." class="active">中文</a>
-                <a href="en/" class="">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-10-08</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../home/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 返回主页</a>
-            <a href="../../daily/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 最新日报</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 关于我们</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>A few things to know before stealing my 914 (2022)</h2>
-                <span class="published-time">Published: 2025-10-08 19:16:10</span>
-                
-                <p class="summary">This article, titled 'A few things to know before stealing my 914', delves into practical considerations for vehicle security, particularly for classic cars like the Porsche 914. While directly addressing theft prevention tactics, the underlying principles touch upon areas where advanced data analytics and artificial intelligence could offer significant enhancements. For instance, predictive models trained on historical theft data could identify high-risk locations and patterns, enabling owners to proactively secure their assets. Furthermore, AI-powered systems could integrate with telematics to monitor unusual activities, learn owner behavior, and trigger alerts or activate countermeasures more effectively than traditional alarms. This approach transforms static security measures into dynamic, intelligent systems capable of adapting to emerging threats, thereby demonstrating the broader applicability of AI in real-world security challenges beyond typical digital domains, extending to physical asset protection and risk mitigation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Automotive Security</span><span>Predictive Analytics</span><span>Machine Learning</span><span>Risk Assessment</span><span>Telematics</span><span>AI Applications</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.hagerty.com/media/advice/a-few-things-to-know-before-you-steal-my-914/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: Recall: Give Claude memory with Redis-backed persistent context</h2>
-                <span class="published-time">Published: 2025-10-08 14:28:06</span>
-                
-                <p class="summary">José has launched "Recall," an MCP (Model Context Protocol) server designed to provide persistent memory for large language models like Claude, addressing the common issue of conversational context limits. Developers often face the challenge of repeatedly explaining architectural details and coding standards in each new session, leading to lost context. Recall leverages Redis and semantic search to store and retrieve "memories" – important conversational context. These memories are embedded using OpenAI's technology and stored in Redis with associated metadata. The system automatically retrieves relevant information, enabling Claude to maintain a long-term, evolving understanding across multiple sessions, projects, and even different machines when utilizing cloud-based Redis. Key features include the ability to share context globally across projects and establish relationships between memories. This solution enhances the practical applicability of LLMs by overcoming significant context management hurdles.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Claude</span><span>Large Language Model</span><span>Persistent Memory</span><span>Redis</span><span>Semantic Search</span><span>OpenAI Embeddings</span><span>Context Management</span><span>AI Agent</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.npmjs.com/package/@joseairosa/recall" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: FleetCode – Open-source UI for running multiple coding agents</h2>
-                <span class="published-time">Published: 2025-10-08 18:00:34</span>
-                
-                <p class="summary">FleetCode, an innovative open-source user interface, has been launched to significantly enhance the management and parallel execution of multiple command-line interface (CLI) coding agents. The project creator, who initially harbored skepticism towards coding agents, ultimately discovered their productivity potential through parallel operation but faced considerable workflow inefficiencies with existing solutions. These challenges included overly convoluted interfaces, outright non-functional products, and a tendency for tools to integrate proprietary chat UIs rather than simply wrapping terminal sessions. FleetCode aims to resolve these issues by leveraging Git worktrees, which enable developers to run multiple agents concurrently within isolated, dedicated environments. This approach eliminates the need for cumbersome practices like frequent Git stashing and complex branch fumbling. By providing a lightweight and ergonomic platform, FleetCode empowers developers to more effectively integrate and utilize AI-driven coding assistance, thereby streamlining multi-agent development workflows. The project is free and open-source, actively seeking community feedback to further refine its capabilities.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>FleetCode</span><span>Open-source</span><span>Coding agents</span><span>UI</span><span>Git worktrees</span><span>Multi-agent workflow</span><span>Developer tools</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Artificial Intelligence</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/built-by-as/FleetCode" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Now open for building: Introducing Gemini CLI extensions</h2>
-                <span class="published-time">Published: 2025-10-08 14:13:30</span>
-                
-                <p class="summary">Google has officially announced the launch of Gemini CLI extensions, opening new avenues for developers to integrate and build upon the Gemini artificial intelligence model. This initiative allows users to leverage the power of Gemini directly from their command line interface, facilitating enhanced automation, custom tool creation, and streamlined integration into existing development workflows. The introduction of these extensions signifies a strategic move by Google to foster a more open and extensible ecosystem around its flagship AI model, enabling developers to create bespoke solutions and unique applications that harness its multimodal capabilities. This development is expected to empower a broader range of technical users, from individual developers to enterprise teams, to harness Gemini's functionalities more efficiently and innovatively, driving further advancements in AI-powered applications and services. The CLI extensions aim to simplify interactions with the Gemini API, making advanced AI functionalities more accessible for practical, day-to-day development tasks, rapid prototyping, and integrating AI into custom scripts and tools. This move underscores Google's commitment to developer enablement and expanding the utility of its advanced AI offerings.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Gemini</span><span>CLI extensions</span><span>AI development</span><span>Developer tools</span><span>Google AI</span><span>API integration</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://blog.google/technology/developers/gemini-cli-extensions/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Legal Contracts Built for AI Agents</h2>
-                <span class="published-time">Published: 2025-10-08 12:55:01</span>
-                
-                <p class="summary">This story introduces a new paradigm for legal agreements, specifically designed to govern the operations and interactions of artificial intelligence agents. The initiative, spearheaded by Paid.AI and dubbed "GitLaw," aims to provide a robust framework of legal contracts that are intelligible and enforceable within an AI-driven ecosystem. These specialized contracts address the unique challenges posed by autonomous AI agents, including issues of accountability, responsibility, and the legal implications of their decisions and actions. By structuring legal agreements in a machine-readable and actionable format, GitLaw seeks to facilitate secure and compliant collaboration between AI agents, as well as between AI agents and human entities. This development marks a significant step towards establishing a functional legal infrastructure for the burgeoning field of autonomous AI, enabling complex transactions and safeguarding against potential disputes in a future where AI agents play a more prominent role in commercial and social activities.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agents</span><span>Legal Contracts</span><span>Autonomous Systems</span><span>AI Governance</span><span>LegalTech</span><span>Digital Contracts</span><span>Machine-Readable Contracts</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://paid.ai/blog/ai-agents/paid-gitlaw-introducing-legal-contracts-built-for-ai-agents" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>AI gets more 'meh' as you get to know it better</h2>
-                <span class="published-time">Published: 2025-10-08 18:32:04</span>
-                
-                <p class="summary">The article, titled "AI gets more 'meh' as you get to know it better," suggests an emergent trend where increased exposure and hands-on experience with artificial intelligence technologies lead to a more tempered and less enthusiastic outlook among researchers and practitioners. This observation, also hinted by the URL's reference to "more researchers use AI, few confident," suggests a significant divergence between the prevalent public hype surrounding AI and the practical realities encountered by those deeply involved in its development and application. Direct engagement with AI systems, from experimental models to production deployments, frequently uncovers inherent limitations, scalability issues, and ethical complexities that tend to moderate initial optimism. This evolving perspective within the expert community signals a crucial shift towards a more pragmatic and realistic assessment of AI's current capabilities, potential for disruption, and the formidable challenges still to be addressed. It underscores the imperative for cultivating realistic expectations and adopting a critically informed approach to AI research, development, and deployment strategies.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI confidence</span><span>AI researcher perspective</span><span>AI disillusionment</span><span>Technological realism</span><span>AI development challenges</span><span>AI application assessment</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.theregister.com/2025/10/08/more_researchers_use_ai_few_confident/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>The AI Browser Automation Framework</h2>
-                <span class="published-time">Published: 2025-10-08T00:49:22Z</span>
-                
-                <p class="summary">Stagehand is an innovative AI browser automation framework designed to bridge the gap between low-level coding tools like Selenium/Playwright and high-level, often unpredictable, AI agents. It empowers developers to strategically combine code and natural language for robust production-ready automations. Key features include the flexibility to choose between code-based Playwright interactions and AI-driven navigation on unfamiliar pages. Stagehand also offers action previewing and caching to enhance reliability, save time, and optimize token usage. Furthermore, it simplifies the integration of state-of-the-art computer use models from providers like OpenAI and Anthropic, allowing complex browser tasks to be executed with a single line of code. The framework also provides powerful data extraction capabilities, enabling developers to precisely define and retrieve structured information from web pages using natural language instructions and schemas. This approach makes Stagehand a versatile and reliable choice for developing advanced web automation workflows.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Browser Automation</span><span>AI Agents</span><span>Playwright</span><span>Natural Language Processing</span><span>Large Language Model</span><span>Web Scraping</span><span>Automation Framework</span><span>Computer Vision</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/browserbase/stagehand" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Zen MCP: Many Workflows. One Context.</h2>
-                <span class="published-time">Published: 2025-10-08T07:20:01Z</span>
-                
-                <p class="summary">Zen MCP is a Model Context Protocol server designed to supercharge AI developer tools by orchestrating multiple AI models within a single CLI workflow. It allows users to integrate popular CLIs like Gemini, Claude Code, and Codex with various AI models from providers such as OpenAI, Anthropic, Google, and more. A key feature is `clink`, a CLI-to-CLI bridge enabling the creation of isolated subagents for tasks like code reviews or bug hunting, ensuring context isolation and role specialization without polluting the main session. Zen MCP facilitates true AI collaboration through conversation continuity, multi-model debates, and context revival, providing enhanced code analysis, planning, and collaborative development. It includes core tools for code quality, collaboration, and development, offering capabilities like automatic model selection, extended context windows, and vision support, thereby boosting developer productivity and insight.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Orchestration</span><span>Multi-model AI</span><span>CLI Tool</span><span>AI Agent</span><span>Code Review</span><span>Context Management</span><span>Large Language Model</span><span>Developer Tools</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/BeehiveInnovations/zen-mcp-server" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>Less is More: Recursive Reasoning with Tiny Networks</h2>
-                <span class="published-time">Published: 2025-10-06T14:58:08.000Z</span>
-                
-                <p class="summary">Hierarchical Reasoning Model (HRM) is a novel approach using two small neural networks recursing at different frequencies. This biologically inspired method beats Large Language models (LLMs) on hard puzzle tasks such as Sudoku, Maze, and ARC-AGI while trained with small models (27M parameters) on small data (around 1000 examples). HRM holds great promise for solving hard problems with small networks, but it is not yet well understood and may be suboptimal. We propose Tiny Recursive Model (TRM), a much simpler recursive reasoning approach that achieves significantly higher generalization than HRM, while using a single tiny network with only 2 layers. With only 7M parameters, TRM obtains 45% test-accuracy on ARC-AGI-1 and 8% on ARC-AGI-2, higher than most LLMs (e.g., Deepseek R1, o3-mini, Gemini 2.5 Pro) with less than 0.01% of the parameters.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Recursive Reasoning</span><span>Tiny Networks</span><span>Hierarchical Reasoning Model</span><span>Large Language Models</span><span>ARC-AGI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Deep Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.04871" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>In-the-Flow Agentic System Optimization for Effective Planning and Tool Use</h2>
-                <span class="published-time">Published: 2025-10-07T05:32:44.000Z</span>
-                
-                <p class="summary">Outcome-driven reinforcement learning has advanced reasoning in large language models (LLMs), but prevailing tool-augmented approaches train a single, monolithic policy that interleaves thoughts and tool calls under full context; this scales poorly with long horizons and diverse tools and generalizes weakly to new scenarios. Agentic systems offer a promising alternative by decomposing work across specialized modules, yet most remain training-free or rely on offline training decoupled from the live dynamics of multi-turn interaction. We introduce AgentFlow, a trainable, in-the-flow agentic framework that coordinates four modules (planner, executor, verifier, generator) through an evolving memory and directly optimizes its planner inside the multi-turn loop. To train on-policy in live environments, we propose Flow-based Group Refined Policy Optimization (Flow-GRPO), which tackles long-horizon, sparse-reward credit assignment by converting multi-turn optimization into a sequence of tractable single-turn policy updates. It broadcasts a single, verifiable trajectory-level outcome to every turn to align local planner decisions with global success and stabilizes learning with group-normalized advantages. Across ten benchmarks, AgentFlow with a 7B-scale backbone outperforms top-performing baselines with average accuracy gains of 14.9% on search, 14.0% on agentic, 14.5% on mathematical, and 4.1% on scientific tasks, even surpassing larger proprietary models like GPT-4o. Further analyses confirm the benefits of in-the-flow optimization, showing improved planning, enhanced tool-calling reliability, and positive scaling with model size and reasoning turns.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Agentic Systems</span><span>Large Language Models</span><span>Reinforcement Learning</span><span>Tool Use</span><span>Policy Optimization</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>AI Agent</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.05592" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Distributional Semantics Tracing: A Framework for Explaining Hallucinations in Large Language Models</h2>
-                <span class="published-time">Published: 2025-10-07T16:40:31.000Z</span>
-                
-                <p class="summary">Large Language Models (LLMs) are prone to hallucination, the generation of plausible yet factually incorrect statements. This work investigates the intrinsic, architectural origins of this failure mode through three primary contributions.First, to enable the reliable tracing of internal semantic failures, we propose Distributional Semantics Tracing (DST), a unified framework that integrates established interpretability techniques to produce a causal map of a model's reasoning, treating meaning as a function of context (distributional semantics). Second, we pinpoint the model's layer at which a hallucination becomes inevitable, identifying a specific commitment layer where a model's internal representations irreversibly diverge from factuality. Third, we identify the underlying mechanism for these failures. We observe a conflict between distinct computational pathways, which we interpret using the lens of dual-process theory: a fast, heuristic associative pathway (akin to System 1) and a slow, deliberate contextual pathway (akin to System 2), leading to predictable failure modes such as Reasoning Shortcut Hijacks. Our framework's ability to quantify the coherence of the contextual pathway reveals a strong negative correlation (rho = -0.863) with hallucination rates, implying that these failures are predictable consequences of internal semantic weakness. The result is a mechanistic account of how, when, and why hallucinations occur within the Transformer architecture.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>Hallucinations</span><span>Distributional Semantics Tracing</span><span>Interpretability</span><span>Transformer architecture</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Deep Learning</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.06107" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>ShapeGen4D: Towards High Quality 4D Shape Generation from Videos</h2>
-                <span class="published-time">Published: 2025-10-07T17:58:11.000Z</span>
-                
-                <p class="summary">Video-conditioned 4D shape generation aims to recover time-varying 3D geometry and view-consistent appearance directly from an input video. In this work, we introduce a native video-to-4D shape generation framework that synthesizes a single dynamic 3D representation end-to-end from the video. Our framework introduces three key components based on large-scale pre-trained 3D models: (i) a temporal attention that conditions generation on all frames while producing a time-indexed dynamic representation; (ii) a time-aware point sampling and 4D latent anchoring that promote temporally consistent geometry and texture; and (iii) noise sharing across frames to enhance temporal stability. Our method accurately captures non-rigid motion, volume changes, and even topological transitions without per-frame optimization. Across diverse in-the-wild videos, our method improves robustness and perceptual fidelity and reduces failure modes compared with the baselines.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>4D Shape Generation</span><span>Video-conditioned Generation</span><span>Dynamic 3D Representation</span><span>Temporal Consistency</span><span>Non-rigid Motion</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Computer Vision</span><span>Generative AI</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.06208" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Scalable In-context Ranking with Generative Models</h2>
-                <span class="published-time">Published: 2025-10-06T21:41:58.000Z</span>
-                
-                <p class="summary">In-context Ranking (ICR) is an emerging paradigm for Information Retrieval (IR), which leverages contextual understanding of LLMs by directly incorporating the task description, candidate documents, and the query into the model's input prompt and tasking the LLM to identify relevant document(s). While it is effective, efficiency is a significant challenge in this paradigm, especially as the candidate list grows due to quadratic/super-linear scaling of attention operation with context length. To this end, this paper first identifies inherent and exploitable structures in the attention of LLMs finetuned for ICR: (1) inter-document block sparsity: attention is dense within each document block but sparse across different documents in the context; and (2) query-document block relevance: the attention scores from certain query tokens to a document block in middle layers strongly correlate with that document's actual relevance. Motivated by these observations, we introduce BlockRank (Blockwise In-context Ranking), a novel method that adapts the attention operation in an LLM by (a) architecturally enforcing the observed inter-document block sparsity, reducing attention complexity from quadratic to linear without loss in performance, and (b) optimizing query-document block relevance for true relevant documents during fine-tuning using an auxiliary contrastive training objective, improving retrieval in attention. Experiments on BEIR, MSMarco and NQ with Mistral-7B demonstrate that FLARE Mistral matches or outperforms existing SOTA listwise rankers and controlled fine-tuned baseline while being significantly more efficient at inference (4.7x for 100 MSMarco documents in context) and scaling gracefully to long-context shortlists, around 500 documents in-context (approximately 100K context length) within a second, presenting a scalable and effective solution for ICR.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>In-context Ranking</span><span>Large Language Models</span><span>Information Retrieval</span><span>Attention mechanism</span><span>Scalability</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Natural Language Processing</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.05396" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Discrete Diffusion Models with MLLMs for Unified Medical Multimodal Generation</h2>
-                <span class="published-time">Published: 2025-10-07T17:06:57.000Z</span>
-                
-                <p class="summary">Recent advances in generative medical models are constrained by modality-specific scenarios that hinder the integration of complementary evidence from imaging, pathology, and clinical notes. This fragmentation limits their evolution into foundation models that can learn and reason across the full spectrum of biomedical data. We propose MeDiM, the first medical discrete diffusion model that learns shared distributions across modalities without modality-specific components. MeDiM unifies multiple generative tasks: translating between images and text, and jointly producing image-report pairs across domains in response to prompts. Built on a discrete diffusion framework, MeDiM bridges vision and language representations through a shared probabilistic space. To enable unified and flexible medical generation, we employ a multimodal large language model (MLLM) as the diffusion backbone, leveraging its prior knowledge and cross-modal reasoning. Two key designs are introduced: (1) removing the causal attention mask for bidirectional context, and (2) injecting continuous timestep embeddings for diffusion awareness. Experiments demonstrate high-fidelity medical generation (FID 16.60 on MIMIC-CXR and FID 24.19 on PathGen) and accurate report generation (METEOR 0.2650 and 0.2580). Jointly generated image-report pairs further enhance downstream performance (plus6.43 percent BLEU-1, plus18.57 percent BLEU-2, plus31.58 percent BLEU-3, plus4.80 percent METEOR), showing that MeDiM supports coherent and clinically grounded multimodal outputs.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Discrete Diffusion Models</span><span>Medical Multimodal Generation</span><span>Multimodal Large Language Model</span><span>Generative AI</span><span>Cross-modal Reasoning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Multimodal</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.06131" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../">Archive</a><a href="cn/">中文</a><a href="en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2025-10-08</strong><span>DEFAULT EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2025-10-08" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-10-08 19:16:10</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.hagerty.com/media/advice/a-few-things-to-know-before-you-steal-my-914/" target="_blank" rel="noopener noreferrer">A few things to know before stealing my 914 (2022)</a></h3>
+    <p class="story-summary">This article, titled &#x27;A few things to know before stealing my 914&#x27;, delves into practical considerations for vehicle security, particularly for classic cars like the Porsche 914. While directly addressing theft prevention tactics, the underlying principles touch upon areas where advanced data analytics and artificial intelligence could offer significant enhancements. For instance, predictive models trained on historical theft data could identify high-risk locations and patterns, enabling owners to proactively secure their assets. Furthermore, AI-powered systems could integrate with telematics to monitor unusual activities, learn owner behavior, and trigger alerts or activate countermeasures more effectively than traditional alarms. This approach transforms static security measures into dynamic, intelligent systems capable of adapting to emerging threats, thereby demonstrating the broader applicability of AI in real-world security challenges beyond typical digital domains, extending to physical asset protection and risk mitigation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Automotive Security</span><span class="tag tag-keyword">Predictive Analytics</span><span class="tag tag-keyword">Machine Learning</span><span class="tag tag-keyword">Risk Assessment</span><span class="tag tag-keyword">Telematics</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-10-08 14:28:06</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.npmjs.com/package/@joseairosa/recall" target="_blank" rel="noopener noreferrer">Show HN: Recall: Give Claude memory with Redis-backed persistent context</a></h3>
+    <p class="story-summary">José has launched &quot;Recall,&quot; an MCP (Model Context Protocol) server designed to provide persistent memory for large language models like Claude, addressing the common issue of conversational context limits. Developers often face the challenge of repeatedly explaining architectural details and coding standards in each new session, leading to lost context. Recall leverages Redis and semantic search to store and retrieve &quot;memories&quot; – important conversational context. These memories are embedded using OpenAI&#x27;s technology and stored in Redis with associated metadata. The system automatically retrieves relevant information, enabling Claude to maintain a long-term, evolving understanding across multiple sessions, projects, and even different machines when utilizing cloud-based Redis. Key features include the ability to share context globally across projects and establish relationships between memories. This solution enhances the practical applicability of LLMs by overcoming significant context management hurdles.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Claude</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Persistent Memory</span><span class="tag tag-keyword">Redis</span><span class="tag tag-keyword">Semantic Search</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-10-08 18:00:34</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/built-by-as/FleetCode" target="_blank" rel="noopener noreferrer">Show HN: FleetCode – Open-source UI for running multiple coding agents</a></h3>
+    <p class="story-summary">FleetCode, an innovative open-source user interface, has been launched to significantly enhance the management and parallel execution of multiple command-line interface (CLI) coding agents. The project creator, who initially harbored skepticism towards coding agents, ultimately discovered their productivity potential through parallel operation but faced considerable workflow inefficiencies with existing solutions. These challenges included overly convoluted interfaces, outright non-functional products, and a tendency for tools to integrate proprietary chat UIs rather than simply wrapping terminal sessions. FleetCode aims to resolve these issues by leveraging Git worktrees, which enable developers to run multiple agents concurrently within isolated, dedicated environments. This approach eliminates the need for cumbersome practices like frequent Git stashing and complex branch fumbling. By providing a lightweight and ergonomic platform, FleetCode empowers developers to more effectively integrate and utilize AI-driven coding assistance, thereby streamlining multi-agent development workflows. The project is free and open-source, actively seeking community feedback to further refine its capabilities.</p>
+    <div class="story-tags"><span class="tag tag-keyword">FleetCode</span><span class="tag tag-keyword">Open-source</span><span class="tag tag-keyword">Coding agents</span><span class="tag tag-keyword">UI</span><span class="tag tag-keyword">Git worktrees</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-10-08 14:13:30</time></div>
+  <div class="story-body">
+    <h3><a href="https://blog.google/technology/developers/gemini-cli-extensions/" target="_blank" rel="noopener noreferrer">Now open for building: Introducing Gemini CLI extensions</a></h3>
+    <p class="story-summary">Google has officially announced the launch of Gemini CLI extensions, opening new avenues for developers to integrate and build upon the Gemini artificial intelligence model. This initiative allows users to leverage the power of Gemini directly from their command line interface, facilitating enhanced automation, custom tool creation, and streamlined integration into existing development workflows. The introduction of these extensions signifies a strategic move by Google to foster a more open and extensible ecosystem around its flagship AI model, enabling developers to create bespoke solutions and unique applications that harness its multimodal capabilities. This development is expected to empower a broader range of technical users, from individual developers to enterprise teams, to harness Gemini&#x27;s functionalities more efficiently and innovatively, driving further advancements in AI-powered applications and services. The CLI extensions aim to simplify interactions with the Gemini API, making advanced AI functionalities more accessible for practical, day-to-day development tasks, rapid prototyping, and integrating AI into custom scripts and tools. This move underscores Google&#x27;s commitment to developer enablement and expanding the utility of its advanced AI offerings.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Gemini</span><span class="tag tag-keyword">CLI extensions</span><span class="tag tag-keyword">AI development</span><span class="tag tag-keyword">Developer tools</span><span class="tag tag-keyword">Google AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-10-08 12:55:01</time></div>
+  <div class="story-body">
+    <h3><a href="https://paid.ai/blog/ai-agents/paid-gitlaw-introducing-legal-contracts-built-for-ai-agents" target="_blank" rel="noopener noreferrer">Legal Contracts Built for AI Agents</a></h3>
+    <p class="story-summary">This story introduces a new paradigm for legal agreements, specifically designed to govern the operations and interactions of artificial intelligence agents. The initiative, spearheaded by Paid.AI and dubbed &quot;GitLaw,&quot; aims to provide a robust framework of legal contracts that are intelligible and enforceable within an AI-driven ecosystem. These specialized contracts address the unique challenges posed by autonomous AI agents, including issues of accountability, responsibility, and the legal implications of their decisions and actions. By structuring legal agreements in a machine-readable and actionable format, GitLaw seeks to facilitate secure and compliant collaboration between AI agents, as well as between AI agents and human entities. This development marks a significant step towards establishing a functional legal infrastructure for the burgeoning field of autonomous AI, enabling complex transactions and safeguarding against potential disputes in a future where AI agents play a more prominent role in commercial and social activities.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Legal Contracts</span><span class="tag tag-keyword">Autonomous Systems</span><span class="tag tag-keyword">AI Governance</span><span class="tag tag-keyword">LegalTech</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-10-08 18:32:04</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.theregister.com/2025/10/08/more_researchers_use_ai_few_confident/" target="_blank" rel="noopener noreferrer">AI gets more &#x27;meh&#x27; as you get to know it better</a></h3>
+    <p class="story-summary">The article, titled &quot;AI gets more &#x27;meh&#x27; as you get to know it better,&quot; suggests an emergent trend where increased exposure and hands-on experience with artificial intelligence technologies lead to a more tempered and less enthusiastic outlook among researchers and practitioners. This observation, also hinted by the URL&#x27;s reference to &quot;more researchers use AI, few confident,&quot; suggests a significant divergence between the prevalent public hype surrounding AI and the practical realities encountered by those deeply involved in its development and application. Direct engagement with AI systems, from experimental models to production deployments, frequently uncovers inherent limitations, scalability issues, and ethical complexities that tend to moderate initial optimism. This evolving perspective within the expert community signals a crucial shift towards a more pragmatic and realistic assessment of AI&#x27;s current capabilities, potential for disruption, and the formidable challenges still to be addressed. It underscores the imperative for cultivating realistic expectations and adopting a critically informed approach to AI research, development, and deployment strategies.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI confidence</span><span class="tag tag-keyword">AI researcher perspective</span><span class="tag tag-keyword">AI disillusionment</span><span class="tag tag-keyword">Technological realism</span><span class="tag tag-keyword">AI development challenges</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>2 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-10-08T00:49:22Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/browserbase/stagehand" target="_blank" rel="noopener noreferrer">The AI Browser Automation Framework</a></h3>
+    <p class="story-summary">Stagehand is an innovative AI browser automation framework designed to bridge the gap between low-level coding tools like Selenium/Playwright and high-level, often unpredictable, AI agents. It empowers developers to strategically combine code and natural language for robust production-ready automations. Key features include the flexibility to choose between code-based Playwright interactions and AI-driven navigation on unfamiliar pages. Stagehand also offers action previewing and caching to enhance reliability, save time, and optimize token usage. Furthermore, it simplifies the integration of state-of-the-art computer use models from providers like OpenAI and Anthropic, allowing complex browser tasks to be executed with a single line of code. The framework also provides powerful data extraction capabilities, enabling developers to precisely define and retrieve structured information from web pages using natural language instructions and schemas. This approach makes Stagehand a versatile and reliable choice for developing advanced web automation workflows.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Browser Automation</span><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Playwright</span><span class="tag tag-keyword">Natural Language Processing</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-10-08T07:20:01Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/BeehiveInnovations/zen-mcp-server" target="_blank" rel="noopener noreferrer">Zen MCP: Many Workflows. One Context.</a></h3>
+    <p class="story-summary">Zen MCP is a Model Context Protocol server designed to supercharge AI developer tools by orchestrating multiple AI models within a single CLI workflow. It allows users to integrate popular CLIs like Gemini, Claude Code, and Codex with various AI models from providers such as OpenAI, Anthropic, Google, and more. A key feature is `clink`, a CLI-to-CLI bridge enabling the creation of isolated subagents for tasks like code reviews or bug hunting, ensuring context isolation and role specialization without polluting the main session. Zen MCP facilitates true AI collaboration through conversation continuity, multi-model debates, and context revival, providing enhanced code analysis, planning, and collaborative development. It includes core tools for code quality, collaboration, and development, offering capabilities like automatic model selection, extended context windows, and vision support, thereby boosting developer productivity and insight.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Orchestration</span><span class="tag tag-keyword">Multi-model AI</span><span class="tag tag-keyword">CLI Tool</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Code Review</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-10-06T14:58:08.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.04871" target="_blank" rel="noopener noreferrer">Less is More: Recursive Reasoning with Tiny Networks</a></h3>
+    <p class="story-summary">Hierarchical Reasoning Model (HRM) is a novel approach using two small neural networks recursing at different frequencies. This biologically inspired method beats Large Language models (LLMs) on hard puzzle tasks such as Sudoku, Maze, and ARC-AGI while trained with small models (27M parameters) on small data (around 1000 examples). HRM holds great promise for solving hard problems with small networks, but it is not yet well understood and may be suboptimal. We propose Tiny Recursive Model (TRM), a much simpler recursive reasoning approach that achieves significantly higher generalization than HRM, while using a single tiny network with only 2 layers. With only 7M parameters, TRM obtains 45% test-accuracy on ARC-AGI-1 and 8% on ARC-AGI-2, higher than most LLMs (e.g., Deepseek R1, o3-mini, Gemini 2.5 Pro) with less than 0.01% of the parameters.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Recursive Reasoning</span><span class="tag tag-keyword">Tiny Networks</span><span class="tag tag-keyword">Hierarchical Reasoning Model</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">ARC-AGI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-10-07T05:32:44.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.05592" target="_blank" rel="noopener noreferrer">In-the-Flow Agentic System Optimization for Effective Planning and Tool Use</a></h3>
+    <p class="story-summary">Outcome-driven reinforcement learning has advanced reasoning in large language models (LLMs), but prevailing tool-augmented approaches train a single, monolithic policy that interleaves thoughts and tool calls under full context; this scales poorly with long horizons and diverse tools and generalizes weakly to new scenarios. Agentic systems offer a promising alternative by decomposing work across specialized modules, yet most remain training-free or rely on offline training decoupled from the live dynamics of multi-turn interaction. We introduce AgentFlow, a trainable, in-the-flow agentic framework that coordinates four modules (planner, executor, verifier, generator) through an evolving memory and directly optimizes its planner inside the multi-turn loop. To train on-policy in live environments, we propose Flow-based Group Refined Policy Optimization (Flow-GRPO), which tackles long-horizon, sparse-reward credit assignment by converting multi-turn optimization into a sequence of tractable single-turn policy updates. It broadcasts a single, verifiable trajectory-level outcome to every turn to align local planner decisions with global success and stabilizes learning with group-normalized advantages. Across ten benchmarks, AgentFlow with a 7B-scale backbone outperforms top-performing baselines with average accuracy gains of 14.9% on search, 14.0% on agentic, 14.5% on mathematical, and 4.1% on scientific tasks, even surpassing larger proprietary models like GPT-4o. Further analyses confirm the benefits of in-the-flow optimization, showing improved planning, enhanced tool-calling reliability, and positive scaling with model size and reasoning turns.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agentic Systems</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Tool Use</span><span class="tag tag-keyword">Policy Optimization</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-10-07T16:40:31.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.06107" target="_blank" rel="noopener noreferrer">Distributional Semantics Tracing: A Framework for Explaining Hallucinations in Large Language Models</a></h3>
+    <p class="story-summary">Large Language Models (LLMs) are prone to hallucination, the generation of plausible yet factually incorrect statements. This work investigates the intrinsic, architectural origins of this failure mode through three primary contributions.First, to enable the reliable tracing of internal semantic failures, we propose Distributional Semantics Tracing (DST), a unified framework that integrates established interpretability techniques to produce a causal map of a model&#x27;s reasoning, treating meaning as a function of context (distributional semantics). Second, we pinpoint the model&#x27;s layer at which a hallucination becomes inevitable, identifying a specific commitment layer where a model&#x27;s internal representations irreversibly diverge from factuality. Third, we identify the underlying mechanism for these failures. We observe a conflict between distinct computational pathways, which we interpret using the lens of dual-process theory: a fast, heuristic associative pathway (akin to System 1) and a slow, deliberate contextual pathway (akin to System 2), leading to predictable failure modes such as Reasoning Shortcut Hijacks. Our framework&#x27;s ability to quantify the coherence of the contextual pathway reveals a strong negative correlation (rho = -0.863) with hallucination rates, implying that these failures are predictable consequences of internal semantic weakness. The result is a mechanistic account of how, when, and why hallucinations occur within the Transformer architecture.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Hallucinations</span><span class="tag tag-keyword">Distributional Semantics Tracing</span><span class="tag tag-keyword">Interpretability</span><span class="tag tag-keyword">Transformer architecture</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-10-07T17:58:11.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.06208" target="_blank" rel="noopener noreferrer">ShapeGen4D: Towards High Quality 4D Shape Generation from Videos</a></h3>
+    <p class="story-summary">Video-conditioned 4D shape generation aims to recover time-varying 3D geometry and view-consistent appearance directly from an input video. In this work, we introduce a native video-to-4D shape generation framework that synthesizes a single dynamic 3D representation end-to-end from the video. Our framework introduces three key components based on large-scale pre-trained 3D models: (i) a temporal attention that conditions generation on all frames while producing a time-indexed dynamic representation; (ii) a time-aware point sampling and 4D latent anchoring that promote temporally consistent geometry and texture; and (iii) noise sharing across frames to enhance temporal stability. Our method accurately captures non-rigid motion, volume changes, and even topological transitions without per-frame optimization. Across diverse in-the-wild videos, our method improves robustness and perceptual fidelity and reduces failure modes compared with the baselines.</p>
+    <div class="story-tags"><span class="tag tag-keyword">4D Shape Generation</span><span class="tag tag-keyword">Video-conditioned Generation</span><span class="tag tag-keyword">Dynamic 3D Representation</span><span class="tag tag-keyword">Temporal Consistency</span><span class="tag tag-keyword">Non-rigid Motion</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-10-06T21:41:58.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.05396" target="_blank" rel="noopener noreferrer">Scalable In-context Ranking with Generative Models</a></h3>
+    <p class="story-summary">In-context Ranking (ICR) is an emerging paradigm for Information Retrieval (IR), which leverages contextual understanding of LLMs by directly incorporating the task description, candidate documents, and the query into the model&#x27;s input prompt and tasking the LLM to identify relevant document(s). While it is effective, efficiency is a significant challenge in this paradigm, especially as the candidate list grows due to quadratic/super-linear scaling of attention operation with context length. To this end, this paper first identifies inherent and exploitable structures in the attention of LLMs finetuned for ICR: (1) inter-document block sparsity: attention is dense within each document block but sparse across different documents in the context; and (2) query-document block relevance: the attention scores from certain query tokens to a document block in middle layers strongly correlate with that document&#x27;s actual relevance. Motivated by these observations, we introduce BlockRank (Blockwise In-context Ranking), a novel method that adapts the attention operation in an LLM by (a) architecturally enforcing the observed inter-document block sparsity, reducing attention complexity from quadratic to linear without loss in performance, and (b) optimizing query-document block relevance for true relevant documents during fine-tuning using an auxiliary contrastive training objective, improving retrieval in attention. Experiments on BEIR, MSMarco and NQ with Mistral-7B demonstrate that FLARE Mistral matches or outperforms existing SOTA listwise rankers and controlled fine-tuned baseline while being significantly more efficient at inference (4.7x for 100 MSMarco documents in context) and scaling gracefully to long-context shortlists, around 500 documents in-context (approximately 100K context length) within a second, presenting a scalable and effective solution for ICR.</p>
+    <div class="story-tags"><span class="tag tag-keyword">In-context Ranking</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Information Retrieval</span><span class="tag tag-keyword">Attention mechanism</span><span class="tag tag-keyword">Scalability</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-10-07T17:06:57.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.06131" target="_blank" rel="noopener noreferrer">Discrete Diffusion Models with MLLMs for Unified Medical Multimodal Generation</a></h3>
+    <p class="story-summary">Recent advances in generative medical models are constrained by modality-specific scenarios that hinder the integration of complementary evidence from imaging, pathology, and clinical notes. This fragmentation limits their evolution into foundation models that can learn and reason across the full spectrum of biomedical data. We propose MeDiM, the first medical discrete diffusion model that learns shared distributions across modalities without modality-specific components. MeDiM unifies multiple generative tasks: translating between images and text, and jointly producing image-report pairs across domains in response to prompts. Built on a discrete diffusion framework, MeDiM bridges vision and language representations through a shared probabilistic space. To enable unified and flexible medical generation, we employ a multimodal large language model (MLLM) as the diffusion backbone, leveraging its prior knowledge and cross-modal reasoning. Two key designs are introduced: (1) removing the causal attention mask for bidirectional context, and (2) injecting continuous timestep embeddings for diffusion awareness. Experiments demonstrate high-fidelity medical generation (FID 16.60 on MIMIC-CXR and FID 24.19 on PathGen) and accurate report generation (METEOR 0.2650 and 0.2580). Jointly generated image-report pairs further enhance downstream performance (plus6.43 percent BLEU-1, plus18.57 percent BLEU-2, plus31.58 percent BLEU-3, plus4.80 percent METEOR), showing that MeDiM supports coherent and clinically grounded multimodal outputs.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Discrete Diffusion Models</span><span class="tag tag-keyword">Medical Multimodal Generation</span><span class="tag tag-keyword">Multimodal Large Language Model</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-keyword">Cross-modal Reasoning</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2025-10-08" data-counter-title="NO-FOMO issue 2025-10-08" defer></script>
 </body>
 </html>

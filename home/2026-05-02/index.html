@@ -1,334 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2026-05-02</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2026-05-02</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="." class="active">中文</a>
-                <a href="en/" class="">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2026-05-02</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../home/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 返回主页</a>
-            <a href="../../daily/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 最新日报</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 关于我们</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Refusal in Language Models Is Mediated by a Single Direction</h2>
-                <span class="published-time">Published: 2026-05-02 13:15:23</span>
-                
-                <p class="summary">This research explores the phenomenon of refusal in large language models (LLMs), revealing that the complex behavior of declining to respond to certain prompts, particularly those that are harmful or violate safety guidelines, can be attributed to a single, identifiable directional component within the model's internal representations. The study suggests that this singular direction acts as a central mediator for an LLM's decision to refuse, indicating a more concentrated control mechanism than previously understood. This discovery offers crucial insights into the neural mechanisms underlying LLM alignment and safety, paving the way for more targeted and efficient methods to control model behavior and enhance ethical responses. Understanding this mediation point could lead to advancements in developing more robust and steerable AI systems, allowing for precise interventions in how models process and respond to sensitive queries.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Language Models</span><span>LLM Refusal</span><span>Model Alignment</span><span>Safety Research</span><span>Directional Control</span><span>Latent Space Analysis</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Natural Language Processing</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://arxiv.org/abs/2406.11717" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Open Design: Use Your Coding Agent as a Design Engine</h2>
-                <span class="published-time">Published: 2026-05-02 12:16:16</span>
-                
-                <p class="summary">Open Design introduces a groundbreaking paradigm focused on integrating coding agents as central design engines, aiming to revolutionize the traditional design-to-development workflow. This initiative envisions AI-powered agents capable of interpreting design specifications, generating functional code, and automating various creative and technical aspects of product design. By leveraging artificial intelligence, these agents are intended to streamline the ideation, prototyping, and implementation phases, significantly reducing manual effort and accelerating project timelines. The project explores methods for agents to iteratively refine designs based on input and constraints, effectively transforming complex design challenges into programmable, autonomous tasks. This approach holds the potential to create a more synergistic environment for designers and developers, fostering efficiency and innovation in digital product creation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Open Design</span><span>Coding Agent</span><span>Design Automation</span><span>AI Agent</span><span>Generative Design</span><span>Developer Tools</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Artificial Intelligence</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/nexu-io/open-design" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: Filling PDF forms with AI using client-side tool calling</h2>
-                <span class="published-time">Published: 2026-05-02 08:54:27</span>
-                
-                <p class="summary">SimplePDF Copilot is presented as an innovative AI assistant that deeply integrates with a PDF editor, offering advanced capabilities such as automatically filling fields, responding to queries, adding or deleting pages, and focusing on specific document sections. Developed on the foundation of SimplePDF, a platform established seven years ago with a strong emphasis on privacy-respecting client-side PDF editing and currently used by over 200,000 monthly users, Copilot maintains a robust privacy model. The entire PDF processing workflow, including parsing, rendering, and field detection, is executed within the user's browser, guaranteeing that sensitive document content never leaves the client environment. For its underlying intelligence, Copilot supports various Large Language Models; users can opt for a default rate-capped proxy utilizing DeepSeek V4 Flash, bring their own cloud provider keys, or even operate fully locally with tools like LM Studio. A significant differentiator is Copilot's ability to act upon the PDF by modifying fields, contrasting with typical "Chat with PDF" solutions that are limited to text retrieval or OCR. This represents a substantial leap in interactive PDF automation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Assistant</span><span>Client-side Processing</span><span>PDF Automation</span><span>Large Language Model Integration</span><span>Tool Calling</span><span>Privacy-preserving AI</span><span>Document Interaction</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://copilot.simplepdf.com/?share=a7d00ad073c75a75d493228e6ff7b11eb3f2d945b6175913e87898ec96ca8076&form=w9&lang=en" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>AI Self-preferencing in Algorithmic Hiring: Empirical Evidence and Insights</h2>
-                <span class="published-time">Published: 2026-05-02 15:28:13</span>
-                
-                <p class="summary">This research paper investigates the phenomenon of AI self-preferencing within algorithmic hiring systems, presenting empirical evidence and offering critical insights into its implications. The study explores how AI algorithms, when deployed in recruitment processes, can exhibit inherent biases that favor certain candidates or profiles, potentially exacerbating existing inequalities or creating new forms of discrimination. By analyzing real-world or simulated hiring scenarios, the authors identify the mechanisms through which self-preferencing behavior manifests, discussing its origins in data, model design, or operational feedback loops. The findings highlight the urgent need for robust ethical frameworks and technical interventions to mitigate unintended algorithmic biases and ensure fairness, transparency, and accountability in AI-driven HR decisions. This work contributes significantly to understanding the complexities of AI ethics and responsible AI deployment in sensitive societal domains.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Algorithmic Hiring</span><span>AI Bias</span><span>Self-preferencing</span><span>Fairness in AI</span><span>AI Ethics</span><span>Machine Learning Applications</span><span>Algorithmic Discrimination</span><span>Responsible AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://arxiv.org/abs/2509.00462" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>California to begin ticketing driverless cars that violate traffic laws</h2>
-                <span class="published-time">Published: 2026-05-02 17:59:18</span>
-                
-                <p class="summary">California authorities are set to implement a new policy enabling the ticketing of driverless cars found in violation of traffic laws. This marks a significant development in the regulation of autonomous vehicles (AVs), signaling a move towards stricter accountability for AI-driven systems operating on public roads. Previously, issues with AV performance, such as unexpected stops or minor infractions, were often handled by the operating companies, but this change establishes a direct enforcement mechanism against the vehicles themselves. The initiative underscores the increasing maturity and widespread deployment of self-driving technology, necessitating a more robust legal and regulatory framework to ensure public safety and integrate AVs seamlessly into existing traffic ecosystems. This policy sets a precedent for how states may manage the burgeoning autonomous vehicle industry, shifting responsibility and potentially influencing the development and deployment strategies of companies in the sector. The enforcement will likely involve collaboration between law enforcement and AV manufacturers to identify and address violations effectively.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Driverless Cars</span><span>Autonomous Vehicles</span><span>Traffic Laws</span><span>Regulation</span><span>AI Ethics</span><span>Robotics</span><span>Self-driving Technology</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Robotics</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.bbc.com/news/articles/clypjx3rg2go" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Flue is a TypeScript framework for building the next generation of agents</h2>
-                <span class="published-time">Published: 2026-05-02 17:32:07</span>
-                
-                <p class="summary">Flue is presented as a cutting-edge TypeScript framework specifically engineered for the development of advanced AI agents. It aims to empower developers to construct the next generation of intelligent systems, leveraging TypeScript's robust type safety and developer tooling. The framework is designed to streamline the creation of complex agent behaviors, interactions, and decision-making processes, providing a structured and scalable approach to agent-based applications. By focusing on TypeScript, Flue offers developers a familiar and powerful environment, enhancing productivity and maintainability for sophisticated AI projects. This initiative highlights the growing trend of utilizing established programming languages and frameworks to build sophisticated AI components, offering a more manageable and maintainable development environment for AI researchers and engineers. Its emphasis on 'next generation agents' suggests that Flue provides capabilities beyond current standard implementations, potentially incorporating advanced reasoning, learning, or adaptive behaviors, thereby pushing the boundaries of what autonomous agents can achieve in various domains.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agents</span><span>TypeScript</span><span>Agent Framework</span><span>Software Development</span><span>AI Development</span><span>Next-Gen AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://flueframework.com/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../">Archive</a><a href="cn/">中文</a><a href="en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-05-02</strong><span>DEFAULT EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2026-05-02" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-05-02 13:15:23</time></div>
+  <div class="story-body">
+    <h3><a href="https://arxiv.org/abs/2406.11717" target="_blank" rel="noopener noreferrer">Refusal in Language Models Is Mediated by a Single Direction</a></h3>
+    <p class="story-summary">This research explores the phenomenon of refusal in large language models (LLMs), revealing that the complex behavior of declining to respond to certain prompts, particularly those that are harmful or violate safety guidelines, can be attributed to a single, identifiable directional component within the model&#x27;s internal representations. The study suggests that this singular direction acts as a central mediator for an LLM&#x27;s decision to refuse, indicating a more concentrated control mechanism than previously understood. This discovery offers crucial insights into the neural mechanisms underlying LLM alignment and safety, paving the way for more targeted and efficient methods to control model behavior and enhance ethical responses. Understanding this mediation point could lead to advancements in developing more robust and steerable AI systems, allowing for precise interventions in how models process and respond to sensitive queries.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Language Models</span><span class="tag tag-keyword">LLM Refusal</span><span class="tag tag-keyword">Model Alignment</span><span class="tag tag-keyword">Safety Research</span><span class="tag tag-keyword">Directional Control</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-05-02 12:16:16</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/nexu-io/open-design" target="_blank" rel="noopener noreferrer">Open Design: Use Your Coding Agent as a Design Engine</a></h3>
+    <p class="story-summary">Open Design introduces a groundbreaking paradigm focused on integrating coding agents as central design engines, aiming to revolutionize the traditional design-to-development workflow. This initiative envisions AI-powered agents capable of interpreting design specifications, generating functional code, and automating various creative and technical aspects of product design. By leveraging artificial intelligence, these agents are intended to streamline the ideation, prototyping, and implementation phases, significantly reducing manual effort and accelerating project timelines. The project explores methods for agents to iteratively refine designs based on input and constraints, effectively transforming complex design challenges into programmable, autonomous tasks. This approach holds the potential to create a more synergistic environment for designers and developers, fostering efficiency and innovation in digital product creation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Open Design</span><span class="tag tag-keyword">Coding Agent</span><span class="tag tag-keyword">Design Automation</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Generative Design</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-05-02 08:54:27</time></div>
+  <div class="story-body">
+    <h3><a href="https://copilot.simplepdf.com/?share=a7d00ad073c75a75d493228e6ff7b11eb3f2d945b6175913e87898ec96ca8076&amp;form=w9&amp;lang=en" target="_blank" rel="noopener noreferrer">Show HN: Filling PDF forms with AI using client-side tool calling</a></h3>
+    <p class="story-summary">SimplePDF Copilot is presented as an innovative AI assistant that deeply integrates with a PDF editor, offering advanced capabilities such as automatically filling fields, responding to queries, adding or deleting pages, and focusing on specific document sections. Developed on the foundation of SimplePDF, a platform established seven years ago with a strong emphasis on privacy-respecting client-side PDF editing and currently used by over 200,000 monthly users, Copilot maintains a robust privacy model. The entire PDF processing workflow, including parsing, rendering, and field detection, is executed within the user&#x27;s browser, guaranteeing that sensitive document content never leaves the client environment. For its underlying intelligence, Copilot supports various Large Language Models; users can opt for a default rate-capped proxy utilizing DeepSeek V4 Flash, bring their own cloud provider keys, or even operate fully locally with tools like LM Studio. A significant differentiator is Copilot&#x27;s ability to act upon the PDF by modifying fields, contrasting with typical &quot;Chat with PDF&quot; solutions that are limited to text retrieval or OCR. This represents a substantial leap in interactive PDF automation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Assistant</span><span class="tag tag-keyword">Client-side Processing</span><span class="tag tag-keyword">PDF Automation</span><span class="tag tag-keyword">Large Language Model Integration</span><span class="tag tag-keyword">Tool Calling</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-05-02 15:28:13</time></div>
+  <div class="story-body">
+    <h3><a href="https://arxiv.org/abs/2509.00462" target="_blank" rel="noopener noreferrer">AI Self-preferencing in Algorithmic Hiring: Empirical Evidence and Insights</a></h3>
+    <p class="story-summary">This research paper investigates the phenomenon of AI self-preferencing within algorithmic hiring systems, presenting empirical evidence and offering critical insights into its implications. The study explores how AI algorithms, when deployed in recruitment processes, can exhibit inherent biases that favor certain candidates or profiles, potentially exacerbating existing inequalities or creating new forms of discrimination. By analyzing real-world or simulated hiring scenarios, the authors identify the mechanisms through which self-preferencing behavior manifests, discussing its origins in data, model design, or operational feedback loops. The findings highlight the urgent need for robust ethical frameworks and technical interventions to mitigate unintended algorithmic biases and ensure fairness, transparency, and accountability in AI-driven HR decisions. This work contributes significantly to understanding the complexities of AI ethics and responsible AI deployment in sensitive societal domains.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Algorithmic Hiring</span><span class="tag tag-keyword">AI Bias</span><span class="tag tag-keyword">Self-preferencing</span><span class="tag tag-keyword">Fairness in AI</span><span class="tag tag-keyword">AI Ethics</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-05-02 17:59:18</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.bbc.com/news/articles/clypjx3rg2go" target="_blank" rel="noopener noreferrer">California to begin ticketing driverless cars that violate traffic laws</a></h3>
+    <p class="story-summary">California authorities are set to implement a new policy enabling the ticketing of driverless cars found in violation of traffic laws. This marks a significant development in the regulation of autonomous vehicles (AVs), signaling a move towards stricter accountability for AI-driven systems operating on public roads. Previously, issues with AV performance, such as unexpected stops or minor infractions, were often handled by the operating companies, but this change establishes a direct enforcement mechanism against the vehicles themselves. The initiative underscores the increasing maturity and widespread deployment of self-driving technology, necessitating a more robust legal and regulatory framework to ensure public safety and integrate AVs seamlessly into existing traffic ecosystems. This policy sets a precedent for how states may manage the burgeoning autonomous vehicle industry, shifting responsibility and potentially influencing the development and deployment strategies of companies in the sector. The enforcement will likely involve collaboration between law enforcement and AV manufacturers to identify and address violations effectively.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Driverless Cars</span><span class="tag tag-keyword">Autonomous Vehicles</span><span class="tag tag-keyword">Traffic Laws</span><span class="tag tag-keyword">Regulation</span><span class="tag tag-keyword">AI Ethics</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Robotics</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-05-02 17:32:07</time></div>
+  <div class="story-body">
+    <h3><a href="https://flueframework.com/" target="_blank" rel="noopener noreferrer">Flue is a TypeScript framework for building the next generation of agents</a></h3>
+    <p class="story-summary">Flue is presented as a cutting-edge TypeScript framework specifically engineered for the development of advanced AI agents. It aims to empower developers to construct the next generation of intelligent systems, leveraging TypeScript&#x27;s robust type safety and developer tooling. The framework is designed to streamline the creation of complex agent behaviors, interactions, and decision-making processes, providing a structured and scalable approach to agent-based applications. By focusing on TypeScript, Flue offers developers a familiar and powerful environment, enhancing productivity and maintainability for sophisticated AI projects. This initiative highlights the growing trend of utilizing established programming languages and frameworks to build sophisticated AI components, offering a more manageable and maintainable development environment for AI researchers and engineers. Its emphasis on &#x27;next generation agents&#x27; suggests that Flue provides capabilities beyond current standard implementations, potentially incorporating advanced reasoning, learning, or adaptive behaviors, thereby pushing the boundaries of what autonomous agents can achieve in various domains.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">TypeScript</span><span class="tag tag-keyword">Agent Framework</span><span class="tag tag-keyword">Software Development</span><span class="tag tag-keyword">AI Development</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2026-05-02" data-counter-title="NO-FOMO issue 2026-05-02" defer></script>
 </body>
 </html>

@@ -1,438 +1,140 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-10-31</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2025-10-31</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="../" class="">中文</a>
-                <a href="." class="active">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-10-31</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../../home/en/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 Back to Homepage</a>
-            <a href="../../../daily/en/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 Latest Daily</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 About Us</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Kimi Linear: An Expressive, Efficient Attention Architecture</h2>
-                <span class="published-time">Published: 2025-10-31 00:07:36</span>
-                
-                <p class="summary">Kimi Linear presents a novel attention architecture developed by MoonshotAI, specifically engineered to enhance both the expressiveness and efficiency of deep learning models. This innovation directly addresses the significant computational overhead associated with conventional attention mechanisms, which typically exhibit quadratic scaling with respect to input sequence length. By adopting a linear scaling approach, Kimi Linear aims to dramatically reduce the computational and memory requirements, making it particularly advantageous for processing very long sequences in advanced AI applications, such as large language models. The architecture is designed to capture complex contextual relationships effectively while significantly improving training and inference speed. This development is crucial for advancing the scalability and practical deployment of high-performance neural networks, offering a more resource-efficient pathway for developing increasingly sophisticated AI systems and fostering broader accessibility to powerful AI capabilities.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Attention Mechanism</span><span>Deep Learning</span><span>Large Language Models</span><span>Neural Networks</span><span>Computational Efficiency</span><span>AI Architecture</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Deep Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/MoonshotAI/Kimi-Linear" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Reasoning models reason well, until they don't</h2>
-                <span class="published-time">Published: 2025-10-31 09:23:41</span>
-                
-                <p class="summary">This article discusses the inherent limitations and potential failure points of current AI reasoning models. While these models have demonstrated remarkable abilities in various complex tasks, their performance is not consistently robust across all scenarios, revealing critical vulnerabilities. The research likely explores the conditions under which these advanced models cease to reason effectively, highlighting specific edge cases, biases, or contextual shifts that lead to erroneous or illogical outputs. Understanding these boundaries is crucial for developing more reliable and trustworthy artificial intelligence systems. The findings underscore the need for further research into improving model robustness, enhancing their ability to handle ambiguous information, and ensuring more consistent and predictable reasoning capabilities in real-world applications.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Reasoning</span><span>Model Robustness</span><span>Failure Modes</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Cognitive AI</span><span>AI Limitations</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://arxiv.org/abs/2510.22371" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Ask HN: Who uses open LLMs and coding assistants locally? Share setup and laptop</h2>
-                <span class="published-time">Published: 2025-10-31 13:39:55</span>
-                
-                <p class="summary">A recent Hacker News inquiry seeks practical insights into the local deployment and usage of open-source Large Language Models (LLMs) and coding assistants on personal laptops. The post invites developers and enthusiasts to share their real-world workflows, focusing on specific models (e.g., Ollama, LM Studio) and integration tools, particularly VS Code plugins. Key information requested includes detailed laptop hardware configurations—such as CPU, GPU/NPU type, and memory—along with performance assessments for these local AI setups. Furthermore, the discussion aims to uncover the diverse applications of these tools, encompassing tasks like code completion, refactoring, debugging, and code review, while also evaluating their reliability and identifying areas where they currently fall short. This investigation by Andrea aims to gather comprehensive data on the viability and efficacy of running generative AI tools directly on developer hardware, moving beyond cloud-based solutions.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Open-source LLMs</span><span>Coding Assistants</span><span>Local AI Deployment</span><span>Developer Workflows</span><span>Generative AI</span><span>Hardware Performance</span><span>Code Generation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Generative AI</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://news.ycombinator.com/item?id=45771870" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>How OpenAI uses complex and circular deals to fuel its multibillion-dollar rise</h2>
-                <span class="published-time">Published: 2025-10-31 13:03:46</span>
-                
-                <p class="summary">An investigative report explores the intricate financial architecture that underpins OpenAI's rapid expansion and its journey to a multibillion-dollar valuation. The article details how the prominent artificial intelligence company employs a sophisticated web of complex and often circular financial deals to continuously secure significant capital. These arrangements, which may involve interconnected investments, strategic partnerships, and unique funding structures, are presented as critical mechanisms enabling OpenAI to sustain its capital-intensive research and development in areas like large language models and generative AI. The analysis aims to shed light on the economic engineering behind OpenAI's market dominance, offering insights into its distinct business model and the innovative, albeit potentially opaque, financial strategies that propel its accelerated growth within the highly competitive AI industry.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>OpenAI</span><span>AI Funding</span><span>Venture Capital</span><span>Financial Strategy</span><span>Tech Business Model</span><span>Generative AI Economy</span><span>Strategic Partnerships</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.nytimes.com/interactive/2025/10/31/technology/openai-fundraising-deals.html" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>AI scrapers request commented scripts</h2>
-                <span class="published-time">Published: 2025-10-31 15:44:19</span>
-                
-                <p class="summary">Recent observations suggest that AI-powered web scrapers are showing a preference for, or even implicitly 'requesting,' commented scripts. This trend indicates that AI systems designed for data extraction and learning from web content are more effective when code is well-documented. Commented scripts likely provide richer contextual information, improving the AI's ability to parse, understand, and categorize code functionalities beyond mere syntax. This phenomenon could have significant implications for web developers and content creators, encouraging the practice of thorough code commenting not just for human readability but also for optimal machine comprehension and data quality for AI models. It highlights a potential shift in the value placed on documentation, as AI systems increasingly become primary consumers of online data, influencing how information is structured and presented on the web.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI scrapers</span><span>web scraping</span><span>commented scripts</span><span>code understanding</span><span>AI data collection</span><span>data quality</span><span>machine learning data</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://cryptography.dog/blog/AI-scrapers-request-commented-scripts/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Claude outage</h2>
-                <span class="published-time">Published: 2025-10-31 10:15:24</span>
-                
-                <p class="summary">Anthropic's Claude AI service experienced an unexpected outage, leading to significant disruption for users attempting to access the large language model. The incident, promptly reported on Claude's official status page, indicated a period of unavailability or degraded performance across its various platforms. This event likely impacted a broad spectrum of applications and services reliant on Claude's advanced AI capabilities, including conversational agents, content generation tools, and developer integrations. While the initial report from Hacker News provided minimal content, the nature of an 'outage' implies a critical service interruption, typically stemming from underlying infrastructure issues, software bugs, or unexpected surges in demand. The status page (status.claude.com) serves as the authoritative source for real-time updates regarding monitoring, identification, and resolution efforts. Such incidents underscore the importance of robust reliability measures and transparent communication in critical AI service provision, as developers and businesses depend on consistent access to maintain their operations and user experiences.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Outage</span><span>Service Disruption</span><span>Large Language Models</span><span>System Uptime</span><span>Cloud Infrastructure</span><span>Incident Response</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://status.claude.com/incidents/s5f75jhwjs6g" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>Claude Relay Service</h2>
-                <span class="published-time">Published: 2025-10-30T08:00:13Z</span>
-                
-                <p class="summary">The Claude Relay Service provides a self-hosted API relay solution for Claude, Codex, and Gemini, addressing common challenges such as regional restrictions, privacy concerns, cost-sharing among multiple users, and service instability. It enables users to deploy their own intermediary service, connecting directly to Anthropic's API while offering robust features like multi-account management with automatic rotation, custom API key generation for individual users, and detailed usage statistics. Advanced functionalities include intelligent account switching, performance optimization through connection pooling and caching, a comprehensive web-based monitoring dashboard, and granular security controls (access restrictions, rate limits, client-specific usage). The service also supports various proxy configurations (HTTP/SOCKS5) and flexible deployment options, including script-based, manual, and Docker-compose methods. This project is ideal for technical users seeking a stable, private, and cost-effective way to access leading LLM services, ensuring data security and transparent cost tracking.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Claude API</span><span>AI Proxy</span><span>Multi-account Management</span><span>API Gateway</span><span>Anthropic</span><span>LLM Access</span><span>Docker Deployment</span><span>Node.js</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/Wei-Shaw/claude-relay-service" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>The End of Manual Decoding: Towards Truly End-to-End Language Models</h2>
-                <span class="published-time">Published: 2025-10-30T17:01:43.000Z</span>
-                
-                <p class="summary">The "end-to-end" label for LLMs is a misnomer. In practice, they depend on a non-differentiable decoding process that requires laborious, hand-tuning of hyperparameters like temperature and top-p. This paper introduces AutoDeco, a novel architecture that enables truly "end-to-end" generation by learning to control its own decoding strategy. We augment the standard transformer with lightweight heads that, at each step, dynamically predict context-specific temperature and top-p values alongside the next-token logits. This approach transforms decoding into a parametric, token-level process, allowing the model to self-regulate its sampling strategy within a single forward pass. Through extensive experiments on eight benchmarks, we demonstrate that AutoDeco not only significantly outperforms default decoding strategies but also achieves performance comparable to an oracle-tuned baseline derived from "hacking the test set"-a practical upper bound for any static method. Crucially, we uncover an emergent capability for instruction-based decoding control: the model learns to interpret natural language commands (e.g., "generate with low randomness") and adjusts its predicted temperature and top-p on a token-by-token basis, opening a new paradigm for steerable and interactive LLM decoding.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>End-to-End Language Models</span><span>Decoding Strategy</span><span>AutoDeco</span><span>Dynamic Hyperparameters</span><span>Instruction-Based Control</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Natural Language Processing</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.26697" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Emu3.5: Native Multimodal Models are World Learners</h2>
-                <span class="published-time">Published: 2025-10-30T15:11:16.000Z</span>
-                
-                <p class="summary">We introduce Emu3.5, a large-scale multimodal world model that natively predicts the next state across vision and language. Emu3.5 is pre-trained end-to-end with a unified next-token prediction objective on a corpus of vision-language interleaved data containing over 10 trillion tokens, primarily derived from sequential frames and transcripts of internet videos. The model naturally accepts interleaved vision-language inputs and generates interleaved vision-language outputs. Emu3.5 is further post-trained with large-scale reinforcement learning to enhance multimodal reasoning and generation. To improve inference efficiency, we propose Discrete Diffusion Adaptation (DiDA), which converts token-by-token decoding into bidirectional parallel prediction, accelerating per-image inference by about 20x without sacrificing performance. Emu3.5 exhibits strong native multimodal capabilities, including long-horizon vision-language generation, any-to-image (X2I) generation, and complex text-rich image generation. It also exhibits generalizable world-modeling abilities, enabling spatiotemporally consistent world exploration and open-world embodied manipulation across diverse scenarios and tasks. For comparison, Emu3.5 achieves performance comparable to Gemini 2.5 Flash Image (Nano Banana) on image generation and editing tasks and demonstrates superior results on a suite of interleaved generation tasks. We open-source Emu3.5 at https://github.com/baaivision/Emu3.5 to support community research.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>multimodal models</span><span>world model</span><span>vision-language generation</span><span>reinforcement learning</span><span>Discrete Diffusion Adaptation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Generative AI</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.26583" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Kimi Linear: An Expressive, Efficient Attention Architecture</h2>
-                <span class="published-time">Published: 2025-10-30T16:59:43.000Z</span>
-                
-                <p class="summary">We introduce Kimi Linear, a hybrid linear attention architecture that, for the first time, outperforms full attention under fair comparisons across various scenarios -- including short-context, long-context, and reinforcement learning (RL) scaling regimes. At its core lies Kimi Delta Attention (KDA), an expressive linear attention module that extends Gated DeltaNet with a finer-grained gating mechanism, enabling more effective use of limited finite-state RNN memory. Our bespoke chunkwise algorithm achieves high hardware efficiency through a specialized variant of the Diagonal-Plus-Low-Rank (DPLR) transition matrices, which substantially reduces computation compared to the general DPLR formulation while remaining more consistent with the classical delta rule. We pretrain a Kimi Linear model with 3B activated parameters and 48B total parameters, based on a layerwise hybrid of KDA and Multi-Head Latent Attention (MLA). Our experiments show that with an identical training recipe, Kimi Linear outperforms full MLA with a sizeable margin across all evaluated tasks, while reducing KV cache usage by up to 75% and achieving up to 6 times decoding throughput for a 1M context. These results demonstrate that Kimi Linear can be a drop-in replacement for full attention architectures with superior performance and efficiency, including tasks with longer input and output lengths. To support further research, we open-source the KDA kernel and vLLM implementations, and release the pre-trained and instruction-tuned model checkpoints.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Kimi Linear</span><span>Linear Attention</span><span>Attention Architecture</span><span>Kimi Delta Attention</span><span>Transformer Efficiency</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Deep Learning</span><span>Natural Language Processing</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.26692" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>The Era of Agentic Organization: Learning to Organize with Language Models</h2>
-                <span class="published-time">Published: 2025-10-30T16:25:10.000Z</span>
-                
-                <p class="summary">We envision a new era of AI, termed agentic organization, where agents solve complex problems by working collaboratively and concurrently, enabling outcomes beyond individual intelligence. To realize this vision, we introduce asynchronous thinking (AsyncThink) as a new paradigm of reasoning with large language models, which organizes the internal thinking process into concurrently executable structures. Specifically, we propose a thinking protocol where an organizer dynamically assigns sub-queries to workers, merges intermediate knowledge, and produces coherent solutions. More importantly, the thinking structure in this protocol can be further optimized through reinforcement learning. Experiments demonstrate that AsyncThink achieves 28% lower inference latency compared to parallel thinking while improving accuracy on mathematical reasoning. Moreover, AsyncThink generalizes its learned asynchronous thinking capabilities, effectively tackling unseen tasks without additional training.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Agentic Organization</span><span>Asynchronous Thinking</span><span>Large Language Models</span><span>Reinforcement Learning</span><span>AI Agents</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.26658" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>The Quest for Generalizable Motion Generation: Data, Model, and Evaluation</h2>
-                <span class="published-time">Published: 2025-10-30T17:59:27.000Z</span>
-                
-                <p class="summary">Despite recent advances in 3D human motion generation (MoGen) on standard benchmarks, existing models still face a fundamental bottleneck in their generalization capability. In contrast, adjacent generative fields, most notably video generation (ViGen), have demonstrated remarkable generalization in modeling human behaviors, highlighting transferable insights that MoGen can leverage. Motivated by this observation, we present a comprehensive framework that systematically transfers knowledge from ViGen to MoGen across three key pillars: data, modeling, and evaluation. First, we introduce ViMoGen-228K, a large-scale dataset comprising 228,000 high-quality motion samples that integrates high-fidelity optical MoCap data with semantically annotated motions from web videos and synthesized samples generated by state-of-the-art ViGen models. The dataset includes both text-motion pairs and text-video-motion triplets, substantially expanding semantic diversity. Second, we propose ViMoGen, a flow-matching-based diffusion transformer that unifies priors from MoCap data and ViGen models through gated multimodal conditioning. To enhance efficiency, we further develop ViMoGen-light, a distilled variant that eliminates video generation dependencies while preserving strong generalization. Finally, we present MBench, a hierarchical benchmark designed for fine-grained evaluation across motion quality, prompt fidelity, and generalization ability. Extensive experiments show that our framework significantly outperforms existing approaches in both automatic and human evaluations. The code, data, and benchmark will be made publicly available.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Motion Generation</span><span>Video Generation</span><span>Generalization</span><span>Diffusion Models</span><span>Datasets</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Deep Learning</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.26794" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Surfer 2: The Next Generation of Cross-Platform Computer Use Agents</h2>
-                <span class="published-time">Published: 2025-10-22T18:21:52.000Z</span>
-                
-                <p class="summary">Building agents that generalize across web, desktop, and mobile environments remains an open challenge, as prior systems rely on environment-specific interfaces that limit cross-platform deployment. We introduce Surfer 2, a unified architecture operating purely from visual observations that achieves state-of-the-art performance across all three environments. Surfer 2 integrates hierarchical context management, decoupled planning and execution, and self-verification with adaptive recovery, enabling reliable operation over long task horizons. Our system achieves 97.1% accuracy on WebVoyager, 69.6% on WebArena, 60.1% on OSWorld, and 87.1% on AndroidWorld, outperforming all prior systems without task-specific fine-tuning. With multiple attempts, Surfer 2 exceeds human performance on all benchmarks. These results demonstrate that systematic orchestration amplifies foundation model capabilities and enables general-purpose computer control through visual interaction alone, while calling for a next-generation vision language model to achieve Pareto-optimal cost-efficiency.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Cross-Platform Agents</span><span>Visual Observations</span><span>Foundation Models</span><span>Computer Control</span><span>AI Agent</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Computer Vision</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2510.19949" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/en/" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/en/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2025-10-31</strong><span>ENGLISH EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2025-10-31" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-10-31 00:07:36</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/MoonshotAI/Kimi-Linear" target="_blank" rel="noopener noreferrer">Kimi Linear: An Expressive, Efficient Attention Architecture</a></h3>
+    <p class="story-summary">Kimi Linear presents a novel attention architecture developed by MoonshotAI, specifically engineered to enhance both the expressiveness and efficiency of deep learning models. This innovation directly addresses the significant computational overhead associated with conventional attention mechanisms, which typically exhibit quadratic scaling with respect to input sequence length. By adopting a linear scaling approach, Kimi Linear aims to dramatically reduce the computational and memory requirements, making it particularly advantageous for processing very long sequences in advanced AI applications, such as large language models. The architecture is designed to capture complex contextual relationships effectively while significantly improving training and inference speed. This development is crucial for advancing the scalability and practical deployment of high-performance neural networks, offering a more resource-efficient pathway for developing increasingly sophisticated AI systems and fostering broader accessibility to powerful AI capabilities.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Attention Mechanism</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Neural Networks</span><span class="tag tag-keyword">Computational Efficiency</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-10-31 09:23:41</time></div>
+  <div class="story-body">
+    <h3><a href="https://arxiv.org/abs/2510.22371" target="_blank" rel="noopener noreferrer">Reasoning models reason well, until they don&#x27;t</a></h3>
+    <p class="story-summary">This article discusses the inherent limitations and potential failure points of current AI reasoning models. While these models have demonstrated remarkable abilities in various complex tasks, their performance is not consistently robust across all scenarios, revealing critical vulnerabilities. The research likely explores the conditions under which these advanced models cease to reason effectively, highlighting specific edge cases, biases, or contextual shifts that lead to erroneous or illogical outputs. Understanding these boundaries is crucial for developing more reliable and trustworthy artificial intelligence systems. The findings underscore the need for further research into improving model robustness, enhancing their ability to handle ambiguous information, and ensuring more consistent and predictable reasoning capabilities in real-world applications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Reasoning</span><span class="tag tag-keyword">Model Robustness</span><span class="tag tag-keyword">Failure Modes</span><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Machine Learning</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-10-31 13:39:55</time></div>
+  <div class="story-body">
+    <h3><a href="https://news.ycombinator.com/item?id=45771870" target="_blank" rel="noopener noreferrer">Ask HN: Who uses open LLMs and coding assistants locally? Share setup and laptop</a></h3>
+    <p class="story-summary">A recent Hacker News inquiry seeks practical insights into the local deployment and usage of open-source Large Language Models (LLMs) and coding assistants on personal laptops. The post invites developers and enthusiasts to share their real-world workflows, focusing on specific models (e.g., Ollama, LM Studio) and integration tools, particularly VS Code plugins. Key information requested includes detailed laptop hardware configurations—such as CPU, GPU/NPU type, and memory—along with performance assessments for these local AI setups. Furthermore, the discussion aims to uncover the diverse applications of these tools, encompassing tasks like code completion, refactoring, debugging, and code review, while also evaluating their reliability and identifying areas where they currently fall short. This investigation by Andrea aims to gather comprehensive data on the viability and efficacy of running generative AI tools directly on developer hardware, moving beyond cloud-based solutions.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Open-source LLMs</span><span class="tag tag-keyword">Coding Assistants</span><span class="tag tag-keyword">Local AI Deployment</span><span class="tag tag-keyword">Developer Workflows</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-10-31 13:03:46</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.nytimes.com/interactive/2025/10/31/technology/openai-fundraising-deals.html" target="_blank" rel="noopener noreferrer">How OpenAI uses complex and circular deals to fuel its multibillion-dollar rise</a></h3>
+    <p class="story-summary">An investigative report explores the intricate financial architecture that underpins OpenAI&#x27;s rapid expansion and its journey to a multibillion-dollar valuation. The article details how the prominent artificial intelligence company employs a sophisticated web of complex and often circular financial deals to continuously secure significant capital. These arrangements, which may involve interconnected investments, strategic partnerships, and unique funding structures, are presented as critical mechanisms enabling OpenAI to sustain its capital-intensive research and development in areas like large language models and generative AI. The analysis aims to shed light on the economic engineering behind OpenAI&#x27;s market dominance, offering insights into its distinct business model and the innovative, albeit potentially opaque, financial strategies that propel its accelerated growth within the highly competitive AI industry.</p>
+    <div class="story-tags"><span class="tag tag-keyword">OpenAI</span><span class="tag tag-keyword">AI Funding</span><span class="tag tag-keyword">Venture Capital</span><span class="tag tag-keyword">Financial Strategy</span><span class="tag tag-keyword">Tech Business Model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-10-31 15:44:19</time></div>
+  <div class="story-body">
+    <h3><a href="https://cryptography.dog/blog/AI-scrapers-request-commented-scripts/" target="_blank" rel="noopener noreferrer">AI scrapers request commented scripts</a></h3>
+    <p class="story-summary">Recent observations suggest that AI-powered web scrapers are showing a preference for, or even implicitly &#x27;requesting,&#x27; commented scripts. This trend indicates that AI systems designed for data extraction and learning from web content are more effective when code is well-documented. Commented scripts likely provide richer contextual information, improving the AI&#x27;s ability to parse, understand, and categorize code functionalities beyond mere syntax. This phenomenon could have significant implications for web developers and content creators, encouraging the practice of thorough code commenting not just for human readability but also for optimal machine comprehension and data quality for AI models. It highlights a potential shift in the value placed on documentation, as AI systems increasingly become primary consumers of online data, influencing how information is structured and presented on the web.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI scrapers</span><span class="tag tag-keyword">web scraping</span><span class="tag tag-keyword">commented scripts</span><span class="tag tag-keyword">code understanding</span><span class="tag tag-keyword">AI data collection</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-10-31 10:15:24</time></div>
+  <div class="story-body">
+    <h3><a href="https://status.claude.com/incidents/s5f75jhwjs6g" target="_blank" rel="noopener noreferrer">Claude outage</a></h3>
+    <p class="story-summary">Anthropic&#x27;s Claude AI service experienced an unexpected outage, leading to significant disruption for users attempting to access the large language model. The incident, promptly reported on Claude&#x27;s official status page, indicated a period of unavailability or degraded performance across its various platforms. This event likely impacted a broad spectrum of applications and services reliant on Claude&#x27;s advanced AI capabilities, including conversational agents, content generation tools, and developer integrations. While the initial report from Hacker News provided minimal content, the nature of an &#x27;outage&#x27; implies a critical service interruption, typically stemming from underlying infrastructure issues, software bugs, or unexpected surges in demand. The status page (status.claude.com) serves as the authoritative source for real-time updates regarding monitoring, identification, and resolution efforts. Such incidents underscore the importance of robust reliability measures and transparent communication in critical AI service provision, as developers and businesses depend on consistent access to maintain their operations and user experiences.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Outage</span><span class="tag tag-keyword">Service Disruption</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">System Uptime</span><span class="tag tag-keyword">Cloud Infrastructure</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>1 story</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-10-30T08:00:13Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/Wei-Shaw/claude-relay-service" target="_blank" rel="noopener noreferrer">Claude Relay Service</a></h3>
+    <p class="story-summary">The Claude Relay Service provides a self-hosted API relay solution for Claude, Codex, and Gemini, addressing common challenges such as regional restrictions, privacy concerns, cost-sharing among multiple users, and service instability. It enables users to deploy their own intermediary service, connecting directly to Anthropic&#x27;s API while offering robust features like multi-account management with automatic rotation, custom API key generation for individual users, and detailed usage statistics. Advanced functionalities include intelligent account switching, performance optimization through connection pooling and caching, a comprehensive web-based monitoring dashboard, and granular security controls (access restrictions, rate limits, client-specific usage). The service also supports various proxy configurations (HTTP/SOCKS5) and flexible deployment options, including script-based, manual, and Docker-compose methods. This project is ideal for technical users seeking a stable, private, and cost-effective way to access leading LLM services, ensuring data security and transparent cost tracking.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Claude API</span><span class="tag tag-keyword">AI Proxy</span><span class="tag tag-keyword">Multi-account Management</span><span class="tag tag-keyword">API Gateway</span><span class="tag tag-keyword">Anthropic</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-10-30T17:01:43.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.26697" target="_blank" rel="noopener noreferrer">The End of Manual Decoding: Towards Truly End-to-End Language Models</a></h3>
+    <p class="story-summary">The &quot;end-to-end&quot; label for LLMs is a misnomer. In practice, they depend on a non-differentiable decoding process that requires laborious, hand-tuning of hyperparameters like temperature and top-p. This paper introduces AutoDeco, a novel architecture that enables truly &quot;end-to-end&quot; generation by learning to control its own decoding strategy. We augment the standard transformer with lightweight heads that, at each step, dynamically predict context-specific temperature and top-p values alongside the next-token logits. This approach transforms decoding into a parametric, token-level process, allowing the model to self-regulate its sampling strategy within a single forward pass. Through extensive experiments on eight benchmarks, we demonstrate that AutoDeco not only significantly outperforms default decoding strategies but also achieves performance comparable to an oracle-tuned baseline derived from &quot;hacking the test set&quot;-a practical upper bound for any static method. Crucially, we uncover an emergent capability for instruction-based decoding control: the model learns to interpret natural language commands (e.g., &quot;generate with low randomness&quot;) and adjusts its predicted temperature and top-p on a token-by-token basis, opening a new paradigm for steerable and interactive LLM decoding.</p>
+    <div class="story-tags"><span class="tag tag-keyword">End-to-End Language Models</span><span class="tag tag-keyword">Decoding Strategy</span><span class="tag tag-keyword">AutoDeco</span><span class="tag tag-keyword">Dynamic Hyperparameters</span><span class="tag tag-keyword">Instruction-Based Control</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-10-30T15:11:16.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.26583" target="_blank" rel="noopener noreferrer">Emu3.5: Native Multimodal Models are World Learners</a></h3>
+    <p class="story-summary">We introduce Emu3.5, a large-scale multimodal world model that natively predicts the next state across vision and language. Emu3.5 is pre-trained end-to-end with a unified next-token prediction objective on a corpus of vision-language interleaved data containing over 10 trillion tokens, primarily derived from sequential frames and transcripts of internet videos. The model naturally accepts interleaved vision-language inputs and generates interleaved vision-language outputs. Emu3.5 is further post-trained with large-scale reinforcement learning to enhance multimodal reasoning and generation. To improve inference efficiency, we propose Discrete Diffusion Adaptation (DiDA), which converts token-by-token decoding into bidirectional parallel prediction, accelerating per-image inference by about 20x without sacrificing performance. Emu3.5 exhibits strong native multimodal capabilities, including long-horizon vision-language generation, any-to-image (X2I) generation, and complex text-rich image generation. It also exhibits generalizable world-modeling abilities, enabling spatiotemporally consistent world exploration and open-world embodied manipulation across diverse scenarios and tasks. For comparison, Emu3.5 achieves performance comparable to Gemini 2.5 Flash Image (Nano Banana) on image generation and editing tasks and demonstrates superior results on a suite of interleaved generation tasks. We open-source Emu3.5 at https://github.com/baaivision/Emu3.5 to support community research.</p>
+    <div class="story-tags"><span class="tag tag-keyword">multimodal models</span><span class="tag tag-keyword">world model</span><span class="tag tag-keyword">vision-language generation</span><span class="tag tag-keyword">reinforcement learning</span><span class="tag tag-keyword">Discrete Diffusion Adaptation</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-10-30T16:59:43.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.26692" target="_blank" rel="noopener noreferrer">Kimi Linear: An Expressive, Efficient Attention Architecture</a></h3>
+    <p class="story-summary">We introduce Kimi Linear, a hybrid linear attention architecture that, for the first time, outperforms full attention under fair comparisons across various scenarios -- including short-context, long-context, and reinforcement learning (RL) scaling regimes. At its core lies Kimi Delta Attention (KDA), an expressive linear attention module that extends Gated DeltaNet with a finer-grained gating mechanism, enabling more effective use of limited finite-state RNN memory. Our bespoke chunkwise algorithm achieves high hardware efficiency through a specialized variant of the Diagonal-Plus-Low-Rank (DPLR) transition matrices, which substantially reduces computation compared to the general DPLR formulation while remaining more consistent with the classical delta rule. We pretrain a Kimi Linear model with 3B activated parameters and 48B total parameters, based on a layerwise hybrid of KDA and Multi-Head Latent Attention (MLA). Our experiments show that with an identical training recipe, Kimi Linear outperforms full MLA with a sizeable margin across all evaluated tasks, while reducing KV cache usage by up to 75% and achieving up to 6 times decoding throughput for a 1M context. These results demonstrate that Kimi Linear can be a drop-in replacement for full attention architectures with superior performance and efficiency, including tasks with longer input and output lengths. To support further research, we open-source the KDA kernel and vLLM implementations, and release the pre-trained and instruction-tuned model checkpoints.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Kimi Linear</span><span class="tag tag-keyword">Linear Attention</span><span class="tag tag-keyword">Attention Architecture</span><span class="tag tag-keyword">Kimi Delta Attention</span><span class="tag tag-keyword">Transformer Efficiency</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-10-30T16:25:10.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.26658" target="_blank" rel="noopener noreferrer">The Era of Agentic Organization: Learning to Organize with Language Models</a></h3>
+    <p class="story-summary">We envision a new era of AI, termed agentic organization, where agents solve complex problems by working collaboratively and concurrently, enabling outcomes beyond individual intelligence. To realize this vision, we introduce asynchronous thinking (AsyncThink) as a new paradigm of reasoning with large language models, which organizes the internal thinking process into concurrently executable structures. Specifically, we propose a thinking protocol where an organizer dynamically assigns sub-queries to workers, merges intermediate knowledge, and produces coherent solutions. More importantly, the thinking structure in this protocol can be further optimized through reinforcement learning. Experiments demonstrate that AsyncThink achieves 28% lower inference latency compared to parallel thinking while improving accuracy on mathematical reasoning. Moreover, AsyncThink generalizes its learned asynchronous thinking capabilities, effectively tackling unseen tasks without additional training.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agentic Organization</span><span class="tag tag-keyword">Asynchronous Thinking</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">AI Agents</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-10-30T17:59:27.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.26794" target="_blank" rel="noopener noreferrer">The Quest for Generalizable Motion Generation: Data, Model, and Evaluation</a></h3>
+    <p class="story-summary">Despite recent advances in 3D human motion generation (MoGen) on standard benchmarks, existing models still face a fundamental bottleneck in their generalization capability. In contrast, adjacent generative fields, most notably video generation (ViGen), have demonstrated remarkable generalization in modeling human behaviors, highlighting transferable insights that MoGen can leverage. Motivated by this observation, we present a comprehensive framework that systematically transfers knowledge from ViGen to MoGen across three key pillars: data, modeling, and evaluation. First, we introduce ViMoGen-228K, a large-scale dataset comprising 228,000 high-quality motion samples that integrates high-fidelity optical MoCap data with semantically annotated motions from web videos and synthesized samples generated by state-of-the-art ViGen models. The dataset includes both text-motion pairs and text-video-motion triplets, substantially expanding semantic diversity. Second, we propose ViMoGen, a flow-matching-based diffusion transformer that unifies priors from MoCap data and ViGen models through gated multimodal conditioning. To enhance efficiency, we further develop ViMoGen-light, a distilled variant that eliminates video generation dependencies while preserving strong generalization. Finally, we present MBench, a hierarchical benchmark designed for fine-grained evaluation across motion quality, prompt fidelity, and generalization ability. Extensive experiments show that our framework significantly outperforms existing approaches in both automatic and human evaluations. The code, data, and benchmark will be made publicly available.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Motion Generation</span><span class="tag tag-keyword">Video Generation</span><span class="tag tag-keyword">Generalization</span><span class="tag tag-keyword">Diffusion Models</span><span class="tag tag-keyword">Datasets</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-10-22T18:21:52.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2510.19949" target="_blank" rel="noopener noreferrer">Surfer 2: The Next Generation of Cross-Platform Computer Use Agents</a></h3>
+    <p class="story-summary">Building agents that generalize across web, desktop, and mobile environments remains an open challenge, as prior systems rely on environment-specific interfaces that limit cross-platform deployment. We introduce Surfer 2, a unified architecture operating purely from visual observations that achieves state-of-the-art performance across all three environments. Surfer 2 integrates hierarchical context management, decoupled planning and execution, and self-verification with adaptive recovery, enabling reliable operation over long task horizons. Our system achieves 97.1% accuracy on WebVoyager, 69.6% on WebArena, 60.1% on OSWorld, and 87.1% on AndroidWorld, outperforming all prior systems without task-specific fine-tuning. With multiple attempts, Surfer 2 exceeds human performance on all benchmarks. These results demonstrate that systematic orchestration amplifies foundation model capabilities and enables general-purpose computer control through visual interaction alone, while calling for a next-generation vision language model to achieve Pareto-optimal cost-efficiency.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Cross-Platform Agents</span><span class="tag tag-keyword">Visual Observations</span><span class="tag tag-keyword">Foundation Models</span><span class="tag tag-keyword">Computer Control</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2025-10-31" data-counter-title="NO-FOMO issue 2025-10-31" defer></script>
 </body>
 </html>

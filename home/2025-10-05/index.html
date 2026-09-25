@@ -1,351 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-10-05</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2025-10-05</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="." class="active">中文</a>
-                <a href="en/" class="">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-10-05</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../home/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 返回主页</a>
-            <a href="../../daily/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 最新日报</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 关于我们</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Managing context on the Claude Developer Platform</h2>
-                <span class="published-time">Published: 2025-10-05 05:20:08</span>
-                
-                <p class="summary">Anthropic has released new guidance or features related to managing context on its Claude Developer Platform. This initiative addresses a critical challenge in developing sophisticated AI applications: effectively handling the "context window" for large language models. The platform's ability to retain and process information over extended conversations or complex tasks is fundamental for delivering coherent and useful AI experiences. Effective context management involves strategies to overcome token limits, ensuring that the model has access to relevant past interactions or external data without exceeding computational or memory constraints. Techniques discussed or implied might include intelligent summarization of previous turns, retrieval-augmented generation (RAG) to fetch pertinent information on demand, and advanced prompt engineering to optimize how context is presented to the model. By providing better tools and methodologies for context management, Anthropic aims to empower developers to build more robust, stateful, and performant applications on Claude, ultimately enhancing the model's utility in enterprise and consumer-facing solutions that require deep, sustained understanding of user input and historical data. This development is crucial for advancing the capabilities of conversational AI and agentic systems.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Claude</span><span>Large Language Model</span><span>Context Management</span><span>AI Development</span><span>Prompt Engineering</span><span>Token Limits</span><span>Conversational AI</span><span>Retrieval Augmented Generation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.anthropic.com/news/context-management" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>The deadline isn't when AI outsmarts us – it's when we stop using our own minds</h2>
-                <span class="published-time">Published: 2025-10-05 11:08:25</span>
-                
-                <p class="summary">The article critically re-evaluates the commonly perceived 'deadline' associated with artificial intelligence, arguing that the true point of concern is not the moment AI systems surpass human intelligence, but rather when humanity collectively ceases to actively engage its own cognitive faculties. This perspective shifts the focus from a technological singularity to a more profound societal and intellectual challenge, underscoring the potential for human complacency or excessive reliance on AI to erode critical thinking and independent thought. The author posits that AI's most significant impact lies less in its capacity to overtly 'outsmart' humans and more in its ability to foster an environment where human intellectual effort becomes redundant or neglected. This interpretation advocates for a proactive approach to maintaining human agency and cognitive engagement in an increasingly AI-dominated world, emphasizing the importance of cultivating mental resilience and autonomous problem-solving skills to prevent a future where human minds are marginalized by self-imposed intellectual idleness, not by inherently superior machines.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Artificial Intelligence</span><span>Human-AI interaction</span><span>Cognitive impact</span><span>Critical thinking</span><span>Intellectual autonomy</span><span>Societal implications of AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.theargumentmag.com/p/you-have-18-months" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: Pyscn – Python code quality analyzer for vibe coders</h2>
-                <span class="published-time">Published: 2025-10-05 13:22:31</span>
-                
-                <p class="summary">Pyscn is introduced as a Python code quality analyzer targeting developers who leverage AI tools like Cursor, Claude, and ChatGPT for rapid software development, often resulting in what the creator terms "vibe coding." This approach, while fast, can lead to common code quality issues such as duplication from copy-pasting, dead code from quick iterations, over-engineered solutions, and inconsistent patterns across modules. To combat these problems, pyscn employs a suite of structural analysis techniques. These include APTED tree edit distance combined with Locality Sensitive Hashing (LSH), Control-Flow Graph (CFG) analysis, Coupling Between Objects (CBO) measurement, and Cyclomatic Complexity assessment. The tool aims to help maintain a cleaner and more consistent codebase even when development speed is prioritized. It is built using Go and tree-sitter, emphasizing its robust analytical capabilities, and can be easily run via uvx or pipx without prior installation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Python code analysis</span><span>Code quality</span><span>Static analysis</span><span>Control-Flow Graph</span><span>Cyclomatic Complexity</span><span>Code duplication</span><span>Software engineering</span><span>Tree-sitter</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/ludo-technologies/pyscn" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>NIST's DeepSeek "evaluation" is a hit piece</h2>
-                <span class="published-time">Published: 2025-10-05 15:12:45</span>
-                
-                <p class="summary">An article from erichartford.com sharply criticizes the National Institute of Standards and Technology's (NIST) evaluation of DeepSeek AI models, asserting that the assessment is a 'hit piece' or an act of 'demonization.' The author argues that NIST's review lacks objectivity and scientific rigor, instead presenting a biased narrative aimed at discrediting DeepSeek's contributions and capabilities. This contentious perspective highlights significant concerns regarding the impartiality and methodologies employed in governmental evaluations of advanced AI systems. The article suggests that such biased reports could have far-reaching implications, potentially influencing public policy, market perception, and the broader trajectory of AI development. It underscores the critical need for transparent, unbiased, and rigorously scientific benchmarking practices in the rapidly evolving artificial intelligence landscape, especially when governmental bodies play a role in shaping narratives around specific AI technologies and their perceived risks or benefits. The piece ultimately questions the integrity of certain official evaluations and their potential to unfairly hinder innovation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Evaluation</span><span>NIST</span><span>DeepSeek</span><span>Benchmarking</span><span>Large Language Models</span><span>AI Policy</span><span>Bias</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://erichartford.com/the-demonization-of-deepseek" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Implicit Actor Critic Coupling via a Supervised Learning Framework for RLVR</h2>
-                <span class="published-time">Published: 2025-10-05 17:01:19</span>
-                
-                <p class="summary">This research introduces a novel approach for Implicit Actor Critic Coupling within a Supervised Learning Framework, specifically tailored for Reinforcement Learning with Visual Reasoning (RLVR). The paper proposes a method to implicitly align the actor and critic networks by reframing certain components of the reinforcement learning problem as supervised learning tasks. This framework aims to enhance the stability and efficiency of actor-critic algorithms, which often suffer from issues related to divergence or slow convergence due to the explicit interaction and update rules between the actor (policy network) and the critic (value network). By leveraging supervised learning principles, the proposed technique could potentially lead to more robust learning in complex environments, particularly those requiring sophisticated visual understanding and decision-making. The implications suggest improved performance for tasks where visual input is paramount, offering a fresh perspective on optimizing the interplay between policy and value estimation in advanced reinforcement learning systems. This innovation could contribute significantly to the development of more reliable and effective AI agents in visually rich domains.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Reinforcement Learning</span><span>Actor-Critic Methods</span><span>Supervised Learning</span><span>Deep Learning</span><span>Machine Learning</span><span>Policy Optimization</span><span>Visual Reasoning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://arxiv.org/abs/2509.02522" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>What GPT-OSS leaks about OpenAI's training data</h2>
-                <span class="published-time">Published: 2025-10-05 18:28:16</span>
-                
-                <p class="summary">This analysis explores the potential for open-source GPT models, referred to as GPT-OSS, to inadvertently reveal sensitive information regarding OpenAI's proprietary training data. The investigation delves into mechanisms by which patterns, biases, or specific data points embedded within the architecture or outputs of open-source large language models could be leveraged to infer characteristics of the datasets used to train commercial, closed-source counterparts. Such 'leaks' raise critical questions about data privacy, intellectual property, and the inherent risks associated with widely distributed AI models. Researchers are examining whether model memorization, even in truncated or distilled versions, allows for the reconstruction of private data, potentially exposing copyrighted material or confidential information. The findings highlight the ongoing challenge of balancing model transparency and open-source development with the necessity of protecting the integrity and confidentiality of extensive training corpora, underscoring the complex security implications in the evolving landscape of advanced AI systems.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Model</span><span>OpenAI</span><span>Training Data</span><span>Data Leakage</span><span>Model Privacy</span><span>Open Source AI</span><span>Information Extraction</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://fi-le.net/oss/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>bitnet.cpp</h2>
-                <span class="published-time">Published: 2025-06-03T06:14:20Z</span>
-                
-                <p class="summary">bitnet.cpp stands as the official inference framework tailored for 1-bit Large Language Models (LLMs), prominently supporting models like BitNet b1.58. It delivers a comprehensive suite of optimized kernels that guarantee both fast and lossless inference across CPU and GPU platforms, with forthcoming integration for NPU support. A significant achievement lies in its performance on CPUs, where it exhibits impressive speedups: 1.37x to 5.07x on ARM CPUs and an even more substantial 2.37x to 6.17x on x86 CPUs, with larger models benefiting most. These efficiency gains are coupled with a dramatic reduction in energy consumption, ranging from 55.4% to 82.2%. Critically, bitnet.cpp empowers the deployment of substantial 100B BitNet b1.58 models on a single CPU, achieving output speeds of 5-7 tokens per second, aligning with human reading pace. This capability profoundly enhances the feasibility of running powerful LLMs directly on local, resource-constrained devices. The framework draws its foundational architecture from the acclaimed `llama.cpp` project and integrates advanced Lookup Table methodologies pioneered in T-MAC for its high-performance kernels. This innovation is pivotal for advancing efficient edge inference for ternary LLMs.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>1-bit LLM</span><span>BitNet</span><span>Inference Framework</span><span>CPU Optimization</span><span>GPU Acceleration</span><span>Energy Efficiency</span><span>Large Language Models</span><span>Model Quantization</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Deep Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/microsoft/BitNet" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../">Archive</a><a href="cn/">中文</a><a href="en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2025-10-05</strong><span>DEFAULT EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2025-10-05" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-10-05 05:20:08</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.anthropic.com/news/context-management" target="_blank" rel="noopener noreferrer">Managing context on the Claude Developer Platform</a></h3>
+    <p class="story-summary">Anthropic has released new guidance or features related to managing context on its Claude Developer Platform. This initiative addresses a critical challenge in developing sophisticated AI applications: effectively handling the &quot;context window&quot; for large language models. The platform&#x27;s ability to retain and process information over extended conversations or complex tasks is fundamental for delivering coherent and useful AI experiences. Effective context management involves strategies to overcome token limits, ensuring that the model has access to relevant past interactions or external data without exceeding computational or memory constraints. Techniques discussed or implied might include intelligent summarization of previous turns, retrieval-augmented generation (RAG) to fetch pertinent information on demand, and advanced prompt engineering to optimize how context is presented to the model. By providing better tools and methodologies for context management, Anthropic aims to empower developers to build more robust, stateful, and performant applications on Claude, ultimately enhancing the model&#x27;s utility in enterprise and consumer-facing solutions that require deep, sustained understanding of user input and historical data. This development is crucial for advancing the capabilities of conversational AI and agentic systems.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Claude</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Context Management</span><span class="tag tag-keyword">AI Development</span><span class="tag tag-keyword">Prompt Engineering</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-10-05 11:08:25</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.theargumentmag.com/p/you-have-18-months" target="_blank" rel="noopener noreferrer">The deadline isn&#x27;t when AI outsmarts us – it&#x27;s when we stop using our own minds</a></h3>
+    <p class="story-summary">The article critically re-evaluates the commonly perceived &#x27;deadline&#x27; associated with artificial intelligence, arguing that the true point of concern is not the moment AI systems surpass human intelligence, but rather when humanity collectively ceases to actively engage its own cognitive faculties. This perspective shifts the focus from a technological singularity to a more profound societal and intellectual challenge, underscoring the potential for human complacency or excessive reliance on AI to erode critical thinking and independent thought. The author posits that AI&#x27;s most significant impact lies less in its capacity to overtly &#x27;outsmart&#x27; humans and more in its ability to foster an environment where human intellectual effort becomes redundant or neglected. This interpretation advocates for a proactive approach to maintaining human agency and cognitive engagement in an increasingly AI-dominated world, emphasizing the importance of cultivating mental resilience and autonomous problem-solving skills to prevent a future where human minds are marginalized by self-imposed intellectual idleness, not by inherently superior machines.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Human-AI interaction</span><span class="tag tag-keyword">Cognitive impact</span><span class="tag tag-keyword">Critical thinking</span><span class="tag tag-keyword">Intellectual autonomy</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-10-05 13:22:31</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/ludo-technologies/pyscn" target="_blank" rel="noopener noreferrer">Show HN: Pyscn – Python code quality analyzer for vibe coders</a></h3>
+    <p class="story-summary">Pyscn is introduced as a Python code quality analyzer targeting developers who leverage AI tools like Cursor, Claude, and ChatGPT for rapid software development, often resulting in what the creator terms &quot;vibe coding.&quot; This approach, while fast, can lead to common code quality issues such as duplication from copy-pasting, dead code from quick iterations, over-engineered solutions, and inconsistent patterns across modules. To combat these problems, pyscn employs a suite of structural analysis techniques. These include APTED tree edit distance combined with Locality Sensitive Hashing (LSH), Control-Flow Graph (CFG) analysis, Coupling Between Objects (CBO) measurement, and Cyclomatic Complexity assessment. The tool aims to help maintain a cleaner and more consistent codebase even when development speed is prioritized. It is built using Go and tree-sitter, emphasizing its robust analytical capabilities, and can be easily run via uvx or pipx without prior installation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Python code analysis</span><span class="tag tag-keyword">Code quality</span><span class="tag tag-keyword">Static analysis</span><span class="tag tag-keyword">Control-Flow Graph</span><span class="tag tag-keyword">Cyclomatic Complexity</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-10-05 15:12:45</time></div>
+  <div class="story-body">
+    <h3><a href="https://erichartford.com/the-demonization-of-deepseek" target="_blank" rel="noopener noreferrer">NIST&#x27;s DeepSeek &quot;evaluation&quot; is a hit piece</a></h3>
+    <p class="story-summary">An article from erichartford.com sharply criticizes the National Institute of Standards and Technology&#x27;s (NIST) evaluation of DeepSeek AI models, asserting that the assessment is a &#x27;hit piece&#x27; or an act of &#x27;demonization.&#x27; The author argues that NIST&#x27;s review lacks objectivity and scientific rigor, instead presenting a biased narrative aimed at discrediting DeepSeek&#x27;s contributions and capabilities. This contentious perspective highlights significant concerns regarding the impartiality and methodologies employed in governmental evaluations of advanced AI systems. The article suggests that such biased reports could have far-reaching implications, potentially influencing public policy, market perception, and the broader trajectory of AI development. It underscores the critical need for transparent, unbiased, and rigorously scientific benchmarking practices in the rapidly evolving artificial intelligence landscape, especially when governmental bodies play a role in shaping narratives around specific AI technologies and their perceived risks or benefits. The piece ultimately questions the integrity of certain official evaluations and their potential to unfairly hinder innovation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Evaluation</span><span class="tag tag-keyword">NIST</span><span class="tag tag-keyword">DeepSeek</span><span class="tag tag-keyword">Benchmarking</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-10-05 17:01:19</time></div>
+  <div class="story-body">
+    <h3><a href="https://arxiv.org/abs/2509.02522" target="_blank" rel="noopener noreferrer">Implicit Actor Critic Coupling via a Supervised Learning Framework for RLVR</a></h3>
+    <p class="story-summary">This research introduces a novel approach for Implicit Actor Critic Coupling within a Supervised Learning Framework, specifically tailored for Reinforcement Learning with Visual Reasoning (RLVR). The paper proposes a method to implicitly align the actor and critic networks by reframing certain components of the reinforcement learning problem as supervised learning tasks. This framework aims to enhance the stability and efficiency of actor-critic algorithms, which often suffer from issues related to divergence or slow convergence due to the explicit interaction and update rules between the actor (policy network) and the critic (value network). By leveraging supervised learning principles, the proposed technique could potentially lead to more robust learning in complex environments, particularly those requiring sophisticated visual understanding and decision-making. The implications suggest improved performance for tasks where visual input is paramount, offering a fresh perspective on optimizing the interplay between policy and value estimation in advanced reinforcement learning systems. This innovation could contribute significantly to the development of more reliable and effective AI agents in visually rich domains.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Actor-Critic Methods</span><span class="tag tag-keyword">Supervised Learning</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-keyword">Machine Learning</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-10-05 18:28:16</time></div>
+  <div class="story-body">
+    <h3><a href="https://fi-le.net/oss/" target="_blank" rel="noopener noreferrer">What GPT-OSS leaks about OpenAI&#x27;s training data</a></h3>
+    <p class="story-summary">This analysis explores the potential for open-source GPT models, referred to as GPT-OSS, to inadvertently reveal sensitive information regarding OpenAI&#x27;s proprietary training data. The investigation delves into mechanisms by which patterns, biases, or specific data points embedded within the architecture or outputs of open-source large language models could be leveraged to infer characteristics of the datasets used to train commercial, closed-source counterparts. Such &#x27;leaks&#x27; raise critical questions about data privacy, intellectual property, and the inherent risks associated with widely distributed AI models. Researchers are examining whether model memorization, even in truncated or distilled versions, allows for the reconstruction of private data, potentially exposing copyrighted material or confidential information. The findings highlight the ongoing challenge of balancing model transparency and open-source development with the necessity of protecting the integrity and confidentiality of extensive training corpora, underscoring the complex security implications in the evolving landscape of advanced AI systems.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">OpenAI</span><span class="tag tag-keyword">Training Data</span><span class="tag tag-keyword">Data Leakage</span><span class="tag tag-keyword">Model Privacy</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>1 story</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-06-03T06:14:20Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/microsoft/BitNet" target="_blank" rel="noopener noreferrer">bitnet.cpp</a></h3>
+    <p class="story-summary">bitnet.cpp stands as the official inference framework tailored for 1-bit Large Language Models (LLMs), prominently supporting models like BitNet b1.58. It delivers a comprehensive suite of optimized kernels that guarantee both fast and lossless inference across CPU and GPU platforms, with forthcoming integration for NPU support. A significant achievement lies in its performance on CPUs, where it exhibits impressive speedups: 1.37x to 5.07x on ARM CPUs and an even more substantial 2.37x to 6.17x on x86 CPUs, with larger models benefiting most. These efficiency gains are coupled with a dramatic reduction in energy consumption, ranging from 55.4% to 82.2%. Critically, bitnet.cpp empowers the deployment of substantial 100B BitNet b1.58 models on a single CPU, achieving output speeds of 5-7 tokens per second, aligning with human reading pace. This capability profoundly enhances the feasibility of running powerful LLMs directly on local, resource-constrained devices. The framework draws its foundational architecture from the acclaimed `llama.cpp` project and integrates advanced Lookup Table methodologies pioneered in T-MAC for its high-performance kernels. This innovation is pivotal for advancing efficient edge inference for ternary LLMs.</p>
+    <div class="story-tags"><span class="tag tag-keyword">1-bit LLM</span><span class="tag tag-keyword">BitNet</span><span class="tag tag-keyword">Inference Framework</span><span class="tag tag-keyword">CPU Optimization</span><span class="tag tag-keyword">GPU Acceleration</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2025-10-05" data-counter-title="NO-FOMO issue 2025-10-05" defer></script>
 </body>
 </html>

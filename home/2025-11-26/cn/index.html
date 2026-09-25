@@ -1,407 +1,148 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-11-26</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO AI 日报 — 2025-11-26</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"PingFang SC","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em}.issue h1{margin:0;max-width:820px;font:800 clamp(2.6rem,7vw,6.3rem)/1.02 Georgia,"Songti SC",serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.06em}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,"Songti SC",serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:800 clamp(1.5rem,3vw,2.35rem)/1.2 Georgia,"Songti SC",serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.86 Georgia,"Songti SC",serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-11-26</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Gemini CLI Tips and Tricks for Agentic Coding</h2>
-                <span class="published-time">Published: 2025-11-26 18:08:02</span>
-                
-                <p class="summary">This resource offers practical tips and tricks for developers looking to integrate Google's Gemini AI model into their coding workflows through a Command Line Interface (CLI). Focusing on 'agentic coding,' the guide provides methods to leverage Gemini's advanced capabilities for automating various software development tasks. It details how to use the Gemini CLI to enhance productivity by generating code snippets, assisting with debugging, refactoring existing code, and even generating documentation. The content aims to empower developers to adopt an AI-assisted approach, transforming traditional coding practices into a more efficient and intelligent process where AI acts as a proactive assistant or 'agent.' By mastering the Gemini CLI, users can streamline their development cycles, reduce manual effort, and tap into the power of large language models for creative problem-solving and rapid prototyping within their terminal environments. The tips cover setup, common commands, and advanced use cases to maximize the utility of AI in everyday programming challenges.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Gemini</span><span>Command Line Interface</span><span>Agentic AI</span><span>Code Generation</span><span>Developer Tools</span><span>AI Programming</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/addyosmani/gemini-cli-tips" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>API that auto-routes to the cheapest AI provider (OpenAI/Anthropic/Gemini)</h2>
-                <span class="published-time">Published: 2025-11-26 19:12:26</span>
-                
-                <p class="summary">This Hacker News story introduces Tokensaver.org, an innovative API designed to automatically route user requests to the most cost-effective large language model (LLM) provider among major players like OpenAI, Anthropic, and Gemini. The service acts as an intelligent intermediary, abstracting away the complexities of managing multiple AI API integrations and their fluctuating pricing structures. Its primary objective is to optimize expenditure for businesses and developers by dynamically identifying and utilizing the cheapest available LLM service for each query. This dynamic routing mechanism ensures users benefit from real-time price arbitrage, significantly reducing operational costs associated with AI inference. By offering a unified endpoint, Tokensaver.org simplifies the development process, allowing applications to seamlessly access diverse AI capabilities while ensuring financial efficiency and maintaining high performance standards across various leading AI platforms. This solution is particularly valuable for developers aiming to build cost-efficient AI-powered applications that leverage the best market prices for their AI workloads.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>API Management</span><span>AI Cost Optimization</span><span>Large Language Models</span><span>Dynamic Routing</span><span>AI Providers</span><span>Cloud AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://tokensaver.org/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>OpenAI needs to raise at least $207B by 2030</h2>
-                <span class="published-time">Published: 2025-11-26 15:06:37</span>
-                
-                <p class="summary">OpenAI, a leading artificial intelligence research organization, is projected to require a staggering $207 billion in funding by 2030. This substantial financial requirement highlights the immense capital expenditure necessary for developing and deploying advanced AI systems, including large language models and future artificial general intelligence initiatives. The funding is critical for investing in high-performance computing infrastructure, such as state-of-the-art GPUs, and covering significant operational costs associated with large-scale AI research and development. This aggressive fundraising target underscores the escalating costs of technological innovation in the AI sector and reflects OpenAI's strategic ambitions to maintain its competitive edge and achieve its long-term objectives in shaping the future of AI.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>OpenAI</span><span>AI Funding</span><span>Investment</span><span>Large Language Models</span><span>Artificial General Intelligence</span><span>AI Development</span><span>Compute Infrastructure</span><span>AI Industry</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://ft.com/content/23e54a28-6f63-4533-ab96-3756d9c88bad" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Image Diffusion Models Exhibit Emergent Temporal Propagation in Videos</h2>
-                <span class="published-time">Published: 2025-11-26 07:55:49</span>
-                
-                <p class="summary">Image diffusion models, primarily developed for generating high-quality static images, have demonstrated a surprising emergent capability: temporal propagation within video sequences. This research investigates how these models, despite being trained solely on individual images, can exhibit a form of temporal coherence and consistency when applied to video generation or manipulation tasks. The study highlights that the internal representations learned by these models implicitly capture motion and temporal dynamics, allowing them to propagate information across frames. This emergent property suggests that diffusion models possess a more profound understanding of visual reality than previously assumed, potentially opening new avenues for video synthesis, interpolation, and other spatiotemporal tasks without explicit temporal training. The findings challenge conventional wisdom regarding the necessity of explicit temporal architectures for video understanding and generation, indicating a significant step towards more versatile and efficient generative models.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Image Diffusion Models</span><span>Temporal Propagation</span><span>Video Generation</span><span>Emergent Properties</span><span>Deep Learning</span><span>Computer Vision</span><span>Generative AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Computer Vision</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://arxiv.org/abs/2511.19936" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Slop Detective – Fight the Slop Syndicate</h2>
-                <span class="published-time">Published: 2025-11-26 16:24:29</span>
-                
-                <p class="summary">The "Slop Detective" initiative, spearheaded by Kagi, is introduced as a crucial tool aimed at combating the increasing prevalence of low-quality and unoriginal content, widely termed "slop," across the digital landscape. This platform is designed to equip users and content curators with advanced mechanisms for identifying and mitigating the impact of mass-produced, potentially AI-generated, or spammy material. Slop Detective's primary objective is to uphold stringent standards of information quality and authenticity, addressing a growing concern regarding content integrity in an oversaturated online environment. The project positions itself as a proactive defense against the "Slop Syndicate," a term used to describe entities or trends contributing to the dilution of genuine content with filler and misinformation. This development underscores Kagi's commitment to fostering a more reliable and curated online experience through dedicated solutions for content quality assessment.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Content Quality</span><span>AI Content Detection</span><span>Information Integrity</span><span>Digital Hygiene</span><span>Kagi</span><span>Web Search Enhancement</span><span>Content Moderation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://slopdetective.kagi.com/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>CS234: Reinforcement Learning Winter 2025</h2>
-                <span class="published-time">Published: 2025-11-26 00:33:29</span>
-                
-                <p class="summary">Stanford University has officially announced the upcoming offering of its highly anticipated course, CS234: Reinforcement Learning, scheduled for Winter 2025. This postgraduate-level course is designed to provide a comprehensive and rigorous introduction to the fundamental theory, algorithms, and practical applications of reinforcement learning (RL). Students will delve into core concepts, including Markov Decision Processes (MDPs), dynamic programming, Monte Carlo methods, and temporal-difference learning. The curriculum also typically covers advanced topics such as policy gradient methods, actor-critic architectures, and an essential introduction to deep reinforcement learning, exploring how neural networks enhance RL capabilities. Through a blend of theoretical lectures and hands-on programming assignments, students will gain proficiency in designing and implementing RL solutions for complex sequential decision-making problems, preparing them for research and industry roles in artificial intelligence and machine learning. This offering underscores Stanford's ongoing leadership in advancing AI education.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Reinforcement Learning</span><span>Machine Learning</span><span>Artificial Intelligence</span><span>Markov Decision Processes</span><span>Deep Reinforcement Learning</span><span>Algorithms</span><span>Policy Gradient</span><span>Dynamic Programming</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://web.stanford.edu/class/cs234/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>TrendRadar</h2>
-                <span class="published-time">Published: 2025-11-26T13:10:11Z</span>
-                
-                <p class="summary">TrendRadar is a lightweight, easily deployable hotspot assistant designed to provide personalized news and information. It aggregates trending topics from over 11 mainstream platforms including Zhihu, Douyin, Weibo, and financial news sites. The project offers smart push strategies
-—daily summaries, current榜单 updates, and incremental monitoring
-—to prevent information overload, allowing users to focus on truly relevant news. Key features include precise content filtering using customizable keywords with advanced sorting and quantity controls, real-time hotspot trend analysis, and a personalized hot-spot algorithm for re-ranking news. It supports multi-channel real-time notifications via WeChat Work, Feishu, DingTalk, Telegram, Email, ntfy, Bark, and Slack, alongside multi-device adaptation with GitHub Pages and Docker deployment. A significant enhancement is the AI Smart Analysis, leveraging the MCP (Model Context Protocol) for conversational data querying, trend analysis, sentiment analysis, and smart summarization, making it ideal for investors, content creators, and PR professionals to efficiently track market, brand, or industry dynamics.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>News Aggregation</span><span>Hotspot Monitoring</span><span>AI Analysis</span><span>Content Filtering</span><span>Real-time Notifications</span><span>GitHub Actions</span><span>Docker</span><span>MCP Protocol</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/sansan0/TrendRadar" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Agent Development Kit (ADK) for Go</h2>
-                <span class="published-time">Published: 2025-11-25T13:00:27Z</span>
-                
-                <p class="summary">The Agent Development Kit (ADK) for Go is an open-source, code-first toolkit designed to simplify the building, evaluating, and deploying of sophisticated AI agents. This flexible and modular framework applies software development principles to agent creation, enabling orchestration of workflows from simple tasks to complex multi-agent systems. While optimized for Google's Gemini, ADK remains model-agnostic and deployment-agnostic, ensuring compatibility with various other frameworks. The Go version is particularly well-suited for developers creating cloud-native agent applications, leveraging Go's strengths in concurrency and performance. Key features include idiomatic Go design, a rich tool ecosystem for integrating pre-built or custom functions, code-first development for maximum flexibility and testability, modular multi-agent system design, and strong support for containerization and deployment in cloud environments like Google Cloud Run.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agent Development</span><span>Go Programming</span><span>Cloud-Native</span><span>Modular AI Systems</span><span>Tool Orchestration</span><span>Code-First Development</span><span>Gemini Integration</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/google/adk-go" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>GigaEvo: An Open Source Optimization Framework Powered By LLMs And Evolution Algorithms</h2>
-                <span class="published-time">Published: 2025-11-17T14:44:47.000Z</span>
-                
-                <p class="summary">Recent advances in LLM-guided evolutionary computation, particularly AlphaEvolve (Novikov et al., 2025; Georgiev et al., 2025), have demonstrated remarkable success in discovering novel mathematical constructions and solving challenging optimization problems. However, the high-level descriptions in published work leave many implementation details unspecified, hindering reproducibility and further research. In this report we present GigaEvo, an extensible open-source framework that enables researchers to study and experiment with hybrid LLM-evolution approaches inspired by AlphaEvolve. Our system provides modular implementations of key components: MAP-Elites quality-diversity algorithms, asynchronous DAG-based evaluation pipelines, LLM-driven mutation operators with insight generation and bidirectional lineage tracking, and flexible multi-island evolutionary strategies. In order to assess reproducibility and validate our implementation we evaluate GigaEvo on challenging problems from the AlphaEvolve paper: Heilbronn triangle placement, circle packing in squares, and high-dimensional kissing numbers. The framework emphasizes modularity, concurrency, and ease of experimentation, enabling rapid prototyping through declarative configuration. We provide detailed descriptions of system architecture, implementation decisions, and experimental methodology to support further research in LLM driven evolutionary methods. The GigaEvo framework and all experimental code are available at https://github.com/AIRI-Institute/gigaevo-core.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>LLMs</span><span>Evolutionary Algorithms</span><span>Optimization Framework</span><span>GigaEvo</span><span>AlphaEvolve</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Artificial Intelligence</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2511.17592" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Agent0-VL: Exploring Self-Evolving Agent for Tool-Integrated Vision-Language Reasoning</h2>
-                <span class="published-time">Published: 2025-11-25T04:15:14.000Z</span>
-                
-                <p class="summary">Vision-language agents have achieved remarkable progress in a variety of multimodal reasoning tasks; however, their learning remains constrained by the limitations of human-annotated supervision. Recent self-rewarding approaches attempt to overcome this constraint by allowing models to act as their own critics or reward providers. Yet, purely text-based self-evaluation struggles to verify complex visual reasoning steps and often suffers from evaluation hallucinations. To address these challenges, inspired by recent advances in tool-integrated reasoning, we propose Agent0-VL, a self-evolving vision-language agent that achieves continual improvement with tool-integrated reasoning. Agent0-VL incorporates tool usage not only into reasoning but also into self-evaluation and self-repair, enabling the model to introspect, verify, and refine its reasoning through evidence-grounded analysis. It unifies two synergistic roles within a single LVLM: a Solver that performs multi-turn tool-integrated reasoning, and a Verifier that generates structured feedback and fine-grained self-rewards through tool-grounded critique. These roles interact through a Self-Evolving Reasoning Cycle, where tool-based verification and reinforcement learning jointly align the reasoning and evaluation distributions for stable self-improvement. Through this zero-external-reward evolution, Agent0-VL aligns its reasoning and verification behaviors without any human annotation or external reward models, achieving continual self-improvement. Experiments on geometric problem solving and visual scientific analysis show that Agent0-VL achieves an 12.5% improvement over the base model. Our code is available at https://github.com/aiming-lab/Agent0/Agent0-VL{this https URL}.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Vision-Language Agents</span><span>Tool-Integrated Reasoning</span><span>Self-Evolving Systems</span><span>Multimodal Reasoning</span><span>Reinforcement Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Multimodal</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2511.19900" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>STARFlow-V: End-to-End Video Generative Modeling with Normalizing Flow</h2>
-                <span class="published-time">Published: 2025-11-25T16:27:58.000Z</span>
-                
-                <p class="summary">Normalizing flows (NFs) are end-to-end likelihood-based generative models for continuous data, and have recently regained attention with encouraging progress on image generation. Yet in the video generation domain, where spatiotemporal complexity and computational cost are substantially higher, state-of-the-art systems almost exclusively rely on diffusion-based models. In this work, we revisit this design space by presenting STARFlow-V, a normalizing flow-based video generator with substantial benefits such as end-to-end learning, robust causal prediction, and native likelihood estimation. Building upon the recently proposed STARFlow, STARFlow-V operates in the spatiotemporal latent space with a global-local architecture which restricts causal dependencies to a global latent space while preserving rich local within-frame interactions. This eases error accumulation over time, a common pitfall of standard autoregressive diffusion model generation. Additionally, we propose flow-score matching, which equips the model with a light-weight causal denoiser to improve the video generation consistency in an autoregressive fashion. To improve the sampling efficiency, STARFlow-V employs a video-aware Jacobi iteration scheme that recasts inner updates as parallelizable iterations without breaking causality. Thanks to the invertible structure, the same model can natively support text-to-video, image-to-video as well as video-to-video generation tasks. Empirically, STARFlow-V achieves strong visual fidelity and temporal consistency with practical sampling throughput relative to diffusion-based baselines. These results present the first evidence, to our knowledge, that NFs are capable of high-quality autoregressive video generation, establishing them as a promising research direction for building world models. Code and generated samples are available at https://github.com/apple/ml-starflow.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Normalizing Flows</span><span>Video Generation</span><span>Generative Models</span><span>Autoregressive Models</span><span>Spatiotemporal Modeling</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Deep Learning</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2511.20462" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Soft Adaptive Policy Optimization</h2>
-                <span class="published-time">Published: 2025-11-25T14:25:19.000Z</span>
-                
-                <p class="summary">Reinforcement learning (RL) plays an increasingly important role in enhancing the reasoning capabilities of large language models (LLMs), yet stable and performant policy optimization remains challenging. Token-level importance ratios often exhibit high variance-a phenomenon exacerbated in Mixture-of-Experts models-leading to unstable updates. Existing group-based policy optimization methods, such as GSPO and GRPO, alleviate this problem via hard clipping, making it difficult to maintain both stability and effective learning. We propose Soft Adaptive Policy Optimization (SAPO), which replaces hard clipping with a smooth, temperature-controlled gate that adaptively attenuates off-policy updates while preserving useful learning signals. Compared with GSPO and GRPO, SAPO is both sequence-coherent and token-adaptive. Like GSPO, SAPO maintains sequence-level coherence, but its soft gating forms a continuous trust region that avoids the brittle hard clipping band used in GSPO. When a sequence contains a few highly off-policy tokens, GSPO suppresses all gradients for that sequence, whereas SAPO selectively down-weights only the offending tokens and preserves the learning signal from the near-on-policy ones, improving sample efficiency. Relative to GRPO, SAPO replaces hard token-level clipping with smooth, temperature-controlled scaling, enabling more informative and stable updates. Empirical results on mathematical reasoning benchmarks indicate that SAPO exhibits improved training stability and higher Pass@1 performance under comparable training budgets. Moreover, we employ SAPO to train the Qwen3-VL model series, demonstrating that SAPO yields consistent performance gains across diverse tasks and different model sizes. Overall, SAPO provides a more reliable, scalable, and effective optimization strategy for RL training of LLMs.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Reinforcement Learning</span><span>Large Language Models</span><span>Policy Optimization</span><span>Soft Adaptive Policy Optimization</span><span>Training Stability</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Machine Learning</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2511.20347" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>MedSAM3: Delving into Segment Anything with Medical Concepts</h2>
-                <span class="published-time">Published: 2025-11-24T12:34:38.000Z</span>
-                
-                <p class="summary">Medical image segmentation is fundamental for biomedical discovery. Existing methods lack generalizability and demand extensive, time-consuming manual annotation for new clinical application. Here, we propose MedSAM-3, a text promptable medical segmentation model for medical image and video segmentation. By fine-tuning the Segment Anything Model (SAM) 3 architecture on medical images paired with semantic conceptual labels, our MedSAM-3 enables medical Promptable Concept Segmentation (PCS), allowing precise targeting of anatomical structures via open-vocabulary text descriptions rather than solely geometric prompts. We further introduce the MedSAM-3 Agent, a framework that integrates Multimodal Large Language Models (MLLMs) to perform complex reasoning and iterative refinement in an agent-in-the-loop workflow. Comprehensive experiments across diverse medical imaging modalities, including X-ray, MRI, Ultrasound, CT, and video, demonstrate that our approach significantly outperforms existing specialist and foundation models. We will release our code and model at https://github.com/Joey-S-Liu/MedSAM3.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Medical Image Segmentation</span><span>Segment Anything Model</span><span>Text Promptable</span><span>Multimodal Large Language Models</span><span>AI Agent</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Computer Vision</span><span>Deep Learning</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2511.19046" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>HunyuanOCR Technical Report</h2>
-                <span class="published-time">Published: 2025-11-24T17:59:59.000Z</span>
-                
-                <p class="summary">This paper presents HunyuanOCR, a commercial-grade, open-source, and lightweight (1B parameters) Vision-Language Model (VLM) dedicated to OCR tasks. The architecture comprises a Native Vision Transformer (ViT) and a lightweight LLM connected via an MLP adapter. HunyuanOCR demonstrates superior performance, outperforming commercial APIs, traditional pipelines, and larger models (e.g., Qwen3-VL-4B). Specifically, it surpasses current public solutions in perception tasks (Text Spotting, Parsing) and excels in semantic tasks (IE, Text Image Translation), securing first place in the ICDAR 2025 DIMT Challenge (Small Model Track). Furthermore, it achieves state-of-the-art (SOTA) results on OCRBench among VLMs with fewer than 3B parameters. HunyuanOCR achieves breakthroughs in three key aspects: 1) Unifying Versatility and Efficiency: We implement comprehensive support for core capabilities including spotting, parsing, IE, VQA, and translation within a lightweight framework. This addresses the limitations of narrow "OCR expert models" and inefficient "General VLMs". 2) Streamlined End-to-End Architecture: Adopting a pure end-to-end paradigm eliminates dependencies on pre-processing modules (e.g., layout analysis). This fundamentally resolves error propagation common in traditional pipelines and simplifies system deployment. 3) Data-Driven and RL Strategies: We confirm the critical role of high-quality data and, for the first time in the industry, demonstrate that Reinforcement Learning (RL) strategies yield significant performance gains in OCR tasks. HunyuanOCR is officially open-sourced on HuggingFace. We also provide a high-performance deployment solution based on vLLM, placing its production efficiency in the top tier. We hope this model will advance frontier research and provide a solid foundation for industrial applications.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>HunyuanOCR</span><span>OCR</span><span>Vision-Language Model</span><span>End-to-End Architecture</span><span>Reinforcement Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Computer Vision</span><span>Multimodal</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2511.19575" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">跳到新闻列表</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO 主页">NO<i>/</i>FOMO</a><nav class="nav" aria-label="日报导航"><a href="../../../home/">往期</a><a href="../en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">每天一次，过滤 AI 噪音</p><h1>值得打开的<br>AI 日报。</h1></div><div class="issue-meta"><span>发布日期</span><strong>2025-11-26</strong><span>中文版本</span><dl class="readership" aria-label="公开阅读量"><div><dt>本期阅读</dt><dd data-view-count="/issue/2025-11-26" aria-live="polite">—</dd></div><div><dt>累计阅读</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-11-26 18:08:02</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/addyosmani/gemini-cli-tips" target="_blank" rel="noopener noreferrer">Gemini CLI Tips and Tricks for Agentic Coding</a></h3>
+    <p class="story-summary">This resource offers practical tips and tricks for developers looking to integrate Google&#x27;s Gemini AI model into their coding workflows through a Command Line Interface (CLI). Focusing on &#x27;agentic coding,&#x27; the guide provides methods to leverage Gemini&#x27;s advanced capabilities for automating various software development tasks. It details how to use the Gemini CLI to enhance productivity by generating code snippets, assisting with debugging, refactoring existing code, and even generating documentation. The content aims to empower developers to adopt an AI-assisted approach, transforming traditional coding practices into a more efficient and intelligent process where AI acts as a proactive assistant or &#x27;agent.&#x27; By mastering the Gemini CLI, users can streamline their development cycles, reduce manual effort, and tap into the power of large language models for creative problem-solving and rapid prototyping within their terminal environments. The tips cover setup, common commands, and advanced use cases to maximize the utility of AI in everyday programming challenges.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Gemini</span><span class="tag tag-keyword">Command Line Interface</span><span class="tag tag-keyword">Agentic AI</span><span class="tag tag-keyword">Code Generation</span><span class="tag tag-keyword">Developer Tools</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-11-26 19:12:26</time></div>
+  <div class="story-body">
+    <h3><a href="https://tokensaver.org/" target="_blank" rel="noopener noreferrer">API that auto-routes to the cheapest AI provider (OpenAI/Anthropic/Gemini)</a></h3>
+    <p class="story-summary">This Hacker News story introduces Tokensaver.org, an innovative API designed to automatically route user requests to the most cost-effective large language model (LLM) provider among major players like OpenAI, Anthropic, and Gemini. The service acts as an intelligent intermediary, abstracting away the complexities of managing multiple AI API integrations and their fluctuating pricing structures. Its primary objective is to optimize expenditure for businesses and developers by dynamically identifying and utilizing the cheapest available LLM service for each query. This dynamic routing mechanism ensures users benefit from real-time price arbitrage, significantly reducing operational costs associated with AI inference. By offering a unified endpoint, Tokensaver.org simplifies the development process, allowing applications to seamlessly access diverse AI capabilities while ensuring financial efficiency and maintaining high performance standards across various leading AI platforms. This solution is particularly valuable for developers aiming to build cost-efficient AI-powered applications that leverage the best market prices for their AI workloads.</p>
+    <div class="story-tags"><span class="tag tag-keyword">API Management</span><span class="tag tag-keyword">AI Cost Optimization</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Dynamic Routing</span><span class="tag tag-keyword">AI Providers</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-11-26 15:06:37</time></div>
+  <div class="story-body">
+    <h3><a href="https://ft.com/content/23e54a28-6f63-4533-ab96-3756d9c88bad" target="_blank" rel="noopener noreferrer">OpenAI needs to raise at least $207B by 2030</a></h3>
+    <p class="story-summary">OpenAI, a leading artificial intelligence research organization, is projected to require a staggering $207 billion in funding by 2030. This substantial financial requirement highlights the immense capital expenditure necessary for developing and deploying advanced AI systems, including large language models and future artificial general intelligence initiatives. The funding is critical for investing in high-performance computing infrastructure, such as state-of-the-art GPUs, and covering significant operational costs associated with large-scale AI research and development. This aggressive fundraising target underscores the escalating costs of technological innovation in the AI sector and reflects OpenAI&#x27;s strategic ambitions to maintain its competitive edge and achieve its long-term objectives in shaping the future of AI.</p>
+    <div class="story-tags"><span class="tag tag-keyword">OpenAI</span><span class="tag tag-keyword">AI Funding</span><span class="tag tag-keyword">Investment</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Artificial General Intelligence</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-11-26 07:55:49</time></div>
+  <div class="story-body">
+    <h3><a href="https://arxiv.org/abs/2511.19936" target="_blank" rel="noopener noreferrer">Image Diffusion Models Exhibit Emergent Temporal Propagation in Videos</a></h3>
+    <p class="story-summary">Image diffusion models, primarily developed for generating high-quality static images, have demonstrated a surprising emergent capability: temporal propagation within video sequences. This research investigates how these models, despite being trained solely on individual images, can exhibit a form of temporal coherence and consistency when applied to video generation or manipulation tasks. The study highlights that the internal representations learned by these models implicitly capture motion and temporal dynamics, allowing them to propagate information across frames. This emergent property suggests that diffusion models possess a more profound understanding of visual reality than previously assumed, potentially opening new avenues for video synthesis, interpolation, and other spatiotemporal tasks without explicit temporal training. The findings challenge conventional wisdom regarding the necessity of explicit temporal architectures for video understanding and generation, indicating a significant step towards more versatile and efficient generative models.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Image Diffusion Models</span><span class="tag tag-keyword">Temporal Propagation</span><span class="tag tag-keyword">Video Generation</span><span class="tag tag-keyword">Emergent Properties</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-11-26 16:24:29</time></div>
+  <div class="story-body">
+    <h3><a href="https://slopdetective.kagi.com/" target="_blank" rel="noopener noreferrer">Slop Detective – Fight the Slop Syndicate</a></h3>
+    <p class="story-summary">The &quot;Slop Detective&quot; initiative, spearheaded by Kagi, is introduced as a crucial tool aimed at combating the increasing prevalence of low-quality and unoriginal content, widely termed &quot;slop,&quot; across the digital landscape. This platform is designed to equip users and content curators with advanced mechanisms for identifying and mitigating the impact of mass-produced, potentially AI-generated, or spammy material. Slop Detective&#x27;s primary objective is to uphold stringent standards of information quality and authenticity, addressing a growing concern regarding content integrity in an oversaturated online environment. The project positions itself as a proactive defense against the &quot;Slop Syndicate,&quot; a term used to describe entities or trends contributing to the dilution of genuine content with filler and misinformation. This development underscores Kagi&#x27;s commitment to fostering a more reliable and curated online experience through dedicated solutions for content quality assessment.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Content Quality</span><span class="tag tag-keyword">AI Content Detection</span><span class="tag tag-keyword">Information Integrity</span><span class="tag tag-keyword">Digital Hygiene</span><span class="tag tag-keyword">Kagi</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-11-26 00:33:29</time></div>
+  <div class="story-body">
+    <h3><a href="https://web.stanford.edu/class/cs234/" target="_blank" rel="noopener noreferrer">CS234: Reinforcement Learning Winter 2025</a></h3>
+    <p class="story-summary">Stanford University has officially announced the upcoming offering of its highly anticipated course, CS234: Reinforcement Learning, scheduled for Winter 2025. This postgraduate-level course is designed to provide a comprehensive and rigorous introduction to the fundamental theory, algorithms, and practical applications of reinforcement learning (RL). Students will delve into core concepts, including Markov Decision Processes (MDPs), dynamic programming, Monte Carlo methods, and temporal-difference learning. The curriculum also typically covers advanced topics such as policy gradient methods, actor-critic architectures, and an essential introduction to deep reinforcement learning, exploring how neural networks enhance RL capabilities. Through a blend of theoretical lectures and hands-on programming assignments, students will gain proficiency in designing and implementing RL solutions for complex sequential decision-making problems, preparing them for research and industry roles in artificial intelligence and machine learning. This offering underscores Stanford&#x27;s ongoing leadership in advancing AI education.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Machine Learning</span><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Markov Decision Processes</span><span class="tag tag-keyword">Deep Reinforcement Learning</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>2 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-11-26T13:10:11Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/sansan0/TrendRadar" target="_blank" rel="noopener noreferrer">TrendRadar</a></h3>
+    <p class="story-summary">TrendRadar is a lightweight, easily deployable hotspot assistant designed to provide personalized news and information. It aggregates trending topics from over 11 mainstream platforms including Zhihu, Douyin, Weibo, and financial news sites. The project offers smart push strategies —daily summaries, current榜单 updates, and incremental monitoring —to prevent information overload, allowing users to focus on truly relevant news. Key features include precise content filtering using customizable keywords with advanced sorting and quantity controls, real-time hotspot trend analysis, and a personalized hot-spot algorithm for re-ranking news. It supports multi-channel real-time notifications via WeChat Work, Feishu, DingTalk, Telegram, Email, ntfy, Bark, and Slack, alongside multi-device adaptation with GitHub Pages and Docker deployment. A significant enhancement is the AI Smart Analysis, leveraging the MCP (Model Context Protocol) for conversational data querying, trend analysis, sentiment analysis, and smart summarization, making it ideal for investors, content creators, and PR professionals to efficiently track market, brand, or industry dynamics.</p>
+    <div class="story-tags"><span class="tag tag-keyword">News Aggregation</span><span class="tag tag-keyword">Hotspot Monitoring</span><span class="tag tag-keyword">AI Analysis</span><span class="tag tag-keyword">Content Filtering</span><span class="tag tag-keyword">Real-time Notifications</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-11-25T13:00:27Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/google/adk-go" target="_blank" rel="noopener noreferrer">Agent Development Kit (ADK) for Go</a></h3>
+    <p class="story-summary">The Agent Development Kit (ADK) for Go is an open-source, code-first toolkit designed to simplify the building, evaluating, and deploying of sophisticated AI agents. This flexible and modular framework applies software development principles to agent creation, enabling orchestration of workflows from simple tasks to complex multi-agent systems. While optimized for Google&#x27;s Gemini, ADK remains model-agnostic and deployment-agnostic, ensuring compatibility with various other frameworks. The Go version is particularly well-suited for developers creating cloud-native agent applications, leveraging Go&#x27;s strengths in concurrency and performance. Key features include idiomatic Go design, a rich tool ecosystem for integrating pre-built or custom functions, code-first development for maximum flexibility and testability, modular multi-agent system design, and strong support for containerization and deployment in cloud environments like Google Cloud Run.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agent Development</span><span class="tag tag-keyword">Go Programming</span><span class="tag tag-keyword">Cloud-Native</span><span class="tag tag-keyword">Modular AI Systems</span><span class="tag tag-keyword">Tool Orchestration</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-11-17T14:44:47.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2511.17592" target="_blank" rel="noopener noreferrer">GigaEvo: An Open Source Optimization Framework Powered By LLMs And Evolution Algorithms</a></h3>
+    <p class="story-summary">Recent advances in LLM-guided evolutionary computation, particularly AlphaEvolve (Novikov et al., 2025; Georgiev et al., 2025), have demonstrated remarkable success in discovering novel mathematical constructions and solving challenging optimization problems. However, the high-level descriptions in published work leave many implementation details unspecified, hindering reproducibility and further research. In this report we present GigaEvo, an extensible open-source framework that enables researchers to study and experiment with hybrid LLM-evolution approaches inspired by AlphaEvolve. Our system provides modular implementations of key components: MAP-Elites quality-diversity algorithms, asynchronous DAG-based evaluation pipelines, LLM-driven mutation operators with insight generation and bidirectional lineage tracking, and flexible multi-island evolutionary strategies. In order to assess reproducibility and validate our implementation we evaluate GigaEvo on challenging problems from the AlphaEvolve paper: Heilbronn triangle placement, circle packing in squares, and high-dimensional kissing numbers. The framework emphasizes modularity, concurrency, and ease of experimentation, enabling rapid prototyping through declarative configuration. We provide detailed descriptions of system architecture, implementation decisions, and experimental methodology to support further research in LLM driven evolutionary methods. The GigaEvo framework and all experimental code are available at https://github.com/AIRI-Institute/gigaevo-core.</p>
+    <div class="story-tags"><span class="tag tag-keyword">LLMs</span><span class="tag tag-keyword">Evolutionary Algorithms</span><span class="tag tag-keyword">Optimization Framework</span><span class="tag tag-keyword">GigaEvo</span><span class="tag tag-keyword">AlphaEvolve</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-11-25T04:15:14.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2511.19900" target="_blank" rel="noopener noreferrer">Agent0-VL: Exploring Self-Evolving Agent for Tool-Integrated Vision-Language Reasoning</a></h3>
+    <p class="story-summary">Vision-language agents have achieved remarkable progress in a variety of multimodal reasoning tasks; however, their learning remains constrained by the limitations of human-annotated supervision. Recent self-rewarding approaches attempt to overcome this constraint by allowing models to act as their own critics or reward providers. Yet, purely text-based self-evaluation struggles to verify complex visual reasoning steps and often suffers from evaluation hallucinations. To address these challenges, inspired by recent advances in tool-integrated reasoning, we propose Agent0-VL, a self-evolving vision-language agent that achieves continual improvement with tool-integrated reasoning. Agent0-VL incorporates tool usage not only into reasoning but also into self-evaluation and self-repair, enabling the model to introspect, verify, and refine its reasoning through evidence-grounded analysis. It unifies two synergistic roles within a single LVLM: a Solver that performs multi-turn tool-integrated reasoning, and a Verifier that generates structured feedback and fine-grained self-rewards through tool-grounded critique. These roles interact through a Self-Evolving Reasoning Cycle, where tool-based verification and reinforcement learning jointly align the reasoning and evaluation distributions for stable self-improvement. Through this zero-external-reward evolution, Agent0-VL aligns its reasoning and verification behaviors without any human annotation or external reward models, achieving continual self-improvement. Experiments on geometric problem solving and visual scientific analysis show that Agent0-VL achieves an 12.5% improvement over the base model. Our code is available at https://github.com/aiming-lab/Agent0/Agent0-VL{this https URL}.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Vision-Language Agents</span><span class="tag tag-keyword">Tool-Integrated Reasoning</span><span class="tag tag-keyword">Self-Evolving Systems</span><span class="tag tag-keyword">Multimodal Reasoning</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-11-25T16:27:58.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2511.20462" target="_blank" rel="noopener noreferrer">STARFlow-V: End-to-End Video Generative Modeling with Normalizing Flow</a></h3>
+    <p class="story-summary">Normalizing flows (NFs) are end-to-end likelihood-based generative models for continuous data, and have recently regained attention with encouraging progress on image generation. Yet in the video generation domain, where spatiotemporal complexity and computational cost are substantially higher, state-of-the-art systems almost exclusively rely on diffusion-based models. In this work, we revisit this design space by presenting STARFlow-V, a normalizing flow-based video generator with substantial benefits such as end-to-end learning, robust causal prediction, and native likelihood estimation. Building upon the recently proposed STARFlow, STARFlow-V operates in the spatiotemporal latent space with a global-local architecture which restricts causal dependencies to a global latent space while preserving rich local within-frame interactions. This eases error accumulation over time, a common pitfall of standard autoregressive diffusion model generation. Additionally, we propose flow-score matching, which equips the model with a light-weight causal denoiser to improve the video generation consistency in an autoregressive fashion. To improve the sampling efficiency, STARFlow-V employs a video-aware Jacobi iteration scheme that recasts inner updates as parallelizable iterations without breaking causality. Thanks to the invertible structure, the same model can natively support text-to-video, image-to-video as well as video-to-video generation tasks. Empirically, STARFlow-V achieves strong visual fidelity and temporal consistency with practical sampling throughput relative to diffusion-based baselines. These results present the first evidence, to our knowledge, that NFs are capable of high-quality autoregressive video generation, establishing them as a promising research direction for building world models. Code and generated samples are available at https://github.com/apple/ml-starflow.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Normalizing Flows</span><span class="tag tag-keyword">Video Generation</span><span class="tag tag-keyword">Generative Models</span><span class="tag tag-keyword">Autoregressive Models</span><span class="tag tag-keyword">Spatiotemporal Modeling</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-11-25T14:25:19.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2511.20347" target="_blank" rel="noopener noreferrer">Soft Adaptive Policy Optimization</a></h3>
+    <p class="story-summary">Reinforcement learning (RL) plays an increasingly important role in enhancing the reasoning capabilities of large language models (LLMs), yet stable and performant policy optimization remains challenging. Token-level importance ratios often exhibit high variance-a phenomenon exacerbated in Mixture-of-Experts models-leading to unstable updates. Existing group-based policy optimization methods, such as GSPO and GRPO, alleviate this problem via hard clipping, making it difficult to maintain both stability and effective learning. We propose Soft Adaptive Policy Optimization (SAPO), which replaces hard clipping with a smooth, temperature-controlled gate that adaptively attenuates off-policy updates while preserving useful learning signals. Compared with GSPO and GRPO, SAPO is both sequence-coherent and token-adaptive. Like GSPO, SAPO maintains sequence-level coherence, but its soft gating forms a continuous trust region that avoids the brittle hard clipping band used in GSPO. When a sequence contains a few highly off-policy tokens, GSPO suppresses all gradients for that sequence, whereas SAPO selectively down-weights only the offending tokens and preserves the learning signal from the near-on-policy ones, improving sample efficiency. Relative to GRPO, SAPO replaces hard token-level clipping with smooth, temperature-controlled scaling, enabling more informative and stable updates. Empirical results on mathematical reasoning benchmarks indicate that SAPO exhibits improved training stability and higher Pass@1 performance under comparable training budgets. Moreover, we employ SAPO to train the Qwen3-VL model series, demonstrating that SAPO yields consistent performance gains across diverse tasks and different model sizes. Overall, SAPO provides a more reliable, scalable, and effective optimization strategy for RL training of LLMs.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Policy Optimization</span><span class="tag tag-keyword">Soft Adaptive Policy Optimization</span><span class="tag tag-keyword">Training Stability</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-11-24T12:34:38.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2511.19046" target="_blank" rel="noopener noreferrer">MedSAM3: Delving into Segment Anything with Medical Concepts</a></h3>
+    <p class="story-summary">Medical image segmentation is fundamental for biomedical discovery. Existing methods lack generalizability and demand extensive, time-consuming manual annotation for new clinical application. Here, we propose MedSAM-3, a text promptable medical segmentation model for medical image and video segmentation. By fine-tuning the Segment Anything Model (SAM) 3 architecture on medical images paired with semantic conceptual labels, our MedSAM-3 enables medical Promptable Concept Segmentation (PCS), allowing precise targeting of anatomical structures via open-vocabulary text descriptions rather than solely geometric prompts. We further introduce the MedSAM-3 Agent, a framework that integrates Multimodal Large Language Models (MLLMs) to perform complex reasoning and iterative refinement in an agent-in-the-loop workflow. Comprehensive experiments across diverse medical imaging modalities, including X-ray, MRI, Ultrasound, CT, and video, demonstrate that our approach significantly outperforms existing specialist and foundation models. We will release our code and model at https://github.com/Joey-S-Liu/MedSAM3.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Medical Image Segmentation</span><span class="tag tag-keyword">Segment Anything Model</span><span class="tag tag-keyword">Text Promptable</span><span class="tag tag-keyword">Multimodal Large Language Models</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-11-24T17:59:59.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2511.19575" target="_blank" rel="noopener noreferrer">HunyuanOCR Technical Report</a></h3>
+    <p class="story-summary">This paper presents HunyuanOCR, a commercial-grade, open-source, and lightweight (1B parameters) Vision-Language Model (VLM) dedicated to OCR tasks. The architecture comprises a Native Vision Transformer (ViT) and a lightweight LLM connected via an MLP adapter. HunyuanOCR demonstrates superior performance, outperforming commercial APIs, traditional pipelines, and larger models (e.g., Qwen3-VL-4B). Specifically, it surpasses current public solutions in perception tasks (Text Spotting, Parsing) and excels in semantic tasks (IE, Text Image Translation), securing first place in the ICDAR 2025 DIMT Challenge (Small Model Track). Furthermore, it achieves state-of-the-art (SOTA) results on OCRBench among VLMs with fewer than 3B parameters. HunyuanOCR achieves breakthroughs in three key aspects: 1) Unifying Versatility and Efficiency: We implement comprehensive support for core capabilities including spotting, parsing, IE, VQA, and translation within a lightweight framework. This addresses the limitations of narrow &quot;OCR expert models&quot; and inefficient &quot;General VLMs&quot;. 2) Streamlined End-to-End Architecture: Adopting a pure end-to-end paradigm eliminates dependencies on pre-processing modules (e.g., layout analysis). This fundamentally resolves error propagation common in traditional pipelines and simplifies system deployment. 3) Data-Driven and RL Strategies: We confirm the critical role of high-quality data and, for the first time in the industry, demonstrate that Reinforcement Learning (RL) strategies yield significant performance gains in OCR tasks. HunyuanOCR is officially open-sourced on HuggingFace. We also provide a high-performance deployment solution based on vLLM, placing its production efficiency in the top tier. We hope this model will advance frontier research and provide a solid foundation for industrial applications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">HunyuanOCR</span><span class="tag tag-keyword">OCR</span><span class="tag tag-keyword">Vision-Language Model</span><span class="tag tag-keyword">End-to-End Architecture</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>AI 辅助筛选，原始来源始终可查。</span></footer>
+  <script src="../../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2025-11-26" data-counter-title="NO-FOMO issue 2025-11-26" defer></script>
 </body>
 </html>

@@ -1,573 +1,214 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-09-22</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2025-09-22</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="." class="active">中文</a>
-                <a href="en/" class="">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-09-22</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../home/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 返回主页</a>
-            <a href="../../daily/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 最新日报</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 关于我们</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Qwen3-Omni: Native Omni AI model for text, image and video</h2>
-                <span class="published-time">Published: 2025-09-22 17:50:21</span>
-                
-                <p class="summary">Alibaba Cloud's Qwen team has unveiled Qwen3-Omni, representing a significant evolution in its large AI model series. This new model is engineered with a native 'Omni' capability, allowing it to seamlessly process and understand information across text, images, and video modalities from the ground up. This integrated approach distinguishes it from models that combine separate modules for different data types, aiming for a more unified and coherent multimodal understanding. Qwen3-Omni is designed to serve as a foundational framework for diverse applications, promising enhanced contextual awareness and sophisticated interactions across various media formats. This release underscores the ongoing trend in AI research towards developing general-purpose systems that can interpret and generate content across different data types efficiently and effectively, potentially setting new standards in multimodal AI performance.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multimodal AI</span><span>Large Language Model</span><span>Generative AI</span><span>Computer Vision</span><span>Video Understanding</span><span>AI Model Architecture</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Multimodal</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/QwenLM/Qwen3-Omni" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>OpenAI and Nvidia announce partnership to deploy 10GW of Nvidia systems</h2>
-                <span class="published-time">Published: 2025-09-22 16:10:15</span>
-                
-                <p class="summary">OpenAI and Nvidia have forged a strategic partnership to deploy a monumental 10-gigawatt capacity of Nvidia's advanced computing systems. This collaboration signals a significant acceleration in the development of artificial intelligence capabilities, particularly in the realm of large-scale model training and inference. The deployment of such an immense computational infrastructure underscores the escalating demand for processing power required to push the boundaries of current AI models, including the next generation of large language models and other sophisticated AI systems. Industry observers suggest that a 10GW deployment could translate into unprecedented supercomputing capabilities, enabling OpenAI to tackle highly complex AI research challenges, foster innovation in areas like generative AI, and potentially lead to breakthroughs that redefine the landscape of artificial intelligence. This partnership highlights the critical role of specialized hardware, like Nvidia's GPUs, in realizing the full potential of AI, marking a substantial investment in the future of AI development and demonstrating a shared commitment to advancing the field at an industrial scale.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Artificial Intelligence</span><span>AI Infrastructure</span><span>Supercomputing</span><span>GPU Technology</span><span>Data Centers</span><span>Strategic Partnership</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://openai.com/index/openai-nvidia-systems-partnership/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>California issues historic fine over lawyer's ChatGPT fabrications</h2>
-                <span class="published-time">Published: 2025-09-22 16:30:03</span>
-                
-                <p class="summary">California has reportedly imposed a "historic fine" on a lawyer for using OpenAI's ChatGPT to generate fabricated content, marking a significant development in the legal and ethical oversight of artificial intelligence tools in professional practice. This incident highlights the growing challenges and responsibilities associated with the adoption of large language models in fields requiring accuracy and factual integrity, such as law. The fine underscores a clear stance from regulatory bodies regarding the accountability of professionals when integrating AI, particularly when the technology leads to misrepresentation or the creation of false information. This case is likely to set a precedent for future legal and ethical guidelines surrounding AI-generated content, prompting a re-evaluation of current practices and emphasizing the critical need for human oversight and verification when leveraging advanced AI systems. It also brings into focus the broader debate on AI's reliability, the potential for misuse, and the necessary regulatory frameworks to ensure ethical deployment across various industries. Regulators and legal professionals are now facing the imperative to develop robust guidelines that address AI's role in critical applications, balancing innovation with the imperative for professional integrity and public trust. This landmark decision could influence AI policy and professional standards nationwide.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>ChatGPT</span><span>Large Language Model</span><span>AI Regulation</span><span>Legal AI</span><span>AI Ethics</span><span>Generative AI</span><span>Accountability</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://calmatters.org/economy/technology/2025/09/chatgpt-lawyer-fine-ai-regulation/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>We Politely Insist: Your LLM Must Learn the Persian Art of Taarof</h2>
-                <span class="published-time">Published: 2025-09-22 00:31:06</span>
-                
-                <p class="summary">This research emphasizes the critical need for Large Language Models (LLMs) to develop cultural communication competence, exemplified by the Persian art of Taarof. The paper argues that current LLMs, despite their linguistic capabilities, often fall short in navigating complex social protocols and indirect communication inherent in many cultures. By failing to grasp nuances like Taarof
-
-
-—a sophisticated system of politeness, deference, and indirectness
-
-
-—LLMs risk generating culturally insensitive or inappropriate responses. The study advocates for integrating socio-pragmatic understanding into LLM training, moving beyond purely semantic and syntactic processing. This approach aims to enhance AI systems' social intelligence, enabling them to engage in more contextually appropriate, respectful, and effective cross-cultural interactions, ultimately broadening their applicability and acceptance in diverse global contexts.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Model</span><span>Natural Language Processing</span><span>Cultural AI</span><span>Social Intelligence</span><span>Human-Computer Interaction</span><span>Taarof</span><span>Cross-cultural Communication</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://arxiv.org/abs/2509.01035" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>SWE-Bench Pro</h2>
-                <span class="published-time">Published: 2025-09-22 16:08:57</span>
-                
-                <p class="summary">SWE-Bench Pro, an enhanced and professional iteration of the widely recognized SWE-Bench benchmark, has been introduced by Scale AI to rigorously evaluate the software engineering capabilities of advanced AI agents and large language models (LLMs). This benchmark, available on GitHub, is specifically designed to test an AI's proficiency in addressing complex, real-world software development challenges, ranging from debugging and code refactoring to implementing new features across diverse open-source projects. Unlike its predecessor, the 'Pro' version likely incorporates a larger and more varied dataset, alongside potentially more sophisticated evaluation metrics, to provide a more comprehensive and demanding assessment. The initiative aims to push the frontiers of AI in software development, enabling researchers and developers to accurately gauge the practical applicability, autonomous reasoning, and robust problem-solving skills of AI models in intricate coding environments. SWE-Bench Pro is poised to become an essential tool for advancing the development of highly capable AI systems that can significantly contribute to the software engineering lifecycle.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Software Engineering</span><span>AI Agents</span><span>Large Language Models</span><span>Benchmarking</span><span>Code Generation</span><span>AI Evaluation</span><span>Open-source projects</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Large Language Model</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/scaleapi/SWE-bench_Pro-os" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>AI-Generated "Workslop" Is Destroying Productivity</h2>
-                <span class="published-time">Published: 2025-09-22 18:07:13</span>
-                
-                <p class="summary">The proliferation of AI-generated content, characterized as "workslop," is increasingly being identified as a significant impediment to organizational productivity rather than a driver of efficiency. While artificial intelligence holds immense promise for automating tasks and streamlining workflows, the current output often lacks the necessary quality, precision, or contextual understanding to be directly usable. This frequently necessitates extensive human intervention for editing, refinement, and verification, thereby negating the intended time-saving benefits. The article highlights that this suboptimal AI output, if not properly managed and integrated, can lead to increased workload as employees spend valuable time correcting or completely redoing tasks initially handled by AI. The core issue lies in the gap between AI's generative capabilities and the specific, high-standard requirements of professional work. To counter this trend, organizations must focus on developing more sophisticated prompting techniques, implementing robust AI quality control mechanisms, and fostering better human-AI collaboration strategies. Ultimately, the unchecked deployment of AI without adequate oversight and refinement processes risks turning a potential productivity booster into a considerable drain on resources and efficiency.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Productivity</span><span>AI Quality</span><span>Generative AI</span><span>Workslop</span><span>Automation Challenges</span><span>Human-AI Collaboration</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Generative AI</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://hbr.org/2025/09/ai-generated-workslop-is-destroying-productivity" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>Tongyi DeepResearch</h2>
-                <span class="published-time">Published: 2025-09-22T17:44:11Z</span>
-                
-                <p class="summary">Tongyi DeepResearch, developed by Tongyi Lab, is an innovative agentic large language model boasting 30.5 billion total parameters with a highly efficient 3.3 billion activated per token. Specifically engineered for long-horizon, deep information-seeking tasks, it has achieved state-of-the-art performance across a diverse set of agentic search benchmarks, including Humanity's Last Exam, BrowserComp, and WebWalkerQA. The model's robust capabilities stem from a sophisticated, fully automated synthetic data generation pipeline, enabling agentic pre-training, supervised fine-tuning, and reinforcement learning. It benefits from large-scale continual pre-training on high-quality agentic interaction data to enhance reasoning and maintain freshness. Furthermore, Tongyi DeepResearch employs an end-to-end reinforcement learning strategy, utilizing a customized Group Relative Policy Optimization framework with token-level policy gradients for stable training. At inference, it supports both the rigorous ReAct paradigm and an IterResearch-based 'Heavy' mode for optimized performance, making it a versatile solution for advanced web agent applications.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Agentic Large Language Model</span><span>Information Seeking</span><span>Reinforcement Learning</span><span>Deep Research</span><span>Synthetic Data</span><span>Web Agent</span><span>Natural Language Processing</span><span>Large Language Models</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/Alibaba-NLP/DeepResearch" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Elasticsearch</h2>
-                <span class="published-time">Published: 2025-09-22T19:48:54Z</span>
-                
-                <p class="summary">Elasticsearch is a powerful, distributed search and analytics engine, scalable data store, and vector database, meticulously optimized for speed and relevance in production environments. It serves as the cornerstone of Elastic's open Stack platform, enabling near real-time search over massive datasets, advanced vector searches, and seamless integration with generative AI applications. Key use cases span Retrieval Augmented Generation (RAG), traditional full-text search, and specialized applications such as logs, metrics, application performance monitoring (APM), and security logs. Users can easily get started via Elastic Cloud's managed service or through self-managed installations, including a quick local Docker setup using the `start-local` script. Elasticsearch supports interaction through robust REST APIs, language clients like Python, curl, and Kibana's Dev Tools Console for indexing and querying structured or unstructured data efficiently. It facilitates the storage and indexing of diverse data types, making them immediately available for search and exploration through Kibana.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Elasticsearch</span><span>Search Engine</span><span>Vector Database</span><span>Distributed System</span><span>Generative AI</span><span>Retrieval Augmented Generation</span><span>Kibana</span><span>Data Analytics</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Generative AI</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/elastic/elasticsearch" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>像老乡鸡那样做饭</h2>
-                <span class="published-time">Published: 2025-09-22T17:40:46Z</span>
-                
-                <p class="summary">This GitHub repository, "CookLikeHOC," functions as a non-official, community-driven culinary resource dedicated to replicating the popular dishes served by the Chinese fast-food chain "Laoxiangji" (Home Original Chicken). Conceived and largely completed in 2024, the project diligently aggregates and structures recipes originally documented in the "《老乡鸡菜品溯源报告》" (Laoxiangji Dish Traceability Report). A significant recent update includes the launch of a dedicated web interface, available at cooklikehoc.soilzhu.su, enhancing accessibility for users. Furthermore, the platform has begun integrating AI-generated imagery for certain stew recipes, aiming to provide visual guidance, while actively soliciting authentic user-contributed photographs. The repository explicitly states its non-affiliation with the official Laoxiangji brand, emphasizing its role as a consumer-driven initiative. It serves as a comprehensive and interactive database for culinary enthusiasts seeking to explore and prepare these specific dishes.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Cooking</span><span>Recipes</span><span>Food</span><span>Restaurant Dishes</span><span>Laoxiangji</span><span>Recipe Database</span><span>Community Project</span><span>AI-Generated Images</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Generative AI</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/Gar-b-age/CookLikeHOC" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>tldraw</h2>
-                <span class="published-time">Published: 2025-09-19T16:42:33Z</span>
-                
-                <p class="summary">tldraw is an open-source React library designed for building highly interactive infinite canvas experiences, serving as the core technology behind the popular digital whiteboard tldraw.com. This monorepo provides a comprehensive SDK that allows developers to seamlessly integrate drawing, collaboration, and various visual interaction functionalities into their web applications. It offers straightforward installation and usage instructions, complemented by detailed guides for local development and contributions. A unique feature is the inclusion of CONTEXT.md files and an associated script, specifically designed to help AI agents rapidly gain context and understand the codebase, thereby enhancing automated development workflows. The tldraw SDK is available under a flexible license permitting both commercial and non-commercial projects, with options to remove the "Made with tldraw" watermark through a business license. The project fosters an active community through Discord and offers transparent guidelines regarding trademarks and contributions, positioning itself as a leading solution for sophisticated frontend graphical applications.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>infinite canvas</span><span>React library</span><span>digital whiteboard</span><span>SDK</span><span>frontend development</span><span>collaboration tools</span><span>JavaScript</span><span>UI library</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Others</span><span>Artificial Intelligence</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/tldraw/tldraw" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>RPG: A Repository Planning Graph for Unified and Scalable Codebase</h2>
-                <span class="published-time">Published: 2025-09-19T17:58:14.000Z</span>
-                
-                <p class="summary">Large language models excel at function- and file-level code generation, yet generating complete repositories from scratch remains a fundamental challenge. This process demands coherent and reliable planning across proposal- and implementation-level stages, while natural language, due to its ambiguity and verbosity, is ill-suited for faithfully representing complex software structures. To address this, we introduce the Repository Planning Graph (RPG), a persistent representation that unifies proposal- and implementation-level planning by encoding capabilities, file structures, data flows, and functions in one graph. RPG replaces ambiguous natural language with an explicit blueprint, enabling long-horizon planning and scalable repository generation. Building on RPG, we develop ZeroRepo, a graph-driven framework for repository generation from scratch. It operates in three stages: proposal-level planning and implementation-level refinement to construct the graph, followed by graph-guided code generation with test validation. To evaluate this setting, we construct RepoCraft, a benchmark of six real-world projects with 1,052 tasks. On RepoCraft, ZeroRepo produces repositories averaging nearly 36K LOC, roughly 3.9times the strongest baseline (Claude Code) and about 64times other baselines. It attains 81.5% functional coverage and a 69.7% pass rate, exceeding Claude Code by 27.3 and 35.8 percentage points, respectively. Further analysis shows that RPG models complex dependencies, enables progressively more sophisticated planning through near-linear scaling, and enhances LLM understanding of repositories, thereby accelerating agent localization.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Repository Planning Graph</span><span>Code Generation</span><span>Large Language Models</span><span>AI Agent</span><span>ZeroRepo</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>AI Agent</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.16198" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>MANZANO: A Simple and Scalable Unified Multimodal Model with a Hybrid Vision Tokenizer</h2>
-                <span class="published-time">Published: 2025-09-19T17:58:00.000Z</span>
-                
-                <p class="summary">Unified multimodal Large Language Models (LLMs) that can both understand and generate visual content hold immense potential. However, existing open-source models often suffer from a performance trade-off between these capabilities. We present Manzano, a simple and scalable unified framework that substantially reduces this tension by coupling a hybrid image tokenizer with a well-curated training recipe. A single shared vision encoder feeds two lightweight adapters that produce continuous embeddings for image-to-text understanding and discrete tokens for text-to-image generation within a common semantic space. A unified autoregressive LLM predicts high-level semantics in the form of text and image tokens, with an auxiliary diffusion decoder subsequently translating the image tokens into pixels. The architecture, together with a unified training recipe over understanding and generation data, enables scalable joint learning of both capabilities. Manzano achieves state-of-the-art results among unified models, and is competitive with specialist models, particularly on text-rich evaluation. Our studies show minimal task conflicts and consistent gains from scaling model size, validating our design choice of a hybrid tokenizer.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multimodal Models</span><span>Large Language Models</span><span>Hybrid Vision Tokenizer</span><span>Image-to-Text Understanding</span><span>Text-to-Image Generation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.16197" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Lynx: Towards High-Fidelity Personalized Video Generation</h2>
-                <span class="published-time">Published: 2025-09-19T00:31:57.000Z</span>
-                
-                <p class="summary">We present Lynx, a high-fidelity model for personalized video synthesis from a single input image. Built on an open-source Diffusion Transformer (DiT) foundation model, Lynx introduces two lightweight adapters to ensure identity fidelity. The ID-adapter employs a Perceiver Resampler to convert ArcFace-derived facial embeddings into compact identity tokens for conditioning, while the Ref-adapter integrates dense VAE features from a frozen reference pathway, injecting fine-grained details across all transformer layers through cross-attention. These modules collectively enable robust identity preservation while maintaining temporal coherence and visual realism. Through evaluation on a curated benchmark of 40 subjects and 20 unbiased prompts, which yielded 800 test cases, Lynx has demonstrated superior face resemblance, competitive prompt following, and strong video quality, thereby advancing the state of personalized video generation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Personalized Video Generation</span><span>Diffusion Transformer</span><span>Identity Fidelity</span><span>Video Synthesis</span><span>Deep Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Computer Vision</span><span>Deep Learning</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.15496" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>BTL-UI: Blink-Think-Link Reasoning Model for GUI Agent</h2>
-                <span class="published-time">Published: 2025-09-19T04:03:44.000Z</span>
-                
-                <p class="summary">In the field of AI-driven human-GUI interaction automation, while rapid advances in multimodal large language models and reinforcement fine-tuning techniques have yielded remarkable progress, a fundamental challenge persists: their interaction logic significantly deviates from natural human-GUI communication patterns. To fill this gap, we propose "Blink-Think-Link" (BTL), a brain-inspired framework for human-GUI interaction that mimics the human cognitive process between users and graphical interfaces. The system decomposes interactions into three biologically plausible phases: (1) Blink - rapid detection and attention to relevant screen areas, analogous to saccadic eye movements; (2) Think - higher-level reasoning and decision-making, mirroring cognitive planning; and (3) Link - generation of executable commands for precise motor control, emulating human action selection mechanisms. Additionally, we introduce two key technical innovations for the BTL framework: (1) Blink Data Generation - an automated annotation pipeline specifically optimized for blink data, and (2) BTL Reward -- the first rule-based reward mechanism that enables reinforcement learning driven by both process and outcome. Building upon this framework, we develop a GUI agent model named BTL-UI, which demonstrates consistent state-of-the-art performance across both static GUI understanding and dynamic interaction tasks in comprehensive benchmarks. These results provide conclusive empirical validation of the framework's efficacy in developing advanced GUI Agents.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>GUI Agent</span><span>Blink-Think-Link</span><span>Human-GUI Interaction</span><span>Reinforcement Learning</span><span>Multimodal Large Language Models</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Multimodal</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.15566" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>BaseReward: A Strong Baseline for Multimodal Reward Model</h2>
-                <span class="published-time">Published: 2025-09-19T16:25:26.000Z</span>
-                
-                <p class="summary">The rapid advancement of Multimodal Large Language Models (MLLMs) has made aligning them with human preferences a critical challenge. Reward Models (RMs) are a core technology for achieving this goal, but a systematic guide for building state-of-the-art Multimodal Reward Models (MRMs) is currently lacking in both academia and industry. Through exhaustive experimental analysis, this paper aims to provide a clear "recipe" for constructing high-performance MRMs. We systematically investigate every crucial component in the MRM development pipeline, including reward modeling paradigms (e.g., Naive-RM, Critic-based RM, and Generative RM), reward head architecture, training strategies, data curation (covering over ten multimodal and text-only preference datasets), backbone model and model scale, and ensemble methods. Based on these experimental insights, we introduce BaseReward, a powerful and efficient baseline for multimodal reward modeling. BaseReward adopts a simple yet effective architecture, built upon a {Qwen2.5-VL} backbone, featuring an optimized two-layer reward head, and is trained on a carefully curated mixture of high-quality multimodal and text-only preference data. Our results show that BaseReward establishes a new SOTA on major benchmarks such as MM-RLHF-Reward Bench, VL-Reward Bench, and Multimodal Reward Bench, outperforming previous models. Furthermore, to validate its practical utility beyond static benchmarks, we integrate BaseReward into a real-world reinforcement learning pipeline, successfully enhancing an MLLM's performance across various perception, reasoning, and conversational tasks. This work not only delivers a top-tier MRM but, more importantly, provides the community with a clear, empirically-backed guide for developing robust reward models for the next generation of MLLMs.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multimodal Reward Models</span><span>Large Language Models</span><span>Reinforcement Learning</span><span>Reward Models</span><span>BaseReward</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Large Language Model</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.16127" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Ask-to-Clarify: Resolving Instruction Ambiguity through Multi-turn Dialogue</h2>
-                <span class="published-time">Published: 2025-09-18T15:25:31.000Z</span>
-                
-                <p class="summary">The ultimate goal of embodied agents is to create collaborators that can interact with humans, not mere executors that passively follow instructions. This requires agents to communicate, coordinate, and adapt their actions based on human feedback. Recently, advances in VLAs have offered a path toward this goal. However, most current VLA-based embodied agents operate in a one-way mode: they receive an instruction and execute it without feedback. This approach fails in real-world scenarios where instructions are often ambiguous. In this paper, we address this problem with the Ask-to-Clarify framework. Our framework first resolves ambiguous instructions by asking questions in a multi-turn dialogue. Then it generates low-level actions end-to-end. Specifically, the Ask-to-Clarify framework consists of two components, one VLM for collaboration and one diffusion for action. We also introduce a connection module that generates conditions for the diffusion based on the output of the VLM. This module adjusts the observation by instructions to create reliable conditions. We train our framework with a two-stage knowledge-insulation strategy. First, we fine-tune the collaboration component using ambiguity-solving dialogue data to handle ambiguity. Then, we integrate the action component while freezing the collaboration one. This preserves the interaction abilities while fine-tuning the diffusion to generate actions. During inference, a signal detector functions as a router that helps our framework switch between asking questions and taking actions. We evaluate the Ask-to-Clarify framework in 8 real-world tasks, where it outperforms existing state-of-the-art VLAs. The results suggest that our proposed framework, along with the training strategy, provides a path toward collaborative embodied agents.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Embodied agents</span><span>Instruction ambiguity</span><span>Multi-turn dialogue</span><span>Vision-language models</span><span>Ask-to-Clarify framework</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Multimodal</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.15061" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">Twitter</h2>
-
-            <article class="item-card">
-                <h2>gdb_Nvidia GPU Partnership</h2>
-                <span class="published-time">Published: 2025-09-22 17:07:59</span>
-                
-                <p class="summary">This announcement details a significant strategic partnership between the user gdb and NVIDIA, focusing on a substantial acquisition of GPU compute power. The deal involves acquiring "millions of GPUs," representing a compute capacity equivalent to NVIDIA's entire projected shipments for 2025. Furthermore, an investment of up to $100 billion is committed as these GPUs are deployed. This collaboration signals a major step forward in high-performance computing infrastructure, likely aimed at accelerating advanced AI research, model training, or large-scale inference workloads. The scale of the GPU acquisition and the financial commitment underscore the immense demand for cutting-edge hardware in the rapidly evolving AI landscape. The partnership is poised to drive significant advancements and capabilities in areas requiring massive computational resources.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Nvidia</span><span>GPU</span><span>Partnership</span><span>Compute</span><span>Investment</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Industry News</span><span>Tech News</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/gdb/status/1970173243350008201" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>GaryMarcus_AI Risks Letter</h2>
-                <span class="published-time">Published: 2025-09-22 16:54:06</span>
-                
-                <p class="summary">A significant letter, signed by 200 prominent leaders including Nobel laureates, AI experts, and former heads of state, has been delivered to the United Nations. The letter urgently calls for the establishment of international 'red lines' to prevent unacceptable risks posed by artificial intelligence. Gary Marcus, a signatory, expressed his belief that too much has been overlooked, and insufficient action has been taken to confront these potential dangers. The tweet also highlights a video contribution from Nobel laureate Maria Ressa, underscoring the gravity and broad consensus behind this call for AI governance and safety measures. This initiative reflects a growing concern among global thought leaders regarding the unchecked advancement of AI technologies and the imperative need for proactive regulatory frameworks to ensure responsible development and deployment.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI risks</span><span>Nobel laureates</span><span>AI experts</span><span>UN</span><span>red lines</span><span>AI governance</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Tech News</span><span>Industry News</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/GaryMarcus/status/1970169745770271220" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>natolambert_Reasoning Models Evolve</h2>
-                <span class="published-time">Published: 2025-09-22 15:52:35</span>
-                
-                <p class="summary">The evolution of reasoning models is shifting focus beyond just "thinking." With OpenAI's o1-preview release marking a year, the core primitives have expanded to include searching and executing tools. These additions compensate for the limitations of probabilistic models that rely on outdated parameter information. The synergy of thinking, searching, and acting is poised to form the bedrock of future systems. The engineering aspects of these combined functionalities are as crucial as achieving optimal model weights, highlighting a comprehensive approach to AI system development. This integrated approach signifies a move towards more robust and capable AI systems, ready to tackle complex tasks by leveraging diverse functionalities beyond core inference.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>reasoning models</span><span>AI systems</span><span>OpenAI</span><span>searching</span><span>executing tools</span><span>model weights</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/natolambert/status/1970154266338955689" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>GoogleDeepMind_AI Safety Framework</h2>
-                <span class="published-time">Published: 2025-09-22 13:12:09</span>
-                
-                <p class="summary">Google DeepMind is emphasizing its commitment to responsible AI development as they build increasingly powerful artificial intelligence models. To this end, they are implementing their latest Frontier Safety Framework, which is described as their most comprehensive approach to date for identifying and proactively addressing emerging risks associated with advanced AI. This framework is designed to ensure that the development of powerful AI technologies is guided by robust safety protocols and risk mitigation strategies. The company aims to stay ahead of potential challenges and ensure that AI advancements are pursued with a strong focus on safety and ethical considerations. Further details about this initiative are available through the provided link, which offers a deeper dive into the methodologies and objectives of the Frontier Safety Framework.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI safety</span><span>responsible development</span><span>Frontier Safety Framework</span><span>emerging risks</span><span>AI models</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Tech News</span><span>Research Progress</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/GoogleDeepMind/status/1970113891632824490" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>ylecun_LLM JEPAs Release</h2>
-                <span class="published-time">Published: 2025-09-22 03:36:13</span>
-                
-                <p class="summary">The tweet from @ylecun highlights the release of the first iteration of JEPAs (Joint Embedding Predictive Architectures) specifically designed for Large Language Models (LLMs). This signifies a new development in the architecture and training methodologies for LLMs, potentially improving their predictive capabilities and understanding of sequential data. The announcement also emphasizes the availability of the code to the public, indicating a commitment to open-source development and collaboration within the AI research community. This release is likely to foster further research and experimentation with JEPAs in the context of LLMs, potentially leading to advancements in areas such as text generation, comprehension, and reasoning. The open-source nature of the project encourages wider adoption and contributions from other researchers and developers, accelerating progress in the field.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>JEPAs</span><span>LLMs</span><span>Open Source</span><span>AI Research</span><span>Code Release</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Natural Language Processing</span><span>Open Source</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/ylecun/status/1969968953830027335" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>gdb_ChatGPT Usage Study Released</h2>
-                <span class="published-time">Published: 2025-09-22 02:34:50</span>
-                
-                <p class="summary">A large-scale study has been released detailing the current usage patterns of ChatGPT among consumers. The findings indicate a significant broadening of adoption beyond initial user groups, suggesting a mainstream integration of the technology. The research highlights the creation of substantial economic value stemming from both personal and professional applications of ChatGPT. This broad adoption points to the growing impact of AI tools in everyday life and professional environments, underscoring the maturation and widespread acceptance of large language models in various sectors. The study provides valuable insights into how individuals and businesses are leveraging AI for productivity and innovation, reflecting a dynamic shift in technological engagement.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>ChatGPT</span><span>Consumer Adoption</span><span>Economic Value</span><span>AI Usage</span><span>Large Language Model</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Tech News</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/gdb/status/1969953507215302836" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../">Archive</a><a href="cn/">中文</a><a href="en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2025-09-22</strong><span>DEFAULT EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2025-09-22" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-22 17:50:21</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/QwenLM/Qwen3-Omni" target="_blank" rel="noopener noreferrer">Qwen3-Omni: Native Omni AI model for text, image and video</a></h3>
+    <p class="story-summary">Alibaba Cloud&#x27;s Qwen team has unveiled Qwen3-Omni, representing a significant evolution in its large AI model series. This new model is engineered with a native &#x27;Omni&#x27; capability, allowing it to seamlessly process and understand information across text, images, and video modalities from the ground up. This integrated approach distinguishes it from models that combine separate modules for different data types, aiming for a more unified and coherent multimodal understanding. Qwen3-Omni is designed to serve as a foundational framework for diverse applications, promising enhanced contextual awareness and sophisticated interactions across various media formats. This release underscores the ongoing trend in AI research towards developing general-purpose systems that can interpret and generate content across different data types efficiently and effectively, potentially setting new standards in multimodal AI performance.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multimodal AI</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-keyword">Computer Vision</span><span class="tag tag-keyword">Video Understanding</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-22 16:10:15</time></div>
+  <div class="story-body">
+    <h3><a href="https://openai.com/index/openai-nvidia-systems-partnership/" target="_blank" rel="noopener noreferrer">OpenAI and Nvidia announce partnership to deploy 10GW of Nvidia systems</a></h3>
+    <p class="story-summary">OpenAI and Nvidia have forged a strategic partnership to deploy a monumental 10-gigawatt capacity of Nvidia&#x27;s advanced computing systems. This collaboration signals a significant acceleration in the development of artificial intelligence capabilities, particularly in the realm of large-scale model training and inference. The deployment of such an immense computational infrastructure underscores the escalating demand for processing power required to push the boundaries of current AI models, including the next generation of large language models and other sophisticated AI systems. Industry observers suggest that a 10GW deployment could translate into unprecedented supercomputing capabilities, enabling OpenAI to tackle highly complex AI research challenges, foster innovation in areas like generative AI, and potentially lead to breakthroughs that redefine the landscape of artificial intelligence. This partnership highlights the critical role of specialized hardware, like Nvidia&#x27;s GPUs, in realizing the full potential of AI, marking a substantial investment in the future of AI development and demonstrating a shared commitment to advancing the field at an industrial scale.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">AI Infrastructure</span><span class="tag tag-keyword">Supercomputing</span><span class="tag tag-keyword">GPU Technology</span><span class="tag tag-keyword">Data Centers</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-22 16:30:03</time></div>
+  <div class="story-body">
+    <h3><a href="https://calmatters.org/economy/technology/2025/09/chatgpt-lawyer-fine-ai-regulation/" target="_blank" rel="noopener noreferrer">California issues historic fine over lawyer&#x27;s ChatGPT fabrications</a></h3>
+    <p class="story-summary">California has reportedly imposed a &quot;historic fine&quot; on a lawyer for using OpenAI&#x27;s ChatGPT to generate fabricated content, marking a significant development in the legal and ethical oversight of artificial intelligence tools in professional practice. This incident highlights the growing challenges and responsibilities associated with the adoption of large language models in fields requiring accuracy and factual integrity, such as law. The fine underscores a clear stance from regulatory bodies regarding the accountability of professionals when integrating AI, particularly when the technology leads to misrepresentation or the creation of false information. This case is likely to set a precedent for future legal and ethical guidelines surrounding AI-generated content, prompting a re-evaluation of current practices and emphasizing the critical need for human oversight and verification when leveraging advanced AI systems. It also brings into focus the broader debate on AI&#x27;s reliability, the potential for misuse, and the necessary regulatory frameworks to ensure ethical deployment across various industries. Regulators and legal professionals are now facing the imperative to develop robust guidelines that address AI&#x27;s role in critical applications, balancing innovation with the imperative for professional integrity and public trust. This landmark decision could influence AI policy and professional standards nationwide.</p>
+    <div class="story-tags"><span class="tag tag-keyword">ChatGPT</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">AI Regulation</span><span class="tag tag-keyword">Legal AI</span><span class="tag tag-keyword">AI Ethics</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-22 00:31:06</time></div>
+  <div class="story-body">
+    <h3><a href="https://arxiv.org/abs/2509.01035" target="_blank" rel="noopener noreferrer">We Politely Insist: Your LLM Must Learn the Persian Art of Taarof</a></h3>
+    <p class="story-summary">This research emphasizes the critical need for Large Language Models (LLMs) to develop cultural communication competence, exemplified by the Persian art of Taarof. The paper argues that current LLMs, despite their linguistic capabilities, often fall short in navigating complex social protocols and indirect communication inherent in many cultures. By failing to grasp nuances like Taarof —a sophisticated system of politeness, deference, and indirectness —LLMs risk generating culturally insensitive or inappropriate responses. The study advocates for integrating socio-pragmatic understanding into LLM training, moving beyond purely semantic and syntactic processing. This approach aims to enhance AI systems&#x27; social intelligence, enabling them to engage in more contextually appropriate, respectful, and effective cross-cultural interactions, ultimately broadening their applicability and acceptance in diverse global contexts.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Natural Language Processing</span><span class="tag tag-keyword">Cultural AI</span><span class="tag tag-keyword">Social Intelligence</span><span class="tag tag-keyword">Human-Computer Interaction</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-09-22 16:08:57</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/scaleapi/SWE-bench_Pro-os" target="_blank" rel="noopener noreferrer">SWE-Bench Pro</a></h3>
+    <p class="story-summary">SWE-Bench Pro, an enhanced and professional iteration of the widely recognized SWE-Bench benchmark, has been introduced by Scale AI to rigorously evaluate the software engineering capabilities of advanced AI agents and large language models (LLMs). This benchmark, available on GitHub, is specifically designed to test an AI&#x27;s proficiency in addressing complex, real-world software development challenges, ranging from debugging and code refactoring to implementing new features across diverse open-source projects. Unlike its predecessor, the &#x27;Pro&#x27; version likely incorporates a larger and more varied dataset, alongside potentially more sophisticated evaluation metrics, to provide a more comprehensive and demanding assessment. The initiative aims to push the frontiers of AI in software development, enabling researchers and developers to accurately gauge the practical applicability, autonomous reasoning, and robust problem-solving skills of AI models in intricate coding environments. SWE-Bench Pro is poised to become an essential tool for advancing the development of highly capable AI systems that can significantly contribute to the software engineering lifecycle.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Software Engineering</span><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Benchmarking</span><span class="tag tag-keyword">Code Generation</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-09-22 18:07:13</time></div>
+  <div class="story-body">
+    <h3><a href="https://hbr.org/2025/09/ai-generated-workslop-is-destroying-productivity" target="_blank" rel="noopener noreferrer">AI-Generated &quot;Workslop&quot; Is Destroying Productivity</a></h3>
+    <p class="story-summary">The proliferation of AI-generated content, characterized as &quot;workslop,&quot; is increasingly being identified as a significant impediment to organizational productivity rather than a driver of efficiency. While artificial intelligence holds immense promise for automating tasks and streamlining workflows, the current output often lacks the necessary quality, precision, or contextual understanding to be directly usable. This frequently necessitates extensive human intervention for editing, refinement, and verification, thereby negating the intended time-saving benefits. The article highlights that this suboptimal AI output, if not properly managed and integrated, can lead to increased workload as employees spend valuable time correcting or completely redoing tasks initially handled by AI. The core issue lies in the gap between AI&#x27;s generative capabilities and the specific, high-standard requirements of professional work. To counter this trend, organizations must focus on developing more sophisticated prompting techniques, implementing robust AI quality control mechanisms, and fostering better human-AI collaboration strategies. Ultimately, the unchecked deployment of AI without adequate oversight and refinement processes risks turning a potential productivity booster into a considerable drain on resources and efficiency.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Productivity</span><span class="tag tag-keyword">AI Quality</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-keyword">Workslop</span><span class="tag tag-keyword">Automation Challenges</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-22 17:07:59</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/gdb/status/1970173243350008201" target="_blank" rel="noopener noreferrer">gdb_Nvidia GPU Partnership</a></h3>
+    <p class="story-summary">This announcement details a significant strategic partnership between the user gdb and NVIDIA, focusing on a substantial acquisition of GPU compute power. The deal involves acquiring &quot;millions of GPUs,&quot; representing a compute capacity equivalent to NVIDIA&#x27;s entire projected shipments for 2025. Furthermore, an investment of up to $100 billion is committed as these GPUs are deployed. This collaboration signals a major step forward in high-performance computing infrastructure, likely aimed at accelerating advanced AI research, model training, or large-scale inference workloads. The scale of the GPU acquisition and the financial commitment underscore the immense demand for cutting-edge hardware in the rapidly evolving AI landscape. The partnership is poised to drive significant advancements and capabilities in areas requiring massive computational resources.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Nvidia</span><span class="tag tag-keyword">GPU</span><span class="tag tag-keyword">Partnership</span><span class="tag tag-keyword">Compute</span><span class="tag tag-keyword">Investment</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Industry News</span><span class="tag tag-area">Tech News</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-22 16:54:06</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/GaryMarcus/status/1970169745770271220" target="_blank" rel="noopener noreferrer">GaryMarcus_AI Risks Letter</a></h3>
+    <p class="story-summary">A significant letter, signed by 200 prominent leaders including Nobel laureates, AI experts, and former heads of state, has been delivered to the United Nations. The letter urgently calls for the establishment of international &#x27;red lines&#x27; to prevent unacceptable risks posed by artificial intelligence. Gary Marcus, a signatory, expressed his belief that too much has been overlooked, and insufficient action has been taken to confront these potential dangers. The tweet also highlights a video contribution from Nobel laureate Maria Ressa, underscoring the gravity and broad consensus behind this call for AI governance and safety measures. This initiative reflects a growing concern among global thought leaders regarding the unchecked advancement of AI technologies and the imperative need for proactive regulatory frameworks to ensure responsible development and deployment.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI risks</span><span class="tag tag-keyword">Nobel laureates</span><span class="tag tag-keyword">AI experts</span><span class="tag tag-keyword">UN</span><span class="tag tag-keyword">red lines</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Tech News</span><span class="tag tag-area">Industry News</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-22 15:52:35</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/natolambert/status/1970154266338955689" target="_blank" rel="noopener noreferrer">natolambert_Reasoning Models Evolve</a></h3>
+    <p class="story-summary">The evolution of reasoning models is shifting focus beyond just &quot;thinking.&quot; With OpenAI&#x27;s o1-preview release marking a year, the core primitives have expanded to include searching and executing tools. These additions compensate for the limitations of probabilistic models that rely on outdated parameter information. The synergy of thinking, searching, and acting is poised to form the bedrock of future systems. The engineering aspects of these combined functionalities are as crucial as achieving optimal model weights, highlighting a comprehensive approach to AI system development. This integrated approach signifies a move towards more robust and capable AI systems, ready to tackle complex tasks by leveraging diverse functionalities beyond core inference.</p>
+    <div class="story-tags"><span class="tag tag-keyword">reasoning models</span><span class="tag tag-keyword">AI systems</span><span class="tag tag-keyword">OpenAI</span><span class="tag tag-keyword">searching</span><span class="tag tag-keyword">executing tools</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-22 13:12:09</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/GoogleDeepMind/status/1970113891632824490" target="_blank" rel="noopener noreferrer">GoogleDeepMind_AI Safety Framework</a></h3>
+    <p class="story-summary">Google DeepMind is emphasizing its commitment to responsible AI development as they build increasingly powerful artificial intelligence models. To this end, they are implementing their latest Frontier Safety Framework, which is described as their most comprehensive approach to date for identifying and proactively addressing emerging risks associated with advanced AI. This framework is designed to ensure that the development of powerful AI technologies is guided by robust safety protocols and risk mitigation strategies. The company aims to stay ahead of potential challenges and ensure that AI advancements are pursued with a strong focus on safety and ethical considerations. Further details about this initiative are available through the provided link, which offers a deeper dive into the methodologies and objectives of the Frontier Safety Framework.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI safety</span><span class="tag tag-keyword">responsible development</span><span class="tag tag-keyword">Frontier Safety Framework</span><span class="tag tag-keyword">emerging risks</span><span class="tag tag-keyword">AI models</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Tech News</span><span class="tag tag-area">Research Progress</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-09-22 03:36:13</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ylecun/status/1969968953830027335" target="_blank" rel="noopener noreferrer">ylecun_LLM JEPAs Release</a></h3>
+    <p class="story-summary">The tweet from @ylecun highlights the release of the first iteration of JEPAs (Joint Embedding Predictive Architectures) specifically designed for Large Language Models (LLMs). This signifies a new development in the architecture and training methodologies for LLMs, potentially improving their predictive capabilities and understanding of sequential data. The announcement also emphasizes the availability of the code to the public, indicating a commitment to open-source development and collaboration within the AI research community. This release is likely to foster further research and experimentation with JEPAs in the context of LLMs, potentially leading to advancements in areas such as text generation, comprehension, and reasoning. The open-source nature of the project encourages wider adoption and contributions from other researchers and developers, accelerating progress in the field.</p>
+    <div class="story-tags"><span class="tag tag-keyword">JEPAs</span><span class="tag tag-keyword">LLMs</span><span class="tag tag-keyword">Open Source</span><span class="tag tag-keyword">AI Research</span><span class="tag tag-keyword">Code Release</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Open Source</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-09-22 02:34:50</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/gdb/status/1969953507215302836" target="_blank" rel="noopener noreferrer">gdb_ChatGPT Usage Study Released</a></h3>
+    <p class="story-summary">A large-scale study has been released detailing the current usage patterns of ChatGPT among consumers. The findings indicate a significant broadening of adoption beyond initial user groups, suggesting a mainstream integration of the technology. The research highlights the creation of substantial economic value stemming from both personal and professional applications of ChatGPT. This broad adoption points to the growing impact of AI tools in everyday life and professional environments, underscoring the maturation and widespread acceptance of large language models in various sectors. The study provides valuable insights into how individuals and businesses are leveraging AI for productivity and innovation, reflecting a dynamic shift in technological engagement.</p>
+    <div class="story-tags"><span class="tag tag-keyword">ChatGPT</span><span class="tag tag-keyword">Consumer Adoption</span><span class="tag tag-keyword">Economic Value</span><span class="tag tag-keyword">AI Usage</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Tech News</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>4 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-22T17:44:11Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/Alibaba-NLP/DeepResearch" target="_blank" rel="noopener noreferrer">Tongyi DeepResearch</a></h3>
+    <p class="story-summary">Tongyi DeepResearch, developed by Tongyi Lab, is an innovative agentic large language model boasting 30.5 billion total parameters with a highly efficient 3.3 billion activated per token. Specifically engineered for long-horizon, deep information-seeking tasks, it has achieved state-of-the-art performance across a diverse set of agentic search benchmarks, including Humanity&#x27;s Last Exam, BrowserComp, and WebWalkerQA. The model&#x27;s robust capabilities stem from a sophisticated, fully automated synthetic data generation pipeline, enabling agentic pre-training, supervised fine-tuning, and reinforcement learning. It benefits from large-scale continual pre-training on high-quality agentic interaction data to enhance reasoning and maintain freshness. Furthermore, Tongyi DeepResearch employs an end-to-end reinforcement learning strategy, utilizing a customized Group Relative Policy Optimization framework with token-level policy gradients for stable training. At inference, it supports both the rigorous ReAct paradigm and an IterResearch-based &#x27;Heavy&#x27; mode for optimized performance, making it a versatile solution for advanced web agent applications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agentic Large Language Model</span><span class="tag tag-keyword">Information Seeking</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Deep Research</span><span class="tag tag-keyword">Synthetic Data</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-22T19:48:54Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/elastic/elasticsearch" target="_blank" rel="noopener noreferrer">Elasticsearch</a></h3>
+    <p class="story-summary">Elasticsearch is a powerful, distributed search and analytics engine, scalable data store, and vector database, meticulously optimized for speed and relevance in production environments. It serves as the cornerstone of Elastic&#x27;s open Stack platform, enabling near real-time search over massive datasets, advanced vector searches, and seamless integration with generative AI applications. Key use cases span Retrieval Augmented Generation (RAG), traditional full-text search, and specialized applications such as logs, metrics, application performance monitoring (APM), and security logs. Users can easily get started via Elastic Cloud&#x27;s managed service or through self-managed installations, including a quick local Docker setup using the `start-local` script. Elasticsearch supports interaction through robust REST APIs, language clients like Python, curl, and Kibana&#x27;s Dev Tools Console for indexing and querying structured or unstructured data efficiently. It facilitates the storage and indexing of diverse data types, making them immediately available for search and exploration through Kibana.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Elasticsearch</span><span class="tag tag-keyword">Search Engine</span><span class="tag tag-keyword">Vector Database</span><span class="tag tag-keyword">Distributed System</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-22T17:40:46Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/Gar-b-age/CookLikeHOC" target="_blank" rel="noopener noreferrer">像老乡鸡那样做饭</a></h3>
+    <p class="story-summary">This GitHub repository, &quot;CookLikeHOC,&quot; functions as a non-official, community-driven culinary resource dedicated to replicating the popular dishes served by the Chinese fast-food chain &quot;Laoxiangji&quot; (Home Original Chicken). Conceived and largely completed in 2024, the project diligently aggregates and structures recipes originally documented in the &quot;《老乡鸡菜品溯源报告》&quot; (Laoxiangji Dish Traceability Report). A significant recent update includes the launch of a dedicated web interface, available at cooklikehoc.soilzhu.su, enhancing accessibility for users. Furthermore, the platform has begun integrating AI-generated imagery for certain stew recipes, aiming to provide visual guidance, while actively soliciting authentic user-contributed photographs. The repository explicitly states its non-affiliation with the official Laoxiangji brand, emphasizing its role as a consumer-driven initiative. It serves as a comprehensive and interactive database for culinary enthusiasts seeking to explore and prepare these specific dishes.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Cooking</span><span class="tag tag-keyword">Recipes</span><span class="tag tag-keyword">Food</span><span class="tag tag-keyword">Restaurant Dishes</span><span class="tag tag-keyword">Laoxiangji</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-19T16:42:33Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/tldraw/tldraw" target="_blank" rel="noopener noreferrer">tldraw</a></h3>
+    <p class="story-summary">tldraw is an open-source React library designed for building highly interactive infinite canvas experiences, serving as the core technology behind the popular digital whiteboard tldraw.com. This monorepo provides a comprehensive SDK that allows developers to seamlessly integrate drawing, collaboration, and various visual interaction functionalities into their web applications. It offers straightforward installation and usage instructions, complemented by detailed guides for local development and contributions. A unique feature is the inclusion of CONTEXT.md files and an associated script, specifically designed to help AI agents rapidly gain context and understand the codebase, thereby enhancing automated development workflows. The tldraw SDK is available under a flexible license permitting both commercial and non-commercial projects, with options to remove the &quot;Made with tldraw&quot; watermark through a business license. The project fosters an active community through Discord and offers transparent guidelines regarding trademarks and contributions, positioning itself as a leading solution for sophisticated frontend graphical applications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">infinite canvas</span><span class="tag tag-keyword">React library</span><span class="tag tag-keyword">digital whiteboard</span><span class="tag tag-keyword">SDK</span><span class="tag tag-keyword">frontend development</span><span class="tag tag-area">Others</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-19T17:58:14.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.16198" target="_blank" rel="noopener noreferrer">RPG: A Repository Planning Graph for Unified and Scalable Codebase</a></h3>
+    <p class="story-summary">Large language models excel at function- and file-level code generation, yet generating complete repositories from scratch remains a fundamental challenge. This process demands coherent and reliable planning across proposal- and implementation-level stages, while natural language, due to its ambiguity and verbosity, is ill-suited for faithfully representing complex software structures. To address this, we introduce the Repository Planning Graph (RPG), a persistent representation that unifies proposal- and implementation-level planning by encoding capabilities, file structures, data flows, and functions in one graph. RPG replaces ambiguous natural language with an explicit blueprint, enabling long-horizon planning and scalable repository generation. Building on RPG, we develop ZeroRepo, a graph-driven framework for repository generation from scratch. It operates in three stages: proposal-level planning and implementation-level refinement to construct the graph, followed by graph-guided code generation with test validation. To evaluate this setting, we construct RepoCraft, a benchmark of six real-world projects with 1,052 tasks. On RepoCraft, ZeroRepo produces repositories averaging nearly 36K LOC, roughly 3.9times the strongest baseline (Claude Code) and about 64times other baselines. It attains 81.5% functional coverage and a 69.7% pass rate, exceeding Claude Code by 27.3 and 35.8 percentage points, respectively. Further analysis shows that RPG models complex dependencies, enables progressively more sophisticated planning through near-linear scaling, and enhances LLM understanding of repositories, thereby accelerating agent localization.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Repository Planning Graph</span><span class="tag tag-keyword">Code Generation</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">ZeroRepo</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-19T17:58:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.16197" target="_blank" rel="noopener noreferrer">MANZANO: A Simple and Scalable Unified Multimodal Model with a Hybrid Vision Tokenizer</a></h3>
+    <p class="story-summary">Unified multimodal Large Language Models (LLMs) that can both understand and generate visual content hold immense potential. However, existing open-source models often suffer from a performance trade-off between these capabilities. We present Manzano, a simple and scalable unified framework that substantially reduces this tension by coupling a hybrid image tokenizer with a well-curated training recipe. A single shared vision encoder feeds two lightweight adapters that produce continuous embeddings for image-to-text understanding and discrete tokens for text-to-image generation within a common semantic space. A unified autoregressive LLM predicts high-level semantics in the form of text and image tokens, with an auxiliary diffusion decoder subsequently translating the image tokens into pixels. The architecture, together with a unified training recipe over understanding and generation data, enables scalable joint learning of both capabilities. Manzano achieves state-of-the-art results among unified models, and is competitive with specialist models, particularly on text-rich evaluation. Our studies show minimal task conflicts and consistent gains from scaling model size, validating our design choice of a hybrid tokenizer.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multimodal Models</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Hybrid Vision Tokenizer</span><span class="tag tag-keyword">Image-to-Text Understanding</span><span class="tag tag-keyword">Text-to-Image Generation</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-19T00:31:57.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.15496" target="_blank" rel="noopener noreferrer">Lynx: Towards High-Fidelity Personalized Video Generation</a></h3>
+    <p class="story-summary">We present Lynx, a high-fidelity model for personalized video synthesis from a single input image. Built on an open-source Diffusion Transformer (DiT) foundation model, Lynx introduces two lightweight adapters to ensure identity fidelity. The ID-adapter employs a Perceiver Resampler to convert ArcFace-derived facial embeddings into compact identity tokens for conditioning, while the Ref-adapter integrates dense VAE features from a frozen reference pathway, injecting fine-grained details across all transformer layers through cross-attention. These modules collectively enable robust identity preservation while maintaining temporal coherence and visual realism. Through evaluation on a curated benchmark of 40 subjects and 20 unbiased prompts, which yielded 800 test cases, Lynx has demonstrated superior face resemblance, competitive prompt following, and strong video quality, thereby advancing the state of personalized video generation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Personalized Video Generation</span><span class="tag tag-keyword">Diffusion Transformer</span><span class="tag tag-keyword">Identity Fidelity</span><span class="tag tag-keyword">Video Synthesis</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-19T04:03:44.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.15566" target="_blank" rel="noopener noreferrer">BTL-UI: Blink-Think-Link Reasoning Model for GUI Agent</a></h3>
+    <p class="story-summary">In the field of AI-driven human-GUI interaction automation, while rapid advances in multimodal large language models and reinforcement fine-tuning techniques have yielded remarkable progress, a fundamental challenge persists: their interaction logic significantly deviates from natural human-GUI communication patterns. To fill this gap, we propose &quot;Blink-Think-Link&quot; (BTL), a brain-inspired framework for human-GUI interaction that mimics the human cognitive process between users and graphical interfaces. The system decomposes interactions into three biologically plausible phases: (1) Blink - rapid detection and attention to relevant screen areas, analogous to saccadic eye movements; (2) Think - higher-level reasoning and decision-making, mirroring cognitive planning; and (3) Link - generation of executable commands for precise motor control, emulating human action selection mechanisms. Additionally, we introduce two key technical innovations for the BTL framework: (1) Blink Data Generation - an automated annotation pipeline specifically optimized for blink data, and (2) BTL Reward -- the first rule-based reward mechanism that enables reinforcement learning driven by both process and outcome. Building upon this framework, we develop a GUI agent model named BTL-UI, which demonstrates consistent state-of-the-art performance across both static GUI understanding and dynamic interaction tasks in comprehensive benchmarks. These results provide conclusive empirical validation of the framework&#x27;s efficacy in developing advanced GUI Agents.</p>
+    <div class="story-tags"><span class="tag tag-keyword">GUI Agent</span><span class="tag tag-keyword">Blink-Think-Link</span><span class="tag tag-keyword">Human-GUI Interaction</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Multimodal Large Language Models</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-09-19T16:25:26.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.16127" target="_blank" rel="noopener noreferrer">BaseReward: A Strong Baseline for Multimodal Reward Model</a></h3>
+    <p class="story-summary">The rapid advancement of Multimodal Large Language Models (MLLMs) has made aligning them with human preferences a critical challenge. Reward Models (RMs) are a core technology for achieving this goal, but a systematic guide for building state-of-the-art Multimodal Reward Models (MRMs) is currently lacking in both academia and industry. Through exhaustive experimental analysis, this paper aims to provide a clear &quot;recipe&quot; for constructing high-performance MRMs. We systematically investigate every crucial component in the MRM development pipeline, including reward modeling paradigms (e.g., Naive-RM, Critic-based RM, and Generative RM), reward head architecture, training strategies, data curation (covering over ten multimodal and text-only preference datasets), backbone model and model scale, and ensemble methods. Based on these experimental insights, we introduce BaseReward, a powerful and efficient baseline for multimodal reward modeling. BaseReward adopts a simple yet effective architecture, built upon a {Qwen2.5-VL} backbone, featuring an optimized two-layer reward head, and is trained on a carefully curated mixture of high-quality multimodal and text-only preference data. Our results show that BaseReward establishes a new SOTA on major benchmarks such as MM-RLHF-Reward Bench, VL-Reward Bench, and Multimodal Reward Bench, outperforming previous models. Furthermore, to validate its practical utility beyond static benchmarks, we integrate BaseReward into a real-world reinforcement learning pipeline, successfully enhancing an MLLM&#x27;s performance across various perception, reasoning, and conversational tasks. This work not only delivers a top-tier MRM but, more importantly, provides the community with a clear, empirically-backed guide for developing robust reward models for the next generation of MLLMs.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multimodal Reward Models</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Reward Models</span><span class="tag tag-keyword">BaseReward</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-09-18T15:25:31.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.15061" target="_blank" rel="noopener noreferrer">Ask-to-Clarify: Resolving Instruction Ambiguity through Multi-turn Dialogue</a></h3>
+    <p class="story-summary">The ultimate goal of embodied agents is to create collaborators that can interact with humans, not mere executors that passively follow instructions. This requires agents to communicate, coordinate, and adapt their actions based on human feedback. Recently, advances in VLAs have offered a path toward this goal. However, most current VLA-based embodied agents operate in a one-way mode: they receive an instruction and execute it without feedback. This approach fails in real-world scenarios where instructions are often ambiguous. In this paper, we address this problem with the Ask-to-Clarify framework. Our framework first resolves ambiguous instructions by asking questions in a multi-turn dialogue. Then it generates low-level actions end-to-end. Specifically, the Ask-to-Clarify framework consists of two components, one VLM for collaboration and one diffusion for action. We also introduce a connection module that generates conditions for the diffusion based on the output of the VLM. This module adjusts the observation by instructions to create reliable conditions. We train our framework with a two-stage knowledge-insulation strategy. First, we fine-tune the collaboration component using ambiguity-solving dialogue data to handle ambiguity. Then, we integrate the action component while freezing the collaboration one. This preserves the interaction abilities while fine-tuning the diffusion to generate actions. During inference, a signal detector functions as a router that helps our framework switch between asking questions and taking actions. We evaluate the Ask-to-Clarify framework in 8 real-world tasks, where it outperforms existing state-of-the-art VLAs. The results suggest that our proposed framework, along with the training strategy, provides a path toward collaborative embodied agents.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Embodied agents</span><span class="tag tag-keyword">Instruction ambiguity</span><span class="tag tag-keyword">Multi-turn dialogue</span><span class="tag tag-keyword">Vision-language models</span><span class="tag tag-keyword">Ask-to-Clarify framework</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2025-09-22" data-counter-title="NO-FOMO issue 2025-09-22" defer></script>
 </body>
 </html>

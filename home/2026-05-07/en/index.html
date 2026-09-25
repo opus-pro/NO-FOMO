@@ -1,421 +1,130 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2026-05-07</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2026-05-07</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="../" class="">中文</a>
-                <a href="." class="active">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2026-05-07</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../../home/en/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 Back to Homepage</a>
-            <a href="../../../daily/en/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 Latest Daily</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 About Us</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Agents need control flow, not more prompts</h2>
-                <span class="published-time">Published: 2026-05-07 16:43:35</span>
-                
-                <p class="summary">The article, "Agents need control flow, not more prompts," posits that the current paradigm of AI agent development, heavily reliant on elaborate prompting strategies, is fundamentally limited for achieving robust and autonomous behavior. It argues that simply providing more detailed or structured prompts does not solve the underlying architectural deficiencies. Instead, the piece advocates for integrating explicit control flow mechanisms, similar to those found in traditional programming. This would enable AI agents to execute sequential tasks, implement conditional logic, manage state, and iterate through processes more effectively. By moving beyond a purely reactive, prompt-driven model to one incorporating structured execution paths, agents could exhibit greater reliability, reduce instances of "hallucination," and tackle more complex, multi-step problems with enhanced efficiency and predictability. This paradigm shift suggests a blend of large language model capabilities with conventional software engineering principles to create more capable and dependable AI systems.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agents</span><span>Control Flow</span><span>Prompt Engineering</span><span>Large Language Models</span><span>Autonomous Systems</span><span>Agent Architectures</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Large Language Model</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://bsuh.bearblog.dev/agents-need-control-flow/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Natural Language Autoencoders: Turning Claude's Thoughts into Text</h2>
-                <span class="published-time">Published: 2026-05-07 17:54:02</span>
-                
-                <p class="summary">Anthropic's latest research introduces Natural Language Autoencoders (NLAEs), a groundbreaking method aimed at enhancing the interpretability of large language models (LLMs) such as Claude. NLAEs function by translating the complex, high-dimensional internal activations, or "thoughts," of an LLM into concise, human-understandable natural language explanations. This innovative approach allows researchers to peer into the model's reasoning process, offering unprecedented insights into how it processes information, forms concepts, and arrives at specific outputs. By effectively decoding the latent space of LLMs, NLAEs represent a significant leap forward in mechanistic interpretability. This capability is crucial for identifying biases, debugging errors, and verifying the safety of advanced AI systems. Ultimately, this research not only deepens our understanding of current LLM architectures but also paves the way for developing more transparent, controllable, and trustworthy artificial intelligence.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Natural Language Autoencoders</span><span>Large Language Models</span><span>AI Interpretability</span><span>Mechanistic Interpretability</span><span>Latent Representations</span><span>Neural Networks</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Natural Language Processing</span><span>Large Language Model</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.anthropic.com/research/natural-language-autoencoders" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>AlphaEvolve: Gemini-powered coding agent scaling impact across fields</h2>
-                <span class="published-time">Published: 2026-05-07 15:02:20</span>
-                
-                <p class="summary">AlphaEvolve is introduced as an innovative coding agent, leveraging the capabilities of Google's Gemini large language model. This advanced AI system is engineered to enhance and automate various aspects of the software development lifecycle, from code generation and optimization to debugging and deployment across diverse fields. Its primary objective is to scale the impact of AI in coding, enabling developers and researchers to accelerate progress in complex domains. By integrating powerful generative AI functionalities, AlphaEvolve aims to significantly improve efficiency, reduce development time, and foster breakthroughs in areas that require intricate computational solutions. The agent's design emphasizes adaptability, allowing it to be applied to a wide array of programming challenges and scientific endeavors, thereby expanding the practical applications of AI-driven code generation and intelligent automation. This initiative highlights the growing trend of AI agents augmenting human expertise in specialized technical fields.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AlphaEvolve</span><span>Gemini</span><span>AI Agent</span><span>Coding Agent</span><span>Large Language Model</span><span>Software Development</span><span>Code Generation</span><span>Artificial Intelligence</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Large Language Model</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://deepmind.google/blog/alphaevolve-impact/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Agent-harness-kit scaffolding for multi-agent workflows (MCP, provider-agnostic)</h2>
-                <span class="published-time">Published: 2026-05-07 10:45:59</span>
-                
-                <p class="summary">The Agent-harness-kit offers a comprehensive scaffolding solution tailored for the development and deployment of sophisticated multi-agent workflows. This toolkit is specifically engineered to be provider-agnostic, enabling developers to seamlessly integrate and interchange various underlying AI model providers, such as large language models, into their agent-based applications. It empowers the creation of complex systems where multiple AI agents can collaborate efficiently, likely guided by a formal Multi-Agent Coordination Protocol (MCP) to ensure structured interaction, task delegation, and conflict resolution. The primary objective of this kit is to streamline the orchestration, communication, and execution of intricate tasks across disparate agent components, thereby providing a robust and flexible framework for building scalable AI agent solutions. By offering standardized tooling and promoting interoperability, the Agent-harness-kit significantly reduces the development overhead and complexity associated with designing and implementing advanced multi-agent AI systems, addressing a critical need in the evolving AI landscape.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agent</span><span>Multi-Agent Systems</span><span>Workflow Orchestration</span><span>Developer Tools</span><span>Provider Agnostic</span><span>AI Framework</span><span>Scaffolding</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Artificial Intelligence</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://ahk.cardor.dev" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>ZAYA1-8B matches DeepSeek-R1 on math with less than 1B active parameters</h2>
-                <span class="published-time">Published: 2026-05-07 08:56:51</span>
-                
-                <p class="summary">A new language model, ZAYA1-8B, has achieved a notable milestone in mathematical reasoning, demonstrating performance comparable to the more established DeepSeek-R1 model, despite employing significantly fewer active parameters. This breakthrough is particularly significant as ZAYA1-8B operates with less than one billion active parameters, implying a much more efficient architecture for both training and inference. Such a reduction in active parameters typically leads to lower computational resource requirements, making advanced AI capabilities more accessible and cost-effective. The model's ability to match the mathematical prowess of DeepSeek-R1, which is a prominent model in the domain, highlights advancements in model design and optimization for specialized tasks. This development is crucial for applications that demand strong mathematical problem-solving within resource-constrained environments and for researchers focused on developing high-performing yet compact large language models. Furthermore, ZAYA1-8B's open-source availability is expected to foster innovation and broader adoption of efficient AI solutions in areas like mathematics and coding. This benchmark underscores the continuous progress in creating powerful and resource-efficient AI systems.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Model</span><span>Mathematical Reasoning</span><span>Model Efficiency</span><span>Active Parameters</span><span>DeepSeek-R1</span><span>ZAYA1-8B</span><span>Open Source AI</span><span>AI Benchmarking</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://firethering.com/zaya1-8b-open-source-math-coding-model/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>ProgramBench: Can language models rebuild programs from scratch?</h2>
-                <span class="published-time">Published: 2026-05-07 03:46:15</span>
-                
-                <p class="summary">ProgramBench introduces a novel and comprehensive benchmark specifically designed to evaluate the capability of large language models (LLMs) to rebuild executable programs from scratch. This benchmark addresses a crucial limitation in existing evaluation frameworks, which often focus on narrower tasks like code completion or minor debugging, rather than the more challenging problem of holistic program synthesis. ProgramBench challenges LLMs to generate complete, functional programs based solely on high-level problem descriptions or specifications, simulating complex software development scenarios. By requiring models to demonstrate a deep understanding of programming logic, algorithmic design, and intricate problem-solving, the benchmark aims to provide a more accurate assessment of their true generative potential in software engineering. Initial applications of ProgramBench indicate that while LLMs show considerable progress in various coding aspects, their ability to autonomously construct entire, sophisticated programs from conceptual stages still presents a significant frontier for ongoing research and development in AI-driven code generation. This initiative offers a standardized platform for tracking advancements in this critical area.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Language Models</span><span>Program Synthesis</span><span>Code Generation</span><span>Benchmarking</span><span>Software Engineering</span><span>AI Evaluation</span><span>Algorithmic Design</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Artificial Intelligence</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://arxiv.org/abs/2605.03546" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>Stream-R1: Reliability-Perplexity Aware Reward Distillation for Streaming Video Generation</h2>
-                <span class="published-time">Published: 2026-05-05T00:00:00.000Z</span>
-                
-                <p class="summary">Distillation-based acceleration has become foundational for making autoregressive streaming video diffusion models practical, with distribution matching distillation (DMD) as the de facto choice. Existing methods, however, train the student to match the teacher's output indiscriminately, treating every rollout, frame, and pixel as equally reliable supervision. We argue that this caps distilled quality, since it overlooks two complementary axes of variance in DMD supervision: Inter-Reliability across student rollouts whose supervision varies in reliability, and Intra-Perplexity across spatial regions and temporal frames that contribute unequally to where quality can still be improved. The objective thus conflates two questions under a uniform weight: whether to learn from each rollout, and where to concentrate optimization within it. To address this, we propose Stream-R1, a Reliability-Perplexity Aware Reward Distillation framework that adaptively reweights the distillation objective at both rollout and spatiotemporal-element levels through a single shared reward-guided mechanism. At the Inter-Reliability level, Stream-R1 rescales each rollout's loss by an exponential of a pretrained video reward score, so that rollouts with reliable supervision dominate optimization. At the Intra-Perplexity level, it back-propagates the same reward model to extract per-pixel gradient saliency, which is factored into spatial and temporal weights that concentrate optimization pressure on regions and frames where refinement yields the largest expected gain. An adaptive balancing mechanism prevents any single quality axis from dominating across visual quality, motion quality, and text alignment. Stream-R1 attains consistent improvements on all three dimensions over distillation baselines on standard streaming video generation benchmarks, without architectural modification or additional inference cost.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Streaming Video Generation</span><span>Reward Distillation</span><span>Diffusion Models</span><span>Reliability-Perplexity Aware</span><span>Distribution Matching Distillation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Deep Learning</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2605.03849" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>OpenSearch-VL: An Open Recipe for Frontier Multimodal Search Agents</h2>
-                <span class="published-time">Published: 2026-05-06T00:00:00.000Z</span>
-                
-                <p class="summary">Deep search has become a crucial capability for frontier multimodal agents, enabling models to solve complex questions through active search, evidence verification, and multi-step reasoning. Despite rapid progress, top-tier multimodal search agents remain difficult to reproduce, largely due to the absence of open high-quality training data, transparent trajectory synthesis pipelines, or detailed training recipes. To this end, we introduce OpenSearch-VL, a fully open-source recipe for training frontier multimodal deep search agents with agentic reinforcement learning. First, we curated a dedicated pipeline to construct high-quality training data through Wikipedia path sampling, fuzzy entity rewriting, and source-anchor visual grounding, which jointly reduce shortcuts and one-step retrieval collapse. Based on this pipeline, we curate two training datasets, SearchVL-SFT-36k for SFT and SearchVL-RL-8k for RL. Besides, we design a diverse tool environment that unifies text search, image search, OCR, cropping, sharpening, super-resolution, and perspective correction, enabling agents to combine active perception with external knowledge acquisition. Finally, we propose a multi-turn fatal-aware GRPO training algorithm that handles cascading tool failures by masking post-failure tokens while preserving useful pre-failure reasoning through one-sided advantage clamping. Built on this recipe, OpenSearch-VL delivers substantial performance gains, with over 10-point average improvements across seven benchmarks, and achieves results comparable to proprietary commercial models on several tasks. We will release all data, code, and models to support open research on multimodal deep search agents.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multimodal Search Agents</span><span>Reinforcement Learning</span><span>Open-source</span><span>Training Data</span><span>Tool Environment</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>AI Agent</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2605.05185" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>MiniCPM-o 4.5: Towards Real-Time Full-Duplex Omni-Modal Interaction</h2>
-                <span class="published-time">Published: 2026-04-30T00:00:00.000Z</span>
-                
-                <p class="summary">Recent progress in multimodal large language models (MLLMs) has brought AI capabilities from static offline data processing to real-time streaming interaction, yet they still remain far from human-level multimodal interaction. The key bottlenecks are no longer modality coverage or latency alone, but the interaction paradigm itself. First, perception and response are still separated into alternating phases, preventing models from incorporating new inputs for timely adjustment during generation. Second, most current models remain reactive, responding only to explicit user requests instead of acting proactively in the evolving multimodal environment. We present MiniCPM-o 4.5, our latest effort towards human-like multimodal interaction, which mitigates these gaps by real-time full-duplex omni-modal interaction. It can see, listen, and speak simultaneously in real-time, while also exhibiting proactive behaviors such as issuing reminders or comments based on its continuous understanding of the live scene. The key technique behind MiniCPM-o 4.5 is Omni-Flow, a unified streaming framework that aligns omni-modal inputs and outputs along a shared temporal axis. This formulation converts conventional turn-based interaction into a full-duplex, time-aligned process, enabling simultaneous perception and response and allowing proactive behavior to arise within the same framework. With a total of 9B parameters, MiniCPM-o 4.5 approaches Gemini 2.5 Flash in vision-language capabilities, delivering state-of-the-art open-source performance at its scale. It also surpasses Qwen3-Omni-30B-A3B in omni-modal understanding and delivers better speech generation, with significantly higher computation efficiency. Driven by its efficient architecture design and inference optimization, the model can perform real-time full-duplex omni-modal interaction on edge devices with less than 12GB RAM cost.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>MiniCPM-o 4.5</span><span>Omni-Modal Interaction</span><span>Full-Duplex</span><span>Multimodal Large Language Models</span><span>Real-Time Streaming</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2604.27393" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>ResRL: Boosting LLM Reasoning via Negative Sample Projection Residual Reinforcement Learning</h2>
-                <span class="published-time">Published: 2026-05-01T00:00:00.000Z</span>
-                
-                <p class="summary">Reinforcement Learning with Verifiable Rewards (RLVR) enhances reasoning of Large Language Models (LLMs) but usually exhibits limited generation diversity due to the over-incentivization of positive rewards. Although methods like Negative Sample Reinforcement (NSR) mitigate this issue by upweighting penalty from negative samples, they may suppress the semantic distributions shared between positive and negative responses. To boost reasoning ability without losing diversity, this paper proposes negative sample projection Residual Reinforcement Learning (ResRL) that decouples similar semantic distributions among positive and negative responses. We theoretically link Lazy Likelihood Displacement (LLD) to negative-positive head-gradient interference and derive a single-forward proxy that upper-bounds representation alignment to guide conservative advantage reweighting. ResRL then projects negative-token hidden representations onto an SVD-based low-rank positive subspace and uses projection residuals to modulate negative gradients, improving reasoning while preserving diversity and outperforming strong baselines on average across twelve benchmarks spanning Mathematics, Code, Agent Tasks, and Function Calling. Notably, ResRL surpasses NSR on mathematical reasoning by 9.4% in Avg@16 and 7.0% in Pass@128. Code is available at https://github.com/1229095296/ResRL.git.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>Reinforcement Learning</span><span>Reasoning</span><span>Negative Sample Projection</span><span>Residual Reinforcement Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Machine Learning</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2605.00380" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>SWE-WebDevBench: Evaluating Coding Agent Application Platforms as Virtual Software Agencies</h2>
-                <span class="published-time">Published: 2026-05-06T00:00:00.000Z</span>
-                
-                <p class="summary">The emergence of "vibe coding" platforms, where users describe applications in natural language and AI agents autonomously generate full-stack software, has created a need for rigorous evaluation beyond code-level benchmarks. In order to assess them as virtual software development agencies on understanding business requirements, making architectural decisions, writing production code, handling iterative modifications, and maintaining business readiness, we introduce SWE-WebDev Bench, a 68-metric evaluation framework spanning 25 primary and 43 diagnostic metrics across seven groups, organized along three dimensions: Interaction Mode (App Creation Request (ACR) vs. App Modification Request (AMR)), Agency Angle (Product Manager (PM), Engineering, Ops), and Complexity Tier (T4 multi-role SaaS, T5 AI-native). Our evaluation (six platforms, three domains, 18 evaluation cells) reveals four recurring shortcomings in the current generation of AI app builders: (1) A specification bottleneck, where platforms compress rich business requirements into oversimplified technical plans, (2) A pervasive frontend-backend decoupling, where visually polished UIs mask absent or broken backend infrastructure, (3) A steep production-readiness cliff, where no platform scores above 60% on engineering quality and post-generation human effort varies substantially across platforms and (4) Widespread security and infrastructure failures, with no platform exceeding 65% Security Score against a 90% target and concurrency handling as low as 6%. These observations are descriptive of our sample and require larger-scale replication to establish generality. We release SWE-WebDev Bench as a community benchmark to enable such replication and help platform builders identify and address these gaps. Code and benchmark resources are available at: https://github.com/snowmountainAi/webdevbench and https://webdevbench.com/.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agents</span><span>Software Development</span><span>Web Development</span><span>Evaluation Framework</span><span>Coding Platforms</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Artificial Intelligence</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2605.04637" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>CreativityBench: Evaluating Agent Creative Reasoning via Affordance-Based Tool Repurposing</h2>
-                <span class="published-time">Published: 2026-05-06T00:00:00.000Z</span>
-                
-                <p class="summary">Recent advances in large language models have led to strong performance on reasoning and environment-interaction tasks, yet their ability for creative problem-solving remains underexplored. We study this capability through the lens of creative tool use, where a model repurposes available objects by reasoning about their affordances and attributes rather than relying on canonical usage. As a first step, we introduce CreativityBench, a benchmark for evaluating affordance-based creativity in LLMs. To this end, we build a large-scale affordance knowledge base (KB) with 4K entities and 150K+ affordance annotations, explicitly linking objects, parts, attributes, and actionable uses. Building on this KB, we generate 14K grounded tasks that require identifying non-obvious yet physically plausible solutions under constraints. Evaluations across 10 state-of-the-art LLMs, including closed and open-source models, show that models can often select a plausible object, but fail to identify the correct parts, their affordances, and the underlying physical mechanism needed to solve the task, leading to a significant drop in performance. Furthermore, improvements from model scaling quickly saturate, strong general reasoning does not reliably translate to creative affordance discovery, and common inference-time strategies such as Chain-of-Thought yield limited gains. These results suggest that creative tool use remains a major challenge for current models, and that CreativityBench provides a useful testbed for studying this missing dimension of intelligence, with potential implications for planning and reasoning modules in future agents.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Agent Creative Reasoning</span><span>Affordance-Based Tool Repurposing</span><span>Large Language Models</span><span>CreativityBench</span><span>Creative Problem-solving</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>AI Agent</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2605.02910" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/en/" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/en/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-05-07</strong><span>ENGLISH EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2026-05-07" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-05-07 16:43:35</time></div>
+  <div class="story-body">
+    <h3><a href="https://bsuh.bearblog.dev/agents-need-control-flow/" target="_blank" rel="noopener noreferrer">Agents need control flow, not more prompts</a></h3>
+    <p class="story-summary">The article, &quot;Agents need control flow, not more prompts,&quot; posits that the current paradigm of AI agent development, heavily reliant on elaborate prompting strategies, is fundamentally limited for achieving robust and autonomous behavior. It argues that simply providing more detailed or structured prompts does not solve the underlying architectural deficiencies. Instead, the piece advocates for integrating explicit control flow mechanisms, similar to those found in traditional programming. This would enable AI agents to execute sequential tasks, implement conditional logic, manage state, and iterate through processes more effectively. By moving beyond a purely reactive, prompt-driven model to one incorporating structured execution paths, agents could exhibit greater reliability, reduce instances of &quot;hallucination,&quot; and tackle more complex, multi-step problems with enhanced efficiency and predictability. This paradigm shift suggests a blend of large language model capabilities with conventional software engineering principles to create more capable and dependable AI systems.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Control Flow</span><span class="tag tag-keyword">Prompt Engineering</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Autonomous Systems</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-05-07 17:54:02</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.anthropic.com/research/natural-language-autoencoders" target="_blank" rel="noopener noreferrer">Natural Language Autoencoders: Turning Claude&#x27;s Thoughts into Text</a></h3>
+    <p class="story-summary">Anthropic&#x27;s latest research introduces Natural Language Autoencoders (NLAEs), a groundbreaking method aimed at enhancing the interpretability of large language models (LLMs) such as Claude. NLAEs function by translating the complex, high-dimensional internal activations, or &quot;thoughts,&quot; of an LLM into concise, human-understandable natural language explanations. This innovative approach allows researchers to peer into the model&#x27;s reasoning process, offering unprecedented insights into how it processes information, forms concepts, and arrives at specific outputs. By effectively decoding the latent space of LLMs, NLAEs represent a significant leap forward in mechanistic interpretability. This capability is crucial for identifying biases, debugging errors, and verifying the safety of advanced AI systems. Ultimately, this research not only deepens our understanding of current LLM architectures but also paves the way for developing more transparent, controllable, and trustworthy artificial intelligence.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Natural Language Autoencoders</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">AI Interpretability</span><span class="tag tag-keyword">Mechanistic Interpretability</span><span class="tag tag-keyword">Latent Representations</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-05-07 15:02:20</time></div>
+  <div class="story-body">
+    <h3><a href="https://deepmind.google/blog/alphaevolve-impact/" target="_blank" rel="noopener noreferrer">AlphaEvolve: Gemini-powered coding agent scaling impact across fields</a></h3>
+    <p class="story-summary">AlphaEvolve is introduced as an innovative coding agent, leveraging the capabilities of Google&#x27;s Gemini large language model. This advanced AI system is engineered to enhance and automate various aspects of the software development lifecycle, from code generation and optimization to debugging and deployment across diverse fields. Its primary objective is to scale the impact of AI in coding, enabling developers and researchers to accelerate progress in complex domains. By integrating powerful generative AI functionalities, AlphaEvolve aims to significantly improve efficiency, reduce development time, and foster breakthroughs in areas that require intricate computational solutions. The agent&#x27;s design emphasizes adaptability, allowing it to be applied to a wide array of programming challenges and scientific endeavors, thereby expanding the practical applications of AI-driven code generation and intelligent automation. This initiative highlights the growing trend of AI agents augmenting human expertise in specialized technical fields.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AlphaEvolve</span><span class="tag tag-keyword">Gemini</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Coding Agent</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-05-07 10:45:59</time></div>
+  <div class="story-body">
+    <h3><a href="https://ahk.cardor.dev" target="_blank" rel="noopener noreferrer">Agent-harness-kit scaffolding for multi-agent workflows (MCP, provider-agnostic)</a></h3>
+    <p class="story-summary">The Agent-harness-kit offers a comprehensive scaffolding solution tailored for the development and deployment of sophisticated multi-agent workflows. This toolkit is specifically engineered to be provider-agnostic, enabling developers to seamlessly integrate and interchange various underlying AI model providers, such as large language models, into their agent-based applications. It empowers the creation of complex systems where multiple AI agents can collaborate efficiently, likely guided by a formal Multi-Agent Coordination Protocol (MCP) to ensure structured interaction, task delegation, and conflict resolution. The primary objective of this kit is to streamline the orchestration, communication, and execution of intricate tasks across disparate agent components, thereby providing a robust and flexible framework for building scalable AI agent solutions. By offering standardized tooling and promoting interoperability, the Agent-harness-kit significantly reduces the development overhead and complexity associated with designing and implementing advanced multi-agent AI systems, addressing a critical need in the evolving AI landscape.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Multi-Agent Systems</span><span class="tag tag-keyword">Workflow Orchestration</span><span class="tag tag-keyword">Developer Tools</span><span class="tag tag-keyword">Provider Agnostic</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-05-07 08:56:51</time></div>
+  <div class="story-body">
+    <h3><a href="https://firethering.com/zaya1-8b-open-source-math-coding-model/" target="_blank" rel="noopener noreferrer">ZAYA1-8B matches DeepSeek-R1 on math with less than 1B active parameters</a></h3>
+    <p class="story-summary">A new language model, ZAYA1-8B, has achieved a notable milestone in mathematical reasoning, demonstrating performance comparable to the more established DeepSeek-R1 model, despite employing significantly fewer active parameters. This breakthrough is particularly significant as ZAYA1-8B operates with less than one billion active parameters, implying a much more efficient architecture for both training and inference. Such a reduction in active parameters typically leads to lower computational resource requirements, making advanced AI capabilities more accessible and cost-effective. The model&#x27;s ability to match the mathematical prowess of DeepSeek-R1, which is a prominent model in the domain, highlights advancements in model design and optimization for specialized tasks. This development is crucial for applications that demand strong mathematical problem-solving within resource-constrained environments and for researchers focused on developing high-performing yet compact large language models. Furthermore, ZAYA1-8B&#x27;s open-source availability is expected to foster innovation and broader adoption of efficient AI solutions in areas like mathematics and coding. This benchmark underscores the continuous progress in creating powerful and resource-efficient AI systems.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Mathematical Reasoning</span><span class="tag tag-keyword">Model Efficiency</span><span class="tag tag-keyword">Active Parameters</span><span class="tag tag-keyword">DeepSeek-R1</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-05-07 03:46:15</time></div>
+  <div class="story-body">
+    <h3><a href="https://arxiv.org/abs/2605.03546" target="_blank" rel="noopener noreferrer">ProgramBench: Can language models rebuild programs from scratch?</a></h3>
+    <p class="story-summary">ProgramBench introduces a novel and comprehensive benchmark specifically designed to evaluate the capability of large language models (LLMs) to rebuild executable programs from scratch. This benchmark addresses a crucial limitation in existing evaluation frameworks, which often focus on narrower tasks like code completion or minor debugging, rather than the more challenging problem of holistic program synthesis. ProgramBench challenges LLMs to generate complete, functional programs based solely on high-level problem descriptions or specifications, simulating complex software development scenarios. By requiring models to demonstrate a deep understanding of programming logic, algorithmic design, and intricate problem-solving, the benchmark aims to provide a more accurate assessment of their true generative potential in software engineering. Initial applications of ProgramBench indicate that while LLMs show considerable progress in various coding aspects, their ability to autonomously construct entire, sophisticated programs from conceptual stages still presents a significant frontier for ongoing research and development in AI-driven code generation. This initiative offers a standardized platform for tracking advancements in this critical area.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Language Models</span><span class="tag tag-keyword">Program Synthesis</span><span class="tag tag-keyword">Code Generation</span><span class="tag tag-keyword">Benchmarking</span><span class="tag tag-keyword">Software Engineering</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-05-05T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2605.03849" target="_blank" rel="noopener noreferrer">Stream-R1: Reliability-Perplexity Aware Reward Distillation for Streaming Video Generation</a></h3>
+    <p class="story-summary">Distillation-based acceleration has become foundational for making autoregressive streaming video diffusion models practical, with distribution matching distillation (DMD) as the de facto choice. Existing methods, however, train the student to match the teacher&#x27;s output indiscriminately, treating every rollout, frame, and pixel as equally reliable supervision. We argue that this caps distilled quality, since it overlooks two complementary axes of variance in DMD supervision: Inter-Reliability across student rollouts whose supervision varies in reliability, and Intra-Perplexity across spatial regions and temporal frames that contribute unequally to where quality can still be improved. The objective thus conflates two questions under a uniform weight: whether to learn from each rollout, and where to concentrate optimization within it. To address this, we propose Stream-R1, a Reliability-Perplexity Aware Reward Distillation framework that adaptively reweights the distillation objective at both rollout and spatiotemporal-element levels through a single shared reward-guided mechanism. At the Inter-Reliability level, Stream-R1 rescales each rollout&#x27;s loss by an exponential of a pretrained video reward score, so that rollouts with reliable supervision dominate optimization. At the Intra-Perplexity level, it back-propagates the same reward model to extract per-pixel gradient saliency, which is factored into spatial and temporal weights that concentrate optimization pressure on regions and frames where refinement yields the largest expected gain. An adaptive balancing mechanism prevents any single quality axis from dominating across visual quality, motion quality, and text alignment. Stream-R1 attains consistent improvements on all three dimensions over distillation baselines on standard streaming video generation benchmarks, without architectural modification or additional inference cost.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Streaming Video Generation</span><span class="tag tag-keyword">Reward Distillation</span><span class="tag tag-keyword">Diffusion Models</span><span class="tag tag-keyword">Reliability-Perplexity Aware</span><span class="tag tag-keyword">Distribution Matching Distillation</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-05-06T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2605.05185" target="_blank" rel="noopener noreferrer">OpenSearch-VL: An Open Recipe for Frontier Multimodal Search Agents</a></h3>
+    <p class="story-summary">Deep search has become a crucial capability for frontier multimodal agents, enabling models to solve complex questions through active search, evidence verification, and multi-step reasoning. Despite rapid progress, top-tier multimodal search agents remain difficult to reproduce, largely due to the absence of open high-quality training data, transparent trajectory synthesis pipelines, or detailed training recipes. To this end, we introduce OpenSearch-VL, a fully open-source recipe for training frontier multimodal deep search agents with agentic reinforcement learning. First, we curated a dedicated pipeline to construct high-quality training data through Wikipedia path sampling, fuzzy entity rewriting, and source-anchor visual grounding, which jointly reduce shortcuts and one-step retrieval collapse. Based on this pipeline, we curate two training datasets, SearchVL-SFT-36k for SFT and SearchVL-RL-8k for RL. Besides, we design a diverse tool environment that unifies text search, image search, OCR, cropping, sharpening, super-resolution, and perspective correction, enabling agents to combine active perception with external knowledge acquisition. Finally, we propose a multi-turn fatal-aware GRPO training algorithm that handles cascading tool failures by masking post-failure tokens while preserving useful pre-failure reasoning through one-sided advantage clamping. Built on this recipe, OpenSearch-VL delivers substantial performance gains, with over 10-point average improvements across seven benchmarks, and achieves results comparable to proprietary commercial models on several tasks. We will release all data, code, and models to support open research on multimodal deep search agents.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multimodal Search Agents</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Open-source</span><span class="tag tag-keyword">Training Data</span><span class="tag tag-keyword">Tool Environment</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-04-30T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2604.27393" target="_blank" rel="noopener noreferrer">MiniCPM-o 4.5: Towards Real-Time Full-Duplex Omni-Modal Interaction</a></h3>
+    <p class="story-summary">Recent progress in multimodal large language models (MLLMs) has brought AI capabilities from static offline data processing to real-time streaming interaction, yet they still remain far from human-level multimodal interaction. The key bottlenecks are no longer modality coverage or latency alone, but the interaction paradigm itself. First, perception and response are still separated into alternating phases, preventing models from incorporating new inputs for timely adjustment during generation. Second, most current models remain reactive, responding only to explicit user requests instead of acting proactively in the evolving multimodal environment. We present MiniCPM-o 4.5, our latest effort towards human-like multimodal interaction, which mitigates these gaps by real-time full-duplex omni-modal interaction. It can see, listen, and speak simultaneously in real-time, while also exhibiting proactive behaviors such as issuing reminders or comments based on its continuous understanding of the live scene. The key technique behind MiniCPM-o 4.5 is Omni-Flow, a unified streaming framework that aligns omni-modal inputs and outputs along a shared temporal axis. This formulation converts conventional turn-based interaction into a full-duplex, time-aligned process, enabling simultaneous perception and response and allowing proactive behavior to arise within the same framework. With a total of 9B parameters, MiniCPM-o 4.5 approaches Gemini 2.5 Flash in vision-language capabilities, delivering state-of-the-art open-source performance at its scale. It also surpasses Qwen3-Omni-30B-A3B in omni-modal understanding and delivers better speech generation, with significantly higher computation efficiency. Driven by its efficient architecture design and inference optimization, the model can perform real-time full-duplex omni-modal interaction on edge devices with less than 12GB RAM cost.</p>
+    <div class="story-tags"><span class="tag tag-keyword">MiniCPM-o 4.5</span><span class="tag tag-keyword">Omni-Modal Interaction</span><span class="tag tag-keyword">Full-Duplex</span><span class="tag tag-keyword">Multimodal Large Language Models</span><span class="tag tag-keyword">Real-Time Streaming</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-05-01T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2605.00380" target="_blank" rel="noopener noreferrer">ResRL: Boosting LLM Reasoning via Negative Sample Projection Residual Reinforcement Learning</a></h3>
+    <p class="story-summary">Reinforcement Learning with Verifiable Rewards (RLVR) enhances reasoning of Large Language Models (LLMs) but usually exhibits limited generation diversity due to the over-incentivization of positive rewards. Although methods like Negative Sample Reinforcement (NSR) mitigate this issue by upweighting penalty from negative samples, they may suppress the semantic distributions shared between positive and negative responses. To boost reasoning ability without losing diversity, this paper proposes negative sample projection Residual Reinforcement Learning (ResRL) that decouples similar semantic distributions among positive and negative responses. We theoretically link Lazy Likelihood Displacement (LLD) to negative-positive head-gradient interference and derive a single-forward proxy that upper-bounds representation alignment to guide conservative advantage reweighting. ResRL then projects negative-token hidden representations onto an SVD-based low-rank positive subspace and uses projection residuals to modulate negative gradients, improving reasoning while preserving diversity and outperforming strong baselines on average across twelve benchmarks spanning Mathematics, Code, Agent Tasks, and Function Calling. Notably, ResRL surpasses NSR on mathematical reasoning by 9.4% in Avg@16 and 7.0% in Pass@128. Code is available at https://github.com/1229095296/ResRL.git.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Reasoning</span><span class="tag tag-keyword">Negative Sample Projection</span><span class="tag tag-keyword">Residual Reinforcement Learning</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-05-06T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2605.04637" target="_blank" rel="noopener noreferrer">SWE-WebDevBench: Evaluating Coding Agent Application Platforms as Virtual Software Agencies</a></h3>
+    <p class="story-summary">The emergence of &quot;vibe coding&quot; platforms, where users describe applications in natural language and AI agents autonomously generate full-stack software, has created a need for rigorous evaluation beyond code-level benchmarks. In order to assess them as virtual software development agencies on understanding business requirements, making architectural decisions, writing production code, handling iterative modifications, and maintaining business readiness, we introduce SWE-WebDev Bench, a 68-metric evaluation framework spanning 25 primary and 43 diagnostic metrics across seven groups, organized along three dimensions: Interaction Mode (App Creation Request (ACR) vs. App Modification Request (AMR)), Agency Angle (Product Manager (PM), Engineering, Ops), and Complexity Tier (T4 multi-role SaaS, T5 AI-native). Our evaluation (six platforms, three domains, 18 evaluation cells) reveals four recurring shortcomings in the current generation of AI app builders: (1) A specification bottleneck, where platforms compress rich business requirements into oversimplified technical plans, (2) A pervasive frontend-backend decoupling, where visually polished UIs mask absent or broken backend infrastructure, (3) A steep production-readiness cliff, where no platform scores above 60% on engineering quality and post-generation human effort varies substantially across platforms and (4) Widespread security and infrastructure failures, with no platform exceeding 65% Security Score against a 90% target and concurrency handling as low as 6%. These observations are descriptive of our sample and require larger-scale replication to establish generality. We release SWE-WebDev Bench as a community benchmark to enable such replication and help platform builders identify and address these gaps. Code and benchmark resources are available at: https://github.com/snowmountainAi/webdevbench and https://webdevbench.com/.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Software Development</span><span class="tag tag-keyword">Web Development</span><span class="tag tag-keyword">Evaluation Framework</span><span class="tag tag-keyword">Coding Platforms</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-05-06T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2605.02910" target="_blank" rel="noopener noreferrer">CreativityBench: Evaluating Agent Creative Reasoning via Affordance-Based Tool Repurposing</a></h3>
+    <p class="story-summary">Recent advances in large language models have led to strong performance on reasoning and environment-interaction tasks, yet their ability for creative problem-solving remains underexplored. We study this capability through the lens of creative tool use, where a model repurposes available objects by reasoning about their affordances and attributes rather than relying on canonical usage. As a first step, we introduce CreativityBench, a benchmark for evaluating affordance-based creativity in LLMs. To this end, we build a large-scale affordance knowledge base (KB) with 4K entities and 150K+ affordance annotations, explicitly linking objects, parts, attributes, and actionable uses. Building on this KB, we generate 14K grounded tasks that require identifying non-obvious yet physically plausible solutions under constraints. Evaluations across 10 state-of-the-art LLMs, including closed and open-source models, show that models can often select a plausible object, but fail to identify the correct parts, their affordances, and the underlying physical mechanism needed to solve the task, leading to a significant drop in performance. Furthermore, improvements from model scaling quickly saturate, strong general reasoning does not reliably translate to creative affordance discovery, and common inference-time strategies such as Chain-of-Thought yield limited gains. These results suggest that creative tool use remains a major challenge for current models, and that CreativityBench provides a useful testbed for studying this missing dimension of intelligence, with potential implications for planning and reasoning modules in future agents.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agent Creative Reasoning</span><span class="tag tag-keyword">Affordance-Based Tool Repurposing</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">CreativityBench</span><span class="tag tag-keyword">Creative Problem-solving</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2026-05-07" data-counter-title="NO-FOMO issue 2026-05-07" defer></script>
 </body>
 </html>

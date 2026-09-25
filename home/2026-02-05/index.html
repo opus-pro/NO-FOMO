@@ -1,421 +1,130 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2026-02-05</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2026-02-05</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="." class="active">中文</a>
-                <a href="en/" class="">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2026-02-05</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../home/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 返回主页</a>
-            <a href="../../daily/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 最新日报</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 关于我们</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Claude Opus 4.6</h2>
-                <span class="published-time">Published: 2026-02-05 17:38:53</span>
-                
-                <p class="summary">Anthropic has officially unveiled Claude Opus 4.6, representing the latest significant advancement in its flagship large language model series. This new iteration is expected to deliver substantial improvements in reasoning capabilities, complex problem-solving, and overall comprehension, building upon the robust foundation of its predecessors. Opus 4.6 is engineered for enhanced performance across a diverse range of benchmarks, demonstrating increased accuracy in tasks requiring deep understanding and nuanced response generation. Industry insights suggest a particular focus on refining the model's ability to manage intricate conversational flows and multi-turn interactions with greater coherence and contextual awareness. Additionally, Anthropic maintains its commitment to responsible AI development by integrating advanced safety mechanisms and ethical guidelines into Opus 4.6, ensuring the model operates within strict safety parameters while providing powerful and reliable AI capabilities for users. This release highlights Anthropic's continuous efforts to innovate and expand the boundaries of AI research and application, making more capable and safer AI accessible.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Claude Opus</span><span>Large Language Model</span><span>AI Models</span><span>Anthropic</span><span>Generative AI</span><span>Natural Language Processing</span><span>AI Development</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.anthropic.com/news/claude-opus-4-6" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>GPT-5.3-Codex</h2>
-                <span class="published-time">Published: 2026-02-05 18:08:08</span>
-                
-                <p class="summary">OpenAI has introduced GPT-5.3-Codex, a significant advancement in their series of large language models specifically engineered for code-related tasks. This new iteration builds upon the foundational capabilities of the GPT architecture and the specialized programming prowess of the Codex models, promising enhanced performance in generating, understanding, and debugging code across multiple programming languages. GPT-5.3-Codex is anticipated to offer developers more efficient tools for automating software development workflows, improving code quality, and accelerating the pace of innovation in software development. Its advanced reasoning and context-awareness within programming environments are expected to push the boundaries of what AI can achieve in software engineering, making complex coding tasks more accessible and productive for a wider range of users. The model's improvements are expected to manifest in areas such as intelligent code completion, automated unit test generation, and seamless translation of natural language requests into functional code, thereby significantly enhancing developer productivity. This release underscores OpenAI's ongoing commitment to developing specialized AI agents for practical applications and industry-specific challenges.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Model</span><span>Code Generation</span><span>Artificial Intelligence</span><span>Generative AI</span><span>Software Development</span><span>Neural Networks</span><span>AI Agent</span><span>OpenAI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://openai.com/index/introducing-gpt-5-3-codex/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Orchestrate teams of Claude Code sessions</h2>
-                <span class="published-time">Published: 2026-02-05 17:49:54</span>
-                
-                <p class="summary">Anthropic has rolled out a significant enhancement to its Claude Code platform, enabling the orchestration of teams comprising multiple AI-powered coding sessions. Detailed in the `agent-teams` documentation, this new functionality is designed to revolutionize collaborative software development by allowing developers to manage and coordinate several Claude Code instances working in concert on intricate programming projects. The system facilitates a structured approach to leveraging distributed artificial intelligence, where AI agents can be assigned specific tasks, communicate their progress, and integrate their generated code seamlessly. This orchestration capability aims to accelerate various stages of the development lifecycle, including initial code generation, iterative debugging, and overall project completion, by harnessing collective AI intelligence. It marks a pivotal move towards more sophisticated, AI-driven software engineering paradigms, offering a highly efficient and scalable method for deploying large language models within complex coding environments, thereby optimizing resource utilization and project timelines.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agents</span><span>Code Generation</span><span>Orchestration</span><span>Collaborative AI</span><span>Software Development</span><span>Large Language Model</span><span>AI in Programming</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Large Language Model</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://code.claude.com/docs/en/agent-teams" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>We tasked Opus 4.6 using agent teams to build a C Compiler</h2>
-                <span class="published-time">Published: 2026-02-05 19:07:51</span>
-                
-                <p class="summary">Anthropic has reported a significant milestone in artificial intelligence development, detailing an experiment where their advanced Opus 4.6 model, orchestrated through sophisticated agent teams, successfully constructed a C compiler. This pioneering initiative showcases the rapidly expanding capabilities of large language models when applied to highly complex software engineering challenges. The methodology involved deploying multiple AI agents, working collaboratively to break down the daunting task of compiler development into manageable sub-problems, mirroring the distributed efforts of human software teams. This achievement underscores the growing potential of AI in automating intricate coding tasks, significantly enhancing productivity in software development, and pushing the boundaries of what autonomous AI systems can accomplish. The project particularly highlights the model's ability to understand intricate specifications, plan execution steps, generate robust code, debug, and seamlessly integrate components for a sophisticated system. Such advancements are critical, paving the way for future applications in autonomous software creation, maintenance, and complex system design, potentially transforming the landscape of software engineering.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agent</span><span>C Compiler</span><span>Code Generation</span><span>Large Language Model</span><span>Software Engineering</span><span>Opus 4.6</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.anthropic.com/engineering/building-c-compiler" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Anthropic's Claude Opus 4.6 uncovers 500 zero-day flaws in open-source code</h2>
-                <span class="published-time">Published: 2026-02-05 18:25:05</span>
-                
-                <p class="summary">Anthropic's advanced large language model, Claude Opus 4.6, has reportedly identified a substantial number of 500 zero-day flaws across various open-source codebases. This significant achievement highlights the escalating capabilities of artificial intelligence in proactively detecting critical software vulnerabilities before they can be exploited. The successful identification of such a high volume of previously unknown security defects underscores the potential of sophisticated AI agents to revolutionize cybersecurity practices, moving beyond traditional static and dynamic analysis tools. This development could lead to more robust and secure software ecosystems, particularly within the widely used open-source community. Furthermore, it demonstrates Claude Opus 4.6's profound understanding and analytical prowess in complex code structures, positioning it as a powerful tool for automated vulnerability research and patching efforts. The findings suggest a future where AI plays a pivotal role in maintaining the integrity and safety of global software infrastructure, offering a new paradigm for threat detection and prevention.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Claude Opus 4.6</span><span>Zero-day flaws</span><span>Open-source security</span><span>Vulnerability detection</span><span>Large Language Model</span><span>AI in cybersecurity</span><span>Code analysis</span><span>Artificial Intelligence</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.axios.com/2026/02/05/anthropic-claude-opus-46-software-hunting" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Psychometric Jailbreaks Reveal Internal Conflict in Frontier Models</h2>
-                <span class="published-time">Published: 2026-02-05 18:21:53</span>
-                
-                <p class="summary">A recent study introduces the concept of psychometric jailbreaks as a novel methodology to uncover internal inconsistencies within advanced artificial intelligence models, particularly those at the frontier of development, such as large language models. These specialized 'jailbreaks' involve carefully designed prompts and interaction patterns that probe the models' ethical alignments, policy adherence, and behavioral coherence under various cognitive stress tests. The research reveals that despite extensive safety training and alignment efforts, these sophisticated models often harbor 'internal conflicts,' manifesting as contradictory responses, inconsistent value judgments, or shifts in persona when subjected to specific psychometric probes. This phenomenon highlights a critical challenge in ensuring the robust reliability and ethical integrity of next-generation AI systems, suggesting that current alignment techniques may not fully eliminate deep-seated inconsistencies. The findings underscore the urgent need for more comprehensive evaluation methods and advanced architectural designs to resolve these internal conflicts, thereby enhancing the trustworthiness and predictability of AI in sensitive applications.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Psychometric Jailbreaks</span><span>Frontier Models</span><span>AI Safety</span><span>Large Language Models</span><span>Model Alignment</span><span>AI Ethics</span><span>Behavioral Consistency</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://arxiv.org/abs/2512.04124" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>Protein Autoregressive Modeling via Multiscale Structure Generation</h2>
-                <span class="published-time">Published: 2026-02-04T18:59:49.000Z</span>
-                
-                <p class="summary">We present protein autoregressive modeling (PAR), the first multi-scale autoregressive framework for protein backbone generation via coarse-to-fine next-scale prediction. Using the hierarchical nature of proteins, PAR generates structures that mimic sculpting a statue, forming a coarse topology and refining structural details over scales. To achieve this, PAR consists of three key components: (i) multi-scale downsampling operations that represent protein structures across multiple scales during training; (ii) an autoregressive transformer that encodes multi-scale information and produces conditional embeddings to guide structure generation; (iii) a flow-based backbone decoder that generates backbone atoms conditioned on these embeddings. Moreover, autoregressive models suffer from exposure bias, caused by the training and the generation procedure mismatch, and substantially degrades structure generation quality. We effectively alleviate this issue by adopting noisy context learning and scheduled sampling, enabling robust backbone generation. Notably, PAR exhibits strong zero-shot generalization, supporting flexible human-prompted conditional generation and motif scaffolding without requiring fine-tuning. On the unconditional generation benchmark, PAR effectively learns protein distributions and produces backbones of high design quality, and exhibits favorable scaling behavior. Together, these properties establish PAR as a promising framework for protein structure generation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Protein Autoregressive Modeling</span><span>Multiscale Structure Generation</span><span>Protein Backbone Generation</span><span>Autoregressive Transformer</span><span>Zero-shot Generalization</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Deep Learning</span><span>Machine Learning</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2602.04883" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Rethinking the Trust Region in LLM Reinforcement Learning</h2>
-                <span class="published-time">Published: 2026-02-04T18:59:04.000Z</span>
-                
-                <p class="summary">Reinforcement learning (RL) has become a cornerstone for fine-tuning Large Language Models (LLMs), with Proximal Policy Optimization (PPO) serving as the de facto standard algorithm. Despite its ubiquity, we argue that the core ratio clipping mechanism in PPO is structurally ill-suited for the large vocabularies inherent to LLMs. PPO constrains policy updates based on the probability ratio of sampled tokens, which serves as a noisy single-sample Monte Carlo estimate of the true policy divergence. This creates a sub-optimal learning dynamic: updates to low-probability tokens are aggressively over-penalized, while potentially catastrophic shifts in high-probability tokens are under-constrained, leading to training inefficiency and instability. To address this, we propose Divergence Proximal Policy Optimization (DPPO), which substitutes heuristic clipping with a more principled constraint based on a direct estimate of policy divergence (e.g., Total Variation or KL). To avoid huge memory footprint, we introduce the efficient Binary and Top-K approximations to capture the essential divergence with negligible overhead. Extensive empirical evaluations demonstrate that DPPO achieves superior training stability and efficiency compared to existing methods, offering a more robust foundation for RL-based LLM fine-tuning.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>LLM Reinforcement Learning</span><span>Proximal Policy Optimization</span><span>Policy Divergence</span><span>DPPO</span><span>LLM Fine-tuning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Natural Language Processing</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2602.04879" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Horizon-LM: A RAM-Centric Architecture for LLM Training</h2>
-                <span class="published-time">Published: 2026-02-04T18:04:46.000Z</span>
-                
-                <p class="summary">The rapid growth of large language models (LLMs) has outpaced the evolution of single-GPU hardware, making model scale increasingly constrained by memory capacity rather than computation. While modern training systems extend GPU memory through distributed parallelism and offloading across CPU and storage tiers, they fundamentally retain a GPU-centric execution paradigm in which GPUs host persistent model replicas and full autograd graphs. As a result, scaling large models remains tightly coupled to multi-GPU clusters, complex distributed runtimes, and unpredictable host memory consumption, creating substantial barriers for node-scale post-training workloads such as instruction tuning, alignment, and domain adaptation. We present Horizon-LM, a memory-centric training system that redefines the roles of CPU and GPU for large-model optimization. Horizon-LM treats host memory as the authoritative parameter store and uses GPUs solely as transient compute engines through a CPU-master, GPU-template execution model. By eliminating persistent GPU-resident modules and autograd graphs, employing explicit recomputation with manual gradient propagation, and introducing a pipelined double-buffered execution engine, Horizon-LM decouples model scale from GPU count and bounds memory usage to the theoretical parameter footprint. On a single H200 GPU with 1.5\,TB host RAM, Horizon-LM reliably trains models up to 120B parameters. On a standard single A100 machine, Horizon-LM achieves up to 12.2times higher training throughput than DeepSpeed ZeRO-3 with CPU offloading while preserving numerical correctness. Across platforms and scales, Horizon-LM sustains high device utilization and predictable memory growth, demonstrating that host memory, not GPU memory, defines the true feasibility boundary for node-scale large-model training.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>LLM Training</span><span>RAM-Centric Architecture</span><span>Host Memory</span><span>Memory Capacity</span><span>Training Throughput</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Deep Learning</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2602.04816" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>OmniSIFT: Modality-Asymmetric Token Compression for Efficient Omni-modal Large Language Models</h2>
-                <span class="published-time">Published: 2026-02-04T17:51:05.000Z</span>
-                
-                <p class="summary">Omni-modal Large Language Models (Omni-LLMs) have demonstrated strong capabilities in audio-video understanding tasks. However, their reliance on long multimodal token sequences leads to substantial computational overhead. Despite this challenge, token compression methods designed for Omni-LLMs remain limited. To bridge this gap, we propose OmniSIFT (Omni-modal Spatio-temporal Informed Fine-grained Token compression), a modality-asymmetric token compression framework tailored for Omni-LLMs. Specifically, OmniSIFT adopts a two-stage compression strategy: (i) a spatio-temporal video pruning module that removes video redundancy arising from both intra-frame structure and inter-frame overlap, and (ii) a vision-guided audio selection module that filters audio tokens. The entire framework is optimized end-to-end via a differentiable straight-through estimator. Extensive experiments on five representative benchmarks demonstrate the efficacy and robustness of OmniSIFT. Notably, for Qwen2.5-Omni-7B, OmniSIFT introduces only 4.85M parameters while maintaining lower latency than training-free baselines such as OmniZip. With merely 25% of the original token context, OmniSIFT consistently outperforms all compression baselines and even surpasses the performance of the full-token model on several tasks.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Omni-modal Large Language Models</span><span>Token Compression</span><span>Modality-Asymmetric</span><span>Multimodal Understanding</span><span>Computational Efficiency</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Multimodal</span><span>Video Understanding</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2602.04804" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>From Data to Behavior: Predicting Unintended Model Behaviors Before Training</h2>
-                <span class="published-time">Published: 2026-02-04T16:37:17.000Z</span>
-                
-                <p class="summary">Large Language Models (LLMs) can acquire unintended biases from seemingly benign training data even without explicit cues or malicious content. Existing methods struggle to detect such risks before fine-tuning, making post hoc evaluation costly and inefficient. To address this challenge, we introduce Data2Behavior, a new task for predicting unintended model behaviors prior to training. We also propose Manipulating Data Features (MDF), a lightweight approach that summarizes candidate data through their mean representations and injects them into the forward pass of a base model, allowing latent statistical signals in the data to shape model activations and reveal potential biases and safety risks without updating any parameters. MDF achieves reliable prediction while consuming only about 20% of the GPU resources required for fine-tuning. Experiments on Qwen3-14B, Qwen2.5-32B-Instruct, and Gemma-3-12b-it confirm that MDF can anticipate unintended behaviors and provide insight into pre-training vulnerabilities.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>unintended model behaviors</span><span>bias detection</span><span>pre-training</span><span>data analysis</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Natural Language Processing</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2602.04735" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>ERNIE 5.0 Technical Report</h2>
-                <span class="published-time">Published: 2026-02-04T16:18:15.000Z</span>
-                
-                <p class="summary">In this report, we introduce ERNIE 5.0, a natively autoregressive foundation model desinged for unified multimodal understanding and generation across text, image, video, and audio. All modalities are trained from scratch under a unified next-group-of-tokens prediction objective, based on an ultra-sparse mixture-of-experts (MoE) architecture with modality-agnostic expert routing. To address practical challenges in large-scale deployment under diverse resource constraints, ERNIE 5.0 adopts a novel elastic training paradigm. Within a single pre-training run, the model learns a family of sub-models with varying depths, expert capacities, and routing sparsity, enabling flexible trade-offs among performance, model size, and inference latency in memory- or time-constrained scenarios. Moreover, we systematically address the challenges of scaling reinforcement learning to unified foundation models, thereby guaranteeing efficient and stable post-training under ultra-sparse MoE architectures and diverse multimodal settings. Extensive experiments demonstrate that ERNIE 5.0 achieves strong and balanced performance across multiple modalities. To the best of our knowledge, among publicly disclosed models, ERNIE 5.0 represents the first production-scale realization of a trillion-parameter unified autoregressive model that supports both multimodal understanding and generation. To facilitate further research, we present detailed visualizations of modality-agnostic expert routing in the unified model, alongside comprehensive empirical analysis of elastic training, aiming to offer profound insights to the community.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>ERNIE 5.0</span><span>Multimodal AI</span><span>Mixture-of-Experts</span><span>Autoregressive Model</span><span>Elastic Training</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Deep Learning</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2602.04705" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../">Archive</a><a href="cn/">中文</a><a href="en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-02-05</strong><span>DEFAULT EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2026-02-05" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-02-05 17:38:53</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.anthropic.com/news/claude-opus-4-6" target="_blank" rel="noopener noreferrer">Claude Opus 4.6</a></h3>
+    <p class="story-summary">Anthropic has officially unveiled Claude Opus 4.6, representing the latest significant advancement in its flagship large language model series. This new iteration is expected to deliver substantial improvements in reasoning capabilities, complex problem-solving, and overall comprehension, building upon the robust foundation of its predecessors. Opus 4.6 is engineered for enhanced performance across a diverse range of benchmarks, demonstrating increased accuracy in tasks requiring deep understanding and nuanced response generation. Industry insights suggest a particular focus on refining the model&#x27;s ability to manage intricate conversational flows and multi-turn interactions with greater coherence and contextual awareness. Additionally, Anthropic maintains its commitment to responsible AI development by integrating advanced safety mechanisms and ethical guidelines into Opus 4.6, ensuring the model operates within strict safety parameters while providing powerful and reliable AI capabilities for users. This release highlights Anthropic&#x27;s continuous efforts to innovate and expand the boundaries of AI research and application, making more capable and safer AI accessible.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Claude Opus</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">AI Models</span><span class="tag tag-keyword">Anthropic</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-02-05 18:08:08</time></div>
+  <div class="story-body">
+    <h3><a href="https://openai.com/index/introducing-gpt-5-3-codex/" target="_blank" rel="noopener noreferrer">GPT-5.3-Codex</a></h3>
+    <p class="story-summary">OpenAI has introduced GPT-5.3-Codex, a significant advancement in their series of large language models specifically engineered for code-related tasks. This new iteration builds upon the foundational capabilities of the GPT architecture and the specialized programming prowess of the Codex models, promising enhanced performance in generating, understanding, and debugging code across multiple programming languages. GPT-5.3-Codex is anticipated to offer developers more efficient tools for automating software development workflows, improving code quality, and accelerating the pace of innovation in software development. Its advanced reasoning and context-awareness within programming environments are expected to push the boundaries of what AI can achieve in software engineering, making complex coding tasks more accessible and productive for a wider range of users. The model&#x27;s improvements are expected to manifest in areas such as intelligent code completion, automated unit test generation, and seamless translation of natural language requests into functional code, thereby significantly enhancing developer productivity. This release underscores OpenAI&#x27;s ongoing commitment to developing specialized AI agents for practical applications and industry-specific challenges.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Code Generation</span><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-keyword">Software Development</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-02-05 17:49:54</time></div>
+  <div class="story-body">
+    <h3><a href="https://code.claude.com/docs/en/agent-teams" target="_blank" rel="noopener noreferrer">Orchestrate teams of Claude Code sessions</a></h3>
+    <p class="story-summary">Anthropic has rolled out a significant enhancement to its Claude Code platform, enabling the orchestration of teams comprising multiple AI-powered coding sessions. Detailed in the `agent-teams` documentation, this new functionality is designed to revolutionize collaborative software development by allowing developers to manage and coordinate several Claude Code instances working in concert on intricate programming projects. The system facilitates a structured approach to leveraging distributed artificial intelligence, where AI agents can be assigned specific tasks, communicate their progress, and integrate their generated code seamlessly. This orchestration capability aims to accelerate various stages of the development lifecycle, including initial code generation, iterative debugging, and overall project completion, by harnessing collective AI intelligence. It marks a pivotal move towards more sophisticated, AI-driven software engineering paradigms, offering a highly efficient and scalable method for deploying large language models within complex coding environments, thereby optimizing resource utilization and project timelines.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Code Generation</span><span class="tag tag-keyword">Orchestration</span><span class="tag tag-keyword">Collaborative AI</span><span class="tag tag-keyword">Software Development</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-02-05 19:07:51</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.anthropic.com/engineering/building-c-compiler" target="_blank" rel="noopener noreferrer">We tasked Opus 4.6 using agent teams to build a C Compiler</a></h3>
+    <p class="story-summary">Anthropic has reported a significant milestone in artificial intelligence development, detailing an experiment where their advanced Opus 4.6 model, orchestrated through sophisticated agent teams, successfully constructed a C compiler. This pioneering initiative showcases the rapidly expanding capabilities of large language models when applied to highly complex software engineering challenges. The methodology involved deploying multiple AI agents, working collaboratively to break down the daunting task of compiler development into manageable sub-problems, mirroring the distributed efforts of human software teams. This achievement underscores the growing potential of AI in automating intricate coding tasks, significantly enhancing productivity in software development, and pushing the boundaries of what autonomous AI systems can accomplish. The project particularly highlights the model&#x27;s ability to understand intricate specifications, plan execution steps, generate robust code, debug, and seamlessly integrate components for a sophisticated system. Such advancements are critical, paving the way for future applications in autonomous software creation, maintenance, and complex system design, potentially transforming the landscape of software engineering.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">C Compiler</span><span class="tag tag-keyword">Code Generation</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Software Engineering</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-02-05 18:25:05</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.axios.com/2026/02/05/anthropic-claude-opus-46-software-hunting" target="_blank" rel="noopener noreferrer">Anthropic&#x27;s Claude Opus 4.6 uncovers 500 zero-day flaws in open-source code</a></h3>
+    <p class="story-summary">Anthropic&#x27;s advanced large language model, Claude Opus 4.6, has reportedly identified a substantial number of 500 zero-day flaws across various open-source codebases. This significant achievement highlights the escalating capabilities of artificial intelligence in proactively detecting critical software vulnerabilities before they can be exploited. The successful identification of such a high volume of previously unknown security defects underscores the potential of sophisticated AI agents to revolutionize cybersecurity practices, moving beyond traditional static and dynamic analysis tools. This development could lead to more robust and secure software ecosystems, particularly within the widely used open-source community. Furthermore, it demonstrates Claude Opus 4.6&#x27;s profound understanding and analytical prowess in complex code structures, positioning it as a powerful tool for automated vulnerability research and patching efforts. The findings suggest a future where AI plays a pivotal role in maintaining the integrity and safety of global software infrastructure, offering a new paradigm for threat detection and prevention.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Claude Opus 4.6</span><span class="tag tag-keyword">Zero-day flaws</span><span class="tag tag-keyword">Open-source security</span><span class="tag tag-keyword">Vulnerability detection</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-02-05 18:21:53</time></div>
+  <div class="story-body">
+    <h3><a href="https://arxiv.org/abs/2512.04124" target="_blank" rel="noopener noreferrer">Psychometric Jailbreaks Reveal Internal Conflict in Frontier Models</a></h3>
+    <p class="story-summary">A recent study introduces the concept of psychometric jailbreaks as a novel methodology to uncover internal inconsistencies within advanced artificial intelligence models, particularly those at the frontier of development, such as large language models. These specialized &#x27;jailbreaks&#x27; involve carefully designed prompts and interaction patterns that probe the models&#x27; ethical alignments, policy adherence, and behavioral coherence under various cognitive stress tests. The research reveals that despite extensive safety training and alignment efforts, these sophisticated models often harbor &#x27;internal conflicts,&#x27; manifesting as contradictory responses, inconsistent value judgments, or shifts in persona when subjected to specific psychometric probes. This phenomenon highlights a critical challenge in ensuring the robust reliability and ethical integrity of next-generation AI systems, suggesting that current alignment techniques may not fully eliminate deep-seated inconsistencies. The findings underscore the urgent need for more comprehensive evaluation methods and advanced architectural designs to resolve these internal conflicts, thereby enhancing the trustworthiness and predictability of AI in sensitive applications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Psychometric Jailbreaks</span><span class="tag tag-keyword">Frontier Models</span><span class="tag tag-keyword">AI Safety</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Model Alignment</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-02-04T18:59:49.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2602.04883" target="_blank" rel="noopener noreferrer">Protein Autoregressive Modeling via Multiscale Structure Generation</a></h3>
+    <p class="story-summary">We present protein autoregressive modeling (PAR), the first multi-scale autoregressive framework for protein backbone generation via coarse-to-fine next-scale prediction. Using the hierarchical nature of proteins, PAR generates structures that mimic sculpting a statue, forming a coarse topology and refining structural details over scales. To achieve this, PAR consists of three key components: (i) multi-scale downsampling operations that represent protein structures across multiple scales during training; (ii) an autoregressive transformer that encodes multi-scale information and produces conditional embeddings to guide structure generation; (iii) a flow-based backbone decoder that generates backbone atoms conditioned on these embeddings. Moreover, autoregressive models suffer from exposure bias, caused by the training and the generation procedure mismatch, and substantially degrades structure generation quality. We effectively alleviate this issue by adopting noisy context learning and scheduled sampling, enabling robust backbone generation. Notably, PAR exhibits strong zero-shot generalization, supporting flexible human-prompted conditional generation and motif scaffolding without requiring fine-tuning. On the unconditional generation benchmark, PAR effectively learns protein distributions and produces backbones of high design quality, and exhibits favorable scaling behavior. Together, these properties establish PAR as a promising framework for protein structure generation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Protein Autoregressive Modeling</span><span class="tag tag-keyword">Multiscale Structure Generation</span><span class="tag tag-keyword">Protein Backbone Generation</span><span class="tag tag-keyword">Autoregressive Transformer</span><span class="tag tag-keyword">Zero-shot Generalization</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-02-04T18:59:04.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2602.04879" target="_blank" rel="noopener noreferrer">Rethinking the Trust Region in LLM Reinforcement Learning</a></h3>
+    <p class="story-summary">Reinforcement learning (RL) has become a cornerstone for fine-tuning Large Language Models (LLMs), with Proximal Policy Optimization (PPO) serving as the de facto standard algorithm. Despite its ubiquity, we argue that the core ratio clipping mechanism in PPO is structurally ill-suited for the large vocabularies inherent to LLMs. PPO constrains policy updates based on the probability ratio of sampled tokens, which serves as a noisy single-sample Monte Carlo estimate of the true policy divergence. This creates a sub-optimal learning dynamic: updates to low-probability tokens are aggressively over-penalized, while potentially catastrophic shifts in high-probability tokens are under-constrained, leading to training inefficiency and instability. To address this, we propose Divergence Proximal Policy Optimization (DPPO), which substitutes heuristic clipping with a more principled constraint based on a direct estimate of policy divergence (e.g., Total Variation or KL). To avoid huge memory footprint, we introduce the efficient Binary and Top-K approximations to capture the essential divergence with negligible overhead. Extensive empirical evaluations demonstrate that DPPO achieves superior training stability and efficiency compared to existing methods, offering a more robust foundation for RL-based LLM fine-tuning.</p>
+    <div class="story-tags"><span class="tag tag-keyword">LLM Reinforcement Learning</span><span class="tag tag-keyword">Proximal Policy Optimization</span><span class="tag tag-keyword">Policy Divergence</span><span class="tag tag-keyword">DPPO</span><span class="tag tag-keyword">LLM Fine-tuning</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-02-04T18:04:46.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2602.04816" target="_blank" rel="noopener noreferrer">Horizon-LM: A RAM-Centric Architecture for LLM Training</a></h3>
+    <p class="story-summary">The rapid growth of large language models (LLMs) has outpaced the evolution of single-GPU hardware, making model scale increasingly constrained by memory capacity rather than computation. While modern training systems extend GPU memory through distributed parallelism and offloading across CPU and storage tiers, they fundamentally retain a GPU-centric execution paradigm in which GPUs host persistent model replicas and full autograd graphs. As a result, scaling large models remains tightly coupled to multi-GPU clusters, complex distributed runtimes, and unpredictable host memory consumption, creating substantial barriers for node-scale post-training workloads such as instruction tuning, alignment, and domain adaptation. We present Horizon-LM, a memory-centric training system that redefines the roles of CPU and GPU for large-model optimization. Horizon-LM treats host memory as the authoritative parameter store and uses GPUs solely as transient compute engines through a CPU-master, GPU-template execution model. By eliminating persistent GPU-resident modules and autograd graphs, employing explicit recomputation with manual gradient propagation, and introducing a pipelined double-buffered execution engine, Horizon-LM decouples model scale from GPU count and bounds memory usage to the theoretical parameter footprint. On a single H200 GPU with 1.5\,TB host RAM, Horizon-LM reliably trains models up to 120B parameters. On a standard single A100 machine, Horizon-LM achieves up to 12.2times higher training throughput than DeepSpeed ZeRO-3 with CPU offloading while preserving numerical correctness. Across platforms and scales, Horizon-LM sustains high device utilization and predictable memory growth, demonstrating that host memory, not GPU memory, defines the true feasibility boundary for node-scale large-model training.</p>
+    <div class="story-tags"><span class="tag tag-keyword">LLM Training</span><span class="tag tag-keyword">RAM-Centric Architecture</span><span class="tag tag-keyword">Host Memory</span><span class="tag tag-keyword">Memory Capacity</span><span class="tag tag-keyword">Training Throughput</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-02-04T17:51:05.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2602.04804" target="_blank" rel="noopener noreferrer">OmniSIFT: Modality-Asymmetric Token Compression for Efficient Omni-modal Large Language Models</a></h3>
+    <p class="story-summary">Omni-modal Large Language Models (Omni-LLMs) have demonstrated strong capabilities in audio-video understanding tasks. However, their reliance on long multimodal token sequences leads to substantial computational overhead. Despite this challenge, token compression methods designed for Omni-LLMs remain limited. To bridge this gap, we propose OmniSIFT (Omni-modal Spatio-temporal Informed Fine-grained Token compression), a modality-asymmetric token compression framework tailored for Omni-LLMs. Specifically, OmniSIFT adopts a two-stage compression strategy: (i) a spatio-temporal video pruning module that removes video redundancy arising from both intra-frame structure and inter-frame overlap, and (ii) a vision-guided audio selection module that filters audio tokens. The entire framework is optimized end-to-end via a differentiable straight-through estimator. Extensive experiments on five representative benchmarks demonstrate the efficacy and robustness of OmniSIFT. Notably, for Qwen2.5-Omni-7B, OmniSIFT introduces only 4.85M parameters while maintaining lower latency than training-free baselines such as OmniZip. With merely 25% of the original token context, OmniSIFT consistently outperforms all compression baselines and even surpasses the performance of the full-token model on several tasks.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Omni-modal Large Language Models</span><span class="tag tag-keyword">Token Compression</span><span class="tag tag-keyword">Modality-Asymmetric</span><span class="tag tag-keyword">Multimodal Understanding</span><span class="tag tag-keyword">Computational Efficiency</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Video Understanding</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-02-04T16:37:17.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2602.04735" target="_blank" rel="noopener noreferrer">From Data to Behavior: Predicting Unintended Model Behaviors Before Training</a></h3>
+    <p class="story-summary">Large Language Models (LLMs) can acquire unintended biases from seemingly benign training data even without explicit cues or malicious content. Existing methods struggle to detect such risks before fine-tuning, making post hoc evaluation costly and inefficient. To address this challenge, we introduce Data2Behavior, a new task for predicting unintended model behaviors prior to training. We also propose Manipulating Data Features (MDF), a lightweight approach that summarizes candidate data through their mean representations and injects them into the forward pass of a base model, allowing latent statistical signals in the data to shape model activations and reveal potential biases and safety risks without updating any parameters. MDF achieves reliable prediction while consuming only about 20% of the GPU resources required for fine-tuning. Experiments on Qwen3-14B, Qwen2.5-32B-Instruct, and Gemma-3-12b-it confirm that MDF can anticipate unintended behaviors and provide insight into pre-training vulnerabilities.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">unintended model behaviors</span><span class="tag tag-keyword">bias detection</span><span class="tag tag-keyword">pre-training</span><span class="tag tag-keyword">data analysis</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-02-04T16:18:15.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2602.04705" target="_blank" rel="noopener noreferrer">ERNIE 5.0 Technical Report</a></h3>
+    <p class="story-summary">In this report, we introduce ERNIE 5.0, a natively autoregressive foundation model desinged for unified multimodal understanding and generation across text, image, video, and audio. All modalities are trained from scratch under a unified next-group-of-tokens prediction objective, based on an ultra-sparse mixture-of-experts (MoE) architecture with modality-agnostic expert routing. To address practical challenges in large-scale deployment under diverse resource constraints, ERNIE 5.0 adopts a novel elastic training paradigm. Within a single pre-training run, the model learns a family of sub-models with varying depths, expert capacities, and routing sparsity, enabling flexible trade-offs among performance, model size, and inference latency in memory- or time-constrained scenarios. Moreover, we systematically address the challenges of scaling reinforcement learning to unified foundation models, thereby guaranteeing efficient and stable post-training under ultra-sparse MoE architectures and diverse multimodal settings. Extensive experiments demonstrate that ERNIE 5.0 achieves strong and balanced performance across multiple modalities. To the best of our knowledge, among publicly disclosed models, ERNIE 5.0 represents the first production-scale realization of a trillion-parameter unified autoregressive model that supports both multimodal understanding and generation. To facilitate further research, we present detailed visualizations of modality-agnostic expert routing in the unified model, alongside comprehensive empirical analysis of elastic training, aiming to offer profound insights to the community.</p>
+    <div class="story-tags"><span class="tag tag-keyword">ERNIE 5.0</span><span class="tag tag-keyword">Multimodal AI</span><span class="tag tag-keyword">Mixture-of-Experts</span><span class="tag tag-keyword">Autoregressive Model</span><span class="tag tag-keyword">Elastic Training</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2026-02-05" data-counter-title="NO-FOMO issue 2026-02-05" defer></script>
 </body>
 </html>

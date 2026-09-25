@@ -1,482 +1,190 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-09-19</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO AI 日报 — 2025-09-19</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"PingFang SC","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em}.issue h1{margin:0;max-width:820px;font:800 clamp(2.6rem,7vw,6.3rem)/1.02 Georgia,"Songti SC",serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.06em}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,"Songti SC",serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:800 clamp(1.5rem,3vw,2.35rem)/1.2 Georgia,"Songti SC",serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.86 Georgia,"Songti SC",serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-09-19</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>An untidy history of AI across four books</h2>
-                <span class="published-time">Published: 2025-09-19 18:15:18</span>
-                
-                <p class="summary">This article offers a critical examination of the multifaceted and often non-linear historical development of Artificial Intelligence, synthesizing perspectives gleaned from four different literary works. It diverges from a simplistic, linear narrative of AI's progression, instead highlighting the "untidy" aspects of its evolution, which include unexpected conceptual turns, periods of forgotten innovation, and significant paradigm shifts. The review likely explores how philosophical underpinnings, scientific discoveries, and broader societal contexts have collectively influenced AI's trajectory from its earliest theoretical formulations to its current advanced applications. By analyzing these diverse historical accounts, the article aims to provide a more nuanced understanding of AI's foundational principles, the persistent challenges it has faced, and the myriad intellectual currents that have driven both its advancements and its setbacks over several decades. This comprehensive historical overview is essential for professionals seeking to grasp the complex origins and potential future directions of AI research and deployment, offering valuable context beyond technical specifications.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Artificial Intelligence History</span><span>AI Philosophy</span><span>Technological Evolution</span><span>Conceptual Development</span><span>AI Research Trends</span><span>Science and Technology Studies</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://hedgehogreview.com/issues/lessons-of-babel/articles/perplexity" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Time Spent on Hardening</h2>
-                <span class="published-time">Published: 2025-09-19 20:05:48</span>
-                
-                <p class="summary">An article titled 'Time Spent on Hardening' would likely discuss the critical importance of dedicating sufficient resources and effort to fortifying digital systems against vulnerabilities, attacks, and failures. In the context of AI and software development, this encompasses a range of activities from securing codebases and deployment pipelines to implementing robust access controls and data encryption. The core idea would revolve around the trade-off between speed of development and the thoroughness of security measures, emphasizing that initial investment in hardening can prevent significant future costs, reputational damage, and operational disruptions. Discussions might include strategies for integrating security best practices throughout the development lifecycle, such as DevSecOps, and the necessity of continuous monitoring and proactive threat intelligence. The main conclusion would likely advocate for a shift in mindset, viewing hardening not as an optional overhead but as an integral, non-negotiable component of any successful and resilient technical project, particularly as AI systems become more pervasive and critical. This ensures the long-term reliability and trustworthiness of deployed solutions, mitigating risks associated with data breaches, system compromises, and unintended AI behaviors.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>System Hardening</span><span>Cybersecurity</span><span>DevSecOps</span><span>Security Best Practices</span><span>Risk Management</span><span>AI Security</span><span>Vulnerability Management</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://third-bit.com/2025/09/18/time-spent-on-hardening/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Kernel: Introduce Multikernel Architecture Support</h2>
-                <span class="published-time">Published: 2025-09-19 15:29:25</span>
-                
-                <p class="summary">A significant proposal has been introduced to the kernel development community, aiming to incorporate multikernel architecture support. This initiative seeks to fundamentally restructure how operating system kernels manage computational resources, particularly in highly parallel and distributed computing environments. The multikernel approach typically involves running multiple, distinct kernel instances, each managing a subset of system resources or running on specific cores, often to enhance isolation, improve fault tolerance, and optimize performance for specific workloads. Such an architecture could pave the way for more robust and scalable systems, offering advanced compartmentalization for security-critical applications or enabling more efficient resource utilization in virtualized and cloud-native contexts. While details of the specific implementation are anticipated, this introduction signifies a potential paradigm shift in kernel design, requiring substantial consideration for inter-kernel communication mechanisms, shared resource management, and compatibility with existing kernel modules and applications. The long-term implications could include a redefinition of operating system boundaries and increased flexibility in system deployment.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Kernel</span><span>Multikernel Architecture</span><span>Operating Systems</span><span>System Design</span><span>Scalability</span><span>Resource Management</span><span>Concurrency</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Robotics</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://lwn.net/ml/all/20250918222607.186488-1-xiyou.wangcong@gmail.com/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>I regret building this $3000 Pi AI cluster</h2>
-                <span class="published-time">Published: 2025-09-19 14:28:47</span>
-                
-                <p class="summary">The article "I regret building this $3000 Pi AI cluster" critically examines the author's experience constructing a substantial artificial intelligence computing cluster using multiple Raspberry Pi units, ultimately expressing significant disappointment. The core regret likely arises from the project's inability to deliver a cost-effective or performant solution for contemporary AI workloads, despite the considerable financial investment. The author probably delves into the numerous practical limitations encountered, including the inherent processing power constraints of individual Raspberry Pi boards, challenges in achieving efficient inter-node communication for distributed AI tasks, and potential software compatibility or optimization hurdles specific to the ARM architecture. Furthermore, the piece likely contrasts the cumulative $3000 expenditure with the performance benchmarks achieved, highlighting how this investment could have yielded superior results with alternative hardware like dedicated GPUs or cloud computing resources. This candid reflection serves as a cautionary tale for those exploring distributed computing with low-power devices for complex AI applications, underscoring the critical importance of selecting appropriate hardware that aligns with performance expectations and budget to avoid significant operational and financial inefficiencies. The narrative provides valuable insights into the realities of scaling AI infrastructure on non-specialized hardware.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Raspberry Pi</span><span>AI cluster</span><span>Distributed computing</span><span>Hardware limitations</span><span>Cost-effectiveness</span><span>Performance benchmarks</span><span>AI infrastructure</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.jeffgeerling.com/blog/2025/i-regret-building-3000-pi-ai-cluster" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Playing 
-Minecraft
- without Minecraft (2024)</h2>
-                <span class="published-time">Published: 2025-09-19 02:13:05</span>
-                
-                <p class="summary">The Hacker News discussion titled 'Playing 
-Minecraft
- without Minecraft (2024)' explores the conceptual and technical aspects of developing or experiencing game environments that emulate the popular block-building game without using its official platform or assets. This often involves open-source initiatives, custom game engines, and community-driven projects that aim to replicate Minecraft's core mechanics, such as procedural world generation, voxel-based graphics, crafting systems, and multiplayer interactions. Such endeavors highlight the challenges and innovations in game development, including efficient rendering of large-scale dynamic environments, server architecture for persistent worlds, and the legal and ethical considerations of mimicking established intellectual property. The conversation likely delves into projects like Minetest or other community efforts that offer alternative, often more extensible or customizable, interpretations of the 'Minecraft' experience, demonstrating the enduring appeal of its fundamental gameplay loop beyond its commercial incarnation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Minecraft</span><span>Game Development</span><span>Open-source Games</span><span>Procedural Generation</span><span>Voxel Graphics</span><span>Game Engines</span><span>Alternative Implementations</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>AI Agent</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://lenowo.org/viewtopic.php?t=5" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Scientists pinpoint early warning stage before prediabetes</h2>
-                <span class="published-time">Published: 2025-09-19 18:45:35</span>
-                
-                <p class="summary">A significant scientific breakthrough has identified a novel early warning stage preceding prediabetes, offering a crucial window for intervention and prevention of type 2 diabetes. This discovery likely stems from extensive longitudinal studies and sophisticated data analysis techniques, potentially involving the identification of new biomarkers, genetic predispositions, or subtle physiological indicators that manifest before traditional prediabetic symptoms are evident. The ability to pinpoint this earlier stage could revolutionize preventative healthcare strategies, enabling clinicians to identify individuals at higher risk much sooner and with greater precision. Such early detection paves the way for personalized lifestyle modifications, dietary interventions, and other proactive medical measures tailored to an individual's specific risk profile, significantly reducing the global burden of diabetes and its associated complications. This research not only enhances our understanding of diabetes progression but also highlights the potential for advanced diagnostic methodologies, including those powered by artificial intelligence and machine learning, to transform the management of chronic metabolic conditions at an unprecedented early phase.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Biomarker Discovery</span><span>Predictive Analytics</span><span>Longitudinal Studies</span><span>Metabolic Profiling</span><span>Early Disease Detection</span><span>Public Health Intervention</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Machine Learning</span><span>Artificial Intelligence</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://medicalxpress.com/news/2025-09-scientists-early-stage-prediabetes.html" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>Introduction</h2>
-                <span class="published-time">Published: 2025-09-19T16:49:36Z</span>
-                
-                <p class="summary">Tongyi DeepResearch is an advanced agentic large language model developed by Tongyi Lab, featuring 30.5 billion parameters with 3.3 billion activated per token. Specifically engineered for long-horizon, deep information-seeking tasks, it demonstrates state-of-the-art performance across leading agentic search benchmarks, including Humanity's Last Exam, BrowserComp, and WebWalkerQA. Key technical innovations include a fully automated synthetic data generation pipeline for agentic pre-training, supervised fine-tuning, and reinforcement learning. The model benefits from large-scale continual pre-training on diverse agentic interaction data, enhancing its capabilities and reasoning. It incorporates an end-to-end reinforcement learning approach using a customized Group Relative Policy Optimization framework. Tongyi DeepResearch supports both ReAct and an IterResearch-based 'Heavy' inference mode, allowing rigorous evaluation of intrinsic abilities and unlocking maximum performance. The model is available for download on HuggingFace and ModelScope and is part of an extensive deep research agent family.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Agentic Large Language Model</span><span>Information Seeking</span><span>Reinforcement Learning</span><span>Synthetic Data Generation</span><span>Continual Pre-training</span><span>Web Agent</span><span>AI Agent</span><span>Search Benchmarks</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/Alibaba-NLP/DeepResearch" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>ScaleCUA: Scaling Open-Source Computer Use Agents with Cross-Platform Data</h2>
-                <span class="published-time">Published: 2025-09-18T17:59:22.000Z</span>
-                
-                <p class="summary">Vision-Language Models (VLMs) have enabled computer use agents (CUAs) that operate GUIs autonomously, showing great potential, yet progress is limited by the lack of large-scale, open-source computer use data and foundation models. In this work, we introduce ScaleCUA, a step toward scaling open-source CUAs. It offers a large-scale dataset spanning 6 operating systems and 3 task domains, built via a closed-loop pipeline uniting automated agents with human experts. Trained on this scaled-up data, ScaleCUA can operate seamlessly across platforms. Specifically, it delivers strong gains over baselines (+26.6 on WebArena-Lite-v2, +10.7 on ScreenSpot-Pro) and sets new state-of-the-art results (94.4% on MMBench-GUI L1-Hard, 60.6% on OSWorld-G, 47.4% on WebArena-Lite-v2). These findings underscore the power of data-driven scaling for general-purpose computer use agents. We will release data, models, and code to advance future research: https://github.com/OpenGVLab/ScaleCUA.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Computer Use Agents</span><span>Vision-Language Models</span><span>Cross-Platform</span><span>Large-scale dataset</span><span>Automated Agents</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Multimodal</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.15221" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>FlowRL: Matching Reward Distributions for LLM Reasoning</h2>
-                <span class="published-time">Published: 2025-09-18T17:56:36.000Z</span>
-                
-                <p class="summary">We propose FlowRL: matching the full reward distribution via flow balancing instead of maximizing rewards in large language model (LLM) reinforcement learning (RL). Recent advanced reasoning models adopt reward-maximizing methods (eg, PPO and GRPO), which tend to over-optimize dominant reward signals while neglecting less frequent but valid reasoning paths, thus reducing diversity. In contrast, we transform scalar rewards into a normalized target distribution using a learnable partition function, and then minimize the reverse KL divergence between the policy and the target distribution. We implement this idea as a flow-balanced optimization method that promotes diverse exploration and generalizable reasoning trajectories. We conduct experiments on math and code reasoning tasks: FlowRL achieves a significant average improvement of 10.0% over GRPO and 5.1% over PPO on math benchmarks, and performs consistently better on code reasoning tasks. These results highlight reward distribution-matching as a key step toward efficient exploration and diverse reasoning in LLM reinforcement learning.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Model</span><span>Reinforcement Learning</span><span>Reward Distributions</span><span>Flow Balancing</span><span>Reasoning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Deep Learning</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.15207" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Evolving Language Models without Labels: Majority Drives Selection, Novelty Promotes Variation</h2>
-                <span class="published-time">Published: 2025-09-18T17:50:04.000Z</span>
-                
-                <p class="summary">Large language models (LLMs) are increasingly trained with reinforcement learning from verifiable rewards (RLVR), yet real-world deployment demands models that can self-improve without labels or external judges. Existing label-free methods, confidence minimization, self-consistency, or majority-vote objectives, stabilize learning but steadily shrink exploration, causing an entropy collapse: generations become shorter, less diverse, and brittle. Unlike prior approaches such as Test-Time Reinforcement Learning (TTRL), which primarily adapt models to the immediate unlabeled dataset at hand, our goal is broader: to enable general improvements without sacrificing the model's inherent exploration capacity and generalization ability, i.e., evolving. We formalize this issue and propose EVolution-Oriented and Label-free Reinforcement Learning (EVOL-RL), a simple rule that couples stability with variation under a label-free setting. EVOL-RL keeps the majority-voted answer as a stable anchor (selection) while adding a novelty-aware reward that favors responses whose reasoning differs from what has already been produced (variation), measured in semantic space. Implemented with GRPO, EVOL-RL also uses asymmetric clipping to preserve strong signals and an entropy regularizer to sustain search. This majority-for-selection + novelty-for-variation design prevents collapse, maintains longer and more informative chains of thought, and improves both pass@1 and pass@n. EVOL-RL consistently outperforms the majority-only TTRL baseline; e.g., training on label-free AIME24 lifts Qwen3-4B-Base AIME25 pass@1 from TTRL's 4.6% to 16.4%, and pass@16 from 18.5% to 37.9%. EVOL-RL not only prevents diversity collapse but also unlocks stronger generalization across domains (e.g., GPQA). Furthermore, we demonstrate that EVOL-RL also boosts performance in the RLVR setting, highlighting its broad applicability.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>Reinforcement Learning</span><span>Label-free Learning</span><span>EVOL-RL</span><span>Diversity Preservation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Machine Learning</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.15194" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Understand Before You Generate: Self-Guided Training for Autoregressive Image Generation</h2>
-                <span class="published-time">Published: 2025-09-18T17:47:40.000Z</span>
-                
-                <p class="summary">Recent studies have demonstrated the importance of high-quality visual representations in image generation and have highlighted the limitations of generative models in image understanding. As a generative paradigm originally designed for natural language, autoregressive models face similar challenges. In this work, we present the first systematic investigation into the mechanisms of applying the next-token prediction paradigm to the visual domain. We identify three key properties that hinder the learning of high-level visual semantics: local and conditional dependence, inter-step semantic inconsistency, and spatial invariance deficiency. We show that these issues can be effectively addressed by introducing self-supervised objectives during training, leading to a novel training framework, Self-guided Training for AutoRegressive models (ST-AR). Without relying on pre-trained representation models, ST-AR significantly enhances the image understanding ability of autoregressive models and leads to improved generation quality. Specifically, ST-AR brings approximately 42% FID improvement for LlamaGen-L and 49% FID improvement for LlamaGen-XL, while maintaining the same sampling strategy.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Autoregressive Models</span><span>Image Generation</span><span>Self-supervised Training</span><span>Image Understanding</span><span>Visual Semantics</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Computer Vision</span><span>Generative AI</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.15185" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Unleashing the Potential of Multimodal LLMs for Zero-Shot Spatio-Temporal Video Grounding</h2>
-                <span class="published-time">Published: 2025-09-18T17:35:50.000Z</span>
-                
-                <p class="summary">Spatio-temporal video grounding (STVG) aims at localizing the spatio-temporal tube of a video, as specified by the input text query. In this paper, we utilize multimodal large language models (MLLMs) to explore a zero-shot solution in STVG. We reveal two key insights about MLLMs: (1) MLLMs tend to dynamically assign special tokens, referred to as grounding tokens, for grounding the text query; and (2) MLLMs often suffer from suboptimal grounding due to the inability to fully integrate the cues in the text query (e.g., attributes, actions) for inference. Based on these insights, we propose a MLLM-based zero-shot framework for STVG, which includes novel decomposed spatio-temporal highlighting (DSTH) and temporal-augmented assembling (TAS) strategies to unleash the reasoning ability of MLLMs. The DSTH strategy first decouples the original query into attribute and action sub-queries for inquiring the existence of the target both spatially and temporally. It then uses a novel logit-guided re-attention (LRA) module to learn latent variables as spatial and temporal prompts, by regularizing token predictions for each sub-query. These prompts highlight attribute and action cues, respectively, directing the model's attention to reliable spatial and temporal related visual regions. In addition, as the spatial grounding by the attribute sub-query should be temporally consistent, we introduce the TAS strategy to assemble the predictions using the original video frames and the temporal-augmented frames as inputs to help improve temporal consistency. We evaluate our method on various MLLMs, and show that it outperforms SOTA methods on three common STVG benchmarks. The code will be available at https://github.com/zaiquanyang/LLaVA_Next_STVG.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Spatio-Temporal Video Grounding</span><span>Multimodal Large Language Models</span><span>Zero-Shot Learning</span><span>Video Understanding</span><span>Deep Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Large Language Model</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.15178" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>WorldForge: Unlocking Emergent 3D/4D Generation in Video Diffusion Model via Training-Free Guidance</h2>
-                <span class="published-time">Published: 2025-09-18T16:40:47.000Z</span>
-                
-                <p class="summary">Recent video diffusion models demonstrate strong potential in spatial intelligence tasks due to their rich latent world priors. However, this potential is hindered by their limited controllability and geometric inconsistency, creating a gap between their strong priors and their practical use in 3D/4D tasks. As a result, current approaches often rely on retraining or fine-tuning, which risks degrading pretrained knowledge and incurs high computational costs. To address this, we propose WorldForge, a training-free, inference-time framework composed of three tightly coupled modules. Intra-Step Recursive Refinement introduces a recursive refinement mechanism during inference, which repeatedly optimizes network predictions within each denoising step to enable precise trajectory injection. Flow-Gated Latent Fusion leverages optical flow similarity to decouple motion from appearance in the latent space and selectively inject trajectory guidance into motion-related channels. Dual-Path Self-Corrective Guidance compares guided and unguided denoising paths to adaptively correct trajectory drift caused by noisy or misaligned structural signals. Together, these components inject fine-grained, trajectory-aligned guidance without training, achieving both accurate motion control and photorealistic content generation. Extensive experiments across diverse benchmarks validate our method's superiority in realism, trajectory consistency, and visual fidelity. This work introduces a novel plug-and-play paradigm for controllable video synthesis, offering a new perspective on leveraging generative priors for spatial intelligence.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Video Diffusion Models</span><span>3D/4D Generation</span><span>Training-Free Guidance</span><span>Controllable Video Synthesis</span><span>Spatial Intelligence</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Computer Vision</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.15130" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">Twitter</h2>
-
-            <article class="item-card">
-                <h2>gdb_GPT-5 Codex Perseverance</h2>
-                <span class="published-time">Published: 2025-09-19 17:26:17</span>
-                
-                <p class="summary">The tweet references 'gpt-5 codex' in conjunction with 'perseverance'. This suggests a potential discussion or announcement related to a future iteration of OpenAI's GPT models, possibly GPT-5, and its integration with or capabilities within a 'codex' framework. The term 'codex' often implies a structured collection of knowledge or rules, and in a technological context, it could refer to code generation, comprehensive data models, or advanced reasoning systems. The mention of 'perseverance' might allude to the challenges and determination involved in developing such advanced AI, or it could be a specific project name or codename within the AI development lifecycle. Without further context from the original tweet's thread or accompanying media, it's difficult to ascertain the exact nature of this connection. However, it points towards cutting-edge developments in large language models and their underlying architectures.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>GPT-5</span><span>Codex</span><span>Perseverance</span><span>AI Development</span><span>Large Language Model</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/gdb/status/1969090684872229259" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>sama_Codex CLI Review</h2>
-                <span class="published-time">Published: 2025-09-19 01:36:52</span>
-                
-                <p class="summary">The tweet highlights the utility of the Codex CLI for local code reviews. It emphasizes that the "/review" command within the Codex CLI allows developers to quickly obtain code reviews directly from Codex on their local code changes. This functionality is presented as a valuable tool for enhancing the development workflow by enabling immediate feedback and iterative improvement of code quality without needing to push changes to a remote repository. The author indicates plans for significant future expansion of this feature, suggesting a roadmap for more advanced capabilities and integrations. This development points towards the increasing integration of AI-powered tools into the developer experience, aiming to streamline and accelerate the software development lifecycle. The availability and potential of such tools can significantly impact developer productivity and code quality standards.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Codex CLI</span><span>code review</span><span>developer tools</span><span>AI</span><span>local development</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Product Launch</span><span>Open Source</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/sama/status/1968851753840849058" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Gemini App Photo Editing Features</h2>
-                <span class="published-time">Published: 2025-09-19 17:29:10</span>
-                
-                <p class="summary">This month, Google's Gemini App has introduced a suite of new features designed to revolutionize photo editing and user interaction with their devices. The update highlights advanced capabilities that allow users to perform spectacular edits on their photos, significantly enhancing creative control and visual output. Furthermore, the Gemini App now integrates more deeply with the phone's camera, enabling users to get tasks done more efficiently by leveraging visual information. This integration suggests a move towards more intuitive and context-aware AI assistance, where the app can understand and act upon visual cues from the camera. These enhancements aim to provide users with powerful, yet accessible, tools for both creative expression and task completion directly from their mobile devices, showcasing the evolving potential of AI in everyday applications.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Gemini App</span><span>Photo Editing</span><span>AI Features</span><span>Mobile Camera</span><span>Product Update</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Product Launch</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/Google/status/1969091410482589741" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Thom_Wolf_Alibaba Character Swap</h2>
-                <span class="published-time">Published: 2025-09-19 09:03:22</span>
-                
-                <p class="summary">This tweet highlights Alibaba's impressive character swap technology, specifically mentioning its implementation via Wan2.2-Animate. The user points out that this technology is both very impressive and, notably, free and open-source. The shared link likely provides a demonstration or further details about the animation technique, which allows for the swapping of character identities within visual media. This advancement suggests significant progress in generative AI and animation tools, particularly within the open-source community. The accessibility of such powerful technology can accelerate innovation and adoption across various creative and technical fields, making it a noteworthy development for researchers and developers.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Alibaba</span><span>Character Swap</span><span>Wan2.2-Animate</span><span>Open Source</span><span>Generative AI</span><span>Animation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Open Source</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/Thom_Wolf/status/1968964119224078398" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>ylecun_World Models</h2>
-                <span class="published-time">Published: 2025-09-19 03:07:03</span>
-                
-                <p class="summary">At the #VivaTech2025 conference, Professor Yann LeCun of CDS engaged in a discussion with Melissa He about foundational concepts in artificial intelligence, specifically focusing on world models and reasoning machines. A significant highlight of their conversation was the introduction and exploration of V-JEPA 2, a novel 1.2 billion parameter model. This discussion likely delved into the architecture, training methodologies, and potential applications of V-JEPA 2, positioning it as a key development in the pursuit of more advanced and capable AI systems. The exchange underscored the ongoing progress and critical research directions within the AI community, particularly concerning the development of AI that can better understand and interact with the world.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>World Models</span><span>Reasoning Machines</span><span>V-JEPA 2</span><span>VivaTech2025</span><span>Yann LeCun</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Deep Learning</span><span>Research Progress</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/ylecun/status/1968874451639918853" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>ylecun_Sparse Attention on CPU</h2>
-                <span class="published-time">Published: 2025-09-19 00:36:10</span>
-                
-                <p class="summary">This tweet highlights a significant advancement in AI model efficiency, focusing on a technique called Sparse Logarithmic Attention. The key innovation lies in its ability to achieve faster-than-GPU performance by implementing this attention mechanism on CPUs. This breakthrough, presented by Steeve, Founder of ZML AI, promises to make sophisticated AI models more accessible and computationally feasible, potentially reducing hardware dependencies and broadening the application of large-scale AI. The research suggests a new direction for optimizing attention mechanisms, moving beyond traditional GPU-bound solutions and exploring the untapped potential of CPU architectures for demanding AI tasks, particularly in scenarios requiring extensive context processing without compromising speed.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Sparse Attention</span><span>CPU</span><span>AI Efficiency</span><span>Logarithmic Attention</span><span>ZML AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Research Progress</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/ylecun/status/1968836477569089837" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">跳到新闻列表</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO 主页">NO<i>/</i>FOMO</a><nav class="nav" aria-label="日报导航"><a href="../../../home/">往期</a><a href="../en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">每天一次，过滤 AI 噪音</p><h1>值得打开的<br>AI 日报。</h1></div><div class="issue-meta"><span>发布日期</span><strong>2025-09-19</strong><span>中文版本</span><dl class="readership" aria-label="公开阅读量"><div><dt>本期阅读</dt><dd data-view-count="/issue/2025-09-19" aria-live="polite">—</dd></div><div><dt>累计阅读</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-19 18:15:18</time></div>
+  <div class="story-body">
+    <h3><a href="https://hedgehogreview.com/issues/lessons-of-babel/articles/perplexity" target="_blank" rel="noopener noreferrer">An untidy history of AI across four books</a></h3>
+    <p class="story-summary">This article offers a critical examination of the multifaceted and often non-linear historical development of Artificial Intelligence, synthesizing perspectives gleaned from four different literary works. It diverges from a simplistic, linear narrative of AI&#x27;s progression, instead highlighting the &quot;untidy&quot; aspects of its evolution, which include unexpected conceptual turns, periods of forgotten innovation, and significant paradigm shifts. The review likely explores how philosophical underpinnings, scientific discoveries, and broader societal contexts have collectively influenced AI&#x27;s trajectory from its earliest theoretical formulations to its current advanced applications. By analyzing these diverse historical accounts, the article aims to provide a more nuanced understanding of AI&#x27;s foundational principles, the persistent challenges it has faced, and the myriad intellectual currents that have driven both its advancements and its setbacks over several decades. This comprehensive historical overview is essential for professionals seeking to grasp the complex origins and potential future directions of AI research and deployment, offering valuable context beyond technical specifications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Artificial Intelligence History</span><span class="tag tag-keyword">AI Philosophy</span><span class="tag tag-keyword">Technological Evolution</span><span class="tag tag-keyword">Conceptual Development</span><span class="tag tag-keyword">AI Research Trends</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-19 20:05:48</time></div>
+  <div class="story-body">
+    <h3><a href="https://third-bit.com/2025/09/18/time-spent-on-hardening/" target="_blank" rel="noopener noreferrer">Time Spent on Hardening</a></h3>
+    <p class="story-summary">An article titled &#x27;Time Spent on Hardening&#x27; would likely discuss the critical importance of dedicating sufficient resources and effort to fortifying digital systems against vulnerabilities, attacks, and failures. In the context of AI and software development, this encompasses a range of activities from securing codebases and deployment pipelines to implementing robust access controls and data encryption. The core idea would revolve around the trade-off between speed of development and the thoroughness of security measures, emphasizing that initial investment in hardening can prevent significant future costs, reputational damage, and operational disruptions. Discussions might include strategies for integrating security best practices throughout the development lifecycle, such as DevSecOps, and the necessity of continuous monitoring and proactive threat intelligence. The main conclusion would likely advocate for a shift in mindset, viewing hardening not as an optional overhead but as an integral, non-negotiable component of any successful and resilient technical project, particularly as AI systems become more pervasive and critical. This ensures the long-term reliability and trustworthiness of deployed solutions, mitigating risks associated with data breaches, system compromises, and unintended AI behaviors.</p>
+    <div class="story-tags"><span class="tag tag-keyword">System Hardening</span><span class="tag tag-keyword">Cybersecurity</span><span class="tag tag-keyword">DevSecOps</span><span class="tag tag-keyword">Security Best Practices</span><span class="tag tag-keyword">Risk Management</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-19 15:29:25</time></div>
+  <div class="story-body">
+    <h3><a href="https://lwn.net/ml/all/20250918222607.186488-1-xiyou.wangcong@gmail.com/" target="_blank" rel="noopener noreferrer">Kernel: Introduce Multikernel Architecture Support</a></h3>
+    <p class="story-summary">A significant proposal has been introduced to the kernel development community, aiming to incorporate multikernel architecture support. This initiative seeks to fundamentally restructure how operating system kernels manage computational resources, particularly in highly parallel and distributed computing environments. The multikernel approach typically involves running multiple, distinct kernel instances, each managing a subset of system resources or running on specific cores, often to enhance isolation, improve fault tolerance, and optimize performance for specific workloads. Such an architecture could pave the way for more robust and scalable systems, offering advanced compartmentalization for security-critical applications or enabling more efficient resource utilization in virtualized and cloud-native contexts. While details of the specific implementation are anticipated, this introduction signifies a potential paradigm shift in kernel design, requiring substantial consideration for inter-kernel communication mechanisms, shared resource management, and compatibility with existing kernel modules and applications. The long-term implications could include a redefinition of operating system boundaries and increased flexibility in system deployment.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Kernel</span><span class="tag tag-keyword">Multikernel Architecture</span><span class="tag tag-keyword">Operating Systems</span><span class="tag tag-keyword">System Design</span><span class="tag tag-keyword">Scalability</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Robotics</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-19 14:28:47</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.jeffgeerling.com/blog/2025/i-regret-building-3000-pi-ai-cluster" target="_blank" rel="noopener noreferrer">I regret building this $3000 Pi AI cluster</a></h3>
+    <p class="story-summary">The article &quot;I regret building this $3000 Pi AI cluster&quot; critically examines the author&#x27;s experience constructing a substantial artificial intelligence computing cluster using multiple Raspberry Pi units, ultimately expressing significant disappointment. The core regret likely arises from the project&#x27;s inability to deliver a cost-effective or performant solution for contemporary AI workloads, despite the considerable financial investment. The author probably delves into the numerous practical limitations encountered, including the inherent processing power constraints of individual Raspberry Pi boards, challenges in achieving efficient inter-node communication for distributed AI tasks, and potential software compatibility or optimization hurdles specific to the ARM architecture. Furthermore, the piece likely contrasts the cumulative $3000 expenditure with the performance benchmarks achieved, highlighting how this investment could have yielded superior results with alternative hardware like dedicated GPUs or cloud computing resources. This candid reflection serves as a cautionary tale for those exploring distributed computing with low-power devices for complex AI applications, underscoring the critical importance of selecting appropriate hardware that aligns with performance expectations and budget to avoid significant operational and financial inefficiencies. The narrative provides valuable insights into the realities of scaling AI infrastructure on non-specialized hardware.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Raspberry Pi</span><span class="tag tag-keyword">AI cluster</span><span class="tag tag-keyword">Distributed computing</span><span class="tag tag-keyword">Hardware limitations</span><span class="tag tag-keyword">Cost-effectiveness</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-09-19 02:13:05</time></div>
+  <div class="story-body">
+    <h3><a href="https://lenowo.org/viewtopic.php?t=5" target="_blank" rel="noopener noreferrer">Playing Minecraft without Minecraft (2024)</a></h3>
+    <p class="story-summary">The Hacker News discussion titled &#x27;Playing Minecraft without Minecraft (2024)&#x27; explores the conceptual and technical aspects of developing or experiencing game environments that emulate the popular block-building game without using its official platform or assets. This often involves open-source initiatives, custom game engines, and community-driven projects that aim to replicate Minecraft&#x27;s core mechanics, such as procedural world generation, voxel-based graphics, crafting systems, and multiplayer interactions. Such endeavors highlight the challenges and innovations in game development, including efficient rendering of large-scale dynamic environments, server architecture for persistent worlds, and the legal and ethical considerations of mimicking established intellectual property. The conversation likely delves into projects like Minetest or other community efforts that offer alternative, often more extensible or customizable, interpretations of the &#x27;Minecraft&#x27; experience, demonstrating the enduring appeal of its fundamental gameplay loop beyond its commercial incarnation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Minecraft</span><span class="tag tag-keyword">Game Development</span><span class="tag tag-keyword">Open-source Games</span><span class="tag tag-keyword">Procedural Generation</span><span class="tag tag-keyword">Voxel Graphics</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-09-19 18:45:35</time></div>
+  <div class="story-body">
+    <h3><a href="https://medicalxpress.com/news/2025-09-scientists-early-stage-prediabetes.html" target="_blank" rel="noopener noreferrer">Scientists pinpoint early warning stage before prediabetes</a></h3>
+    <p class="story-summary">A significant scientific breakthrough has identified a novel early warning stage preceding prediabetes, offering a crucial window for intervention and prevention of type 2 diabetes. This discovery likely stems from extensive longitudinal studies and sophisticated data analysis techniques, potentially involving the identification of new biomarkers, genetic predispositions, or subtle physiological indicators that manifest before traditional prediabetic symptoms are evident. The ability to pinpoint this earlier stage could revolutionize preventative healthcare strategies, enabling clinicians to identify individuals at higher risk much sooner and with greater precision. Such early detection paves the way for personalized lifestyle modifications, dietary interventions, and other proactive medical measures tailored to an individual&#x27;s specific risk profile, significantly reducing the global burden of diabetes and its associated complications. This research not only enhances our understanding of diabetes progression but also highlights the potential for advanced diagnostic methodologies, including those powered by artificial intelligence and machine learning, to transform the management of chronic metabolic conditions at an unprecedented early phase.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Biomarker Discovery</span><span class="tag tag-keyword">Predictive Analytics</span><span class="tag tag-keyword">Longitudinal Studies</span><span class="tag tag-keyword">Metabolic Profiling</span><span class="tag tag-keyword">Early Disease Detection</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-19 17:26:17</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/gdb/status/1969090684872229259" target="_blank" rel="noopener noreferrer">gdb_GPT-5 Codex Perseverance</a></h3>
+    <p class="story-summary">The tweet references &#x27;gpt-5 codex&#x27; in conjunction with &#x27;perseverance&#x27;. This suggests a potential discussion or announcement related to a future iteration of OpenAI&#x27;s GPT models, possibly GPT-5, and its integration with or capabilities within a &#x27;codex&#x27; framework. The term &#x27;codex&#x27; often implies a structured collection of knowledge or rules, and in a technological context, it could refer to code generation, comprehensive data models, or advanced reasoning systems. The mention of &#x27;perseverance&#x27; might allude to the challenges and determination involved in developing such advanced AI, or it could be a specific project name or codename within the AI development lifecycle. Without further context from the original tweet&#x27;s thread or accompanying media, it&#x27;s difficult to ascertain the exact nature of this connection. However, it points towards cutting-edge developments in large language models and their underlying architectures.</p>
+    <div class="story-tags"><span class="tag tag-keyword">GPT-5</span><span class="tag tag-keyword">Codex</span><span class="tag tag-keyword">Perseverance</span><span class="tag tag-keyword">AI Development</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-19 01:36:52</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/sama/status/1968851753840849058" target="_blank" rel="noopener noreferrer">sama_Codex CLI Review</a></h3>
+    <p class="story-summary">The tweet highlights the utility of the Codex CLI for local code reviews. It emphasizes that the &quot;/review&quot; command within the Codex CLI allows developers to quickly obtain code reviews directly from Codex on their local code changes. This functionality is presented as a valuable tool for enhancing the development workflow by enabling immediate feedback and iterative improvement of code quality without needing to push changes to a remote repository. The author indicates plans for significant future expansion of this feature, suggesting a roadmap for more advanced capabilities and integrations. This development points towards the increasing integration of AI-powered tools into the developer experience, aiming to streamline and accelerate the software development lifecycle. The availability and potential of such tools can significantly impact developer productivity and code quality standards.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Codex CLI</span><span class="tag tag-keyword">code review</span><span class="tag tag-keyword">developer tools</span><span class="tag tag-keyword">AI</span><span class="tag tag-keyword">local development</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Product Launch</span><span class="tag tag-area">Open Source</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-19 17:29:10</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Google/status/1969091410482589741" target="_blank" rel="noopener noreferrer">Gemini App Photo Editing Features</a></h3>
+    <p class="story-summary">This month, Google&#x27;s Gemini App has introduced a suite of new features designed to revolutionize photo editing and user interaction with their devices. The update highlights advanced capabilities that allow users to perform spectacular edits on their photos, significantly enhancing creative control and visual output. Furthermore, the Gemini App now integrates more deeply with the phone&#x27;s camera, enabling users to get tasks done more efficiently by leveraging visual information. This integration suggests a move towards more intuitive and context-aware AI assistance, where the app can understand and act upon visual cues from the camera. These enhancements aim to provide users with powerful, yet accessible, tools for both creative expression and task completion directly from their mobile devices, showcasing the evolving potential of AI in everyday applications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Gemini App</span><span class="tag tag-keyword">Photo Editing</span><span class="tag tag-keyword">AI Features</span><span class="tag tag-keyword">Mobile Camera</span><span class="tag tag-keyword">Product Update</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Product Launch</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-19 09:03:22</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Thom_Wolf/status/1968964119224078398" target="_blank" rel="noopener noreferrer">Thom_Wolf_Alibaba Character Swap</a></h3>
+    <p class="story-summary">This tweet highlights Alibaba&#x27;s impressive character swap technology, specifically mentioning its implementation via Wan2.2-Animate. The user points out that this technology is both very impressive and, notably, free and open-source. The shared link likely provides a demonstration or further details about the animation technique, which allows for the swapping of character identities within visual media. This advancement suggests significant progress in generative AI and animation tools, particularly within the open-source community. The accessibility of such powerful technology can accelerate innovation and adoption across various creative and technical fields, making it a noteworthy development for researchers and developers.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Alibaba</span><span class="tag tag-keyword">Character Swap</span><span class="tag tag-keyword">Wan2.2-Animate</span><span class="tag tag-keyword">Open Source</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Open Source</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-09-19 03:07:03</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ylecun/status/1968874451639918853" target="_blank" rel="noopener noreferrer">ylecun_World Models</a></h3>
+    <p class="story-summary">At the #VivaTech2025 conference, Professor Yann LeCun of CDS engaged in a discussion with Melissa He about foundational concepts in artificial intelligence, specifically focusing on world models and reasoning machines. A significant highlight of their conversation was the introduction and exploration of V-JEPA 2, a novel 1.2 billion parameter model. This discussion likely delved into the architecture, training methodologies, and potential applications of V-JEPA 2, positioning it as a key development in the pursuit of more advanced and capable AI systems. The exchange underscored the ongoing progress and critical research directions within the AI community, particularly concerning the development of AI that can better understand and interact with the world.</p>
+    <div class="story-tags"><span class="tag tag-keyword">World Models</span><span class="tag tag-keyword">Reasoning Machines</span><span class="tag tag-keyword">V-JEPA 2</span><span class="tag tag-keyword">VivaTech2025</span><span class="tag tag-keyword">Yann LeCun</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Research Progress</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-09-19 00:36:10</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ylecun/status/1968836477569089837" target="_blank" rel="noopener noreferrer">ylecun_Sparse Attention on CPU</a></h3>
+    <p class="story-summary">This tweet highlights a significant advancement in AI model efficiency, focusing on a technique called Sparse Logarithmic Attention. The key innovation lies in its ability to achieve faster-than-GPU performance by implementing this attention mechanism on CPUs. This breakthrough, presented by Steeve, Founder of ZML AI, promises to make sophisticated AI models more accessible and computationally feasible, potentially reducing hardware dependencies and broadening the application of large-scale AI. The research suggests a new direction for optimizing attention mechanisms, moving beyond traditional GPU-bound solutions and exploring the untapped potential of CPU architectures for demanding AI tasks, particularly in scenarios requiring extensive context processing without compromising speed.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Sparse Attention</span><span class="tag tag-keyword">CPU</span><span class="tag tag-keyword">AI Efficiency</span><span class="tag tag-keyword">Logarithmic Attention</span><span class="tag tag-keyword">ZML AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Research Progress</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>1 story</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-19T16:49:36Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/Alibaba-NLP/DeepResearch" target="_blank" rel="noopener noreferrer">Introduction</a></h3>
+    <p class="story-summary">Tongyi DeepResearch is an advanced agentic large language model developed by Tongyi Lab, featuring 30.5 billion parameters with 3.3 billion activated per token. Specifically engineered for long-horizon, deep information-seeking tasks, it demonstrates state-of-the-art performance across leading agentic search benchmarks, including Humanity&#x27;s Last Exam, BrowserComp, and WebWalkerQA. Key technical innovations include a fully automated synthetic data generation pipeline for agentic pre-training, supervised fine-tuning, and reinforcement learning. The model benefits from large-scale continual pre-training on diverse agentic interaction data, enhancing its capabilities and reasoning. It incorporates an end-to-end reinforcement learning approach using a customized Group Relative Policy Optimization framework. Tongyi DeepResearch supports both ReAct and an IterResearch-based &#x27;Heavy&#x27; inference mode, allowing rigorous evaluation of intrinsic abilities and unlocking maximum performance. The model is available for download on HuggingFace and ModelScope and is part of an extensive deep research agent family.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agentic Large Language Model</span><span class="tag tag-keyword">Information Seeking</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Synthetic Data Generation</span><span class="tag tag-keyword">Continual Pre-training</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-18T17:59:22.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.15221" target="_blank" rel="noopener noreferrer">ScaleCUA: Scaling Open-Source Computer Use Agents with Cross-Platform Data</a></h3>
+    <p class="story-summary">Vision-Language Models (VLMs) have enabled computer use agents (CUAs) that operate GUIs autonomously, showing great potential, yet progress is limited by the lack of large-scale, open-source computer use data and foundation models. In this work, we introduce ScaleCUA, a step toward scaling open-source CUAs. It offers a large-scale dataset spanning 6 operating systems and 3 task domains, built via a closed-loop pipeline uniting automated agents with human experts. Trained on this scaled-up data, ScaleCUA can operate seamlessly across platforms. Specifically, it delivers strong gains over baselines (+26.6 on WebArena-Lite-v2, +10.7 on ScreenSpot-Pro) and sets new state-of-the-art results (94.4% on MMBench-GUI L1-Hard, 60.6% on OSWorld-G, 47.4% on WebArena-Lite-v2). These findings underscore the power of data-driven scaling for general-purpose computer use agents. We will release data, models, and code to advance future research: https://github.com/OpenGVLab/ScaleCUA.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Computer Use Agents</span><span class="tag tag-keyword">Vision-Language Models</span><span class="tag tag-keyword">Cross-Platform</span><span class="tag tag-keyword">Large-scale dataset</span><span class="tag tag-keyword">Automated Agents</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-18T17:56:36.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.15207" target="_blank" rel="noopener noreferrer">FlowRL: Matching Reward Distributions for LLM Reasoning</a></h3>
+    <p class="story-summary">We propose FlowRL: matching the full reward distribution via flow balancing instead of maximizing rewards in large language model (LLM) reinforcement learning (RL). Recent advanced reasoning models adopt reward-maximizing methods (eg, PPO and GRPO), which tend to over-optimize dominant reward signals while neglecting less frequent but valid reasoning paths, thus reducing diversity. In contrast, we transform scalar rewards into a normalized target distribution using a learnable partition function, and then minimize the reverse KL divergence between the policy and the target distribution. We implement this idea as a flow-balanced optimization method that promotes diverse exploration and generalizable reasoning trajectories. We conduct experiments on math and code reasoning tasks: FlowRL achieves a significant average improvement of 10.0% over GRPO and 5.1% over PPO on math benchmarks, and performs consistently better on code reasoning tasks. These results highlight reward distribution-matching as a key step toward efficient exploration and diverse reasoning in LLM reinforcement learning.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Reward Distributions</span><span class="tag tag-keyword">Flow Balancing</span><span class="tag tag-keyword">Reasoning</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-18T17:50:04.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.15194" target="_blank" rel="noopener noreferrer">Evolving Language Models without Labels: Majority Drives Selection, Novelty Promotes Variation</a></h3>
+    <p class="story-summary">Large language models (LLMs) are increasingly trained with reinforcement learning from verifiable rewards (RLVR), yet real-world deployment demands models that can self-improve without labels or external judges. Existing label-free methods, confidence minimization, self-consistency, or majority-vote objectives, stabilize learning but steadily shrink exploration, causing an entropy collapse: generations become shorter, less diverse, and brittle. Unlike prior approaches such as Test-Time Reinforcement Learning (TTRL), which primarily adapt models to the immediate unlabeled dataset at hand, our goal is broader: to enable general improvements without sacrificing the model&#x27;s inherent exploration capacity and generalization ability, i.e., evolving. We formalize this issue and propose EVolution-Oriented and Label-free Reinforcement Learning (EVOL-RL), a simple rule that couples stability with variation under a label-free setting. EVOL-RL keeps the majority-voted answer as a stable anchor (selection) while adding a novelty-aware reward that favors responses whose reasoning differs from what has already been produced (variation), measured in semantic space. Implemented with GRPO, EVOL-RL also uses asymmetric clipping to preserve strong signals and an entropy regularizer to sustain search. This majority-for-selection + novelty-for-variation design prevents collapse, maintains longer and more informative chains of thought, and improves both pass@1 and pass@n. EVOL-RL consistently outperforms the majority-only TTRL baseline; e.g., training on label-free AIME24 lifts Qwen3-4B-Base AIME25 pass@1 from TTRL&#x27;s 4.6% to 16.4%, and pass@16 from 18.5% to 37.9%. EVOL-RL not only prevents diversity collapse but also unlocks stronger generalization across domains (e.g., GPQA). Furthermore, we demonstrate that EVOL-RL also boosts performance in the RLVR setting, highlighting its broad applicability.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Label-free Learning</span><span class="tag tag-keyword">EVOL-RL</span><span class="tag tag-keyword">Diversity Preservation</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-18T17:47:40.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.15185" target="_blank" rel="noopener noreferrer">Understand Before You Generate: Self-Guided Training for Autoregressive Image Generation</a></h3>
+    <p class="story-summary">Recent studies have demonstrated the importance of high-quality visual representations in image generation and have highlighted the limitations of generative models in image understanding. As a generative paradigm originally designed for natural language, autoregressive models face similar challenges. In this work, we present the first systematic investigation into the mechanisms of applying the next-token prediction paradigm to the visual domain. We identify three key properties that hinder the learning of high-level visual semantics: local and conditional dependence, inter-step semantic inconsistency, and spatial invariance deficiency. We show that these issues can be effectively addressed by introducing self-supervised objectives during training, leading to a novel training framework, Self-guided Training for AutoRegressive models (ST-AR). Without relying on pre-trained representation models, ST-AR significantly enhances the image understanding ability of autoregressive models and leads to improved generation quality. Specifically, ST-AR brings approximately 42% FID improvement for LlamaGen-L and 49% FID improvement for LlamaGen-XL, while maintaining the same sampling strategy.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Autoregressive Models</span><span class="tag tag-keyword">Image Generation</span><span class="tag tag-keyword">Self-supervised Training</span><span class="tag tag-keyword">Image Understanding</span><span class="tag tag-keyword">Visual Semantics</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-09-18T17:35:50.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.15178" target="_blank" rel="noopener noreferrer">Unleashing the Potential of Multimodal LLMs for Zero-Shot Spatio-Temporal Video Grounding</a></h3>
+    <p class="story-summary">Spatio-temporal video grounding (STVG) aims at localizing the spatio-temporal tube of a video, as specified by the input text query. In this paper, we utilize multimodal large language models (MLLMs) to explore a zero-shot solution in STVG. We reveal two key insights about MLLMs: (1) MLLMs tend to dynamically assign special tokens, referred to as grounding tokens, for grounding the text query; and (2) MLLMs often suffer from suboptimal grounding due to the inability to fully integrate the cues in the text query (e.g., attributes, actions) for inference. Based on these insights, we propose a MLLM-based zero-shot framework for STVG, which includes novel decomposed spatio-temporal highlighting (DSTH) and temporal-augmented assembling (TAS) strategies to unleash the reasoning ability of MLLMs. The DSTH strategy first decouples the original query into attribute and action sub-queries for inquiring the existence of the target both spatially and temporally. It then uses a novel logit-guided re-attention (LRA) module to learn latent variables as spatial and temporal prompts, by regularizing token predictions for each sub-query. These prompts highlight attribute and action cues, respectively, directing the model&#x27;s attention to reliable spatial and temporal related visual regions. In addition, as the spatial grounding by the attribute sub-query should be temporally consistent, we introduce the TAS strategy to assemble the predictions using the original video frames and the temporal-augmented frames as inputs to help improve temporal consistency. We evaluate our method on various MLLMs, and show that it outperforms SOTA methods on three common STVG benchmarks. The code will be available at https://github.com/zaiquanyang/LLaVA_Next_STVG.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Spatio-Temporal Video Grounding</span><span class="tag tag-keyword">Multimodal Large Language Models</span><span class="tag tag-keyword">Zero-Shot Learning</span><span class="tag tag-keyword">Video Understanding</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-09-18T16:40:47.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.15130" target="_blank" rel="noopener noreferrer">WorldForge: Unlocking Emergent 3D/4D Generation in Video Diffusion Model via Training-Free Guidance</a></h3>
+    <p class="story-summary">Recent video diffusion models demonstrate strong potential in spatial intelligence tasks due to their rich latent world priors. However, this potential is hindered by their limited controllability and geometric inconsistency, creating a gap between their strong priors and their practical use in 3D/4D tasks. As a result, current approaches often rely on retraining or fine-tuning, which risks degrading pretrained knowledge and incurs high computational costs. To address this, we propose WorldForge, a training-free, inference-time framework composed of three tightly coupled modules. Intra-Step Recursive Refinement introduces a recursive refinement mechanism during inference, which repeatedly optimizes network predictions within each denoising step to enable precise trajectory injection. Flow-Gated Latent Fusion leverages optical flow similarity to decouple motion from appearance in the latent space and selectively inject trajectory guidance into motion-related channels. Dual-Path Self-Corrective Guidance compares guided and unguided denoising paths to adaptively correct trajectory drift caused by noisy or misaligned structural signals. Together, these components inject fine-grained, trajectory-aligned guidance without training, achieving both accurate motion control and photorealistic content generation. Extensive experiments across diverse benchmarks validate our method&#x27;s superiority in realism, trajectory consistency, and visual fidelity. This work introduces a novel plug-and-play paradigm for controllable video synthesis, offering a new perspective on leveraging generative priors for spatial intelligence.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Video Diffusion Models</span><span class="tag tag-keyword">3D/4D Generation</span><span class="tag tag-keyword">Training-Free Guidance</span><span class="tag tag-keyword">Controllable Video Synthesis</span><span class="tag tag-keyword">Spatial Intelligence</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>AI 辅助筛选，原始来源始终可查。</span></footer>
+  <script src="../../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2025-09-19" data-counter-title="NO-FOMO issue 2025-09-19" defer></script>
 </body>
 </html>

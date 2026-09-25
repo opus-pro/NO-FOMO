@@ -1,332 +1,106 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-12-06</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO AI 日报 — 2025-12-06</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"PingFang SC","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em}.issue h1{margin:0;max-width:820px;font:800 clamp(2.6rem,7vw,6.3rem)/1.02 Georgia,"Songti SC",serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.06em}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,"Songti SC",serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:800 clamp(1.5rem,3vw,2.35rem)/1.2 Georgia,"Songti SC",serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.86 Georgia,"Songti SC",serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-12-06</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>YouTube caught making AI-edits to videos and adding misleading AI summaries</h2>
-                <span class="published-time">Published: 2025-12-06 01:15:48</span>
-                
-                <p class="summary">Recent reports indicate that YouTube has been employing artificial intelligence to conduct edits on video content and to automatically generate summaries for uploaded videos. This practice has reportedly led to instances where these AI-generated summaries were misleading, sparking concerns about the accuracy and ethical implications of such automated interventions on a global content platform. The deployment of AI in these capacities by a company like YouTube highlights the ongoing challenges and responsibilities associated with integrating advanced AI functionalities into mainstream services. Critics are now emphasizing the potential for erosion of user trust and the propagation of misinformation if AI systems are allowed to autonomously alter or interpret content without adequate human oversight and transparent disclosure. This situation prompts a broader industry discussion about the need for clearer guidelines, rigorous testing, and robust validation mechanisms to ensure that AI tools enhance, rather than compromise, the integrity and reliability of digital content, while also safeguarding the user experience and the authenticity of information presented.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>YouTube</span><span>AI-edits</span><span>misleading AI summaries</span><span>generative AI</span><span>content integrity</span><span>ethics of AI</span><span>platform responsibility</span><span>video content AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Generative AI</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.ynetnews.com/tech-and-digital/article/bj1qbwcklg" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Touching the Elephant – TPUs</h2>
-                <span class="published-time">Published: 2025-12-06 12:29:28</span>
-                
-                <p class="summary">The article 'Touching the Elephant – TPUs' metaphorically explores the multifaceted nature of Google's Tensor Processing Units (TPUs), highlighting their significance in the accelerating field of artificial intelligence. It delves into the architectural design and operational principles of these specialized accelerators, emphasizing how they are engineered to optimize matrix multiplications and other common operations crucial for deep learning workloads. The discussion covers the evolution of TPUs from initial inference-focused designs to advanced training-capable generations, detailing their advantages in terms of computational efficiency, power consumption, and scalability compared to general-purpose GPUs and CPUs. Furthermore, the piece likely examines the practical implications of TPUs across various AI applications, from large-scale model training to real-time inference, and considers the developer experience and ecosystem surrounding their adoption within Google Cloud. By 'touching the elephant,' the author aims to provide a comprehensive, albeit perhaps sectional, understanding of TPUs, acknowledging their complexity and diverse impacts on modern AI infrastructure and research.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Tensor Processing Units</span><span>TPU</span><span>AI Accelerators</span><span>Deep Learning Hardware</span><span>Machine Learning</span><span>Google Cloud</span><span>Neural Networks</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://considerthebulldog.com/tte-tpu/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Wolfram Compute Services</h2>
-                <span class="published-time">Published: 2025-12-06 07:21:42</span>
-                
-                <p class="summary">Stephen Wolfram has unveiled plans for Wolfram Compute Services, an innovative platform slated for launch in December 2025, promising 'instant supercompute' capabilities. This new offering aims to significantly democratize access to high-performance computational resources, enabling a broad user base—including researchers, developers, and data scientists—to harness the full power of the Wolfram Language and its extensive integrated knowledge base. The service is designed to provide on-demand, scalable computing power, allowing for the efficient execution of complex Wolfram Language code without the burden of managing underlying infrastructure. It is anticipated to support a wide array of applications, from advanced symbolic computation and data analysis to various domains within artificial intelligence and scientific research, thereby reinforcing Wolfram Research's commitment to making cutting-edge computational tools more accessible and empowering a global audience with powerful analytical solutions.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Wolfram Compute Services</span><span>Supercomputing</span><span>Cloud Computing</span><span>Wolfram Language</span><span>Computational Platform</span><span>High-Performance Computing</span><span>Symbolic Computation</span><span>Data Science</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://writings.stephenwolfram.com/2025/12/instant-supercompute-launching-wolfram-compute-services/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Have I been Flocked? – Check if your license plate is being watched</h2>
-                <span class="published-time">Published: 2025-12-06 03:16:35</span>
-                
-                <p class="summary">The 'Have I been Flocked?' initiative, accessible via haveibeenflocked.com, addresses growing public concerns regarding the pervasive use of Automated License Plate Readers (ALPRs). This platform provides a critical tool for individuals to ascertain whether their license plate data has been captured and stored within the extensive databases maintained by various ALPR systems. These systems are increasingly deployed by both law enforcement agencies and private entities across numerous jurisdictions, creating comprehensive records of vehicle movements. ALPR technology utilizes high-speed cameras to automatically read license plates, subsequently logging their location, date, and time. This data collection rapidly accumulates vast databases detailing the movements of millions of vehicles. The 'Have I been Flocked?' project aims to empower citizens by offering a transparent mechanism to assess the potential privacy implications of such widespread surveillance. It underscores the importance of understanding the scope and nature of how personal movement data is collected, stored, and potentially shared, thereby fostering greater public awareness about digital privacy in the context of physical world tracking and data aggregation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Automated License Plate Readers</span><span>ALPR</span><span>Vehicle Surveillance</span><span>Data Privacy</span><span>Location Tracking</span><span>Data Aggregation</span><span>Digital Rights</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Computer Vision</span><span>Machine Learning</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://haveibeenflocked.com/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Why Speed Matters</h2>
-                <span class="published-time">Published: 2025-12-06 12:46:42</span>
-                
-                <p class="summary">The article "Why Speed Matters" delves into the critical importance of performance optimization across various computing domains, with particular relevance to the rapidly evolving fields of Artificial Intelligence and Machine Learning. It articulates how efficient software execution, achieved through optimized algorithms and careful system design, directly impacts user experience, operational costs, and the feasibility of complex applications. The discussion highlights that even minor gains in processing speed can yield substantial benefits in terms of system responsiveness, data throughput, and energy consumption. This is especially pertinent for AI workloads, where faster model training can accelerate research and development, while quicker inference times enable real-time applications, from autonomous systems to sophisticated natural language processing tools. The core argument posits that speed is not merely a feature but a fundamental requirement for creating scalable, sustainable, and high-performing technological solutions.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Performance Optimization</span><span>Software Efficiency</span><span>Algorithm Design</span><span>System Responsiveness</span><span>AI Inference</span><span>Machine Learning Training</span><span>Latency</span><span>Throughput</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://lemire.me/blog/2025/12/05/why-speed-matters/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>OMSCS Open Courseware</h2>
-                <span class="published-time">Published: 2025-12-06 19:14:35</span>
-                
-                <p class="summary">The Georgia Institute of Technology has made its Online Master of Science in Computer Science (OMSCS) course materials available as Open Courseware, significantly expanding access to high-quality graduate-level education. This initiative provides free public access to a comprehensive collection of educational content, including lecture videos, assignments, and detailed syllabi from the university's highly-regarded online program. The OMSCS Open Courseware serves as an invaluable resource for individuals globally who seek to deepen their understanding of advanced computer science topics, encompassing diverse specializations such as artificial intelligence, machine learning, data analytics, and software engineering. By democratizing access to such esteemed academic materials, Georgia Tech aims to support lifelong learning and skill development for self-directed learners, professionals looking to enhance their expertise, and prospective students exploring advanced computer science education. This commitment to open education fosters broader engagement with complex technical subjects and positions the institution as a leader in accessible online learning, promoting the spread of critical computing knowledge to a wider audience.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Computer Science</span><span>Online Learning Platforms</span><span>Open Educational Resources</span><span>Artificial Intelligence Education</span><span>Machine Learning Education</span><span>Data Science</span><span>Higher Education Technology</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://sites.gatech.edu/omscsopencourseware/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>🎙️ VibeVoice: Open-Source Frontier Voice AI</h2>
-                <span class="published-time">Published: 2025-12-05T13:49:07Z</span>
-                
-                <p class="summary">VibeVoice is an open-source, cutting-edge Voice AI framework developed by Microsoft for generating expressive, long-form, multi-speaker conversational audio, ideal for applications like podcasts. It addresses key challenges in traditional Text-to-Speech (TTS) systems, including scalability, speaker consistency, and natural turn-taking. The framework features two main variants: a long-form multi-speaker model capable of synthesizing up to 90 minutes of speech with up to four distinct speakers, and a real-time streaming TTS model that delivers initial audible speech in approximately 300 ms, supporting streaming text input for low-latency generation. A core technical innovation is its use of continuous speech tokenizers (Acoustic and Semantic) operating at an ultra-low 7.5 Hz frame rate, which boosts computational efficiency while preserving audio fidelity. VibeVoice employs a next-token diffusion framework, leveraging a Large Language Model (LLM) for understanding textual context and dialogue flow, and a diffusion head for generating high-fidelity acoustic details. The project was temporarily disabled due to responsible AI concerns regarding its use.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Voice AI</span><span>Text-to-Speech</span><span>Speech Synthesis</span><span>Real-time TTS</span><span>Multi-speaker</span><span>Long-form speech</span><span>Diffusion Models</span><span>Large Language Model</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Deep Learning</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/microsoft/VibeVoice" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Protein design with Foundry</h2>
-                <span class="published-time">Published: 2025-12-05T22:56:17Z</span>
-                
-                <p class="summary">Foundry offers a robust suite of tooling and infrastructure dedicated to the training and application of diverse deep learning models for advanced protein design. This includes generative design capabilities via RFdiffusion3 (RFD3), inverse folding facilitated by ProteinMPNN and LigandMPNN, and high-accuracy protein structure prediction using RosettaFold3 (RF3). A core technical underpinning is AtomWorks, a unified framework that standardizes the manipulation and processing of biomolecular structures for both training and inference. The platform simplifies model management through a user-friendly installation process and command-line utilities for downloading and checking model weights. Foundry further supports interactive development with Google Colab tutorials, allowing users to execute end-to-end design pipelines. It is designed for modularity, enabling core developers to extend functionality by adding new models as independent packages while maintaining code quality through pre-commit formatting. This comprehensive ecosystem positions Foundry as a critical resource for accelerating research and development in biomolecular modeling and engineering.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Protein Design</span><span>Deep Learning</span><span>Biomolecular Structures</span><span>RFdiffusion3</span><span>RosettaFold3</span><span>ProteinMPNN</span><span>Inverse Folding</span><span>Protein Folding</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/RosettaCommons/foundry" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>AI Engineering Hub</h2>
-                <span class="published-time">Published: 2025-12-06T08:02:15Z</span>
-                
-                <p class="summary">The AI Engineering Hub is a comprehensive GitHub repository serving as a go-to resource for learning and building with AI. It features over 93 production-ready projects catering to all skill levels, from beginners to advanced practitioners and researchers. The hub offers in-depth tutorials on critical AI concepts such as Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), and AI agents. Users can explore real-world AI agent applications, implement basic OCR apps, build complex agentic workflows, tackle advanced fine-tuning projects, and deploy production-grade AI systems. Projects are categorized by difficulty (Beginner, Intermediate, Advanced) covering diverse domains like multimodal AI, voice interfaces, model comparison, and advanced infrastructure using frameworks like CrewAI, LlamaIndex, and Ollama. This repository empowers developers to gain hands-on experience and stay current with the rapidly evolving field of AI engineering.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Engineering</span><span>Large Language Model</span><span>Retrieval-Augmented Generation</span><span>AI Agent</span><span>Fine-tuning</span><span>Production Systems</span><span>Multimodal AI</span><span>Ollama</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/patchy631/ai-engineering-hub" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">跳到新闻列表</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO 主页">NO<i>/</i>FOMO</a><nav class="nav" aria-label="日报导航"><a href="../../../home/">往期</a><a href="../en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">每天一次，过滤 AI 噪音</p><h1>值得打开的<br>AI 日报。</h1></div><div class="issue-meta"><span>发布日期</span><strong>2025-12-06</strong><span>中文版本</span><dl class="readership" aria-label="公开阅读量"><div><dt>本期阅读</dt><dd data-view-count="/issue/2025-12-06" aria-live="polite">—</dd></div><div><dt>累计阅读</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-12-06 01:15:48</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.ynetnews.com/tech-and-digital/article/bj1qbwcklg" target="_blank" rel="noopener noreferrer">YouTube caught making AI-edits to videos and adding misleading AI summaries</a></h3>
+    <p class="story-summary">Recent reports indicate that YouTube has been employing artificial intelligence to conduct edits on video content and to automatically generate summaries for uploaded videos. This practice has reportedly led to instances where these AI-generated summaries were misleading, sparking concerns about the accuracy and ethical implications of such automated interventions on a global content platform. The deployment of AI in these capacities by a company like YouTube highlights the ongoing challenges and responsibilities associated with integrating advanced AI functionalities into mainstream services. Critics are now emphasizing the potential for erosion of user trust and the propagation of misinformation if AI systems are allowed to autonomously alter or interpret content without adequate human oversight and transparent disclosure. This situation prompts a broader industry discussion about the need for clearer guidelines, rigorous testing, and robust validation mechanisms to ensure that AI tools enhance, rather than compromise, the integrity and reliability of digital content, while also safeguarding the user experience and the authenticity of information presented.</p>
+    <div class="story-tags"><span class="tag tag-keyword">YouTube</span><span class="tag tag-keyword">AI-edits</span><span class="tag tag-keyword">misleading AI summaries</span><span class="tag tag-keyword">generative AI</span><span class="tag tag-keyword">content integrity</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-12-06 12:29:28</time></div>
+  <div class="story-body">
+    <h3><a href="https://considerthebulldog.com/tte-tpu/" target="_blank" rel="noopener noreferrer">Touching the Elephant – TPUs</a></h3>
+    <p class="story-summary">The article &#x27;Touching the Elephant – TPUs&#x27; metaphorically explores the multifaceted nature of Google&#x27;s Tensor Processing Units (TPUs), highlighting their significance in the accelerating field of artificial intelligence. It delves into the architectural design and operational principles of these specialized accelerators, emphasizing how they are engineered to optimize matrix multiplications and other common operations crucial for deep learning workloads. The discussion covers the evolution of TPUs from initial inference-focused designs to advanced training-capable generations, detailing their advantages in terms of computational efficiency, power consumption, and scalability compared to general-purpose GPUs and CPUs. Furthermore, the piece likely examines the practical implications of TPUs across various AI applications, from large-scale model training to real-time inference, and considers the developer experience and ecosystem surrounding their adoption within Google Cloud. By &#x27;touching the elephant,&#x27; the author aims to provide a comprehensive, albeit perhaps sectional, understanding of TPUs, acknowledging their complexity and diverse impacts on modern AI infrastructure and research.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Tensor Processing Units</span><span class="tag tag-keyword">TPU</span><span class="tag tag-keyword">AI Accelerators</span><span class="tag tag-keyword">Deep Learning Hardware</span><span class="tag tag-keyword">Machine Learning</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-12-06 07:21:42</time></div>
+  <div class="story-body">
+    <h3><a href="https://writings.stephenwolfram.com/2025/12/instant-supercompute-launching-wolfram-compute-services/" target="_blank" rel="noopener noreferrer">Wolfram Compute Services</a></h3>
+    <p class="story-summary">Stephen Wolfram has unveiled plans for Wolfram Compute Services, an innovative platform slated for launch in December 2025, promising &#x27;instant supercompute&#x27; capabilities. This new offering aims to significantly democratize access to high-performance computational resources, enabling a broad user base—including researchers, developers, and data scientists—to harness the full power of the Wolfram Language and its extensive integrated knowledge base. The service is designed to provide on-demand, scalable computing power, allowing for the efficient execution of complex Wolfram Language code without the burden of managing underlying infrastructure. It is anticipated to support a wide array of applications, from advanced symbolic computation and data analysis to various domains within artificial intelligence and scientific research, thereby reinforcing Wolfram Research&#x27;s commitment to making cutting-edge computational tools more accessible and empowering a global audience with powerful analytical solutions.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Wolfram Compute Services</span><span class="tag tag-keyword">Supercomputing</span><span class="tag tag-keyword">Cloud Computing</span><span class="tag tag-keyword">Wolfram Language</span><span class="tag tag-keyword">Computational Platform</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-12-06 03:16:35</time></div>
+  <div class="story-body">
+    <h3><a href="https://haveibeenflocked.com/" target="_blank" rel="noopener noreferrer">Have I been Flocked? – Check if your license plate is being watched</a></h3>
+    <p class="story-summary">The &#x27;Have I been Flocked?&#x27; initiative, accessible via haveibeenflocked.com, addresses growing public concerns regarding the pervasive use of Automated License Plate Readers (ALPRs). This platform provides a critical tool for individuals to ascertain whether their license plate data has been captured and stored within the extensive databases maintained by various ALPR systems. These systems are increasingly deployed by both law enforcement agencies and private entities across numerous jurisdictions, creating comprehensive records of vehicle movements. ALPR technology utilizes high-speed cameras to automatically read license plates, subsequently logging their location, date, and time. This data collection rapidly accumulates vast databases detailing the movements of millions of vehicles. The &#x27;Have I been Flocked?&#x27; project aims to empower citizens by offering a transparent mechanism to assess the potential privacy implications of such widespread surveillance. It underscores the importance of understanding the scope and nature of how personal movement data is collected, stored, and potentially shared, thereby fostering greater public awareness about digital privacy in the context of physical world tracking and data aggregation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Automated License Plate Readers</span><span class="tag tag-keyword">ALPR</span><span class="tag tag-keyword">Vehicle Surveillance</span><span class="tag tag-keyword">Data Privacy</span><span class="tag tag-keyword">Location Tracking</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-12-06 12:46:42</time></div>
+  <div class="story-body">
+    <h3><a href="https://lemire.me/blog/2025/12/05/why-speed-matters/" target="_blank" rel="noopener noreferrer">Why Speed Matters</a></h3>
+    <p class="story-summary">The article &quot;Why Speed Matters&quot; delves into the critical importance of performance optimization across various computing domains, with particular relevance to the rapidly evolving fields of Artificial Intelligence and Machine Learning. It articulates how efficient software execution, achieved through optimized algorithms and careful system design, directly impacts user experience, operational costs, and the feasibility of complex applications. The discussion highlights that even minor gains in processing speed can yield substantial benefits in terms of system responsiveness, data throughput, and energy consumption. This is especially pertinent for AI workloads, where faster model training can accelerate research and development, while quicker inference times enable real-time applications, from autonomous systems to sophisticated natural language processing tools. The core argument posits that speed is not merely a feature but a fundamental requirement for creating scalable, sustainable, and high-performing technological solutions.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Performance Optimization</span><span class="tag tag-keyword">Software Efficiency</span><span class="tag tag-keyword">Algorithm Design</span><span class="tag tag-keyword">System Responsiveness</span><span class="tag tag-keyword">AI Inference</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-12-06 19:14:35</time></div>
+  <div class="story-body">
+    <h3><a href="https://sites.gatech.edu/omscsopencourseware/" target="_blank" rel="noopener noreferrer">OMSCS Open Courseware</a></h3>
+    <p class="story-summary">The Georgia Institute of Technology has made its Online Master of Science in Computer Science (OMSCS) course materials available as Open Courseware, significantly expanding access to high-quality graduate-level education. This initiative provides free public access to a comprehensive collection of educational content, including lecture videos, assignments, and detailed syllabi from the university&#x27;s highly-regarded online program. The OMSCS Open Courseware serves as an invaluable resource for individuals globally who seek to deepen their understanding of advanced computer science topics, encompassing diverse specializations such as artificial intelligence, machine learning, data analytics, and software engineering. By democratizing access to such esteemed academic materials, Georgia Tech aims to support lifelong learning and skill development for self-directed learners, professionals looking to enhance their expertise, and prospective students exploring advanced computer science education. This commitment to open education fosters broader engagement with complex technical subjects and positions the institution as a leader in accessible online learning, promoting the spread of critical computing knowledge to a wider audience.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Computer Science</span><span class="tag tag-keyword">Online Learning Platforms</span><span class="tag tag-keyword">Open Educational Resources</span><span class="tag tag-keyword">Artificial Intelligence Education</span><span class="tag tag-keyword">Machine Learning Education</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>3 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-12-05T13:49:07Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/microsoft/VibeVoice" target="_blank" rel="noopener noreferrer">🎙️ VibeVoice: Open-Source Frontier Voice AI</a></h3>
+    <p class="story-summary">VibeVoice is an open-source, cutting-edge Voice AI framework developed by Microsoft for generating expressive, long-form, multi-speaker conversational audio, ideal for applications like podcasts. It addresses key challenges in traditional Text-to-Speech (TTS) systems, including scalability, speaker consistency, and natural turn-taking. The framework features two main variants: a long-form multi-speaker model capable of synthesizing up to 90 minutes of speech with up to four distinct speakers, and a real-time streaming TTS model that delivers initial audible speech in approximately 300 ms, supporting streaming text input for low-latency generation. A core technical innovation is its use of continuous speech tokenizers (Acoustic and Semantic) operating at an ultra-low 7.5 Hz frame rate, which boosts computational efficiency while preserving audio fidelity. VibeVoice employs a next-token diffusion framework, leveraging a Large Language Model (LLM) for understanding textual context and dialogue flow, and a diffusion head for generating high-fidelity acoustic details. The project was temporarily disabled due to responsible AI concerns regarding its use.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Voice AI</span><span class="tag tag-keyword">Text-to-Speech</span><span class="tag tag-keyword">Speech Synthesis</span><span class="tag tag-keyword">Real-time TTS</span><span class="tag tag-keyword">Multi-speaker</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-12-05T22:56:17Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/RosettaCommons/foundry" target="_blank" rel="noopener noreferrer">Protein design with Foundry</a></h3>
+    <p class="story-summary">Foundry offers a robust suite of tooling and infrastructure dedicated to the training and application of diverse deep learning models for advanced protein design. This includes generative design capabilities via RFdiffusion3 (RFD3), inverse folding facilitated by ProteinMPNN and LigandMPNN, and high-accuracy protein structure prediction using RosettaFold3 (RF3). A core technical underpinning is AtomWorks, a unified framework that standardizes the manipulation and processing of biomolecular structures for both training and inference. The platform simplifies model management through a user-friendly installation process and command-line utilities for downloading and checking model weights. Foundry further supports interactive development with Google Colab tutorials, allowing users to execute end-to-end design pipelines. It is designed for modularity, enabling core developers to extend functionality by adding new models as independent packages while maintaining code quality through pre-commit formatting. This comprehensive ecosystem positions Foundry as a critical resource for accelerating research and development in biomolecular modeling and engineering.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Protein Design</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-keyword">Biomolecular Structures</span><span class="tag tag-keyword">RFdiffusion3</span><span class="tag tag-keyword">RosettaFold3</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-12-06T08:02:15Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/patchy631/ai-engineering-hub" target="_blank" rel="noopener noreferrer">AI Engineering Hub</a></h3>
+    <p class="story-summary">The AI Engineering Hub is a comprehensive GitHub repository serving as a go-to resource for learning and building with AI. It features over 93 production-ready projects catering to all skill levels, from beginners to advanced practitioners and researchers. The hub offers in-depth tutorials on critical AI concepts such as Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), and AI agents. Users can explore real-world AI agent applications, implement basic OCR apps, build complex agentic workflows, tackle advanced fine-tuning projects, and deploy production-grade AI systems. Projects are categorized by difficulty (Beginner, Intermediate, Advanced) covering diverse domains like multimodal AI, voice interfaces, model comparison, and advanced infrastructure using frameworks like CrewAI, LlamaIndex, and Ollama. This repository empowers developers to gain hands-on experience and stay current with the rapidly evolving field of AI engineering.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Engineering</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Retrieval-Augmented Generation</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Fine-tuning</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>AI 辅助筛选，原始来源始终可查。</span></footer>
+  <script src="../../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2025-12-06" data-counter-title="NO-FOMO issue 2025-12-06" defer></script>
 </body>
 </html>

@@ -1,452 +1,148 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-11-07</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2025-11-07</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="../" class="">中文</a>
-                <a href="." class="active">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-11-07</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../../home/en/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 Back to Homepage</a>
-            <a href="../../../daily/en/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 Latest Daily</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 About Us</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>OSS implementation of Test Time Diffusion that runs on a 24gb GPU</h2>
-                <span class="published-time">Published: 2025-11-07 12:02:01</span>
-                
-                <p class="summary">This Hacker News submission introduces an open-source software (OSS) implementation of Test Time Diffusion, a technique that likely enhances the performance or applicability of diffusion models during their inference phase. A significant aspect of this particular implementation is its optimized design, enabling it to run efficiently on a 24GB GPU. This capability is notable within the realm of generative AI, where high computational resources are often a bottleneck, suggesting that this OSS project lowers the hardware requirements for engaging with advanced diffusion model functionalities. The initiative is poised to democratize access to sophisticated AI generation techniques, fostering broader experimentation and development within the community. By making Test Time Diffusion more accessible, the project could accelerate innovation across various applications, including high-fidelity image synthesis, video generation, and other creative content production. This focus on resource optimization addresses a critical challenge in deploying complex AI models, making cutting-edge research more practical and widely applicable for both academic and industrial use cases.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Diffusion Models</span><span>Generative AI</span><span>Open Source Software</span><span>GPU Computing</span><span>Test Time Diffusion</span><span>AI Efficiency</span><span>Deep Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Deep Learning</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/eamag/MMU-RAG-competition" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>From Memorization to Reasoning in the Spectrum of Loss Curvature</h2>
-                <span class="published-time">Published: 2025-11-07 12:43:49</span>
-                
-                <p class="summary">This research paper, "From Memorization to Reasoning in the Spectrum of Loss Curvature," investigates the profound connection between the geometric characteristics of the loss landscape and the learning behaviors of neural networks, particularly the crucial shift from rote memorization to robust reasoning. The study likely explores how the spectrum of loss curvature, encompassing both flat minima associated with strong generalization and sharper minima often linked to memorization, influences a model's ability to extrapolate effectively beyond its training data. By analyzing the spectral properties of the Hessian matrix and the dynamics of optimization, the authors aim to elucidate how specific architectural designs and training methodologies contribute to fostering more generalized reasoning capabilities. This work offers significant insights into the fundamental mechanisms governing generalization in deep learning, providing a theoretical foundation for developing more effective training strategies and architectures that promote genuine understanding and adaptability over mere data recall, thereby advancing the field's capacity to build more intelligent systems.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Loss Curvature</span><span>Generalization</span><span>Neural Networks</span><span>Memorization</span><span>Reasoning</span><span>Loss Landscape</span><span>Optimization</span><span>Hessian Matrix</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Machine Learning</span><span>Deep Learning</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://arxiv.org/abs/2510.24256" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Leaving Meta and PyTorch</h2>
-                <span class="published-time">Published: 2025-11-07 06:14:50</span>
-                
-                <p class="summary">A significant development has been announced concerning the leadership associated with the PyTorch deep learning framework. The blog post, titled 'Leaving Meta and PyTorch,' indicates the departure of a key individual from Meta Platforms, Inc., who was closely involved with the popular open-source machine learning library. PyTorch, originally developed by Facebook's AI Research lab (now Meta AI), has grown to become one of the most widely used frameworks for AI research and development, particularly in deep learning applications and academic research. This departure marks a notable change within the team responsible for guiding PyTorch's evolution and strategic direction, a framework critical to numerous advancements in artificial intelligence. While specific reasons for the departure or future plans of the individual are not detailed in the provided content, such transitions often prompt discussions within the global AI community regarding potential shifts in project governance, development focus, or the individual's next professional ventures. The event highlights the dynamic nature of leadership within major technological initiatives and their potential impact on the broader AI ecosystem, especially for foundational tools like PyTorch that underpin extensive research and commercial applications.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>PyTorch</span><span>Deep Learning</span><span>Meta AI</span><span>Machine Learning Frameworks</span><span>Open Source</span><span>AI Development</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://soumith.ch/blog/2025-11-06-leaving-meta-and-pytorch.md.html" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Y Combinator Startup brings brainrot to developers' IDEs</h2>
-                <span class="published-time">Published: 2025-11-07 16:56:49</span>
-                
-                <p class="summary">A Y Combinator-backed startup, Cladlabs.ai, is launching a new product targeting developers' Integrated Development Environments (IDEs). The tool, whose specific functionalities are not detailed in the provided content, has been met with critical, albeit informal, commentary, with some users describing its impact as "brainrot." This colloquial term suggests significant user dissatisfaction, potentially stemming from perceived issues such as intrusive features, excessive automation that hinders developer productivity or critical thinking, or a general sense of distraction and decreased cognitive engagement during the coding process. While the exact nature of the tool's perceived drawbacks remains to be formally elaborated, the strong negative sentiment highlights a potential challenge for AI-powered developer tools in balancing assistance with maintaining developer autonomy and cognitive flow. The reception underscores the importance of intuitive design and genuine value addition in AI integrations within professional development workflows.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Developer Tools</span><span>IDE</span><span>AI Assistance</span><span>Software Engineering</span><span>Y Combinator</span><span>Productivity Software</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.cladlabs.ai" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Gmail AI gets more intrusive</h2>
-                <span class="published-time">Published: 2025-11-07 17:07:01</span>
-                
-                <p class="summary">Recent reports indicate a growing integration of advanced Artificial Intelligence features within Google's Gmail service, prompting discussions about the evolving nature of user interaction and data privacy. While these AI enhancements aim to streamline email management through predictive text, smart replies, and automated categorization, concerns are mounting regarding their perceived intrusiveness. Users and privacy advocates are increasingly scrutinizing the extent to which AI models analyze personal communications, raising questions about data collection, processing transparency, and the potential implications for individual autonomy. The integration of more sophisticated AI capabilities suggests a future where email platforms play a more active role in interpreting and even influencing user correspondence. This development highlights the ongoing challenge for tech companies to balance innovative, helpful AI functionalities with the need to maintain user trust, respect privacy boundaries, and offer clear opt-out mechanisms. The debate underscores critical ethical considerations in the deployment of AI within personal communication tools, emphasizing the need for robust data governance and user-centric design principles.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Artificial Intelligence</span><span>Data Privacy</span><span>Gmail</span><span>User Experience</span><span>Email Management</span><span>Machine Learning</span><span>AI Ethics</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Natural Language Processing</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://daveverse.org/2025/11/07/gmail-ai-gets-even-more-intrusive/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>A.I. and Social Media Contribute to 'Brain Rot'</h2>
-                <span class="published-time">Published: 2025-11-07 15:34:33</span>
-                
-                <p class="summary">A recent article from The New York Times addresses the escalating concerns over the cognitive impact of modern digital consumption, specifically highlighting the role of artificial intelligence and social media platforms. Titled "A.I. and Social Media Contribute to 'Brain Rot'", the piece posits that the perpetual flow of algorithmically curated content, coupled with the addictive design of social networking services, is contributing to a notable decline in users' attention spans, critical thinking capabilities, and overall mental health. The report features expert opinions suggesting that these technologies, while engineered for maximizing user engagement, may inadvertently promote a fragmented and superficial method of information intake. This phenomenon is believed to hinder the development and application of more profound cognitive processes. The article underscores the urgent need for comprehensive research into the long-term neurological consequences of such digital environments and advocates for a fundamental reassessment of AI and social media design principles. The objective is to mitigate the potential symptoms of "brain rot" and foster healthier digital habits, prompting a broader discussion on digital literacy and the ethical development of AI.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Artificial Intelligence</span><span>Social Media</span><span>Cognitive Impairment</span><span>Digital Well-being</span><span>Algorithmic Content</span><span>Mental Health</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.nytimes.com/2025/11/06/technology/personaltech/ai-social-media-brain-rot.html" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>BettaFish: A Multi-Agent Public Opinion Analysis System</h2>
-                <span class="published-time">Published: 2025-11-07T16:07:29Z</span>
-                
-                <p class="summary">BettaFish (aka '\u5fae\u8206') is an innovative multi-agent public opinion analysis system designed to help users break through information silos, accurately understand public sentiment, predict future trends, and support decision-making. Users interact with the system via natural language queries, prompting intelligent agents to autonomously analyze over 30 mainstream domestic and international social media platforms and millions of user comments. The system boasts six key advantages: AI-driven 24/7 full-domain monitoring across diverse social media, a composite analysis engine leveraging specialized agents, fine-tuned models, and statistical methods, robust multimodal capabilities for analyzing short videos and structured information, an Agent 'Forum' collaboration mechanism for enhanced collective intelligence, seamless integration of public and private data, and a lightweight, highly extensible Python-based framework. BettaFish aims to evolve into a versatile data analysis engine for various business scenarios, starting with public opinion.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multi-Agent System</span><span>Public Opinion Analysis</span><span>AI Crawlers</span><span>Multimodal Analysis</span><span>Large Language Model</span><span>Agent Collaboration</span><span>Data Integration</span><span>Python Framework</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/666ghj/BettaFish" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Sim: Build and Deploy AI Agent Workflows</h2>
-                <span class="published-time">Published: 2025-10-29T08:40:39Z</span>
-                
-                <p class="summary">Sim is an open-source platform specifically engineered for the rapid development and deployment of AI agent workflows. It empowers users to build sophisticated AI applications efficiently, providing flexible options for both cloud-hosted usage via sim.ai and various self-hosting configurations. A standout technical feature is its robust support for local AI models through seamless integration with Ollama, allowing operations without reliance on external APIs and ensuring data privacy and control. The platform is built on a high-performance modern tech stack, featuring Next.js for the application framework, Bun for its runtime, PostgreSQL augmented with the pgvector extension for managing AI embeddings crucial for advanced features like knowledge bases and semantic search, and Socket.io for realtime capabilities. Sim offers diverse deployment strategies, including an NPM package, Docker Compose, and Dev Containers, catering to various developer preferences. This comprehensive solution significantly streamlines the creation, management, and scaling of intelligent agents, making advanced AI capabilities more accessible and adaptable for developers and organizations.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agent</span><span>Workflow Automation</span><span>Self-hosted</span><span>Ollama</span><span>PostgreSQL</span><span>pgvector</span><span>Next.js</span><span>Docker Compose</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/simstudioai/sim" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>Thinking with Video: Video Generation as a Promising Multimodal Reasoning Paradigm</h2>
-                <span class="published-time">Published: 2025-11-06T17:25:23.000Z</span>
-                
-                <p class="summary">"Thinking with Text" and "Thinking with Images" paradigm significantly improve the reasoning ability of large language models (LLMs) and Vision Language Models (VLMs). However, these paradigms have inherent limitations. (1) Images capture only single moments and fail to represent dynamic processes or continuous changes, and (2) The separation of text and vision as distinct modalities, hindering unified multimodal understanding and generation. To overcome these limitations, we introduce "Thinking with Video", a new paradigm that leverages video generation models, such as Sora-2, to bridge visual and textual reasoning in a unified temporal framework. To support this exploration, we developed the Video Thinking Benchmark (VideoThinkBench). VideoThinkBench encompasses two task categories: (1) vision-centric tasks (e.g., Eyeballing Puzzles), and (2) text-centric tasks (e.g., subsets of GSM8K, MMMU). Our evaluation establishes Sora-2 as a capable reasoner. On vision-centric tasks, Sora-2 is generally comparable to state-of-the-art (SOTA) VLMs, and even surpasses VLMs on several tasks, such as Eyeballing Games. On text-centric tasks, Sora-2 achieves 92% accuracy on MATH, and 75.53% accuracy on MMMU. Furthermore, we systematically analyse the source of these abilities. We also find that self-consistency and in-context learning can improve Sora-2's performance. In summary, our findings demonstrate that the video generation model is the potential unified multimodal understanding and generation model, positions "thinking with video" as a unified multimodal reasoning paradigm.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Thinking with Video</span><span>Video Generation</span><span>Multimodal Reasoning</span><span>Large Language Models</span><span>Sora-2</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Generative AI</span><span>Video Understanding</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2511.04570" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Benchmark Designers Should "Train on the Test Set" to Expose Exploitable Non-Visual Shortcuts</h2>
-                <span class="published-time">Published: 2025-11-06T18:43:21.000Z</span>
-                
-                <p class="summary">Robust benchmarks are crucial for evaluating Multimodal Large Language Models (MLLMs). Yet we find that models can ace many multimodal benchmarks without strong visual understanding, instead exploiting biases, linguistic priors, and superficial patterns. This is especially problematic for vision-centric benchmarks that are meant to require visual inputs. We adopt a diagnostic principle for benchmark design: if a benchmark can be gamed, it will be. Designers should therefore try to ``game'' their own benchmarks first, using diagnostic and debiasing procedures to systematically identify and mitigate non-visual biases. Effective diagnosis requires directly ``training on the test set'' -- probing the released test set for its intrinsic, exploitable patterns. We operationalize this standard with two components. First, we diagnose benchmark susceptibility using a ``Test-set Stress-Test'' (TsT) methodology. Our primary diagnostic tool involves fine-tuning a powerful Large Language Model via k-fold cross-validation on exclusively the non-visual, textual inputs of the test set to reveal shortcut performance and assign each sample a bias score s(x). We complement this with a lightweight Random Forest-based diagnostic operating on hand-crafted features for fast, interpretable auditing. Second, we debias benchmarks by filtering high-bias samples using an ``Iterative Bias Pruning'' (IBP) procedure. Applying this framework to four benchmarks -- VSI-Bench, CV-Bench, MMMU, and VideoMME -- we uncover pervasive non-visual biases. As a case study, we apply our full framework to create VSI-Bench-Debiased, demonstrating reduced non-visual solvability and a wider vision-blind performance gap than the original.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multimodal Large Language Models</span><span>Benchmark evaluation</span><span>Non-visual biases</span><span>Test-set Stress-Test</span><span>Bias pruning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Large Language Model</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2511.04655" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>GUI-360: A Comprehensive Dataset and Benchmark for Computer-Using Agents</h2>
-                <span class="published-time">Published: 2025-11-06T12:19:02.000Z</span>
-                
-                <p class="summary">We introduce GUI-360, a large-scale, comprehensive dataset and benchmark suite designed to advance computer-using agents (CUAs). CUAs present unique challenges and is constrained by three persistent gaps: a scarcity of real-world CUA tasks, the lack of automated collection-and-annotation pipelines for multi-modal trajectories, and the absence of a unified benchmark that jointly evaluates GUI grounding, screen parsing, and action prediction. GUI-360 addresses these gaps with an LLM-augmented, largely automated pipeline for query sourcing, environment-template construction, task instantiation, batched execution, and LLM-driven quality filtering. The released corpus contains over 1.2M executed action steps across thousands of trajectories in popular Windows office applications, and includes full-resolution screenshots, accessibility metadata when available, instantiated goals, intermediate reasoning traces, and both successful and failed action trajectories. The dataset supports three canonical tasks, GUI grounding, screen parsing, and action prediction, and a hybrid GUI+API action space that reflects modern agent designs. Benchmarking state-of-the-art vision--language models on GUI-360 reveals substantial out-of-the-box shortcomings in grounding and action prediction; supervised fine-tuning and reinforcement learning yield significant gains but do not close the gap to human-level reliability. We release GUI-360 and accompanying code to facilitate reproducible research and accelerate progress on robust desktop CUAs. The full dataset has been made public on https://huggingface.co/datasets/vyokky/GUI-360.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Computer-Using Agents</span><span>Dataset</span><span>Benchmark</span><span>GUI Grounding</span><span>Action Prediction</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Multimodal</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2511.04307" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>NVIDIA Nemotron Nano V2 VL</h2>
-                <span class="published-time">Published: 2025-11-06T00:10:19.000Z</span>
-                
-                <p class="summary">We introduce Nemotron Nano V2 VL, the latest model of the Nemotron vision-language series designed for strong real-world document understanding, long video comprehension, and reasoning tasks. Nemotron Nano V2 VL delivers significant improvements over our previous model, Llama-3.1-Nemotron-Nano-VL-8B, across all vision and text domains through major enhancements in model architecture, datasets, and training recipes. Nemotron Nano V2 VL builds on Nemotron Nano V2, a hybrid Mamba-Transformer LLM, and innovative token reduction techniques to achieve higher inference throughput in long document and video scenarios. We are releasing model checkpoints in BF16, FP8, and FP4 formats and sharing large parts of our datasets, recipes and training code.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Vision-language model</span><span>Document understanding</span><span>Video comprehension</span><span>Mamba-Transformer LLM</span><span>Inference throughput</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Video Understanding</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2511.03929" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Scaling Agent Learning via Experience Synthesis</h2>
-                <span class="published-time">Published: 2025-11-05T18:58:48.000Z</span>
-                
-                <p class="summary">While reinforcement learning (RL) can empower large language model (LLM) agents by enabling self-improvement through interaction, its practical adoption remains challenging due to costly rollouts, limited task diversity, unreliable reward signals, and infrastructure complexity, all of which obstruct the collection of scalable experience data. To address these challenges, we introduce DreamGym, the first unified framework designed to synthesize diverse experiences with scalability in mind to enable effective online RL training for autonomous agents. Rather than relying on expensive real-environment rollouts, DreamGym distills environment dynamics into a reasoning-based experience model that derives consistent state transitions and feedback signals through step-by-step reasoning, enabling scalable agent rollout collection for RL. To improve the stability and quality of transitions, DreamGym leverages an experience replay buffer initialized with offline real-world data and continuously enriched with fresh interactions to actively support agent training. To improve knowledge acquisition, DreamGym adaptively generates new tasks that challenge the current agent policy, enabling more effective online curriculum learning. Experiments across diverse environments and agent backbones demonstrate that DreamGym substantially improves RL training, both in fully synthetic settings and in sim-to-real transfer scenarios. On non-RL-ready tasks like WebArena, DreamGym outperforms all baselines by over 30%. And in RL-ready but costly settings, it matches GRPO and PPO performance using only synthetic interactions. When transferring a policy trained purely on synthetic experiences to real-environment RL, DreamGym yields significant additional performance gains while requiring far fewer real-world interactions, providing a scalable warm-start strategy for general-purpose RL.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Reinforcement Learning</span><span>LLM Agents</span><span>Experience Synthesis</span><span>Scalable Training</span><span>Curriculum Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Machine Learning</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2511.03773" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>SAIL-RL: Guiding MLLMs in When and How to Think via Dual-Reward RL</h2>
-                <span class="published-time">Published: 2025-11-04T05:34:06.000Z</span>
-                
-                <p class="summary">We introduce SAIL-RL, a reinforcement learning (RL) post-training framework that enhances the reasoning capabilities of multimodal large language models (MLLMs) by teaching them when and how to think. Existing approaches are limited by outcome-only supervision, which rewards correct answers without ensuring sound reasoning, and by uniform thinking strategies, which often lead to overthinking on simple tasks and underthinking on complex ones. SAIL-RL addresses these challenges with a dual reward system: the Thinking Reward, which evaluates reasoning quality through factual grounding, logical coherence, and answer consistency, and the Judging Reward, which adaptively determines whether deep reasoning or direct answering is appropriate. Experiments on the state-of-the-art SAIL-VL2 show that SAIL-RL improves reasoning and multimodal understanding benchmarks at both 4B and 8B scales, achieving competitive performance against commercial closed-source models such as GPT-4o, and substantially reduces hallucinations, establishing it as a principled framework for building more reliable and adaptive MLLMs. The code will be available at https://github.com/BytedanceDouyinContent/SAIL-RL.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>SAIL-RL</span><span>Multimodal Large Language Models</span><span>Reinforcement Learning</span><span>Reasoning</span><span>Dual-Reward System</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Large Language Model</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2511.02280" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/en/" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/en/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2025-11-07</strong><span>ENGLISH EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2025-11-07" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-11-07 12:02:01</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/eamag/MMU-RAG-competition" target="_blank" rel="noopener noreferrer">OSS implementation of Test Time Diffusion that runs on a 24gb GPU</a></h3>
+    <p class="story-summary">This Hacker News submission introduces an open-source software (OSS) implementation of Test Time Diffusion, a technique that likely enhances the performance or applicability of diffusion models during their inference phase. A significant aspect of this particular implementation is its optimized design, enabling it to run efficiently on a 24GB GPU. This capability is notable within the realm of generative AI, where high computational resources are often a bottleneck, suggesting that this OSS project lowers the hardware requirements for engaging with advanced diffusion model functionalities. The initiative is poised to democratize access to sophisticated AI generation techniques, fostering broader experimentation and development within the community. By making Test Time Diffusion more accessible, the project could accelerate innovation across various applications, including high-fidelity image synthesis, video generation, and other creative content production. This focus on resource optimization addresses a critical challenge in deploying complex AI models, making cutting-edge research more practical and widely applicable for both academic and industrial use cases.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Diffusion Models</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-keyword">Open Source Software</span><span class="tag tag-keyword">GPU Computing</span><span class="tag tag-keyword">Test Time Diffusion</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-11-07 12:43:49</time></div>
+  <div class="story-body">
+    <h3><a href="https://arxiv.org/abs/2510.24256" target="_blank" rel="noopener noreferrer">From Memorization to Reasoning in the Spectrum of Loss Curvature</a></h3>
+    <p class="story-summary">This research paper, &quot;From Memorization to Reasoning in the Spectrum of Loss Curvature,&quot; investigates the profound connection between the geometric characteristics of the loss landscape and the learning behaviors of neural networks, particularly the crucial shift from rote memorization to robust reasoning. The study likely explores how the spectrum of loss curvature, encompassing both flat minima associated with strong generalization and sharper minima often linked to memorization, influences a model&#x27;s ability to extrapolate effectively beyond its training data. By analyzing the spectral properties of the Hessian matrix and the dynamics of optimization, the authors aim to elucidate how specific architectural designs and training methodologies contribute to fostering more generalized reasoning capabilities. This work offers significant insights into the fundamental mechanisms governing generalization in deep learning, providing a theoretical foundation for developing more effective training strategies and architectures that promote genuine understanding and adaptability over mere data recall, thereby advancing the field&#x27;s capacity to build more intelligent systems.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Loss Curvature</span><span class="tag tag-keyword">Generalization</span><span class="tag tag-keyword">Neural Networks</span><span class="tag tag-keyword">Memorization</span><span class="tag tag-keyword">Reasoning</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-11-07 06:14:50</time></div>
+  <div class="story-body">
+    <h3><a href="https://soumith.ch/blog/2025-11-06-leaving-meta-and-pytorch.md.html" target="_blank" rel="noopener noreferrer">Leaving Meta and PyTorch</a></h3>
+    <p class="story-summary">A significant development has been announced concerning the leadership associated with the PyTorch deep learning framework. The blog post, titled &#x27;Leaving Meta and PyTorch,&#x27; indicates the departure of a key individual from Meta Platforms, Inc., who was closely involved with the popular open-source machine learning library. PyTorch, originally developed by Facebook&#x27;s AI Research lab (now Meta AI), has grown to become one of the most widely used frameworks for AI research and development, particularly in deep learning applications and academic research. This departure marks a notable change within the team responsible for guiding PyTorch&#x27;s evolution and strategic direction, a framework critical to numerous advancements in artificial intelligence. While specific reasons for the departure or future plans of the individual are not detailed in the provided content, such transitions often prompt discussions within the global AI community regarding potential shifts in project governance, development focus, or the individual&#x27;s next professional ventures. The event highlights the dynamic nature of leadership within major technological initiatives and their potential impact on the broader AI ecosystem, especially for foundational tools like PyTorch that underpin extensive research and commercial applications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">PyTorch</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-keyword">Meta AI</span><span class="tag tag-keyword">Machine Learning Frameworks</span><span class="tag tag-keyword">Open Source</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-11-07 16:56:49</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.cladlabs.ai" target="_blank" rel="noopener noreferrer">Y Combinator Startup brings brainrot to developers&#x27; IDEs</a></h3>
+    <p class="story-summary">A Y Combinator-backed startup, Cladlabs.ai, is launching a new product targeting developers&#x27; Integrated Development Environments (IDEs). The tool, whose specific functionalities are not detailed in the provided content, has been met with critical, albeit informal, commentary, with some users describing its impact as &quot;brainrot.&quot; This colloquial term suggests significant user dissatisfaction, potentially stemming from perceived issues such as intrusive features, excessive automation that hinders developer productivity or critical thinking, or a general sense of distraction and decreased cognitive engagement during the coding process. While the exact nature of the tool&#x27;s perceived drawbacks remains to be formally elaborated, the strong negative sentiment highlights a potential challenge for AI-powered developer tools in balancing assistance with maintaining developer autonomy and cognitive flow. The reception underscores the importance of intuitive design and genuine value addition in AI integrations within professional development workflows.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Developer Tools</span><span class="tag tag-keyword">IDE</span><span class="tag tag-keyword">AI Assistance</span><span class="tag tag-keyword">Software Engineering</span><span class="tag tag-keyword">Y Combinator</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-11-07 17:07:01</time></div>
+  <div class="story-body">
+    <h3><a href="https://daveverse.org/2025/11/07/gmail-ai-gets-even-more-intrusive/" target="_blank" rel="noopener noreferrer">Gmail AI gets more intrusive</a></h3>
+    <p class="story-summary">Recent reports indicate a growing integration of advanced Artificial Intelligence features within Google&#x27;s Gmail service, prompting discussions about the evolving nature of user interaction and data privacy. While these AI enhancements aim to streamline email management through predictive text, smart replies, and automated categorization, concerns are mounting regarding their perceived intrusiveness. Users and privacy advocates are increasingly scrutinizing the extent to which AI models analyze personal communications, raising questions about data collection, processing transparency, and the potential implications for individual autonomy. The integration of more sophisticated AI capabilities suggests a future where email platforms play a more active role in interpreting and even influencing user correspondence. This development highlights the ongoing challenge for tech companies to balance innovative, helpful AI functionalities with the need to maintain user trust, respect privacy boundaries, and offer clear opt-out mechanisms. The debate underscores critical ethical considerations in the deployment of AI within personal communication tools, emphasizing the need for robust data governance and user-centric design principles.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Data Privacy</span><span class="tag tag-keyword">Gmail</span><span class="tag tag-keyword">User Experience</span><span class="tag tag-keyword">Email Management</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-11-07 15:34:33</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.nytimes.com/2025/11/06/technology/personaltech/ai-social-media-brain-rot.html" target="_blank" rel="noopener noreferrer">A.I. and Social Media Contribute to &#x27;Brain Rot&#x27;</a></h3>
+    <p class="story-summary">A recent article from The New York Times addresses the escalating concerns over the cognitive impact of modern digital consumption, specifically highlighting the role of artificial intelligence and social media platforms. Titled &quot;A.I. and Social Media Contribute to &#x27;Brain Rot&#x27;&quot;, the piece posits that the perpetual flow of algorithmically curated content, coupled with the addictive design of social networking services, is contributing to a notable decline in users&#x27; attention spans, critical thinking capabilities, and overall mental health. The report features expert opinions suggesting that these technologies, while engineered for maximizing user engagement, may inadvertently promote a fragmented and superficial method of information intake. This phenomenon is believed to hinder the development and application of more profound cognitive processes. The article underscores the urgent need for comprehensive research into the long-term neurological consequences of such digital environments and advocates for a fundamental reassessment of AI and social media design principles. The objective is to mitigate the potential symptoms of &quot;brain rot&quot; and foster healthier digital habits, prompting a broader discussion on digital literacy and the ethical development of AI.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Social Media</span><span class="tag tag-keyword">Cognitive Impairment</span><span class="tag tag-keyword">Digital Well-being</span><span class="tag tag-keyword">Algorithmic Content</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>2 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-11-07T16:07:29Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/666ghj/BettaFish" target="_blank" rel="noopener noreferrer">BettaFish: A Multi-Agent Public Opinion Analysis System</a></h3>
+    <p class="story-summary">BettaFish (aka &#x27;\u5fae\u8206&#x27;) is an innovative multi-agent public opinion analysis system designed to help users break through information silos, accurately understand public sentiment, predict future trends, and support decision-making. Users interact with the system via natural language queries, prompting intelligent agents to autonomously analyze over 30 mainstream domestic and international social media platforms and millions of user comments. The system boasts six key advantages: AI-driven 24/7 full-domain monitoring across diverse social media, a composite analysis engine leveraging specialized agents, fine-tuned models, and statistical methods, robust multimodal capabilities for analyzing short videos and structured information, an Agent &#x27;Forum&#x27; collaboration mechanism for enhanced collective intelligence, seamless integration of public and private data, and a lightweight, highly extensible Python-based framework. BettaFish aims to evolve into a versatile data analysis engine for various business scenarios, starting with public opinion.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multi-Agent System</span><span class="tag tag-keyword">Public Opinion Analysis</span><span class="tag tag-keyword">AI Crawlers</span><span class="tag tag-keyword">Multimodal Analysis</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-10-29T08:40:39Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/simstudioai/sim" target="_blank" rel="noopener noreferrer">Sim: Build and Deploy AI Agent Workflows</a></h3>
+    <p class="story-summary">Sim is an open-source platform specifically engineered for the rapid development and deployment of AI agent workflows. It empowers users to build sophisticated AI applications efficiently, providing flexible options for both cloud-hosted usage via sim.ai and various self-hosting configurations. A standout technical feature is its robust support for local AI models through seamless integration with Ollama, allowing operations without reliance on external APIs and ensuring data privacy and control. The platform is built on a high-performance modern tech stack, featuring Next.js for the application framework, Bun for its runtime, PostgreSQL augmented with the pgvector extension for managing AI embeddings crucial for advanced features like knowledge bases and semantic search, and Socket.io for realtime capabilities. Sim offers diverse deployment strategies, including an NPM package, Docker Compose, and Dev Containers, catering to various developer preferences. This comprehensive solution significantly streamlines the creation, management, and scaling of intelligent agents, making advanced AI capabilities more accessible and adaptable for developers and organizations.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Workflow Automation</span><span class="tag tag-keyword">Self-hosted</span><span class="tag tag-keyword">Ollama</span><span class="tag tag-keyword">PostgreSQL</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-11-06T17:25:23.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2511.04570" target="_blank" rel="noopener noreferrer">Thinking with Video: Video Generation as a Promising Multimodal Reasoning Paradigm</a></h3>
+    <p class="story-summary">&quot;Thinking with Text&quot; and &quot;Thinking with Images&quot; paradigm significantly improve the reasoning ability of large language models (LLMs) and Vision Language Models (VLMs). However, these paradigms have inherent limitations. (1) Images capture only single moments and fail to represent dynamic processes or continuous changes, and (2) The separation of text and vision as distinct modalities, hindering unified multimodal understanding and generation. To overcome these limitations, we introduce &quot;Thinking with Video&quot;, a new paradigm that leverages video generation models, such as Sora-2, to bridge visual and textual reasoning in a unified temporal framework. To support this exploration, we developed the Video Thinking Benchmark (VideoThinkBench). VideoThinkBench encompasses two task categories: (1) vision-centric tasks (e.g., Eyeballing Puzzles), and (2) text-centric tasks (e.g., subsets of GSM8K, MMMU). Our evaluation establishes Sora-2 as a capable reasoner. On vision-centric tasks, Sora-2 is generally comparable to state-of-the-art (SOTA) VLMs, and even surpasses VLMs on several tasks, such as Eyeballing Games. On text-centric tasks, Sora-2 achieves 92% accuracy on MATH, and 75.53% accuracy on MMMU. Furthermore, we systematically analyse the source of these abilities. We also find that self-consistency and in-context learning can improve Sora-2&#x27;s performance. In summary, our findings demonstrate that the video generation model is the potential unified multimodal understanding and generation model, positions &quot;thinking with video&quot; as a unified multimodal reasoning paradigm.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Thinking with Video</span><span class="tag tag-keyword">Video Generation</span><span class="tag tag-keyword">Multimodal Reasoning</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Sora-2</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Video Understanding</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-11-06T18:43:21.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2511.04655" target="_blank" rel="noopener noreferrer">Benchmark Designers Should &quot;Train on the Test Set&quot; to Expose Exploitable Non-Visual Shortcuts</a></h3>
+    <p class="story-summary">Robust benchmarks are crucial for evaluating Multimodal Large Language Models (MLLMs). Yet we find that models can ace many multimodal benchmarks without strong visual understanding, instead exploiting biases, linguistic priors, and superficial patterns. This is especially problematic for vision-centric benchmarks that are meant to require visual inputs. We adopt a diagnostic principle for benchmark design: if a benchmark can be gamed, it will be. Designers should therefore try to ``game&#x27;&#x27; their own benchmarks first, using diagnostic and debiasing procedures to systematically identify and mitigate non-visual biases. Effective diagnosis requires directly ``training on the test set&#x27;&#x27; -- probing the released test set for its intrinsic, exploitable patterns. We operationalize this standard with two components. First, we diagnose benchmark susceptibility using a ``Test-set Stress-Test&#x27;&#x27; (TsT) methodology. Our primary diagnostic tool involves fine-tuning a powerful Large Language Model via k-fold cross-validation on exclusively the non-visual, textual inputs of the test set to reveal shortcut performance and assign each sample a bias score s(x). We complement this with a lightweight Random Forest-based diagnostic operating on hand-crafted features for fast, interpretable auditing. Second, we debias benchmarks by filtering high-bias samples using an ``Iterative Bias Pruning&#x27;&#x27; (IBP) procedure. Applying this framework to four benchmarks -- VSI-Bench, CV-Bench, MMMU, and VideoMME -- we uncover pervasive non-visual biases. As a case study, we apply our full framework to create VSI-Bench-Debiased, demonstrating reduced non-visual solvability and a wider vision-blind performance gap than the original.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multimodal Large Language Models</span><span class="tag tag-keyword">Benchmark evaluation</span><span class="tag tag-keyword">Non-visual biases</span><span class="tag tag-keyword">Test-set Stress-Test</span><span class="tag tag-keyword">Bias pruning</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-11-06T12:19:02.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2511.04307" target="_blank" rel="noopener noreferrer">GUI-360: A Comprehensive Dataset and Benchmark for Computer-Using Agents</a></h3>
+    <p class="story-summary">We introduce GUI-360, a large-scale, comprehensive dataset and benchmark suite designed to advance computer-using agents (CUAs). CUAs present unique challenges and is constrained by three persistent gaps: a scarcity of real-world CUA tasks, the lack of automated collection-and-annotation pipelines for multi-modal trajectories, and the absence of a unified benchmark that jointly evaluates GUI grounding, screen parsing, and action prediction. GUI-360 addresses these gaps with an LLM-augmented, largely automated pipeline for query sourcing, environment-template construction, task instantiation, batched execution, and LLM-driven quality filtering. The released corpus contains over 1.2M executed action steps across thousands of trajectories in popular Windows office applications, and includes full-resolution screenshots, accessibility metadata when available, instantiated goals, intermediate reasoning traces, and both successful and failed action trajectories. The dataset supports three canonical tasks, GUI grounding, screen parsing, and action prediction, and a hybrid GUI+API action space that reflects modern agent designs. Benchmarking state-of-the-art vision--language models on GUI-360 reveals substantial out-of-the-box shortcomings in grounding and action prediction; supervised fine-tuning and reinforcement learning yield significant gains but do not close the gap to human-level reliability. We release GUI-360 and accompanying code to facilitate reproducible research and accelerate progress on robust desktop CUAs. The full dataset has been made public on https://huggingface.co/datasets/vyokky/GUI-360.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Computer-Using Agents</span><span class="tag tag-keyword">Dataset</span><span class="tag tag-keyword">Benchmark</span><span class="tag tag-keyword">GUI Grounding</span><span class="tag tag-keyword">Action Prediction</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-11-06T00:10:19.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2511.03929" target="_blank" rel="noopener noreferrer">NVIDIA Nemotron Nano V2 VL</a></h3>
+    <p class="story-summary">We introduce Nemotron Nano V2 VL, the latest model of the Nemotron vision-language series designed for strong real-world document understanding, long video comprehension, and reasoning tasks. Nemotron Nano V2 VL delivers significant improvements over our previous model, Llama-3.1-Nemotron-Nano-VL-8B, across all vision and text domains through major enhancements in model architecture, datasets, and training recipes. Nemotron Nano V2 VL builds on Nemotron Nano V2, a hybrid Mamba-Transformer LLM, and innovative token reduction techniques to achieve higher inference throughput in long document and video scenarios. We are releasing model checkpoints in BF16, FP8, and FP4 formats and sharing large parts of our datasets, recipes and training code.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Vision-language model</span><span class="tag tag-keyword">Document understanding</span><span class="tag tag-keyword">Video comprehension</span><span class="tag tag-keyword">Mamba-Transformer LLM</span><span class="tag tag-keyword">Inference throughput</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Video Understanding</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-11-05T18:58:48.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2511.03773" target="_blank" rel="noopener noreferrer">Scaling Agent Learning via Experience Synthesis</a></h3>
+    <p class="story-summary">While reinforcement learning (RL) can empower large language model (LLM) agents by enabling self-improvement through interaction, its practical adoption remains challenging due to costly rollouts, limited task diversity, unreliable reward signals, and infrastructure complexity, all of which obstruct the collection of scalable experience data. To address these challenges, we introduce DreamGym, the first unified framework designed to synthesize diverse experiences with scalability in mind to enable effective online RL training for autonomous agents. Rather than relying on expensive real-environment rollouts, DreamGym distills environment dynamics into a reasoning-based experience model that derives consistent state transitions and feedback signals through step-by-step reasoning, enabling scalable agent rollout collection for RL. To improve the stability and quality of transitions, DreamGym leverages an experience replay buffer initialized with offline real-world data and continuously enriched with fresh interactions to actively support agent training. To improve knowledge acquisition, DreamGym adaptively generates new tasks that challenge the current agent policy, enabling more effective online curriculum learning. Experiments across diverse environments and agent backbones demonstrate that DreamGym substantially improves RL training, both in fully synthetic settings and in sim-to-real transfer scenarios. On non-RL-ready tasks like WebArena, DreamGym outperforms all baselines by over 30%. And in RL-ready but costly settings, it matches GRPO and PPO performance using only synthetic interactions. When transferring a policy trained purely on synthetic experiences to real-environment RL, DreamGym yields significant additional performance gains while requiring far fewer real-world interactions, providing a scalable warm-start strategy for general-purpose RL.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">LLM Agents</span><span class="tag tag-keyword">Experience Synthesis</span><span class="tag tag-keyword">Scalable Training</span><span class="tag tag-keyword">Curriculum Learning</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-11-04T05:34:06.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2511.02280" target="_blank" rel="noopener noreferrer">SAIL-RL: Guiding MLLMs in When and How to Think via Dual-Reward RL</a></h3>
+    <p class="story-summary">We introduce SAIL-RL, a reinforcement learning (RL) post-training framework that enhances the reasoning capabilities of multimodal large language models (MLLMs) by teaching them when and how to think. Existing approaches are limited by outcome-only supervision, which rewards correct answers without ensuring sound reasoning, and by uniform thinking strategies, which often lead to overthinking on simple tasks and underthinking on complex ones. SAIL-RL addresses these challenges with a dual reward system: the Thinking Reward, which evaluates reasoning quality through factual grounding, logical coherence, and answer consistency, and the Judging Reward, which adaptively determines whether deep reasoning or direct answering is appropriate. Experiments on the state-of-the-art SAIL-VL2 show that SAIL-RL improves reasoning and multimodal understanding benchmarks at both 4B and 8B scales, achieving competitive performance against commercial closed-source models such as GPT-4o, and substantially reduces hallucinations, establishing it as a principled framework for building more reliable and adaptive MLLMs. The code will be available at https://github.com/BytedanceDouyinContent/SAIL-RL.</p>
+    <div class="story-tags"><span class="tag tag-keyword">SAIL-RL</span><span class="tag tag-keyword">Multimodal Large Language Models</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Reasoning</span><span class="tag tag-keyword">Dual-Reward System</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2025-11-07" data-counter-title="NO-FOMO issue 2025-11-07" defer></script>
 </body>
 </html>

@@ -1,267 +1,180 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 日报 - 2026-05-26</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box}
-body{
-  font-family:'Inter, Noto Sans SC',system-ui,-apple-system,sans-serif;
-  line-height:1.8;margin:0;padding:0;
-  background:#fafafa;color:#222;
-  -webkit-font-smoothing:antialiased;
-}
-a{color:#222;text-decoration:none}
-a:hover{color:#0969da}
-
-.page{max-width:740px;margin:0 auto;padding:40px 24px 80px}
-
-header{margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid #e5e5e5}
-header h1{font-size:2rem;font-weight:700;margin:0 0 4px;letter-spacing:-0.02em}
-header .subtitle{color:#666;font-size:1rem;margin:0 0 12px}
-header .meta{display:flex;align-items:center;gap:16px;color:#999;font-size:0.875rem}
-header .meta .date{font-weight:500;color:#555}
-.lang-switch{
-  display:inline-block;padding:4px 12px;border:1px solid #ddd;border-radius:20px;
-  font-size:0.8rem;color:#555;transition:all .2s;
-}
-.lang-switch:hover{border-color:#222;color:#222}
-
-.source-section{margin-bottom:48px}
-.source-title{
-  font-size:0.9rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;
-  color:#666;margin:0 0 20px;padding-bottom:12px;border-bottom:1px solid #eee;
-  display:flex;align-items:center;gap:8px;
-}
-.source-title svg{opacity:0.6}
-
-.card{
-  padding:24px 0;border-bottom:1px solid #f0f0f0;
-  transition:background .2s;
-}
-.card:last-child{border-bottom:none}
-
-.card-title{font-size:1.25rem;font-weight:600;line-height:1.4;margin:0 0 6px;letter-spacing:-0.01em}
-.card-title a{color:inherit;transition:color .2s}
-.card-title a:hover{color:#0969da}
-
-time{display:block;font-size:0.8rem;color:#999;margin-bottom:12px}
-
-.screenshot-link{display:block;margin:16px 0;border-radius:12px;overflow:hidden;border:1px solid #e5e5e5;transition:box-shadow .3s}
-.screenshot-link:hover{box-shadow:0 4px 20px rgba(0,0,0,0.08)}
-.screenshot-link img{display:block;width:100%;height:auto}
-
-.card-summary{
-  font-size:1rem;color:#444;margin:0 0 12px;line-height:1.75;
-}
-
-.card-tags{display:flex;flex-wrap:wrap;gap:6px}
-.tag{
-  display:inline-block;padding:3px 10px;border-radius:20px;
-  font-size:0.75rem;font-weight:500;line-height:1.5;
-}
-.tag-keyword{background:#f0f4ff;color:#3b5998}
-.tag-area{background:#f0faf4;color:#1a7f37}
-
-footer{
-  text-align:center;padding:32px 0;margin-top:24px;
-  border-top:1px solid #e5e5e5;color:#999;font-size:0.85rem;
-}
-footer a{color:#666}
-footer a:hover{color:#222}
-
-@media(max-width:600px){
-  .page{padding:24px 16px 60px}
-  header h1{font-size:1.5rem}
-  .card-title{font-size:1.1rem}
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO AI 日报 — 2026-05-26</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"PingFang SC","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em}.issue h1{margin:0;max-width:820px;font:800 clamp(2.6rem,7vw,6.3rem)/1.02 Georgia,"Songti SC",serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.06em}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,"Songti SC",serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:800 clamp(1.5rem,3vw,2.35rem)/1.2 Georgia,"Songti SC",serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.86 Georgia,"Songti SC",serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-<div class="page">
-  <header>
-    <h1>AI 日报</h1>
-    <p class="subtitle">AI 前沿资讯、研究与趋势精选</p>
-    <div class="meta">
-      <span class="date">2026-05-26</span>
-      <a href="../en/" class="lang-switch">EN</a>
-    </div>
-  </header>
-  <main>
-    <section class="source-section"><h2 class="source-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2>
-<article class="card">
-  <div class="card-body">
-    <h3 class="card-title"><a href="https://vllm.ai/blog/2026-05-26-eagle-3-1" target="_blank" rel="noopener noreferrer">Eagle 3.1：EAGLE 团队、vLLM 团队与 TorchSpec 团队的合作成果</a></h3>
-    <time>2026-05-26 11:46:10</time>
-    
-    <p class="card-summary">这篇技术博文介绍了 Eagle 3.1，这是 EAGLE 团队、vLLM 团队与 TorchSpec 团队之间的一项重大合作计划。此次集成旨在提高大语言模型投机解码的效率。投机解码已成为一种关键的优化技术，可在不影响生成质量的前提下加速模型推理。通过此次三方工程合作，Eagle 3.1 引入了优化的系统集成，利用了 vLLM 的高吞吐服务引擎和 TorchSpec 的专业投机执行框架。这种协同作用显著降低了延迟并提升了每秒生成的 Token 速度。通过弥合算法设计与硬件感知运行时优化之间的差距，此次合作为现代 LLM 部署提供了一种高性能的开源解决方案，为更具响应性的 AI 应用和可扩展的企业级服务架构铺平了道路。</p>
-    <div class="card-tags"><span class="tag tag-keyword">投机解码</span><span class="tag tag-keyword">模型推理</span><span class="tag tag-keyword">vLLM</span><span class="tag tag-keyword">TorchSpec</span><span class="tag tag-keyword">Eagle 3.1</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span></div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">跳到新闻列表</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO 主页">NO<i>/</i>FOMO</a><nav class="nav" aria-label="日报导航"><a href="../../../home/">往期</a><a href="../en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">每天一次，过滤 AI 噪音</p><h1>值得打开的<br>AI 日报。</h1></div><div class="issue-meta"><span>发布日期</span><strong>2026-05-26</strong><span>中文版本</span><dl class="readership" aria-label="公开阅读量"><div><dt>本期阅读</dt><dd data-view-count="/issue/2026-05-26" aria-live="polite">—</dd></div><div><dt>累计阅读</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-05-26 11:46:10</time></div>
+  <div class="story-body">
+    <h3><a href="https://vllm.ai/blog/2026-05-26-eagle-3-1" target="_blank" rel="noopener noreferrer">Eagle 3.1：EAGLE 团队、vLLM 团队与 TorchSpec 团队的合作成果</a></h3>
+    <p class="story-summary">这篇技术博文介绍了 Eagle 3.1，这是 EAGLE 团队、vLLM 团队与 TorchSpec 团队之间的一项重大合作计划。此次集成旨在提高大语言模型投机解码的效率。投机解码已成为一种关键的优化技术，可在不影响生成质量的前提下加速模型推理。通过此次三方工程合作，Eagle 3.1 引入了优化的系统集成，利用了 vLLM 的高吞吐服务引擎和 TorchSpec 的专业投机执行框架。这种协同作用显著降低了延迟并提升了每秒生成的 Token 速度。通过弥合算法设计与硬件感知运行时优化之间的差距，此次合作为现代 LLM 部署提供了一种高性能的开源解决方案，为更具响应性的 AI 应用和可扩展的企业级服务架构铺平了道路。</p>
+    <div class="story-tags"><span class="tag tag-keyword">投机解码</span><span class="tag tag-keyword">模型推理</span><span class="tag tag-keyword">vLLM</span><span class="tag tag-keyword">TorchSpec</span><span class="tag tag-keyword">Eagle 3.1</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span></div>
   </div>
 </article>
-<article class="card">
-  <div class="card-body">
-    <h3 class="card-title"><a href="https://arxiv.org/abs/2605.26099" target="_blank" rel="noopener noreferrer">一种类睡眠的 LLM 记忆整合机制</a></h3>
-    <time>2026-05-26 15:36:24</time>
-    
-    <p class="card-summary">本文介绍了一种专门为大语言模型（LLM）设计的创新型类睡眠记忆整合机制。研究人员意识到神经网络常面临灾难性遗忘和长期知识保留效率低下的问题，因此提出了一种模拟生物睡眠的全新训练阶段。在此专门的离线阶段，LLM 会处理并重组近期获取的信息，在加强有价值关联的同时剪枝冗余参数和噪声连接。研究表明，集成这种受生物启发的睡眠周期可显著提升模型的客观事实回忆能力、推理稳定性和整体样本效率。通过从持续主动学习转向平衡的主动-睡眠周期，LLM 展现出类似于人类认知过程的增强型长期记忆整合能力，为开发更健壮、更灵活且更节能的人工智能架构提供了有前景的途径。</p>
-    <div class="card-tags"><span class="tag tag-keyword">记忆整合</span><span class="tag tag-keyword">灾难性遗忘</span><span class="tag tag-keyword">生物启发 AI</span><span class="tag tag-keyword">主动-睡眠周期</span><span class="tag tag-keyword">知识保留</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span></div>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-05-26 15:36:24</time></div>
+  <div class="story-body">
+    <h3><a href="https://arxiv.org/abs/2605.26099" target="_blank" rel="noopener noreferrer">一种类睡眠的 LLM 记忆整合机制</a></h3>
+    <p class="story-summary">本文介绍了一种专门为大语言模型（LLM）设计的创新型类睡眠记忆整合机制。研究人员意识到神经网络常面临灾难性遗忘和长期知识保留效率低下的问题，因此提出了一种模拟生物睡眠的全新训练阶段。在此专门的离线阶段，LLM 会处理并重组近期获取的信息，在加强有价值关联的同时剪枝冗余参数和噪声连接。研究表明，集成这种受生物启发的睡眠周期可显著提升模型的客观事实回忆能力、推理稳定性和整体样本效率。通过从持续主动学习转向平衡的主动-睡眠周期，LLM 展现出类似于人类认知过程的增强型长期记忆整合能力，为开发更健壮、更灵活且更节能的人工智能架构提供了有前景的途径。</p>
+    <div class="story-tags"><span class="tag tag-keyword">记忆整合</span><span class="tag tag-keyword">灾难性遗忘</span><span class="tag tag-keyword">生物启发 AI</span><span class="tag tag-keyword">主动-睡眠周期</span><span class="tag tag-keyword">知识保留</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span></div>
   </div>
 </article>
-<article class="card">
-  <div class="card-body">
-    <h3 class="card-title"><a href="https://deepswe.datacurve.ai/blog" target="_blank" rel="noopener noreferrer">DeepSWE：一个无数据污染的长程编码智能体基准测试</a></h3>
-    <time>2026-05-26 19:40:59</time>
-    
-    <p class="card-summary">DeepSWE 作为一个新型且无数据污染的基准测试被引入，专门用于测试和评估长程编码智能体。现代语言模型和软件工程智能体在评估时，往往会因为测试集包含在公共代码库中而遭受数据污染。DeepSWE 通过提供一个干净、隔离的环境来解决这一问题，其中包含完全不受训练数据泄露影响的复杂多步软件工程任务。该基准测试使研究人员能够在长序列编码操作中衡量先进 AI 系统真实的推理、规划和执行能力，为自动软件开发评估建立了一个更可靠的标准。</p>
-    <div class="card-tags"><span class="tag tag-keyword">软件工程智能体</span><span class="tag tag-keyword">数据污染</span><span class="tag tag-keyword">基准评估</span><span class="tag tag-keyword">长程任务</span><span class="tag tag-keyword">代码生成</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span></div>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-05-26 19:40:59</time></div>
+  <div class="story-body">
+    <h3><a href="https://deepswe.datacurve.ai/blog" target="_blank" rel="noopener noreferrer">DeepSWE：一个无数据污染的长程编码智能体基准测试</a></h3>
+    <p class="story-summary">DeepSWE 作为一个新型且无数据污染的基准测试被引入，专门用于测试和评估长程编码智能体。现代语言模型和软件工程智能体在评估时，往往会因为测试集包含在公共代码库中而遭受数据污染。DeepSWE 通过提供一个干净、隔离的环境来解决这一问题，其中包含完全不受训练数据泄露影响的复杂多步软件工程任务。该基准测试使研究人员能够在长序列编码操作中衡量先进 AI 系统真实的推理、规划和执行能力，为自动软件开发评估建立了一个更可靠的标准。</p>
+    <div class="story-tags"><span class="tag tag-keyword">软件工程智能体</span><span class="tag tag-keyword">数据污染</span><span class="tag tag-keyword">基准评估</span><span class="tag tag-keyword">长程任务</span><span class="tag tag-keyword">代码生成</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span></div>
   </div>
 </article>
-<article class="card">
-  <div class="card-body">
-    <h3 class="card-title"><a href="https://www.signalbloom.ai/posts/outsourcing-plus-localai-will-soon-become-more-economical-vs-frontier-labs/" target="_blank" rel="noopener noreferrer">外包加本地化 AI 将比依赖前沿实验室更经济</a></h3>
-    <time>2026-05-26 12:08:33</time>
-    
-    <p class="card-summary">本文探讨了人工智能行业的一种转变范式，指出外包与本地化开源 AI 模型相结合，将很快提供比依赖专有前沿实验室更具成本效益的选择。虽然专有巨型模型目前主导高端能力，但 API 调用成本和数据隐私担忧使其在可持续商业扩展方面表现不佳。相反，部署本地化、较小规模、经过微调的 AI 架构，并辅以“人在回路”的外包模式，能够创建高效的工作流。这种组合策略使企业在实现相当准确度和任务完成率的同时，显著降低了整体运营支出，保护了敏感数据，并减少了对主流基础模型提供商的依赖。</p>
-    <div class="card-tags"><span class="tag tag-keyword">本地化 AI</span><span class="tag tag-keyword">外包</span><span class="tag tag-keyword">开源 AI</span><span class="tag tag-keyword">成本优化</span><span class="tag tag-keyword">混合工作流</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Large Language Model</span></div>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-05-26 12:08:33</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.signalbloom.ai/posts/outsourcing-plus-localai-will-soon-become-more-economical-vs-frontier-labs/" target="_blank" rel="noopener noreferrer">外包加本地化 AI 将比依赖前沿实验室更经济</a></h3>
+    <p class="story-summary">本文探讨了人工智能行业的一种转变范式，指出外包与本地化开源 AI 模型相结合，将很快提供比依赖专有前沿实验室更具成本效益的选择。虽然专有巨型模型目前主导高端能力，但 API 调用成本和数据隐私担忧使其在可持续商业扩展方面表现不佳。相反，部署本地化、较小规模、经过微调的 AI 架构，并辅以“人在回路”的外包模式，能够创建高效的工作流。这种组合策略使企业在实现相当准确度和任务完成率的同时，显著降低了整体运营支出，保护了敏感数据，并减少了对主流基础模型提供商的依赖。</p>
+    <div class="story-tags"><span class="tag tag-keyword">本地化 AI</span><span class="tag tag-keyword">外包</span><span class="tag tag-keyword">开源 AI</span><span class="tag tag-keyword">成本优化</span><span class="tag tag-keyword">混合工作流</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Large Language Model</span></div>
   </div>
 </article>
-<article class="card">
-  <div class="card-body">
-    <h3 class="card-title"><a href="https://www.minicor.com/" target="_blank" rel="noopener noreferrer">Launch HN：Minicor (YC P26) —— 大规模 Windows 桌面自动化</a></h3>
-    <time>2026-05-26 14:57:27</time>
-    
-    <p class="card-summary">Faiz 和 Saheed 推出了 Minicor（YC P26 孵化），这是一个旨在使人工智能公司能够快速构建和部署可扩展桌面机器人流程自动化（RPA）解决方案的平台。Minicor 针对缺乏 API 访问权限的遗留系统，例如基于诊所的 Windows 医疗记录系统。传统上，扩展桌面 RPA 一直受限于复杂的脚本编写、动态 UI 变更、编排挑战（包括虚拟机排队和并行化）以及高故障率的困难调试环境。Minicor 通过为桌面环境提供健壮的编排、增强的观察能力和可靠的执行框架，解决了这些持久的自动化障碍。通过降低故障率并简化 VM 编排，Minicor 使现代 AI 智能体和集成平台能够与本地桌面应用程序无缝交互，为遗留系统自动化带来了可扩展性和可靠性。</p>
-    <div class="card-tags"><span class="tag tag-keyword">机器人流程自动化</span><span class="tag tag-keyword">桌面自动化</span><span class="tag tag-keyword">AI 集成</span><span class="tag tag-keyword">遗留系统</span><span class="tag tag-keyword">编排</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Others</span></div>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-05-26 14:57:27</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.minicor.com/" target="_blank" rel="noopener noreferrer">Launch HN：Minicor (YC P26) —— 大规模 Windows 桌面自动化</a></h3>
+    <p class="story-summary">Faiz 和 Saheed 推出了 Minicor（YC P26 孵化），这是一个旨在使人工智能公司能够快速构建和部署可扩展桌面机器人流程自动化（RPA）解决方案的平台。Minicor 针对缺乏 API 访问权限的遗留系统，例如基于诊所的 Windows 医疗记录系统。传统上，扩展桌面 RPA 一直受限于复杂的脚本编写、动态 UI 变更、编排挑战（包括虚拟机排队和并行化）以及高故障率的困难调试环境。Minicor 通过为桌面环境提供健壮的编排、增强的观察能力和可靠的执行框架，解决了这些持久的自动化障碍。通过降低故障率并简化 VM 编排，Minicor 使现代 AI 智能体和集成平台能够与本地桌面应用程序无缝交互，为遗留系统自动化带来了可扩展性和可靠性。</p>
+    <div class="story-tags"><span class="tag tag-keyword">机器人流程自动化</span><span class="tag tag-keyword">桌面自动化</span><span class="tag tag-keyword">AI 集成</span><span class="tag tag-keyword">遗留系统</span><span class="tag tag-keyword">编排</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Others</span></div>
   </div>
 </article>
-<article class="card">
-  <div class="card-body">
-    <h3 class="card-title"><a href="https://abc7news.com/post/bay-area-mom-thousands-scammers-use-ai-mimic-daughters-voice-fake-kidnapping-part-growing-trend/19154381/" target="_blank" rel="noopener noreferrer">湾区母亲因诈骗者利用 AI 模仿女儿声音损失数千美元</a></h3>
-    <time>2026-05-26 20:23:40</time>
-    
-    <p class="card-summary">该报道详细说明了一起针对湾区母亲的复杂金融诈骗案，受害者因诈骗者利用人工智能模仿其女儿声音而损失了数千美元。诈骗者利用先进的声音克隆技术执行了一场极其逼真的虚假绑架骗局，该技术仅需一小段音频样本即可实时生成高度逼真的声音模仿。这起事件突显了 AI 驱动的社会工程攻击日益增长且令人担忧的趋势，恶意行为者利用生成式 AI 绕过传统的安全意识并对受害者进行情感操纵。安全专家警告称，高保真合成语音生成工具的快速普及降低了网络犯罪的门槛。该案例强调了提高公众意识、采用诸如口头暗语等家庭安全协议以及开发实时识别合成音频的强大检测机制的紧迫性。</p>
-    <div class="card-tags"><span class="tag tag-keyword">声音克隆</span><span class="tag tag-keyword">生成式 AI</span><span class="tag tag-keyword">合成音频</span><span class="tag tag-keyword">社会工程</span><span class="tag tag-keyword">深度伪造</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Others</span></div>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-05-26 20:23:40</time></div>
+  <div class="story-body">
+    <h3><a href="https://abc7news.com/post/bay-area-mom-thousands-scammers-use-ai-mimic-daughters-voice-fake-kidnapping-part-growing-trend/19154381/" target="_blank" rel="noopener noreferrer">湾区母亲因诈骗者利用 AI 模仿女儿声音损失数千美元</a></h3>
+    <p class="story-summary">该报道详细说明了一起针对湾区母亲的复杂金融诈骗案，受害者因诈骗者利用人工智能模仿其女儿声音而损失了数千美元。诈骗者利用先进的声音克隆技术执行了一场极其逼真的虚假绑架骗局，该技术仅需一小段音频样本即可实时生成高度逼真的声音模仿。这起事件突显了 AI 驱动的社会工程攻击日益增长且令人担忧的趋势，恶意行为者利用生成式 AI 绕过传统的安全意识并对受害者进行情感操纵。安全专家警告称，高保真合成语音生成工具的快速普及降低了网络犯罪的门槛。该案例强调了提高公众意识、采用诸如口头暗语等家庭安全协议以及开发实时识别合成音频的强大检测机制的紧迫性。</p>
+    <div class="story-tags"><span class="tag tag-keyword">声音克隆</span><span class="tag tag-keyword">生成式 AI</span><span class="tag tag-keyword">合成音频</span><span class="tag tag-keyword">社会工程</span><span class="tag tag-keyword">深度伪造</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Others</span></div>
   </div>
 </article>
 </section>
-<section class="source-section"><h2 class="source-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2>
-<article class="card">
-  <div class="card-body">
-    <h3 class="card-title"><a href="https://x.com/ZoubinGhahrama1/status/2059324906840457423" target="_blank" rel="noopener noreferrer">ZoubinGhahrama1_AlphaProof Nexus</a></h3>
-    <time>2026-05-26 17:24:52</time>
-    <a href="https://x.com/ZoubinGhahrama1/status/2059324906840457423" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="https://opusair.github.io/NO-FOMO/home/2026-05-26/screenshot/twitter/ZoubinGhahrama1_2059324906840457423.png" alt="ZoubinGhahrama1_AlphaProof Nexus" loading="lazy"></a>
-    <p class="card-summary">Google DeepMind 推出了 AlphaProof Nexus，这是一种创新的智能体框架，旨在利用人工智能推进研究级数学领域的发展。通过利用最先进的智能体能力，该系统旨在解决此前自动化推理工具无法触及的复杂数学问题。这一发展标志着形式逻辑与先进机器学习技术集成的一个重要里程碑，使 AI 能够为高阶数学研究做出实质性贡献。</p>
-    <div class="card-tags"><span class="tag tag-keyword">AlphaProof Nexus</span><span class="tag tag-keyword">Google DeepMind</span><span class="tag tag-keyword">AI 智能体</span><span class="tag tag-keyword">数学</span><span class="tag tag-keyword">自动化推理</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Research Progress</span></div>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-05-26 17:24:52</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ZoubinGhahrama1/status/2059324906840457423" target="_blank" rel="noopener noreferrer">ZoubinGhahrama1_AlphaProof Nexus</a></h3>
+    <p class="story-summary">Google DeepMind 推出了 AlphaProof Nexus，这是一种创新的智能体框架，旨在利用人工智能推进研究级数学领域的发展。通过利用最先进的智能体能力，该系统旨在解决此前自动化推理工具无法触及的复杂数学问题。这一发展标志着形式逻辑与先进机器学习技术集成的一个重要里程碑，使 AI 能够为高阶数学研究做出实质性贡献。</p>
+    <div class="story-tags"><span class="tag tag-keyword">AlphaProof Nexus</span><span class="tag tag-keyword">Google DeepMind</span><span class="tag tag-keyword">AI 智能体</span><span class="tag tag-keyword">数学</span><span class="tag tag-keyword">自动化推理</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Research Progress</span></div>
   </div>
 </article>
-<article class="card">
-  <div class="card-body">
-    <h3 class="card-title"><a href="https://x.com/gdb/status/2059389057055252554" target="_blank" rel="noopener noreferrer">gdb_GPT-5.5 编码能力评测</a></h3>
-    <time>2026-05-26 21:39:47</time>
-    <a href="https://x.com/gdb/status/2059389057055252554" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="https://opusair.github.io/NO-FOMO/home/2026-05-26/screenshot/twitter/gdb_2059389057055252554.png" alt="gdb_GPT-5.5 编码能力评测" loading="lazy"></a>
-    <p class="card-summary">人工智能行业的知名人物 Greg Brockman 最近分享了他对 GPT-5.5 的积极评估，重点介绍了其在计算机编程领域表现出的出色性能。该推文暗示该模型迭代展现了卓越的编码能力，这可能标志着自动化软件开发和代码生成任务的重大进步，为大语言模型设定了新的性能基准。</p>
-    <div class="card-tags"><span class="tag tag-keyword">GPT-5.5</span><span class="tag tag-keyword">编码</span><span class="tag tag-keyword">AI 模型</span><span class="tag tag-keyword">编程</span><span class="tag tag-keyword">软件开发</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Industry News</span></div>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-05-26 21:39:47</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/gdb/status/2059389057055252554" target="_blank" rel="noopener noreferrer">gdb_GPT-5.5 编码能力评测</a></h3>
+    <p class="story-summary">人工智能行业的知名人物 Greg Brockman 最近分享了他对 GPT-5.5 的积极评估，重点介绍了其在计算机编程领域表现出的出色性能。该推文暗示该模型迭代展现了卓越的编码能力，这可能标志着自动化软件开发和代码生成任务的重大进步，为大语言模型设定了新的性能基准。</p>
+    <div class="story-tags"><span class="tag tag-keyword">GPT-5.5</span><span class="tag tag-keyword">编码</span><span class="tag tag-keyword">AI 模型</span><span class="tag tag-keyword">编程</span><span class="tag tag-keyword">软件开发</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Industry News</span></div>
   </div>
 </article>
-<article class="card">
-  <div class="card-body">
-    <h3 class="card-title"><a href="https://x.com/Google/status/2059327321752866918" target="_blank" rel="noopener noreferrer">Google_Gemini AI 更新</a></h3>
-    <time>2026-05-26 17:34:28</time>
-    <a href="https://x.com/Google/status/2059327321752866918" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="https://opusair.github.io/NO-FOMO/home/2026-05-26/screenshot/twitter/Google_2059327321752866918.png" alt="Google_Gemini AI 更新" loading="lazy"></a>
-    <p class="card-summary">Google 已正式宣布对其 Gemini AI 生态系统进行重大更新，重点在于提升模型的性能、速度和多模态能力。最新的改进旨在通过在多元产品套件中集成更先进的推理和处理能力来简化用户交互，展现出更优异的文档理解、实时数据分析和高级代码生成能力。</p>
-    <div class="card-tags"><span class="tag tag-keyword">Gemini</span><span class="tag tag-keyword">Google</span><span class="tag tag-keyword">人工智能</span><span class="tag tag-keyword">多模态</span><span class="tag tag-keyword">大语言模型</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span></div>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-05-26 17:34:28</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Google/status/2059327321752866918" target="_blank" rel="noopener noreferrer">Google_Gemini AI 更新</a></h3>
+    <p class="story-summary">Google 已正式宣布对其 Gemini AI 生态系统进行重大更新，重点在于提升模型的性能、速度和多模态能力。最新的改进旨在通过在多元产品套件中集成更先进的推理和处理能力来简化用户交互，展现出更优异的文档理解、实时数据分析和高级代码生成能力。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Gemini</span><span class="tag tag-keyword">Google</span><span class="tag tag-keyword">人工智能</span><span class="tag tag-keyword">多模态</span><span class="tag tag-keyword">大语言模型</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span></div>
   </div>
 </article>
-<article class="card">
-  <div class="card-body">
-    <h3 class="card-title"><a href="https://x.com/Kling_ai/status/2059121691385622761" target="_blank" rel="noopener noreferrer">Kling_ai_《House of David》集成</a></h3>
-    <time>2026-05-26 03:57:22</time>
-    <a href="https://x.com/Kling_ai/status/2059121691385622761" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="https://opusair.github.io/NO-FOMO/home/2026-05-26/screenshot/twitter/Kling_ai_2059121691385622761.png" alt="Kling_ai_《House of David》集成" loading="lazy"></a>
-    <p class="card-summary">Wonder Project 创始人、《House of David》系列剧（Amazon Prime）创作者 Jon Erwin 公开强调了 Kling AI 在其剧集前两季制作中所发挥的关键作用。据报道，此次合作实现了多项行业首创，展示了先进的生成式视频技术如何融入高预算电视工作流，以增强视觉叙事效果。</p>
-    <div class="card-tags"><span class="tag tag-keyword">Kling AI</span><span class="tag tag-keyword">House of David</span><span class="tag tag-keyword">生成式 AI</span><span class="tag tag-keyword">视频制作</span><span class="tag tag-keyword">媒体技术</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Industry News</span></div>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-05-26 03:57:22</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Kling_ai/status/2059121691385622761" target="_blank" rel="noopener noreferrer">Kling_ai_《House of David》集成</a></h3>
+    <p class="story-summary">Wonder Project 创始人、《House of David》系列剧（Amazon Prime）创作者 Jon Erwin 公开强调了 Kling AI 在其剧集前两季制作中所发挥的关键作用。据报道，此次合作实现了多项行业首创，展示了先进的生成式视频技术如何融入高预算电视工作流，以增强视觉叙事效果。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Kling AI</span><span class="tag tag-keyword">House of David</span><span class="tag tag-keyword">生成式 AI</span><span class="tag tag-keyword">视频制作</span><span class="tag tag-keyword">媒体技术</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Industry News</span></div>
   </div>
 </article>
-<article class="card">
-  <div class="card-body">
-    <h3 class="card-title"><a href="https://x.com/natolambert/status/2059389882833994141" target="_blank" rel="noopener noreferrer">natolambert_Gemma MoE 呼吁</a></h3>
-    <time>2026-05-26 21:43:04</time>
-    <a href="https://x.com/natolambert/status/2059389882833994141" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="https://opusair.github.io/NO-FOMO/home/2026-05-26/screenshot/twitter/natolambert_2059389882833994141.png" alt="natolambert_Gemma MoE 呼吁" loading="lazy"></a>
-    <p class="card-summary">在最近的一篇社交媒体文章中，AI 研究员 Nathan Lambert 公开呼吁 Google 发布 100B 参数的 Gemma 4 混合专家（MoE）模型。受到 Gemini Flash 3.5 正式发布的影响，Lambert 表示这一高容量开源模型代表了开源社区获取大规模、开放权重架构的一项重要发展。</p>
-    <div class="card-tags"><span class="tag tag-keyword">Gemma 4</span><span class="tag tag-keyword">混合专家模型</span><span class="tag tag-keyword">Google</span><span class="tag tag-keyword">开源</span><span class="tag tag-keyword">Gemini Flash 3.5</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Open Source</span><span class="tag tag-area">Industry News</span></div>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-05-26 21:43:04</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/natolambert/status/2059389882833994141" target="_blank" rel="noopener noreferrer">natolambert_Gemma MoE 呼吁</a></h3>
+    <p class="story-summary">在最近的一篇社交媒体文章中，AI 研究员 Nathan Lambert 公开呼吁 Google 发布 100B 参数的 Gemma 4 混合专家（MoE）模型。受到 Gemini Flash 3.5 正式发布的影响，Lambert 表示这一高容量开源模型代表了开源社区获取大规模、开放权重架构的一项重要发展。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Gemma 4</span><span class="tag tag-keyword">混合专家模型</span><span class="tag tag-keyword">Google</span><span class="tag tag-keyword">开源</span><span class="tag tag-keyword">Gemini Flash 3.5</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Open Source</span><span class="tag tag-area">Industry News</span></div>
   </div>
 </article>
-<article class="card">
-  <div class="card-body">
-    <h3 class="card-title"><a href="https://x.com/Hailuo_AI/status/2059132370775916571" target="_blank" rel="noopener noreferrer">Hailuo_AI_视频生成发布</a></h3>
-    <time>2026-05-26 04:39:48</time>
-    <a href="https://x.com/Hailuo_AI/status/2059132370775916571" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="https://opusair.github.io/NO-FOMO/home/2026-05-26/screenshot/twitter/Hailuo_AI_2059132370775916571.png" alt="Hailuo_AI_视频生成发布" loading="lazy"></a>
-    <p class="card-summary">Hailuo AI 宣布了自动化内容创作领域的突破性能力，展示了该平台在短短 60 秒内生成整季叙事视频内容的能力。通过利用先进的生成模型，该系统显著压缩了复杂视觉故事的制作周期，标志着生成式视频合成领域的一次重大范式转移。</p>
-    <div class="card-tags"><span class="tag tag-keyword">Hailuo AI</span><span class="tag tag-keyword">生成式 AI</span><span class="tag tag-keyword">视频生成</span><span class="tag tag-keyword">自动化内容</span><span class="tag tag-keyword">创意技术</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Industry News</span></div>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-05-26 04:39:48</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Hailuo_AI/status/2059132370775916571" target="_blank" rel="noopener noreferrer">Hailuo_AI_视频生成发布</a></h3>
+    <p class="story-summary">Hailuo AI 宣布了自动化内容创作领域的突破性能力，展示了该平台在短短 60 秒内生成整季叙事视频内容的能力。通过利用先进的生成模型，该系统显著压缩了复杂视觉故事的制作周期，标志着生成式视频合成领域的一次重大范式转移。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Hailuo AI</span><span class="tag tag-keyword">生成式 AI</span><span class="tag tag-keyword">视频生成</span><span class="tag tag-keyword">自动化内容</span><span class="tag tag-keyword">创意技术</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Industry News</span></div>
   </div>
 </article>
 </section>
-<section class="source-section"><h2 class="source-title"> huggingface</h2>
-<article class="card">
-  <div class="card-body">
-    <h3 class="card-title"><a href="https://huggingface.co/papers/2605.25604" target="_blank" rel="noopener noreferrer">DVAO：用于多奖励强化学习的动态方差自适应优势优化</a></h3>
-    <time>2026-05-25T00:00:00.000Z</time>
-    
-    <p class="card-summary">强化学习已成为使大语言模型与人类意图和任务需求对齐的标准范式。尽管群组相对策略优化（Group Relative Policy Optimization）提供了一种比近端策略优化（PPO）更高效的无值模型替代方案，但在实际的多奖励设置中进行调整仍然具有挑战性。标准的标量化实践存在显著弊端。为解决这些限制，我们提出了动态方差自适应优势优化（DVAO），它根据滚动组内每个目标的经验奖励方差动态调整组合权重，有效地提升具有较强学习信号的目标权重，同时抑制噪声目标。在 Qwen3 和 Qwen2.5 模型上针对数学推理和工具使用基准的广泛实验表明，DVAO 显著优于基准方法。</p>
-    <div class="card-tags"><span class="tag tag-keyword">多奖励强化学习</span><span class="tag tag-keyword">大语言模型</span><span class="tag tag-keyword">优势优化</span><span class="tag tag-keyword">帕累托前沿</span><span class="tag tag-keyword">训练稳定性</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Large Language Model</span></div>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-05-25T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2605.25604" target="_blank" rel="noopener noreferrer">DVAO：用于多奖励强化学习的动态方差自适应优势优化</a></h3>
+    <p class="story-summary">强化学习已成为使大语言模型与人类意图和任务需求对齐的标准范式。尽管群组相对策略优化（Group Relative Policy Optimization）提供了一种比近端策略优化（PPO）更高效的无值模型替代方案，但在实际的多奖励设置中进行调整仍然具有挑战性。标准的标量化实践存在显著弊端。为解决这些限制，我们提出了动态方差自适应优势优化（DVAO），它根据滚动组内每个目标的经验奖励方差动态调整组合权重，有效地提升具有较强学习信号的目标权重，同时抑制噪声目标。在 Qwen3 和 Qwen2.5 模型上针对数学推理和工具使用基准的广泛实验表明，DVAO 显著优于基准方法。</p>
+    <div class="story-tags"><span class="tag tag-keyword">多奖励强化学习</span><span class="tag tag-keyword">大语言模型</span><span class="tag tag-keyword">优势优化</span><span class="tag tag-keyword">帕累托前沿</span><span class="tag tag-keyword">训练稳定性</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Large Language Model</span></div>
   </div>
 </article>
-<article class="card">
-  <div class="card-body">
-    <h3 class="card-title"><a href="https://huggingface.co/papers/2605.24830" target="_blank" rel="noopener noreferrer">Macaron-A2UI：用于个人智能体生成式 UI 的模型</a></h3>
-    <time>2026-05-24T00:00:00.000Z</time>
-    
-    <p class="card-summary">随着个人智能体逐渐演进以处理复杂的、以用户为中心的任务，静态纯文本聊天正迅速成为瓶颈。生成式 UI 作为必要的全新界面层脱颖而出，能够根据交互上下文实时动态合成正确的控件、选项和状态。我们提出了 Macaron-A2UI，这是一种用于个人智能体生成式 UI 的模型。我们的目标是通过使智能体能够生成自然语言以及用于信息收集、偏好细化、确认和多目标组织的轻量级可执行 UI 操作，从而超越纯文本交互。我们通过基于 LoRA 的参数高效监督微调以及奖励驱动的强化学习，训练了 30B、235B 和 754B 参数的模型。在没有显式方案提示的情况下，最好的 Macaron-A2UI 模型在 A2UI-Bench 上取得了 75.6 的总分。</p>
-    <div class="card-tags"><span class="tag tag-keyword">生成式 UI</span><span class="tag tag-keyword">个人智能体</span><span class="tag tag-keyword">A2UI-Bench</span><span class="tag tag-keyword">强化学习</span><span class="tag tag-keyword">交互式界面</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Generative AI</span></div>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-05-24T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2605.24830" target="_blank" rel="noopener noreferrer">Macaron-A2UI：用于个人智能体生成式 UI 的模型</a></h3>
+    <p class="story-summary">随着个人智能体逐渐演进以处理复杂的、以用户为中心的任务，静态纯文本聊天正迅速成为瓶颈。生成式 UI 作为必要的全新界面层脱颖而出，能够根据交互上下文实时动态合成正确的控件、选项和状态。我们提出了 Macaron-A2UI，这是一种用于个人智能体生成式 UI 的模型。我们的目标是通过使智能体能够生成自然语言以及用于信息收集、偏好细化、确认和多目标组织的轻量级可执行 UI 操作，从而超越纯文本交互。我们通过基于 LoRA 的参数高效监督微调以及奖励驱动的强化学习，训练了 30B、235B 和 754B 参数的模型。在没有显式方案提示的情况下，最好的 Macaron-A2UI 模型在 A2UI-Bench 上取得了 75.6 的总分。</p>
+    <div class="story-tags"><span class="tag tag-keyword">生成式 UI</span><span class="tag tag-keyword">个人智能体</span><span class="tag tag-keyword">A2UI-Bench</span><span class="tag tag-keyword">强化学习</span><span class="tag tag-keyword">交互式界面</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Generative AI</span></div>
   </div>
 </article>
-<article class="card">
-  <div class="card-body">
-    <h3 class="card-title"><a href="https://huggingface.co/papers/2605.24218" target="_blank" rel="noopener noreferrer">QUEST：使用全合成任务训练前沿深度研究智能体</a></h3>
-    <time>2026-05-22T00:00:00.000Z</time>
-    
-    <p class="card-summary">深度研究智能体将搜索引擎的角色从检索关键词匹配页面扩展到了知识合成。我们发布了 QUEST，这是一系列开源模型（从 2B 到 35B），作为通用深度研究智能体，旨在处理各种长程搜索任务，并在事实寻求、引文验证和报告合成方面具有强大能力。为了构建 QUEST，我们提出了一种有效的训练方法，结合了中间训练、监督微调和基于统一评分树的策划数据合成流水线的强化学习。QUEST 在八项深度研究基准测试中接近甚至超越了前沿闭源智能体。</p>
-    <div class="card-tags"><span class="tag tag-keyword">深度研究智能体</span><span class="tag tag-keyword">合成任务</span><span class="tag tag-keyword">长程推理</span><span class="tag tag-keyword">强化学习</span><span class="tag tag-keyword">上下文管理</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-05-22T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2605.24218" target="_blank" rel="noopener noreferrer">QUEST：使用全合成任务训练前沿深度研究智能体</a></h3>
+    <p class="story-summary">深度研究智能体将搜索引擎的角色从检索关键词匹配页面扩展到了知识合成。我们发布了 QUEST，这是一系列开源模型（从 2B 到 35B），作为通用深度研究智能体，旨在处理各种长程搜索任务，并在事实寻求、引文验证和报告合成方面具有强大能力。为了构建 QUEST，我们提出了一种有效的训练方法，结合了中间训练、监督微调和基于统一评分树的策划数据合成流水线的强化学习。QUEST 在八项深度研究基准测试中接近甚至超越了前沿闭源智能体。</p>
+    <div class="story-tags"><span class="tag tag-keyword">深度研究智能体</span><span class="tag tag-keyword">合成任务</span><span class="tag tag-keyword">长程推理</span><span class="tag tag-keyword">强化学习</span><span class="tag tag-keyword">上下文管理</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
   </div>
 </article>
-<article class="card">
-  <div class="card-body">
-    <h3 class="card-title"><a href="https://huggingface.co/papers/2605.25624" target="_blank" rel="noopener noreferrer">CUA-Gym：扩展计算机使用智能体的可验证训练环境与任务</a></h3>
-    <time>2026-05-25T00:00:00.000Z</time>
-    
-    <p class="card-summary">具有可验证奖励的强化学习（RLVR）在数学、工具使用和软件工程等领域取得了突破，但其扩展到计算机使用智能体（CUA）时，却受限于具有确定性奖励的可扩展训练数据的匮乏。我们提出了 CUA-Gym，这是一个协同生成任务指令、环境状态和奖励函数的可扩展流水线。利用此流水线，我们构建了 CUA-Gym，这是一个包含 32,112 个基于 110 个环境的验证型 RLVR 训练元组数据集。在使用 GSPO 在 CUA-Gym 上进行训练后，我们的智能体在 OSWorld-Verified 上达到了 62.1% 和 72.6% 的准确率，在同等规模下优于此前的开源 CUA。</p>
-    <div class="card-tags"><span class="tag tag-keyword">计算机使用智能体</span><span class="tag tag-keyword">强化学习</span><span class="tag tag-keyword">可验证奖励</span><span class="tag tag-keyword">环境合成</span><span class="tag tag-keyword">智能体训练</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">AI Agent</span></div>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-05-25T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2605.25624" target="_blank" rel="noopener noreferrer">CUA-Gym：扩展计算机使用智能体的可验证训练环境与任务</a></h3>
+    <p class="story-summary">具有可验证奖励的强化学习（RLVR）在数学、工具使用和软件工程等领域取得了突破，但其扩展到计算机使用智能体（CUA）时，却受限于具有确定性奖励的可扩展训练数据的匮乏。我们提出了 CUA-Gym，这是一个协同生成任务指令、环境状态和奖励函数的可扩展流水线。利用此流水线，我们构建了 CUA-Gym，这是一个包含 32,112 个基于 110 个环境的验证型 RLVR 训练元组数据集。在使用 GSPO 在 CUA-Gym 上进行训练后，我们的智能体在 OSWorld-Verified 上达到了 62.1% 和 72.6% 的准确率，在同等规模下优于此前的开源 CUA。</p>
+    <div class="story-tags"><span class="tag tag-keyword">计算机使用智能体</span><span class="tag tag-keyword">强化学习</span><span class="tag tag-keyword">可验证奖励</span><span class="tag tag-keyword">环境合成</span><span class="tag tag-keyword">智能体训练</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">AI Agent</span></div>
   </div>
 </article>
-<article class="card">
-  <div class="card-body">
-    <h3 class="card-title"><a href="https://huggingface.co/papers/2605.25971" target="_blank" rel="noopener noreferrer">预测与学习：释放主动智能体中的闲置计算资源</a></h3>
-    <time>2026-05-25T00:00:00.000Z</time>
-    
-    <p class="card-summary">尽管 AI 智能体在推理和工具使用方面展现了卓越的能力，但它们在本质上仍是反应性的。为了弥合这一差距，我们引入了 ProAct，这是一种 proactive 智能体架构，利用闲置计算资源来预测并满足用户即将产生的需求。通过分析不断演变的对话历史以及持久记忆，ProAct 能够预测即将到来的需求并迭代获取信息，从而使智能体在用户发起查询之前就能解决知识缺口并准备证据。我们还引入了 ProActEval，这是一个包含 40 个领域、200 个场景的综合基准测试，ProAct 在其中将所需轮数减少了 14.8%，从而加速了任务完成。</p>
-    <div class="card-tags"><span class="tag tag-keyword">主动智能体</span><span class="tag tag-keyword">闲置计算</span><span class="tag tag-keyword">对话历史</span><span class="tag tag-keyword">持久记忆</span><span class="tag tag-keyword">预测评估</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Natural Language Processing</span></div>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-05-25T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2605.25971" target="_blank" rel="noopener noreferrer">预测与学习：释放主动智能体中的闲置计算资源</a></h3>
+    <p class="story-summary">尽管 AI 智能体在推理和工具使用方面展现了卓越的能力，但它们在本质上仍是反应性的。为了弥合这一差距，我们引入了 ProAct，这是一种 proactive 智能体架构，利用闲置计算资源来预测并满足用户即将产生的需求。通过分析不断演变的对话历史以及持久记忆，ProAct 能够预测即将到来的需求并迭代获取信息，从而使智能体在用户发起查询之前就能解决知识缺口并准备证据。我们还引入了 ProActEval，这是一个包含 40 个领域、200 个场景的综合基准测试，ProAct 在其中将所需轮数减少了 14.8%，从而加速了任务完成。</p>
+    <div class="story-tags"><span class="tag tag-keyword">主动智能体</span><span class="tag tag-keyword">闲置计算</span><span class="tag tag-keyword">对话历史</span><span class="tag tag-keyword">持久记忆</span><span class="tag tag-keyword">预测评估</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Natural Language Processing</span></div>
   </div>
 </article>
-<article class="card">
-  <div class="card-body">
-    <h3 class="card-title"><a href="https://huggingface.co/papers/2605.26105" target="_blank" rel="noopener noreferrer">用于自回归视频生成的策略内对抗流蒸馏</a></h3>
-    <time>2026-05-25T00:00:00.000Z</time>
-    
-    <p class="card-summary">自回归视频生成器对于流式处理、长程和交互式应用极具吸引力，但将强大的黑盒教师模型蒸馏为因果学生模型仍然困难。我们提出了对抗流蒸馏（AFD），这是一个用于异构黑盒视频蒸馏的策略内框架。AFD 对教师进行查询，并让当前学生在相同的提示词上进行训练，训练一个提示词配对的 Bradley-Terry 判别器来估计干净样本下师生之间的差异，并将所得的策略内优势转化为学生自身加噪状态下的前向过程流匹配更新。AFD 在不需要教师分数或反向链强化学习的情况下，提供了密集的速度场监督。</p>
-    <div class="card-tags"><span class="tag tag-keyword">对抗流蒸馏</span><span class="tag tag-keyword">自回归视频生成</span><span class="tag tag-keyword">策略内学习</span><span class="tag tag-keyword">黑盒蒸馏</span><span class="tag tag-keyword">生成对抗网络</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span></div>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-05-25T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2605.26105" target="_blank" rel="noopener noreferrer">用于自回归视频生成的策略内对抗流蒸馏</a></h3>
+    <p class="story-summary">自回归视频生成器对于流式处理、长程和交互式应用极具吸引力，但将强大的黑盒教师模型蒸馏为因果学生模型仍然困难。我们提出了对抗流蒸馏（AFD），这是一个用于异构黑盒视频蒸馏的策略内框架。AFD 对教师进行查询，并让当前学生在相同的提示词上进行训练，训练一个提示词配对的 Bradley-Terry 判别器来估计干净样本下师生之间的差异，并将所得的策略内优势转化为学生自身加噪状态下的前向过程流匹配更新。AFD 在不需要教师分数或反向链强化学习的情况下，提供了密集的速度场监督。</p>
+    <div class="story-tags"><span class="tag tag-keyword">对抗流蒸馏</span><span class="tag tag-keyword">自回归视频生成</span><span class="tag tag-keyword">策略内学习</span><span class="tag tag-keyword">黑盒蒸馏</span><span class="tag tag-keyword">生成对抗网络</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span></div>
   </div>
 </article>
 </section>
-
-  </main>
-  <footer>由 AI 智能筛选 &middot; <a href="https://opusair.github.io/">OpusAir</a></footer>
-</div>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>AI 辅助筛选，原始来源始终可查。</span></footer>
+  <script src="../../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2026-05-26" data-counter-title="NO-FOMO issue 2026-05-26" defer></script>
 </body>
 </html>

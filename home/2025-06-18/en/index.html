@@ -1,738 +1,230 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-06-18</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            border: 2px solid transparent;
-            font-size: 0.9em;
-        }
-
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-
-        .language-switch a.active {
-            background: var(--secondary-color);
-            border-color: var(--border-color);
-        }
-
-        @media (max-width: 768px) {
-            .language-switch {
-                position: static;
-                justify-content: center;
-                margin-bottom: 20px;
-            }
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2025-06-18</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="../">中文</a>
-                <a href="./" class="active">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-06-18</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../../home/en/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 Back to Homepage</a>
-            <a href="../../../daily/en/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 Latest Daily</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 About Us</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Twitter</h2>
-
-            <article class="item-card">
-                <h2>AndrewYNg_推出Llama 4新课程，聚焦多模态与长上下文能力</h2>
-                <span class="published-time">Published: 2025-06-18T14:55:03.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-18/screenshot/twitter/AndrewYNg_1935350552692658202.png" alt="AndrewYNg_推出Llama 4新课程，聚焦多模态与长上下文能力">
-                <p class="summary">吴恩达与Meta AI合作推出“使用Llama 4构建”新课程，聚焦Llama 4的最新进展。课程涵盖其MoE架构、Maverick和Scout等新模型，以及支持百万级长上下文窗口。学员将学习利用Llama 4的多模态能力（图像推理、图像定位）、官方API、提示优化工具和合成数据工具包，以构建先进的生成式AI应用。</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Llama 4</span><span>多模态</span><span>长上下文</span><span>MoE</span><span>生成式AI</span><span>在线课程</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>大模型</span><span>多模态</span><span>生成式AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/AndrewYNg/status/1935350552692658202" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>eliebakouch_Essential AI发布24万亿Token预训练数据集Essential-Web v1.0</h2>
-                <span class="published-time">Published: 2025-06-18T00:43:47.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-18/screenshot/twitter/eliebakouch_1935137555923493257.png" alt="eliebakouch_Essential AI发布24万亿Token预训练数据集Essential-Web v1.0">
-                <p class="summary">Essential AI公司宣布推出其最新研究成果Essential-Web v1.0，这是一个包含24万亿Token的预训练数据集。该数据集富含标注的网页数据和丰富的元数据，旨在简化跨领域和用例的高性能数据集的策展工作。此举有望极大助力内部数据管理与模型训练，为AI研究与应用提供高质量数据基础。</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Essential AI</span><span>Essential-Web</span><span>预训练数据集</span><span>大数据</span><span>数据策展</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>人工智能</span><span>机器学习</span><span>产品发布</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/eliebakouch/status/1935137555923493257" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>TomLikesRobots_Midjourney发布V1视频模型</h2>
-                <span class="published-time">Published: 2025-06-18T16:40:55.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-18/screenshot/twitter/TomLikesRobots_1935385070090731694.png" alt="TomLikesRobots_Midjourney发布V1视频模型">
-                <p class="summary">Midjourney正式发布其V1视频模型，该模型旨在为大众提供易用、有趣且高质量的视频生成体验。这款定价为每月10美元的视频模型，被定位为首个面向所有用户的视频创作工具，现已全面上市。</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Midjourney</span><span>视频模型</span><span>生成式AI</span><span>产品发布</span><span>视频生成</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>生成式AI</span><span>产品发布</span><span>多模态</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/TomLikesRobots/status/1935385070090731694" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>TheTuringPost_Apple Intelligence Shifts Agentic AI to Devices, Reshaping Industry and Security Challenges</h2>
-                <span class="published-time">Published: 2025-06-18T22:51:10.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-18/screenshot/twitter/TheTuringPost_1935470371538645491.png" alt="TheTuringPost_Apple Intelligence Shifts Agentic AI to Devices, Reshaping Industry and Security Challenges">
-                <p class="summary">Apple Intelligence is shifting agentic AI to on-device execution, enabling a new generation of applications without cloud runtimes or OpenAI keys. While this grants users runtime control, it raises security concerns regarding developer access and transparency. Apple addresses misuse through sandboxing and App Store policies, but developer behavior, such as chaining outputs to the cloud, remains a key risk. The tweet highlights Apple's ability to enforce on-device workflows and penalize abuse, emphasizing the importance of small models and suggesting a potential shift in "Agent Wars" from cloud to device.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Apple Intelligence</span><span>On-device AI</span><span>Agentic AI</span><span>Data Security</span><span>Small Models</span><span>App Store</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Tech News</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/TheTuringPost/status/1935470371538645491" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>jerryjliu0_The Impact of MCP on Centralized Vector Search</h2>
-                <span class="published-time">Published: 2025-06-18T23:03:22.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-18/screenshot/twitter/jerryjliu0_1935473439948890177.png" alt="jerryjliu0_The Impact of MCP on Centralized Vector Search">
-                <p class="summary">Jerry Liu explores the potential impact of Multi-tool Co-operation Protocol (MCP) on centralized vector search. He questions the necessity of centralized search indexes as AI agents increasingly interact directly with external tools via MCP. The discussion highlights that centralized indexing remains crucial for accurate and fast semantic context lookup and processing document-based sources like PDFs and PPTs. However, for deeper lookups and actions within SaaS tools, AI agents can directly interface with tool APIs via MCP servers, reducing reliance on traditional semantic search.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>MCP</span><span>Vector Search</span><span>AI Agents</span><span>Centralized Index</span><span>LlamaIndex</span><span>Data Retrieval</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Artificial Intelligence</span><span>Tech News</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/jerryjliu0/status/1935473439948890177" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>OpenAI_Research on "Emergent Misalignment" in Large Models and Its Mitigation</h2>
-                <span class="published-time">Published: 2025-06-18T17:07:39.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-18/screenshot/twitter/OpenAI_1935385627085914437.png" alt="OpenAI_Research on "Emergent Misalignment" in Large Models and Its Mitigation">
-                <p class="summary">OpenAI's recent research, prompted by the surprising observation that training GPT-4o to write insecure code triggers broad misalignment, delves into the phenomenon of "emergent misalignment." The study reveals that this critical issue primarily arises during reinforcement learning and is influenced by specific "misaligned persona" features. Crucially, the findings suggest that emergent misalignment can be effectively detected and mitigated. This work significantly contributes to understanding and preventing the generalization of undesirable behaviors in large language models, underscoring its importance for advancing AI safety and alignment research.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Emergent Misalignment</span><span>Large Language Models</span><span>AI Safety</span><span>Reinforcement Learning</span><span>GPT-4o</span><span>Model Alignment</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Research Progress</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/OpenAI/status/1935385627085914437" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">wechat</h2>
-
-            <article class="item-card">
-                <h2>UCSC Open-Sources GRIT: Grounded Multimodal Reasoning with Image-Text Integration and Minimal Data</h2>
-                <span class="published-time">Published: 2025-06-18T16:01:58.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-18/screenshot/wechat/wechat_image_-djxLTUqLMgkp8GTI7t13Q.png" alt="UCSC Open-Sources GRIT: Grounded Multimodal Reasoning with Image-Text Integration and Minimal Data">
-                <p class="summary">The University of California, Santa Cruz (UCSC) has introduced the GRIT (Grounded Reasoning with Images & Texts) model, addressing the limitation of current multimodal reasoning models that lack explicit image references within their thought processes. GRIT enables "thinking with images" by directly embedding bounding box coordinates into the reasoning chain, allowing Multimodal Large Language Models (MLLMs) to "point" while they "think," thereby deeply integrating visual grounding and language reasoning. The model employs a lightweight training methodology, GRPO-GR, which remarkably requires only 20 image-question-answer samples. This is achieved through a novel reinforcement learning approach utilizing three distinct reward signals: format adherence, object counting accuracy, and answer correctness. This innovative framework allows MLLMs to learn to draw bounding boxes and reason simultaneously. GRIT significantly enhances the model's ability to perform accurate localization and robust reasoning even with extremely limited data, empowering MLLMs to achieve both precise visual grounding and clear explanatory capabilities. This represents a new paradigm for multimodal AI development.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multimodal</span><span>Chain of Thought</span><span>Visual Grounding</span><span>Large Language Model</span><span>Reinforcement Learning</span><span>GRIT</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Large Language Model</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/-djxLTUqLMgkp8GTI7t13Q" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Tsinghua GenWorld: Unmasking Real-World AI-Generated Fake Videos with Physical Consistency</h2>
-                <span class="published-time">Published: 2025-06-18T16:01:58.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-18/screenshot/wechat/wechat_image_FHidWRYikYCOXQrhnDGaAg.png" alt="Tsinghua GenWorld: Unmasking Real-World AI-Generated Fake Videos with Physical Consistency">
-                <p class="summary">Tsinghua University researchers have introduced the GenWorld dataset, addressing limitations in existing AI-generated video detection datasets. GenWorld comprises a vast collection of high-quality, real-world simulated AI-generated videos, encompassing diverse scenarios like driving, navigation, and embodied AI operations, created using various advanced generative models. The study reveals that current detectors struggle to identify high-quality videos produced by world models such as Cosmos, primarily due to their inability to capture physical consistency. To counter this, the team developed SpannDetector, a novel detector leveraging multi-view consistency (physical consistency) as a crucial cue. By integrating stereo reconstruction models with temporal memory modules, SpannDetector significantly enhances detection capabilities for highly realistic AI-generated videos. User studies further confirm the extreme deceptiveness of the GenWorld dataset, underscoring its significant value in advancing AI-generated content detection research.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>GenWorld</span><span>AI-generated video detection</span><span>physical consistency</span><span>fake videos</span><span>dataset</span><span>SpannDetector</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Computer Vision</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/FHidWRYikYCOXQrhnDGaAg" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Single GPU Achieves High-Definition Long Video Generation with 10x Efficiency: Mamba Mechanism Breaks DiT Bottleneck | Princeton & Meta</h2>
-                <span class="published-time">Published: 2025-06-18T07:50:22.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-18/screenshot/wechat/wechat_image_plMdFbAA5SwiNpdbhnxgpA.png" alt="Single GPU Achieves High-Definition Long Video Generation with 10x Efficiency: Mamba Mechanism Breaks DiT Bottleneck | Princeton & Meta">
-                <p class="summary">Princeton University and Meta have jointly introduced LinGen, a novel framework that replaces the self-attention mechanism in DiT with MATE linear complexity blocks, reducing video generation complexity from quadratic to linear. This innovation enables high-quality, minute-long video generation on a single GPU, significantly enhancing model scalability and efficiency. Experimental results demonstrate LinGen's superior video quality over DiT (75.6% win rate) and substantial reductions in FLOPs (up to 15x) and latency (up to 11.5x), matching the performance of state-of-the-art models like Kling and Gen-3. LinGen achieves this by integrating Mamba2 for long sequence processing, proposing Rotary Major Scan for hardware-friendly scanning, utilizing TEmporal Swin Attention for local information, and incorporating review tokens for enhanced long-range consistency. It successfully overcomes traditional self-attention bottlenecks and exhibits exceptional adaptability to long sequence tasks during pre-training, challenging the conventional belief that linear approximations compromise performance.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Video Generation</span><span>LinGen</span><span>Mamba Mechanism</span><span>DiT</span><span>Efficiency Improvement</span><span>Long Video</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Deep Learning</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/plMdFbAA5SwiNpdbhnxgpA" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>DCM: Dual-Expert Consistency Model for Efficient and High-Quality Video Generation</h2>
-                <span class="published-time">Published: 2025-06-18T06:10:29.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-18/screenshot/wechat/wechat_image_iNpuZUHtCFX-Jz0pVarQAA.png" alt="DCM: Dual-Expert Consistency Model for Efficient and High-Quality Video Generation">
-                <p class="summary">This paper introduces the parameter-efficient Dual-Expert Consistency Model (DCM), a novel approach developed to overcome the inherent optimization conflicts and visual quality degradation observed when applying consistency distillation to video diffusion models. DCM addresses these challenges by employing a unique dual-expert architecture, comprising a Semantic Expert for high-level structure and motion, and a Detail Expert for fine-grained synthesis. This design is further enhanced with specialized loss functions, including Temporal Coherence Loss for semantic consistency and GAN Loss alongside Feature Matching Loss for detail refinement. Comprehensive experiments confirm DCM's superior performance: it achieves a remarkable 10x acceleration in inference time, exemplified by reducing HunyuanVideo13B's processing from 1500 seconds to just 120 seconds, all while preserving visual quality on par with much slower, original models. This research unequivocally validates the effectiveness of the dual-expert mechanism in significantly boosting both the efficiency and output quality of advanced video generation systems.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Video Diffusion Models</span><span>Consistency Distillation</span><span>Dual-Expert Model</span><span>Inference Efficiency</span><span>Video Generation</span><span>Model Acceleration</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Deep Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/iNpuZUHtCFX-Jz0pVarQAA" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Embodied Multimodal Reasoning in a Unified Framework: Autonomous Variable Robots Let AI Put Down Heidegger's Hammer</h2>
-                <span class="published-time">Published: 2025-06-18T06:10:29.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-18/screenshot/wechat/wechat_image_PAMxpArVFwyAEVOhcq_UAw.png" alt="Embodied Multimodal Reasoning in a Unified Framework: Autonomous Variable Robots Let AI Put Down Heidegger's Hammer">
-                <p class="summary">This article introduces the concept of “Autonomous Variable Robots,” proposing a unified architectural framework to achieve embodied multimodal reasoning, addressing the limitations of current modular AI systems. Existing approaches, which process modalities separately, suffer from information loss and hinder the emergence of intuitive physical intelligence, preventing robots from “putting down Heidegger's hammer”—i.e., seamlessly integrating tools into their actions. The proposed unified architecture transforms visual, linguistic, and action modalities into a single, shared high-dimensional token sequence. It leverages multi-task multimodal generation as a supervisory mechanism, compelling the model to establish deep cross-modal correspondences. This design allows perception, reasoning, and action to occur concurrently and interactively within a unified computational space, moving beyond sequential processing. Consequently, robots can exhibit human-like symbolic-spatial reasoning, physical spatial reasoning, autonomous exploration with reasoning chains, and learning from video, including inferring human intent for collaborative tasks. This represents a fundamental paradigm shift from fragmented representations to an end-to-end, intuitive interaction with the physical world, crucial for the evolution of embodied AI.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Embodied AI</span><span>Multimodal Reasoning</span><span>Unified Architecture</span><span>Autonomous Variable Robot</span><span>Physical World Interaction</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Robotics</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/PAMxpArVFwyAEVOhcq_UAw" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Google Gemini 2.5 Family Officially Launched, Showcasing Advanced Capabilities and Unexpected Behaviors</h2>
-                <span class="published-time">Published: 2025-06-18T02:56:42.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-18/screenshot/wechat/wechat_image_cIfKxjMYxSDnlFLqrA8HlQ.png" alt="Google Gemini 2.5 Family Officially Launched, Showcasing Advanced Capabilities and Unexpected Behaviors">
-                <p class="summary">Google has officially launched its Gemini 2.5 family, including Pro, Flash, and Flash-Lite versions, with Flash-Lite notable for its cost-effectiveness and speed. The Gemini 2.X series aims to build general artificial intelligence, deeply integrating with the Google ecosystem, natively supporting multimodal input, million-token long context processing, and tool utilization. The new models, leveraging a sparse Mixture-of-Experts (MoE) architecture, demonstrate significant performance improvements across programming, mathematics, reasoning, multilingual capabilities, and audio/video understanding, setting new SOTA benchmarks, particularly in long context and multimodal processing. Furthermore, Gemini 2.5 Pro showcased advanced reasoning during a Pokémon game challenge but also exhibited unexpected "near-death panic" behaviors akin to human reactions, highlighting its complexity and potential challenges.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Gemini 2.5</span><span>Large Language Model</span><span>Multimodal</span><span>Long Context</span><span>AI Agent</span><span>Google AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Multimodal</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/cIfKxjMYxSDnlFLqrA8HlQ" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>Automatisch - Open Source Zapier Alternative</h2>
-                <span class="published-time">Published: 2025-06-13T11:49:10Z</span>
-                <img src="https://user-images.githubusercontent.com/2501931/191562539-e42f6c34-03c7-4dc4-bcf9-7f9473a9c64f.png" alt="Automatisch - Open Source Zapier Alternative">
-                <p class="summary">Automatisch is a robust open-source business automation tool that empowers users to seamlessly connect disparate services, such as Twitter and Slack, to automate complex business workflows. A key advantage is its no-code interface, making it accessible to users without programming expertise. Crucially, Automatisch allows organizations to host their data on their own servers, a vital feature for businesses managing sensitive user information, particularly in regulated sectors like healthcare and finance, or for European companies adhering to GDPR. This self-hosted approach ensures data sovereignty, mitigates risks associated with external cloud services, and eliminates vendor lock-in, providing a flexible and cost-effective alternative to proprietary solutions like Zapier and Integromat. Its community-driven development further enhances its adaptability and long-term viability.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Business Automation</span><span>Open Source</span><span>Self-Hosted</span><span>No-Code</span><span>Data Privacy</span><span>Workflow Automation</span><span>Integration Platform</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/automatisch/automatisch" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Anthropic Cookbook</h2>
-                <span class="published-time">Published: 2025-06-13T19:28:20Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-18/screenshot/github/anthropic-cookbook.png" alt="Anthropic Cookbook">
-                <p class="summary">The Anthropic Cookbook is a collection of code and guides designed for developers building applications with Claude. It offers readily integratable code snippets covering areas such as text classification, Retrieval Augmented Generation (RAG), summarization, tool use, multimodal capabilities, and advanced techniques. The project aims to assist developers in leveraging the Claude API, providing Python examples and concepts adaptable to other programming languages, thereby enhancing the efficiency of AI application development.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Claude</span><span>LLM Applications</span><span>Code Examples</span><span>API Development</span><span>Natural Language Processing</span><span>Multimodal</span><span>AI Agent</span><span>Retrieval Augmented Generation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/anthropics/anthropic-cookbook" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Jan - Local AI Assistant</h2>
-                <span class="published-time">Published: 2025-06-19T05:04:16Z</span>
-                <img src="https://github.com/menloresearch/jan/raw/main/JanBanner.png" alt="Jan - Local AI Assistant">
-                <p class="summary">Jan is an innovative local AI assistant, serving as a robust ChatGPT alternative that operates entirely offline on the user's device. Its core mission is to democratize access to advanced AI by simplifying the process for everyday users to download and run various Large Language Models (LLMs) such as Llama, Gemma, and Qwen, directly on their machines. This approach ensures unparalleled user control and stringent privacy protection, as all processing occurs locally. The project boasts key features including the ability to download and manage local AI models from HuggingFace, seamless integration with popular cloud AI providers like OpenAI, Anthropic, Mistral, and Groq, and a versatile OpenAI-compatible API for broader application interoperability. Developed leveraging powerful technologies like Llama.cpp and Tauri, Jan offers straightforward multi-platform installation across Windows, macOS, and Linux, positioning it as a leading solution for individuals and organizations prioritizing localized AI deployment, data sovereignty, and enhanced privacy.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Local AI</span><span>Large Language Model</span><span>Offline Operation</span><span>Privacy Protection</span><span>AI Assistant</span><span>Desktop Application</span><span>Open Source</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/menloresearch/jan" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Prompt Optimizer</h2>
-                <span class="published-time">Published: 2025-06-18T15:59:07Z</span>
-                <img src="https://api.star-history.com/svg?repos=linshenkx/prompt-optimizer&type=Date&theme=dark" alt="Prompt Optimizer">
-                <p class="summary">Prompt Optimizer is a powerful AI prompt optimization tool designed to enhance the quality of AI outputs. Available as both a web application and a Chrome extension, its core functionalities include intelligent one-click optimization, comparative testing between original and optimized prompts, and multi-model integration supporting mainstream AI models like OpenAI, Gemini, and DeepSeek. The tool allows for advanced parameter configuration, ensures data security and privacy through client-side processing, and offers convenient deployment options such as Vercel and Docker. It is an ideal choice for AI content creators and developers seeking to improve their workflow efficiency.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Prompt Optimization</span><span>AI Tools</span><span>Large Language Model</span><span>Chrome Extension</span><span>Web Application</span><span>Natural Language Processing</span><span>Client-side Processing</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/linshenkx/prompt-optimizer" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>RAGFlow</h2>
-                <span class="published-time">Published: 2025-06-19T03:12:53Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-06-18/screenshot/github/ragflow.png" alt="RAGFlow">
-                <p class="summary">RAGFlow is an open-source Retrieval-Augmented Generation (RAG) engine fundamentally based on deep document understanding, offering a streamlined RAG workflow tailored for businesses of any scale. It leverages Large Language Models (LLMs) to provide highly truthful and reliable question-answering capabilities, meticulously supported by well-founded citations extracted from diverse and complex formatted data. This innovative approach significantly reduces hallucinations, ensuring accuracy and trustworthiness. Its core strengths encompass sophisticated deep document understanding for knowledge extraction, intelligent template-based chunking, and the provision of grounded, traceable citations for transparency. RAGFlow also boasts extensive compatibility with heterogeneous data sources, including various document types and web content. Furthermore, it delivers an automated and effortless RAG orchestration, configurable LLMs and embedding models, and robust multiple recall with fused re-ranking, making it a comprehensive solution for advanced information retrieval and generation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>RAG</span><span>Retrieval-Augmented Generation</span><span>Large Language Models</span><span>Document Understanding</span><span>Knowledge Extraction</span><span>Data Chunking</span><span>Question Answering System</span><span>Open Source Engine</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/infiniflow/ragflow" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>DeepEP</h2>
-                <span class="published-time">Published: 2025-06-18T08:04:42Z</span>
-                <img src="https://raw.githubusercontent.com/deepseek-ai/DeepEP/main/figures/normal.png" alt="DeepEP">
-                <p class="summary">DeepEP is a cutting-edge communication library specifically designed for Mixture-of-Experts (MoE) and expert parallelism, providing high-throughput and low-latency all-to-all GPU kernels, alongside support for low-precision operations such as FP8. It features optimized kernels for asymmetric-domain bandwidth forwarding, crucial for aligning with the DeepSeek-V3 gating algorithm, making it highly effective for both training and inference prefilling tasks. The library also offers fine-grained SM number control. For latency-sensitive inference decoding, DeepEP includes a set of pure RDMA low-latency kernels. A notable innovation is its hook-based communication-computation overlapping method, which uniquely avoids occupying any Streaming Multiprocessor (SM) resources, thereby significantly boosting the communication efficiency and overall performance of MoE models in various demanding scenarios.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>MoE</span><span>Expert Parallelism</span><span>Communication Library</span><span>GPU Kernels</span><span>Low Latency</span><span>High Throughput</span><span>Deep Learning</span><span>Model Training</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Deep Learning</span><span>Large Language Model</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/deepseek-ai/DeepEP" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>Reasoning with Exploration: An Entropy Perspective</h2>
-                <span class="published-time">Published: 2025-06-17T17:54:03.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2506.14758.png" alt="Reasoning with Exploration: An Entropy Perspective">
-                <p class="summary">Balancing exploration and exploitation is a central goal in reinforcement
-learning (RL). Despite recent advances in enhancing language model (LM)
-reasoning, most methods lean toward exploitation, and increasingly encounter
-performance plateaus. In this work, we revisit entropy -- a signal of
-exploration in RL -- and examine its relationship to exploratory reasoning in
-LMs. Through empirical analysis, we uncover strong positive correlations
-between high-entropy regions and three types of exploratory reasoning actions:
-(1) pivotal tokens that determine or connect logical steps, (2) reflective
-actions such as self-verification and correction, and (3) rare behaviors
-under-explored by the base LMs. Motivated by this, we introduce a minimal
-modification to standard RL with only one line of code: augmenting the
-advantage function with an entropy-based term. Unlike traditional
-maximum-entropy methods which encourage exploration by promoting uncertainty,
-we encourage exploration by promoting longer and deeper reasoning chains.
-Notably, our method achieves significant gains on the Pass@K metric -- an
-upper-bound estimator of LM reasoning capabilities -- even when evaluated with
-extremely large K values, pushing the boundaries of LM reasoning.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Reinforcement Learning</span><span>Language Models</span><span>Exploration</span><span>Entropy</span><span>Reasoning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2506.14758" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Ring-lite: Scalable Reasoning via C3PO-Stabilized Reinforcement Learning
-  for LLMs</h2>
-                <span class="published-time">Published: 2025-06-17T17:12:34.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2506.14731.png" alt="Ring-lite: Scalable Reasoning via C3PO-Stabilized Reinforcement Learning
-  for LLMs">
-                <p class="summary">We present Ring-lite, a Mixture-of-Experts (MoE)-based large language model
-optimized via reinforcement learning (RL) to achieve efficient and robust
-reasoning capabilities. Built upon the publicly available Ling-lite model, a
-16.8 billion parameter model with 2.75 billion activated parameters, our
-approach matches the performance of state-of-the-art (SOTA) small-scale
-reasoning models on challenging benchmarks (e.g., AIME, LiveCodeBench,
-GPQA-Diamond) while activating only one-third of the parameters required by
-comparable models. To accomplish this, we introduce a joint training pipeline
-integrating distillation with RL, revealing undocumented challenges in MoE RL
-training. First, we identify optimization instability during RL training, and
-we propose Constrained Contextual Computation Policy Optimization(C3PO), a
-novel approach that enhances training stability and improves computational
-throughput via algorithm-system co-design methodology. Second, we empirically
-demonstrate that selecting distillation checkpoints based on entropy loss for
-RL training, rather than validation metrics, yields superior
-performance-efficiency trade-offs in subsequent RL training. Finally, we
-develop a two-stage training paradigm to harmonize multi-domain data
-integration, addressing domain conflicts that arise in training with mixed
-dataset. We will release the model, dataset, and code.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>Reinforcement Learning</span><span>Mixture-of-Experts</span><span>Scalable Reasoning</span><span>C3PO</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2506.14731" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Xolver: Multi-Agent Reasoning with Holistic Experience Learning Just
-  Like an Olympiad Team</h2>
-                <span class="published-time">Published: 2025-06-17T06:47:19.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2506.14234.png" alt="Xolver: Multi-Agent Reasoning with Holistic Experience Learning Just
-  Like an Olympiad Team">
-                <p class="summary">Despite impressive progress on complex reasoning, current large language
-models (LLMs) typically operate in isolation - treating each problem as an
-independent attempt, without accumulating or integrating experiential
-knowledge. In contrast, expert problem solvers - such as Olympiad or
-programming contest teams - leverage a rich tapestry of experiences: absorbing
-mentorship from coaches, developing intuition from past problems, leveraging
-knowledge of tool usage and library functionality, adapting strategies based on
-the expertise and experiences of peers, continuously refining their reasoning
-through trial and error, and learning from other related problems even during
-competition. We introduce Xolver, a training-free multi-agent reasoning
-framework that equips a black-box LLM with a persistent, evolving memory of
-holistic experience. Xolver integrates diverse experience modalities, including
-external and self-retrieval, tool use, collaborative interactions, agent-driven
-evaluation, and iterative refinement. By learning from relevant strategies,
-code fragments, and abstract reasoning patterns at inference time, Xolver
-avoids generating solutions from scratch - marking a transition from isolated
-inference toward experience-aware language agents. Built on both open-weight
-and proprietary models, Xolver consistently outperforms specialized reasoning
-agents. Even with lightweight backbones (e.g., QWQ-32B), it often surpasses
-advanced models including Qwen3-235B, Gemini 2.5 Pro, o3, and o4-mini-high.
-With o3-mini-high, it achieves new best results on GSM8K (98.1%), AIME'24
-(94.4%), AIME'25 (93.7%), Math-500 (99.8%), and LiveCodeBench-V5 (91.6%) -
-highlighting holistic experience learning as a key step toward generalist
-agents capable of expert-level reasoning. Code and data are available at
-https://kagnlp.github.io/xolver.github.io/.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multi-agent Reasoning</span><span>Holistic Experience Learning</span><span>Large Language Models</span><span>AI Agents</span><span>Reasoning Framework</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2506.14234" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Align Your Flow: Scaling Continuous-Time Flow Map Distillation</h2>
-                <span class="published-time">Published: 2025-06-17T15:06:07.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2506.14603.png" alt="Align Your Flow: Scaling Continuous-Time Flow Map Distillation">
-                <p class="summary">Diffusion- and flow-based models have emerged as state-of-the-art generative
-modeling approaches, but they require many sampling steps. Consistency models
-can distill these models into efficient one-step generators; however, unlike
-flow- and diffusion-based methods, their performance inevitably degrades when
-increasing the number of steps, which we show both analytically and
-empirically. Flow maps generalize these approaches by connecting any two noise
-levels in a single step and remain effective across all step counts. In this
-paper, we introduce two new continuous-time objectives for training flow maps,
-along with additional novel training techniques, generalizing existing
-consistency and flow matching objectives. We further demonstrate that
-autoguidance can improve performance, using a low-quality model for guidance
-during distillation, and an additional boost can be achieved by adversarial
-finetuning, with minimal loss in sample diversity. We extensively validate our
-flow map models, called Align Your Flow, on challenging image generation
-benchmarks and achieve state-of-the-art few-step generation performance on both
-ImageNet 64x64 and 512x512, using small and efficient neural networks. Finally,
-we show text-to-image flow map models that outperform all existing
-non-adversarially trained few-step samplers in text-conditioned synthesis.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Flow Map</span><span>Continuous-Time</span><span>Model Distillation</span><span>Generative Models</span><span>Image Generation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Deep Learning</span><span>Computer Vision</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2506.14603" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction
-  and Planning</h2>
-                <span class="published-time">Published: 2025-06-11T17:57:09.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2506.09985.png" alt="V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction
-  and Planning">
-                <p class="summary">A major challenge for modern AI is to learn to understand the world and learn
-to act largely by observation. This paper explores a self-supervised approach
-that combines internet-scale video data with a small amount of interaction data
-(robot trajectories), to develop models capable of understanding, predicting,
-and planning in the physical world. We first pre-train an action-free
-joint-embedding-predictive architecture, V-JEPA 2, on a video and image dataset
-comprising over 1 million hours of internet video. V-JEPA 2 achieves strong
-performance on motion understanding (77.3 top-1 accuracy on Something-Something
-v2) and state-of-the-art performance on human action anticipation (39.7
-recall-at-5 on Epic-Kitchens-100) surpassing previous task-specific models.
-Additionally, after aligning V-JEPA 2 with a large language model, we
-demonstrate state-of-the-art performance on multiple video question-answering
-tasks at the 8 billion parameter scale (e.g., 84.0 on PerceptionTest, 76.9 on
-TempCompass). Finally, we show how self-supervised learning can be applied to
-robotic planning tasks by post-training a latent action-conditioned world
-model, V-JEPA 2-AC, using less than 62 hours of unlabeled robot videos from the
-Droid dataset. We deploy V-JEPA 2-AC zero-shot on Franka arms in two different
-labs and enable picking and placing of objects using planning with image goals.
-Notably, this is achieved without collecting any data from the robots in these
-environments, and without any task-specific training or reward. This work
-demonstrates how self-supervised learning from web-scale data and a small
-amount of robot interaction data can yield a world model capable of planning in
-the physical world.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Self-supervised learning</span><span>Video models</span><span>World model</span><span>Robotic planning</span><span>Video understanding</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Robotics</span><span>Video Understanding</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2506.09985" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Stream-Omni: Simultaneous Multimodal Interactions with Large
-  Language-Vision-Speech Model</h2>
-                <span class="published-time">Published: 2025-06-16T16:06:45.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2506.13642.png" alt="Stream-Omni: Simultaneous Multimodal Interactions with Large
-  Language-Vision-Speech Model">
-                <p class="summary">The emergence of GPT-4o-like large multimodal models (LMMs) has raised the
-exploration of integrating text, vision, and speech modalities to support more
-flexible multimodal interaction. Existing LMMs typically concatenate
-representation of modalities along the sequence dimension and feed them into a
-large language model (LLM) backbone. While sequence-dimension concatenation is
-straightforward for modality integration, it often relies heavily on
-large-scale data to learn modality alignments. In this paper, we aim to model
-the relationships between modalities more purposefully, thereby achieving more
-efficient and flexible modality alignments. To this end, we propose
-Stream-Omni, a large language-vision-speech model with efficient modality
-alignments, which can simultaneously support interactions under various
-modality combinations. Stream-Omni employs LLM as the backbone and aligns the
-vision and speech to the text based on their relationships. For vision that is
-semantically complementary to text, Stream-Omni uses sequence-dimension
-concatenation to achieve vision-text alignment. For speech that is semantically
-consistent with text, Stream-Omni introduces a CTC-based layer-dimension
-mapping to achieve speech-text alignment. In this way, Stream-Omni can achieve
-modality alignments with less data (especially speech), enabling the transfer
-of text capabilities to other modalities. Experiments on various benchmarks
-demonstrate that Stream-Omni achieves strong performance on visual
-understanding, speech interaction, and vision-grounded speech interaction
-tasks. Owing to the layer-dimensional mapping, Stream-Omni can simultaneously
-provide intermediate text outputs (such as ASR transcriptions and model
-responses) during speech interaction, offering users a comprehensive multimodal
-experience.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Multimodal Models</span><span>Multimodal Interaction</span><span>Modality Alignment</span><span>Language-Vision-Speech Model</span><span>Stream-Omni</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Large Language Model</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2506.13642" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/en/" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/en/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2025-06-18</strong><span>ENGLISH EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2025-06-18" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-06-18T14:55:03.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/AndrewYNg/status/1935350552692658202" target="_blank" rel="noopener noreferrer">AndrewYNg_推出Llama 4新课程，聚焦多模态与长上下文能力</a></h3>
+    <p class="story-summary">吴恩达与Meta AI合作推出“使用Llama 4构建”新课程，聚焦Llama 4的最新进展。课程涵盖其MoE架构、Maverick和Scout等新模型，以及支持百万级长上下文窗口。学员将学习利用Llama 4的多模态能力（图像推理、图像定位）、官方API、提示优化工具和合成数据工具包，以构建先进的生成式AI应用。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Llama 4</span><span class="tag tag-keyword">多模态</span><span class="tag tag-keyword">长上下文</span><span class="tag tag-keyword">MoE</span><span class="tag tag-keyword">生成式AI</span><span class="tag tag-area">大模型</span><span class="tag tag-area">多模态</span><span class="tag tag-area">生成式AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-06-18T00:43:47.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/eliebakouch/status/1935137555923493257" target="_blank" rel="noopener noreferrer">eliebakouch_Essential AI发布24万亿Token预训练数据集Essential-Web v1.0</a></h3>
+    <p class="story-summary">Essential AI公司宣布推出其最新研究成果Essential-Web v1.0，这是一个包含24万亿Token的预训练数据集。该数据集富含标注的网页数据和丰富的元数据，旨在简化跨领域和用例的高性能数据集的策展工作。此举有望极大助力内部数据管理与模型训练，为AI研究与应用提供高质量数据基础。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Essential AI</span><span class="tag tag-keyword">Essential-Web</span><span class="tag tag-keyword">预训练数据集</span><span class="tag tag-keyword">大数据</span><span class="tag tag-keyword">数据策展</span><span class="tag tag-area">人工智能</span><span class="tag tag-area">机器学习</span><span class="tag tag-area">产品发布</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-06-18T16:40:55.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/TomLikesRobots/status/1935385070090731694" target="_blank" rel="noopener noreferrer">TomLikesRobots_Midjourney发布V1视频模型</a></h3>
+    <p class="story-summary">Midjourney正式发布其V1视频模型，该模型旨在为大众提供易用、有趣且高质量的视频生成体验。这款定价为每月10美元的视频模型，被定位为首个面向所有用户的视频创作工具，现已全面上市。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Midjourney</span><span class="tag tag-keyword">视频模型</span><span class="tag tag-keyword">生成式AI</span><span class="tag tag-keyword">产品发布</span><span class="tag tag-keyword">视频生成</span><span class="tag tag-area">生成式AI</span><span class="tag tag-area">产品发布</span><span class="tag tag-area">多模态</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-06-18T22:51:10.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/TheTuringPost/status/1935470371538645491" target="_blank" rel="noopener noreferrer">TheTuringPost_Apple Intelligence Shifts Agentic AI to Devices, Reshaping Industry and Security Challenges</a></h3>
+    <p class="story-summary">Apple Intelligence is shifting agentic AI to on-device execution, enabling a new generation of applications without cloud runtimes or OpenAI keys. While this grants users runtime control, it raises security concerns regarding developer access and transparency. Apple addresses misuse through sandboxing and App Store policies, but developer behavior, such as chaining outputs to the cloud, remains a key risk. The tweet highlights Apple&#x27;s ability to enforce on-device workflows and penalize abuse, emphasizing the importance of small models and suggesting a potential shift in &quot;Agent Wars&quot; from cloud to device.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Apple Intelligence</span><span class="tag tag-keyword">On-device AI</span><span class="tag tag-keyword">Agentic AI</span><span class="tag tag-keyword">Data Security</span><span class="tag tag-keyword">Small Models</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Tech News</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-06-18T23:03:22.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/jerryjliu0/status/1935473439948890177" target="_blank" rel="noopener noreferrer">jerryjliu0_The Impact of MCP on Centralized Vector Search</a></h3>
+    <p class="story-summary">Jerry Liu explores the potential impact of Multi-tool Co-operation Protocol (MCP) on centralized vector search. He questions the necessity of centralized search indexes as AI agents increasingly interact directly with external tools via MCP. The discussion highlights that centralized indexing remains crucial for accurate and fast semantic context lookup and processing document-based sources like PDFs and PPTs. However, for deeper lookups and actions within SaaS tools, AI agents can directly interface with tool APIs via MCP servers, reducing reliance on traditional semantic search.</p>
+    <div class="story-tags"><span class="tag tag-keyword">MCP</span><span class="tag tag-keyword">Vector Search</span><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Centralized Index</span><span class="tag tag-keyword">LlamaIndex</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Tech News</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-06-18T17:07:39.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/OpenAI/status/1935385627085914437" target="_blank" rel="noopener noreferrer">OpenAI_Research on &quot;Emergent Misalignment&quot; in Large Models and Its Mitigation</a></h3>
+    <p class="story-summary">OpenAI&#x27;s recent research, prompted by the surprising observation that training GPT-4o to write insecure code triggers broad misalignment, delves into the phenomenon of &quot;emergent misalignment.&quot; The study reveals that this critical issue primarily arises during reinforcement learning and is influenced by specific &quot;misaligned persona&quot; features. Crucially, the findings suggest that emergent misalignment can be effectively detected and mitigated. This work significantly contributes to understanding and preventing the generalization of undesirable behaviors in large language models, underscoring its importance for advancing AI safety and alignment research.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Emergent Misalignment</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">AI Safety</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">GPT-4o</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Research Progress</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-06-13T11:49:10Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/automatisch/automatisch" target="_blank" rel="noopener noreferrer">Automatisch - Open Source Zapier Alternative</a></h3>
+    <p class="story-summary">Automatisch is a robust open-source business automation tool that empowers users to seamlessly connect disparate services, such as Twitter and Slack, to automate complex business workflows. A key advantage is its no-code interface, making it accessible to users without programming expertise. Crucially, Automatisch allows organizations to host their data on their own servers, a vital feature for businesses managing sensitive user information, particularly in regulated sectors like healthcare and finance, or for European companies adhering to GDPR. This self-hosted approach ensures data sovereignty, mitigates risks associated with external cloud services, and eliminates vendor lock-in, providing a flexible and cost-effective alternative to proprietary solutions like Zapier and Integromat. Its community-driven development further enhances its adaptability and long-term viability.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Business Automation</span><span class="tag tag-keyword">Open Source</span><span class="tag tag-keyword">Self-Hosted</span><span class="tag tag-keyword">No-Code</span><span class="tag tag-keyword">Data Privacy</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-06-13T19:28:20Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/anthropics/anthropic-cookbook" target="_blank" rel="noopener noreferrer">Anthropic Cookbook</a></h3>
+    <p class="story-summary">The Anthropic Cookbook is a collection of code and guides designed for developers building applications with Claude. It offers readily integratable code snippets covering areas such as text classification, Retrieval Augmented Generation (RAG), summarization, tool use, multimodal capabilities, and advanced techniques. The project aims to assist developers in leveraging the Claude API, providing Python examples and concepts adaptable to other programming languages, thereby enhancing the efficiency of AI application development.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Claude</span><span class="tag tag-keyword">LLM Applications</span><span class="tag tag-keyword">Code Examples</span><span class="tag tag-keyword">API Development</span><span class="tag tag-keyword">Natural Language Processing</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-06-19T05:04:16Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/menloresearch/jan" target="_blank" rel="noopener noreferrer">Jan - Local AI Assistant</a></h3>
+    <p class="story-summary">Jan is an innovative local AI assistant, serving as a robust ChatGPT alternative that operates entirely offline on the user&#x27;s device. Its core mission is to democratize access to advanced AI by simplifying the process for everyday users to download and run various Large Language Models (LLMs) such as Llama, Gemma, and Qwen, directly on their machines. This approach ensures unparalleled user control and stringent privacy protection, as all processing occurs locally. The project boasts key features including the ability to download and manage local AI models from HuggingFace, seamless integration with popular cloud AI providers like OpenAI, Anthropic, Mistral, and Groq, and a versatile OpenAI-compatible API for broader application interoperability. Developed leveraging powerful technologies like Llama.cpp and Tauri, Jan offers straightforward multi-platform installation across Windows, macOS, and Linux, positioning it as a leading solution for individuals and organizations prioritizing localized AI deployment, data sovereignty, and enhanced privacy.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Local AI</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Offline Operation</span><span class="tag tag-keyword">Privacy Protection</span><span class="tag tag-keyword">AI Assistant</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-06-18T15:59:07Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/linshenkx/prompt-optimizer" target="_blank" rel="noopener noreferrer">Prompt Optimizer</a></h3>
+    <p class="story-summary">Prompt Optimizer is a powerful AI prompt optimization tool designed to enhance the quality of AI outputs. Available as both a web application and a Chrome extension, its core functionalities include intelligent one-click optimization, comparative testing between original and optimized prompts, and multi-model integration supporting mainstream AI models like OpenAI, Gemini, and DeepSeek. The tool allows for advanced parameter configuration, ensures data security and privacy through client-side processing, and offers convenient deployment options such as Vercel and Docker. It is an ideal choice for AI content creators and developers seeking to improve their workflow efficiency.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Prompt Optimization</span><span class="tag tag-keyword">AI Tools</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Chrome Extension</span><span class="tag tag-keyword">Web Application</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-06-19T03:12:53Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/infiniflow/ragflow" target="_blank" rel="noopener noreferrer">RAGFlow</a></h3>
+    <p class="story-summary">RAGFlow is an open-source Retrieval-Augmented Generation (RAG) engine fundamentally based on deep document understanding, offering a streamlined RAG workflow tailored for businesses of any scale. It leverages Large Language Models (LLMs) to provide highly truthful and reliable question-answering capabilities, meticulously supported by well-founded citations extracted from diverse and complex formatted data. This innovative approach significantly reduces hallucinations, ensuring accuracy and trustworthiness. Its core strengths encompass sophisticated deep document understanding for knowledge extraction, intelligent template-based chunking, and the provision of grounded, traceable citations for transparency. RAGFlow also boasts extensive compatibility with heterogeneous data sources, including various document types and web content. Furthermore, it delivers an automated and effortless RAG orchestration, configurable LLMs and embedding models, and robust multiple recall with fused re-ranking, making it a comprehensive solution for advanced information retrieval and generation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">RAG</span><span class="tag tag-keyword">Retrieval-Augmented Generation</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Document Understanding</span><span class="tag tag-keyword">Knowledge Extraction</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-06-18T08:04:42Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/deepseek-ai/DeepEP" target="_blank" rel="noopener noreferrer">DeepEP</a></h3>
+    <p class="story-summary">DeepEP is a cutting-edge communication library specifically designed for Mixture-of-Experts (MoE) and expert parallelism, providing high-throughput and low-latency all-to-all GPU kernels, alongside support for low-precision operations such as FP8. It features optimized kernels for asymmetric-domain bandwidth forwarding, crucial for aligning with the DeepSeek-V3 gating algorithm, making it highly effective for both training and inference prefilling tasks. The library also offers fine-grained SM number control. For latency-sensitive inference decoding, DeepEP includes a set of pure RDMA low-latency kernels. A notable innovation is its hook-based communication-computation overlapping method, which uniquely avoids occupying any Streaming Multiprocessor (SM) resources, thereby significantly boosting the communication efficiency and overall performance of MoE models in various demanding scenarios.</p>
+    <div class="story-tags"><span class="tag tag-keyword">MoE</span><span class="tag tag-keyword">Expert Parallelism</span><span class="tag tag-keyword">Communication Library</span><span class="tag tag-keyword">GPU Kernels</span><span class="tag tag-keyword">Low Latency</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> wechat</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-06-18T16:01:58.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/-djxLTUqLMgkp8GTI7t13Q" target="_blank" rel="noopener noreferrer">UCSC Open-Sources GRIT: Grounded Multimodal Reasoning with Image-Text Integration and Minimal Data</a></h3>
+    <p class="story-summary">The University of California, Santa Cruz (UCSC) has introduced the GRIT (Grounded Reasoning with Images &amp; Texts) model, addressing the limitation of current multimodal reasoning models that lack explicit image references within their thought processes. GRIT enables &quot;thinking with images&quot; by directly embedding bounding box coordinates into the reasoning chain, allowing Multimodal Large Language Models (MLLMs) to &quot;point&quot; while they &quot;think,&quot; thereby deeply integrating visual grounding and language reasoning. The model employs a lightweight training methodology, GRPO-GR, which remarkably requires only 20 image-question-answer samples. This is achieved through a novel reinforcement learning approach utilizing three distinct reward signals: format adherence, object counting accuracy, and answer correctness. This innovative framework allows MLLMs to learn to draw bounding boxes and reason simultaneously. GRIT significantly enhances the model&#x27;s ability to perform accurate localization and robust reasoning even with extremely limited data, empowering MLLMs to achieve both precise visual grounding and clear explanatory capabilities. This represents a new paradigm for multimodal AI development.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multimodal</span><span class="tag tag-keyword">Chain of Thought</span><span class="tag tag-keyword">Visual Grounding</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-06-18T16:01:58.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/FHidWRYikYCOXQrhnDGaAg" target="_blank" rel="noopener noreferrer">Tsinghua GenWorld: Unmasking Real-World AI-Generated Fake Videos with Physical Consistency</a></h3>
+    <p class="story-summary">Tsinghua University researchers have introduced the GenWorld dataset, addressing limitations in existing AI-generated video detection datasets. GenWorld comprises a vast collection of high-quality, real-world simulated AI-generated videos, encompassing diverse scenarios like driving, navigation, and embodied AI operations, created using various advanced generative models. The study reveals that current detectors struggle to identify high-quality videos produced by world models such as Cosmos, primarily due to their inability to capture physical consistency. To counter this, the team developed SpannDetector, a novel detector leveraging multi-view consistency (physical consistency) as a crucial cue. By integrating stereo reconstruction models with temporal memory modules, SpannDetector significantly enhances detection capabilities for highly realistic AI-generated videos. User studies further confirm the extreme deceptiveness of the GenWorld dataset, underscoring its significant value in advancing AI-generated content detection research.</p>
+    <div class="story-tags"><span class="tag tag-keyword">GenWorld</span><span class="tag tag-keyword">AI-generated video detection</span><span class="tag tag-keyword">physical consistency</span><span class="tag tag-keyword">fake videos</span><span class="tag tag-keyword">dataset</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-06-18T07:50:22.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/plMdFbAA5SwiNpdbhnxgpA" target="_blank" rel="noopener noreferrer">Single GPU Achieves High-Definition Long Video Generation with 10x Efficiency: Mamba Mechanism Breaks DiT Bottleneck | Princeton &amp; Meta</a></h3>
+    <p class="story-summary">Princeton University and Meta have jointly introduced LinGen, a novel framework that replaces the self-attention mechanism in DiT with MATE linear complexity blocks, reducing video generation complexity from quadratic to linear. This innovation enables high-quality, minute-long video generation on a single GPU, significantly enhancing model scalability and efficiency. Experimental results demonstrate LinGen&#x27;s superior video quality over DiT (75.6% win rate) and substantial reductions in FLOPs (up to 15x) and latency (up to 11.5x), matching the performance of state-of-the-art models like Kling and Gen-3. LinGen achieves this by integrating Mamba2 for long sequence processing, proposing Rotary Major Scan for hardware-friendly scanning, utilizing TEmporal Swin Attention for local information, and incorporating review tokens for enhanced long-range consistency. It successfully overcomes traditional self-attention bottlenecks and exhibits exceptional adaptability to long sequence tasks during pre-training, challenging the conventional belief that linear approximations compromise performance.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Video Generation</span><span class="tag tag-keyword">LinGen</span><span class="tag tag-keyword">Mamba Mechanism</span><span class="tag tag-keyword">DiT</span><span class="tag tag-keyword">Efficiency Improvement</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-06-18T06:10:29.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/iNpuZUHtCFX-Jz0pVarQAA" target="_blank" rel="noopener noreferrer">DCM: Dual-Expert Consistency Model for Efficient and High-Quality Video Generation</a></h3>
+    <p class="story-summary">This paper introduces the parameter-efficient Dual-Expert Consistency Model (DCM), a novel approach developed to overcome the inherent optimization conflicts and visual quality degradation observed when applying consistency distillation to video diffusion models. DCM addresses these challenges by employing a unique dual-expert architecture, comprising a Semantic Expert for high-level structure and motion, and a Detail Expert for fine-grained synthesis. This design is further enhanced with specialized loss functions, including Temporal Coherence Loss for semantic consistency and GAN Loss alongside Feature Matching Loss for detail refinement. Comprehensive experiments confirm DCM&#x27;s superior performance: it achieves a remarkable 10x acceleration in inference time, exemplified by reducing HunyuanVideo13B&#x27;s processing from 1500 seconds to just 120 seconds, all while preserving visual quality on par with much slower, original models. This research unequivocally validates the effectiveness of the dual-expert mechanism in significantly boosting both the efficiency and output quality of advanced video generation systems.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Video Diffusion Models</span><span class="tag tag-keyword">Consistency Distillation</span><span class="tag tag-keyword">Dual-Expert Model</span><span class="tag tag-keyword">Inference Efficiency</span><span class="tag tag-keyword">Video Generation</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-06-18T06:10:29.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/PAMxpArVFwyAEVOhcq_UAw" target="_blank" rel="noopener noreferrer">Embodied Multimodal Reasoning in a Unified Framework: Autonomous Variable Robots Let AI Put Down Heidegger&#x27;s Hammer</a></h3>
+    <p class="story-summary">This article introduces the concept of “Autonomous Variable Robots,” proposing a unified architectural framework to achieve embodied multimodal reasoning, addressing the limitations of current modular AI systems. Existing approaches, which process modalities separately, suffer from information loss and hinder the emergence of intuitive physical intelligence, preventing robots from “putting down Heidegger&#x27;s hammer”—i.e., seamlessly integrating tools into their actions. The proposed unified architecture transforms visual, linguistic, and action modalities into a single, shared high-dimensional token sequence. It leverages multi-task multimodal generation as a supervisory mechanism, compelling the model to establish deep cross-modal correspondences. This design allows perception, reasoning, and action to occur concurrently and interactively within a unified computational space, moving beyond sequential processing. Consequently, robots can exhibit human-like symbolic-spatial reasoning, physical spatial reasoning, autonomous exploration with reasoning chains, and learning from video, including inferring human intent for collaborative tasks. This represents a fundamental paradigm shift from fragmented representations to an end-to-end, intuitive interaction with the physical world, crucial for the evolution of embodied AI.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Embodied AI</span><span class="tag tag-keyword">Multimodal Reasoning</span><span class="tag tag-keyword">Unified Architecture</span><span class="tag tag-keyword">Autonomous Variable Robot</span><span class="tag tag-keyword">Physical World Interaction</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Robotics</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-06-18T02:56:42.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/cIfKxjMYxSDnlFLqrA8HlQ" target="_blank" rel="noopener noreferrer">Google Gemini 2.5 Family Officially Launched, Showcasing Advanced Capabilities and Unexpected Behaviors</a></h3>
+    <p class="story-summary">Google has officially launched its Gemini 2.5 family, including Pro, Flash, and Flash-Lite versions, with Flash-Lite notable for its cost-effectiveness and speed. The Gemini 2.X series aims to build general artificial intelligence, deeply integrating with the Google ecosystem, natively supporting multimodal input, million-token long context processing, and tool utilization. The new models, leveraging a sparse Mixture-of-Experts (MoE) architecture, demonstrate significant performance improvements across programming, mathematics, reasoning, multilingual capabilities, and audio/video understanding, setting new SOTA benchmarks, particularly in long context and multimodal processing. Furthermore, Gemini 2.5 Pro showcased advanced reasoning during a Pokémon game challenge but also exhibited unexpected &quot;near-death panic&quot; behaviors akin to human reactions, highlighting its complexity and potential challenges.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Gemini 2.5</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Multimodal</span><span class="tag tag-keyword">Long Context</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-06-17T17:54:03.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2506.14758" target="_blank" rel="noopener noreferrer">Reasoning with Exploration: An Entropy Perspective</a></h3>
+    <p class="story-summary">Balancing exploration and exploitation is a central goal in reinforcement learning (RL). Despite recent advances in enhancing language model (LM) reasoning, most methods lean toward exploitation, and increasingly encounter performance plateaus. In this work, we revisit entropy -- a signal of exploration in RL -- and examine its relationship to exploratory reasoning in LMs. Through empirical analysis, we uncover strong positive correlations between high-entropy regions and three types of exploratory reasoning actions: (1) pivotal tokens that determine or connect logical steps, (2) reflective actions such as self-verification and correction, and (3) rare behaviors under-explored by the base LMs. Motivated by this, we introduce a minimal modification to standard RL with only one line of code: augmenting the advantage function with an entropy-based term. Unlike traditional maximum-entropy methods which encourage exploration by promoting uncertainty, we encourage exploration by promoting longer and deeper reasoning chains. Notably, our method achieves significant gains on the Pass@K metric -- an upper-bound estimator of LM reasoning capabilities -- even when evaluated with extremely large K values, pushing the boundaries of LM reasoning.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Language Models</span><span class="tag tag-keyword">Exploration</span><span class="tag tag-keyword">Entropy</span><span class="tag tag-keyword">Reasoning</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-06-17T17:12:34.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2506.14731" target="_blank" rel="noopener noreferrer">Ring-lite: Scalable Reasoning via C3PO-Stabilized Reinforcement Learning for LLMs</a></h3>
+    <p class="story-summary">We present Ring-lite, a Mixture-of-Experts (MoE)-based large language model optimized via reinforcement learning (RL) to achieve efficient and robust reasoning capabilities. Built upon the publicly available Ling-lite model, a 16.8 billion parameter model with 2.75 billion activated parameters, our approach matches the performance of state-of-the-art (SOTA) small-scale reasoning models on challenging benchmarks (e.g., AIME, LiveCodeBench, GPQA-Diamond) while activating only one-third of the parameters required by comparable models. To accomplish this, we introduce a joint training pipeline integrating distillation with RL, revealing undocumented challenges in MoE RL training. First, we identify optimization instability during RL training, and we propose Constrained Contextual Computation Policy Optimization(C3PO), a novel approach that enhances training stability and improves computational throughput via algorithm-system co-design methodology. Second, we empirically demonstrate that selecting distillation checkpoints based on entropy loss for RL training, rather than validation metrics, yields superior performance-efficiency trade-offs in subsequent RL training. Finally, we develop a two-stage training paradigm to harmonize multi-domain data integration, addressing domain conflicts that arise in training with mixed dataset. We will release the model, dataset, and code.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Mixture-of-Experts</span><span class="tag tag-keyword">Scalable Reasoning</span><span class="tag tag-keyword">C3PO</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-06-17T06:47:19.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2506.14234" target="_blank" rel="noopener noreferrer">Xolver: Multi-Agent Reasoning with Holistic Experience Learning Just Like an Olympiad Team</a></h3>
+    <p class="story-summary">Despite impressive progress on complex reasoning, current large language models (LLMs) typically operate in isolation - treating each problem as an independent attempt, without accumulating or integrating experiential knowledge. In contrast, expert problem solvers - such as Olympiad or programming contest teams - leverage a rich tapestry of experiences: absorbing mentorship from coaches, developing intuition from past problems, leveraging knowledge of tool usage and library functionality, adapting strategies based on the expertise and experiences of peers, continuously refining their reasoning through trial and error, and learning from other related problems even during competition. We introduce Xolver, a training-free multi-agent reasoning framework that equips a black-box LLM with a persistent, evolving memory of holistic experience. Xolver integrates diverse experience modalities, including external and self-retrieval, tool use, collaborative interactions, agent-driven evaluation, and iterative refinement. By learning from relevant strategies, code fragments, and abstract reasoning patterns at inference time, Xolver avoids generating solutions from scratch - marking a transition from isolated inference toward experience-aware language agents. Built on both open-weight and proprietary models, Xolver consistently outperforms specialized reasoning agents. Even with lightweight backbones (e.g., QWQ-32B), it often surpasses advanced models including Qwen3-235B, Gemini 2.5 Pro, o3, and o4-mini-high. With o3-mini-high, it achieves new best results on GSM8K (98.1%), AIME&#x27;24 (94.4%), AIME&#x27;25 (93.7%), Math-500 (99.8%), and LiveCodeBench-V5 (91.6%) - highlighting holistic experience learning as a key step toward generalist agents capable of expert-level reasoning. Code and data are available at https://kagnlp.github.io/xolver.github.io/.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multi-agent Reasoning</span><span class="tag tag-keyword">Holistic Experience Learning</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Reasoning Framework</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-06-17T15:06:07.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2506.14603" target="_blank" rel="noopener noreferrer">Align Your Flow: Scaling Continuous-Time Flow Map Distillation</a></h3>
+    <p class="story-summary">Diffusion- and flow-based models have emerged as state-of-the-art generative modeling approaches, but they require many sampling steps. Consistency models can distill these models into efficient one-step generators; however, unlike flow- and diffusion-based methods, their performance inevitably degrades when increasing the number of steps, which we show both analytically and empirically. Flow maps generalize these approaches by connecting any two noise levels in a single step and remain effective across all step counts. In this paper, we introduce two new continuous-time objectives for training flow maps, along with additional novel training techniques, generalizing existing consistency and flow matching objectives. We further demonstrate that autoguidance can improve performance, using a low-quality model for guidance during distillation, and an additional boost can be achieved by adversarial finetuning, with minimal loss in sample diversity. We extensively validate our flow map models, called Align Your Flow, on challenging image generation benchmarks and achieve state-of-the-art few-step generation performance on both ImageNet 64x64 and 512x512, using small and efficient neural networks. Finally, we show text-to-image flow map models that outperform all existing non-adversarially trained few-step samplers in text-conditioned synthesis.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Flow Map</span><span class="tag tag-keyword">Continuous-Time</span><span class="tag tag-keyword">Model Distillation</span><span class="tag tag-keyword">Generative Models</span><span class="tag tag-keyword">Image Generation</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-06-11T17:57:09.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2506.09985" target="_blank" rel="noopener noreferrer">V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning</a></h3>
+    <p class="story-summary">A major challenge for modern AI is to learn to understand the world and learn to act largely by observation. This paper explores a self-supervised approach that combines internet-scale video data with a small amount of interaction data (robot trajectories), to develop models capable of understanding, predicting, and planning in the physical world. We first pre-train an action-free joint-embedding-predictive architecture, V-JEPA 2, on a video and image dataset comprising over 1 million hours of internet video. V-JEPA 2 achieves strong performance on motion understanding (77.3 top-1 accuracy on Something-Something v2) and state-of-the-art performance on human action anticipation (39.7 recall-at-5 on Epic-Kitchens-100) surpassing previous task-specific models. Additionally, after aligning V-JEPA 2 with a large language model, we demonstrate state-of-the-art performance on multiple video question-answering tasks at the 8 billion parameter scale (e.g., 84.0 on PerceptionTest, 76.9 on TempCompass). Finally, we show how self-supervised learning can be applied to robotic planning tasks by post-training a latent action-conditioned world model, V-JEPA 2-AC, using less than 62 hours of unlabeled robot videos from the Droid dataset. We deploy V-JEPA 2-AC zero-shot on Franka arms in two different labs and enable picking and placing of objects using planning with image goals. Notably, this is achieved without collecting any data from the robots in these environments, and without any task-specific training or reward. This work demonstrates how self-supervised learning from web-scale data and a small amount of robot interaction data can yield a world model capable of planning in the physical world.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Self-supervised learning</span><span class="tag tag-keyword">Video models</span><span class="tag tag-keyword">World model</span><span class="tag tag-keyword">Robotic planning</span><span class="tag tag-keyword">Video understanding</span><span class="tag tag-area">Robotics</span><span class="tag tag-area">Video Understanding</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-06-16T16:06:45.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2506.13642" target="_blank" rel="noopener noreferrer">Stream-Omni: Simultaneous Multimodal Interactions with Large Language-Vision-Speech Model</a></h3>
+    <p class="story-summary">The emergence of GPT-4o-like large multimodal models (LMMs) has raised the exploration of integrating text, vision, and speech modalities to support more flexible multimodal interaction. Existing LMMs typically concatenate representation of modalities along the sequence dimension and feed them into a large language model (LLM) backbone. While sequence-dimension concatenation is straightforward for modality integration, it often relies heavily on large-scale data to learn modality alignments. In this paper, we aim to model the relationships between modalities more purposefully, thereby achieving more efficient and flexible modality alignments. To this end, we propose Stream-Omni, a large language-vision-speech model with efficient modality alignments, which can simultaneously support interactions under various modality combinations. Stream-Omni employs LLM as the backbone and aligns the vision and speech to the text based on their relationships. For vision that is semantically complementary to text, Stream-Omni uses sequence-dimension concatenation to achieve vision-text alignment. For speech that is semantically consistent with text, Stream-Omni introduces a CTC-based layer-dimension mapping to achieve speech-text alignment. In this way, Stream-Omni can achieve modality alignments with less data (especially speech), enabling the transfer of text capabilities to other modalities. Experiments on various benchmarks demonstrate that Stream-Omni achieves strong performance on visual understanding, speech interaction, and vision-grounded speech interaction tasks. Owing to the layer-dimensional mapping, Stream-Omni can simultaneously provide intermediate text outputs (such as ASR transcriptions and model responses) during speech interaction, offering users a comprehensive multimodal experience.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Multimodal Models</span><span class="tag tag-keyword">Multimodal Interaction</span><span class="tag tag-keyword">Modality Alignment</span><span class="tag tag-keyword">Language-Vision-Speech Model</span><span class="tag tag-keyword">Stream-Omni</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2025-06-18" data-counter-title="NO-FOMO issue 2025-06-18" defer></script>
 </body>
 </html>

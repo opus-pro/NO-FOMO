@@ -1,663 +1,190 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-08-22</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            border: 2px solid transparent;
-            font-size: 0.9em;
-        }
-
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-
-        .language-switch a.active {
-            background: var(--secondary-color);
-            border-color: var(--border-color);
-        }
-
-        @media (max-width: 768px) {
-            .language-switch {
-                position: static;
-                justify-content: center;
-                margin-bottom: 20px;
-            }
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2025-08-22</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="../">中文</a>
-                <a href="./" class="active">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-08-22</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../../home/en/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 Back to Homepage</a>
-            <a href="../../../daily/en/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 Latest Daily</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 About Us</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Twitter</h2>
-
-            <article class="item-card">
-                <h2>ZoubinGhahrama1_Google Gemini AI Energy Efficiency Significantly Improved</h2>
-                <span class="published-time">Published: 2025-08-22T07:09:09.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-22/screenshot/twitter/ZoubinGhahrama1_1958788516030161185.png" alt="ZoubinGhahrama1_Google Gemini AI Energy Efficiency Significantly Improved">
-                <p class="summary">Zoubin Ghahramani, Google's AI lead, retweeted, highlighting Google's excellence in AI efficiency. Michael Terrell revealed that the energy consumption for a median Gemini AI text prompt has dropped 33x in just 12 months, a monumental achievement. This progress, attributed to Googlers' efforts and focus on efficiency, holds significant implications for the AI field.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Google</span><span>Gemini AI</span><span>Energy Efficiency</span><span>Artificial Intelligence</span><span>Optimization</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Tech News</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/ZoubinGhahrama1/status/1958788516030161185" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>demishassabis_Google DeepMind发布Genie 3：文本生成交互式3D世界</h2>
-                <span class="published-time">Published: 2025-08-22T01:05:05.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-22/screenshot/twitter/demishassabis_1958696898488840414.png" alt="demishassabis_Google DeepMind发布Genie 3：文本生成交互式3D世界">
-                <p class="summary">Google DeepMind联合创始人Demis Hassabis转发推文，揭示了Google DeepMind最新推出的Genie 3模型。该模型能够通过文本指令生成交互式的3D世界，用户可实时导航并与场景中的物体进行互动，例如打开车门或穿过花坛。Genie 3的发布标志着AI在生成沉浸式虚拟环境方面取得重大进展，为未来虚拟现实和游戏开发带来无限可能。</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Google DeepMind</span><span>Genie 3</span><span>交互式3D世界</span><span>文本生成</span><span>虚拟环境</span><span>AI模型</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>人工智能</span><span>生成式AI</span><span>多模态</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/demishassabis/status/1958696898488840414" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>yupp_ai_Yupp Integrates DeepSeek v3.1 Models</h2>
-                <span class="published-time">Published: 2025-08-22T16:51:28.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-22/screenshot/twitter/yupp_ai_1958935061677711451.png" alt="yupp_ai_Yupp Integrates DeepSeek v3.1 Models">
-                <p class="summary">Yupp AI has officially announced the successful integration of DeepSeek v3.1 Thinking and Chat models into its platform. This significant update brings the latest DeepSeek v3.1 edition, which is distinguished by its built-in hybrid thinking capabilities. These advancements are specifically designed to provide users with quicker, more accurate answers and to power stronger, highly tool-savvy AI agents. The Yupp team has already conducted thorough internal testing, utilizing various prompts on their platform to validate the new models' enhanced performance and capabilities. This strategic integration marks a notable improvement in Yupp's service offerings and overall AI functionality.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Yupp</span><span>DeepSeek v3.1</span><span>Large Language Model</span><span>AI Agent</span><span>Product Integration</span><span>Hybrid Thinking</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>AI Agent</span><span>Product Launch</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/yupp_ai/status/1958935061677711451" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>gdb_OpenAI's Custom LLM Achieves Biology Breakthrough, 50x Increase in Yamanaka Factor Efficiency</h2>
-                <span class="published-time">Published: 2025-08-22T16:26:54.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-22/screenshot/twitter/gdb_1958928877415510134.png" alt="gdb_OpenAI's Custom LLM Achieves Biology Breakthrough, 50x Increase in Yamanaka Factor Efficiency">
-                <p class="summary">OpenAI, in collaboration with RetroBiosciences, announced a significant breakthrough in biology achieved by their custom large language model, gpt-4b micro. This model successfully designed novel variants of the Nobel-winning Yamanaka factors, demonstrating a 50-fold increase in in vitro cellular reprogramming efficiency compared to standard OSKM proteins. This groundbreaking research highlights AI's immense potential to accelerate scientific discovery and drug development.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>OpenAI</span><span>Large Language Model</span><span>Biology</span><span>Yamanaka Factors</span><span>Cell Reprogramming</span><span>AI for Science</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Research Progress</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/gdb/status/1958928877415510134" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>elonmusk_xAI宣布Colossus 2将成全球首个千兆瓦级AI超算</h2>
-                <span class="published-time">Published: 2025-08-22T11:01:02.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-22/screenshot/twitter/elonmusk_1958846872157921546.png" alt="elonmusk_xAI宣布Colossus 2将成全球首个千兆瓦级AI超算">
-                <p class="summary">埃隆·马斯克宣布，xAI正在构建的Colossus 2将成为全球首个千兆瓦级AI训练超级计算机，标志着AI算力发展迈向新里程碑。戴尔公司创始人迈克尔·戴尔也证实了对xAI的访问，并表达了对xAI成就的赞赏和支持，强调了戴尔在其中的参与，预示着未来AI基础设施的巨大进步。</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>xAI</span><span>Colossus 2</span><span>AI超算</span><span>埃隆·马斯克</span><span>迈克尔·戴尔</span><span>算力</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>人工智能</span><span>技术动态</span><span>产品发布</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/elonmusk/status/1958846872157921546" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>AnthropicAI_Research on Filtering CBRN Weapon Information in Pretraining Data</h2>
-                <span class="published-time">Published: 2025-08-22T16:19:09.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-22/screenshot/twitter/AnthropicAI_1958926929626898449.png" alt="AnthropicAI_Research on Filtering CBRN Weapon Information in Pretraining Data">
-                <p class="summary">Anthropic has announced new research focusing on filtering dangerous information, specifically related to chemical, biological, radiological, and nuclear (CBRN) weapons, from their models' pretraining data. The initiative aims to effectively remove such sensitive content without compromising the models' performance on harmless tasks, thereby enhancing AI safety and responsible development.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Anthropic</span><span>AI Safety</span><span>Data Filtering</span><span>Pretraining</span><span>CBRN Weapons</span><span>Large Language Model</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Research Progress</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/AnthropicAI/status/1958926929626898449" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">wechat</h2>
-
-            <article class="item-card">
-                <h2>Where Are Autonomous Deep Research Agents Heading? A Four-Step Process Guide | Huawei's Latest</h2>
-                <span class="published-time">Published: 2025-08-22T15:39:43.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-22/screenshot/wechat/wechat_image_RM4ZxyEuwZ8OIGPMavPQYA.png" alt="Where Are Autonomous Deep Research Agents Heading? A Four-Step Process Guide | Huawei's Latest">
-                <p class="summary">Huawei's Noah's Ark Lab, in collaboration with the University of Hong Kong, has published a systematic review focusing on Deep Research Agents, adopting a novel process-oriented perspective. This comprehensive survey meticulously outlines four critical stages: strategic planning, precise query construction, efficient web exploration, and structured report generation. The paper delves into a comparative analysis of single-agent versus multi-agent systems, elucidating their respective strengths and weaknesses. Furthermore, it explores advanced optimization techniques, such as parameter tuning and reinforcement learning, alongside robust evaluation methodologies, including benchmark testing. This review serves as a crucial operational blueprint for developing sophisticated deep research agents, while also identifying significant future challenges, such as seamless tool integration, maintaining absolute factual integrity in dynamic environments, and effectively processing diverse multimodal information. It offers invaluable guidance and insights for both AI researchers and engineers navigating this evolving field.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Deep Research Agents</span><span>Process-Oriented</span><span>Multi-Agent Systems</span><span>Report Generation</span><span>Huawei Noah's Ark Lab</span><span>Artificial Intelligence</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/RM4ZxyEuwZ8OIGPMavPQYA" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Breaking the Long Video Generation Bottleneck: Nanjing University and TeleAI Jointly Launch New AI Generation Paradigm MMPL, Enabling 'One-Take' Creativity</h2>
-                <span class="published-time">Published: 2025-08-22T15:02:41.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-22/screenshot/wechat/wechat_image_oyF51mtGt3x0FEzC9xwm-g.png" alt="Breaking the Long Video Generation Bottleneck: Nanjing University and TeleAI Jointly Launch New AI Generation Paradigm MMPL, Enabling 'One-Take' Creativity">
-                <p class="summary">Nanjing University and TeleAI have jointly introduced MMPL (Macro-from-Micro Planning), a novel autoregressive generation paradigm designed to overcome critical bottlenecks in current AI long video generation, such as visual drift, quality degradation, and low efficiency. Drawing inspiration from the film industry's "storyboarding and multi-group parallel shooting" mechanism, MMPL pioneers a unique dual-layer architecture centered on "macro planning and micro execution." This innovative approach leverages sparse anchor point planning and highly parallel content population, which effectively mitigates the cumulative error problem inherent in sequential generation and dramatically boosts overall generation efficiency. The paradigm significantly enhances the visual quality, temporal consistency, and stability of long videos, achieving near real-time preview speeds (up to 32 FPS) for minute-long content. MMPL represents a revolutionary advancement in AI video creation, pushing the boundaries of what's possible and moving AI closer to an "AI director" capability.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Long Video Generation</span><span>MMPL</span><span>AI Director</span><span>Macro Planning</span><span>Parallel Generation</span><span>Video Consistency</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Computer Vision</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/oyF51mtGt3x0FEzC9xwm-g" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>DeepSeek's Single Remark Triggers Surge in Chinese Chip Stocks! What Exactly is the UE8M0 FP8 Behind It?</h2>
-                <span class="published-time">Published: 2025-08-22T05:49:09.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-22/screenshot/wechat/wechat_image_4omztEOfepiBe0kjh8ji1A.png" alt="DeepSeek's Single Remark Triggers Surge in Chinese Chip Stocks! What Exactly is the UE8M0 FP8 Behind It?">
-                <p class="summary">Following the release of DeepSeek V3.1, its subtle yet impactful mention of "UE8M0 FP8" parameter precision and "next-generation domestic chips" ignited a collective surge in Chinese chip stocks. This article thoroughly analyzes the technical advantages of UE8M0 FP8, an advanced micro-scaling format, which includes substantial bandwidth savings, reduced power consumption, and significantly enhanced data throughput. These characteristics make it exceptionally well-suited for integration with emerging domestic AI accelerators. This strategic alignment is widely interpreted as a crucial advancement towards robust software-hardware synergy within China's artificial intelligence landscape. Such collaboration is expected to dramatically improve the performance-to-cost ratio of indigenous chips and fundamentally lessen the nation's dependence on foreign computing infrastructure, ultimately fostering a powerful, localized technological ecosystem reminiscent of the historical "Wintel alliance."</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>DeepSeek</span><span>Domestic Chips</span><span>UE8M0 FP8</span><span>Software-Hardware Synergy</span><span>AI Accelerator</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/4omztEOfepiBe0kjh8ji1A" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>Build and deploy AI agent workflows in minutes.</h2>
-                <span class="published-time">Published: 2025-08-23T00:03:36Z</span>
-                <img src="https://github.com/simstudioai/sim/raw/main/apps/sim/public/static/demo.gif" alt="Build and deploy AI agent workflows in minutes.">
-                <p class="summary">Sim is a platform dedicated to building and deploying AI agent workflows. It offers flexible cloud-hosted and various self-hosted options, including NPM packages, Docker Compose, Dev Containers, and manual configurations. The project utilizes an advanced tech stack such as Bun, Next.js, PostgreSQL (integrated with pgvector), and Drizzle ORM, and supports integration with Ollama for running local AI models. Sim aims to simplify the development and management of AI agent applications, providing users with efficient and scalable solutions to rapidly implement complex AI workflows.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agent</span><span>Workflow</span><span>Deployment</span><span>Self-hosted</span><span>PostgreSQL</span><span>Ollama</span><span>Full-stack Development</span><span>Low-code</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/simstudioai/sim" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Project AIRI</h2>
-                <span class="published-time">Published: 2025-08-23T05:36:10Z</span>
-                <img src="https://github.com/moeru-ai/airi/blob/main/docs/content/public/banner-light-1280x640.avif?raw=true" alt="Project AIRI">
-                <p class="summary">Project AIRI aims to recreate AI virtual characters like Neuro-sama, building a digital companion capable of interacting, playing games, and chatting with users. Leveraging Web technologies such as WebGPU and WebAssembly, the project achieves cross-browser and mobile device compatibility, while its desktop version supports NVIDIA CUDA and Apple Metal. AIRI integrates various large language model APIs, supports VRM and Live2D models, and features speech recognition, speech synthesis, and memory systems. It enables virtual characters to play games (e.g., Minecraft, Factorio) and interact on social platforms, striving to empower users to easily own personalized digital lives.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI VTuber</span><span>Digital Life</span><span>Large Language Model</span><span>Web Technologies</span><span>Virtual Avatar</span><span>AI Agent</span><span>Cross-platform</span><span>Voice Interaction</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/moeru-ai/airi" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Intelligent Data Query System Based on Large Models and RAG</h2>
-                <span class="published-time">Published: 2025-08-22T10:12:30Z</span>
-                <img src="https://resource-fit2cloud-com.oss-cn-hangzhou.aliyuncs.com/sqlbot/sqlbot.png" alt="Intelligent Data Query System Based on Large Models and RAG">
-                <p class="summary">SQLBot is an intelligent data querying system built upon advanced large language models (LLMs) and Retrieval-Augmented Generation (RAG) technology. Its primary objective is to facilitate efficient data querying and insightful analysis by transforming natural language questions into high-quality SQL queries (text-to-SQL). The system boasts several key advantages: it's ready for immediate use, requiring only basic configuration of LLMs and data sources; it offers easy integration, allowing seamless embedding into existing third-party business systems or invocation by popular AI application development platforms such as n8n, MaxKB, Dify, and Coze. This broad compatibility empowers diverse applications with intelligent data querying capabilities. Moreover, SQLBot prioritizes security and control, providing a robust resource isolation mechanism based on workspaces and enabling fine-grained data permission management to safeguard sensitive information.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Model</span><span>RAG</span><span>Intelligent Data Query</span><span>Text2SQL</span><span>Data Analysis</span><span>Data Security</span><span>Docker</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/dataease/SQLBot" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>bitnet.cpp</h2>
-                <span class="published-time">Published: 2025-06-03T06:14:20Z</span>
-                <img src="https://github.com/microsoft/BitNet/raw/main/assets/header_model_release.png" alt="bitnet.cpp">
-                <p class="summary">bitnet.cpp is Microsoft's official inference framework specifically designed for 1-bit Large Language Models (LLMs), such as BitNet b1.58. It provides a comprehensive suite of highly optimized kernels, enabling fast and lossless inference on both CPU and GPU architectures, with future NPU support planned. The framework demonstrates impressive performance gains, achieving speedups of 1.37x to 5.07x on ARM CPUs and 2.37x to 6.17x on x86 CPUs. Concurrently, it significantly reduces energy consumption by 55.4% to 70.0% on ARM and 71.9% to 82.2% on x86. A key achievement is its ability to run a 100B BitNet b1.58 model on a single CPU, delivering speeds of 5-7 tokens per second, which is comparable to human reading. This breakthrough substantially enhances the potential for deploying and running large language models efficiently on local and edge devices, making advanced AI more accessible.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>1-bit LLM</span><span>Inference Framework</span><span>CPU Optimization</span><span>GPU Optimization</span><span>Edge Computing</span><span>Quantization</span><span>BitNet</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/microsoft/BitNet" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>Intern-S1: A Scientific Multimodal Foundation Model</h2>
-                <span class="published-time">Published: 2025-08-21T17:58:00.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2508.15763.png" alt="Intern-S1: A Scientific Multimodal Foundation Model">
-                <p class="summary">In recent years, a plethora of open-source foundation models have emerged,
-achieving remarkable progress in some widely attended fields, with performance
-being quite close to that of closed-source models. However, in high-value but
-more challenging scientific professional fields, either the fields still rely
-on expert models, or the progress of general foundation models lags
-significantly compared to those in popular areas, far from sufficient for
-transforming scientific research and leaving substantial gap between
-open-source models and closed-source models in these scientific domains. To
-mitigate this gap and explore a step further toward Artificial General
-Intelligence (AGI), we introduce Intern-S1, a specialized generalist equipped
-with general understanding and reasoning capabilities with expertise to analyze
-multiple science modal data. Intern-S1 is a multimodal Mixture-of-Experts (MoE)
-model with 28 billion activated parameters and 241 billion total parameters,
-continually pre-trained on 5T tokens, including over 2.5T tokens from
-scientific domains. In the post-training stage, Intern-S1 undergoes offline and
-then online reinforcement learning (RL) in InternBootCamp, where we propose
-Mixture-of-Rewards (MoR) to synergize the RL training on more than 1000 tasks
-simultaneously. Through integrated innovations in algorithms, data, and
-training systems, Intern-S1 achieved top-tier performance in online RL
-training.On comprehensive evaluation benchmarks, Intern-S1 demonstrates
-competitive performance on general reasoning tasks among open-source models and
-significantly outperforms open-source models in scientific domains, surpassing
-closed-source state-of-the-art models in professional tasks, such as molecular
-synthesis planning, reaction condition prediction, predicting thermodynamic
-stabilities for crystals. Our models are available at
-https://huggingface.co/internlm/Intern-S1.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Scientific Multimodal Foundation Model</span><span>Mixture-of-Experts</span><span>Reinforcement Learning</span><span>Artificial General Intelligence</span><span>Scientific Domains</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Large Language Model</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2508.15763" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Mobile-Agent-v3: Foundamental Agents for GUI Automation</h2>
-                <span class="published-time">Published: 2025-08-21T00:39:12.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2508.15144.png" alt="Mobile-Agent-v3: Foundamental Agents for GUI Automation">
-                <p class="summary">This paper introduces GUI-Owl, a foundational GUI agent model that achieves
-state-of-the-art performance among open-source end-to-end models on ten GUI
-benchmarks across desktop and mobile environments, covering grounding, question
-answering, planning, decision-making, and procedural knowledge. GUI-Owl-7B
-achieves 66.4 on AndroidWorld and 29.4 on OSWorld. Building on this, we propose
-Mobile-Agent-v3, a general-purpose GUI agent framework that further improves
-performance to 73.3 on AndroidWorld and 37.7 on OSWorld, setting a new
-state-of-the-art for open-source GUI agent frameworks. GUI-Owl incorporates
-three key innovations: (1) Large-scale Environment Infrastructure: a
-cloud-based virtual environment spanning Android, Ubuntu, macOS, and Windows,
-enabling our Self-Evolving GUI Trajectory Production framework. This generates
-high-quality interaction data via automated query generation and correctness
-validation, leveraging GUI-Owl to refine trajectories iteratively, forming a
-self-improving loop. It supports diverse data pipelines and reduces manual
-annotation. (2) Diverse Foundational Agent Capabilities: by integrating UI
-grounding, planning, action semantics, and reasoning patterns, GUI-Owl supports
-end-to-end decision-making and can act as a modular component in multi-agent
-systems. (3) Scalable Environment RL: we develop a scalable reinforcement
-learning framework with fully asynchronous training for real-world alignment.
-We also introduce Trajectory-aware Relative Policy Optimization (TRPO) for
-online RL, achieving 34.9 on OSWorld. GUI-Owl and Mobile-Agent-v3 are
-open-sourced at https://github.com/X-PLUG/MobileAgent.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>GUI Automation</span><span>AI Agent</span><span>Reinforcement Learning</span><span>Large Model</span><span>Benchmarks</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Large Language Model</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2508.15144" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>LiveMCP-101: Stress Testing and Diagnosing MCP-enabled Agents on
-  Challenging Queries</h2>
-                <span class="published-time">Published: 2025-08-21T17:55:54.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2508.15760.png" alt="LiveMCP-101: Stress Testing and Diagnosing MCP-enabled Agents on
-  Challenging Queries">
-                <p class="summary">Tool calling has emerged as a critical capability for AI agents to interact
-with the real world and solve complex tasks. While the Model Context Protocol
-(MCP) provides a powerful standardized framework for tool integration, there is
-a significant gap in benchmarking how well AI agents can effectively solve
-multi-step tasks using diverse MCP tools in realistic, dynamic scenarios. In
-this work, we present LiveMCP-101, a benchmark of 101 carefully curated
-real-world queries, refined through iterative LLM rewriting and manual review,
-that require coordinated use of multiple MCP tools including web search, file
-operations, mathematical reasoning, and data analysis. Moreover, we introduce a
-novel evaluation approach that leverages ground-truth execution plans rather
-than raw API outputs, better reflecting the evolving nature of real-world
-environments. Experiments show that even frontier LLMs achieve a success rate
-below 60\%, highlighting major challenges in tool orchestration. Detailed
-ablations and error analysis further reveal distinct failure modes and
-inefficiencies in token usage, pointing to concrete directions for advancing
-current models. LiveMCP-101 sets a rigorous standard for evaluating real-world
-agent capabilities, advancing toward autonomous AI systems that reliably
-execute complex tasks through tool use.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI agents</span><span>tool calling</span><span>Model Context Protocol</span><span>benchmarking</span><span>tool orchestration</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2508.15760" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Waver: Wave Your Way to Lifelike Video Generation</h2>
-                <span class="published-time">Published: 2025-08-21T17:56:10.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2508.15761.png" alt="Waver: Wave Your Way to Lifelike Video Generation">
-                <p class="summary">We present Waver, a high-performance foundation model for unified image and
-video generation. Waver can directly generate videos with durations ranging
-from 5 to 10 seconds at a native resolution of 720p, which are subsequently
-upscaled to 1080p. The model simultaneously supports text-to-video (T2V),
-image-to-video (I2V), and text-to-image (T2I) generation within a single,
-integrated framework. We introduce a Hybrid Stream DiT architecture to enhance
-modality alignment and accelerate training convergence. To ensure training data
-quality, we establish a comprehensive data curation pipeline and manually
-annotate and train an MLLM-based video quality model to filter for the
-highest-quality samples. Furthermore, we provide detailed training and
-inference recipes to facilitate the generation of high-quality videos. Building
-on these contributions, Waver excels at capturing complex motion, achieving
-superior motion amplitude and temporal consistency in video synthesis. Notably,
-it ranks among the Top 3 on both the T2V and I2V leaderboards at Artificial
-Analysis (data as of 2025-07-30 10:00 GMT+8), consistently outperforming
-existing open-source models and matching or surpassing state-of-the-art
-commercial solutions. We hope this technical report will help the community
-more efficiently train high-quality video generation models and accelerate
-progress in video generation technologies. Official page:
-https://github.com/FoundationVision/Waver.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Video Generation</span><span>Foundation Model</span><span>Multimodal</span><span>DiT Architecture</span><span>High-Quality Video</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Computer Vision</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2508.15761" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>A Survey on Large Language Model Benchmarks</h2>
-                <span class="published-time">Published: 2025-08-21T08:43:35.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2508.15361.png" alt="A Survey on Large Language Model Benchmarks">
-                <p class="summary">In recent years, with the rapid development of the depth and breadth of large
-language models' capabilities, various corresponding evaluation benchmarks have
-been emerging in increasing numbers. As a quantitative assessment tool for
-model performance, benchmarks are not only a core means to measure model
-capabilities but also a key element in guiding the direction of model
-development and promoting technological innovation. We systematically review
-the current status and development of large language model benchmarks for the
-first time, categorizing 283 representative benchmarks into three categories:
-general capabilities, domain-specific, and target-specific. General capability
-benchmarks cover aspects such as core linguistics, knowledge, and reasoning;
-domain-specific benchmarks focus on fields like natural sciences, humanities
-and social sciences, and engineering technology; target-specific benchmarks pay
-attention to risks, reliability, agents, etc. We point out that current
-benchmarks have problems such as inflated scores caused by data contamination,
-unfair evaluation due to cultural and linguistic biases, and lack of evaluation
-on process credibility and dynamic environments, and provide a referable design
-paradigm for future benchmark innovation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>Benchmarks</span><span>Model Evaluation</span><span>Survey</span><span>Data Contamination</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Natural Language Processing</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2508.15361" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>aiXiv: A Next-Generation Open Access Ecosystem for Scientific Discovery
-  Generated by AI Scientists</h2>
-                <span class="published-time">Published: 2025-08-20T23:16:41.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2508.15126.png" alt="aiXiv: A Next-Generation Open Access Ecosystem for Scientific Discovery
-  Generated by AI Scientists">
-                <p class="summary">Recent advances in large language models (LLMs) have enabled AI agents to
-autonomously generate scientific proposals, conduct experiments, author papers,
-and perform peer reviews. Yet this flood of AI-generated research content
-collides with a fragmented and largely closed publication ecosystem.
-Traditional journals and conferences rely on human peer review, making them
-difficult to scale and often reluctant to accept AI-generated research content;
-existing preprint servers (e.g. arXiv) lack rigorous quality-control
-mechanisms. Consequently, a significant amount of high-quality AI-generated
-research lacks appropriate venues for dissemination, hindering its potential to
-advance scientific progress. To address these challenges, we introduce aiXiv, a
-next-generation open-access platform for human and AI scientists. Its
-multi-agent architecture allows research proposals and papers to be submitted,
-reviewed, and iteratively refined by both human and AI scientists. It also
-provides API and MCP interfaces that enable seamless integration of
-heterogeneous human and AI scientists, creating a scalable and extensible
-ecosystem for autonomous scientific discovery. Through extensive experiments,
-we demonstrate that aiXiv is a reliable and robust platform that significantly
-enhances the quality of AI-generated research proposals and papers after
-iterative revising and reviewing on aiXiv. Our work lays the groundwork for a
-next-generation open-access ecosystem for AI scientists, accelerating the
-publication and dissemination of high-quality AI-generated research content.
-Code is available at https://github.com/aixiv-org. Website is available at
-https://forms.gle/DxQgCtXFsJ4paMtn8.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Scientists</span><span>Open Access</span><span>Scientific Discovery</span><span>Large Language Models</span><span>AI Agents</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2508.15126" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/en/" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/en/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2025-08-22</strong><span>ENGLISH EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2025-08-22" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-08-22T07:09:09.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ZoubinGhahrama1/status/1958788516030161185" target="_blank" rel="noopener noreferrer">ZoubinGhahrama1_Google Gemini AI Energy Efficiency Significantly Improved</a></h3>
+    <p class="story-summary">Zoubin Ghahramani, Google&#x27;s AI lead, retweeted, highlighting Google&#x27;s excellence in AI efficiency. Michael Terrell revealed that the energy consumption for a median Gemini AI text prompt has dropped 33x in just 12 months, a monumental achievement. This progress, attributed to Googlers&#x27; efforts and focus on efficiency, holds significant implications for the AI field.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Google</span><span class="tag tag-keyword">Gemini AI</span><span class="tag tag-keyword">Energy Efficiency</span><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Optimization</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Tech News</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-08-22T01:05:05.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/demishassabis/status/1958696898488840414" target="_blank" rel="noopener noreferrer">demishassabis_Google DeepMind发布Genie 3：文本生成交互式3D世界</a></h3>
+    <p class="story-summary">Google DeepMind联合创始人Demis Hassabis转发推文，揭示了Google DeepMind最新推出的Genie 3模型。该模型能够通过文本指令生成交互式的3D世界，用户可实时导航并与场景中的物体进行互动，例如打开车门或穿过花坛。Genie 3的发布标志着AI在生成沉浸式虚拟环境方面取得重大进展，为未来虚拟现实和游戏开发带来无限可能。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Google DeepMind</span><span class="tag tag-keyword">Genie 3</span><span class="tag tag-keyword">交互式3D世界</span><span class="tag tag-keyword">文本生成</span><span class="tag tag-keyword">虚拟环境</span><span class="tag tag-area">人工智能</span><span class="tag tag-area">生成式AI</span><span class="tag tag-area">多模态</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-08-22T16:51:28.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/yupp_ai/status/1958935061677711451" target="_blank" rel="noopener noreferrer">yupp_ai_Yupp Integrates DeepSeek v3.1 Models</a></h3>
+    <p class="story-summary">Yupp AI has officially announced the successful integration of DeepSeek v3.1 Thinking and Chat models into its platform. This significant update brings the latest DeepSeek v3.1 edition, which is distinguished by its built-in hybrid thinking capabilities. These advancements are specifically designed to provide users with quicker, more accurate answers and to power stronger, highly tool-savvy AI agents. The Yupp team has already conducted thorough internal testing, utilizing various prompts on their platform to validate the new models&#x27; enhanced performance and capabilities. This strategic integration marks a notable improvement in Yupp&#x27;s service offerings and overall AI functionality.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Yupp</span><span class="tag tag-keyword">DeepSeek v3.1</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Product Integration</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Product Launch</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-08-22T16:26:54.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/gdb/status/1958928877415510134" target="_blank" rel="noopener noreferrer">gdb_OpenAI&#x27;s Custom LLM Achieves Biology Breakthrough, 50x Increase in Yamanaka Factor Efficiency</a></h3>
+    <p class="story-summary">OpenAI, in collaboration with RetroBiosciences, announced a significant breakthrough in biology achieved by their custom large language model, gpt-4b micro. This model successfully designed novel variants of the Nobel-winning Yamanaka factors, demonstrating a 50-fold increase in in vitro cellular reprogramming efficiency compared to standard OSKM proteins. This groundbreaking research highlights AI&#x27;s immense potential to accelerate scientific discovery and drug development.</p>
+    <div class="story-tags"><span class="tag tag-keyword">OpenAI</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Biology</span><span class="tag tag-keyword">Yamanaka Factors</span><span class="tag tag-keyword">Cell Reprogramming</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Research Progress</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-08-22T11:01:02.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/elonmusk/status/1958846872157921546" target="_blank" rel="noopener noreferrer">elonmusk_xAI宣布Colossus 2将成全球首个千兆瓦级AI超算</a></h3>
+    <p class="story-summary">埃隆·马斯克宣布，xAI正在构建的Colossus 2将成为全球首个千兆瓦级AI训练超级计算机，标志着AI算力发展迈向新里程碑。戴尔公司创始人迈克尔·戴尔也证实了对xAI的访问，并表达了对xAI成就的赞赏和支持，强调了戴尔在其中的参与，预示着未来AI基础设施的巨大进步。</p>
+    <div class="story-tags"><span class="tag tag-keyword">xAI</span><span class="tag tag-keyword">Colossus 2</span><span class="tag tag-keyword">AI超算</span><span class="tag tag-keyword">埃隆·马斯克</span><span class="tag tag-keyword">迈克尔·戴尔</span><span class="tag tag-area">人工智能</span><span class="tag tag-area">技术动态</span><span class="tag tag-area">产品发布</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-08-22T16:19:09.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/AnthropicAI/status/1958926929626898449" target="_blank" rel="noopener noreferrer">AnthropicAI_Research on Filtering CBRN Weapon Information in Pretraining Data</a></h3>
+    <p class="story-summary">Anthropic has announced new research focusing on filtering dangerous information, specifically related to chemical, biological, radiological, and nuclear (CBRN) weapons, from their models&#x27; pretraining data. The initiative aims to effectively remove such sensitive content without compromising the models&#x27; performance on harmless tasks, thereby enhancing AI safety and responsible development.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Anthropic</span><span class="tag tag-keyword">AI Safety</span><span class="tag tag-keyword">Data Filtering</span><span class="tag tag-keyword">Pretraining</span><span class="tag tag-keyword">CBRN Weapons</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Research Progress</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>4 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-08-23T00:03:36Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/simstudioai/sim" target="_blank" rel="noopener noreferrer">Build and deploy AI agent workflows in minutes.</a></h3>
+    <p class="story-summary">Sim is a platform dedicated to building and deploying AI agent workflows. It offers flexible cloud-hosted and various self-hosted options, including NPM packages, Docker Compose, Dev Containers, and manual configurations. The project utilizes an advanced tech stack such as Bun, Next.js, PostgreSQL (integrated with pgvector), and Drizzle ORM, and supports integration with Ollama for running local AI models. Sim aims to simplify the development and management of AI agent applications, providing users with efficient and scalable solutions to rapidly implement complex AI workflows.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Workflow</span><span class="tag tag-keyword">Deployment</span><span class="tag tag-keyword">Self-hosted</span><span class="tag tag-keyword">PostgreSQL</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-08-23T05:36:10Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/moeru-ai/airi" target="_blank" rel="noopener noreferrer">Project AIRI</a></h3>
+    <p class="story-summary">Project AIRI aims to recreate AI virtual characters like Neuro-sama, building a digital companion capable of interacting, playing games, and chatting with users. Leveraging Web technologies such as WebGPU and WebAssembly, the project achieves cross-browser and mobile device compatibility, while its desktop version supports NVIDIA CUDA and Apple Metal. AIRI integrates various large language model APIs, supports VRM and Live2D models, and features speech recognition, speech synthesis, and memory systems. It enables virtual characters to play games (e.g., Minecraft, Factorio) and interact on social platforms, striving to empower users to easily own personalized digital lives.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI VTuber</span><span class="tag tag-keyword">Digital Life</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Web Technologies</span><span class="tag tag-keyword">Virtual Avatar</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-08-22T10:12:30Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/dataease/SQLBot" target="_blank" rel="noopener noreferrer">Intelligent Data Query System Based on Large Models and RAG</a></h3>
+    <p class="story-summary">SQLBot is an intelligent data querying system built upon advanced large language models (LLMs) and Retrieval-Augmented Generation (RAG) technology. Its primary objective is to facilitate efficient data querying and insightful analysis by transforming natural language questions into high-quality SQL queries (text-to-SQL). The system boasts several key advantages: it&#x27;s ready for immediate use, requiring only basic configuration of LLMs and data sources; it offers easy integration, allowing seamless embedding into existing third-party business systems or invocation by popular AI application development platforms such as n8n, MaxKB, Dify, and Coze. This broad compatibility empowers diverse applications with intelligent data querying capabilities. Moreover, SQLBot prioritizes security and control, providing a robust resource isolation mechanism based on workspaces and enabling fine-grained data permission management to safeguard sensitive information.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">RAG</span><span class="tag tag-keyword">Intelligent Data Query</span><span class="tag tag-keyword">Text2SQL</span><span class="tag tag-keyword">Data Analysis</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-06-03T06:14:20Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/microsoft/BitNet" target="_blank" rel="noopener noreferrer">bitnet.cpp</a></h3>
+    <p class="story-summary">bitnet.cpp is Microsoft&#x27;s official inference framework specifically designed for 1-bit Large Language Models (LLMs), such as BitNet b1.58. It provides a comprehensive suite of highly optimized kernels, enabling fast and lossless inference on both CPU and GPU architectures, with future NPU support planned. The framework demonstrates impressive performance gains, achieving speedups of 1.37x to 5.07x on ARM CPUs and 2.37x to 6.17x on x86 CPUs. Concurrently, it significantly reduces energy consumption by 55.4% to 70.0% on ARM and 71.9% to 82.2% on x86. A key achievement is its ability to run a 100B BitNet b1.58 model on a single CPU, delivering speeds of 5-7 tokens per second, which is comparable to human reading. This breakthrough substantially enhances the potential for deploying and running large language models efficiently on local and edge devices, making advanced AI more accessible.</p>
+    <div class="story-tags"><span class="tag tag-keyword">1-bit LLM</span><span class="tag tag-keyword">Inference Framework</span><span class="tag tag-keyword">CPU Optimization</span><span class="tag tag-keyword">GPU Optimization</span><span class="tag tag-keyword">Edge Computing</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> wechat</h2><span>3 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-08-22T15:39:43.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/RM4ZxyEuwZ8OIGPMavPQYA" target="_blank" rel="noopener noreferrer">Where Are Autonomous Deep Research Agents Heading? A Four-Step Process Guide | Huawei&#x27;s Latest</a></h3>
+    <p class="story-summary">Huawei&#x27;s Noah&#x27;s Ark Lab, in collaboration with the University of Hong Kong, has published a systematic review focusing on Deep Research Agents, adopting a novel process-oriented perspective. This comprehensive survey meticulously outlines four critical stages: strategic planning, precise query construction, efficient web exploration, and structured report generation. The paper delves into a comparative analysis of single-agent versus multi-agent systems, elucidating their respective strengths and weaknesses. Furthermore, it explores advanced optimization techniques, such as parameter tuning and reinforcement learning, alongside robust evaluation methodologies, including benchmark testing. This review serves as a crucial operational blueprint for developing sophisticated deep research agents, while also identifying significant future challenges, such as seamless tool integration, maintaining absolute factual integrity in dynamic environments, and effectively processing diverse multimodal information. It offers invaluable guidance and insights for both AI researchers and engineers navigating this evolving field.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Deep Research Agents</span><span class="tag tag-keyword">Process-Oriented</span><span class="tag tag-keyword">Multi-Agent Systems</span><span class="tag tag-keyword">Report Generation</span><span class="tag tag-keyword">Huawei Noah&#x27;s Ark Lab</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-08-22T15:02:41.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/oyF51mtGt3x0FEzC9xwm-g" target="_blank" rel="noopener noreferrer">Breaking the Long Video Generation Bottleneck: Nanjing University and TeleAI Jointly Launch New AI Generation Paradigm MMPL, Enabling &#x27;One-Take&#x27; Creativity</a></h3>
+    <p class="story-summary">Nanjing University and TeleAI have jointly introduced MMPL (Macro-from-Micro Planning), a novel autoregressive generation paradigm designed to overcome critical bottlenecks in current AI long video generation, such as visual drift, quality degradation, and low efficiency. Drawing inspiration from the film industry&#x27;s &quot;storyboarding and multi-group parallel shooting&quot; mechanism, MMPL pioneers a unique dual-layer architecture centered on &quot;macro planning and micro execution.&quot; This innovative approach leverages sparse anchor point planning and highly parallel content population, which effectively mitigates the cumulative error problem inherent in sequential generation and dramatically boosts overall generation efficiency. The paradigm significantly enhances the visual quality, temporal consistency, and stability of long videos, achieving near real-time preview speeds (up to 32 FPS) for minute-long content. MMPL represents a revolutionary advancement in AI video creation, pushing the boundaries of what&#x27;s possible and moving AI closer to an &quot;AI director&quot; capability.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Long Video Generation</span><span class="tag tag-keyword">MMPL</span><span class="tag tag-keyword">AI Director</span><span class="tag tag-keyword">Macro Planning</span><span class="tag tag-keyword">Parallel Generation</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-08-22T05:49:09.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/4omztEOfepiBe0kjh8ji1A" target="_blank" rel="noopener noreferrer">DeepSeek&#x27;s Single Remark Triggers Surge in Chinese Chip Stocks! What Exactly is the UE8M0 FP8 Behind It?</a></h3>
+    <p class="story-summary">Following the release of DeepSeek V3.1, its subtle yet impactful mention of &quot;UE8M0 FP8&quot; parameter precision and &quot;next-generation domestic chips&quot; ignited a collective surge in Chinese chip stocks. This article thoroughly analyzes the technical advantages of UE8M0 FP8, an advanced micro-scaling format, which includes substantial bandwidth savings, reduced power consumption, and significantly enhanced data throughput. These characteristics make it exceptionally well-suited for integration with emerging domestic AI accelerators. This strategic alignment is widely interpreted as a crucial advancement towards robust software-hardware synergy within China&#x27;s artificial intelligence landscape. Such collaboration is expected to dramatically improve the performance-to-cost ratio of indigenous chips and fundamentally lessen the nation&#x27;s dependence on foreign computing infrastructure, ultimately fostering a powerful, localized technological ecosystem reminiscent of the historical &quot;Wintel alliance.&quot;</p>
+    <div class="story-tags"><span class="tag tag-keyword">DeepSeek</span><span class="tag tag-keyword">Domestic Chips</span><span class="tag tag-keyword">UE8M0 FP8</span><span class="tag tag-keyword">Software-Hardware Synergy</span><span class="tag tag-keyword">AI Accelerator</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-08-21T17:58:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2508.15763" target="_blank" rel="noopener noreferrer">Intern-S1: A Scientific Multimodal Foundation Model</a></h3>
+    <p class="story-summary">In recent years, a plethora of open-source foundation models have emerged, achieving remarkable progress in some widely attended fields, with performance being quite close to that of closed-source models. However, in high-value but more challenging scientific professional fields, either the fields still rely on expert models, or the progress of general foundation models lags significantly compared to those in popular areas, far from sufficient for transforming scientific research and leaving substantial gap between open-source models and closed-source models in these scientific domains. To mitigate this gap and explore a step further toward Artificial General Intelligence (AGI), we introduce Intern-S1, a specialized generalist equipped with general understanding and reasoning capabilities with expertise to analyze multiple science modal data. Intern-S1 is a multimodal Mixture-of-Experts (MoE) model with 28 billion activated parameters and 241 billion total parameters, continually pre-trained on 5T tokens, including over 2.5T tokens from scientific domains. In the post-training stage, Intern-S1 undergoes offline and then online reinforcement learning (RL) in InternBootCamp, where we propose Mixture-of-Rewards (MoR) to synergize the RL training on more than 1000 tasks simultaneously. Through integrated innovations in algorithms, data, and training systems, Intern-S1 achieved top-tier performance in online RL training.On comprehensive evaluation benchmarks, Intern-S1 demonstrates competitive performance on general reasoning tasks among open-source models and significantly outperforms open-source models in scientific domains, surpassing closed-source state-of-the-art models in professional tasks, such as molecular synthesis planning, reaction condition prediction, predicting thermodynamic stabilities for crystals. Our models are available at https://huggingface.co/internlm/Intern-S1.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Scientific Multimodal Foundation Model</span><span class="tag tag-keyword">Mixture-of-Experts</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Artificial General Intelligence</span><span class="tag tag-keyword">Scientific Domains</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-08-21T00:39:12.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2508.15144" target="_blank" rel="noopener noreferrer">Mobile-Agent-v3: Foundamental Agents for GUI Automation</a></h3>
+    <p class="story-summary">This paper introduces GUI-Owl, a foundational GUI agent model that achieves state-of-the-art performance among open-source end-to-end models on ten GUI benchmarks across desktop and mobile environments, covering grounding, question answering, planning, decision-making, and procedural knowledge. GUI-Owl-7B achieves 66.4 on AndroidWorld and 29.4 on OSWorld. Building on this, we propose Mobile-Agent-v3, a general-purpose GUI agent framework that further improves performance to 73.3 on AndroidWorld and 37.7 on OSWorld, setting a new state-of-the-art for open-source GUI agent frameworks. GUI-Owl incorporates three key innovations: (1) Large-scale Environment Infrastructure: a cloud-based virtual environment spanning Android, Ubuntu, macOS, and Windows, enabling our Self-Evolving GUI Trajectory Production framework. This generates high-quality interaction data via automated query generation and correctness validation, leveraging GUI-Owl to refine trajectories iteratively, forming a self-improving loop. It supports diverse data pipelines and reduces manual annotation. (2) Diverse Foundational Agent Capabilities: by integrating UI grounding, planning, action semantics, and reasoning patterns, GUI-Owl supports end-to-end decision-making and can act as a modular component in multi-agent systems. (3) Scalable Environment RL: we develop a scalable reinforcement learning framework with fully asynchronous training for real-world alignment. We also introduce Trajectory-aware Relative Policy Optimization (TRPO) for online RL, achieving 34.9 on OSWorld. GUI-Owl and Mobile-Agent-v3 are open-sourced at https://github.com/X-PLUG/MobileAgent.</p>
+    <div class="story-tags"><span class="tag tag-keyword">GUI Automation</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Large Model</span><span class="tag tag-keyword">Benchmarks</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-08-21T17:55:54.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2508.15760" target="_blank" rel="noopener noreferrer">LiveMCP-101: Stress Testing and Diagnosing MCP-enabled Agents on Challenging Queries</a></h3>
+    <p class="story-summary">Tool calling has emerged as a critical capability for AI agents to interact with the real world and solve complex tasks. While the Model Context Protocol (MCP) provides a powerful standardized framework for tool integration, there is a significant gap in benchmarking how well AI agents can effectively solve multi-step tasks using diverse MCP tools in realistic, dynamic scenarios. In this work, we present LiveMCP-101, a benchmark of 101 carefully curated real-world queries, refined through iterative LLM rewriting and manual review, that require coordinated use of multiple MCP tools including web search, file operations, mathematical reasoning, and data analysis. Moreover, we introduce a novel evaluation approach that leverages ground-truth execution plans rather than raw API outputs, better reflecting the evolving nature of real-world environments. Experiments show that even frontier LLMs achieve a success rate below 60\%, highlighting major challenges in tool orchestration. Detailed ablations and error analysis further reveal distinct failure modes and inefficiencies in token usage, pointing to concrete directions for advancing current models. LiveMCP-101 sets a rigorous standard for evaluating real-world agent capabilities, advancing toward autonomous AI systems that reliably execute complex tasks through tool use.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI agents</span><span class="tag tag-keyword">tool calling</span><span class="tag tag-keyword">Model Context Protocol</span><span class="tag tag-keyword">benchmarking</span><span class="tag tag-keyword">tool orchestration</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-08-21T17:56:10.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2508.15761" target="_blank" rel="noopener noreferrer">Waver: Wave Your Way to Lifelike Video Generation</a></h3>
+    <p class="story-summary">We present Waver, a high-performance foundation model for unified image and video generation. Waver can directly generate videos with durations ranging from 5 to 10 seconds at a native resolution of 720p, which are subsequently upscaled to 1080p. The model simultaneously supports text-to-video (T2V), image-to-video (I2V), and text-to-image (T2I) generation within a single, integrated framework. We introduce a Hybrid Stream DiT architecture to enhance modality alignment and accelerate training convergence. To ensure training data quality, we establish a comprehensive data curation pipeline and manually annotate and train an MLLM-based video quality model to filter for the highest-quality samples. Furthermore, we provide detailed training and inference recipes to facilitate the generation of high-quality videos. Building on these contributions, Waver excels at capturing complex motion, achieving superior motion amplitude and temporal consistency in video synthesis. Notably, it ranks among the Top 3 on both the T2V and I2V leaderboards at Artificial Analysis (data as of 2025-07-30 10:00 GMT+8), consistently outperforming existing open-source models and matching or surpassing state-of-the-art commercial solutions. We hope this technical report will help the community more efficiently train high-quality video generation models and accelerate progress in video generation technologies. Official page: https://github.com/FoundationVision/Waver.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Video Generation</span><span class="tag tag-keyword">Foundation Model</span><span class="tag tag-keyword">Multimodal</span><span class="tag tag-keyword">DiT Architecture</span><span class="tag tag-keyword">High-Quality Video</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-08-21T08:43:35.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2508.15361" target="_blank" rel="noopener noreferrer">A Survey on Large Language Model Benchmarks</a></h3>
+    <p class="story-summary">In recent years, with the rapid development of the depth and breadth of large language models&#x27; capabilities, various corresponding evaluation benchmarks have been emerging in increasing numbers. As a quantitative assessment tool for model performance, benchmarks are not only a core means to measure model capabilities but also a key element in guiding the direction of model development and promoting technological innovation. We systematically review the current status and development of large language model benchmarks for the first time, categorizing 283 representative benchmarks into three categories: general capabilities, domain-specific, and target-specific. General capability benchmarks cover aspects such as core linguistics, knowledge, and reasoning; domain-specific benchmarks focus on fields like natural sciences, humanities and social sciences, and engineering technology; target-specific benchmarks pay attention to risks, reliability, agents, etc. We point out that current benchmarks have problems such as inflated scores caused by data contamination, unfair evaluation due to cultural and linguistic biases, and lack of evaluation on process credibility and dynamic environments, and provide a referable design paradigm for future benchmark innovation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Benchmarks</span><span class="tag tag-keyword">Model Evaluation</span><span class="tag tag-keyword">Survey</span><span class="tag tag-keyword">Data Contamination</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-08-20T23:16:41.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2508.15126" target="_blank" rel="noopener noreferrer">aiXiv: A Next-Generation Open Access Ecosystem for Scientific Discovery Generated by AI Scientists</a></h3>
+    <p class="story-summary">Recent advances in large language models (LLMs) have enabled AI agents to autonomously generate scientific proposals, conduct experiments, author papers, and perform peer reviews. Yet this flood of AI-generated research content collides with a fragmented and largely closed publication ecosystem. Traditional journals and conferences rely on human peer review, making them difficult to scale and often reluctant to accept AI-generated research content; existing preprint servers (e.g. arXiv) lack rigorous quality-control mechanisms. Consequently, a significant amount of high-quality AI-generated research lacks appropriate venues for dissemination, hindering its potential to advance scientific progress. To address these challenges, we introduce aiXiv, a next-generation open-access platform for human and AI scientists. Its multi-agent architecture allows research proposals and papers to be submitted, reviewed, and iteratively refined by both human and AI scientists. It also provides API and MCP interfaces that enable seamless integration of heterogeneous human and AI scientists, creating a scalable and extensible ecosystem for autonomous scientific discovery. Through extensive experiments, we demonstrate that aiXiv is a reliable and robust platform that significantly enhances the quality of AI-generated research proposals and papers after iterative revising and reviewing on aiXiv. Our work lays the groundwork for a next-generation open-access ecosystem for AI scientists, accelerating the publication and dissemination of high-quality AI-generated research content. Code is available at https://github.com/aixiv-org. Website is available at https://forms.gle/DxQgCtXFsJ4paMtn8.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Scientists</span><span class="tag tag-keyword">Open Access</span><span class="tag tag-keyword">Scientific Discovery</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">AI Agents</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2025-08-22" data-counter-title="NO-FOMO issue 2025-08-22" defer></script>
 </body>
 </html>

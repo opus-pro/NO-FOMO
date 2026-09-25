@@ -1,421 +1,130 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2026-04-10</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2026-04-10</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="../" class="">中文</a>
-                <a href="." class="active">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2026-04-10</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../../home/en/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 Back to Homepage</a>
-            <a href="../../../daily/en/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 Latest Daily</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 About Us</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Launch HN: Twill.ai (YC S25) – Delegate to cloud agents, get back PRs</h2>
-                <span class="published-time">Published: 2026-04-10 16:22:13</span>
-                
-                <p class="summary">Twill.ai, a YC S25 startup founded by Willy and Dan, introduces an innovative platform that enables developers to delegate coding tasks to advanced cloud-based AI agents, such as Claude Code and Codex. These agents operate within isolated cloud sandboxes, addressing significant challenges faced with local AI coding tools like parallelization conflicts and lack of persistence. Users can interact with Twill.ai through various interfaces including Slack, GitHub, Linear, a dedicated web app, or CLI, receiving outputs such as pull requests, code reviews, diagnostic reports, or follow-up questions. The system is designed to maintain user control by initiating feedback loops when human input is required, thereby enhancing development workflow efficiency and scalability while ensuring developers remain central to the decision-making process.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agents</span><span>Cloud Development</span><span>Code Generation</span><span>Developer Productivity</span><span>Automated Pull Requests</span><span>Sandboxing</span><span>Software Engineering Automation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Large Language Model</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twill.ai" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>AI assistance when contributing to the Linux kernel</h2>
-                <span class="published-time">Published: 2026-04-10 18:35:21</span>
-                
-                <p class="summary">This document from the Linux kernel project addresses the burgeoning topic of utilizing AI assistance tools, such as large language models and code generation platforms, during the contribution process. It establishes crucial guidelines and considerations for developers, particularly focusing on the legal, ethical, and technical implications of AI-generated code. Key concerns highlighted include ensuring strict adherence to the Linux kernel's General Public License (GPL), clarifying intellectual property rights for AI-assisted code, and mitigating the risks of introducing subtle bugs, security vulnerabilities, or non-optimal solutions. The guidance unequivocally states that the individual developer remains ultimately and fully responsible for every line of code submitted, irrespective of AI involvement, necessitating comprehensive review, understanding, and rigorous testing. The aim is to integrate the potential productivity enhancements offered by AI tools while rigorously upholding the Linux kernel's foundational principles of code quality, security, and open-source compliance. This proactive stance helps maintain the integrity of one of the world's most critical software projects.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Linux kernel</span><span>AI assistance</span><span>Code generation</span><span>Open-source</span><span>Licensing</span><span>Software development</span><span>Developer responsibility</span><span>Code quality</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Generative AI</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/torvalds/linux/blob/master/Documentation/process/coding-assistants.rst" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Autonomy Is Real Now</h2>
-                <span class="published-time">Published: 2026-04-10 17:58:09</span>
-                
-                <p class="summary">The concise declaration 'Autonomy Is Real Now' from a recent Hacker News discussion signals a critical inflection point in the development and deployment of autonomous systems. This statement suggests that the theoretical and experimental phases of autonomy are giving way to practical, functional applications across various sectors. Driven by advancements in artificial intelligence, machine learning, and sophisticated sensor fusion technologies, autonomous capabilities are transitioning from niche applications to more widespread integration in everyday life and industry. This includes progress in self-driving vehicles, robotic automation in manufacturing and logistics, and increasingly intelligent AI agents capable of independent decision-making and task execution. The realization of autonomy carries significant implications, promising enhanced efficiency, safety, and productivity, while also raising new challenges related to ethical considerations, regulatory frameworks, and human-machine collaboration. The assertion reflects a growing consensus that robust autonomous systems are no longer a futuristic concept but a present-day reality, prompting a shift in focus towards refining these technologies for broader societal impact and addressing the complex interdependencies they introduce.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Autonomous Systems</span><span>Artificial Intelligence</span><span>Robotics</span><span>AI Agents</span><span>Automation</span><span>Machine Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Robotics</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://steelforfuel.substack.com/p/autonomy-is-real-now" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>A compelling title that is cryptic enough to get you to take action on it</h2>
-                <span class="published-time">Published: 2026-04-10 16:53:55</span>
-                
-                <p class="summary">This analysis investigates the strategic development of digital content titles designed to maximize user engagement through calculated ambiguity. It examines the psychological underpinnings that make 'cryptic' headlines compelling, prompting users to delve deeper into a given piece of content or initiate a specific action within a digital environment. The article posits that striking an optimal balance between intriguing mystery and sufficient context is paramount for effective user interaction, particularly in the context of news aggregation platforms and application interfaces. Furthermore, the discussion extends to the application of advanced data analytics and machine learning techniques, such as natural language processing and predictive modeling, to generate and optimize these titles. These methodologies allow for the continuous refinement of headline strategies based on real-time user behavior, click-through rates, and conversion metrics, ultimately aiming to enhance platform stickiness and user experience by leveraging insights into human curiosity and decision-making processes.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>User Engagement</span><span>Content Optimization</span><span>Natural Language Processing</span><span>A/B Testing</span><span>Behavioral Analytics</span><span>Digital Strategy</span><span>Prompt Engineering</span><span>Human-Computer Interaction</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://ericwbailey.website/published/a-compelling-title-that-is-cryptic-enough-to-get-you-to-take-action-on-it/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Why Isn't Everything Different Yet? (AI, where are you?)</h2>
-                <span class="published-time">Published: 2026-04-10 19:27:30</span>
-                
-                <p class="summary">The article titled "Why Isn't Everything Different Yet? (AI, where are you?)" delves into the critical discussion surrounding the current state and perceived impact of Artificial Intelligence. It poignantly questions the discrepancy between the rapid technological progress within AI, particularly in areas like large language models and generative AI, and the comparatively slower pace of its transformative effects on society, industries, and everyday life. The author likely explores various hypotheses for this apparent gap, which could include challenges in real-world deployment, the complexities of integrating advanced AI systems into existing infrastructures, the ethical and societal implications that necessitate caution, or perhaps an overinflated expectation of AI's immediate revolutionary potential. This piece is expected to reflect on whether the current era of AI represents a fundamental paradigm shift that has yet to fully manifest, or if there are inherent limitations and adoption barriers preventing a more immediate and noticeable societal overhaul. Ultimately, it prompts a thoughtful consideration of AI's present location on the innovation curve and its future trajectory towards truly reshaping our world.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Impact</span><span>Societal Transformation</span><span>AI Adoption</span><span>Technological Hype</span><span>AI Development</span><span>Future of AI</span><span>Real-world AI</span><span>AI Expectations</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://davegriffith.substack.com/p/why-isnt-everything-different-yet" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>OpenAI's new $100 tier targets developers hitting Codex limits</h2>
-                <span class="published-time">Published: 2026-04-10 18:23:07</span>
-                
-                <p class="summary">OpenAI has officially launched a new $100 subscription tier, explicitly targeting developers who frequently encounter usage limitations with its advanced AI coding models, including Codex and similar platforms like Claude. This premium offering is designed to provide significantly higher access quotas and expanded capabilities, addressing the demands of professional developers and power users whose projects require more extensive interaction with AI-driven code generation and completion tools. The introduction of this tier signifies OpenAI's strategic effort to enhance the monetization of its developer-centric AI services, while simultaneously ensuring that high-volume users have the necessary resources to scale their AI integration efforts without interruption. This move highlights the accelerating adoption of AI in software development workflows and the subsequent need for robust, scalable infrastructure. It reinforces the market's evolving requirement for flexible, tiered access models that support a diverse range of development needs, from rapid prototyping to large-scale deployment of intelligent coding assistants. The tier aims to empower developers to push the boundaries of AI-assisted programming, providing a dedicated pathway for uninterrupted innovation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>OpenAI</span><span>Codex</span><span>AI Coding</span><span>Developer Tools</span><span>API Limits</span><span>Subscription Service</span><span>Code Generation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Generative AI</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://thenewstack.io/openais-new-100-tier-targets-developers-hitting-codex-and-claude-code-limits/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>Externalization in LLM Agents: A Unified Review of Memory, Skills, Protocols and Harness Engineering</h2>
-                <span class="published-time">Published: 2026-04-09T00:00:00.000Z</span>
-                
-                <p class="summary">Large language model (LLM) agents are increasingly built less by changing model weights than by reorganizing the runtime around them. Capabilities that earlier systems expected the model to recover internally are now externalized into memory stores, reusable skills, interaction protocols, and the surrounding harness that makes these modules reliable in practice. This paper reviews that shift through the lens of externalization. Drawing on the idea of cognitive artifacts, we argue that agent infrastructure matters not merely because it adds auxiliary components, but because it transforms hard cognitive burdens into forms that the model can solve more reliably. Under this view, memory externalizes state across time, skills externalize procedural expertise, protocols externalize interaction structure, and harness engineering serves as the unification layer that coordinates them into governed execution. We trace a historical progression from weights to context to harness, analyze memory, skills, and protocols as three distinct but coupled forms of externalization, and examine how they interact inside a larger agent system. We further discuss the trade-off between parametric and externalized capability, identify emerging directions such as self-evolving harnesses and shared agent infrastructure, and discuss open challenges in evaluation, governance, and the long-term co-evolution of models and external infrastructure. The result is a systems-level framework for explaining why practical agent progress increasingly depends not only on stronger models, but on better external cognitive infrastructure.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>LLM Agents</span><span>Externalization</span><span>Harness Engineering</span><span>Memory</span><span>Cognitive Infrastructure</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>AI Agent</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2604.08224" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>ClawBench: Can AI Agents Complete Everyday Online Tasks?</h2>
-                <span class="published-time">Published: 2026-04-09T00:00:00.000Z</span>
-                
-                <p class="summary">AI agents may be able to automate your inbox, but can they automate other routine aspects of your life? Everyday online tasks offer a realistic yet unsolved testbed for evaluating the next generation of AI agents. To this end, we introduce ClawBench, an evaluation framework of 153 simple tasks that people need to accomplish regularly in their lives and work, spanning 144 live platforms across 15 categories, from completing purchases and booking appointments to submitting job applications. These tasks require demanding capabilities beyond existing benchmarks, such as obtaining relevant information from user-provided documents, navigating multi-step workflows across diverse platforms, and write-heavy operations like filling in many detailed forms correctly. Unlike existing benchmarks that evaluate agents in offline sandboxes with static pages, ClawBench operates on production websites, preserving the full complexity, dynamic nature, and challenges of real-world web interaction. A lightweight interception layer captures and blocks only the final submission request, ensuring safe evaluation without real-world side effects. Our evaluations of 7 frontier models show that both proprietary and open-source models can complete only a small portion of these tasks. For example, Claude Sonnet 4.6 achieves only 33.3%. Progress on ClawBench brings us closer to AI agents that can function as reliable general-purpose assistants.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agents</span><span>ClawBench</span><span>Evaluation Framework</span><span>Everyday Online Tasks</span><span>Real-world Web Interaction</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2604.08523" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Flux Attention: Context-Aware Hybrid Attention for Efficient LLMs Inference</h2>
-                <span class="published-time">Published: 2026-04-08T00:00:00.000Z</span>
-                
-                <p class="summary">The quadratic computational complexity of standard attention mechanisms presents a severe scalability bottleneck for LLMs in long-context scenarios. While hybrid attention mechanisms combining Full Attention (FA) and Sparse Attention (SA) offer a potential solution, existing methods typically rely on static allocation ratios that fail to accommodate the variable retrieval demands of different tasks. Furthermore, head-level dynamic sparsity often introduces severe computational load imbalance and synchronization long-tails, which hinder hardware acceleration during autoregressive decoding. To bridge this gap, we introduce Flux Attention, a context-aware framework that dynamically optimizes attention computation at the layer level. By integrating a lightweight Layer Router into frozen pretrained LLMs, the proposed method adaptively routes each layer to FA or SA based on the input context. This layer-wise routing preserves high-fidelity information retrieval while ensuring contiguous memory access, translating theoretical computational reductions into practical wall-clock speedups. As a parameter-efficient approach, our framework requires only 12 hours of training on 8timesA800 GPUs. Extensive experiments across multiple long-context and mathematical reasoning benchmarks demonstrate that Flux Attention achieves a superior trade-off between performance and inference speed compared with baseline models, with speed improvements of up to 2.8times and 2.0times in the prefill and decode stages.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Flux Attention</span><span>Large Language Models</span><span>Attention Mechanisms</span><span>Efficient Inference</span><span>Context-Aware</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Deep Learning</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2604.07394" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>When Numbers Speak: Aligning Textual Numerals and Visual Instances in Text-to-Video Diffusion Models</h2>
-                <span class="published-time">Published: 2026-04-09T00:00:00.000Z</span>
-                
-                <p class="summary">Text-to-video diffusion models have enabled open-ended video synthesis, but often struggle with generating the correct number of objects specified in a prompt. We introduce NUMINA , a training-free identify-then-guide framework for improved numerical alignment. NUMINA identifies prompt-layout inconsistencies by selecting discriminative self- and cross-attention heads to derive a countable latent layout. It then refines this layout conservatively and modulates cross-attention to guide regeneration. On the introduced CountBench, NUMINA improves counting accuracy by up to 7.4% on Wan2.1-1.3B, and by 4.9% and 5.5% on 5B and 14B models, respectively. Furthermore, CLIP alignment is improved while maintaining temporal consistency. These results demonstrate that structural guidance complements seed search and prompt enhancement, offering a practical path toward count-accurate text-to-video diffusion. The code is available at https://github.com/H-EmbodVis/NUMINA.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Text-to-Video Diffusion</span><span>Numerical Alignment</span><span>Object Counting</span><span>Attention Mechanisms</span><span>Generative AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Deep Learning</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2604.08546" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Act Wisely: Cultivating Meta-Cognitive Tool Use in Agentic Multimodal Models</h2>
-                <span class="published-time">Published: 2026-04-09T00:00:00.000Z</span>
-                
-                <p class="summary">The advent of agentic multimodal models has empowered systems to actively interact with external environments. However, current agents suffer from a profound meta-cognitive deficit: they struggle to arbitrate between leveraging internal knowledge and querying external utilities. Consequently, they frequently fall prey to blind tool invocation, resorting to reflexive tool execution even when queries are resolvable from the raw visual context. This pathological behavior precipitates severe latency bottlenecks and injects extraneous noise that derails sound reasoning. Existing reinforcement learning protocols attempt to mitigate this via a scalarized reward that penalizes tool usage. Yet, this coupled formulation creates an irreconcilable optimization dilemma: an aggressive penalty suppresses essential tool use, whereas a mild penalty is entirely subsumed by the variance of the accuracy reward during advantage normalization, rendering it impotent against tool overuse. To transcend this bottleneck, we propose HDPO, a framework that reframes tool efficiency from a competing scalar objective to a strictly conditional one. By eschewing reward scalarization, HDPO maintains two orthogonal optimization channels: an accuracy channel that maximizes task correctness, and an efficiency channel that enforces execution economy exclusively within accurate trajectories via conditional advantage estimation. This decoupled architecture naturally induces a cognitive curriculum-compelling the agent to first master task resolution before refining its self-reliance. Extensive evaluations demonstrate that our resulting model, Metis, reduces tool invocations by orders of magnitude while simultaneously elevating reasoning accuracy.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Agentic Multimodal Models</span><span>Meta-Cognition</span><span>Tool Use</span><span>Reinforcement Learning</span><span>HDPO</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Multimodal</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2604.08545" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Faithful GRPO: Improving Visual Spatial Reasoning in Multimodal Language Models via Constrained Policy Optimization</h2>
-                <span class="published-time">Published: 2026-04-09T17:15:47.000Z</span>
-                
-                <p class="summary">Multimodal reasoning models (MRMs) trained with reinforcement learning with verifiable rewards (RLVR) show improved accuracy on visual reasoning benchmarks. However, we observe that accuracy gains often come at the cost of reasoning quality: generated Chain-of-Thought (CoT) traces are frequently inconsistent with the final answer and poorly grounded in the visual evidence. We systematically study this phenomenon across seven challenging real-world spatial reasoning benchmarks and find that it affects contemporary MRMs such as ViGoRL-Spatial, TreeVGR as well as our own models trained with standard Group Relative Policy Optimization (GRPO). We characterize CoT reasoning quality along two complementary axes: "logical consistency" (does the CoT entail the final answer?) and "visual grounding" (does each reasoning step accurately describe objects, attributes, and spatial relationships in the image?). To address this, we propose Faithful GRPO (FGRPO), a variant of GRPO that enforces consistency and grounding as constraints via Lagrangian dual ascent. FGRPO incorporates batch-level consistency and grounding constraints into the advantage computation within a group, adaptively adjusting the relative importance of constraints during optimization. We evaluate FGRPO on Qwen2.5-VL-7B and 3B backbones across seven spatial datasets. Our results show that FGRPO substantially improves reasoning quality, reducing the inconsistency rate from 24.5% to 1.7% and improving visual grounding scores by +13%. It also improves final answer accuracy over simple GRPO, demonstrating that faithful reasoning enables better answers.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multimodal Language Models</span><span>Visual Spatial Reasoning</span><span>Constrained Policy Optimization</span><span>Visual Grounding</span><span>Chain-of-Thought</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Computer Vision</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2604.08476" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/en/" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/en/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-04-10</strong><span>ENGLISH EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2026-04-10" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-04-10 16:22:13</time></div>
+  <div class="story-body">
+    <h3><a href="https://twill.ai" target="_blank" rel="noopener noreferrer">Launch HN: Twill.ai (YC S25) – Delegate to cloud agents, get back PRs</a></h3>
+    <p class="story-summary">Twill.ai, a YC S25 startup founded by Willy and Dan, introduces an innovative platform that enables developers to delegate coding tasks to advanced cloud-based AI agents, such as Claude Code and Codex. These agents operate within isolated cloud sandboxes, addressing significant challenges faced with local AI coding tools like parallelization conflicts and lack of persistence. Users can interact with Twill.ai through various interfaces including Slack, GitHub, Linear, a dedicated web app, or CLI, receiving outputs such as pull requests, code reviews, diagnostic reports, or follow-up questions. The system is designed to maintain user control by initiating feedback loops when human input is required, thereby enhancing development workflow efficiency and scalability while ensuring developers remain central to the decision-making process.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Cloud Development</span><span class="tag tag-keyword">Code Generation</span><span class="tag tag-keyword">Developer Productivity</span><span class="tag tag-keyword">Automated Pull Requests</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-04-10 18:35:21</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/torvalds/linux/blob/master/Documentation/process/coding-assistants.rst" target="_blank" rel="noopener noreferrer">AI assistance when contributing to the Linux kernel</a></h3>
+    <p class="story-summary">This document from the Linux kernel project addresses the burgeoning topic of utilizing AI assistance tools, such as large language models and code generation platforms, during the contribution process. It establishes crucial guidelines and considerations for developers, particularly focusing on the legal, ethical, and technical implications of AI-generated code. Key concerns highlighted include ensuring strict adherence to the Linux kernel&#x27;s General Public License (GPL), clarifying intellectual property rights for AI-assisted code, and mitigating the risks of introducing subtle bugs, security vulnerabilities, or non-optimal solutions. The guidance unequivocally states that the individual developer remains ultimately and fully responsible for every line of code submitted, irrespective of AI involvement, necessitating comprehensive review, understanding, and rigorous testing. The aim is to integrate the potential productivity enhancements offered by AI tools while rigorously upholding the Linux kernel&#x27;s foundational principles of code quality, security, and open-source compliance. This proactive stance helps maintain the integrity of one of the world&#x27;s most critical software projects.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Linux kernel</span><span class="tag tag-keyword">AI assistance</span><span class="tag tag-keyword">Code generation</span><span class="tag tag-keyword">Open-source</span><span class="tag tag-keyword">Licensing</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-04-10 17:58:09</time></div>
+  <div class="story-body">
+    <h3><a href="https://steelforfuel.substack.com/p/autonomy-is-real-now" target="_blank" rel="noopener noreferrer">Autonomy Is Real Now</a></h3>
+    <p class="story-summary">The concise declaration &#x27;Autonomy Is Real Now&#x27; from a recent Hacker News discussion signals a critical inflection point in the development and deployment of autonomous systems. This statement suggests that the theoretical and experimental phases of autonomy are giving way to practical, functional applications across various sectors. Driven by advancements in artificial intelligence, machine learning, and sophisticated sensor fusion technologies, autonomous capabilities are transitioning from niche applications to more widespread integration in everyday life and industry. This includes progress in self-driving vehicles, robotic automation in manufacturing and logistics, and increasingly intelligent AI agents capable of independent decision-making and task execution. The realization of autonomy carries significant implications, promising enhanced efficiency, safety, and productivity, while also raising new challenges related to ethical considerations, regulatory frameworks, and human-machine collaboration. The assertion reflects a growing consensus that robust autonomous systems are no longer a futuristic concept but a present-day reality, prompting a shift in focus towards refining these technologies for broader societal impact and addressing the complex interdependencies they introduce.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Autonomous Systems</span><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Robotics</span><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Automation</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Robotics</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-04-10 16:53:55</time></div>
+  <div class="story-body">
+    <h3><a href="https://ericwbailey.website/published/a-compelling-title-that-is-cryptic-enough-to-get-you-to-take-action-on-it/" target="_blank" rel="noopener noreferrer">A compelling title that is cryptic enough to get you to take action on it</a></h3>
+    <p class="story-summary">This analysis investigates the strategic development of digital content titles designed to maximize user engagement through calculated ambiguity. It examines the psychological underpinnings that make &#x27;cryptic&#x27; headlines compelling, prompting users to delve deeper into a given piece of content or initiate a specific action within a digital environment. The article posits that striking an optimal balance between intriguing mystery and sufficient context is paramount for effective user interaction, particularly in the context of news aggregation platforms and application interfaces. Furthermore, the discussion extends to the application of advanced data analytics and machine learning techniques, such as natural language processing and predictive modeling, to generate and optimize these titles. These methodologies allow for the continuous refinement of headline strategies based on real-time user behavior, click-through rates, and conversion metrics, ultimately aiming to enhance platform stickiness and user experience by leveraging insights into human curiosity and decision-making processes.</p>
+    <div class="story-tags"><span class="tag tag-keyword">User Engagement</span><span class="tag tag-keyword">Content Optimization</span><span class="tag tag-keyword">Natural Language Processing</span><span class="tag tag-keyword">A/B Testing</span><span class="tag tag-keyword">Behavioral Analytics</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-04-10 19:27:30</time></div>
+  <div class="story-body">
+    <h3><a href="https://davegriffith.substack.com/p/why-isnt-everything-different-yet" target="_blank" rel="noopener noreferrer">Why Isn&#x27;t Everything Different Yet? (AI, where are you?)</a></h3>
+    <p class="story-summary">The article titled &quot;Why Isn&#x27;t Everything Different Yet? (AI, where are you?)&quot; delves into the critical discussion surrounding the current state and perceived impact of Artificial Intelligence. It poignantly questions the discrepancy between the rapid technological progress within AI, particularly in areas like large language models and generative AI, and the comparatively slower pace of its transformative effects on society, industries, and everyday life. The author likely explores various hypotheses for this apparent gap, which could include challenges in real-world deployment, the complexities of integrating advanced AI systems into existing infrastructures, the ethical and societal implications that necessitate caution, or perhaps an overinflated expectation of AI&#x27;s immediate revolutionary potential. This piece is expected to reflect on whether the current era of AI represents a fundamental paradigm shift that has yet to fully manifest, or if there are inherent limitations and adoption barriers preventing a more immediate and noticeable societal overhaul. Ultimately, it prompts a thoughtful consideration of AI&#x27;s present location on the innovation curve and its future trajectory towards truly reshaping our world.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Impact</span><span class="tag tag-keyword">Societal Transformation</span><span class="tag tag-keyword">AI Adoption</span><span class="tag tag-keyword">Technological Hype</span><span class="tag tag-keyword">AI Development</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-04-10 18:23:07</time></div>
+  <div class="story-body">
+    <h3><a href="https://thenewstack.io/openais-new-100-tier-targets-developers-hitting-codex-and-claude-code-limits/" target="_blank" rel="noopener noreferrer">OpenAI&#x27;s new $100 tier targets developers hitting Codex limits</a></h3>
+    <p class="story-summary">OpenAI has officially launched a new $100 subscription tier, explicitly targeting developers who frequently encounter usage limitations with its advanced AI coding models, including Codex and similar platforms like Claude. This premium offering is designed to provide significantly higher access quotas and expanded capabilities, addressing the demands of professional developers and power users whose projects require more extensive interaction with AI-driven code generation and completion tools. The introduction of this tier signifies OpenAI&#x27;s strategic effort to enhance the monetization of its developer-centric AI services, while simultaneously ensuring that high-volume users have the necessary resources to scale their AI integration efforts without interruption. This move highlights the accelerating adoption of AI in software development workflows and the subsequent need for robust, scalable infrastructure. It reinforces the market&#x27;s evolving requirement for flexible, tiered access models that support a diverse range of development needs, from rapid prototyping to large-scale deployment of intelligent coding assistants. The tier aims to empower developers to push the boundaries of AI-assisted programming, providing a dedicated pathway for uninterrupted innovation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">OpenAI</span><span class="tag tag-keyword">Codex</span><span class="tag tag-keyword">AI Coding</span><span class="tag tag-keyword">Developer Tools</span><span class="tag tag-keyword">API Limits</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-04-09T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2604.08224" target="_blank" rel="noopener noreferrer">Externalization in LLM Agents: A Unified Review of Memory, Skills, Protocols and Harness Engineering</a></h3>
+    <p class="story-summary">Large language model (LLM) agents are increasingly built less by changing model weights than by reorganizing the runtime around them. Capabilities that earlier systems expected the model to recover internally are now externalized into memory stores, reusable skills, interaction protocols, and the surrounding harness that makes these modules reliable in practice. This paper reviews that shift through the lens of externalization. Drawing on the idea of cognitive artifacts, we argue that agent infrastructure matters not merely because it adds auxiliary components, but because it transforms hard cognitive burdens into forms that the model can solve more reliably. Under this view, memory externalizes state across time, skills externalize procedural expertise, protocols externalize interaction structure, and harness engineering serves as the unification layer that coordinates them into governed execution. We trace a historical progression from weights to context to harness, analyze memory, skills, and protocols as three distinct but coupled forms of externalization, and examine how they interact inside a larger agent system. We further discuss the trade-off between parametric and externalized capability, identify emerging directions such as self-evolving harnesses and shared agent infrastructure, and discuss open challenges in evaluation, governance, and the long-term co-evolution of models and external infrastructure. The result is a systems-level framework for explaining why practical agent progress increasingly depends not only on stronger models, but on better external cognitive infrastructure.</p>
+    <div class="story-tags"><span class="tag tag-keyword">LLM Agents</span><span class="tag tag-keyword">Externalization</span><span class="tag tag-keyword">Harness Engineering</span><span class="tag tag-keyword">Memory</span><span class="tag tag-keyword">Cognitive Infrastructure</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-04-09T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2604.08523" target="_blank" rel="noopener noreferrer">ClawBench: Can AI Agents Complete Everyday Online Tasks?</a></h3>
+    <p class="story-summary">AI agents may be able to automate your inbox, but can they automate other routine aspects of your life? Everyday online tasks offer a realistic yet unsolved testbed for evaluating the next generation of AI agents. To this end, we introduce ClawBench, an evaluation framework of 153 simple tasks that people need to accomplish regularly in their lives and work, spanning 144 live platforms across 15 categories, from completing purchases and booking appointments to submitting job applications. These tasks require demanding capabilities beyond existing benchmarks, such as obtaining relevant information from user-provided documents, navigating multi-step workflows across diverse platforms, and write-heavy operations like filling in many detailed forms correctly. Unlike existing benchmarks that evaluate agents in offline sandboxes with static pages, ClawBench operates on production websites, preserving the full complexity, dynamic nature, and challenges of real-world web interaction. A lightweight interception layer captures and blocks only the final submission request, ensuring safe evaluation without real-world side effects. Our evaluations of 7 frontier models show that both proprietary and open-source models can complete only a small portion of these tasks. For example, Claude Sonnet 4.6 achieves only 33.3%. Progress on ClawBench brings us closer to AI agents that can function as reliable general-purpose assistants.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">ClawBench</span><span class="tag tag-keyword">Evaluation Framework</span><span class="tag tag-keyword">Everyday Online Tasks</span><span class="tag tag-keyword">Real-world Web Interaction</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-04-08T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2604.07394" target="_blank" rel="noopener noreferrer">Flux Attention: Context-Aware Hybrid Attention for Efficient LLMs Inference</a></h3>
+    <p class="story-summary">The quadratic computational complexity of standard attention mechanisms presents a severe scalability bottleneck for LLMs in long-context scenarios. While hybrid attention mechanisms combining Full Attention (FA) and Sparse Attention (SA) offer a potential solution, existing methods typically rely on static allocation ratios that fail to accommodate the variable retrieval demands of different tasks. Furthermore, head-level dynamic sparsity often introduces severe computational load imbalance and synchronization long-tails, which hinder hardware acceleration during autoregressive decoding. To bridge this gap, we introduce Flux Attention, a context-aware framework that dynamically optimizes attention computation at the layer level. By integrating a lightweight Layer Router into frozen pretrained LLMs, the proposed method adaptively routes each layer to FA or SA based on the input context. This layer-wise routing preserves high-fidelity information retrieval while ensuring contiguous memory access, translating theoretical computational reductions into practical wall-clock speedups. As a parameter-efficient approach, our framework requires only 12 hours of training on 8timesA800 GPUs. Extensive experiments across multiple long-context and mathematical reasoning benchmarks demonstrate that Flux Attention achieves a superior trade-off between performance and inference speed compared with baseline models, with speed improvements of up to 2.8times and 2.0times in the prefill and decode stages.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Flux Attention</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Attention Mechanisms</span><span class="tag tag-keyword">Efficient Inference</span><span class="tag tag-keyword">Context-Aware</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-04-09T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2604.08546" target="_blank" rel="noopener noreferrer">When Numbers Speak: Aligning Textual Numerals and Visual Instances in Text-to-Video Diffusion Models</a></h3>
+    <p class="story-summary">Text-to-video diffusion models have enabled open-ended video synthesis, but often struggle with generating the correct number of objects specified in a prompt. We introduce NUMINA , a training-free identify-then-guide framework for improved numerical alignment. NUMINA identifies prompt-layout inconsistencies by selecting discriminative self- and cross-attention heads to derive a countable latent layout. It then refines this layout conservatively and modulates cross-attention to guide regeneration. On the introduced CountBench, NUMINA improves counting accuracy by up to 7.4% on Wan2.1-1.3B, and by 4.9% and 5.5% on 5B and 14B models, respectively. Furthermore, CLIP alignment is improved while maintaining temporal consistency. These results demonstrate that structural guidance complements seed search and prompt enhancement, offering a practical path toward count-accurate text-to-video diffusion. The code is available at https://github.com/H-EmbodVis/NUMINA.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Text-to-Video Diffusion</span><span class="tag tag-keyword">Numerical Alignment</span><span class="tag tag-keyword">Object Counting</span><span class="tag tag-keyword">Attention Mechanisms</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-04-09T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2604.08545" target="_blank" rel="noopener noreferrer">Act Wisely: Cultivating Meta-Cognitive Tool Use in Agentic Multimodal Models</a></h3>
+    <p class="story-summary">The advent of agentic multimodal models has empowered systems to actively interact with external environments. However, current agents suffer from a profound meta-cognitive deficit: they struggle to arbitrate between leveraging internal knowledge and querying external utilities. Consequently, they frequently fall prey to blind tool invocation, resorting to reflexive tool execution even when queries are resolvable from the raw visual context. This pathological behavior precipitates severe latency bottlenecks and injects extraneous noise that derails sound reasoning. Existing reinforcement learning protocols attempt to mitigate this via a scalarized reward that penalizes tool usage. Yet, this coupled formulation creates an irreconcilable optimization dilemma: an aggressive penalty suppresses essential tool use, whereas a mild penalty is entirely subsumed by the variance of the accuracy reward during advantage normalization, rendering it impotent against tool overuse. To transcend this bottleneck, we propose HDPO, a framework that reframes tool efficiency from a competing scalar objective to a strictly conditional one. By eschewing reward scalarization, HDPO maintains two orthogonal optimization channels: an accuracy channel that maximizes task correctness, and an efficiency channel that enforces execution economy exclusively within accurate trajectories via conditional advantage estimation. This decoupled architecture naturally induces a cognitive curriculum-compelling the agent to first master task resolution before refining its self-reliance. Extensive evaluations demonstrate that our resulting model, Metis, reduces tool invocations by orders of magnitude while simultaneously elevating reasoning accuracy.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agentic Multimodal Models</span><span class="tag tag-keyword">Meta-Cognition</span><span class="tag tag-keyword">Tool Use</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">HDPO</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-04-09T17:15:47.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2604.08476" target="_blank" rel="noopener noreferrer">Faithful GRPO: Improving Visual Spatial Reasoning in Multimodal Language Models via Constrained Policy Optimization</a></h3>
+    <p class="story-summary">Multimodal reasoning models (MRMs) trained with reinforcement learning with verifiable rewards (RLVR) show improved accuracy on visual reasoning benchmarks. However, we observe that accuracy gains often come at the cost of reasoning quality: generated Chain-of-Thought (CoT) traces are frequently inconsistent with the final answer and poorly grounded in the visual evidence. We systematically study this phenomenon across seven challenging real-world spatial reasoning benchmarks and find that it affects contemporary MRMs such as ViGoRL-Spatial, TreeVGR as well as our own models trained with standard Group Relative Policy Optimization (GRPO). We characterize CoT reasoning quality along two complementary axes: &quot;logical consistency&quot; (does the CoT entail the final answer?) and &quot;visual grounding&quot; (does each reasoning step accurately describe objects, attributes, and spatial relationships in the image?). To address this, we propose Faithful GRPO (FGRPO), a variant of GRPO that enforces consistency and grounding as constraints via Lagrangian dual ascent. FGRPO incorporates batch-level consistency and grounding constraints into the advantage computation within a group, adaptively adjusting the relative importance of constraints during optimization. We evaluate FGRPO on Qwen2.5-VL-7B and 3B backbones across seven spatial datasets. Our results show that FGRPO substantially improves reasoning quality, reducing the inconsistency rate from 24.5% to 1.7% and improving visual grounding scores by +13%. It also improves final answer accuracy over simple GRPO, demonstrating that faithful reasoning enables better answers.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multimodal Language Models</span><span class="tag tag-keyword">Visual Spatial Reasoning</span><span class="tag tag-keyword">Constrained Policy Optimization</span><span class="tag tag-keyword">Visual Grounding</span><span class="tag tag-keyword">Chain-of-Thought</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2026-04-10" data-counter-title="NO-FOMO issue 2026-04-10" defer></script>
 </body>
 </html>

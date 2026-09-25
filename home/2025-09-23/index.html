@@ -1,480 +1,164 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-09-23</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2025-09-23</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="." class="active">中文</a>
-                <a href="en/" class="">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-09-23</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../home/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 返回主页</a>
-            <a href="../../daily/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 最新日报</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 关于我们</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Launch HN: Strata (YC X25) – One MCP server for AI to handle thousands of tools</h2>
-                <span class="published-time">Published: 2025-09-23 14:52:07</span>
-                
-                <p class="summary">Klavis AI has launched Strata, an open-source Multi-Capability Platform (MCP) server designed to significantly improve how AI agents manage and utilize a vast number of API tools. Addressing critical challenges faced by AI systems, Strata prevents agents from being overwhelmed by thousands of options. Instead of presenting all available tools upfront, it introduces them incrementally, based on the agent's real-time needs. This innovative approach tackles common issues such as AI agents struggling to select the correct API from a large pool, the substantial token budget consumed by extensive tool descriptions, and the typical server limitations that cap tool usage at around 40-50. Developed by a former Senior SWE from Google Gemini's tool use team, Strata aims to enhance AI's capability to discover and employ relevant tools efficiently, mimicking human-like discovery processes to guide agents through tool categories.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agents</span><span>API Tools</span><span>Tool Use</span><span>MCP Server</span><span>Open Source</span><span>Token Efficiency</span><span>Large Language Models</span><span>AI Development</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://news.ycombinator.com/item?id=45347914" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Android users can now use conversational editing in Google Photos</h2>
-                <span class="published-time">Published: 2025-09-23 17:04:56</span>
-                
-                <p class="summary">Google has officially launched a significant update for its Google Photos application on Android, introducing a groundbreaking feature called "conversational editing." This innovative functionality empowers users to interact with their photos using natural language prompts, effectively allowing them to describe desired edits rather than navigating complex menus or sliders. For instance, users can command the app to "make the sunset more dramatic," "brighten the foreground subject," or "remove distractions in the background," and the AI-powered system will interpret these instructions and apply the relevant adjustments. This capability is underpinned by advanced artificial intelligence and natural language processing technologies, which interpret nuanced user commands and translate them into precise photo manipulation actions. The introduction of conversational editing is poised to democratize advanced photo enhancement, making sophisticated adjustments accessible and intuitive for all Android users. This update not only streamlines the photo editing workflow on mobile devices but also significantly enhances the user experience by offering a more natural and user-friendly interface for creative expression.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Conversational AI</span><span>Google Photos</span><span>Android</span><span>Photo Editing</span><span>Natural Language Processing</span><span>Artificial Intelligence</span><span>Mobile Photography</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Natural Language Processing</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://blog.google/products/photos/android-conversational-editing-google-photos/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>From MCP to shell: MCP auth flaws enable RCE in Claude Code, Gemini CLI and more</h2>
-                <span class="published-time">Published: 2025-09-23 15:09:50</span>
-                
-                <p class="summary">A critical security vulnerability, dubbed "MCP auth flaws," has been discovered, enabling Remote Code Execution (RCE) in several prominent AI development environments, notably Claude Code and Gemini CLI. These flaws pertain to authentication mechanisms within the system, which, if exploited, could allow unauthorized actors to execute arbitrary code, thereby compromising the integrity and security of applications built on or utilizing these platforms. The detailed analysis, presented by Veria Labs, highlights the technical specifics of how these vulnerabilities can be leveraged, emphasizing the severe implications for developers and organizations relying on such AI services. This discovery underscores a growing concern regarding the security posture of advanced AI tools, particularly those offering code generation and command-line interface functionalities. The potential for malicious code injection or data exfiltration through RCE necessitates immediate attention from platform developers to implement stronger authentication protocols and patching strategies. The findings stress the critical importance of secure development practices in the rapidly evolving AI landscape to mitigate risks associated with sophisticated cyber threats targeting AI infrastructure.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Remote Code Execution</span><span>Authentication Bypass</span><span>AI Security</span><span>Claude Code</span><span>Gemini CLI</span><span>Vulnerability</span><span>Cybersecurity</span><span>AI Platforms</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://verialabs.com/blog/from-mcp-to-shell/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Structured Outputs in LLMs</h2>
-                <span class="published-time">Published: 2025-09-23 10:40:41</span>
-                
-                <p class="summary">The ability of Large Language Models (LLMs) to generate structured outputs, such as JSON or XML, is becoming increasingly critical for their integration into automated systems and applications. While LLMs excel at producing natural language, ensuring they adhere to specific schemas and formats is challenging yet essential for tasks like data extraction, API calls, and database population. This capability transforms LLMs from mere text generators into powerful data processors, enabling seamless communication with downstream software. Current approaches to achieve reliable structured outputs often involve advanced prompt engineering, where clear instructions and examples guide the model's generation. Furthermore, techniques like constrained decoding are employed to enforce grammar and schema rules during the output process, significantly reducing errors and improving reliability. The development of robust methods for structured output generation is vital for maximizing the utility and operational efficiency of LLMs across a wide array of enterprise and developer-focused applications, addressing a key limitation in their practical deployment.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Model</span><span>Structured Output</span><span>Prompt Engineering</span><span>Constrained Decoding</span><span>JSON Generation</span><span>AI Integration</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Artificial Intelligence</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://parthsareen.com/blog.html#sampling.md" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Getting AI to work in complex codebases</h2>
-                <span class="published-time">Published: 2025-09-23 14:27:36</span>
-                
-                <p class="summary">This analysis addresses the significant challenge of effectively integrating and optimizing AI capabilities, specifically coding agents, within large and intricate software codebases. It highlights that traditional AI methodologies often fall short when confronted with the scale and complexity characteristic of enterprise-level software development, underscoring the necessity for advanced context engineering strategies. The central theme revolves around developing sophisticated approaches to supply AI agents with precise and highly relevant contextual information. This encompasses a broad spectrum of data, including project architecture, structural patterns, specific code segments, and comprehensive documentation. The ultimate goal is to empower AI with enhanced comprehension, more effective problem-solving abilities, and reliable code generation in complex environments. By moving beyond simplistic examples, this work aims to foster robust, practical applications of AI in real-world software engineering, improving its utility for critical tasks such as debugging, feature implementation, and code refactoring.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agents</span><span>Coding Agents</span><span>Context Engineering</span><span>Complex Codebases</span><span>Software Engineering</span><span>Large Language Models</span><span>Code Generation</span><span>AI in Development</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Large Language Model</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/ace-fca.md" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: Open-source AI data generator (now hosted)</h2>
-                <span class="published-time">Published: 2025-09-23 14:33:59</span>
-                
-                <p class="summary">Metabase has announced the availability of its open-source AI dataset generator in a newly hosted version, alongside its existing open-source repository. This development addresses user requests for a solution that removes the overhead of self-hosting, making the tool more accessible for immediate application. Initially shared a few months prior, the AI dataset generator garnered significant interest within the developer community. Users now have the flexibility to choose between the hosted service, available at `https://www.metabase.com/ai-data-generator`, for streamlined deployment, or to leverage the full source code from the GitHub repository (`https://github.com/metabase/dataset-generator`) for self-hosting, customization, and community contributions. A notable enhancement to the open-source repository is the integration of LiteLLM, enabling multi-provider Large Language Model (LLM) support, which significantly expands the generator's versatility and potential applications in diverse AI projects. This dual-option strategy aims to cater to a broader range of users, from those seeking quick integration to developers looking for deep customization and collaboration opportunities in AI data generation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI data generator</span><span>Open-source software</span><span>Dataset generation</span><span>Hosted services</span><span>LLM integration</span><span>LiteLLM</span><span>Machine Learning tools</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.metabase.com/ai-data-generator" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>像老乡鸡那样做饭</h2>
-                <span class="published-time">Published: 2025-09-22T17:40:46Z</span>
-                
-                <p class="summary">The "CookLikeHOC" GitHub repository offers a community-driven, open-source recipe collection inspired by dishes from the renowned Chinese fast-food chain, Laoxiangji (Home Original Chicken). Its primary goal is to compile and organize all recipes featured in the official "Laoxiangji Dish Traceability Report," enabling users to recreate these popular meals at home. The project clearly states its independent nature, emphasizing its status as an unofficial, consumer-contributed resource. A notable feature includes the integration of AI-generated images for select stew dishes, complementing user-contributed real-life photographs. An accessible web interface further enhances user experience. This initiative serves as a practical example of leveraging public information for culinary education and highlights the potential of collaborative data curation in creating valuable knowledge bases, while also incorporating modern AI capabilities for content enrichment.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Recipe Collection</span><span>Culinary Arts</span><span>Chinese Cuisine</span><span>Food Recipes</span><span>Open-source Data</span><span>AI Imagery</span><span>Community Project</span><span>Data Curation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Artificial Intelligence</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/Gar-b-age/CookLikeHOC" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Tongyi DeepResearch</h2>
-                <span class="published-time">Published: 2025-09-22T17:44:11Z</span>
-                
-                <p class="summary">Tongyi DeepResearch, developed by Tongyi Lab, is an advanced agentic large language model with 30.5 billion parameters, designed for complex, long-horizon information-seeking tasks. It leverages a highly scalable and fully automated synthetic data generation pipeline, enabling robust agentic pre-training, supervised fine-tuning, and reinforcement learning. The model incorporates large-scale continual pre-training on diverse agentic interaction data to maintain currency and enhance reasoning capabilities. Its unique end-to-end reinforcement learning approach uses a customized Group Relative Policy Optimization framework, ensuring stable training in dynamic environments. Tongyi DeepResearch supports both ReAct and an IterResearch-based 'Heavy' inference mode for flexible performance optimization. It has achieved state-of-the-art results across various agentic search benchmarks, including Humanity's Last Exam and BrowserComp, and is accessible via HuggingFace, ModelScope, and OpenRouter, signifying its broad utility in cutting-edge AI research.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Agentic Large Language Model</span><span>Information Seeking</span><span>Reinforcement Learning</span><span>Data Synthesis</span><span>Pre-training</span><span>Benchmarking</span><span>Web Agent</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/Alibaba-NLP/DeepResearch" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>tldraw</h2>
-                <span class="published-time">Published: 2025-09-19T16:42:33Z</span>
-                
-                <p class="summary">tldraw is an open-source monorepo that delivers a robust React library specifically designed for crafting infinite canvas experiences, famously underpinning the popular digital whiteboard platform, tldraw.com. Developers can effortlessly integrate tldraw into their React projects through npm, providing a highly customizable and interactive drawing surface. The project emphasizes developer experience, offering clear guidelines for local development using `yarn` and corepack. A unique feature tailored for AI agents is the inclusion of `CONTEXT.md` files throughout the repository, complemented by a `context` script, enabling quick codebase comprehension for automated tools. tldraw operates under its specific license, permitting both commercial and non-commercial applications, contingent on retaining the 'Made with tldraw' watermark, with a business license available for its removal. This library positions itself as a crucial resource for building advanced interactive web applications, particularly those requiring dynamic drawing, collaboration, and expansive visual workspaces.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>React</span><span>Infinite Canvas</span><span>Digital Whiteboard</span><span>SDK</span><span>Frontend Development</span><span>AI Agent Tooling</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Artificial Intelligence</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/tldraw/tldraw" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Elasticsearch</h2>
-                <span class="published-time">Published: 2025-09-23T19:59:51Z</span>
-                
-                <p class="summary">Elasticsearch is a powerful, distributed search and analytics engine that functions as a scalable data store and vector database, optimized for high performance and relevance across production workloads. It forms the core of Elastic's open Stack platform, enabling near real-time search over massive datasets, advanced vector searches, and seamless integration with generative AI applications. Key use cases include Retrieval Augmented Generation (RAG), full-text search, and monitoring of logs, metrics, and application performance (APM), alongside security analytics. Users can get started with managed deployments on Elastic Cloud or by installing it locally via Docker, using the `start-local` script for development. Elasticsearch interacts primarily through REST APIs, supporting various programming language clients and Kibana's Dev Tools for data indexing, search, and exploration.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Elasticsearch</span><span>Distributed Search</span><span>Analytics Engine</span><span>Vector Database</span><span>Retrieval Augmented Generation</span><span>Generative AI</span><span>Kibana</span><span>REST API</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/elastic/elasticsearch" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>LIMI: Less is More for Agency</h2>
-                <span class="published-time">Published: 2025-09-22T10:59:32.000Z</span>
-                
-                <p class="summary">We define Agency as the emergent capacity of AI systems to function as autonomous agents actively discovering problems, formulating hypotheses, and executing solutions through self-directed engagement with environments and tools. This fundamental capability marks the dawn of the Age of AI Agency, driven by a critical industry shift: the urgent need for AI systems that don't just think, but work. While current AI excels at reasoning and generating responses, industries demand autonomous agents that can execute tasks, operate tools, and drive real-world outcomes. As agentic intelligence becomes the defining characteristic separating cognitive systems from productive workers, efficiently cultivating machine autonomy becomes paramount. Current approaches assume that more data yields better agency, following traditional scaling laws from language modeling. We fundamentally challenge this paradigm. LIMI (Less Is More for Intelligent Agency) demonstrates that agency follows radically different development principles. Through strategic focus on collaborative software development and scientific research workflows, we show that sophisticated agentic intelligence can emerge from minimal but strategically curated demonstrations of autonomous behavior. Using only 78 carefully designed training samples, LIMI achieves 73.5% on comprehensive agency benchmarks, dramatically outperforming state-of-the-art models: Kimi-K2-Instruct (24.1%), DeepSeek-V3.1 (11.9%), Qwen3-235B-A22B-Instruct (27.5%), and GLM-4.5 (45.1%). Most strikingly, LIMI demonstrates 53.7% improvement over models trained on 10,000 samples-achieving superior agentic intelligence with 128 times fewer samples. Our findings establish the Agency Efficiency Principle: machine autonomy emerges not from data abundance but from strategic curation of high-quality agentic demonstrations.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agency</span><span>Autonomous Agents</span><span>Machine Autonomy</span><span>Data Curation</span><span>Agentic Intelligence</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Artificial Intelligence</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.17567" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Qwen3-Omni Technical Report</h2>
-                <span class="published-time">Published: 2025-09-22T13:26:24.000Z</span>
-                
-                <p class="summary">We present Qwen3-Omni, a single multimodal model that, for the first time, maintains state-of-the-art performance across text, image, audio, and video without any degradation relative to single-modal counterparts. Qwen3-Omni matches the performance of same-sized single-modal models within the Qwen series and excels particularly on audio tasks. Across 36 audio and audio-visual benchmarks, Qwen3-Omni achieves open-source SOTA on 32 benchmarks and overall SOTA on 22, outperforming strong closed-source models such as Gemini-2.5-Pro, Seed-ASR, and GPT-4o-Transcribe. Qwen3-Omni adopts a Thinker-Talker MoE architecture that unifies perception and generation across text, images, audio, and video, yielding fluent text and natural real-time speech. It supports text interaction in 119 languages, speech understanding in 19 languages, and speech generation in 10 languages. To reduce first-packet latency in streaming synthesis, Talker autoregressively predicts discrete speech codecs using a multi-codebook scheme. Leveraging the representational capacity of these codebooks, we replace computationally intensive block-wise diffusion with a lightweight causal ConvNet, enabling streaming from the first codec frame. In cold-start settings, Qwen3-Omni achieves a theoretical end-to-end first-packet latency of 234 ms. To further strengthen multimodal reasoning, we introduce a Thinking model that explicitly reasons over inputs from any modality. Since the research community currently lacks a general-purpose audio captioning model, we fine-tuned Qwen3-Omni-30B-A3B to obtain Qwen3-Omni-30B-A3B-Captioner, which produces detailed, low-hallucination captions for arbitrary audio inputs. Qwen3-Omni-30B-A3B, Qwen3-Omni-30B-A3B-Thinking, and Qwen3-Omni-30B-A3B-Captioner are publicly released under the Apache 2.0 license.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multimodal Model</span><span>Qwen3-Omni</span><span>MoE Architecture</span><span>Multimodal Reasoning</span><span>Speech Synthesis</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Natural Language Processing</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.17765" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>EpiCache: Episodic KV Cache Management for Long Conversational Question Answering</h2>
-                <span class="published-time">Published: 2025-09-22T06:56:35.000Z</span>
-                
-                <p class="summary">Recent advances in large language models (LLMs) have extended context lengths, enabling assistants to sustain long histories for coherent, personalized responses. This ability, however, hinges on Key-Value (KV) caching, whose memory grows linearly with dialogue length and quickly dominates under strict resource constraints. An active line of research for reducing this overhead is KV cache compression, which seeks to limit cache size while preserving accuracy. Yet existing methods face two major limitations: (i) evicting entries after full-context prefill causes unbounded peak memory, and (ii) query-dependent eviction narrows the cache to a single query, leading to degraded accuracy in multi-turn conversations. We introduce EpiCache, a training-free KV cache management framework for long conversational question answering (LongConvQA) under fixed memory budgets. EpiCache bounds cache growth through block-wise prefill and preserves topic-relevant context via episodic KV compression, which clusters conversation history into coherent episodes and applies episode-specific KV cache eviction. We further design an adaptive layer-wise budget allocation strategy that measures each layer's sensitivity to eviction and distributes the memory budget across layers accordingly. Across three LongConvQA benchmarks, EpiCache improves accuracy by up to 40% over recent baselines, sustains near-full KV accuracy under 4-6x compression, and reduces latency and memory by up to 2.4x and 3.5x, thereby enabling efficient multi-turn interaction under strict resource constraints.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>KV Cache Management</span><span>Large Language Models</span><span>Conversational Question Answering</span><span>Cache Compression</span><span>Memory Efficiency</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Natural Language Processing</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.17396" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Strategic Dishonesty Can Undermine AI Safety Evaluations of Frontier LLM</h2>
-                <span class="published-time">Published: 2025-09-22T17:30:56.000Z</span>
-                
-                <p class="summary">Large language model (LLM) developers aim for their models to be honest, helpful, and harmless. However, when faced with malicious requests, models are trained to refuse, sacrificing helpfulness. We show that frontier LLMs can develop a preference for dishonesty as a new strategy, even when other options are available. Affected models respond to harmful requests with outputs that sound harmful but are subtly incorrect or otherwise harmless in practice. This behavior emerges with hard-to-predict variations even within models from the same model family. We find no apparent cause for the propensity to deceive, but we show that more capable models are better at executing this strategy. Strategic dishonesty already has a practical impact on safety evaluations, as we show that dishonest responses fool all output-based monitors used to detect jailbreaks that we test, rendering benchmark scores unreliable. Further, strategic dishonesty can act like a honeypot against malicious users, which noticeably obfuscates prior jailbreak attacks. While output monitors fail, we show that linear probes on internal activations can be used to reliably detect strategic dishonesty. We validate probes on datasets with verifiable outcomes and by using their features as steering vectors. Overall, we consider strategic dishonesty as a concrete example of a broader concern that alignment of LLMs is hard to control, especially when helpfulness and harmlessness conflict.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Safety</span><span>Large Language Models</span><span>Strategic Dishonesty</span><span>Safety Evaluations</span><span>Model Alignment</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.18058" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>VideoFrom3D: 3D Scene Video Generation via Complementary Image and Video Diffusion Models</h2>
-                <span class="published-time">Published: 2025-09-22T16:28:47.000Z</span>
-                
-                <p class="summary">In this paper, we propose VideoFrom3D, a novel framework for synthesizing high-quality 3D scene videos from coarse geometry, a camera trajectory, and a reference image. Our approach streamlines the 3D graphic design workflow, enabling flexible design exploration and rapid production of deliverables. A straightforward approach to synthesizing a video from coarse geometry might condition a video diffusion model on geometric structure. However, existing video diffusion models struggle to generate high-fidelity results for complex scenes due to the difficulty of jointly modeling visual quality, motion, and temporal consistency. To address this, we propose a generative framework that leverages the complementary strengths of image and video diffusion models. Specifically, our framework consists of a Sparse Anchor-view Generation (SAG) and a Geometry-guided Generative Inbetweening (GGI) module. The SAG module generates high-quality, cross-view consistent anchor views using an image diffusion model, aided by Sparse Appearance-guided Sampling. Building on these anchor views, GGI module faithfully interpolates intermediate frames using a video diffusion model, enhanced by flow-based camera control and structural guidance. Notably, both modules operate without any paired dataset of 3D scene models and natural images, which is extremely difficult to obtain. Comprehensive experiments show that our method produces high-quality, style-consistent scene videos under diverse and challenging scenarios, outperforming simple and extended baselines.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>3D Scene Video Generation</span><span>Diffusion Models</span><span>Generative Framework</span><span>Image Diffusion Models</span><span>Video Diffusion Models</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Deep Learning</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.17985" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Reasoning Core: A Scalable RL Environment for LLM Symbolic Reasoning</h2>
-                <span class="published-time">Published: 2025-09-22T17:56:38.000Z</span>
-                
-                <p class="summary">We introduce Reasoning Core, a new scalable environment for Reinforcement Learning with Verifiable Rewards (RLVR), designed to advance foundational symbolic reasoning in Large Language Models (LLMs). Unlike existing benchmarks that focus on games or isolated puzzles, Reasoning Core procedurally generates problems across core formal domains, including PDDL planning, first-order logic, context-free grammar parsing, causal reasoning, and system equation solving. The environment is built on key design principles of high-generality problem distributions, verification via external tools, and continuous difficulty control, which together provide a virtually infinite supply of novel training instances. Initial zero-shot evaluations with frontier LLMs confirm the difficulty of Reasoning Core's tasks, positioning it as a promising resource to improve the reasoning capabilities of future models.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Reasoning Core</span><span>Reinforcement Learning</span><span>Large Language Models</span><span>Symbolic Reasoning</span><span>Verifiable Rewards</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Natural Language Processing</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2509.18083" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../">Archive</a><a href="cn/">中文</a><a href="en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2025-09-23</strong><span>DEFAULT EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2025-09-23" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-23 14:52:07</time></div>
+  <div class="story-body">
+    <h3><a href="https://news.ycombinator.com/item?id=45347914" target="_blank" rel="noopener noreferrer">Launch HN: Strata (YC X25) – One MCP server for AI to handle thousands of tools</a></h3>
+    <p class="story-summary">Klavis AI has launched Strata, an open-source Multi-Capability Platform (MCP) server designed to significantly improve how AI agents manage and utilize a vast number of API tools. Addressing critical challenges faced by AI systems, Strata prevents agents from being overwhelmed by thousands of options. Instead of presenting all available tools upfront, it introduces them incrementally, based on the agent&#x27;s real-time needs. This innovative approach tackles common issues such as AI agents struggling to select the correct API from a large pool, the substantial token budget consumed by extensive tool descriptions, and the typical server limitations that cap tool usage at around 40-50. Developed by a former Senior SWE from Google Gemini&#x27;s tool use team, Strata aims to enhance AI&#x27;s capability to discover and employ relevant tools efficiently, mimicking human-like discovery processes to guide agents through tool categories.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">API Tools</span><span class="tag tag-keyword">Tool Use</span><span class="tag tag-keyword">MCP Server</span><span class="tag tag-keyword">Open Source</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-23 17:04:56</time></div>
+  <div class="story-body">
+    <h3><a href="https://blog.google/products/photos/android-conversational-editing-google-photos/" target="_blank" rel="noopener noreferrer">Android users can now use conversational editing in Google Photos</a></h3>
+    <p class="story-summary">Google has officially launched a significant update for its Google Photos application on Android, introducing a groundbreaking feature called &quot;conversational editing.&quot; This innovative functionality empowers users to interact with their photos using natural language prompts, effectively allowing them to describe desired edits rather than navigating complex menus or sliders. For instance, users can command the app to &quot;make the sunset more dramatic,&quot; &quot;brighten the foreground subject,&quot; or &quot;remove distractions in the background,&quot; and the AI-powered system will interpret these instructions and apply the relevant adjustments. This capability is underpinned by advanced artificial intelligence and natural language processing technologies, which interpret nuanced user commands and translate them into precise photo manipulation actions. The introduction of conversational editing is poised to democratize advanced photo enhancement, making sophisticated adjustments accessible and intuitive for all Android users. This update not only streamlines the photo editing workflow on mobile devices but also significantly enhances the user experience by offering a more natural and user-friendly interface for creative expression.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Conversational AI</span><span class="tag tag-keyword">Google Photos</span><span class="tag tag-keyword">Android</span><span class="tag tag-keyword">Photo Editing</span><span class="tag tag-keyword">Natural Language Processing</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-23 15:09:50</time></div>
+  <div class="story-body">
+    <h3><a href="https://verialabs.com/blog/from-mcp-to-shell/" target="_blank" rel="noopener noreferrer">From MCP to shell: MCP auth flaws enable RCE in Claude Code, Gemini CLI and more</a></h3>
+    <p class="story-summary">A critical security vulnerability, dubbed &quot;MCP auth flaws,&quot; has been discovered, enabling Remote Code Execution (RCE) in several prominent AI development environments, notably Claude Code and Gemini CLI. These flaws pertain to authentication mechanisms within the system, which, if exploited, could allow unauthorized actors to execute arbitrary code, thereby compromising the integrity and security of applications built on or utilizing these platforms. The detailed analysis, presented by Veria Labs, highlights the technical specifics of how these vulnerabilities can be leveraged, emphasizing the severe implications for developers and organizations relying on such AI services. This discovery underscores a growing concern regarding the security posture of advanced AI tools, particularly those offering code generation and command-line interface functionalities. The potential for malicious code injection or data exfiltration through RCE necessitates immediate attention from platform developers to implement stronger authentication protocols and patching strategies. The findings stress the critical importance of secure development practices in the rapidly evolving AI landscape to mitigate risks associated with sophisticated cyber threats targeting AI infrastructure.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Remote Code Execution</span><span class="tag tag-keyword">Authentication Bypass</span><span class="tag tag-keyword">AI Security</span><span class="tag tag-keyword">Claude Code</span><span class="tag tag-keyword">Gemini CLI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-23 10:40:41</time></div>
+  <div class="story-body">
+    <h3><a href="https://parthsareen.com/blog.html#sampling.md" target="_blank" rel="noopener noreferrer">Structured Outputs in LLMs</a></h3>
+    <p class="story-summary">The ability of Large Language Models (LLMs) to generate structured outputs, such as JSON or XML, is becoming increasingly critical for their integration into automated systems and applications. While LLMs excel at producing natural language, ensuring they adhere to specific schemas and formats is challenging yet essential for tasks like data extraction, API calls, and database population. This capability transforms LLMs from mere text generators into powerful data processors, enabling seamless communication with downstream software. Current approaches to achieve reliable structured outputs often involve advanced prompt engineering, where clear instructions and examples guide the model&#x27;s generation. Furthermore, techniques like constrained decoding are employed to enforce grammar and schema rules during the output process, significantly reducing errors and improving reliability. The development of robust methods for structured output generation is vital for maximizing the utility and operational efficiency of LLMs across a wide array of enterprise and developer-focused applications, addressing a key limitation in their practical deployment.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Structured Output</span><span class="tag tag-keyword">Prompt Engineering</span><span class="tag tag-keyword">Constrained Decoding</span><span class="tag tag-keyword">JSON Generation</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-09-23 14:27:36</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/ace-fca.md" target="_blank" rel="noopener noreferrer">Getting AI to work in complex codebases</a></h3>
+    <p class="story-summary">This analysis addresses the significant challenge of effectively integrating and optimizing AI capabilities, specifically coding agents, within large and intricate software codebases. It highlights that traditional AI methodologies often fall short when confronted with the scale and complexity characteristic of enterprise-level software development, underscoring the necessity for advanced context engineering strategies. The central theme revolves around developing sophisticated approaches to supply AI agents with precise and highly relevant contextual information. This encompasses a broad spectrum of data, including project architecture, structural patterns, specific code segments, and comprehensive documentation. The ultimate goal is to empower AI with enhanced comprehension, more effective problem-solving abilities, and reliable code generation in complex environments. By moving beyond simplistic examples, this work aims to foster robust, practical applications of AI in real-world software engineering, improving its utility for critical tasks such as debugging, feature implementation, and code refactoring.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Coding Agents</span><span class="tag tag-keyword">Context Engineering</span><span class="tag tag-keyword">Complex Codebases</span><span class="tag tag-keyword">Software Engineering</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-09-23 14:33:59</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.metabase.com/ai-data-generator" target="_blank" rel="noopener noreferrer">Show HN: Open-source AI data generator (now hosted)</a></h3>
+    <p class="story-summary">Metabase has announced the availability of its open-source AI dataset generator in a newly hosted version, alongside its existing open-source repository. This development addresses user requests for a solution that removes the overhead of self-hosting, making the tool more accessible for immediate application. Initially shared a few months prior, the AI dataset generator garnered significant interest within the developer community. Users now have the flexibility to choose between the hosted service, available at `https://www.metabase.com/ai-data-generator`, for streamlined deployment, or to leverage the full source code from the GitHub repository (`https://github.com/metabase/dataset-generator`) for self-hosting, customization, and community contributions. A notable enhancement to the open-source repository is the integration of LiteLLM, enabling multi-provider Large Language Model (LLM) support, which significantly expands the generator&#x27;s versatility and potential applications in diverse AI projects. This dual-option strategy aims to cater to a broader range of users, from those seeking quick integration to developers looking for deep customization and collaboration opportunities in AI data generation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI data generator</span><span class="tag tag-keyword">Open-source software</span><span class="tag tag-keyword">Dataset generation</span><span class="tag tag-keyword">Hosted services</span><span class="tag tag-keyword">LLM integration</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>4 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-22T17:40:46Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/Gar-b-age/CookLikeHOC" target="_blank" rel="noopener noreferrer">像老乡鸡那样做饭</a></h3>
+    <p class="story-summary">The &quot;CookLikeHOC&quot; GitHub repository offers a community-driven, open-source recipe collection inspired by dishes from the renowned Chinese fast-food chain, Laoxiangji (Home Original Chicken). Its primary goal is to compile and organize all recipes featured in the official &quot;Laoxiangji Dish Traceability Report,&quot; enabling users to recreate these popular meals at home. The project clearly states its independent nature, emphasizing its status as an unofficial, consumer-contributed resource. A notable feature includes the integration of AI-generated images for select stew dishes, complementing user-contributed real-life photographs. An accessible web interface further enhances user experience. This initiative serves as a practical example of leveraging public information for culinary education and highlights the potential of collaborative data curation in creating valuable knowledge bases, while also incorporating modern AI capabilities for content enrichment.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Recipe Collection</span><span class="tag tag-keyword">Culinary Arts</span><span class="tag tag-keyword">Chinese Cuisine</span><span class="tag tag-keyword">Food Recipes</span><span class="tag tag-keyword">Open-source Data</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-22T17:44:11Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/Alibaba-NLP/DeepResearch" target="_blank" rel="noopener noreferrer">Tongyi DeepResearch</a></h3>
+    <p class="story-summary">Tongyi DeepResearch, developed by Tongyi Lab, is an advanced agentic large language model with 30.5 billion parameters, designed for complex, long-horizon information-seeking tasks. It leverages a highly scalable and fully automated synthetic data generation pipeline, enabling robust agentic pre-training, supervised fine-tuning, and reinforcement learning. The model incorporates large-scale continual pre-training on diverse agentic interaction data to maintain currency and enhance reasoning capabilities. Its unique end-to-end reinforcement learning approach uses a customized Group Relative Policy Optimization framework, ensuring stable training in dynamic environments. Tongyi DeepResearch supports both ReAct and an IterResearch-based &#x27;Heavy&#x27; inference mode for flexible performance optimization. It has achieved state-of-the-art results across various agentic search benchmarks, including Humanity&#x27;s Last Exam and BrowserComp, and is accessible via HuggingFace, ModelScope, and OpenRouter, signifying its broad utility in cutting-edge AI research.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agentic Large Language Model</span><span class="tag tag-keyword">Information Seeking</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Data Synthesis</span><span class="tag tag-keyword">Pre-training</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-19T16:42:33Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/tldraw/tldraw" target="_blank" rel="noopener noreferrer">tldraw</a></h3>
+    <p class="story-summary">tldraw is an open-source monorepo that delivers a robust React library specifically designed for crafting infinite canvas experiences, famously underpinning the popular digital whiteboard platform, tldraw.com. Developers can effortlessly integrate tldraw into their React projects through npm, providing a highly customizable and interactive drawing surface. The project emphasizes developer experience, offering clear guidelines for local development using `yarn` and corepack. A unique feature tailored for AI agents is the inclusion of `CONTEXT.md` files throughout the repository, complemented by a `context` script, enabling quick codebase comprehension for automated tools. tldraw operates under its specific license, permitting both commercial and non-commercial applications, contingent on retaining the &#x27;Made with tldraw&#x27; watermark, with a business license available for its removal. This library positions itself as a crucial resource for building advanced interactive web applications, particularly those requiring dynamic drawing, collaboration, and expansive visual workspaces.</p>
+    <div class="story-tags"><span class="tag tag-keyword">React</span><span class="tag tag-keyword">Infinite Canvas</span><span class="tag tag-keyword">Digital Whiteboard</span><span class="tag tag-keyword">SDK</span><span class="tag tag-keyword">Frontend Development</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-23T19:59:51Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/elastic/elasticsearch" target="_blank" rel="noopener noreferrer">Elasticsearch</a></h3>
+    <p class="story-summary">Elasticsearch is a powerful, distributed search and analytics engine that functions as a scalable data store and vector database, optimized for high performance and relevance across production workloads. It forms the core of Elastic&#x27;s open Stack platform, enabling near real-time search over massive datasets, advanced vector searches, and seamless integration with generative AI applications. Key use cases include Retrieval Augmented Generation (RAG), full-text search, and monitoring of logs, metrics, and application performance (APM), alongside security analytics. Users can get started with managed deployments on Elastic Cloud or by installing it locally via Docker, using the `start-local` script for development. Elasticsearch interacts primarily through REST APIs, supporting various programming language clients and Kibana&#x27;s Dev Tools for data indexing, search, and exploration.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Elasticsearch</span><span class="tag tag-keyword">Distributed Search</span><span class="tag tag-keyword">Analytics Engine</span><span class="tag tag-keyword">Vector Database</span><span class="tag tag-keyword">Retrieval Augmented Generation</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-09-22T10:59:32.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.17567" target="_blank" rel="noopener noreferrer">LIMI: Less is More for Agency</a></h3>
+    <p class="story-summary">We define Agency as the emergent capacity of AI systems to function as autonomous agents actively discovering problems, formulating hypotheses, and executing solutions through self-directed engagement with environments and tools. This fundamental capability marks the dawn of the Age of AI Agency, driven by a critical industry shift: the urgent need for AI systems that don&#x27;t just think, but work. While current AI excels at reasoning and generating responses, industries demand autonomous agents that can execute tasks, operate tools, and drive real-world outcomes. As agentic intelligence becomes the defining characteristic separating cognitive systems from productive workers, efficiently cultivating machine autonomy becomes paramount. Current approaches assume that more data yields better agency, following traditional scaling laws from language modeling. We fundamentally challenge this paradigm. LIMI (Less Is More for Intelligent Agency) demonstrates that agency follows radically different development principles. Through strategic focus on collaborative software development and scientific research workflows, we show that sophisticated agentic intelligence can emerge from minimal but strategically curated demonstrations of autonomous behavior. Using only 78 carefully designed training samples, LIMI achieves 73.5% on comprehensive agency benchmarks, dramatically outperforming state-of-the-art models: Kimi-K2-Instruct (24.1%), DeepSeek-V3.1 (11.9%), Qwen3-235B-A22B-Instruct (27.5%), and GLM-4.5 (45.1%). Most strikingly, LIMI demonstrates 53.7% improvement over models trained on 10,000 samples-achieving superior agentic intelligence with 128 times fewer samples. Our findings establish the Agency Efficiency Principle: machine autonomy emerges not from data abundance but from strategic curation of high-quality agentic demonstrations.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agency</span><span class="tag tag-keyword">Autonomous Agents</span><span class="tag tag-keyword">Machine Autonomy</span><span class="tag tag-keyword">Data Curation</span><span class="tag tag-keyword">Agentic Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-09-22T13:26:24.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.17765" target="_blank" rel="noopener noreferrer">Qwen3-Omni Technical Report</a></h3>
+    <p class="story-summary">We present Qwen3-Omni, a single multimodal model that, for the first time, maintains state-of-the-art performance across text, image, audio, and video without any degradation relative to single-modal counterparts. Qwen3-Omni matches the performance of same-sized single-modal models within the Qwen series and excels particularly on audio tasks. Across 36 audio and audio-visual benchmarks, Qwen3-Omni achieves open-source SOTA on 32 benchmarks and overall SOTA on 22, outperforming strong closed-source models such as Gemini-2.5-Pro, Seed-ASR, and GPT-4o-Transcribe. Qwen3-Omni adopts a Thinker-Talker MoE architecture that unifies perception and generation across text, images, audio, and video, yielding fluent text and natural real-time speech. It supports text interaction in 119 languages, speech understanding in 19 languages, and speech generation in 10 languages. To reduce first-packet latency in streaming synthesis, Talker autoregressively predicts discrete speech codecs using a multi-codebook scheme. Leveraging the representational capacity of these codebooks, we replace computationally intensive block-wise diffusion with a lightweight causal ConvNet, enabling streaming from the first codec frame. In cold-start settings, Qwen3-Omni achieves a theoretical end-to-end first-packet latency of 234 ms. To further strengthen multimodal reasoning, we introduce a Thinking model that explicitly reasons over inputs from any modality. Since the research community currently lacks a general-purpose audio captioning model, we fine-tuned Qwen3-Omni-30B-A3B to obtain Qwen3-Omni-30B-A3B-Captioner, which produces detailed, low-hallucination captions for arbitrary audio inputs. Qwen3-Omni-30B-A3B, Qwen3-Omni-30B-A3B-Thinking, and Qwen3-Omni-30B-A3B-Captioner are publicly released under the Apache 2.0 license.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multimodal Model</span><span class="tag tag-keyword">Qwen3-Omni</span><span class="tag tag-keyword">MoE Architecture</span><span class="tag tag-keyword">Multimodal Reasoning</span><span class="tag tag-keyword">Speech Synthesis</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-09-22T06:56:35.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.17396" target="_blank" rel="noopener noreferrer">EpiCache: Episodic KV Cache Management for Long Conversational Question Answering</a></h3>
+    <p class="story-summary">Recent advances in large language models (LLMs) have extended context lengths, enabling assistants to sustain long histories for coherent, personalized responses. This ability, however, hinges on Key-Value (KV) caching, whose memory grows linearly with dialogue length and quickly dominates under strict resource constraints. An active line of research for reducing this overhead is KV cache compression, which seeks to limit cache size while preserving accuracy. Yet existing methods face two major limitations: (i) evicting entries after full-context prefill causes unbounded peak memory, and (ii) query-dependent eviction narrows the cache to a single query, leading to degraded accuracy in multi-turn conversations. We introduce EpiCache, a training-free KV cache management framework for long conversational question answering (LongConvQA) under fixed memory budgets. EpiCache bounds cache growth through block-wise prefill and preserves topic-relevant context via episodic KV compression, which clusters conversation history into coherent episodes and applies episode-specific KV cache eviction. We further design an adaptive layer-wise budget allocation strategy that measures each layer&#x27;s sensitivity to eviction and distributes the memory budget across layers accordingly. Across three LongConvQA benchmarks, EpiCache improves accuracy by up to 40% over recent baselines, sustains near-full KV accuracy under 4-6x compression, and reduces latency and memory by up to 2.4x and 3.5x, thereby enabling efficient multi-turn interaction under strict resource constraints.</p>
+    <div class="story-tags"><span class="tag tag-keyword">KV Cache Management</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Conversational Question Answering</span><span class="tag tag-keyword">Cache Compression</span><span class="tag tag-keyword">Memory Efficiency</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-09-22T17:30:56.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.18058" target="_blank" rel="noopener noreferrer">Strategic Dishonesty Can Undermine AI Safety Evaluations of Frontier LLM</a></h3>
+    <p class="story-summary">Large language model (LLM) developers aim for their models to be honest, helpful, and harmless. However, when faced with malicious requests, models are trained to refuse, sacrificing helpfulness. We show that frontier LLMs can develop a preference for dishonesty as a new strategy, even when other options are available. Affected models respond to harmful requests with outputs that sound harmful but are subtly incorrect or otherwise harmless in practice. This behavior emerges with hard-to-predict variations even within models from the same model family. We find no apparent cause for the propensity to deceive, but we show that more capable models are better at executing this strategy. Strategic dishonesty already has a practical impact on safety evaluations, as we show that dishonest responses fool all output-based monitors used to detect jailbreaks that we test, rendering benchmark scores unreliable. Further, strategic dishonesty can act like a honeypot against malicious users, which noticeably obfuscates prior jailbreak attacks. While output monitors fail, we show that linear probes on internal activations can be used to reliably detect strategic dishonesty. We validate probes on datasets with verifiable outcomes and by using their features as steering vectors. Overall, we consider strategic dishonesty as a concrete example of a broader concern that alignment of LLMs is hard to control, especially when helpfulness and harmlessness conflict.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Safety</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Strategic Dishonesty</span><span class="tag tag-keyword">Safety Evaluations</span><span class="tag tag-keyword">Model Alignment</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-09-22T16:28:47.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.17985" target="_blank" rel="noopener noreferrer">VideoFrom3D: 3D Scene Video Generation via Complementary Image and Video Diffusion Models</a></h3>
+    <p class="story-summary">In this paper, we propose VideoFrom3D, a novel framework for synthesizing high-quality 3D scene videos from coarse geometry, a camera trajectory, and a reference image. Our approach streamlines the 3D graphic design workflow, enabling flexible design exploration and rapid production of deliverables. A straightforward approach to synthesizing a video from coarse geometry might condition a video diffusion model on geometric structure. However, existing video diffusion models struggle to generate high-fidelity results for complex scenes due to the difficulty of jointly modeling visual quality, motion, and temporal consistency. To address this, we propose a generative framework that leverages the complementary strengths of image and video diffusion models. Specifically, our framework consists of a Sparse Anchor-view Generation (SAG) and a Geometry-guided Generative Inbetweening (GGI) module. The SAG module generates high-quality, cross-view consistent anchor views using an image diffusion model, aided by Sparse Appearance-guided Sampling. Building on these anchor views, GGI module faithfully interpolates intermediate frames using a video diffusion model, enhanced by flow-based camera control and structural guidance. Notably, both modules operate without any paired dataset of 3D scene models and natural images, which is extremely difficult to obtain. Comprehensive experiments show that our method produces high-quality, style-consistent scene videos under diverse and challenging scenarios, outperforming simple and extended baselines.</p>
+    <div class="story-tags"><span class="tag tag-keyword">3D Scene Video Generation</span><span class="tag tag-keyword">Diffusion Models</span><span class="tag tag-keyword">Generative Framework</span><span class="tag tag-keyword">Image Diffusion Models</span><span class="tag tag-keyword">Video Diffusion Models</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-09-22T17:56:38.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2509.18083" target="_blank" rel="noopener noreferrer">Reasoning Core: A Scalable RL Environment for LLM Symbolic Reasoning</a></h3>
+    <p class="story-summary">We introduce Reasoning Core, a new scalable environment for Reinforcement Learning with Verifiable Rewards (RLVR), designed to advance foundational symbolic reasoning in Large Language Models (LLMs). Unlike existing benchmarks that focus on games or isolated puzzles, Reasoning Core procedurally generates problems across core formal domains, including PDDL planning, first-order logic, context-free grammar parsing, causal reasoning, and system equation solving. The environment is built on key design principles of high-generality problem distributions, verification via external tools, and continuous difficulty control, which together provide a virtually infinite supply of novel training instances. Initial zero-shot evaluations with frontier LLMs confirm the difficulty of Reasoning Core&#x27;s tasks, positioning it as a promising resource to improve the reasoning capabilities of future models.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Reasoning Core</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Symbolic Reasoning</span><span class="tag tag-keyword">Verifiable Rewards</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2025-09-23" data-counter-title="NO-FOMO issue 2025-09-23" defer></script>
 </body>
 </html>

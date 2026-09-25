@@ -1,287 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2026-03-22</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO AI 日报 — 2026-03-22</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"PingFang SC","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em}.issue h1{margin:0;max-width:820px;font:800 clamp(2.6rem,7vw,6.3rem)/1.02 Georgia,"Songti SC",serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.06em}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,"Songti SC",serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:800 clamp(1.5rem,3vw,2.35rem)/1.2 Georgia,"Songti SC",serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.86 Georgia,"Songti SC",serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <h1>AI Daily Report</h1>
-            <p class="date">2026-03-22</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Flash-MoE: Running a 397B Parameter Model on a Laptop</h2>
-                <span class="published-time">Published: 2026-03-22 11:30:03</span>
-                
-                <p class="summary">The Flash-MoE project introduces a groundbreaking technique enabling the execution of a colossal 397-billion parameter model on a standard laptop. This development signifies a major leap in the field of large language model deployment and efficiency, traditionally requiring extensive computational resources. By leveraging novel optimizations, potentially in memory management and sparse computation inherent to Mixture-of-Experts (MoE) architectures, Flash-MoE drastically reduces the hardware barrier for utilizing massive AI models. This advancement has profound implications for democratizing access to powerful AI, facilitating on-device inference, and accelerating research and development for practitioners without access to high-end data centers. The project underscores an increasing trend towards making cutting-edge AI more accessible and efficient for broader applications, moving towards local execution and reducing reliance on cloud-based infrastructure for incredibly large models.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Model</span><span>Model Optimization</span><span>Mixture-of-Experts</span><span>Edge AI</span><span>Deep Learning</span><span>AI Efficiency</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Deep Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/danveloper/flash-moe" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: A Markdown file that turns your AI agent into an autonomous researcher</h2>
-                <span class="published-time">Published: 2026-03-22 18:21:48</span>
-                
-                <p class="summary">The "ResearcherSkill" project, highlighted on Hacker News, presents an innovative method for endowing AI agents with autonomous research capabilities, primarily through a structured Markdown file. This approach transforms a standard AI agent into an independent researcher by allowing users to define intricate research tasks, methodologies, and desired output formats directly within a human-readable Markdown document. This framework simplifies the process of task delegation and skill integration for AI systems, enabling them to autonomously navigate information sources, synthesize complex data, and generate comprehensive research reports. It moves beyond basic prompt engineering, offering a more modular and explicit way to program sophisticated behaviors. The core idea is to streamline knowledge discovery and analysis, empowering AI agents to perform in-depth investigations and deliver actionable insights across diverse fields, significantly reducing the need for continuous human oversight in data gathering and preliminary analysis phases. This tool promises to enhance the efficiency and scope of AI-driven research, making advanced investigative capabilities more accessible and deployable for various applications.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agent</span><span>Autonomous AI</span><span>Research Automation</span><span>Markdown</span><span>AI Tools</span><span>Prompt Engineering</span><span>Agent Skills</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Artificial Intelligence</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/krzysztofdudek/ResearcherSkill" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Teaching Claude to QA a mobile app</h2>
-                <span class="published-time">Published: 2026-03-22 19:04:00</span>
-                
-                <p class="summary">A recent discussion highlights a novel approach to mobile application quality assurance by leveraging large language models (LLMs) such as Claude. The concept involves 'teaching' Claude to perform QA tasks, which could revolutionize traditional software testing methodologies. This initiative likely explores how LLMs can interpret mobile app specifications, simulate user interactions, identify functional bugs, and provide detailed feedback on user interface and experience across Android and iOS platforms. Key aspects would include prompt engineering to guide Claude's understanding of test cases, integrating AI into existing CI/CD pipelines, and evaluating the model's accuracy in detecting nuanced application flaws. Potential benefits include accelerated testing cycles, reduced human error, and scalable QA efforts, although challenges in complex scenario handling and ensuring comprehensive test coverage would need to be addressed.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Claude</span><span>Large Language Model</span><span>Mobile App Development</span><span>Quality Assurance</span><span>AI Testing</span><span>Software Testing</span><span>Prompt Engineering</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://christophermeiklejohn.com/ai/zabriskie/development/android/ios/2026/03/22/teaching-claude-to-qa-a-mobile-app.html" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Reports of code's death are greatly exaggerated</h2>
-                <span class="published-time">Published: 2026-03-22 11:09:34</span>
-                
-                <p class="summary">The recent surge in capabilities of large language models (LLMs) and the proliferation of no-code and low-code platforms have led to widespread speculation about the imminent demise of traditional software development. However, the assertion that 'code's death is greatly exaggerated' posits a strong counter-narrative, emphasizing the enduring and critical role of human programming expertise. This perspective suggests that while AI tools can significantly augment developers' productivity and automate repetitive tasks, they are unlikely to fully replace the need for skilled human programmers. Complex system architecture, intricate debugging, innovative problem-solving, and nuanced understanding of business logic still require the cognitive abilities and creative insights that only human developers can provide. The article likely argues that the true potential lies in a synergistic relationship where AI assists coders, rather than rendering them obsolete. This nuanced view challenges the hyperbole surrounding AI's complete takeover, advocating for the sustained importance of foundational coding skills and a deep understanding of computer science principles in the evolving technological landscape.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Coding</span><span>Programming</span><span>Software Development</span><span>Artificial Intelligence</span><span>Low-code</span><span>No-code</span><span>Developer Productivity</span><span>Future of Work</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://stevekrouse.com/precision" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>OpenClaw Is a Security Nightmare Dressed Up as a Daydream</h2>
-                <span class="published-time">Published: 2026-03-22 17:35:28</span>
-                
-                <p class="summary">A recent analysis has unveiled significant security vulnerabilities within a system or platform dubbed 'OpenClaw,' which has been critically characterized as 'a security nightmare dressed up as a daydream.' Despite presenting an attractive or seemingly innovative front, investigations suggest that OpenClaw harbors deep-seated flaws that could expose users to substantial risks. The report highlights potential vectors for exploitation, including insecure data handling, authentication bypasses, or susceptibility to common cyberattacks, making it a critical concern for its users and the broader digital ecosystem. Experts caution that the appealing aspects of OpenClaw may mask its underlying fragility, urging developers and users to exercise extreme vigilance. This situation underscores the critical importance of rigorous security audits and responsible development practices, particularly for tools that promise enhanced capabilities but may inadvertently introduce severe security liabilities. The findings necessitate immediate attention to mitigate risks and ensure user safety.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Security Vulnerabilities</span><span>Cybersecurity</span><span>Software Security</span><span>Risk Management</span><span>Exploitation</span><span>Data Security</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://composio.dev/content/openclaw-security-and-vulnerabilities" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: Revise – An AI Editor for Documents</h2>
-                <span class="published-time">Published: 2026-03-22 13:28:45</span>
-                
-                <p class="summary">Revise, an innovative AI editor for documents, has been introduced following a ten-month development cycle that heavily leveraged agentic coding tools. The creator emphasized a remarkable increase in development velocity and maintained deep involvement in the codebase and architectural design, demonstrating the potential of AI-assisted development. A key technical achievement is the entirely custom-built word processor engine and rendering layer, underscoring a commitment to foundational control and performance. For its collaborative features, the project exclusively adopted the Y.js library to implement its Conflict-free Replicated Data Type (CRDT) stack, ensuring robust real-time synchronization and data consistency. This project exemplifies a modern approach to software development, integrating AI-driven assistance to create sophisticated applications rapidly within the document editing domain. The developer is currently inviting feedback from the community to further refine this novel AI-powered document editing solution.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Editor</span><span>Agentic Coding Tools</span><span>Word Processor</span><span>CRDT</span><span>Y.js</span><span>Document Editing</span><span>Software Development</span><span>AI Application</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://revise.io" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">跳到新闻列表</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO 主页">NO<i>/</i>FOMO</a><nav class="nav" aria-label="日报导航"><a href="../../../home/">往期</a><a href="../en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">每天一次，过滤 AI 噪音</p><h1>值得打开的<br>AI 日报。</h1></div><div class="issue-meta"><span>发布日期</span><strong>2026-03-22</strong><span>中文版本</span><dl class="readership" aria-label="公开阅读量"><div><dt>本期阅读</dt><dd data-view-count="/issue/2026-03-22" aria-live="polite">—</dd></div><div><dt>累计阅读</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-03-22 11:30:03</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/danveloper/flash-moe" target="_blank" rel="noopener noreferrer">Flash-MoE: Running a 397B Parameter Model on a Laptop</a></h3>
+    <p class="story-summary">The Flash-MoE project introduces a groundbreaking technique enabling the execution of a colossal 397-billion parameter model on a standard laptop. This development signifies a major leap in the field of large language model deployment and efficiency, traditionally requiring extensive computational resources. By leveraging novel optimizations, potentially in memory management and sparse computation inherent to Mixture-of-Experts (MoE) architectures, Flash-MoE drastically reduces the hardware barrier for utilizing massive AI models. This advancement has profound implications for democratizing access to powerful AI, facilitating on-device inference, and accelerating research and development for practitioners without access to high-end data centers. The project underscores an increasing trend towards making cutting-edge AI more accessible and efficient for broader applications, moving towards local execution and reducing reliance on cloud-based infrastructure for incredibly large models.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Model Optimization</span><span class="tag tag-keyword">Mixture-of-Experts</span><span class="tag tag-keyword">Edge AI</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-03-22 18:21:48</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/krzysztofdudek/ResearcherSkill" target="_blank" rel="noopener noreferrer">Show HN: A Markdown file that turns your AI agent into an autonomous researcher</a></h3>
+    <p class="story-summary">The &quot;ResearcherSkill&quot; project, highlighted on Hacker News, presents an innovative method for endowing AI agents with autonomous research capabilities, primarily through a structured Markdown file. This approach transforms a standard AI agent into an independent researcher by allowing users to define intricate research tasks, methodologies, and desired output formats directly within a human-readable Markdown document. This framework simplifies the process of task delegation and skill integration for AI systems, enabling them to autonomously navigate information sources, synthesize complex data, and generate comprehensive research reports. It moves beyond basic prompt engineering, offering a more modular and explicit way to program sophisticated behaviors. The core idea is to streamline knowledge discovery and analysis, empowering AI agents to perform in-depth investigations and deliver actionable insights across diverse fields, significantly reducing the need for continuous human oversight in data gathering and preliminary analysis phases. This tool promises to enhance the efficiency and scope of AI-driven research, making advanced investigative capabilities more accessible and deployable for various applications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Autonomous AI</span><span class="tag tag-keyword">Research Automation</span><span class="tag tag-keyword">Markdown</span><span class="tag tag-keyword">AI Tools</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-03-22 19:04:00</time></div>
+  <div class="story-body">
+    <h3><a href="https://christophermeiklejohn.com/ai/zabriskie/development/android/ios/2026/03/22/teaching-claude-to-qa-a-mobile-app.html" target="_blank" rel="noopener noreferrer">Teaching Claude to QA a mobile app</a></h3>
+    <p class="story-summary">A recent discussion highlights a novel approach to mobile application quality assurance by leveraging large language models (LLMs) such as Claude. The concept involves &#x27;teaching&#x27; Claude to perform QA tasks, which could revolutionize traditional software testing methodologies. This initiative likely explores how LLMs can interpret mobile app specifications, simulate user interactions, identify functional bugs, and provide detailed feedback on user interface and experience across Android and iOS platforms. Key aspects would include prompt engineering to guide Claude&#x27;s understanding of test cases, integrating AI into existing CI/CD pipelines, and evaluating the model&#x27;s accuracy in detecting nuanced application flaws. Potential benefits include accelerated testing cycles, reduced human error, and scalable QA efforts, although challenges in complex scenario handling and ensuring comprehensive test coverage would need to be addressed.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Claude</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Mobile App Development</span><span class="tag tag-keyword">Quality Assurance</span><span class="tag tag-keyword">AI Testing</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-03-22 11:09:34</time></div>
+  <div class="story-body">
+    <h3><a href="https://stevekrouse.com/precision" target="_blank" rel="noopener noreferrer">Reports of code&#x27;s death are greatly exaggerated</a></h3>
+    <p class="story-summary">The recent surge in capabilities of large language models (LLMs) and the proliferation of no-code and low-code platforms have led to widespread speculation about the imminent demise of traditional software development. However, the assertion that &#x27;code&#x27;s death is greatly exaggerated&#x27; posits a strong counter-narrative, emphasizing the enduring and critical role of human programming expertise. This perspective suggests that while AI tools can significantly augment developers&#x27; productivity and automate repetitive tasks, they are unlikely to fully replace the need for skilled human programmers. Complex system architecture, intricate debugging, innovative problem-solving, and nuanced understanding of business logic still require the cognitive abilities and creative insights that only human developers can provide. The article likely argues that the true potential lies in a synergistic relationship where AI assists coders, rather than rendering them obsolete. This nuanced view challenges the hyperbole surrounding AI&#x27;s complete takeover, advocating for the sustained importance of foundational coding skills and a deep understanding of computer science principles in the evolving technological landscape.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Coding</span><span class="tag tag-keyword">Programming</span><span class="tag tag-keyword">Software Development</span><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Low-code</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-03-22 17:35:28</time></div>
+  <div class="story-body">
+    <h3><a href="https://composio.dev/content/openclaw-security-and-vulnerabilities" target="_blank" rel="noopener noreferrer">OpenClaw Is a Security Nightmare Dressed Up as a Daydream</a></h3>
+    <p class="story-summary">A recent analysis has unveiled significant security vulnerabilities within a system or platform dubbed &#x27;OpenClaw,&#x27; which has been critically characterized as &#x27;a security nightmare dressed up as a daydream.&#x27; Despite presenting an attractive or seemingly innovative front, investigations suggest that OpenClaw harbors deep-seated flaws that could expose users to substantial risks. The report highlights potential vectors for exploitation, including insecure data handling, authentication bypasses, or susceptibility to common cyberattacks, making it a critical concern for its users and the broader digital ecosystem. Experts caution that the appealing aspects of OpenClaw may mask its underlying fragility, urging developers and users to exercise extreme vigilance. This situation underscores the critical importance of rigorous security audits and responsible development practices, particularly for tools that promise enhanced capabilities but may inadvertently introduce severe security liabilities. The findings necessitate immediate attention to mitigate risks and ensure user safety.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Security Vulnerabilities</span><span class="tag tag-keyword">Cybersecurity</span><span class="tag tag-keyword">Software Security</span><span class="tag tag-keyword">Risk Management</span><span class="tag tag-keyword">Exploitation</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-03-22 13:28:45</time></div>
+  <div class="story-body">
+    <h3><a href="https://revise.io" target="_blank" rel="noopener noreferrer">Show HN: Revise – An AI Editor for Documents</a></h3>
+    <p class="story-summary">Revise, an innovative AI editor for documents, has been introduced following a ten-month development cycle that heavily leveraged agentic coding tools. The creator emphasized a remarkable increase in development velocity and maintained deep involvement in the codebase and architectural design, demonstrating the potential of AI-assisted development. A key technical achievement is the entirely custom-built word processor engine and rendering layer, underscoring a commitment to foundational control and performance. For its collaborative features, the project exclusively adopted the Y.js library to implement its Conflict-free Replicated Data Type (CRDT) stack, ensuring robust real-time synchronization and data consistency. This project exemplifies a modern approach to software development, integrating AI-driven assistance to create sophisticated applications rapidly within the document editing domain. The developer is currently inviting feedback from the community to further refine this novel AI-powered document editing solution.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Editor</span><span class="tag tag-keyword">Agentic Coding Tools</span><span class="tag tag-keyword">Word Processor</span><span class="tag tag-keyword">CRDT</span><span class="tag tag-keyword">Y.js</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>AI 辅助筛选，原始来源始终可查。</span></footer>
+  <script src="../../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2026-03-22" data-counter-title="NO-FOMO issue 2026-03-22" defer></script>
 </body>
 </html>

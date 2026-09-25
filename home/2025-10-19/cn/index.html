@@ -1,335 +1,106 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-10-19</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO AI 日报 — 2025-10-19</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"PingFang SC","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em}.issue h1{margin:0;max-width:820px;font:800 clamp(2.6rem,7vw,6.3rem)/1.02 Georgia,"Songti SC",serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.06em}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,"Songti SC",serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:800 clamp(1.5rem,3vw,2.35rem)/1.2 Georgia,"Songti SC",serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.86 Georgia,"Songti SC",serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-10-19</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>We Need Arabic Language Models</h2>
-                <span class="published-time">Published: 2025-10-19 19:50:46</span>
-                
-                <p class="summary">The article highlights the urgent need for robust Arabic Language Models (LLMs) to ensure equitable representation and utility within the rapidly evolving landscape of artificial intelligence. While major LLMs have achieved significant advancements, their performance and cultural relevance often diminish substantially for non-English languages, particularly Arabic. This gap impacts millions of Arabic speakers by limiting access to information, hindering the development of localized AI applications, and potentially leading to algorithmic bias. The call for dedicated Arabic LLMs stems from the linguistic complexities of the language, including its rich morphology, numerous dialects, and the scarcity of high-quality, diverse Arabic datasets for training. Developing these models is crucial not only for enhancing natural language processing capabilities in areas like translation, sentiment analysis, and content generation, but also for fostering digital inclusion, preserving cultural heritage, and unlocking new economic opportunities across the Arabic-speaking world. Addressing this need requires concerted efforts from researchers, policymakers, and tech companies to invest in data collection, model development, and community collaboration.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Arabic Language Models</span><span>Natural Language Processing</span><span>Linguistic AI</span><span>AI Development</span><span>Digital Inclusion</span><span>Machine Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Natural Language Processing</span><span>Large Language Model</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.natureasia.com/en/nmiddleeast/article/10.1038/nmiddleeast.2025.142" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Replacement.ai</h2>
-                <span class="published-time">Published: 2025-10-19 13:47:21</span>
-                
-                <p class="summary">Replacement.ai introduces an innovative AI-driven platform meticulously crafted to automate and optimize the discovery of ideal replacements or alternatives across an expansive array of operational and strategic scenarios. Utilizing sophisticated machine learning models and predictive analytics, the service intelligently processes detailed specifications and contextual information to generate highly relevant and viable substitutions for various entities, ranging from physical components and raw materials to digital assets and conceptual frameworks. The primary objective of Replacement.ai is to significantly bolster organizational efficiency, mitigate potential supply chain vulnerabilities, and refine resource management by offering data-backed recommendations that surpass the capabilities of traditional manual or rule-based systems. By transforming complex, time-consuming replacement challenges into streamlined, intelligent workflows, the platform empowers businesses to make more informed decisions, reduce operational overhead, and maintain continuity in dynamic environments. Its capability to provide precise, context-aware suggestions promises to deliver substantial improvements in adaptability and cost-effectiveness for enterprises seeking advanced automation solutions.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Artificial Intelligence</span><span>Automation</span><span>Optimization</span><span>Predictive Analytics</span><span>Machine Learning</span><span>Decision Support Systems</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://replacement.ai" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: Pyversity 
-– Fast Result Diversification for Retrieval and RAG</h2>
-                <span class="published-time">Published: 2025-10-19 14:16:12</span>
-                
-                <p class="summary">Pyversity is a newly open-sourced, lightweight Python library designed to enhance retrieval systems and RAG pipelines by introducing result diversification. Traditional retrieval methods often prioritize relevance, leading to redundant top-k results. Pyversity addresses this by efficiently re-ranking retrieved items, striking a balance between relevance and diversity. This approach surfaces less redundant yet still highly relevant results, significantly improving the quality of outputs in retrieval, recommendation, and RAG applications without incurring additional latency or complexity. The library features a unified API supporting several well-known diversification strategies, including MMR, MSD, DPP, and COVER. Its minimalistic design, with NumPy as its sole dependency, ensures a small package size and easy installation. Furthermore, Pyversity boasts fast, efficient implementations, capable of diversifying results in milliseconds. This offers a compelling alternative to computationally expensive cross-encoder re-ranking methods, providing a cost-effective solution for improving the utility of search and generation systems.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Retrieval Diversification</span><span>RAG Pipelines</span><span>Information Retrieval</span><span>Re-ranking Algorithms</span><span>Recommendation Systems</span><span>Pyversity</span><span>Open Source Library</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Natural Language Processing</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/Pringled/pyversity" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>The case for the return of fine-tuning</h2>
-                <span class="published-time">Published: 2025-10-19 09:41:25</span>
-                
-                <p class="summary">The article, titled "The case for the return of fine-tuning," advocates for a renewed emphasis on fine-tuning techniques within the rapidly evolving landscape of artificial intelligence. While the AI community has recently focused heavily on zero-shot and few-shot learning with massive, pre-trained models, this piece likely argues that fine-tuning remains a critical and often superior approach for achieving high performance, efficiency, and domain-specific specialization. This approach can also offer significant advantages in terms of computational cost and resource utilization, especially for organizations without access to vast computational power for extensive retraining or development of entirely new models. The argument suggests that rather than being an outdated method, fine-tuning provides a pragmatic and powerful path to optimizing AI model performance for targeted applications.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Fine-tuning</span><span>Machine Learning</span><span>Deep Learning</span><span>Large Language Models</span><span>Model Optimization</span><span>Transfer Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Machine Learning</span><span>Deep Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://welovesota.com/article/the-case-for-the-return-of-fine-tuning" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>The AI bubble is 17 times bigger than the dot-com bust</h2>
-                <span class="published-time">Published: 2025-10-19 18:36:50</span>
-                
-                <p class="summary">An analyst has issued a stark warning regarding the valuation of the Artificial Intelligence market, asserting that the current 'AI bubble' is significantly larger
-	—by a factor of 17
-	—than the historic dot-com bust. This provocative comparison highlights growing concerns among financial experts about potentially unsustainable speculative investments and inflated company valuations within the AI sector. The analyst's statement implies a profound risk of overvaluation, driven by immense optimism and substantial capital influx, which could lead to a more severe market correction than the tech crash of the early 2000s. The assessment calls for critical scrutiny of the current investment landscape, business models, and long-term profitability of AI companies, urging investors to consider the inherent financial risks within this rapidly expanding but potentially overheated industry.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Artificial Intelligence</span><span>Market analysis</span><span>Investment bubble</span><span>Economic valuation</span><span>Tech sector</span><span>Financial risk</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Generative AI</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.cnn.com/2025/10/18/business/ai-bubble-analyst-nightcap" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Why an abundance of choice is not the same as freedom</h2>
-                <span class="published-time">Published: 2025-10-19 14:58:16</span>
-                
-                <p class="summary">This essay explores the crucial distinction between an abundance of choice and genuine freedom, arguing that an overwhelming number of options can paradoxically diminish autonomy and well-being rather than enhance it. It delves into the psychological burdens associated with extensive decision-making, where individuals often experience increased cognitive load, decision paralysis, and heightened regret over unchosen alternatives. The article suggests that while choice is frequently equated with liberation and empowerment, the reality is that an excess of options can lead to consumer dissatisfaction, reduced engagement, and a profound sense of a perceived loss of control. This perspective holds significant implications for the design of intelligent systems, user interfaces, and artificial intelligences, where decisions are presented to human users or autonomous agents. Understanding how an excess of alternatives can hinder effective selection and lead to negative outcomes is crucial for optimizing user experience, streamlining information processing, and developing more effective decision-support systems that genuinely empower individuals and agents, fostering true freedom in action and outcome.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Decision-making</span><span>Cognitive bias</span><span>Information overload</span><span>User experience</span><span>Human-computer interaction</span><span>Choice architecture</span><span>AI ethics</span><span>Autonomous systems</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://aeon.co/essays/why-an-abundance-of-choice-is-not-the-same-as-freedom" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>Open Notebook</h2>
-                <span class="published-time">Published: 2025-10-19T19:03:36Z</span>
-                
-                <p class="summary">Open Notebook stands as a robust open-source, privacy-focused, and entirely local alternative to Google's Notebook LM, designed for comprehensive knowledge management. This platform gives users complete control over their data, offering the flexibility to integrate with over 16 AI model providers, including OpenAI, Anthropic, Ollama, and LM Studio. It excels at organizing diverse multi-modal content, supporting PDFs, videos, audio, web pages, and Office documents. Core functionalities encompass advanced multi-speaker podcast generation, intelligent full-text and vector search capabilities across all stored content, and context-aware AI conversations deeply informed by personal research materials. Engineered with a modern tech stack comprising Python (FastAPI), Next.js, React, and SurrealDB, Open Notebook also provides a comprehensive REST API for seamless automation and supports versatile deployment via Docker. Its commitment to data sovereignty, cost efficiency, and extensive customization positions it as a premier tool for researchers, developers, and individuals prioritizing private, powerful, and adaptable AI-enhanced content processing and research.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Open Source AI</span><span>Knowledge Management</span><span>Privacy-focused</span><span>Multi-modal Content</span><span>Large Language Models</span><span>Docker Deployment</span><span>AI Assistants</span><span>Vector Search</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/lfnovo/open-notebook" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>MiniMind: A Minimalist Large Language Model Project</h2>
-                <span class="published-time">Published: 2025-10-17T16:24:36Z</span>
-                
-                <p class="summary">MiniMind is an open-source project designed to democratize Large Language Model (LLM) training. It offers a minimalist approach to LLM development, enabling users to train an ultra-small 25.8M parameter model with just 3 RMB and 2 hours on a single NVIDIA 3090 GPU, adhering to a philosophy of extreme simplicity. The project provides comprehensive, PyTorch-native code for the entire LLM lifecycle, including custom tokenizer training, pre-training, Supervised Fine-Tuning (SFT), LoRA, Direct Preference Optimization (DPO), and model distillation. It also features an extension for visual multimodal capabilities, MiniMind-V. Positioned as an introductory tutorial, MiniMind aims to lower the learning barrier for LLM development, allowing enthusiasts to understand core code and train models from scratch, rather than relying solely on inference with abstract frameworks. It supports diverse datasets and integrates with popular training and inference frameworks like DDP, DeepSpeed, llama.cpp, vLLM, and Ollama, fostering broader AI community progress.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Model</span><span>LLM Training</span><span>PyTorch</span><span>Fine-tuning</span><span>LoRA</span><span>RLHF</span><span>Model Distillation</span><span>Mixture of Experts</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Deep Learning</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/jingyaogong/minimind" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Claude Cookbooks</h2>
-                <span class="published-time">Published: 2025-10-16T16:03:38Z</span>
-                
-                <p class="summary">The Claude Cookbooks repository offers practical code guides and snippets designed to assist developers in building applications with Anthropic's Claude AI. It serves as a comprehensive resource, emphasizing hands-on integration and advanced techniques. Key features include prerequisites for an Claude API key and Python-based examples, though concepts are adaptable across languages. The cookbook extensively covers various AI skills such as text classification, retrieval augmented generation (RAG), and summarization. It also delves into advanced tool use for integrating Claude with external functionalities like calculators and SQL databases. Furthermore, it explores third-party integrations with vector databases (Pinecone), Wikipedia, web pages, and internet search (Brave), alongside embeddings via Voyage AI. Multimodal capabilities, including vision for image interpretation, chart analysis, form content extraction, and image generation with Stable Diffusion, are detailed. Advanced topics like sub-agents, PDF processing, automated evaluations, JSON mode, moderation filters, and prompt caching provide robust solutions for complex AI applications. This resource is invaluable for developers seeking to enhance their projects with Claude's versatile capabilities.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Claude API</span><span>Retrieval Augmented Generation</span><span>Tool Use</span><span>Multimodal AI</span><span>Prompt Engineering</span><span>AI Agent</span><span>Python</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/anthropics/claude-cookbooks" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">跳到新闻列表</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO 主页">NO<i>/</i>FOMO</a><nav class="nav" aria-label="日报导航"><a href="../../../home/">往期</a><a href="../en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">每天一次，过滤 AI 噪音</p><h1>值得打开的<br>AI 日报。</h1></div><div class="issue-meta"><span>发布日期</span><strong>2025-10-19</strong><span>中文版本</span><dl class="readership" aria-label="公开阅读量"><div><dt>本期阅读</dt><dd data-view-count="/issue/2025-10-19" aria-live="polite">—</dd></div><div><dt>累计阅读</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-10-19 19:50:46</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.natureasia.com/en/nmiddleeast/article/10.1038/nmiddleeast.2025.142" target="_blank" rel="noopener noreferrer">We Need Arabic Language Models</a></h3>
+    <p class="story-summary">The article highlights the urgent need for robust Arabic Language Models (LLMs) to ensure equitable representation and utility within the rapidly evolving landscape of artificial intelligence. While major LLMs have achieved significant advancements, their performance and cultural relevance often diminish substantially for non-English languages, particularly Arabic. This gap impacts millions of Arabic speakers by limiting access to information, hindering the development of localized AI applications, and potentially leading to algorithmic bias. The call for dedicated Arabic LLMs stems from the linguistic complexities of the language, including its rich morphology, numerous dialects, and the scarcity of high-quality, diverse Arabic datasets for training. Developing these models is crucial not only for enhancing natural language processing capabilities in areas like translation, sentiment analysis, and content generation, but also for fostering digital inclusion, preserving cultural heritage, and unlocking new economic opportunities across the Arabic-speaking world. Addressing this need requires concerted efforts from researchers, policymakers, and tech companies to invest in data collection, model development, and community collaboration.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Arabic Language Models</span><span class="tag tag-keyword">Natural Language Processing</span><span class="tag tag-keyword">Linguistic AI</span><span class="tag tag-keyword">AI Development</span><span class="tag tag-keyword">Digital Inclusion</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-10-19 13:47:21</time></div>
+  <div class="story-body">
+    <h3><a href="https://replacement.ai" target="_blank" rel="noopener noreferrer">Replacement.ai</a></h3>
+    <p class="story-summary">Replacement.ai introduces an innovative AI-driven platform meticulously crafted to automate and optimize the discovery of ideal replacements or alternatives across an expansive array of operational and strategic scenarios. Utilizing sophisticated machine learning models and predictive analytics, the service intelligently processes detailed specifications and contextual information to generate highly relevant and viable substitutions for various entities, ranging from physical components and raw materials to digital assets and conceptual frameworks. The primary objective of Replacement.ai is to significantly bolster organizational efficiency, mitigate potential supply chain vulnerabilities, and refine resource management by offering data-backed recommendations that surpass the capabilities of traditional manual or rule-based systems. By transforming complex, time-consuming replacement challenges into streamlined, intelligent workflows, the platform empowers businesses to make more informed decisions, reduce operational overhead, and maintain continuity in dynamic environments. Its capability to provide precise, context-aware suggestions promises to deliver substantial improvements in adaptability and cost-effectiveness for enterprises seeking advanced automation solutions.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Automation</span><span class="tag tag-keyword">Optimization</span><span class="tag tag-keyword">Predictive Analytics</span><span class="tag tag-keyword">Machine Learning</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-10-19 14:16:12</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/Pringled/pyversity" target="_blank" rel="noopener noreferrer">Show HN: Pyversity – Fast Result Diversification for Retrieval and RAG</a></h3>
+    <p class="story-summary">Pyversity is a newly open-sourced, lightweight Python library designed to enhance retrieval systems and RAG pipelines by introducing result diversification. Traditional retrieval methods often prioritize relevance, leading to redundant top-k results. Pyversity addresses this by efficiently re-ranking retrieved items, striking a balance between relevance and diversity. This approach surfaces less redundant yet still highly relevant results, significantly improving the quality of outputs in retrieval, recommendation, and RAG applications without incurring additional latency or complexity. The library features a unified API supporting several well-known diversification strategies, including MMR, MSD, DPP, and COVER. Its minimalistic design, with NumPy as its sole dependency, ensures a small package size and easy installation. Furthermore, Pyversity boasts fast, efficient implementations, capable of diversifying results in milliseconds. This offers a compelling alternative to computationally expensive cross-encoder re-ranking methods, providing a cost-effective solution for improving the utility of search and generation systems.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Retrieval Diversification</span><span class="tag tag-keyword">RAG Pipelines</span><span class="tag tag-keyword">Information Retrieval</span><span class="tag tag-keyword">Re-ranking Algorithms</span><span class="tag tag-keyword">Recommendation Systems</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-10-19 09:41:25</time></div>
+  <div class="story-body">
+    <h3><a href="https://welovesota.com/article/the-case-for-the-return-of-fine-tuning" target="_blank" rel="noopener noreferrer">The case for the return of fine-tuning</a></h3>
+    <p class="story-summary">The article, titled &quot;The case for the return of fine-tuning,&quot; advocates for a renewed emphasis on fine-tuning techniques within the rapidly evolving landscape of artificial intelligence. While the AI community has recently focused heavily on zero-shot and few-shot learning with massive, pre-trained models, this piece likely argues that fine-tuning remains a critical and often superior approach for achieving high performance, efficiency, and domain-specific specialization. This approach can also offer significant advantages in terms of computational cost and resource utilization, especially for organizations without access to vast computational power for extensive retraining or development of entirely new models. The argument suggests that rather than being an outdated method, fine-tuning provides a pragmatic and powerful path to optimizing AI model performance for targeted applications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Fine-tuning</span><span class="tag tag-keyword">Machine Learning</span><span class="tag tag-keyword">Deep Learning</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Model Optimization</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-10-19 18:36:50</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.cnn.com/2025/10/18/business/ai-bubble-analyst-nightcap" target="_blank" rel="noopener noreferrer">The AI bubble is 17 times bigger than the dot-com bust</a></h3>
+    <p class="story-summary">An analyst has issued a stark warning regarding the valuation of the Artificial Intelligence market, asserting that the current &#x27;AI bubble&#x27; is significantly larger —by a factor of 17 —than the historic dot-com bust. This provocative comparison highlights growing concerns among financial experts about potentially unsustainable speculative investments and inflated company valuations within the AI sector. The analyst&#x27;s statement implies a profound risk of overvaluation, driven by immense optimism and substantial capital influx, which could lead to a more severe market correction than the tech crash of the early 2000s. The assessment calls for critical scrutiny of the current investment landscape, business models, and long-term profitability of AI companies, urging investors to consider the inherent financial risks within this rapidly expanding but potentially overheated industry.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Market analysis</span><span class="tag tag-keyword">Investment bubble</span><span class="tag tag-keyword">Economic valuation</span><span class="tag tag-keyword">Tech sector</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-10-19 14:58:16</time></div>
+  <div class="story-body">
+    <h3><a href="https://aeon.co/essays/why-an-abundance-of-choice-is-not-the-same-as-freedom" target="_blank" rel="noopener noreferrer">Why an abundance of choice is not the same as freedom</a></h3>
+    <p class="story-summary">This essay explores the crucial distinction between an abundance of choice and genuine freedom, arguing that an overwhelming number of options can paradoxically diminish autonomy and well-being rather than enhance it. It delves into the psychological burdens associated with extensive decision-making, where individuals often experience increased cognitive load, decision paralysis, and heightened regret over unchosen alternatives. The article suggests that while choice is frequently equated with liberation and empowerment, the reality is that an excess of options can lead to consumer dissatisfaction, reduced engagement, and a profound sense of a perceived loss of control. This perspective holds significant implications for the design of intelligent systems, user interfaces, and artificial intelligences, where decisions are presented to human users or autonomous agents. Understanding how an excess of alternatives can hinder effective selection and lead to negative outcomes is crucial for optimizing user experience, streamlining information processing, and developing more effective decision-support systems that genuinely empower individuals and agents, fostering true freedom in action and outcome.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Decision-making</span><span class="tag tag-keyword">Cognitive bias</span><span class="tag tag-keyword">Information overload</span><span class="tag tag-keyword">User experience</span><span class="tag tag-keyword">Human-computer interaction</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>3 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-10-19T19:03:36Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/lfnovo/open-notebook" target="_blank" rel="noopener noreferrer">Open Notebook</a></h3>
+    <p class="story-summary">Open Notebook stands as a robust open-source, privacy-focused, and entirely local alternative to Google&#x27;s Notebook LM, designed for comprehensive knowledge management. This platform gives users complete control over their data, offering the flexibility to integrate with over 16 AI model providers, including OpenAI, Anthropic, Ollama, and LM Studio. It excels at organizing diverse multi-modal content, supporting PDFs, videos, audio, web pages, and Office documents. Core functionalities encompass advanced multi-speaker podcast generation, intelligent full-text and vector search capabilities across all stored content, and context-aware AI conversations deeply informed by personal research materials. Engineered with a modern tech stack comprising Python (FastAPI), Next.js, React, and SurrealDB, Open Notebook also provides a comprehensive REST API for seamless automation and supports versatile deployment via Docker. Its commitment to data sovereignty, cost efficiency, and extensive customization positions it as a premier tool for researchers, developers, and individuals prioritizing private, powerful, and adaptable AI-enhanced content processing and research.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Open Source AI</span><span class="tag tag-keyword">Knowledge Management</span><span class="tag tag-keyword">Privacy-focused</span><span class="tag tag-keyword">Multi-modal Content</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-10-17T16:24:36Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/jingyaogong/minimind" target="_blank" rel="noopener noreferrer">MiniMind: A Minimalist Large Language Model Project</a></h3>
+    <p class="story-summary">MiniMind is an open-source project designed to democratize Large Language Model (LLM) training. It offers a minimalist approach to LLM development, enabling users to train an ultra-small 25.8M parameter model with just 3 RMB and 2 hours on a single NVIDIA 3090 GPU, adhering to a philosophy of extreme simplicity. The project provides comprehensive, PyTorch-native code for the entire LLM lifecycle, including custom tokenizer training, pre-training, Supervised Fine-Tuning (SFT), LoRA, Direct Preference Optimization (DPO), and model distillation. It also features an extension for visual multimodal capabilities, MiniMind-V. Positioned as an introductory tutorial, MiniMind aims to lower the learning barrier for LLM development, allowing enthusiasts to understand core code and train models from scratch, rather than relying solely on inference with abstract frameworks. It supports diverse datasets and integrates with popular training and inference frameworks like DDP, DeepSpeed, llama.cpp, vLLM, and Ollama, fostering broader AI community progress.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">LLM Training</span><span class="tag tag-keyword">PyTorch</span><span class="tag tag-keyword">Fine-tuning</span><span class="tag tag-keyword">LoRA</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-10-16T16:03:38Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/anthropics/claude-cookbooks" target="_blank" rel="noopener noreferrer">Claude Cookbooks</a></h3>
+    <p class="story-summary">The Claude Cookbooks repository offers practical code guides and snippets designed to assist developers in building applications with Anthropic&#x27;s Claude AI. It serves as a comprehensive resource, emphasizing hands-on integration and advanced techniques. Key features include prerequisites for an Claude API key and Python-based examples, though concepts are adaptable across languages. The cookbook extensively covers various AI skills such as text classification, retrieval augmented generation (RAG), and summarization. It also delves into advanced tool use for integrating Claude with external functionalities like calculators and SQL databases. Furthermore, it explores third-party integrations with vector databases (Pinecone), Wikipedia, web pages, and internet search (Brave), alongside embeddings via Voyage AI. Multimodal capabilities, including vision for image interpretation, chart analysis, form content extraction, and image generation with Stable Diffusion, are detailed. Advanced topics like sub-agents, PDF processing, automated evaluations, JSON mode, moderation filters, and prompt caching provide robust solutions for complex AI applications. This resource is invaluable for developers seeking to enhance their projects with Claude&#x27;s versatile capabilities.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Claude API</span><span class="tag tag-keyword">Retrieval Augmented Generation</span><span class="tag tag-keyword">Tool Use</span><span class="tag tag-keyword">Multimodal AI</span><span class="tag tag-keyword">Prompt Engineering</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>AI 辅助筛选，原始来源始终可查。</span></footer>
+  <script src="../../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2025-10-19" data-counter-title="NO-FOMO issue 2025-10-19" defer></script>
 </body>
 </html>

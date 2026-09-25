@@ -1,421 +1,130 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2026-04-15</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2026-04-15</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="." class="active">中文</a>
-                <a href="en/" class="">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2026-04-15</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../home/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 返回主页</a>
-            <a href="../../daily/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 最新日报</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 关于我们</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Google Gemma 4 Runs Natively on iPhone with Full Offline AI Inference</h2>
-                <span class="published-time">Published: 2026-04-15 05:19:06</span>
-                
-                <p class="summary">Google's Gemma 4 model has achieved a significant milestone, demonstrating native execution capabilities directly on Apple's iPhone devices. This groundbreaking development enables full offline AI inference, allowing the sophisticated large language model to perform complex artificial intelligence tasks without requiring an internet connection or reliance on cloud-based servers. This advancement is crucial for enhancing privacy, reducing latency, and improving the accessibility of powerful AI applications for mobile users, bypassing the need for continuous data transfer to remote servers. The ability to run Gemma 4 natively on a smartphone highlights ongoing progress in optimizing large language models for resource-constrained edge devices, potentially opening new avenues for personalized AI applications, enhanced data privacy, and improved performance by eliminating network latency. This breakthrough underscores the increasing viability of bringing advanced AI capabilities directly to consumers' hands, independent of external infrastructure, marking a key evolution in mobile AI and edge computing, and setting a new precedent for on-device machine learning performance.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Google Gemma</span><span>On-device AI</span><span>Offline Inference</span><span>Mobile AI</span><span>Edge AI</span><span>Large Language Model</span><span>AI Optimization</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.gizmoweek.com/gemma-4-runs-iphone/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>CPUs Aren't Dead. Gemma2B Out Scored GPT-3.5 Turbo on Test That Made It Famous</h2>
-                <span class="published-time">Published: 2026-04-15 17:07:36</span>
-                
-                <p class="summary">A significant report highlights that Gemma2B, an open-source language model, has demonstrably outperformed OpenAI's GPT-3.5 Turbo on a widely recognized benchmark test, thereby reigniting discussions around the necessity of specialized hardware for advanced AI workloads. This achievement underscores the continued viability and surprising capabilities of Central Processing Units (CPUs) in executing sophisticated AI inference tasks, pushing back against the narrative that only high-end Graphical Processing Units (GPUs) are suitable. The successful benchmark performance by Gemma2B suggests substantial advancements in model architecture and optimization techniques that enable powerful large language models to run efficiently on more conventional computing infrastructure. This development is crucial for democratizing access to powerful AI, reducing the barriers of entry associated with expensive specialized hardware, and fostering broader innovation across various sectors. The results reinforce the dynamic evolution of AI model development, emphasizing the potential for highly optimized models to deliver top-tier performance on diverse hardware platforms, making AI more accessible and resource-efficient.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Gemma2B</span><span>GPT-3.5 Turbo</span><span>CPU Performance</span><span>Large Language Models</span><span>AI Benchmarking</span><span>Model Inference</span><span>Hardware Acceleration</span><span>AI Optimization</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Artificial Intelligence</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://seqpu.com/CPUsArentDead/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Gemini Robotics-ER 1.6</h2>
-                <span class="published-time">Published: 2026-04-15 14:02:31</span>
-                
-                <p class="summary">Google DeepMind has announced Gemini Robotics-ER 1.6, signaling a significant update in its ongoing initiative to integrate advanced artificial intelligence capabilities, particularly from the Gemini model, into robotic systems. While the brief announcement does not delve into specific technical details or the full scope of enhancements, this version release indicates continuous progress in the field of embodied AI. The update likely introduces improvements in areas such as robot learning, task execution, enhanced perception, and autonomous decision-making, aiming to create more adaptable and capable robotic agents. This development reinforces DeepMind's commitment to advancing AI-driven robotics, pushing the boundaries of how intelligent systems interact with and learn from the physical world. Such advancements are critical for developing robots that can operate effectively in complex, unstructured environments, fostering the development of more general-purpose AI within physical forms and potentially impacting various sectors requiring sophisticated automation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Robotics</span><span>Gemini AI</span><span>DeepMind</span><span>Embodied AI</span><span>AI Integration</span><span>Autonomous Systems</span><span>Machine Learning</span><span>Robotic Systems</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Robotics</span><span>Artificial Intelligence</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://deepmind.google/blog/gemini-robotics-er-1-6/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Show HN: Tier – Adaptive tool routing that makes small LLMs 10pt more accurate</h2>
-                <span class="published-time">Published: 2026-04-15 17:27:00</span>
-                
-                <p class="summary">Tier is an innovative project introduced on Hacker News that focuses on enhancing the accuracy of smaller Large Language Models (LLMs) by up to 10 percentage points. This improvement is achieved through an adaptive tool routing mechanism. The core idea behind Tier is to intelligently select and utilize external tools or functions based on the context of a given task, effectively augmenting the capabilities of less powerful LLMs. By dynamically routing queries to appropriate tools, Tier allows these models to overcome their inherent limitations, leading to more precise and reliable outputs. This approach represents a significant step towards making smaller, more efficient LLMs competitive with their larger counterparts, opening avenues for broader deployment in resource-constrained environments while maintaining high performance.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Tier</span><span>Adaptive Tool Routing</span><span>Small LLMs</span><span>LLM Accuracy</span><span>Tool Use</span><span>AI Agents</span><span>Machine Learning</span><span>Language Models</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>AI Agent</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/yantrikos/tier" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>AI-Assisted Cognition Endangers Human Development</h2>
-                <span class="published-time">Published: 2026-04-15 18:16:50</span>
-                
-                <p class="summary">The article "AI-Assisted Cognition Endangers Human Development" presents a critical viewpoint on the increasing reliance on artificial intelligence for cognitive tasks. It argues that while AI offers significant advantages in efficiency and data processing, an overdependence on these tools could paradoxically hinder the natural evolution of human intellectual capabilities. The piece likely delves into how constantly available AI assistance for activities such as critical thinking, problem-solving, and memory recall might lead to an atrophy of these fundamental cognitive skills over an extended period. This potential dependency could impact various aspects of life, including educational progress, professional efficacy, and personal growth, thereby diminishing the inherent human capacity for deep learning, creative innovation, and independent thought. The author presumably raises concerns about the long-term societal ramifications, suggesting that future generations, accustomed to outsourced cognition, may struggle with complex, novel challenges without technological aid. The article advocates for a balanced approach, emphasizing the necessity of nurturing human cognitive resilience alongside advancements in AI to ensure technology remains an augmenting tool rather than a substitute for essential human intellectual development.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Cognition</span><span>Human Development</span><span>Cognitive Decline</span><span>Technological Dependence</span><span>Critical Thinking</span><span>Cognitive Augmentation</span><span>AI Ethics</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://heidenstedt.org/posts/2026/ai-assisted-cognition-endangers-human-development/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>AI ruling prompts warnings from US lawyers: Your chats could be used against you</h2>
-                <span class="published-time">Published: 2026-04-15 12:51:13</span>
-                
-                <p class="summary">A recent legal ruling pertaining to artificial intelligence has triggered significant warnings from US legal professionals, advising individuals that their digital communications, particularly those involving interactions with AI systems, could potentially be admissible as evidence in court. This development signals an evolving legal landscape where the privacy of content generated by or exchanged through AI platforms may no longer be assumed. Lawyers are urging the public to exercise heightened caution regarding the nature of their online chats and AI engagements, emphasizing that these interactions could carry unforeseen legal consequences. The ruling highlights the critical intersection of advanced technology, data privacy, and judicial interpretation, suggesting a profound shift in how digital information is perceived and leveraged within the legal system. This situation underscores an increasing imperative for clearer regulatory frameworks and greater user awareness concerning data sovereignty and the potential evidentiary weight of AI-processed communications in future litigation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Regulation</span><span>Data Privacy</span><span>Legal Implications</span><span>Digital Evidence</span><span>Artificial Intelligence</span><span>User Data</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Natural Language Processing</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.reuters.com/legal/government/ai-ruling-prompts-warnings-us-lawyers-your-chats-could-be-used-against-you-2026-04-15/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>KnowRL: Boosting LLM Reasoning via Reinforcement Learning with Minimal-Sufficient Knowledge Guidance</h2>
-                <span class="published-time">Published: 2026-04-14T00:00:00.000Z</span>
-                
-                <p class="summary">RLVR improves reasoning in large language models, but its effectiveness is often limited by severe reward sparsity on hard problems. Recent hint-based RL methods mitigate sparsity by injecting partial solutions or abstract templates, yet they typically scale guidance by adding more tokens, which introduce redundancy, inconsistency, and extra training overhead. We propose KnowRL (Knowledge-Guided Reinforcement Learning), an RL training framework that treats hint design as a minimal-sufficient guidance problem. During RL training, KnowRL decomposes guidance into atomic knowledge points (KPs) and uses Constrained Subset Search (CSS) to construct compact, interaction-aware subsets for training. We further identify a pruning interaction paradox -- removing one KP may help while removing multiple such KPs can hurt -- and explicitly optimize for robust subset curation under this dependency structure. We train KnowRL-Nemotron-1.5B from OpenMath-Nemotron-1.5B. Across eight reasoning benchmarks at the 1.5B scale, KnowRL-Nemotron-1.5B consistently outperforms strong RL and hinting baselines. Without KP hints at inference, KnowRL-Nemotron-1.5B reaches 70.08 average accuracy, already surpassing Nemotron-1.5B by +9.63 points; with selected KPs, performance improves to 74.16, establishing a new state of the art at this scale. The model, curated training data, and code are publicly available at https://github.com/Hasuer/KnowRL.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Reinforcement Learning</span><span>Large Language Models</span><span>LLM Reasoning</span><span>Knowledge Guidance</span><span>Minimal-Sufficient Guidance</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Machine Learning</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2604.12627" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>ClawGUI: A Unified Framework for Training, Evaluating, and Deploying GUI Agents</h2>
-                <span class="published-time">Published: 2026-04-13T00:00:00.000Z</span>
-                
-                <p class="summary">GUI agents drive applications through their visual interfaces instead of programmatic APIs, interacting with arbitrary software via taps, swipes, and keystrokes, reaching a long tail of applications that CLI-based agents cannot. Yet progress in this area is bottlenecked less by modeling capacity than by the absence of a coherent full-stack infrastructure: online RL training suffers from environment instability and closed pipelines, evaluation protocols drift silently across works, and trained agents rarely reach real users on real devices. We present ClawGUI, an open-source framework addressing these three gaps within a single harness. ClawGUI-RL provides the first open-source GUI agent RL infrastructure with validated support for both parallel virtual environments and real physical devices, integrating GiGPO with a Process Reward Model for dense step-level supervision. ClawGUI-Eval enforces a fully standardized evaluation pipeline across 6 benchmarks and 11+ models, achieving 95.8% reproduction against official baselines. ClawGUI-Agent brings trained agents to Android, HarmonyOS, and iOS through 12+ chat platforms with hybrid CLI-GUI control and persistent personalized memory. Trained end to end within this pipeline, ClawGUI-2B achieves 17.1% Success Rate on MobileWorld GUI-Only, outperforming the same-scale MAI-UI-2B baseline by 6.0%.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>GUI Agents</span><span>Reinforcement Learning</span><span>Framework</span><span>Mobile Applications</span><span>Evaluation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Machine Learning</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2604.11784" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Nemotron 3 Super: Open, Efficient Mixture-of-Experts Hybrid Mamba-Transformer Model for Agentic Reasoning</h2>
-                <span class="published-time">Published: 2026-04-14T00:00:00.000Z</span>
-                
-                <p class="summary">We describe the pre-training, post-training, and quantization of Nemotron 3 Super, a 120 billion (active 12 billion) parameter hybrid Mamba-Attention Mixture-of-Experts model. Nemotron 3 Super is the first model in the Nemotron 3 family to 1) be pre-trained in NVFP4, 2) leverage LatentMoE, a new Mixture-of-Experts architecture that optimizes for both accuracy per FLOP and accuracy per parameter, and 3) include MTP layers for inference acceleration through native speculative decoding. We pre-trained Nemotron 3 Super on 25 trillion tokens followed by post-training using supervised fine tuning (SFT) and reinforcement learning (RL). The final model supports up to 1M context length and achieves comparable accuracy on common benchmarks, while also achieving up to 2.2x and 7.5x higher inference throughput compared to GPT-OSS-120B and Qwen3.5-122B, respectively. Nemotron 3 Super datasets, along with the base, post-trained, and quantized checkpoints, are open-sourced on HuggingFace.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Nemotron 3 Super</span><span>Mixture-of-Experts</span><span>Mamba-Transformer</span><span>Agentic Reasoning</span><span>Inference Throughput</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>AI Agent</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2604.12374" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Lyra 2.0: Explorable Generative 3D Worlds</h2>
-                <span class="published-time">Published: 2026-04-14T00:00:00.000Z</span>
-                
-                <p class="summary">Recent advances in video generation enable a new paradigm for 3D scene creation: generating camera-controlled videos that simulate scene walkthroughs, then lifting them to 3D via feed-forward reconstruction techniques. This generative reconstruction approach combines the visual fidelity and creative capacity of video models with 3D outputs ready for real-time rendering and simulation. Scaling to large, complex environments requires 3D-consistent video generation over long camera trajectories with large viewpoint changes and location revisits, a setting where current video models degrade quickly. Existing methods for long-horizon generation are fundamentally limited by two forms of degradation: spatial forgetting and temporal drifting. As exploration proceeds, previously observed regions fall outside the model's temporal context, forcing the model to hallucinate structures when revisited. Meanwhile, autoregressive generation accumulates small synthesis errors over time, gradually distorting scene appearance and geometry. We present Lyra 2.0, a framework for generating persistent, explorable 3D worlds at scale. To address spatial forgetting, we maintain per-frame 3D geometry and use it solely for information routing -- retrieving relevant past frames and establishing dense correspondences with the target viewpoints -- while relying on the generative prior for appearance synthesis. To address temporal drifting, we train with self-augmented histories that expose the model to its own degraded outputs, teaching it to correct drift rather than propagate it. Together, these enable substantially longer and 3D-consistent video trajectories, which we leverage to fine-tune feed-forward reconstruction models that reliably recover high-quality 3D scenes.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Generative 3D Worlds</span><span>Video Generation</span><span>3D Scene Reconstruction</span><span>Spatial Forgetting</span><span>Temporal Drifting</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Computer Vision</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2604.13036" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Toward Autonomous Long-Horizon Engineering for ML Research</h2>
-                <span class="published-time">Published: 2026-04-14T00:00:00.000Z</span>
-                
-                <p class="summary">Autonomous AI research has advanced rapidly, but long-horizon ML research engineering remains difficult: agents must sustain coherent progress across task comprehension, environment setup, implementation, experimentation, and debugging over hours or days. We introduce AiScientist, a system for autonomous long-horizon engineering for ML research built on a simple principle: strong long-horizon performance requires both structured orchestration and durable state continuity. To this end, AiScientist combines hierarchical orchestration with a permission-scoped File-as-Bus workspace: a top-level Orchestrator maintains stage-level control through concise summaries and a workspace map, while specialized agents repeatedly re-ground on durable artifacts such as analyses, plans, code, and experimental evidence rather than relying primarily on conversational handoffs, yielding thin control over thick state. Across two complementary benchmarks, AiScientist improves PaperBench score by 10.54 points on average over the best matched baseline and achieves 81.82 Any Medal% on MLE-Bench Lite. Ablation studies further show that File-as-Bus protocol is a key driver of performance, reducing PaperBench by 6.41 points and MLE-Bench Lite by 31.82 points when removed. These results suggest that long-horizon ML research engineering is a systems problem of coordinating specialized work over durable project state, rather than a purely local reasoning problem.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Autonomous AI</span><span>ML Research Engineering</span><span>Long-horizon Engineering</span><span>AI Agents</span><span>Orchestration</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2604.13018" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>VideoFlexTok: Flexible-Length Coarse-to-Fine Video Tokenization</h2>
-                <span class="published-time">Published: 2026-04-14T00:00:00.000Z</span>
-                
-                <p class="summary">Visual tokenizers map high-dimensional raw pixels into a compressed representation for downstream modeling. Beyond compression, tokenizers dictate what information is preserved and how it is organized. A de facto standard approach to video tokenization is to represent a video as a spatiotemporal 3D grid of tokens, each capturing the corresponding local information in the original signal. This requires the downstream model that consumes the tokens, e.e., a text-to-video model, to learn to predict all low-level details "pixel-by-pixel" irrespective of the video's inherent complexity, leading to high learning complexity. We present VideoFlexTok, which represents videos with a variable-length sequence of tokens structured in a coarse-to-fine manner -- where the first tokens (emergently) capture abstract information, such as semantics and motion, and later tokens add fine-grained details. The generative flow decoder enables realistic video reconstructions from any token count. This representation structure allows adapting the token count according to downstream needs and encoding videos longer than the baselines with the same budget. We evaluate VideoFlexTok on class- and text-to-video generative tasks and show that it leads to more efficient training compared to 3D grid tokens, e.g., achieving comparable generation quality (gFVD and ViCLIP Score) with a 5x smaller model (1.1B vs 5.2B). Finally, we demonstrate how VideoFlexTok can enable long video generation without prohibitive computational cost by training a text-to-video model on 10-second 81-frame videos with only 672 tokens, 8x fewer than a comparable 3D grid tokenizer.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Video Tokenization</span><span>Coarse-to-Fine</span><span>Generative AI</span><span>Text-to-Video</span><span>Efficient Video Generation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Computer Vision</span><span>Video Understanding</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2604.12887" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../">Archive</a><a href="cn/">中文</a><a href="en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-04-15</strong><span>DEFAULT EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2026-04-15" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-04-15 05:19:06</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.gizmoweek.com/gemma-4-runs-iphone/" target="_blank" rel="noopener noreferrer">Google Gemma 4 Runs Natively on iPhone with Full Offline AI Inference</a></h3>
+    <p class="story-summary">Google&#x27;s Gemma 4 model has achieved a significant milestone, demonstrating native execution capabilities directly on Apple&#x27;s iPhone devices. This groundbreaking development enables full offline AI inference, allowing the sophisticated large language model to perform complex artificial intelligence tasks without requiring an internet connection or reliance on cloud-based servers. This advancement is crucial for enhancing privacy, reducing latency, and improving the accessibility of powerful AI applications for mobile users, bypassing the need for continuous data transfer to remote servers. The ability to run Gemma 4 natively on a smartphone highlights ongoing progress in optimizing large language models for resource-constrained edge devices, potentially opening new avenues for personalized AI applications, enhanced data privacy, and improved performance by eliminating network latency. This breakthrough underscores the increasing viability of bringing advanced AI capabilities directly to consumers&#x27; hands, independent of external infrastructure, marking a key evolution in mobile AI and edge computing, and setting a new precedent for on-device machine learning performance.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Google Gemma</span><span class="tag tag-keyword">On-device AI</span><span class="tag tag-keyword">Offline Inference</span><span class="tag tag-keyword">Mobile AI</span><span class="tag tag-keyword">Edge AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-04-15 17:07:36</time></div>
+  <div class="story-body">
+    <h3><a href="https://seqpu.com/CPUsArentDead/" target="_blank" rel="noopener noreferrer">CPUs Aren&#x27;t Dead. Gemma2B Out Scored GPT-3.5 Turbo on Test That Made It Famous</a></h3>
+    <p class="story-summary">A significant report highlights that Gemma2B, an open-source language model, has demonstrably outperformed OpenAI&#x27;s GPT-3.5 Turbo on a widely recognized benchmark test, thereby reigniting discussions around the necessity of specialized hardware for advanced AI workloads. This achievement underscores the continued viability and surprising capabilities of Central Processing Units (CPUs) in executing sophisticated AI inference tasks, pushing back against the narrative that only high-end Graphical Processing Units (GPUs) are suitable. The successful benchmark performance by Gemma2B suggests substantial advancements in model architecture and optimization techniques that enable powerful large language models to run efficiently on more conventional computing infrastructure. This development is crucial for democratizing access to powerful AI, reducing the barriers of entry associated with expensive specialized hardware, and fostering broader innovation across various sectors. The results reinforce the dynamic evolution of AI model development, emphasizing the potential for highly optimized models to deliver top-tier performance on diverse hardware platforms, making AI more accessible and resource-efficient.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Gemma2B</span><span class="tag tag-keyword">GPT-3.5 Turbo</span><span class="tag tag-keyword">CPU Performance</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">AI Benchmarking</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-04-15 14:02:31</time></div>
+  <div class="story-body">
+    <h3><a href="https://deepmind.google/blog/gemini-robotics-er-1-6/" target="_blank" rel="noopener noreferrer">Gemini Robotics-ER 1.6</a></h3>
+    <p class="story-summary">Google DeepMind has announced Gemini Robotics-ER 1.6, signaling a significant update in its ongoing initiative to integrate advanced artificial intelligence capabilities, particularly from the Gemini model, into robotic systems. While the brief announcement does not delve into specific technical details or the full scope of enhancements, this version release indicates continuous progress in the field of embodied AI. The update likely introduces improvements in areas such as robot learning, task execution, enhanced perception, and autonomous decision-making, aiming to create more adaptable and capable robotic agents. This development reinforces DeepMind&#x27;s commitment to advancing AI-driven robotics, pushing the boundaries of how intelligent systems interact with and learn from the physical world. Such advancements are critical for developing robots that can operate effectively in complex, unstructured environments, fostering the development of more general-purpose AI within physical forms and potentially impacting various sectors requiring sophisticated automation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Robotics</span><span class="tag tag-keyword">Gemini AI</span><span class="tag tag-keyword">DeepMind</span><span class="tag tag-keyword">Embodied AI</span><span class="tag tag-keyword">AI Integration</span><span class="tag tag-area">Robotics</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-04-15 17:27:00</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/yantrikos/tier" target="_blank" rel="noopener noreferrer">Show HN: Tier – Adaptive tool routing that makes small LLMs 10pt more accurate</a></h3>
+    <p class="story-summary">Tier is an innovative project introduced on Hacker News that focuses on enhancing the accuracy of smaller Large Language Models (LLMs) by up to 10 percentage points. This improvement is achieved through an adaptive tool routing mechanism. The core idea behind Tier is to intelligently select and utilize external tools or functions based on the context of a given task, effectively augmenting the capabilities of less powerful LLMs. By dynamically routing queries to appropriate tools, Tier allows these models to overcome their inherent limitations, leading to more precise and reliable outputs. This approach represents a significant step towards making smaller, more efficient LLMs competitive with their larger counterparts, opening avenues for broader deployment in resource-constrained environments while maintaining high performance.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Tier</span><span class="tag tag-keyword">Adaptive Tool Routing</span><span class="tag tag-keyword">Small LLMs</span><span class="tag tag-keyword">LLM Accuracy</span><span class="tag tag-keyword">Tool Use</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-04-15 18:16:50</time></div>
+  <div class="story-body">
+    <h3><a href="https://heidenstedt.org/posts/2026/ai-assisted-cognition-endangers-human-development/" target="_blank" rel="noopener noreferrer">AI-Assisted Cognition Endangers Human Development</a></h3>
+    <p class="story-summary">The article &quot;AI-Assisted Cognition Endangers Human Development&quot; presents a critical viewpoint on the increasing reliance on artificial intelligence for cognitive tasks. It argues that while AI offers significant advantages in efficiency and data processing, an overdependence on these tools could paradoxically hinder the natural evolution of human intellectual capabilities. The piece likely delves into how constantly available AI assistance for activities such as critical thinking, problem-solving, and memory recall might lead to an atrophy of these fundamental cognitive skills over an extended period. This potential dependency could impact various aspects of life, including educational progress, professional efficacy, and personal growth, thereby diminishing the inherent human capacity for deep learning, creative innovation, and independent thought. The author presumably raises concerns about the long-term societal ramifications, suggesting that future generations, accustomed to outsourced cognition, may struggle with complex, novel challenges without technological aid. The article advocates for a balanced approach, emphasizing the necessity of nurturing human cognitive resilience alongside advancements in AI to ensure technology remains an augmenting tool rather than a substitute for essential human intellectual development.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Cognition</span><span class="tag tag-keyword">Human Development</span><span class="tag tag-keyword">Cognitive Decline</span><span class="tag tag-keyword">Technological Dependence</span><span class="tag tag-keyword">Critical Thinking</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-04-15 12:51:13</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.reuters.com/legal/government/ai-ruling-prompts-warnings-us-lawyers-your-chats-could-be-used-against-you-2026-04-15/" target="_blank" rel="noopener noreferrer">AI ruling prompts warnings from US lawyers: Your chats could be used against you</a></h3>
+    <p class="story-summary">A recent legal ruling pertaining to artificial intelligence has triggered significant warnings from US legal professionals, advising individuals that their digital communications, particularly those involving interactions with AI systems, could potentially be admissible as evidence in court. This development signals an evolving legal landscape where the privacy of content generated by or exchanged through AI platforms may no longer be assumed. Lawyers are urging the public to exercise heightened caution regarding the nature of their online chats and AI engagements, emphasizing that these interactions could carry unforeseen legal consequences. The ruling highlights the critical intersection of advanced technology, data privacy, and judicial interpretation, suggesting a profound shift in how digital information is perceived and leveraged within the legal system. This situation underscores an increasing imperative for clearer regulatory frameworks and greater user awareness concerning data sovereignty and the potential evidentiary weight of AI-processed communications in future litigation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Regulation</span><span class="tag tag-keyword">Data Privacy</span><span class="tag tag-keyword">Legal Implications</span><span class="tag tag-keyword">Digital Evidence</span><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-04-14T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2604.12627" target="_blank" rel="noopener noreferrer">KnowRL: Boosting LLM Reasoning via Reinforcement Learning with Minimal-Sufficient Knowledge Guidance</a></h3>
+    <p class="story-summary">RLVR improves reasoning in large language models, but its effectiveness is often limited by severe reward sparsity on hard problems. Recent hint-based RL methods mitigate sparsity by injecting partial solutions or abstract templates, yet they typically scale guidance by adding more tokens, which introduce redundancy, inconsistency, and extra training overhead. We propose KnowRL (Knowledge-Guided Reinforcement Learning), an RL training framework that treats hint design as a minimal-sufficient guidance problem. During RL training, KnowRL decomposes guidance into atomic knowledge points (KPs) and uses Constrained Subset Search (CSS) to construct compact, interaction-aware subsets for training. We further identify a pruning interaction paradox -- removing one KP may help while removing multiple such KPs can hurt -- and explicitly optimize for robust subset curation under this dependency structure. We train KnowRL-Nemotron-1.5B from OpenMath-Nemotron-1.5B. Across eight reasoning benchmarks at the 1.5B scale, KnowRL-Nemotron-1.5B consistently outperforms strong RL and hinting baselines. Without KP hints at inference, KnowRL-Nemotron-1.5B reaches 70.08 average accuracy, already surpassing Nemotron-1.5B by +9.63 points; with selected KPs, performance improves to 74.16, establishing a new state of the art at this scale. The model, curated training data, and code are publicly available at https://github.com/Hasuer/KnowRL.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">LLM Reasoning</span><span class="tag tag-keyword">Knowledge Guidance</span><span class="tag tag-keyword">Minimal-Sufficient Guidance</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-04-13T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2604.11784" target="_blank" rel="noopener noreferrer">ClawGUI: A Unified Framework for Training, Evaluating, and Deploying GUI Agents</a></h3>
+    <p class="story-summary">GUI agents drive applications through their visual interfaces instead of programmatic APIs, interacting with arbitrary software via taps, swipes, and keystrokes, reaching a long tail of applications that CLI-based agents cannot. Yet progress in this area is bottlenecked less by modeling capacity than by the absence of a coherent full-stack infrastructure: online RL training suffers from environment instability and closed pipelines, evaluation protocols drift silently across works, and trained agents rarely reach real users on real devices. We present ClawGUI, an open-source framework addressing these three gaps within a single harness. ClawGUI-RL provides the first open-source GUI agent RL infrastructure with validated support for both parallel virtual environments and real physical devices, integrating GiGPO with a Process Reward Model for dense step-level supervision. ClawGUI-Eval enforces a fully standardized evaluation pipeline across 6 benchmarks and 11+ models, achieving 95.8% reproduction against official baselines. ClawGUI-Agent brings trained agents to Android, HarmonyOS, and iOS through 12+ chat platforms with hybrid CLI-GUI control and persistent personalized memory. Trained end to end within this pipeline, ClawGUI-2B achieves 17.1% Success Rate on MobileWorld GUI-Only, outperforming the same-scale MAI-UI-2B baseline by 6.0%.</p>
+    <div class="story-tags"><span class="tag tag-keyword">GUI Agents</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Framework</span><span class="tag tag-keyword">Mobile Applications</span><span class="tag tag-keyword">Evaluation</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-04-14T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2604.12374" target="_blank" rel="noopener noreferrer">Nemotron 3 Super: Open, Efficient Mixture-of-Experts Hybrid Mamba-Transformer Model for Agentic Reasoning</a></h3>
+    <p class="story-summary">We describe the pre-training, post-training, and quantization of Nemotron 3 Super, a 120 billion (active 12 billion) parameter hybrid Mamba-Attention Mixture-of-Experts model. Nemotron 3 Super is the first model in the Nemotron 3 family to 1) be pre-trained in NVFP4, 2) leverage LatentMoE, a new Mixture-of-Experts architecture that optimizes for both accuracy per FLOP and accuracy per parameter, and 3) include MTP layers for inference acceleration through native speculative decoding. We pre-trained Nemotron 3 Super on 25 trillion tokens followed by post-training using supervised fine tuning (SFT) and reinforcement learning (RL). The final model supports up to 1M context length and achieves comparable accuracy on common benchmarks, while also achieving up to 2.2x and 7.5x higher inference throughput compared to GPT-OSS-120B and Qwen3.5-122B, respectively. Nemotron 3 Super datasets, along with the base, post-trained, and quantized checkpoints, are open-sourced on HuggingFace.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Nemotron 3 Super</span><span class="tag tag-keyword">Mixture-of-Experts</span><span class="tag tag-keyword">Mamba-Transformer</span><span class="tag tag-keyword">Agentic Reasoning</span><span class="tag tag-keyword">Inference Throughput</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-04-14T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2604.13036" target="_blank" rel="noopener noreferrer">Lyra 2.0: Explorable Generative 3D Worlds</a></h3>
+    <p class="story-summary">Recent advances in video generation enable a new paradigm for 3D scene creation: generating camera-controlled videos that simulate scene walkthroughs, then lifting them to 3D via feed-forward reconstruction techniques. This generative reconstruction approach combines the visual fidelity and creative capacity of video models with 3D outputs ready for real-time rendering and simulation. Scaling to large, complex environments requires 3D-consistent video generation over long camera trajectories with large viewpoint changes and location revisits, a setting where current video models degrade quickly. Existing methods for long-horizon generation are fundamentally limited by two forms of degradation: spatial forgetting and temporal drifting. As exploration proceeds, previously observed regions fall outside the model&#x27;s temporal context, forcing the model to hallucinate structures when revisited. Meanwhile, autoregressive generation accumulates small synthesis errors over time, gradually distorting scene appearance and geometry. We present Lyra 2.0, a framework for generating persistent, explorable 3D worlds at scale. To address spatial forgetting, we maintain per-frame 3D geometry and use it solely for information routing -- retrieving relevant past frames and establishing dense correspondences with the target viewpoints -- while relying on the generative prior for appearance synthesis. To address temporal drifting, we train with self-augmented histories that expose the model to its own degraded outputs, teaching it to correct drift rather than propagate it. Together, these enable substantially longer and 3D-consistent video trajectories, which we leverage to fine-tune feed-forward reconstruction models that reliably recover high-quality 3D scenes.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Generative 3D Worlds</span><span class="tag tag-keyword">Video Generation</span><span class="tag tag-keyword">3D Scene Reconstruction</span><span class="tag tag-keyword">Spatial Forgetting</span><span class="tag tag-keyword">Temporal Drifting</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-04-14T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2604.13018" target="_blank" rel="noopener noreferrer">Toward Autonomous Long-Horizon Engineering for ML Research</a></h3>
+    <p class="story-summary">Autonomous AI research has advanced rapidly, but long-horizon ML research engineering remains difficult: agents must sustain coherent progress across task comprehension, environment setup, implementation, experimentation, and debugging over hours or days. We introduce AiScientist, a system for autonomous long-horizon engineering for ML research built on a simple principle: strong long-horizon performance requires both structured orchestration and durable state continuity. To this end, AiScientist combines hierarchical orchestration with a permission-scoped File-as-Bus workspace: a top-level Orchestrator maintains stage-level control through concise summaries and a workspace map, while specialized agents repeatedly re-ground on durable artifacts such as analyses, plans, code, and experimental evidence rather than relying primarily on conversational handoffs, yielding thin control over thick state. Across two complementary benchmarks, AiScientist improves PaperBench score by 10.54 points on average over the best matched baseline and achieves 81.82 Any Medal% on MLE-Bench Lite. Ablation studies further show that File-as-Bus protocol is a key driver of performance, reducing PaperBench by 6.41 points and MLE-Bench Lite by 31.82 points when removed. These results suggest that long-horizon ML research engineering is a systems problem of coordinating specialized work over durable project state, rather than a purely local reasoning problem.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Autonomous AI</span><span class="tag tag-keyword">ML Research Engineering</span><span class="tag tag-keyword">Long-horizon Engineering</span><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Orchestration</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-04-14T00:00:00.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2604.12887" target="_blank" rel="noopener noreferrer">VideoFlexTok: Flexible-Length Coarse-to-Fine Video Tokenization</a></h3>
+    <p class="story-summary">Visual tokenizers map high-dimensional raw pixels into a compressed representation for downstream modeling. Beyond compression, tokenizers dictate what information is preserved and how it is organized. A de facto standard approach to video tokenization is to represent a video as a spatiotemporal 3D grid of tokens, each capturing the corresponding local information in the original signal. This requires the downstream model that consumes the tokens, e.e., a text-to-video model, to learn to predict all low-level details &quot;pixel-by-pixel&quot; irrespective of the video&#x27;s inherent complexity, leading to high learning complexity. We present VideoFlexTok, which represents videos with a variable-length sequence of tokens structured in a coarse-to-fine manner -- where the first tokens (emergently) capture abstract information, such as semantics and motion, and later tokens add fine-grained details. The generative flow decoder enables realistic video reconstructions from any token count. This representation structure allows adapting the token count according to downstream needs and encoding videos longer than the baselines with the same budget. We evaluate VideoFlexTok on class- and text-to-video generative tasks and show that it leads to more efficient training compared to 3D grid tokens, e.g., achieving comparable generation quality (gFVD and ViCLIP Score) with a 5x smaller model (1.1B vs 5.2B). Finally, we demonstrate how VideoFlexTok can enable long video generation without prohibitive computational cost by training a text-to-video model on 10-second 81-frame videos with only 672 tokens, 8x fewer than a comparable 3D grid tokenizer.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Video Tokenization</span><span class="tag tag-keyword">Coarse-to-Fine</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-keyword">Text-to-Video</span><span class="tag tag-keyword">Efficient Video Generation</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Computer Vision</span><span class="tag tag-area">Video Understanding</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2026-04-15" data-counter-title="NO-FOMO issue 2026-04-15" defer></script>
 </body>
 </html>

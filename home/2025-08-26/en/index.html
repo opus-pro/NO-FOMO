@@ -1,737 +1,230 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2025-08-26</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            border: 2px solid transparent;
-            font-size: 0.9em;
-        }
-
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-
-        .language-switch a.active {
-            background: var(--secondary-color);
-            border-color: var(--border-color);
-        }
-
-        @media (max-width: 768px) {
-            .language-switch {
-                position: static;
-                justify-content: center;
-                margin-bottom: 20px;
-            }
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2025-08-26</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="../">中文</a>
-                <a href="./" class="active">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2025-08-26</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../../home/en/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 Back to Homepage</a>
-            <a href="../../../daily/en/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 Latest Daily</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 About Us</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Twitter</h2>
-
-            <article class="item-card">
-                <h2>demishassabis_Gemini 2.5 Image Model Excels in Editing and Character Consistency</h2>
-                <span class="published-time">Published: 2025-08-26T14:56:25.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-26/screenshot/twitter/demishassabis_1960355658059891018.png" alt="demishassabis_Gemini 2.5 Image Model Excels in Editing and Character Consistency">
-                <p class="summary">Demis Hassabis of Google DeepMind announced that the new Gemini 2.5 image model is the best in the industry, leading by 180 ELO points in image editing and excelling in character consistency. The model is now available for free in the Gemini App, allowing users to experience its advanced image generation, editing, and refinement capabilities with new levels of visual reasoning.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Gemini 2.5</span><span>Image Model</span><span>Image Editing</span><span>Character Consistency</span><span>Google DeepMind</span><span>Generative AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Multimodal</span><span>Product Launch</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/demishassabis/status/1960355658059891018" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>steeve_zml/llmd Transparently Running on TPU with Paged Attention</h2>
-                <span class="published-time">Published: 2025-08-26T13:28:02.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-26/screenshot/twitter/steeve_1960333418467664332.png" alt="steeve_zml/llmd Transparently Running on TPU with Paged Attention">
-                <p class="summary">Steeve Morin announced that after a week of development, their zml/llmd project is now transparently running on TPUs, featuring full prefill/decode paged attention. This significant advancement means users can enable this functionality with just a single flag and no code changes, greatly simplifying the deployment and optimization of large language models on TPUs. This demonstrates efficient and seamless hardware acceleration capabilities.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>zml/llmd</span><span>TPU</span><span>Paged Attention</span><span>Large Language Model</span><span>Hardware Acceleration</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Tech News</span><span>Research Progress</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/steeve/status/1960333418467664332" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Muennighoff_AI Large Models Solve Open Scientific Problems with Expert Validation</h2>
-                <span class="published-time">Published: 2025-08-26T17:20:46.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-26/screenshot/twitter/Muennighoff_1960391987917402509.png" alt="Muennighoff_AI Large Models Solve Open Scientific Problems with Expert Validation">
-                <p class="summary">Niklas Muennighoff's team is deeply exploring the capability of Artificial Intelligence, specifically frontier Large Language Models (LLMs), in solving open problems across fields like mathematics, physics, coding, and medical sciences. By collecting unsolved questions and testing them with LLMs, they found that some AI-generated solutions successfully passed expert validation. This indicates AI's significant potential in advancing scientific research and pushing the boundaries of existing knowledge.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Artificial Intelligence</span><span>Large Language Models</span><span>Scientific Problems</span><span>Expert Validation</span><span>Research Progress</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Research Progress</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/Muennighoff/status/1960391987917402509" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Google_Google Translate Launches Gemini-Powered Live Translate</h2>
-                <span class="published-time">Published: 2025-08-26T16:05:27.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-26/screenshot/twitter/Google_1960373032456757340.png" alt="Google_Google Translate Launches Gemini-Powered Live Translate">
-                <p class="summary">Google announced two significant updates to Google Translate, including the launch of a "Live translate" feature powered by Gemini models. Users can now engage in real-time audio conversations with on-screen translations directly within the Translate app, supporting over 70 languages. This feature is rolling out this week to users in the U.S., India, and Mexico, aiming to facilitate communication between speakers of different languages.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Google Translate</span><span>Gemini</span><span>Live Translate</span><span>Real-time Translation</span><span>Product Update</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Natural Language Processing</span><span>Multimodal</span><span>Product Launch</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/Google/status/1960373032456757340" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>CranQnow_Google Chrome Browser Integrates AI Features</h2>
-                <span class="published-time">Published: 2025-08-26T07:09:36.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-26/screenshot/twitter/CranQnow_1958527257632461022.png" alt="CranQnow_Google Chrome Browser Integrates AI Features">
-                <p class="summary">Google Chrome has received a significant update, now fully integrating advanced AI capabilities. This groundbreaking AI functionality enables the browser to intelligently read screen content, understand its context, and provide comprehensive explanations for anything a user is viewing, regardless of the website. This major update introduces 10 innovative AI features, designed to significantly enhance user experience and streamline information retrieval.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Google</span><span>Chrome</span><span>AI</span><span>Artificial Intelligence</span><span>Browser</span><span>New Features</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Product Launch</span><span>Tech News</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/CranQnow/status/1958527257632461022/analytics" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Google_Fitbit to Launch AI-Powered Personal Health Coach</h2>
-                <span class="published-time">Published: 2025-08-26T17:59:08.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-26/screenshot/twitter/Google_1960401639988220087.png" alt="Google_Fitbit to Launch AI-Powered Personal Health Coach">
-                <p class="summary">Google announced that a new AI-powered personal health coach will be available in public preview within the Fitbit app starting this October. This feature integrates the roles of a fitness trainer, sleep coach, and health and wellness advisor, aiming to comprehensively assist users in optimizing their health. This initiative marks a significant step for Google in combining artificial intelligence with wearable health devices, offering users more personalized and intelligent health management services.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Google</span><span>Fitbit</span><span>AI Health Coach</span><span>Artificial Intelligence</span><span>Health Management</span><span>Product Launch</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Product Launch</span><span>Industry News</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://x.com/Google/status/1960401639988220087" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">wechat</h2>
-
-            <article class="item-card">
-                <h2>Google Unveils nano-banana: Gemini 2.5 Flash Image!</h2>
-                <span class="published-time">Published: 2025-08-26T15:32:08.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-26/screenshot/wechat/wechat_image_IbDiV9A0qDwnqMDkVolJRA.png" alt="Google Unveils nano-banana: Gemini 2.5 Flash Image!">
-                <p class="summary">Google has officially unveiled Gemini 2.5 Flash Image, an upgraded image generation and editing model building upon Gemini 2.0 Flash. This new model has achieved the top rank on the LMArena image editing leaderboard and is now available for API access. Its key highlights include: the ability to seamlessly fuse multiple images, maintain character or object consistency across diverse scenarios, perform precise image transformations and localized edits using natural language prompts, and leverage Gemini's extensive world knowledge for advanced image creation and reasoning. The model underscores the future potential of native multimodal capabilities in the image generation domain, offering robust application templates that demonstrate its powerful abilities in complex editing tasks and semantic understanding. This advancement signifies a significant step towards more intelligent and versatile visual content creation.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Gemini 2.5 Flash Image</span><span>Image Generation</span><span>Image Editing</span><span>Character Consistency</span><span>Natural Language Processing</span><span>Multimodal</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Large Language Model</span><span>Computer Vision</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/IbDiV9A0qDwnqMDkVolJRA" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Large Models Gain 'Eagle Eye': MiniCPM-V 4.5 Pioneers High-Refresh Video Understanding, Outperforming Google Gemini 2.5</h2>
-                <span class="published-time">Published: 2025-08-26T15:01:25.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-26/screenshot/wechat/wechat_image_SI_G7aAFLoeS0bX_yl4VZA.png" alt="Large Models Gain 'Eagle Eye': MiniCPM-V 4.5 Pioneers High-Refresh Video Understanding, Outperforming Google Gemini 2.5">
-                <p class="summary">OpenBMB has recently open-sourced MiniCPM-V 4.5, an 8B parameter multimodal model that establishes a new benchmark in edge-side multimodal AI, particularly with its groundbreaking "high-refresh video understanding" capability. This innovative model achieves state-of-the-art (SOTA) performance across a diverse range of tasks, including single-image comprehension, long video analysis, optical character recognition (OCR), and complex document parsing. Remarkably, MiniCPM-V 4.5 not only matches but often surpasses the performance of larger, top-tier cloud-based large models such as Google Gemini 2.5 Pro and OpenAI's GPT-4o, showcasing its "small but powerful" efficiency. Key innovations include an advanced 3D-Resampler structure that enables high-density video compression, allowing it to process significantly more video frames than comparable models. Furthermore, it seamlessly integrates OCR with knowledge learning and supports a controllable hybrid inference mode, balancing deep analysis with rapid response. MiniCPM-V 4.5 demonstrates exceptional performance, energy efficiency, and deployment friendliness, providing a robust and highly efficient solution for a wide array of edge AI applications, from automotive systems to embodied intelligence.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>MiniCPM-V 4.5</span><span>High-Refresh Video Understanding</span><span>Multimodal Model</span><span>Edge AI</span><span>Video Understanding</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Video Understanding</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/SI_G7aAFLoeS0bX_yl4VZA" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Musk's Trillion-Dollar AI Bet: 50 Million H100 GPUs in Five Years, Aiming for Billions in Compute Power</h2>
-                <span class="published-time">Published: 2025-08-26T15:01:25.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-26/screenshot/wechat/wechat_image_-ria0vd2RxZ-rrFrq8hesw.png" alt="Musk's Trillion-Dollar AI Bet: 50 Million H100 GPUs in Five Years, Aiming for Billions in Compute Power">
-                <p class="summary">Elon Musk, the world's richest man, has announced an "all-in" strategy for AI, planning to deploy 50 million H100 GPUs within five years, with an estimated total cost exceeding $2 trillion. This colossal investment, far surpassing the US annual military budget, underscores AI's emergence as a new strategic competitive frontier. Musk aims to build supercomputing clusters like Colossus 2 to provide massive computational power for his companies, including xAI and Tesla. This infrastructure will facilitate the training of next-generation large models (e.g., Grok 4), the development of multimodal agents, and video generation models, ultimately targeting billions of H100s to establish an overwhelming advantage in the AI domain. This ambitious endeavor also faces significant challenges, particularly regarding power supply.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Elon Musk</span><span>AI Compute Power</span><span>H100 GPU</span><span>Supercomputing Cluster</span><span>Large Language Models</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/-ria0vd2RxZ-rrFrq8hesw" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Vision-Language-Action Model + Reinforcement Learning! ReCogDrive: The First Open-Source RL-Driven Driving VLA Model</h2>
-                <span class="published-time">Published: 2025-08-26T14:00:56.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-26/screenshot/wechat/wechat_image_JEBVLo00XZiAMKPdGXAjEg.png" alt="Vision-Language-Action Model + Reinforcement Learning! ReCogDrive: The First Open-Source RL-Driven Driving VLA Model">
-                <p class="summary">Huazhong University of Science and Technology and Xiaomi Auto have jointly introduced ReCogDrive, the first open-source reinforcement learning-driven driving Vision-Language-Action (VLA) model. This novel framework integrates the world knowledge of Vision-Language Models (VLMs), a diffusion planner, and reinforcement learning fine-tuning to address the generalization challenges of end-to-end autonomous driving in long-tail scenarios. ReCogDrive employs a three-stage training paradigm: building a 3.1 million driving Q&A dataset, incorporating a diffusion model for continuous trajectory generation, and leveraging simulator-assisted reinforcement learning to optimize driving strategies. This approach enables the model to comprehend complex road conditions and generate safe, human-like driving trajectories. Achieving a new SOTA score of PDMS 90.5 on the NAVSIM benchmark, ReCogDrive significantly enhances autonomous driving's cognitive capabilities and generalization performance, advancing the application of VLMs in safe driving.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>ReCogDrive</span><span>Vision-Language Model</span><span>Reinforcement Learning</span><span>Autonomous Driving</span><span>Diffusion Model</span><span>End-to-End</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/JEBVLo00XZiAMKPdGXAjEg" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>NVIDIA's New Model Launched! 4B Inference Soars 53x, New Attention Architecture Surpasses Mamba 2</h2>
-                <span class="published-time">Published: 2025-08-26T14:00:56.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-26/screenshot/wechat/wechat_image_Kc96mCYJBVHuhl7jBe-lHg.png" alt="NVIDIA's New Model Launched! 4B Inference Soars 53x, New Attention Architecture Surpasses Mamba 2">
-                <p class="summary">NVIDIA has launched its new Jet-Nemotron small model series (2B/4B), developed by an all-Chinese team. Key innovations include Post Neural Architecture Search (PostNAS) for efficient architecture optimization and the novel linear attention module, JetBlock. These models surpass mainstream counterparts like Qwen3, Gemma3, and Llama3.2 in accuracy across various benchmarks including mathematics, code, common sense, retrieval, and long-context understanding. Furthermore, Jet-Nemotron achieves up to a 53-fold increase in inference throughput on H100 GPUs, demonstrating exceptional performance, particularly in long-context scenarios. JetBlock significantly outperforms previous designs like Mamba2, positioning Jet-Nemotron as a highly efficient small model that combines speed with accuracy, signaling NVIDIA's continued focus on the small model domain.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>NVIDIA</span><span>Jet-Nemotron</span><span>Small Models</span><span>PostNAS</span><span>JetBlock</span><span>Inference Throughput</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Natural Language Processing</span><span>Deep Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/Kc96mCYJBVHuhl7jBe-lHg" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>NVIDIA's General-Purpose Robot Chip Arrives: AI Computing Power Boosted by 7.5x, Unitree and Galactic General Already Adopting</h2>
-                <span class="published-time">Published: 2025-08-26T04:09:14.000Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-26/screenshot/wechat/wechat_image_WjouTIuSQ4leefCDbqD58Q.png" alt="NVIDIA's General-Purpose Robot Chip Arrives: AI Computing Power Boosted by 7.5x, Unitree and Galactic General Already Adopting">
-                <p class="summary">NVIDIA has officially launched its next-generation robot-specific chip, Jetson Thor, featuring a Blackwell architecture GPU. This new chip boasts a 7.5x increase in AI computing power over its predecessor, reaching 2070 FP4 TFLOPS, and a 3.5x improvement in energy efficiency. Designed for embodied AI and physical AI agents, Jetson Thor supports large Transformer, VLM, and VLA models for real-time edge-side operation, minimizing cloud dependency. It is compatible with NVIDIA's full AI software stack and has already been adopted by leading Chinese robotics companies like Unitree Technology and Galactic General. NVIDIA is strategically positioning itself in the multi-trillion dollar robotics and autonomous driving markets, viewing them as key future growth drivers, aiming to provide foundational computing power and software support for the entire industry.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>NVIDIA</span><span>Jetson Thor</span><span>Robot Chip</span><span>Embodied AI</span><span>AI Computing Power</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Robotics</span><span>Artificial Intelligence</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://mp.weixin.qq.com/s/WjouTIuSQ4leefCDbqD58Q" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">GitHub</h2>
-
-            <article class="item-card">
-                <h2>System Prompts Leaks</h2>
-                <span class="published-time">Published: 2025-08-26T15:45:44Z</span>
-                <img src="https://api.star-history.com/svg?repos=asgeirtj/system_prompts_leaks&type=Date" alt="System Prompts Leaks">
-                <p class="summary">The "System Prompts Leaks" GitHub repository is a dedicated and growing collection of system message instructions obtained from various publicly deployed chatbots. This valuable resource offers a unique opportunity for researchers, developers, and AI enthusiasts to delve into the foundational prompt designs that dictate the behavior and responses of diverse AI conversational agents. By centralizing these "leaked" prompts, the project provides critical insights for understanding the nuances of large language model (LLM) interactions, advancing the field of prompt engineering, and addressing crucial aspects related to AI safety, ethics, and potential biases. The initiative actively encourages community contributions, aiming to foster greater transparency and facilitate a deeper, more comprehensive understanding of the intricate internal workings of contemporary AI systems, thereby serving as an essential reference for anyone studying chatbot architecture and prompt-driven AI development.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>System Prompts</span><span>Chatbots</span><span>Large Language Models</span><span>Prompt Engineering</span><span>AI Safety</span><span>Open Source</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Natural Language Processing</span><span>Artificial Intelligence</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/asgeirtj/system_prompts_leaks" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Verifiers</h2>
-                <span class="published-time">Published: 2025-08-26T11:55:03Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-26/screenshot/github/verifiers.png" alt="Verifiers">
-                <p class="summary">Verifiers is a comprehensive, modular library specifically engineered for constructing sophisticated environments and training advanced agents within the domain of Large Language Model (LLM) Reinforcement Learning. It incorporates an asynchronous GRPO implementation, seamlessly integrating with the Hugging Face Transformers Trainer and leveraging `prime-rl` for efficient, large-scale FSDP training across multiple GPUs. Beyond core RL training, Verifiers serves as a versatile tool for conducting rigorous LLM evaluations, streamlining synthetic data generation pipelines, and developing robust agent harnesses. The library supports diverse interaction paradigms, including single-turn, multi-turn, and complex tool-calling environments, while maintaining compatibility with OpenAI-compatible inference clients and advanced vLLM sampling parameters. Its design philosophy emphasizes providing a reliable and extensible toolkit for RL infrastructure, actively working to mitigate the common issue of "fork proliferation" prevalent in the research ecosystem.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>LLM Reinforcement Learning</span><span>Agent Training</span><span>Environment Building</span><span>GRPO</span><span>vLLM</span><span>FSDP</span><span>Tool Calling</span><span>Large Model Evaluation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Machine Learning</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/willccbb/verifiers" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>DeepCode: Open Agentic Coding</h2>
-                <span class="published-time">Published: 2025-08-23T14:44:18Z</span>
-                <img src="https://github.com/Zongwei9888/Experiment_Images/raw/8882a7313c504ca97ead6e7b36c51aa761b6a4f3/DeepCode_images/CLI.gif" alt="DeepCode: Open Agentic Coding">
-                <p class="summary">DeepCode, an innovative AI-powered open agentic coding platform developed by the Data Intelligence Lab at the University of Hong Kong, revolutionizes software development by automating complex code generation and implementation tasks. Leveraging a sophisticated multi-agent system, it efficiently translates diverse inputs, from intricate research papers to natural language descriptions, into high-quality, production-ready code. Its core capabilities, such as Paper2Code, streamline the implementation of complex algorithms; Text2Web facilitates rapid frontend web development; and Text2Backend automates robust server-side code generation. This comprehensive approach significantly accelerates the entire development lifecycle, from initial concept to deployable code, while boosting overall efficiency and enabling seamless research reproducibility. DeepCode provides flexible interaction through both command-line and intuitive web interfaces, and ensures broad tool compatibility through its adherence to the Model Context Protocol (MCP) standard, making it a powerful solution for modern coding challenges.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multi-Agent System</span><span>Code Generation</span><span>AI Agent</span><span>Paper2Code</span><span>Frontend Development</span><span>Backend Development</span><span>Retrieval-Augmented Generation</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>AI Agent</span><span>Generative AI</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/HKUDS/DeepCode" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>SurfSense</h2>
-                <span class="published-time">Published: 2025-08-27T01:08:41Z</span>
-                <img src="https://opusair.github.io/NO-FOMO/home/2025-08-26/screenshot/github/SurfSense.png" alt="SurfSense">
-                <p class="summary">SurfSense is a highly customizable AI research agent designed to enhance research capabilities by integrating personal knowledge bases with external data sources such as search engines, Slack, Notion, and YouTube. It supports uploading over 50 file formats, offering powerful search, natural language interaction with saved content, and cited answers. The project emphasizes privacy with local LLM support and is self-hostable. Its core technologies include advanced RAG techniques (supporting over a hundred LLMs and thousands of embedding models, utilizing hierarchical indices and hybrid search) and rapid podcast generation. SurfSense also provides a cross-browser extension for saving web page content.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Research Agent</span><span>Knowledge Management</span><span>Retrieval Augmented Generation</span><span>Local LLM</span><span>Podcast Generation</span><span>Hybrid Search</span><span>Multimodal</span><span>External Integration</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/MODSetter/SurfSense" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>MCP Gateway</h2>
-                <span class="published-time">Published: 2025-08-25T11:22:49Z</span>
-                <img src="https://github.com/IBM/mcp-context-forge/raw/main/docs/docs/images/contextforge-banner.png" alt="MCP Gateway">
-                <p class="summary">MCP Gateway is a feature-rich gateway, proxy, and MCP Registry designed to unify REST, MCP, and A2A services, providing a single endpoint for AI clients. It supports service discovery, authentication, rate-limiting, observability, virtual servers, and multi-transport protocols, along with an optional Admin UI. Deployable as a fully compliant MCP server via PyPI or Docker, it scales to multi-cluster Kubernetes environments with Redis-backed federation and caching. The gateway integrates external AI agents (e.g., OpenAI, Anthropic) and virtualizes them as MCP-compliant tools, offers OpenTelemetry observability, and supports various deployment options including PyPI, Docker, and IBM Cloud Code Engine.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>MCP Gateway</span><span>Model Context Protocol</span><span>AI Agent</span><span>REST API</span><span>Service Federation</span><span>Observability</span><span>Kubernetes</span><span>Docker</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/IBM/mcp-context-forge" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>An Open-Source, Visual-First Code Editor</h2>
-                <span class="published-time">Published: 2025-08-25T20:56:17Z</span>
-                <img src="https://github.com/onlook-dev/onlook/blob/main/assets/architecture.png?raw=true" alt="An Open-Source, Visual-First Code Editor">
-                <p class="summary">Onlook is an open-source, visual-first code editor designed for designers. It enables users to build websites, prototypes, and designs with AI in Next.js and TailwindCSS environments, supporting direct visual editing within the browser DOM for real-time synchronization between code and design. This project aims to provide a powerful alternative, integrating AI-assisted development, real-time code editing, and project deployment features. It utilizes an innovative web container architecture, ensuring an efficient and flexible development experience for crafting modern web applications.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Code Editor</span><span>Visual Development</span><span>Artificial Intelligence</span><span>Frontend Framework</span><span>Web Development</span><span>Design Tools</span><span>Open Source</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Generative AI</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/onlook-dev/onlook" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <section class="source-group">
-            <h2 class="source-group-title">huggingface</h2>
-
-            <article class="item-card">
-                <h2>InternVL3.5: Advancing Open-Source Multimodal Models in Versatility,
-  Reasoning, and Efficiency</h2>
-                <span class="published-time">Published: 2025-08-25T17:58:17.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2508.18265.png" alt="InternVL3.5: Advancing Open-Source Multimodal Models in Versatility,
-  Reasoning, and Efficiency">
-                <p class="summary">We introduce InternVL 3.5, a new family of open-source multimodal models that
-significantly advances versatility, reasoning capability, and inference
-efficiency along the InternVL series. A key innovation is the Cascade
-Reinforcement Learning (Cascade RL) framework, which enhances reasoning through
-a two-stage process: offline RL for stable convergence and online RL for
-refined alignment. This coarse-to-fine training strategy leads to substantial
-improvements on downstream reasoning tasks, e.g., MMMU and MathVista. To
-optimize efficiency, we propose a Visual Resolution Router (ViR) that
-dynamically adjusts the resolution of visual tokens without compromising
-performance. Coupled with ViR, our Decoupled Vision-Language Deployment (DvD)
-strategy separates the vision encoder and language model across different GPUs,
-effectively balancing computational load. These contributions collectively
-enable InternVL3.5 to achieve up to a +16.0\% gain in overall reasoning
-performance and a 4.05times inference speedup compared to its predecessor,
-i.e., InternVL3. In addition, InternVL3.5 supports novel capabilities such as
-GUI interaction and embodied agency. Notably, our largest model, i.e.,
-InternVL3.5-241B-A28B, attains state-of-the-art results among open-source MLLMs
-across general multimodal, reasoning, text, and agentic tasks -- narrowing the
-performance gap with leading commercial models like GPT-5. All models and code
-are publicly released.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multimodal Large Language Model</span><span>Open-source Models</span><span>Reasoning Capability</span><span>Inference Efficiency</span><span>Reinforcement Learning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Multimodal</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2508.18265" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Visual-CoG: Stage-Aware Reinforcement Learning with Chain of Guidance
-  for Text-to-Image Generation</h2>
-                <span class="published-time">Published: 2025-08-25T13:53:02.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2508.18032.png" alt="Visual-CoG: Stage-Aware Reinforcement Learning with Chain of Guidance
-  for Text-to-Image Generation">
-                <p class="summary">Despite the promising progress of recent autoregressive models in
-text-to-image (T2I) generation, their ability to handle multi-attribute and
-ambiguous prompts remains limited. To address these limitations, existing works
-have applied chain-of-thought (CoT) to enable stage-aware visual synthesis and
-employed reinforcement learning (RL) to improve reasoning capabilities.
-However, most models provide reward signals only at the end of the generation
-stage. This monolithic final-only guidance makes it difficult to identify which
-stages contribute positively to the final outcome and may lead to suboptimal
-policies. To tackle this issue, we propose a Visual-Chain of Guidance
-(Visual-CoG) paradigm consisting of three stages: semantic reasoning, process
-refining, and outcome evaluation, with stage-aware rewards providing immediate
-guidance throughout the image generation pipeline. We further construct a
-visual cognition benchmark, VisCog-Bench, which comprises four subtasks to
-evaluate the effectiveness of semantic reasoning. Comprehensive evaluations on
-GenEval, T2I-CompBench, and the proposed VisCog-Bench show improvements of 15%,
-5%, and 19%, respectively, demonstrating the superior performance of the
-proposed Visual-CoG. We will release all the resources soon.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Text-to-Image Generation</span><span>Reinforcement Learning</span><span>Chain of Guidance</span><span>Stage-Aware</span><span>Semantic Reasoning</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Generative AI</span><span>Machine Learning</span><span>Multimodal</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2508.18032" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Breaking the Exploration Bottleneck: Rubric-Scaffolded Reinforcement
-  Learning for General LLM Reasoning</h2>
-                <span class="published-time">Published: 2025-08-23T08:47:31.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2508.16949.png" alt="Breaking the Exploration Bottleneck: Rubric-Scaffolded Reinforcement
-  Learning for General LLM Reasoning">
-                <p class="summary">Recent advances in Large Language Models (LLMs) have underscored the
-potential of Reinforcement Learning (RL) to facilitate the emergence of
-reasoning capabilities. Despite the encouraging results, a fundamental dilemma
-persists as RL improvement relies on learning from high-quality samples, yet
-the exploration for such samples remains bounded by the inherent limitations of
-LLMs. This, in effect, creates an undesirable cycle in which what cannot be
-explored cannot be learned. In this work, we propose Rubric-Scaffolded
-Reinforcement Learning (RuscaRL), a novel instructional scaffolding framework
-designed to break the exploration bottleneck for general LLM reasoning.
-Specifically, RuscaRL introduces checklist-style rubrics as (1) explicit
-scaffolding for exploration during rollout generation, where different rubrics
-are provided as external guidance within task instructions to steer diverse
-high-quality responses. This guidance is gradually decayed over time,
-encouraging the model to internalize the underlying reasoning patterns; (2)
-verifiable rewards for exploitation during model training, where we can obtain
-robust LLM-as-a-Judge scores using rubrics as references, enabling effective RL
-on general reasoning tasks. Extensive experiments demonstrate the superiority
-of the proposed RuscaRL across various benchmarks, effectively expanding
-reasoning boundaries under the best-of-N evaluation. Notably, RuscaRL
-significantly boosts Qwen-2.5-7B-Instruct from 23.6 to 50.3 on HealthBench-500,
-surpassing GPT-4.1. Furthermore, our fine-tuned variant on
-Qwen3-30B-A3B-Instruct achieves 61.1 on HealthBench-500, outperforming leading
-LLMs including OpenAI-o3.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Large Language Models</span><span>Reinforcement Learning</span><span>LLM Reasoning</span><span>Exploration Bottleneck</span><span>Rubric-Scaffolding</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Natural Language Processing</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2508.16949" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>PosterGen: Aesthetic-Aware Paper-to-Poster Generation via Multi-Agent
-  LLMs</h2>
-                <span class="published-time">Published: 2025-08-24T02:25:45.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2508.17188.png" alt="PosterGen: Aesthetic-Aware Paper-to-Poster Generation via Multi-Agent
-  LLMs">
-                <p class="summary">Multi-agent systems built upon large language models (LLMs) have demonstrated
-remarkable capabilities in tackling complex compositional tasks. In this work,
-we apply this paradigm to the paper-to-poster generation problem, a practical
-yet time-consuming process faced by researchers preparing for conferences.
-While recent approaches have attempted to automate this task, most neglect core
-design and aesthetic principles, resulting in posters that require substantial
-manual refinement. To address these design limitations, we propose PosterGen, a
-multi-agent framework that mirrors the workflow of professional poster
-designers. It consists of four collaborative specialized agents: (1) Parser and
-Curator agents extract content from the paper and organize storyboard; (2)
-Layout agent maps the content into a coherent spatial layout; (3) Stylist
-agents apply visual design elements such as color and typography; and (4)
-Renderer composes the final poster. Together, these agents produce posters that
-are both semantically grounded and visually appealing. To evaluate design
-quality, we introduce a vision-language model (VLM)-based rubric that measures
-layout balance, readability, and aesthetic coherence. Experimental results show
-that PosterGen consistently matches in content fidelity, and significantly
-outperforms existing methods in visual designs, generating posters that are
-presentation-ready with minimal human refinements.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Multi-agent systems</span><span>Large Language Models</span><span>Paper-to-Poster Generation</span><span>Aesthetic Design</span><span>Vision-Language Model</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>AI Agent</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2508.17188" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Understanding Tool-Integrated Reasoning</h2>
-                <span class="published-time">Published: 2025-08-26T17:03:46.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2508.19201.png" alt="Understanding Tool-Integrated Reasoning">
-                <p class="summary">We study why Tool-Integrated Reasoning (TIR) makes Large Language Models
-(LLMs) more capable. While LLMs integrated with tools like Python code
-interpreters show great promise, a principled theory explaining why this
-paradigm is effective has been missing. This work provides the first formal
-proof that TIR fundamentally expands an LLM's capabilities. We demonstrate that
-tools enable a strict expansion of the model's empirical and feasible support,
-breaking the capability ceiling of pure-text models by unlocking
-problem-solving strategies that are otherwise impossible or intractably
-verbose. To guide model behavior without compromising training stability and
-performance, we also introduce Advantage Shaping Policy Optimization (ASPO), a
-novel algorithm that directly modifies the advantage function to guide the
-policy behavior. We conduct comprehensive experiments on challenging
-mathematical benchmarks, leveraging a Python interpreter as the external tool.
-Our results show that the TIR model decisively outperforms its pure-text
-counterpart on the pass@k metric. Crucially, this advantage is not confined to
-computationally-intensive problems but extends to those requiring significant
-abstract insight. We further identify the emergent cognitive patterns that
-illustrate how models learn to think with tools. Finally, we report improved
-tool usage behavior with early code invocation and much more interactive turns
-with ASPO. Overall, our work provides the first principled explanation for
-TIR's success, shifting the focus from the mere fact that tools work to why and
-how they enable more powerful reasoning.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Tool-Integrated Reasoning</span><span>Large Language Models</span><span>Capability Expansion</span><span>Policy Optimization</span><span>Tool Usage</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Large Language Model</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2508.19201" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>TaDiCodec: Text-aware Diffusion Speech Tokenizer for Speech Language
-  Modeling</h2>
-                <span class="published-time">Published: 2025-08-22T20:45:03.000Z</span>
-                <img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2508.16790.png" alt="TaDiCodec: Text-aware Diffusion Speech Tokenizer for Speech Language
-  Modeling">
-                <p class="summary">Speech tokenizers serve as foundational components for speech language
-models, yet current designs exhibit several limitations, including: 1)
-dependence on multi-layer residual vector quantization structures or high frame
-rates, 2) reliance on auxiliary pre-trained models for semantic distillation,
-and 3) requirements for complex two-stage training processes. In this work, we
-introduce the Text-aware Diffusion Transformer Speech Codec (TaDiCodec), a
-novel approach designed to overcome these challenges. TaDiCodec employs
-end-to-end optimization for quantization and reconstruction through a diffusion
-autoencoder, while integrating text guidance into the diffusion decoder to
-enhance reconstruction quality and achieve optimal compression. TaDiCodec
-achieves an extremely low frame rate of 6.25 Hz and a corresponding bitrate of
-0.0875 kbps with a single-layer codebook for 24 kHz speech, while maintaining
-superior performance on critical speech generation evaluation metrics such as
-Word Error Rate (WER), speaker similarity (SIM), and speech quality (UTMOS).
-Notably, TaDiCodec employs a single-stage, end-to-end training paradigm, and
-obviating the need for auxiliary pre-trained models. We also validate the
-compatibility of TaDiCodec in language model based zero-shot text-to-speech
-with both autoregressive modeling and masked generative modeling, demonstrating
-its effectiveness and efficiency for speech language modeling, as well as a
-significantly small reconstruction-generation gap. We will open source our code
-and model checkpoints. Audio samples are are available at
-https:/tadicodec.github.io/. We release code and model checkpoints at
-https:/github.com/HeCheng0625/Diffusion-Speech-Tokenizer.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>TaDiCodec</span><span>Diffusion Model</span><span>Speech Tokenizer</span><span>Speech Language Modeling</span><span>Low Bitrate</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Deep Learning</span><span>Natural Language Processing</span><span>Generative AI</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://huggingface.co/papers/2508.16790" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/en/" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/en/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2025-08-26</strong><span>ENGLISH EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2025-08-26" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-08-26T14:56:25.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/demishassabis/status/1960355658059891018" target="_blank" rel="noopener noreferrer">demishassabis_Gemini 2.5 Image Model Excels in Editing and Character Consistency</a></h3>
+    <p class="story-summary">Demis Hassabis of Google DeepMind announced that the new Gemini 2.5 image model is the best in the industry, leading by 180 ELO points in image editing and excelling in character consistency. The model is now available for free in the Gemini App, allowing users to experience its advanced image generation, editing, and refinement capabilities with new levels of visual reasoning.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Gemini 2.5</span><span class="tag tag-keyword">Image Model</span><span class="tag tag-keyword">Image Editing</span><span class="tag tag-keyword">Character Consistency</span><span class="tag tag-keyword">Google DeepMind</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Product Launch</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-08-26T13:28:02.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/steeve/status/1960333418467664332" target="_blank" rel="noopener noreferrer">steeve_zml/llmd Transparently Running on TPU with Paged Attention</a></h3>
+    <p class="story-summary">Steeve Morin announced that after a week of development, their zml/llmd project is now transparently running on TPUs, featuring full prefill/decode paged attention. This significant advancement means users can enable this functionality with just a single flag and no code changes, greatly simplifying the deployment and optimization of large language models on TPUs. This demonstrates efficient and seamless hardware acceleration capabilities.</p>
+    <div class="story-tags"><span class="tag tag-keyword">zml/llmd</span><span class="tag tag-keyword">TPU</span><span class="tag tag-keyword">Paged Attention</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Hardware Acceleration</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Tech News</span><span class="tag tag-area">Research Progress</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-08-26T17:20:46.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Muennighoff/status/1960391987917402509" target="_blank" rel="noopener noreferrer">Muennighoff_AI Large Models Solve Open Scientific Problems with Expert Validation</a></h3>
+    <p class="story-summary">Niklas Muennighoff&#x27;s team is deeply exploring the capability of Artificial Intelligence, specifically frontier Large Language Models (LLMs), in solving open problems across fields like mathematics, physics, coding, and medical sciences. By collecting unsolved questions and testing them with LLMs, they found that some AI-generated solutions successfully passed expert validation. This indicates AI&#x27;s significant potential in advancing scientific research and pushing the boundaries of existing knowledge.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Scientific Problems</span><span class="tag tag-keyword">Expert Validation</span><span class="tag tag-keyword">Research Progress</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Research Progress</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-08-26T16:05:27.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Google/status/1960373032456757340" target="_blank" rel="noopener noreferrer">Google_Google Translate Launches Gemini-Powered Live Translate</a></h3>
+    <p class="story-summary">Google announced two significant updates to Google Translate, including the launch of a &quot;Live translate&quot; feature powered by Gemini models. Users can now engage in real-time audio conversations with on-screen translations directly within the Translate app, supporting over 70 languages. This feature is rolling out this week to users in the U.S., India, and Mexico, aiming to facilitate communication between speakers of different languages.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Google Translate</span><span class="tag tag-keyword">Gemini</span><span class="tag tag-keyword">Live Translate</span><span class="tag tag-keyword">Real-time Translation</span><span class="tag tag-keyword">Product Update</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Product Launch</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-08-26T07:09:36.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/CranQnow/status/1958527257632461022/analytics" target="_blank" rel="noopener noreferrer">CranQnow_Google Chrome Browser Integrates AI Features</a></h3>
+    <p class="story-summary">Google Chrome has received a significant update, now fully integrating advanced AI capabilities. This groundbreaking AI functionality enables the browser to intelligently read screen content, understand its context, and provide comprehensive explanations for anything a user is viewing, regardless of the website. This major update introduces 10 innovative AI features, designed to significantly enhance user experience and streamline information retrieval.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Google</span><span class="tag tag-keyword">Chrome</span><span class="tag tag-keyword">AI</span><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Browser</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Product Launch</span><span class="tag tag-area">Tech News</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-08-26T17:59:08.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Google/status/1960401639988220087" target="_blank" rel="noopener noreferrer">Google_Fitbit to Launch AI-Powered Personal Health Coach</a></h3>
+    <p class="story-summary">Google announced that a new AI-powered personal health coach will be available in public preview within the Fitbit app starting this October. This feature integrates the roles of a fitness trainer, sleep coach, and health and wellness advisor, aiming to comprehensively assist users in optimizing their health. This initiative marks a significant step for Google in combining artificial intelligence with wearable health devices, offering users more personalized and intelligent health management services.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Google</span><span class="tag tag-keyword">Fitbit</span><span class="tag tag-keyword">AI Health Coach</span><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Health Management</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Product Launch</span><span class="tag tag-area">Industry News</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-08-26T15:45:44Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/asgeirtj/system_prompts_leaks" target="_blank" rel="noopener noreferrer">System Prompts Leaks</a></h3>
+    <p class="story-summary">The &quot;System Prompts Leaks&quot; GitHub repository is a dedicated and growing collection of system message instructions obtained from various publicly deployed chatbots. This valuable resource offers a unique opportunity for researchers, developers, and AI enthusiasts to delve into the foundational prompt designs that dictate the behavior and responses of diverse AI conversational agents. By centralizing these &quot;leaked&quot; prompts, the project provides critical insights for understanding the nuances of large language model (LLM) interactions, advancing the field of prompt engineering, and addressing crucial aspects related to AI safety, ethics, and potential biases. The initiative actively encourages community contributions, aiming to foster greater transparency and facilitate a deeper, more comprehensive understanding of the intricate internal workings of contemporary AI systems, thereby serving as an essential reference for anyone studying chatbot architecture and prompt-driven AI development.</p>
+    <div class="story-tags"><span class="tag tag-keyword">System Prompts</span><span class="tag tag-keyword">Chatbots</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Prompt Engineering</span><span class="tag tag-keyword">AI Safety</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Artificial Intelligence</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-08-26T11:55:03Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/willccbb/verifiers" target="_blank" rel="noopener noreferrer">Verifiers</a></h3>
+    <p class="story-summary">Verifiers is a comprehensive, modular library specifically engineered for constructing sophisticated environments and training advanced agents within the domain of Large Language Model (LLM) Reinforcement Learning. It incorporates an asynchronous GRPO implementation, seamlessly integrating with the Hugging Face Transformers Trainer and leveraging `prime-rl` for efficient, large-scale FSDP training across multiple GPUs. Beyond core RL training, Verifiers serves as a versatile tool for conducting rigorous LLM evaluations, streamlining synthetic data generation pipelines, and developing robust agent harnesses. The library supports diverse interaction paradigms, including single-turn, multi-turn, and complex tool-calling environments, while maintaining compatibility with OpenAI-compatible inference clients and advanced vLLM sampling parameters. Its design philosophy emphasizes providing a reliable and extensible toolkit for RL infrastructure, actively working to mitigate the common issue of &quot;fork proliferation&quot; prevalent in the research ecosystem.</p>
+    <div class="story-tags"><span class="tag tag-keyword">LLM Reinforcement Learning</span><span class="tag tag-keyword">Agent Training</span><span class="tag tag-keyword">Environment Building</span><span class="tag tag-keyword">GRPO</span><span class="tag tag-keyword">vLLM</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-08-23T14:44:18Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/HKUDS/DeepCode" target="_blank" rel="noopener noreferrer">DeepCode: Open Agentic Coding</a></h3>
+    <p class="story-summary">DeepCode, an innovative AI-powered open agentic coding platform developed by the Data Intelligence Lab at the University of Hong Kong, revolutionizes software development by automating complex code generation and implementation tasks. Leveraging a sophisticated multi-agent system, it efficiently translates diverse inputs, from intricate research papers to natural language descriptions, into high-quality, production-ready code. Its core capabilities, such as Paper2Code, streamline the implementation of complex algorithms; Text2Web facilitates rapid frontend web development; and Text2Backend automates robust server-side code generation. This comprehensive approach significantly accelerates the entire development lifecycle, from initial concept to deployable code, while boosting overall efficiency and enabling seamless research reproducibility. DeepCode provides flexible interaction through both command-line and intuitive web interfaces, and ensures broad tool compatibility through its adherence to the Model Context Protocol (MCP) standard, making it a powerful solution for modern coding challenges.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multi-Agent System</span><span class="tag tag-keyword">Code Generation</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">Paper2Code</span><span class="tag tag-keyword">Frontend Development</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-08-27T01:08:41Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/MODSetter/SurfSense" target="_blank" rel="noopener noreferrer">SurfSense</a></h3>
+    <p class="story-summary">SurfSense is a highly customizable AI research agent designed to enhance research capabilities by integrating personal knowledge bases with external data sources such as search engines, Slack, Notion, and YouTube. It supports uploading over 50 file formats, offering powerful search, natural language interaction with saved content, and cited answers. The project emphasizes privacy with local LLM support and is self-hostable. Its core technologies include advanced RAG techniques (supporting over a hundred LLMs and thousands of embedding models, utilizing hierarchical indices and hybrid search) and rapid podcast generation. SurfSense also provides a cross-browser extension for saving web page content.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Research Agent</span><span class="tag tag-keyword">Knowledge Management</span><span class="tag tag-keyword">Retrieval Augmented Generation</span><span class="tag tag-keyword">Local LLM</span><span class="tag tag-keyword">Podcast Generation</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-08-25T11:22:49Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/IBM/mcp-context-forge" target="_blank" rel="noopener noreferrer">MCP Gateway</a></h3>
+    <p class="story-summary">MCP Gateway is a feature-rich gateway, proxy, and MCP Registry designed to unify REST, MCP, and A2A services, providing a single endpoint for AI clients. It supports service discovery, authentication, rate-limiting, observability, virtual servers, and multi-transport protocols, along with an optional Admin UI. Deployable as a fully compliant MCP server via PyPI or Docker, it scales to multi-cluster Kubernetes environments with Redis-backed federation and caching. The gateway integrates external AI agents (e.g., OpenAI, Anthropic) and virtualizes them as MCP-compliant tools, offers OpenTelemetry observability, and supports various deployment options including PyPI, Docker, and IBM Cloud Code Engine.</p>
+    <div class="story-tags"><span class="tag tag-keyword">MCP Gateway</span><span class="tag tag-keyword">Model Context Protocol</span><span class="tag tag-keyword">AI Agent</span><span class="tag tag-keyword">REST API</span><span class="tag tag-keyword">Service Federation</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-08-25T20:56:17Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/onlook-dev/onlook" target="_blank" rel="noopener noreferrer">An Open-Source, Visual-First Code Editor</a></h3>
+    <p class="story-summary">Onlook is an open-source, visual-first code editor designed for designers. It enables users to build websites, prototypes, and designs with AI in Next.js and TailwindCSS environments, supporting direct visual editing within the browser DOM for real-time synchronization between code and design. This project aims to provide a powerful alternative, integrating AI-assisted development, real-time code editing, and project deployment features. It utilizes an innovative web container architecture, ensuring an efficient and flexible development experience for crafting modern web applications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Code Editor</span><span class="tag tag-keyword">Visual Development</span><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Frontend Framework</span><span class="tag tag-keyword">Web Development</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> wechat</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-08-26T15:32:08.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/IbDiV9A0qDwnqMDkVolJRA" target="_blank" rel="noopener noreferrer">Google Unveils nano-banana: Gemini 2.5 Flash Image!</a></h3>
+    <p class="story-summary">Google has officially unveiled Gemini 2.5 Flash Image, an upgraded image generation and editing model building upon Gemini 2.0 Flash. This new model has achieved the top rank on the LMArena image editing leaderboard and is now available for API access. Its key highlights include: the ability to seamlessly fuse multiple images, maintain character or object consistency across diverse scenarios, perform precise image transformations and localized edits using natural language prompts, and leverage Gemini&#x27;s extensive world knowledge for advanced image creation and reasoning. The model underscores the future potential of native multimodal capabilities in the image generation domain, offering robust application templates that demonstrate its powerful abilities in complex editing tasks and semantic understanding. This advancement signifies a significant step towards more intelligent and versatile visual content creation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Gemini 2.5 Flash Image</span><span class="tag tag-keyword">Image Generation</span><span class="tag tag-keyword">Image Editing</span><span class="tag tag-keyword">Character Consistency</span><span class="tag tag-keyword">Natural Language Processing</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Computer Vision</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-08-26T15:01:25.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/SI_G7aAFLoeS0bX_yl4VZA" target="_blank" rel="noopener noreferrer">Large Models Gain &#x27;Eagle Eye&#x27;: MiniCPM-V 4.5 Pioneers High-Refresh Video Understanding, Outperforming Google Gemini 2.5</a></h3>
+    <p class="story-summary">OpenBMB has recently open-sourced MiniCPM-V 4.5, an 8B parameter multimodal model that establishes a new benchmark in edge-side multimodal AI, particularly with its groundbreaking &quot;high-refresh video understanding&quot; capability. This innovative model achieves state-of-the-art (SOTA) performance across a diverse range of tasks, including single-image comprehension, long video analysis, optical character recognition (OCR), and complex document parsing. Remarkably, MiniCPM-V 4.5 not only matches but often surpasses the performance of larger, top-tier cloud-based large models such as Google Gemini 2.5 Pro and OpenAI&#x27;s GPT-4o, showcasing its &quot;small but powerful&quot; efficiency. Key innovations include an advanced 3D-Resampler structure that enables high-density video compression, allowing it to process significantly more video frames than comparable models. Furthermore, it seamlessly integrates OCR with knowledge learning and supports a controllable hybrid inference mode, balancing deep analysis with rapid response. MiniCPM-V 4.5 demonstrates exceptional performance, energy efficiency, and deployment friendliness, providing a robust and highly efficient solution for a wide array of edge AI applications, from automotive systems to embodied intelligence.</p>
+    <div class="story-tags"><span class="tag tag-keyword">MiniCPM-V 4.5</span><span class="tag tag-keyword">High-Refresh Video Understanding</span><span class="tag tag-keyword">Multimodal Model</span><span class="tag tag-keyword">Edge AI</span><span class="tag tag-keyword">Video Understanding</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Video Understanding</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-08-26T15:01:25.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/-ria0vd2RxZ-rrFrq8hesw" target="_blank" rel="noopener noreferrer">Musk&#x27;s Trillion-Dollar AI Bet: 50 Million H100 GPUs in Five Years, Aiming for Billions in Compute Power</a></h3>
+    <p class="story-summary">Elon Musk, the world&#x27;s richest man, has announced an &quot;all-in&quot; strategy for AI, planning to deploy 50 million H100 GPUs within five years, with an estimated total cost exceeding $2 trillion. This colossal investment, far surpassing the US annual military budget, underscores AI&#x27;s emergence as a new strategic competitive frontier. Musk aims to build supercomputing clusters like Colossus 2 to provide massive computational power for his companies, including xAI and Tesla. This infrastructure will facilitate the training of next-generation large models (e.g., Grok 4), the development of multimodal agents, and video generation models, ultimately targeting billions of H100s to establish an overwhelming advantage in the AI domain. This ambitious endeavor also faces significant challenges, particularly regarding power supply.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Elon Musk</span><span class="tag tag-keyword">AI Compute Power</span><span class="tag tag-keyword">H100 GPU</span><span class="tag tag-keyword">Supercomputing Cluster</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-08-26T14:00:56.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/JEBVLo00XZiAMKPdGXAjEg" target="_blank" rel="noopener noreferrer">Vision-Language-Action Model + Reinforcement Learning! ReCogDrive: The First Open-Source RL-Driven Driving VLA Model</a></h3>
+    <p class="story-summary">Huazhong University of Science and Technology and Xiaomi Auto have jointly introduced ReCogDrive, the first open-source reinforcement learning-driven driving Vision-Language-Action (VLA) model. This novel framework integrates the world knowledge of Vision-Language Models (VLMs), a diffusion planner, and reinforcement learning fine-tuning to address the generalization challenges of end-to-end autonomous driving in long-tail scenarios. ReCogDrive employs a three-stage training paradigm: building a 3.1 million driving Q&amp;A dataset, incorporating a diffusion model for continuous trajectory generation, and leveraging simulator-assisted reinforcement learning to optimize driving strategies. This approach enables the model to comprehend complex road conditions and generate safe, human-like driving trajectories. Achieving a new SOTA score of PDMS 90.5 on the NAVSIM benchmark, ReCogDrive significantly enhances autonomous driving&#x27;s cognitive capabilities and generalization performance, advancing the application of VLMs in safe driving.</p>
+    <div class="story-tags"><span class="tag tag-keyword">ReCogDrive</span><span class="tag tag-keyword">Vision-Language Model</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Autonomous Driving</span><span class="tag tag-keyword">Diffusion Model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-08-26T14:00:56.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/Kc96mCYJBVHuhl7jBe-lHg" target="_blank" rel="noopener noreferrer">NVIDIA&#x27;s New Model Launched! 4B Inference Soars 53x, New Attention Architecture Surpasses Mamba 2</a></h3>
+    <p class="story-summary">NVIDIA has launched its new Jet-Nemotron small model series (2B/4B), developed by an all-Chinese team. Key innovations include Post Neural Architecture Search (PostNAS) for efficient architecture optimization and the novel linear attention module, JetBlock. These models surpass mainstream counterparts like Qwen3, Gemma3, and Llama3.2 in accuracy across various benchmarks including mathematics, code, common sense, retrieval, and long-context understanding. Furthermore, Jet-Nemotron achieves up to a 53-fold increase in inference throughput on H100 GPUs, demonstrating exceptional performance, particularly in long-context scenarios. JetBlock significantly outperforms previous designs like Mamba2, positioning Jet-Nemotron as a highly efficient small model that combines speed with accuracy, signaling NVIDIA&#x27;s continued focus on the small model domain.</p>
+    <div class="story-tags"><span class="tag tag-keyword">NVIDIA</span><span class="tag tag-keyword">Jet-Nemotron</span><span class="tag tag-keyword">Small Models</span><span class="tag tag-keyword">PostNAS</span><span class="tag tag-keyword">JetBlock</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-08-26T04:09:14.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://mp.weixin.qq.com/s/WjouTIuSQ4leefCDbqD58Q" target="_blank" rel="noopener noreferrer">NVIDIA&#x27;s General-Purpose Robot Chip Arrives: AI Computing Power Boosted by 7.5x, Unitree and Galactic General Already Adopting</a></h3>
+    <p class="story-summary">NVIDIA has officially launched its next-generation robot-specific chip, Jetson Thor, featuring a Blackwell architecture GPU. This new chip boasts a 7.5x increase in AI computing power over its predecessor, reaching 2070 FP4 TFLOPS, and a 3.5x improvement in energy efficiency. Designed for embodied AI and physical AI agents, Jetson Thor supports large Transformer, VLM, and VLA models for real-time edge-side operation, minimizing cloud dependency. It is compatible with NVIDIA&#x27;s full AI software stack and has already been adopted by leading Chinese robotics companies like Unitree Technology and Galactic General. NVIDIA is strategically positioning itself in the multi-trillion dollar robotics and autonomous driving markets, viewing them as key future growth drivers, aiming to provide foundational computing power and software support for the entire industry.</p>
+    <div class="story-tags"><span class="tag tag-keyword">NVIDIA</span><span class="tag tag-keyword">Jetson Thor</span><span class="tag tag-keyword">Robot Chip</span><span class="tag tag-keyword">Embodied AI</span><span class="tag tag-keyword">AI Computing Power</span><span class="tag tag-area">Robotics</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2> huggingface</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2025-08-25T17:58:17.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2508.18265" target="_blank" rel="noopener noreferrer">InternVL3.5: Advancing Open-Source Multimodal Models in Versatility, Reasoning, and Efficiency</a></h3>
+    <p class="story-summary">We introduce InternVL 3.5, a new family of open-source multimodal models that significantly advances versatility, reasoning capability, and inference efficiency along the InternVL series. A key innovation is the Cascade Reinforcement Learning (Cascade RL) framework, which enhances reasoning through a two-stage process: offline RL for stable convergence and online RL for refined alignment. This coarse-to-fine training strategy leads to substantial improvements on downstream reasoning tasks, e.g., MMMU and MathVista. To optimize efficiency, we propose a Visual Resolution Router (ViR) that dynamically adjusts the resolution of visual tokens without compromising performance. Coupled with ViR, our Decoupled Vision-Language Deployment (DvD) strategy separates the vision encoder and language model across different GPUs, effectively balancing computational load. These contributions collectively enable InternVL3.5 to achieve up to a +16.0\% gain in overall reasoning performance and a 4.05times inference speedup compared to its predecessor, i.e., InternVL3. In addition, InternVL3.5 supports novel capabilities such as GUI interaction and embodied agency. Notably, our largest model, i.e., InternVL3.5-241B-A28B, attains state-of-the-art results among open-source MLLMs across general multimodal, reasoning, text, and agentic tasks -- narrowing the performance gap with leading commercial models like GPT-5. All models and code are publicly released.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multimodal Large Language Model</span><span class="tag tag-keyword">Open-source Models</span><span class="tag tag-keyword">Reasoning Capability</span><span class="tag tag-keyword">Inference Efficiency</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-area">Multimodal</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2025-08-25T13:53:02.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2508.18032" target="_blank" rel="noopener noreferrer">Visual-CoG: Stage-Aware Reinforcement Learning with Chain of Guidance for Text-to-Image Generation</a></h3>
+    <p class="story-summary">Despite the promising progress of recent autoregressive models in text-to-image (T2I) generation, their ability to handle multi-attribute and ambiguous prompts remains limited. To address these limitations, existing works have applied chain-of-thought (CoT) to enable stage-aware visual synthesis and employed reinforcement learning (RL) to improve reasoning capabilities. However, most models provide reward signals only at the end of the generation stage. This monolithic final-only guidance makes it difficult to identify which stages contribute positively to the final outcome and may lead to suboptimal policies. To tackle this issue, we propose a Visual-Chain of Guidance (Visual-CoG) paradigm consisting of three stages: semantic reasoning, process refining, and outcome evaluation, with stage-aware rewards providing immediate guidance throughout the image generation pipeline. We further construct a visual cognition benchmark, VisCog-Bench, which comprises four subtasks to evaluate the effectiveness of semantic reasoning. Comprehensive evaluations on GenEval, T2I-CompBench, and the proposed VisCog-Bench show improvements of 15%, 5%, and 19%, respectively, demonstrating the superior performance of the proposed Visual-CoG. We will release all the resources soon.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Text-to-Image Generation</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">Chain of Guidance</span><span class="tag tag-keyword">Stage-Aware</span><span class="tag tag-keyword">Semantic Reasoning</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Multimodal</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2025-08-23T08:47:31.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2508.16949" target="_blank" rel="noopener noreferrer">Breaking the Exploration Bottleneck: Rubric-Scaffolded Reinforcement Learning for General LLM Reasoning</a></h3>
+    <p class="story-summary">Recent advances in Large Language Models (LLMs) have underscored the potential of Reinforcement Learning (RL) to facilitate the emergence of reasoning capabilities. Despite the encouraging results, a fundamental dilemma persists as RL improvement relies on learning from high-quality samples, yet the exploration for such samples remains bounded by the inherent limitations of LLMs. This, in effect, creates an undesirable cycle in which what cannot be explored cannot be learned. In this work, we propose Rubric-Scaffolded Reinforcement Learning (RuscaRL), a novel instructional scaffolding framework designed to break the exploration bottleneck for general LLM reasoning. Specifically, RuscaRL introduces checklist-style rubrics as (1) explicit scaffolding for exploration during rollout generation, where different rubrics are provided as external guidance within task instructions to steer diverse high-quality responses. This guidance is gradually decayed over time, encouraging the model to internalize the underlying reasoning patterns; (2) verifiable rewards for exploitation during model training, where we can obtain robust LLM-as-a-Judge scores using rubrics as references, enabling effective RL on general reasoning tasks. Extensive experiments demonstrate the superiority of the proposed RuscaRL across various benchmarks, effectively expanding reasoning boundaries under the best-of-N evaluation. Notably, RuscaRL significantly boosts Qwen-2.5-7B-Instruct from 23.6 to 50.3 on HealthBench-500, surpassing GPT-4.1. Furthermore, our fine-tuned variant on Qwen3-30B-A3B-Instruct achieves 61.1 on HealthBench-500, outperforming leading LLMs including OpenAI-o3.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-keyword">LLM Reasoning</span><span class="tag tag-keyword">Exploration Bottleneck</span><span class="tag tag-keyword">Rubric-Scaffolding</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2025-08-24T02:25:45.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2508.17188" target="_blank" rel="noopener noreferrer">PosterGen: Aesthetic-Aware Paper-to-Poster Generation via Multi-Agent LLMs</a></h3>
+    <p class="story-summary">Multi-agent systems built upon large language models (LLMs) have demonstrated remarkable capabilities in tackling complex compositional tasks. In this work, we apply this paradigm to the paper-to-poster generation problem, a practical yet time-consuming process faced by researchers preparing for conferences. While recent approaches have attempted to automate this task, most neglect core design and aesthetic principles, resulting in posters that require substantial manual refinement. To address these design limitations, we propose PosterGen, a multi-agent framework that mirrors the workflow of professional poster designers. It consists of four collaborative specialized agents: (1) Parser and Curator agents extract content from the paper and organize storyboard; (2) Layout agent maps the content into a coherent spatial layout; (3) Stylist agents apply visual design elements such as color and typography; and (4) Renderer composes the final poster. Together, these agents produce posters that are both semantically grounded and visually appealing. To evaluate design quality, we introduce a vision-language model (VLM)-based rubric that measures layout balance, readability, and aesthetic coherence. Experimental results show that PosterGen consistently matches in content fidelity, and significantly outperforms existing methods in visual designs, generating posters that are presentation-ready with minimal human refinements.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multi-agent systems</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Paper-to-Poster Generation</span><span class="tag tag-keyword">Aesthetic Design</span><span class="tag tag-keyword">Vision-Language Model</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2025-08-26T17:03:46.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2508.19201" target="_blank" rel="noopener noreferrer">Understanding Tool-Integrated Reasoning</a></h3>
+    <p class="story-summary">We study why Tool-Integrated Reasoning (TIR) makes Large Language Models (LLMs) more capable. While LLMs integrated with tools like Python code interpreters show great promise, a principled theory explaining why this paradigm is effective has been missing. This work provides the first formal proof that TIR fundamentally expands an LLM&#x27;s capabilities. We demonstrate that tools enable a strict expansion of the model&#x27;s empirical and feasible support, breaking the capability ceiling of pure-text models by unlocking problem-solving strategies that are otherwise impossible or intractably verbose. To guide model behavior without compromising training stability and performance, we also introduce Advantage Shaping Policy Optimization (ASPO), a novel algorithm that directly modifies the advantage function to guide the policy behavior. We conduct comprehensive experiments on challenging mathematical benchmarks, leveraging a Python interpreter as the external tool. Our results show that the TIR model decisively outperforms its pure-text counterpart on the pass@k metric. Crucially, this advantage is not confined to computationally-intensive problems but extends to those requiring significant abstract insight. We further identify the emergent cognitive patterns that illustrate how models learn to think with tools. Finally, we report improved tool usage behavior with early code invocation and much more interactive turns with ASPO. Overall, our work provides the first principled explanation for TIR&#x27;s success, shifting the focus from the mere fact that tools work to why and how they enable more powerful reasoning.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Tool-Integrated Reasoning</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">Capability Expansion</span><span class="tag tag-keyword">Policy Optimization</span><span class="tag tag-keyword">Tool Usage</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Large Language Model</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2025-08-22T20:45:03.000Z</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2508.16790" target="_blank" rel="noopener noreferrer">TaDiCodec: Text-aware Diffusion Speech Tokenizer for Speech Language Modeling</a></h3>
+    <p class="story-summary">Speech tokenizers serve as foundational components for speech language models, yet current designs exhibit several limitations, including: 1) dependence on multi-layer residual vector quantization structures or high frame rates, 2) reliance on auxiliary pre-trained models for semantic distillation, and 3) requirements for complex two-stage training processes. In this work, we introduce the Text-aware Diffusion Transformer Speech Codec (TaDiCodec), a novel approach designed to overcome these challenges. TaDiCodec employs end-to-end optimization for quantization and reconstruction through a diffusion autoencoder, while integrating text guidance into the diffusion decoder to enhance reconstruction quality and achieve optimal compression. TaDiCodec achieves an extremely low frame rate of 6.25 Hz and a corresponding bitrate of 0.0875 kbps with a single-layer codebook for 24 kHz speech, while maintaining superior performance on critical speech generation evaluation metrics such as Word Error Rate (WER), speaker similarity (SIM), and speech quality (UTMOS). Notably, TaDiCodec employs a single-stage, end-to-end training paradigm, and obviating the need for auxiliary pre-trained models. We also validate the compatibility of TaDiCodec in language model based zero-shot text-to-speech with both autoregressive modeling and masked generative modeling, demonstrating its effectiveness and efficiency for speech language modeling, as well as a significantly small reconstruction-generation gap. We will open source our code and model checkpoints. Audio samples are are available at https:/tadicodec.github.io/. We release code and model checkpoints at https:/github.com/HeCheng0625/Diffusion-Speech-Tokenizer.</p>
+    <div class="story-tags"><span class="tag tag-keyword">TaDiCodec</span><span class="tag tag-keyword">Diffusion Model</span><span class="tag tag-keyword">Speech Tokenizer</span><span class="tag tag-keyword">Speech Language Modeling</span><span class="tag tag-keyword">Low Bitrate</span><span class="tag tag-area">Deep Learning</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Generative AI</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2025-08-26" data-counter-title="NO-FOMO issue 2025-08-26" defer></script>
 </body>
 </html>

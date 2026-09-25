@@ -1,336 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2026-02-21</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2026-02-21</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="../" class="">中文</a>
-                <a href="." class="active">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2026-02-21</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../../home/en/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 Back to Homepage</a>
-            <a href="../../../daily/en/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 Latest Daily</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 About Us</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Claws are now a new layer on top of LLM agents</h2>
-                <span class="published-time">Published: 2026-02-21 00:56:29</span>
-                
-                <p class="summary">The introduction of "Claws" signifies a notable advancement in the architecture of Large Language Model (LLM) agents, positioning itself as a new foundational layer. This concept, brought to attention by figures such as Karpathy, points towards an evolving paradigm in the design and operation of AI systems built upon LLMs. While specific technical specifications of "Claws" are not extensively detailed in the initial announcement, its designation as a "new layer" strongly implies an intent to augment, control, or optimize the performance and interaction of current LLM agents. This development suggests a focus on addressing emerging challenges in agent deployment, such as enhancing their robustness, refining their decision-making processes, or streamlining their integration into complex computational environments. Potentially, Claws could offer a structured approach to managing agent states, facilitating more intricate reasoning, or providing a refined interface for human-agent collaboration. This innovation underscores the continuous effort within the AI community to enhance the capabilities and reliability of LLM-driven autonomous agents, paving the way for more sophisticated and versatile applications.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>LLM Agents</span><span>AI Architecture</span><span>Agentic AI</span><span>AI Frameworks</span><span>Large Language Models</span><span>AI Development</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://twitter.com/karpathy/status/2024987174077432126" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Cord: Coordinating Trees of AI Agents</h2>
-                <span class="published-time">Published: 2026-02-21 01:27:35</span>
-                
-                <p class="summary">Cord is introduced as a novel framework designed for orchestrating and coordinating multiple AI agents structured in a tree-like hierarchy. This approach aims to enhance the capabilities of complex AI systems by enabling specialized agents to collaborate, delegate tasks, and synthesize information effectively. The 'tree' structure implies a modular and scalable architecture, where higher-level agents can manage and direct the activities of lower-level, more specialized agents, facilitating a distributed problem-solving paradigm. This hierarchical coordination is critical for tackling intricate real-world challenges that demand a division of labor and sophisticated interaction among diverse AI components. The core idea behind Cord is to overcome limitations of monolithic AI models by promoting robust communication protocols and decision-making processes across a network of intelligent entities. This system could lead to more adaptable, resilient, and efficient AI applications across various domains, from autonomous systems to complex data analysis. The framework likely emphasizes dynamic task assignment, conflict resolution mechanisms, and performance optimization within the multi-agent ecosystem.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Agents</span><span>Multi-agent Systems</span><span>Agent Orchestration</span><span>Hierarchical AI</span><span>Distributed AI</span><span>AI Coordination</span><span>System Architecture</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>AI Agent</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://www.june.kim/cord" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>How an inference provider can prove they're not serving a quantized model</h2>
-                <span class="published-time">Published: 2026-02-21 06:53:57</span>
-                
-                <p class="summary">The article explores the critical challenge of trust and transparency in AI inference services, specifically addressing how a provider can verifiably demonstrate that they are not deploying a quantized model. Quantization, while enhancing computational efficiency and reducing memory footprint, can introduce accuracy degradations that are unacceptable for certain applications. The core problem lies in the difficulty for consumers to independently verify the fidelity and exact version of the model being served. The discussion likely delves into potential solutions such as cryptographic attestations, zero-knowledge proofs, or trusted execution environments (TEEs). These methods aim to establish a verifiable chain of custody and execution integrity for AI models, allowing clients to confirm that the deployed model matches their expectations regarding precision and performance, thereby fostering greater confidence in AI-as-a-service offerings and ensuring model quality in sensitive or high-stakes deployments.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI inference</span><span>model quantization</span><span>verifiable AI</span><span>cryptographic proof</span><span>model integrity</span><span>trust</span><span>AI deployment</span><span>zero-knowledge proofs</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Machine Learning</span><span>Artificial Intelligence</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://tinfoil.sh/blog/2026-02-03-proving-model-identity" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>AI uBlock Blacklist</h2>
-                <span class="published-time">Published: 2026-02-21 08:10:49</span>
-                
-                <p class="summary">The "AI uBlock Blacklist" project, hosted on GitHub, represents a pioneering effort to integrate artificial intelligence into the realm of content filtering and ad blocking. This initiative aims to significantly enhance the capabilities of popular browser extensions like uBlock Origin by utilizing AI algorithms to generate and maintain a more dynamic and adaptive blacklist. The core concept revolves around moving beyond static, manually updated lists to an intelligent system capable of identifying and blocking new and evolving patterns of advertisements, tracking scripts, and various forms of unwanted or potentially malicious online content. This approach is particularly relevant in an era where AI-generated content and sophisticated ad delivery mechanisms are becoming increasingly prevalent. By automating and refining the detection process, the AI uBlock Blacklist promises to offer internet users a more robust and proactive defense against invasive digital elements, thereby improving overall digital privacy and optimizing the online browsing experience.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Artificial Intelligence</span><span>Ad Blocking</span><span>Content Filtering</span><span>uBlock Origin</span><span>Blacklist</span><span>Machine Learning</span><span>Digital Privacy</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://github.com/alvi-se/ai-ublock-blacklist" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Personal Statement of a CIA Analyst</h2>
-                <span class="published-time">Published: 2026-02-21 17:49:02</span>
-                
-                <p class="summary">The 'Personal Statement of a CIA Analyst' details an individual's firsthand account of their experiences and perspectives within the Central Intelligence Agency. Typically, such statements offer insights into the rigorous demands of intelligence operations, methodologies for information assessment, and the psychological pressures encountered by analysts. It is highly probable that the statement addresses the controversial role and perceived efficacy of polygraph examinations, a common practice in intelligence agencies for vetting personnel and verifying information. While not a direct technical treatise, the narrative implicitly highlights critical challenges in human intelligence, truth verification, and deception detection
-
-—areas that demand sophisticated analytical approaches. These topics resonate with modern efforts in data science and artificial intelligence to develop more reliable systems for information processing, behavioral pattern recognition, and decision support in national security contexts, underscoring the enduring complexity of discerning truth from diverse data sources.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Intelligence analysis</span><span>Truth verification</span><span>Deception detection</span><span>Polygraph technology</span><span>Behavioral analytics</span><span>Human factors</span><span>National security</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Natural Language Processing</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://antipolygraph.org/statements/statement-038.shtml" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>She Graduated with Honors but She Can't Read</h2>
-                <span class="published-time">Published: 2026-02-21 19:09:12</span>
-                
-                <p class="summary">The content, titled "She Graduated with Honors but She Can't Read," presents a provocative scenario that underscores a profound disconnect within educational systems: the achievement of formal academic honors despite a fundamental lack of literacy. While the immediate text is concise, such a paradox implicitly raises critical questions about the effectiveness of current assessment methodologies and the criteria for academic success. From a technological perspective, this situation prompts consideration of how advanced AI and machine learning applications could intervene. Specifically, this could involve the development of sophisticated diagnostic tools capable of identifying specific learning disabilities or skill gaps at earlier stages than traditional methods. Furthermore, it highlights the potential for AI-driven personalized learning platforms to offer targeted interventions, adaptive curricula, and continuous performance monitoring to ensure foundational competencies like reading are truly mastered. The narrative implicitly advocates for a reevaluation of educational paradigms, suggesting that intelligent systems might offer robust solutions for more accurate skill assessment and equitable learning support, thereby preventing similar discrepancies between formal recognition and actual capability.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI in Education</span><span>Personalized Learning</span><span>Literacy Support</span><span>Educational Assessment</span><span>Natural Language Processing</span><span>Adaptive Learning Systems</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Natural Language Processing</span><span>Machine Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://garryslist.org/posts/she-graduated-with-honors-but-she-can-t-read-d2def6ed" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/en/" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/en/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-02-21</strong><span>ENGLISH EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2026-02-21" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-02-21 00:56:29</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/karpathy/status/2024987174077432126" target="_blank" rel="noopener noreferrer">Claws are now a new layer on top of LLM agents</a></h3>
+    <p class="story-summary">The introduction of &quot;Claws&quot; signifies a notable advancement in the architecture of Large Language Model (LLM) agents, positioning itself as a new foundational layer. This concept, brought to attention by figures such as Karpathy, points towards an evolving paradigm in the design and operation of AI systems built upon LLMs. While specific technical specifications of &quot;Claws&quot; are not extensively detailed in the initial announcement, its designation as a &quot;new layer&quot; strongly implies an intent to augment, control, or optimize the performance and interaction of current LLM agents. This development suggests a focus on addressing emerging challenges in agent deployment, such as enhancing their robustness, refining their decision-making processes, or streamlining their integration into complex computational environments. Potentially, Claws could offer a structured approach to managing agent states, facilitating more intricate reasoning, or providing a refined interface for human-agent collaboration. This innovation underscores the continuous effort within the AI community to enhance the capabilities and reliability of LLM-driven autonomous agents, paving the way for more sophisticated and versatile applications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">LLM Agents</span><span class="tag tag-keyword">AI Architecture</span><span class="tag tag-keyword">Agentic AI</span><span class="tag tag-keyword">AI Frameworks</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-02-21 01:27:35</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.june.kim/cord" target="_blank" rel="noopener noreferrer">Cord: Coordinating Trees of AI Agents</a></h3>
+    <p class="story-summary">Cord is introduced as a novel framework designed for orchestrating and coordinating multiple AI agents structured in a tree-like hierarchy. This approach aims to enhance the capabilities of complex AI systems by enabling specialized agents to collaborate, delegate tasks, and synthesize information effectively. The &#x27;tree&#x27; structure implies a modular and scalable architecture, where higher-level agents can manage and direct the activities of lower-level, more specialized agents, facilitating a distributed problem-solving paradigm. This hierarchical coordination is critical for tackling intricate real-world challenges that demand a division of labor and sophisticated interaction among diverse AI components. The core idea behind Cord is to overcome limitations of monolithic AI models by promoting robust communication protocols and decision-making processes across a network of intelligent entities. This system could lead to more adaptable, resilient, and efficient AI applications across various domains, from autonomous systems to complex data analysis. The framework likely emphasizes dynamic task assignment, conflict resolution mechanisms, and performance optimization within the multi-agent ecosystem.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Agents</span><span class="tag tag-keyword">Multi-agent Systems</span><span class="tag tag-keyword">Agent Orchestration</span><span class="tag tag-keyword">Hierarchical AI</span><span class="tag tag-keyword">Distributed AI</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-02-21 06:53:57</time></div>
+  <div class="story-body">
+    <h3><a href="https://tinfoil.sh/blog/2026-02-03-proving-model-identity" target="_blank" rel="noopener noreferrer">How an inference provider can prove they&#x27;re not serving a quantized model</a></h3>
+    <p class="story-summary">The article explores the critical challenge of trust and transparency in AI inference services, specifically addressing how a provider can verifiably demonstrate that they are not deploying a quantized model. Quantization, while enhancing computational efficiency and reducing memory footprint, can introduce accuracy degradations that are unacceptable for certain applications. The core problem lies in the difficulty for consumers to independently verify the fidelity and exact version of the model being served. The discussion likely delves into potential solutions such as cryptographic attestations, zero-knowledge proofs, or trusted execution environments (TEEs). These methods aim to establish a verifiable chain of custody and execution integrity for AI models, allowing clients to confirm that the deployed model matches their expectations regarding precision and performance, thereby fostering greater confidence in AI-as-a-service offerings and ensuring model quality in sensitive or high-stakes deployments.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI inference</span><span class="tag tag-keyword">model quantization</span><span class="tag tag-keyword">verifiable AI</span><span class="tag tag-keyword">cryptographic proof</span><span class="tag tag-keyword">model integrity</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-02-21 08:10:49</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/alvi-se/ai-ublock-blacklist" target="_blank" rel="noopener noreferrer">AI uBlock Blacklist</a></h3>
+    <p class="story-summary">The &quot;AI uBlock Blacklist&quot; project, hosted on GitHub, represents a pioneering effort to integrate artificial intelligence into the realm of content filtering and ad blocking. This initiative aims to significantly enhance the capabilities of popular browser extensions like uBlock Origin by utilizing AI algorithms to generate and maintain a more dynamic and adaptive blacklist. The core concept revolves around moving beyond static, manually updated lists to an intelligent system capable of identifying and blocking new and evolving patterns of advertisements, tracking scripts, and various forms of unwanted or potentially malicious online content. This approach is particularly relevant in an era where AI-generated content and sophisticated ad delivery mechanisms are becoming increasingly prevalent. By automating and refining the detection process, the AI uBlock Blacklist promises to offer internet users a more robust and proactive defense against invasive digital elements, thereby improving overall digital privacy and optimizing the online browsing experience.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Ad Blocking</span><span class="tag tag-keyword">Content Filtering</span><span class="tag tag-keyword">uBlock Origin</span><span class="tag tag-keyword">Blacklist</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-02-21 17:49:02</time></div>
+  <div class="story-body">
+    <h3><a href="https://antipolygraph.org/statements/statement-038.shtml" target="_blank" rel="noopener noreferrer">Personal Statement of a CIA Analyst</a></h3>
+    <p class="story-summary">The &#x27;Personal Statement of a CIA Analyst&#x27; details an individual&#x27;s firsthand account of their experiences and perspectives within the Central Intelligence Agency. Typically, such statements offer insights into the rigorous demands of intelligence operations, methodologies for information assessment, and the psychological pressures encountered by analysts. It is highly probable that the statement addresses the controversial role and perceived efficacy of polygraph examinations, a common practice in intelligence agencies for vetting personnel and verifying information. While not a direct technical treatise, the narrative implicitly highlights critical challenges in human intelligence, truth verification, and deception detection —areas that demand sophisticated analytical approaches. These topics resonate with modern efforts in data science and artificial intelligence to develop more reliable systems for information processing, behavioral pattern recognition, and decision support in national security contexts, underscoring the enduring complexity of discerning truth from diverse data sources.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Intelligence analysis</span><span class="tag tag-keyword">Truth verification</span><span class="tag tag-keyword">Deception detection</span><span class="tag tag-keyword">Polygraph technology</span><span class="tag tag-keyword">Behavioral analytics</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-02-21 19:09:12</time></div>
+  <div class="story-body">
+    <h3><a href="https://garryslist.org/posts/she-graduated-with-honors-but-she-can-t-read-d2def6ed" target="_blank" rel="noopener noreferrer">She Graduated with Honors but She Can&#x27;t Read</a></h3>
+    <p class="story-summary">The content, titled &quot;She Graduated with Honors but She Can&#x27;t Read,&quot; presents a provocative scenario that underscores a profound disconnect within educational systems: the achievement of formal academic honors despite a fundamental lack of literacy. While the immediate text is concise, such a paradox implicitly raises critical questions about the effectiveness of current assessment methodologies and the criteria for academic success. From a technological perspective, this situation prompts consideration of how advanced AI and machine learning applications could intervene. Specifically, this could involve the development of sophisticated diagnostic tools capable of identifying specific learning disabilities or skill gaps at earlier stages than traditional methods. Furthermore, it highlights the potential for AI-driven personalized learning platforms to offer targeted interventions, adaptive curricula, and continuous performance monitoring to ensure foundational competencies like reading are truly mastered. The narrative implicitly advocates for a reevaluation of educational paradigms, suggesting that intelligent systems might offer robust solutions for more accurate skill assessment and equitable learning support, thereby preventing similar discrepancies between formal recognition and actual capability.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI in Education</span><span class="tag tag-keyword">Personalized Learning</span><span class="tag tag-keyword">Literacy Support</span><span class="tag tag-keyword">Educational Assessment</span><span class="tag tag-keyword">Natural Language Processing</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">Machine Learning</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2026-02-21" data-counter-title="NO-FOMO issue 2026-02-21" defer></script>
 </body>
 </html>

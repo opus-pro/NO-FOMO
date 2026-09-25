@@ -1,334 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Daily Report - 2026-03-01</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --card-background-color: #ffffff;
-            --text-color: #212529;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.075);
-            --tag-keyword-bg: #e7f3ff;
-            --tag-keyword-text: #0056b3;
-            --tag-area-bg: #e6f7f0;
-            --tag-area-text: #198754;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px 30px;
-            background: var(--card-background-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .report-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .report-header h1 {
-            font-size: 2.2em;
-            color: #333;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .report-header .theme-info {
-            font-size: 1em;
-            color: var(--secondary-color);
-        }
-
-        .source-group {
-            margin-bottom: 40px;
-        }
-
-        .source-group-title {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-        }
-
-        .item-card {
-            background-color: var(--card-background-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .item-card h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 8px;
-        }
-
-        .item-card .published-time {
-            font-size: 0.85em;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .item-card .summary {
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .item-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 15px auto;
-            display: block;
-            border: 1px solid var(--border-color);
-            background-color: #fdfdfd;
-        }
-
-        .item-card .meta-tags {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .item-card .keywords,
-        .item-card .area {
-            font-size: 0.85em;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .item-card .keywords .label,
-        .item-card .area .label {
-            font-weight: 600;
-            color: var(--text-color);
-            margin-right: 8px;
-        }
-
-        .item-card .keywords span,
-        .item-card .area span {
-            padding: 5px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .item-card .keywords span {
-            background-color: var(--tag-keyword-bg);
-            color: var(--tag-keyword-text);
-        }
-
-        .item-card .area span {
-            background-color: var(--tag-area-bg);
-            color: var(--tag-area-text);
-        }
-
-        .item-card .read-more a {
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .item-card .read-more a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        .report-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-            color: var(--secondary-color);
-        }
-    
-        .language-switch {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            gap: 10px;
-        }
-        .language-switch a {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .language-switch a:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
-        .language-switch a.active {
-            background: var(--secondary-color);
-        }
-    </style>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-008T4WC27P"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-008T4WC27P');
-    </script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2026-03-01</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="report-header">
-            <div class="language-switch">
-                <a href="../" class="">中文</a>
-                <a href="." class="active">English</a>
-            </div>
-
-            <h1>AI Daily Report</h1>
-            <p class="date">2026-03-01</p>
-            <p class="theme-info">About us: <a href="https://opusair.github.io/" target="_blank" rel="noopener noreferrer">https://opusair.github.io/</a></p>
-        </header>
-
-        <nav style="text-align: center; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-            <a href="../../../home/en/" style="margin: 0 15px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">🏠 Back to Homepage</a>
-            <a href="../../../daily/en/" style="margin: 0 15px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">📅 Latest Daily</a>
-            <a href="https://opusair.github.io/" style="margin: 0 15px; padding: 10px 20px; background: #ff9800; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">👤 About Us</a>
-        </nav>
-
-
-        <section class="source-group">
-            <h2 class="source-group-title">Hacker News</h2>
-
-            <article class="item-card">
-                <h2>Microgpt</h2>
-                <span class="published-time">Published: 2026-03-01 01:39:26</span>
-                
-                <p class="summary">This entry, titled 'Microgpt' and associated with Andrej Karpathy, refers to a conceptual or hypothetical project centered on creating a highly efficient and compact implementation of a Generative Pre-trained Transformer (GPT) model. The initiative behind 'Microgpt' aims to distill the core architectural principles and functionalities of larger, more resource-intensive language models into a significantly smaller footprint. This reduction in scale makes such a model particularly suitable for educational demonstrations, deployment on edge devices, or for researchers to explore fundamental scaling laws with substantially reduced computational resources. A project like 'Microgpt' would likely involve advanced techniques in model optimization, exploring novel quantization methods, or simplifying the training and inference processes to achieve robust generative capabilities at a fraction of the typical cost. The primary objective is to democratize access to understanding and experimenting with large language models, enabling a broader range of developers and students to engage with AI without needing extensive computational infrastructure. Furthermore, such developments could accelerate the integration of sophisticated AI capabilities into resource-constrained environments, fostering innovation in areas previously inaccessible to full-scale LLMs.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>MicroGPT</span><span>Large Language Model</span><span>Model Optimization</span><span>Generative AI</span><span>Edge AI</span><span>Transformer Architecture</span><span>Efficiency</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Generative AI</span><span>Deep Learning</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="http://karpathy.github.io/2026/02/12/microgpt/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Switch to Claude without starting over</h2>
-                <span class="published-time">Published: 2026-03-01 07:36:52</span>
-                
-                <p class="summary">Anthropic's Claude AI has introduced a new feature designed to streamline user migration by allowing users to switch to Claude without losing their existing conversational context or preferences. Indicated by the URL claude.com/import-memory, this functionality addresses a common pain point for users of AI assistants: the need to restart interactions from scratch when adopting a new platform or beginning a new session. By enabling the transfer of prior data, user settings, and interaction history, Claude aims to provide a more continuous and personalized user experience. This development underscores a growing industry focus on user retention and convenience, facilitating smoother transitions for individuals and organizations looking to leverage advanced large language models without the overhead of re-establishing their working environment or re-training the AI on their specific needs and past interactions. This feature is crucial for enhancing user adoption and reducing friction in AI platform switching.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI migration</span><span>Large Language Model</span><span>User experience</span><span>Data import</span><span>Context transfer</span><span>AI memory management</span><span>Seamless transition</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Large Language Model</span><span>Artificial Intelligence</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://claude.com/import-memory" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>I built a demo of what AI chat will look like when it's "free" and ad-supported</h2>
-                <span class="published-time">Published: 2026-03-01 11:49:01</span>
-                
-                <p class="summary">The provided content introduces a demonstration of an ad-supported model for AI chat, exploring an alternative monetization strategy to the prevalent subscription-based services. This project highlights a potential future for AI interaction where access to advanced conversational AI is offered 'free' to users, subsidized by advertising revenue. The demo aims to showcase the user experience implications of such a model, which could include integrated advertisements within chat interfaces, sponsored responses, or pauses for ad content. This approach could significantly broaden AI accessibility, making powerful AI tools available to a wider audience currently constrained by paywalls. However, it also raises critical questions regarding user privacy, data monetization, and the potential impact on the quality and objectivity of AI responses. The creator's initiative serves as an early exploration into sustainable business models for AI, balancing the cost of advanced computational resources with the desire for widespread public utility, while navigating the complexities of integrating commercial interests into personal AI interactions.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>AI Chatbot</span><span>Ad-Supported AI</span><span>Monetization</span><span>Business Model</span><span>User Experience</span><span>Artificial Intelligence</span><span>Web Development</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Natural Language Processing</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://99helpers.com/tools/ad-supported-chat" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>Why XML Tags Are So Fundamental to Claude</h2>
-                <span class="published-time">Published: 2026-03-01 14:52:22</span>
-                
-                <p class="summary">The article explores the critical role of XML tags within the operational framework and interaction methodologies of Claude, a prominent AI model. It highlights that XML tags are considered fundamental, rather than merely supplementary, for enabling Claude to process, interpret, and generate coherent responses effectively. The integration of these structured markup elements is instrumental in facilitating advanced prompt engineering techniques, allowing users and developers to precisely delineate distinct input segments, embed explicit instructions, and meticulously manage conversational context. This structured approach is vital for mitigating ambiguity, ensuring strict adherence to task specifications, and bolstering the model's overall dependability in intricate applications. By providing a clear segmentation of various information types within a prompt, such as system commands, user inquiries, and prior dialogue turns, XML tags significantly guide Claude’s reasoning processes and guarantee consistent output formats. This strategic design choice emphasizes the leverage of structured data to optimize AI model performance, especially for tasks demanding precise instruction following and robust context preservation, positioning XML as an indispensable element in Claude's operational design.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>XML</span><span>Prompt Engineering</span><span>Large Language Models</span><span>AI Interaction</span><span>Structured Data</span><span>Context Management</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Natural Language Processing</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://glthr.com/XML-fundamental-to-Claude" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>I Built a Scheme Compiler with AI in 4 Days</h2>
-                <span class="published-time">Published: 2026-03-01 16:58:03</span>
-                
-                <p class="summary">The article presents a compelling account of an individual who successfully constructed a functional Scheme compiler in an impressive four-day timeframe, largely attributing this rapid development to the strategic integration of Artificial Intelligence tools. This project serves as a powerful demonstration of AI's burgeoning capacity to accelerate and streamline complex software engineering endeavors, particularly within the specialized domain of programming language implementation. It is posited that the AI's role likely encompassed automating various arduous tasks inherent in compiler design, such as facilitating code generation, assisting with sophisticated lexical and syntactic analysis, or optimizing intermediate representations. This expedited development cycle not only highlights a significant leap in developer productivity but also suggests a paradigm shift in how foundational software components can be engineered. The initiative provides a tangible example of AI acting as a formidable co-pilot, empowering developers to surmount significant technical hurdles and achieve ambitious programming goals with remarkable efficiency, thereby showcasing the practical, real-world utility of AI in modern software development.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Scheme</span><span>Compiler</span><span>Artificial Intelligence</span><span>Programming Language</span><span>Rapid Development</span><span>Code Generation</span><span>Software Engineering</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Large Language Model</span><span>Others</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://matthewphillips.info/programming/posts/i-built-a-scheme-compiler-with-ai/" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-
-            <article class="item-card">
-                <h2>The Panopticon Is Here: How the US Government Built an AI Superweapon</h2>
-                <span class="published-time">Published: 2026-03-01 19:11:02</span>
-                
-                <p class="summary">The article, titled 'The Panopticon Is Here: How the US Government Built an AI Superweapon,' suggests a critical analysis of the United States government's alleged development and deployment of advanced artificial intelligence systems. Drawing a stark comparison to the 'Panopticon' – a metaphorical and literal representation of pervasive surveillance – the piece implies an exploration into how sophisticated AI, potentially utilizing machine learning and extensive data analysis, is being leveraged to establish widespread monitoring capabilities. This development raises significant concerns regarding individual privacy, civil liberties, and the broader societal implications of such powerful technologies in the hands of state entities. The narrative likely delves into the technical underpinnings and strategic policy decisions driving this 'AI superweapon,' prompting a vital discussion on the ethical frameworks and oversight mechanisms necessary to govern the deployment of AI by governmental bodies. It positions the U.S. government at the forefront of AI-driven surveillance, necessitating public discourse on accountability and the balance between national security and personal freedoms.</p>
-                <div class="meta-tags">
-                    <div class="keywords"><span class="label">Keywords：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>Government AI</span><span>Surveillance Technology</span><span>AI Ethics</span><span>Data Analytics</span><span>National Security AI</span></div>
-                    <div class="area"><span class="label">Areas：</span><span>Artificial Intelligence</span><span>Machine Learning</span><span>AI Agent</span></div>
-                </div>
-                <div class="read-more">
-                    <a href="https://matt728243.substack.com/p/the-panopticon-is-here-how-the-us" target="_blank" rel="noopener noreferrer">Read more...</a>
-                </div>
-            </article>
-        </section>
-        <footer class="report-footer">
-            Generated by AI Assistant
-        </footer>
-    </div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/en/" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/en/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-03-01</strong><span>ENGLISH EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2026-03-01" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time>2026-03-01 01:39:26</time></div>
+  <div class="story-body">
+    <h3><a href="http://karpathy.github.io/2026/02/12/microgpt/" target="_blank" rel="noopener noreferrer">Microgpt</a></h3>
+    <p class="story-summary">This entry, titled &#x27;Microgpt&#x27; and associated with Andrej Karpathy, refers to a conceptual or hypothetical project centered on creating a highly efficient and compact implementation of a Generative Pre-trained Transformer (GPT) model. The initiative behind &#x27;Microgpt&#x27; aims to distill the core architectural principles and functionalities of larger, more resource-intensive language models into a significantly smaller footprint. This reduction in scale makes such a model particularly suitable for educational demonstrations, deployment on edge devices, or for researchers to explore fundamental scaling laws with substantially reduced computational resources. A project like &#x27;Microgpt&#x27; would likely involve advanced techniques in model optimization, exploring novel quantization methods, or simplifying the training and inference processes to achieve robust generative capabilities at a fraction of the typical cost. The primary objective is to democratize access to understanding and experimenting with large language models, enabling a broader range of developers and students to engage with AI without needing extensive computational infrastructure. Furthermore, such developments could accelerate the integration of sophisticated AI capabilities into resource-constrained environments, fostering innovation in areas previously inaccessible to full-scale LLMs.</p>
+    <div class="story-tags"><span class="tag tag-keyword">MicroGPT</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">Model Optimization</span><span class="tag tag-keyword">Generative AI</span><span class="tag tag-keyword">Edge AI</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Generative AI</span><span class="tag tag-area">Deep Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time>2026-03-01 07:36:52</time></div>
+  <div class="story-body">
+    <h3><a href="https://claude.com/import-memory" target="_blank" rel="noopener noreferrer">Switch to Claude without starting over</a></h3>
+    <p class="story-summary">Anthropic&#x27;s Claude AI has introduced a new feature designed to streamline user migration by allowing users to switch to Claude without losing their existing conversational context or preferences. Indicated by the URL claude.com/import-memory, this functionality addresses a common pain point for users of AI assistants: the need to restart interactions from scratch when adopting a new platform or beginning a new session. By enabling the transfer of prior data, user settings, and interaction history, Claude aims to provide a more continuous and personalized user experience. This development underscores a growing industry focus on user retention and convenience, facilitating smoother transitions for individuals and organizations looking to leverage advanced large language models without the overhead of re-establishing their working environment or re-training the AI on their specific needs and past interactions. This feature is crucial for enhancing user adoption and reducing friction in AI platform switching.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI migration</span><span class="tag tag-keyword">Large Language Model</span><span class="tag tag-keyword">User experience</span><span class="tag tag-keyword">Data import</span><span class="tag tag-keyword">Context transfer</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time>2026-03-01 11:49:01</time></div>
+  <div class="story-body">
+    <h3><a href="https://99helpers.com/tools/ad-supported-chat" target="_blank" rel="noopener noreferrer">I built a demo of what AI chat will look like when it&#x27;s &quot;free&quot; and ad-supported</a></h3>
+    <p class="story-summary">The provided content introduces a demonstration of an ad-supported model for AI chat, exploring an alternative monetization strategy to the prevalent subscription-based services. This project highlights a potential future for AI interaction where access to advanced conversational AI is offered &#x27;free&#x27; to users, subsidized by advertising revenue. The demo aims to showcase the user experience implications of such a model, which could include integrated advertisements within chat interfaces, sponsored responses, or pauses for ad content. This approach could significantly broaden AI accessibility, making powerful AI tools available to a wider audience currently constrained by paywalls. However, it also raises critical questions regarding user privacy, data monetization, and the potential impact on the quality and objectivity of AI responses. The creator&#x27;s initiative serves as an early exploration into sustainable business models for AI, balancing the cost of advanced computational resources with the desire for widespread public utility, while navigating the complexities of integrating commercial interests into personal AI interactions.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Chatbot</span><span class="tag tag-keyword">Ad-Supported AI</span><span class="tag tag-keyword">Monetization</span><span class="tag tag-keyword">Business Model</span><span class="tag tag-keyword">User Experience</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Natural Language Processing</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time>2026-03-01 14:52:22</time></div>
+  <div class="story-body">
+    <h3><a href="https://glthr.com/XML-fundamental-to-Claude" target="_blank" rel="noopener noreferrer">Why XML Tags Are So Fundamental to Claude</a></h3>
+    <p class="story-summary">The article explores the critical role of XML tags within the operational framework and interaction methodologies of Claude, a prominent AI model. It highlights that XML tags are considered fundamental, rather than merely supplementary, for enabling Claude to process, interpret, and generate coherent responses effectively. The integration of these structured markup elements is instrumental in facilitating advanced prompt engineering techniques, allowing users and developers to precisely delineate distinct input segments, embed explicit instructions, and meticulously manage conversational context. This structured approach is vital for mitigating ambiguity, ensuring strict adherence to task specifications, and bolstering the model&#x27;s overall dependability in intricate applications. By providing a clear segmentation of various information types within a prompt, such as system commands, user inquiries, and prior dialogue turns, XML tags significantly guide Claude’s reasoning processes and guarantee consistent output formats. This strategic design choice emphasizes the leverage of structured data to optimize AI model performance, especially for tasks demanding precise instruction following and robust context preservation, positioning XML as an indispensable element in Claude&#x27;s operational design.</p>
+    <div class="story-tags"><span class="tag tag-keyword">XML</span><span class="tag tag-keyword">Prompt Engineering</span><span class="tag tag-keyword">Large Language Models</span><span class="tag tag-keyword">AI Interaction</span><span class="tag tag-keyword">Structured Data</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Natural Language Processing</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time>2026-03-01 16:58:03</time></div>
+  <div class="story-body">
+    <h3><a href="https://matthewphillips.info/programming/posts/i-built-a-scheme-compiler-with-ai/" target="_blank" rel="noopener noreferrer">I Built a Scheme Compiler with AI in 4 Days</a></h3>
+    <p class="story-summary">The article presents a compelling account of an individual who successfully constructed a functional Scheme compiler in an impressive four-day timeframe, largely attributing this rapid development to the strategic integration of Artificial Intelligence tools. This project serves as a powerful demonstration of AI&#x27;s burgeoning capacity to accelerate and streamline complex software engineering endeavors, particularly within the specialized domain of programming language implementation. It is posited that the AI&#x27;s role likely encompassed automating various arduous tasks inherent in compiler design, such as facilitating code generation, assisting with sophisticated lexical and syntactic analysis, or optimizing intermediate representations. This expedited development cycle not only highlights a significant leap in developer productivity but also suggests a paradigm shift in how foundational software components can be engineered. The initiative provides a tangible example of AI acting as a formidable co-pilot, empowering developers to surmount significant technical hurdles and achieve ambitious programming goals with remarkable efficiency, thereby showcasing the practical, real-world utility of AI in modern software development.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Scheme</span><span class="tag tag-keyword">Compiler</span><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Programming Language</span><span class="tag tag-keyword">Rapid Development</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Large Language Model</span><span class="tag tag-area">Others</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time>2026-03-01 19:11:02</time></div>
+  <div class="story-body">
+    <h3><a href="https://matt728243.substack.com/p/the-panopticon-is-here-how-the-us" target="_blank" rel="noopener noreferrer">The Panopticon Is Here: How the US Government Built an AI Superweapon</a></h3>
+    <p class="story-summary">The article, titled &#x27;The Panopticon Is Here: How the US Government Built an AI Superweapon,&#x27; suggests a critical analysis of the United States government&#x27;s alleged development and deployment of advanced artificial intelligence systems. Drawing a stark comparison to the &#x27;Panopticon&#x27; – a metaphorical and literal representation of pervasive surveillance – the piece implies an exploration into how sophisticated AI, potentially utilizing machine learning and extensive data analysis, is being leveraged to establish widespread monitoring capabilities. This development raises significant concerns regarding individual privacy, civil liberties, and the broader societal implications of such powerful technologies in the hands of state entities. The narrative likely delves into the technical underpinnings and strategic policy decisions driving this &#x27;AI superweapon,&#x27; prompting a vital discussion on the ethical frameworks and oversight mechanisms necessary to govern the deployment of AI by governmental bodies. It positions the U.S. government at the forefront of AI-driven surveillance, necessitating public discourse on accountability and the balance between national security and personal freedoms.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Artificial Intelligence</span><span class="tag tag-keyword">Machine Learning</span><span class="tag tag-keyword">Government AI</span><span class="tag tag-keyword">Surveillance Technology</span><span class="tag tag-keyword">AI Ethics</span><span class="tag tag-area">Artificial Intelligence</span><span class="tag tag-area">Machine Learning</span><span class="tag tag-area">AI Agent</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2026-03-01" data-counter-title="NO-FOMO issue 2026-03-01" defer></script>
 </body>
 </html>
