@@ -17,79 +17,307 @@
     @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
     @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
     @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
-  </style>
+  
+/* OpusClip mark ahead of the NO/FOMO wordmark. */
+.brand{display:inline-flex;align-items:center;gap:.28em}
+.brand-mark{flex:none;width:.78em;height:.78em}
+
+/* Medium-style reading layout: one narrow column, compact type, thumbnails on the right. */
+.shell{width:min(728px,calc(100% - 32px))}
+.masthead{padding:14px 0 12px}
+.brand{font-size:1.9rem}
+.nav{font-size:.72rem}
+.issue{grid-template-columns:minmax(0,1fr) auto;gap:20px;padding:28px 0 20px;border-bottom:1px solid var(--ink)}
+.eyebrow{margin:0 0 8px;font-size:.7rem}
+.issue h1{font-size:clamp(1.8rem,4.6vw,2.5rem);line-height:1.08;letter-spacing:-.03em}
+.issue-meta{font-size:.7rem}
+.issue-meta>strong{font-size:.95rem}
+.readership{margin-top:10px;padding-top:8px}
+.readership dd{font-size:1rem}
+.content{padding:0 0 56px}
+.source-section{margin-top:36px}
+.source-heading{padding:0 0 8px}
+.story{display:block;padding:20px 0}
+.story-kicker{display:flex;gap:10px;align-items:baseline;margin:0 0 6px;font-size:.68rem}
+.story-kicker span{display:inline;margin:0;font-size:.72rem}
+.story-body{display:grid;grid-template-columns:minmax(0,1fr) 168px;grid-template-areas:"title thumb" "summary thumb" "tags thumb";column-gap:24px;align-items:start}
+.story-body:not(:has(.screenshot-link)){grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "summary" "tags"}
+.story h3{grid-area:title;max-width:none;margin:0 0 6px;font:700 1.22rem/1.3 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.012em}
+.story-summary{grid-area:summary;max-width:none;margin:0 0 10px;color:#242424;font:400 1rem/1.62 Charter,Georgia,serif}
+.screenshot-link{grid-area:thumb;width:168px;height:112px;margin:2px 0 0;overflow:hidden;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:zoom-in}
+.screenshot-link img{width:100%;height:100%;object-fit:cover;object-position:center}
+.story-tags{grid-area:tags;gap:6px}
+.tag{padding:2px 9px;border:0;border-radius:999px;background:#ebe7dc;font-size:.66rem;letter-spacing:.02em;text-transform:none}
+.tag-area{background:#e3e9fb;color:#173c9b}
+/* Enlarged image dialog opened from a thumbnail. */
+.lightbox{max-width:min(960px,calc(100vw - 32px));max-height:calc(100vh - 32px);padding:0;border:0;border-radius:6px;background:var(--surface);box-shadow:0 18px 60px rgba(0,0,0,.35)}
+.lightbox::backdrop{background:rgba(24,24,22,.72)}
+.lightbox img{display:block;max-width:100%;max-height:calc(100vh - 96px);margin:0 auto;object-fit:contain}
+.lightbox-bar{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:10px 14px;font-size:.78rem}
+.lightbox-bar a{color:var(--accent);font-weight:700;text-underline-offset:3px}
+.lightbox-bar button{border:0;background:none;font:inherit;font-weight:700;cursor:pointer}
+@media (max-width:640px){
+.issue{grid-template-columns:minmax(0,1fr)}
+.issue-meta{text-align:left}
+.story-body{grid-template-columns:minmax(0,1fr) 96px;column-gap:14px}
+.screenshot-link{width:96px;height:64px}
+.story h3{font-size:1.08rem}
+.story-summary{font-size:.95rem}
+}
+</style>
 </head>
 <body>
   <div class="reading-progress" aria-hidden="true"><span></span></div>
   <a class="skip" href="#stories">跳到新闻列表</a>
-  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/cn/" aria-label="NO-FOMO 主页">NO<i>/</i>FOMO</a><nav class="nav" aria-label="日报导航"><a href="../../../home/cn/">往期</a><a href="../">English</a></nav></div></header>
-  <main class="shell"><section class="issue"><div><p class="eyebrow">每天一次，过滤 AI 噪音</p><h1>值得打开的<br>AI 日报。</h1></div><div class="issue-meta"><span>发布日期</span><strong>2026-09-25</strong><span>中文版本</span><dl class="readership" aria-label="公开阅读量"><div><dt>本期阅读</dt><dd data-view-count="/issue/2026-09-25" aria-live="polite">—</dd></div><div><dt>累计阅读</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg> AI Blog</h2><span>1 story</span></div>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/cn/" aria-label="OpusClip NO-FOMO 主页"><svg class="brand-mark" aria-hidden="true" viewBox="0 0 14 14" fill="currentColor"><path d="M2.22635 6.97859C2.23788 4.352 4.3707 2.2263 7 2.2263C9.63644 2.2263 11.7737 4.36356 11.7737 7C11.7737 9.63644 9.63644 11.7737 7 11.7737C6.65485 11.7737 6.31825 11.7371 5.99388 11.6675V13.9282C6.32243 13.9755 6.65836 14 7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7V13.9786H2.2263C2.2263 13.9786 2.22635 10.0297 2.22635 7.35C2.22635 7.29608 2.22635 6.97859 2.22635 6.97859Z"/><path d="M2.99694 6.99694V14H5.22324L5.22333 7.44333V6.97859C5.23319 6.00854 6.02376 5.22324 7 5.22324C7.98239 5.22324 8.77676 6.01846 8.77676 6.99694C8.77676 7.97542 7.98239 8.77064 7 8.77064C6.62629 8.77064 6.2798 8.65557 5.99388 8.4591V10.8695C6.31539 10.9527 6.65255 10.9969 7 10.9969C9.20972 10.9969 11.0031 9.20719 11.0031 6.99694C11.0031 4.78669 9.20972 2.99694 7 2.99694C4.79028 2.99694 2.99694 4.78669 2.99694 6.99694Z"/></svg><span>NO<i>/</i>FOMO</span></a><nav class="nav" aria-label="日报导航"><a href="../../../home/cn/">往期</a><a href="../">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">每天一次，过滤 AI 噪音</p><h1>值得打开的<br>AI 日报。</h1></div><div class="issue-meta"><span>发布日期</span><strong>2026-09-25</strong><span>中文版本</span><dl class="readership" aria-label="公开阅读量"><div><dt>本期阅读</dt><dd data-view-count="/issue/2026-09-25" aria-live="polite">—</dd></div><div><dt>累计阅读</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg> AI Blog</h2><span>3 stories</span></div>
 <article class="story">
-  <div class="story-kicker"><span>01</span><time>2026-09-25T19:00:00Z</time></div>
+  <div class="story-kicker"><span>01</span><time datetime="2026-09-25T19:00:00Z">9月25日</time></div>
   <div class="story-body">
-    <h3><a href="https://openai.com/index/proaction" target="_blank" rel="noopener noreferrer">Proaction 披露采用 OpenAI 工具后的车队管理业务收益</a></h3>
-    <p class="story-summary">OpenAI 今日发布客户案例，介绍 Proaction 使用 Codex、GPT-Live-1 和 GPT-6 Astra 加快车队管理软件的开发、运营与销售。标题披露销售增长 60%、节省超过 75 小时。这些数字是客户案例中的主张，并非普遍生产力提升的受控实验结论。案例展示了编程与运营 AI 工具跨业务流程的组合应用，推广其结论前仍需了解具体背景。 (source: https://openai.com/index/proaction)</p>
-    <div class="story-tags"><span class="tag tag-keyword">企业 AI</span><span class="tag tag-keyword">编程智能体</span><span class="tag tag-area">企业 AI</span><span class="tag tag-area">编程智能体</span></div>
+    <h3><a href="https://openai.com/index/proaction" target="_blank" rel="noopener noreferrer">Proaction 报告采用 OpenAI 工具后的销售与时间收益</a></h3>
+    <p class="story-summary">OpenAI 客户案例称 Proaction 借助 Codex 等工具实现销售增长 60%、节省超过 75 小时。采集摘要未披露测量周期或各工具的独立贡献。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">应用</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-09-25T15:58:22Z">9月25日</time></div>
+  <div class="story-body">
+    <h3><a href="https://newsletter.semianalysis.com/p/the-chinese-ai-infrastructure-boom" target="_blank" rel="noopener noreferrer">SemiAnalysis 描绘中国 AI 数据中心扩张</a></h3>
+<a href="https://newsletter.semianalysis.com/p/the-chinese-ai-infrastructure-boom" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/ai-blog/ai-blog-b5150421be1bb57a5b17.jpg" alt="SemiAnalysis 描绘中国 AI 数据中心扩张" loading="lazy"></a>
+    <p class="story-summary">SemiAnalysis 模型覆盖逾 1,000 处设施与 60 多家运营商，讨论基础设施向 AI 转移及算力租赁集中度。采集摘要未包含底层数据和完整方法。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">应用</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-09-23T12:00:00Z">9月23日</time></div>
+  <div class="story-body">
+    <h3><a href="https://openai.com/index/invideo-builds-with-gpt-6-astra" target="_blank" rel="noopener noreferrer">invideo 报告 GPT-6 Astra 带来的调色与特效收益</a></h3>
+    <p class="story-summary">9 月 23 日案例称 invideo 借助 GPT-6 Astra 改善剪辑规划，色彩校正与调色提升三倍，并在一天内制作 50 个定制特效；摘要未给出评测方法。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">应用</span></div>
   </div>
 </article>
 </section>
-<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>4 stories</span></div>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>1 story</span></div>
 <article class="story">
-  <div class="story-kicker"><span>01</span><time>2026-09-25T22:13:08Z</time></div>
+  <div class="story-kicker"><span>01</span><time datetime="2026-09-25T22:06:03Z">9月25日</time></div>
   <div class="story-body">
-    <h3><a href="https://x.com/Google/status/2103608768609370118" target="_blank" rel="noopener noreferrer">Google 展示两款 Gemini 3.8 语音模型</a></h3>
-    <p class="story-summary">Google 在今日公告中介绍了本周发布的 Gemini 3.8 Flash TTS 与 Gemini 3.8 Flash-Lite TTS，定位分别涉及创意制作和规模化低成本语音。对于开发语音界面或音频生成工作流的团队，这是值得评估的两个选项。采集到的公告未提供价格、延迟测量或质量对比，实际选型仍需验证这些指标。 (source: https://x.com/Google/status/2103608768609370118)</p>
-    <div class="story-tags"><span class="tag tag-keyword">语音生成</span><span class="tag tag-keyword">生成式内容</span><span class="tag tag-area">语音生成</span><span class="tag tag-area">生成式内容</span></div>
-  </div>
-</article>
-<article class="story">
-  <div class="story-kicker"><span>02</span><time>2026-09-25T20:06:55Z</time></div>
-  <div class="story-body">
-    <h3><a href="https://x.com/ClaudeDevs/status/2103577007938228300" target="_blank" rel="noopener noreferrer">Claude 推出插件提交与审核门户</a></h3>
-    <p class="story-summary">Claude 开发者账号宣布推出插件门户，支持提交插件、跟踪审核进度和查看使用情况。公告称插件整合 MCP 与技能，并表示今年 Claude 产品中的 MCP 使用量增长了 110 倍。开发者可据此管理集成的分发与审核流程；增长数据属于厂商披露，不能直接视为独立验证的市场规模。 (source: https://x.com/ClaudeDevs/status/2103577007938228300)</p>
-    <div class="story-tags"><span class="tag tag-keyword">MCP</span><span class="tag tag-keyword">插件</span><span class="tag tag-area">MCP</span><span class="tag tag-area">插件</span></div>
-  </div>
-</article>
-<article class="story">
-  <div class="story-kicker"><span>03</span><time>2026-09-25T19:04:40Z</time></div>
-  <div class="story-body">
-    <h3><a href="https://x.com/ClaudeDevs/status/2103561342057943314" target="_blank" rel="noopener noreferrer">Claude Code 在会话限额处增加收尾额度</a></h3>
-    <p class="story-summary">Claude 开发者账号表示，Claude Code 在任务中途达到五小时使用限额时，会尝试找到合适的停止点。系统从每周额度中抽取少量固定额度，用于尽可能完成收尾，减少编辑途中突然中断的情况。这改善了长任务的连续性，但不保证任务全部完成，收尾操作仍会消耗每周额度。 (source: https://x.com/ClaudeDevs/status/2103561342057943314)</p>
-    <div class="story-tags"><span class="tag tag-keyword">编程智能体</span><span class="tag tag-keyword">可靠性</span><span class="tag tag-area">编程智能体</span><span class="tag tag-area">可靠性</span></div>
-  </div>
-</article>
-<article class="story">
-  <div class="story-kicker"><span>04</span><time>2026-09-25T17:41:35Z</time></div>
-  <div class="story-body">
-    <h3><a href="https://x.com/runwayml/status/2103540433225908447" target="_blank" rel="noopener noreferrer">Runway 通过 MCP 将图像与视频生成接入 Claude</a></h3>
-    <p class="story-summary">Runway 宣布可通过 MCP 集成在 Claude Opus 5.5 中调用图像与视频生成能力，列出的选项包括 Gen-4.5、Seedance 2.5、GPT Image 2 和 Kling。这让创作工具进入助手工作流，也展示了 MCP 连接模型与外部能力的用途。公告并未提供各模型的质量对比、定价或具体访问条件。 (source: https://x.com/runwayml/status/2103540433225908447)</p>
-    <div class="story-tags"><span class="tag tag-keyword">MCP</span><span class="tag tag-keyword">视频生成</span><span class="tag tag-area">MCP</span><span class="tag tag-area">视频生成</span></div>
+    <h3><a href="https://recurse.run" target="_blank" rel="noopener noreferrer">Recurse 展示面向专用智能体的无服务器框架</a></h3>
+<a href="https://recurse.run" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-e942316db09dc4e08338.png" alt="Recurse 展示面向专用智能体的无服务器框架" loading="lazy"></a>
+    <p class="story-summary">Recurse 将编程技能与无服务器运行时结合，让智能体根据明确的输入输出与评估标准迭代提示词和 Python 工具。系统已可运行，但部分示例文档仍未完成。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">应用</span></div>
   </div>
 </article>
 </section>
-<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1" fill="none"/><text x="12" y="16" text-anchor="middle" font-size="12">HF</text></svg> HuggingFace</h2><span>3 stories</span></div>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>9 stories</span></div>
 <article class="story">
-  <div class="story-kicker"><span>01</span><time>2026-09-23T20:00:00Z</time></div>
+  <div class="story-kicker"><span>01</span><time datetime="2026-09-25T22:13:08Z">9月25日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Google/status/2103608768609370118" target="_blank" rel="noopener noreferrer">谷歌介绍 Gemini 3.8 语音模型</a></h3>
+<a href="https://x.com/Google/status/2103608768609370118" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-913abd676755351d5b7c.jpg" alt="谷歌介绍 Gemini 3.8 语音模型" loading="lazy"></a>
+    <p class="story-summary">谷歌回顾本周发布的两款语音模型，面向创意制作与规模化语音生成。采集到的公告未提供价格或独立评测。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">应用</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-09-25T20:06:55Z">9月25日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeDevs/status/2103577007938228300" target="_blank" rel="noopener noreferrer">Claude 推出插件提交与使用情况门户</a></h3>
+<a href="https://x.com/ClaudeDevs/status/2103577007938228300" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-6e9b1accb82bef0c889e.jpg" alt="Claude 推出插件提交与使用情况门户" loading="lazy"></a>
+    <p class="story-summary">Claude 新门户支持提交插件、跟踪审核和查看使用情况。插件打包 MCP 与技能；官方称今年 MCP 使用量增长 110 倍。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">应用</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-09-25T19:04:40Z">9月25日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeDevs/status/2103561342057943314" target="_blank" rel="noopener noreferrer">Claude Code 在用量到限时尝试平稳收尾</a></h3>
+<a href="https://x.com/ClaudeDevs/status/2103561342057943314" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-8dfd734386795d9332ec.jpg" alt="Claude Code 在用量到限时尝试平稳收尾" loading="lazy"></a>
+    <p class="story-summary">Claude Code 触及五小时限额时，将从周额度中获得少量固定预算，尝试完成收尾；不保证完成整个任务。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">应用</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-09-25T18:13:31Z">9月25日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeDevs/status/2103548467729887677" target="_blank" rel="noopener noreferrer">Claude 提供 Opus 5.5 任务成本计算器</a></h3>
+<a href="https://x.com/ClaudeDevs/status/2103548467729887677" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-5af970eaea89d9840170.png" alt="Claude 提供 Opus 5.5 任务成本计算器" loading="lazy"></a>
+    <p class="story-summary">官方称 Opus 5.5 输入输出 token 价格较 Opus 5 低 20%，缓存读取低 60%，并提供任务成本计算器。实际任务节省幅度仍取决于用量。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">应用</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-09-25T17:41:35Z">9月25日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/runwayml/status/2103540433225908447" target="_blank" rel="noopener noreferrer">Runway 通过 MCP 接入 Claude 图像与视频工作流</a></h3>
+<a href="https://x.com/runwayml/status/2103540433225908447" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-4a945e401f15e84e9d34.jpg" alt="Runway 通过 MCP 接入 Claude 图像与视频工作流" loading="lazy"></a>
+    <p class="story-summary">Runway 宣布通过 MCP 在 Claude 内调用多种图像和视频模型，包括 Gen-4.5、Seedance 2.5、GPT Image 2 和 Kling。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">应用</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-09-25T14:01:02Z">9月25日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/runwayml/status/2103484927320723684" target="_blank" rel="noopener noreferrer">Runway 推出可编辑图像图层</a></h3>
+<a href="https://x.com/runwayml/status/2103484927320723684" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-9dfd8475e08008bd856b.jpg" alt="Runway 推出可编辑图像图层" loading="lazy"></a>
+    <p class="story-summary">Runway Layers 可一键拆分图像，支持移除背景、编辑文字与独立修改元素。公告没有量化复杂图像的拆分准确率。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">应用</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-09-24T23:47:13Z">9月24日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/pika_labs/status/2103270057057169799" target="_blank" rel="noopener noreferrer">Pika 将 Grok Bots 接入多模态生成 API</a></h3>
+<a href="https://x.com/pika_labs/status/2103270057057169799" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-4da108a6615150445b80.jpg" alt="Pika 将 Grok Bots 接入多模态生成 API" loading="lazy"></a>
+    <p class="story-summary">Pika 9 月 24 日称 Grok Bots 可通过其 API 调用超过 120 个图像、视频与音频模型；公告未提供逐模型定价或性能比较。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">应用</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>08</span><time datetime="2026-09-24T17:11:05Z">9月24日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeDevs/status/2103170368794185758" target="_blank" rel="noopener noreferrer">Claude 恢复对部分被拦截请求收费</a></h3>
+<a href="https://x.com/ClaudeDevs/status/2103170368794185758" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-f32f3d0ab148bbf79ccd.png" alt="Claude 恢复对部分被拦截请求收费" loading="lazy"></a>
+    <p class="story-summary">Claude 将恢复对部分响应前被拦截的请求收费，涉及生物、蒸馏攻击与前沿模型开发等类别。采集文本未说明完整计费公式。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">应用</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>09</span><time datetime="2026-09-24T17:10:47Z">9月24日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/runwayml/status/2103170291103154460" target="_blank" rel="noopener noreferrer">Runway 新增 Seedance 2.5 草稿模式</a></h3>
+<a href="https://x.com/runwayml/status/2103170291103154460" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-440162494c0b1ef26250.jpg" alt="Runway 新增 Seedance 2.5 草稿模式" loading="lazy"></a>
+    <p class="story-summary">Runway 草稿模式支持更快、消耗更少积分的 Seedance 2.5 探索生成，再将选中的结果提升至完整质量。具体节省幅度未公布。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">应用</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>2 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-09-25T20:14:12Z">9月25日</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/vectorize-io/hindsight" target="_blank" rel="noopener noreferrer">Hindsight 聚焦可学习的智能体记忆</a></h3>
+<a href="https://github.com/vectorize-io/hindsight" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/github/github-57687486696d14936ebf.png" alt="Hindsight 聚焦可学习的智能体记忆" loading="lazy"></a>
+    <p class="story-summary">Hindsight 是描述为“可学习智能体记忆”的 Python 项目，采集时记录 29,789 星，最近提交在报告日。快照不足以证明新版本发布或实际效果。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">应用</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-09-25T18:06:27Z">9月25日</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/obra/superpowers" target="_blank" rel="noopener noreferrer">Superpowers 提供智能体技能开发方法</a></h3>
+<a href="https://github.com/obra/superpowers" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/github/github-4251a228ae407247ee1d.png" alt="Superpowers 提供智能体技能开发方法" loading="lazy"></a>
+    <p class="story-summary">Superpowers 是智能体技能框架与软件开发方法项目，采集记录 291,662 星及报告日提交。此条用于项目发现，不代表独立验证的生产率提升。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">应用</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1" fill="none"/><text x="12" y="16" text-anchor="middle" font-size="12">HF</text></svg> HuggingFace</h2><span>12 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-09-23T20:00:00Z">9月23日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2609.29845" target="_blank" rel="noopener noreferrer">研究发现 Transformer 的线性叠加现象</a></h3>
+<a href="https://huggingface.co/papers/2609.29845" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-e95284fb1e33db8d4a64.png" alt="研究发现 Transformer 的线性叠加现象" loading="lazy"></a>
+    <p class="story-summary">论文研究混合文本流的线性叠加，发现预训练会削弱该现象，轻量微调可恢复；引导解码可从单次前向计算分离两条续写。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">研究</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-09-23T20:00:00Z">9月23日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2609.29964" target="_blank" rel="noopener noreferrer">World Action Agent 在执行前预演机器人动作</a></h3>
+<a href="https://huggingface.co/papers/2609.29964" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-c09fc4bd327a00e1e705.png" alt="World Action Agent 在执行前预演机器人动作" loading="lazy"></a>
+    <p class="story-summary">World Action Agent 结合接触视图、动作预演和执行纠偏，并从视频与人工教学中形成技能。作者报告 LIBERO-Pro 平均成功率为 75.6%。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">研究</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-09-23T20:00:00Z">9月23日</time></div>
   <div class="story-body">
     <h3><a href="https://huggingface.co/papers/2609.29421" target="_blank" rel="noopener noreferrer">Rufus-Air 公开八阶段后训练方案</a></h3>
-    <p class="story-summary">Rufus-Air 为 GLM-4.5-Air-Base 提供可复现的后训练流程，覆盖监督微调、推理与代码强化学习、指令遵循、智能体能力和 RLHF。论文记录数据、奖励、基础设施、阶段顺序及中间结果，强调应依据奖励可靠性，从可验证任务逐步过渡到较软的评判信号。作者报告其优于官方后训练版本，结果仍属于论文披露。该研究早于今日发布，但对开放模型训练具有具体参考价值。 (source: https://huggingface.co/papers/2609.29421)</p>
-    <div class="story-tags"><span class="tag tag-keyword">后训练</span><span class="tag tag-keyword">强化学习</span><span class="tag tag-area">后训练</span><span class="tag tag-area">强化学习</span></div>
+<a href="https://huggingface.co/papers/2609.29421" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-be60667537892ac82d0a.png" alt="Rufus-Air 公开八阶段后训练方案" loading="lazy"></a>
+    <p class="story-summary">Rufus-Air 面向 GLM-4.5-Air-Base 公开八阶段后训练流程，披露数据、奖励、基础设施与阶段结果，强调奖励可靠性和难度筛选。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">研究</span></div>
   </div>
 </article>
 <article class="story">
-  <div class="story-kicker"><span>02</span><time>2026-09-23T20:00:00Z</time></div>
+  <div class="story-kicker"><span>04</span><time datetime="2026-09-23T20:00:00Z">9月23日</time></div>
   <div class="story-body">
-    <h3><a href="https://huggingface.co/papers/2609.29816" target="_blank" rel="noopener noreferrer">AV-GRPO 拆分联合音视频生成的奖励学习</a></h3>
-    <p class="story-summary">AV-GRPO 提出以模态为锚点的扩散强化学习方法，用于改善联合音视频生成。方法拆分耦合学习信号，在特定优化过程中冻结一个模态分支，并根据模态动态调整目标；配套 5DAV 数据集支持五个维度的可控训练。作者报告在 JavisBench 和 VABench 上的质量、对齐与同步指标优于 LTX-2.3。这项较早发布的研究为多模态生成中的奖励归因提供了具体方案。 (source: https://huggingface.co/papers/2609.29816)</p>
-    <div class="story-tags"><span class="tag tag-keyword">视频生成</span><span class="tag tag-keyword">强化学习</span><span class="tag tag-area">视频生成</span><span class="tag tag-area">强化学习</span></div>
+    <h3><a href="https://huggingface.co/papers/2609.29444" target="_blank" rel="noopener noreferrer">IterSynth 将搜索规划与证据综合分离</a></h3>
+<a href="https://huggingface.co/papers/2609.29444" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-bde3d03407d2a31ddbf0.png" alt="IterSynth 将搜索规划与证据综合分离" loading="lazy"></a>
+    <p class="story-summary">IterSynth 通过规划器与综合器分工，用滚动摘要保存搜索状态，并用角色专属强化学习信号训练。作者报告 8B 模型在五项基准上平均得分 50.7。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">研究</span></div>
   </div>
 </article>
 <article class="story">
-  <div class="story-kicker"><span>03</span><time>2026-09-23T20:00:00Z</time></div>
+  <div class="story-kicker"><span>05</span><time datetime="2026-09-23T20:00:00Z">9月23日</time></div>
   <div class="story-body">
-    <h3><a href="https://huggingface.co/papers/2609.30199" target="_blank" rel="noopener noreferrer">ExplorationBench 测试智能体发现陌生规则的能力</a></h3>
-    <p class="story-summary">ExplorationBench 在规则可执行、且与常识冲突的环境中评估探索能力，降低单纯依赖记忆的效果。AlienCode 与 AlienLogic 两个沙盒各含 70 个任务，提供存在缺陷的手册、环境反馈及工具调用接口。作者评估十个 AI 系统后发现，较强系统可以学习陌生规则，但延长探索也可能停滞或倒退。论文早于今日发布，为评估通过交互获取知识的智能体提供了参考设计。 (source: https://huggingface.co/papers/2609.30199)</p>
-    <div class="story-tags"><span class="tag tag-keyword">智能体评估</span><span class="tag tag-keyword">探索</span><span class="tag tag-area">智能体评估</span><span class="tag tag-area">探索</span></div>
+    <h3><a href="https://huggingface.co/papers/2609.30233" target="_blank" rel="noopener noreferrer">编程智能体合成可复用机器人规划程序</a></h3>
+<a href="https://huggingface.co/papers/2609.30233" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-978dfb3130872551fa99.png" alt="编程智能体合成可复用机器人规划程序" loading="lazy"></a>
+    <p class="story-summary">研究让编程智能体利用模拟器合成规划程序，再冻结程序测试未见实例。评测覆盖 28 个模拟环境与 98,000 次运行，结果显示其可作为通用任务与运动规划的强基线。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">研究</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-09-23T20:00:00Z">9月23日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2609.29892" target="_blank" rel="noopener noreferrer">Qwen-Planner-Agent 打通移动智能体开发闭环</a></h3>
+<a href="https://huggingface.co/papers/2609.29892" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-7db632842de4a214c788.png" alt="Qwen-Planner-Agent 打通移动智能体开发闭环" loading="lazy"></a>
+    <p class="story-summary">Qwen-Planner-Agent 联通数据、训练和部署，结合人工把关的数据循环与在线强化学习；CARE 旨在降低推理和工具成本。作者报告 MobilePA-Bench 评测中的领先结果。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">研究</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-09-23T20:00:00Z">9月23日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2609.29429" target="_blank" rel="noopener noreferrer">Jev 用校准决策检测对齐失败</a></h3>
+<a href="https://huggingface.co/papers/2609.29429" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-63bd9a466fc15629d5d7.png" alt="Jev 用校准决策检测对齐失败" loading="lazy"></a>
+    <p class="story-summary">研究在 44 项基准和五个目标模型上评估 Jev 对十类对齐失败的检测。作者报告零样本 AUROC 中位数为 0.886，输入上下文比问题措辞更重要。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">研究</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>08</span><time datetime="2026-09-23T20:00:00Z">9月23日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2609.29816" target="_blank" rel="noopener noreferrer">AV-GRPO 解耦音视频生成的强化学习</a></h3>
+<a href="https://huggingface.co/papers/2609.29816" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-3bfc2fb7eb1bfa433fa0.png" alt="AV-GRPO 解耦音视频生成的强化学习" loading="lazy"></a>
+    <p class="story-summary">AV-GRPO 通过模态锚定、冻结分支优化与自适应目标改善音视频奖励归因，并提出 5DAV 数据集。作者报告质量、语义对齐与同步性改进。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">研究</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>09</span><time datetime="2026-09-23T20:00:00Z">9月23日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2609.30199" target="_blank" rel="noopener noreferrer">ExplorationBench 测试陌生可执行世界中的探索能力</a></h3>
+<a href="https://huggingface.co/papers/2609.30199" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-28586dfb13b8340f31da.png" alt="ExplorationBench 测试陌生可执行世界中的探索能力" loading="lazy"></a>
+    <p class="story-summary">ExplorationBench 通过规则可执行且违背常识的陌生世界测试探索能力。两个沙箱各含 70 个任务；十个系统的评测显示，更多探索不一定带来持续提升。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">研究</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>10</span><time datetime="2026-09-23T20:00:00Z">9月23日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2609.30221" target="_blank" rel="noopener noreferrer">WanPE 将视频提示词转为电影化分镜计划</a></h3>
+<a href="https://huggingface.co/papers/2609.30221" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-26815b61ed983a19d123.png" alt="WanPE 将视频提示词转为电影化分镜计划" loading="lazy"></a>
+    <p class="story-summary">WanPE 是以 105 万段视频训练的 397B 提示词增强模型，结合反向构造与强化学习保持跨镜头语义一致性，作者报告在 Wan3.0 上的人类偏好提升。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">研究</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>11</span><time datetime="2026-09-23T20:00:00Z">9月23日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2609.28923" target="_blank" rel="noopener noreferrer">ViRDM 简化少步因果视频后训练</a></h3>
+<a href="https://huggingface.co/papers/2609.28923" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-218305b6bf421ee74216.png" alt="ViRDM 简化少步因果视频后训练" loading="lazy"></a>
+    <p class="story-summary">ViRDM 使用预计算表示分布进行仅生成器后训练，省去教师与判别式评估网络。作者报告 20 次更新、16 A100 GPU 小时后取得 VBench 84.87 分。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">研究</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>12</span><time datetime="2026-09-22T20:00:00Z">9月22日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2609.28416" target="_blank" rel="noopener noreferrer">Agent-Editing World Model 修正受污染的任务状态</a></h3>
+<a href="https://huggingface.co/papers/2609.28416" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-2d55b885b67f0ca174e9.png" alt="Agent-Editing World Model 修正受污染的任务状态" loading="lazy"></a>
+    <p class="story-summary">该方法通过动作判断与状态修订清除历史中的无依据假设和过时计划。作者报告 EditAct 在六项基准、三个骨干模型上较最强基线平均提升 3.2 至 6.7 分。</p>
+    <div class="story-tags"><span class="tag tag-keyword">人工智能</span><span class="tag tag-area">研究</span></div>
   </div>
 </article>
 </section>

@@ -17,79 +17,307 @@
     @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
     @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
     @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
-  </style>
+  
+/* OpusClip mark ahead of the NO/FOMO wordmark. */
+.brand{display:inline-flex;align-items:center;gap:.28em}
+.brand-mark{flex:none;width:.78em;height:.78em}
+
+/* Medium-style reading layout: one narrow column, compact type, thumbnails on the right. */
+.shell{width:min(728px,calc(100% - 32px))}
+.masthead{padding:14px 0 12px}
+.brand{font-size:1.9rem}
+.nav{font-size:.72rem}
+.issue{grid-template-columns:minmax(0,1fr) auto;gap:20px;padding:28px 0 20px;border-bottom:1px solid var(--ink)}
+.eyebrow{margin:0 0 8px;font-size:.7rem}
+.issue h1{font-size:clamp(1.8rem,4.6vw,2.5rem);line-height:1.08;letter-spacing:-.03em}
+.issue-meta{font-size:.7rem}
+.issue-meta>strong{font-size:.95rem}
+.readership{margin-top:10px;padding-top:8px}
+.readership dd{font-size:1rem}
+.content{padding:0 0 56px}
+.source-section{margin-top:36px}
+.source-heading{padding:0 0 8px}
+.story{display:block;padding:20px 0}
+.story-kicker{display:flex;gap:10px;align-items:baseline;margin:0 0 6px;font-size:.68rem}
+.story-kicker span{display:inline;margin:0;font-size:.72rem}
+.story-body{display:grid;grid-template-columns:minmax(0,1fr) 168px;grid-template-areas:"title thumb" "summary thumb" "tags thumb";column-gap:24px;align-items:start}
+.story-body:not(:has(.screenshot-link)){grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "summary" "tags"}
+.story h3{grid-area:title;max-width:none;margin:0 0 6px;font:700 1.22rem/1.3 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.012em}
+.story-summary{grid-area:summary;max-width:none;margin:0 0 10px;color:#242424;font:400 1rem/1.62 Charter,Georgia,serif}
+.screenshot-link{grid-area:thumb;width:168px;height:112px;margin:2px 0 0;overflow:hidden;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:zoom-in}
+.screenshot-link img{width:100%;height:100%;object-fit:cover;object-position:center}
+.story-tags{grid-area:tags;gap:6px}
+.tag{padding:2px 9px;border:0;border-radius:999px;background:#ebe7dc;font-size:.66rem;letter-spacing:.02em;text-transform:none}
+.tag-area{background:#e3e9fb;color:#173c9b}
+/* Enlarged image dialog opened from a thumbnail. */
+.lightbox{max-width:min(960px,calc(100vw - 32px));max-height:calc(100vh - 32px);padding:0;border:0;border-radius:6px;background:var(--surface);box-shadow:0 18px 60px rgba(0,0,0,.35)}
+.lightbox::backdrop{background:rgba(24,24,22,.72)}
+.lightbox img{display:block;max-width:100%;max-height:calc(100vh - 96px);margin:0 auto;object-fit:contain}
+.lightbox-bar{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:10px 14px;font-size:.78rem}
+.lightbox-bar a{color:var(--accent);font-weight:700;text-underline-offset:3px}
+.lightbox-bar button{border:0;background:none;font:inherit;font-weight:700;cursor:pointer}
+@media (max-width:640px){
+.issue{grid-template-columns:minmax(0,1fr)}
+.issue-meta{text-align:left}
+.story-body{grid-template-columns:minmax(0,1fr) 96px;column-gap:14px}
+.screenshot-link{width:96px;height:64px}
+.story h3{font-size:1.08rem}
+.story-summary{font-size:.95rem}
+}
+</style>
 </head>
 <body>
   <div class="reading-progress" aria-hidden="true"><span></span></div>
   <a class="skip" href="#stories">Skip to stories</a>
-  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO home">NO<i>/</i>FOMO</a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/">Archive</a><a href="../cn/">中文</a></nav></div></header>
-  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-09-25</strong><span>ENGLISH EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2026-09-25" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg> AI Blog</h2><span>1 story</span></div>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO by OpusClip, home"><svg class="brand-mark" aria-hidden="true" viewBox="0 0 14 14" fill="currentColor"><path d="M2.22635 6.97859C2.23788 4.352 4.3707 2.2263 7 2.2263C9.63644 2.2263 11.7737 4.36356 11.7737 7C11.7737 9.63644 9.63644 11.7737 7 11.7737C6.65485 11.7737 6.31825 11.7371 5.99388 11.6675V13.9282C6.32243 13.9755 6.65836 14 7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7V13.9786H2.2263C2.2263 13.9786 2.22635 10.0297 2.22635 7.35C2.22635 7.29608 2.22635 6.97859 2.22635 6.97859Z"/><path d="M2.99694 6.99694V14H5.22324L5.22333 7.44333V6.97859C5.23319 6.00854 6.02376 5.22324 7 5.22324C7.98239 5.22324 8.77676 6.01846 8.77676 6.99694C8.77676 7.97542 7.98239 8.77064 7 8.77064C6.62629 8.77064 6.2798 8.65557 5.99388 8.4591V10.8695C6.31539 10.9527 6.65255 10.9969 7 10.9969C9.20972 10.9969 11.0031 9.20719 11.0031 6.99694C11.0031 4.78669 9.20972 2.99694 7 2.99694C4.79028 2.99694 2.99694 4.78669 2.99694 6.99694Z"/></svg><span>NO<i>/</i>FOMO</span></a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-09-25</strong><span>ENGLISH EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2026-09-25" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg> AI Blog</h2><span>3 stories</span></div>
 <article class="story">
-  <div class="story-kicker"><span>01</span><time>2026-09-25T19:00:00Z</time></div>
+  <div class="story-kicker"><span>01</span><time datetime="2026-09-25T19:00:00Z">Sep 25</time></div>
   <div class="story-body">
-    <h3><a href="https://openai.com/index/proaction" target="_blank" rel="noopener noreferrer">Proaction reports fleet-management gains with OpenAI tools</a></h3>
-    <p class="story-summary">An OpenAI customer story published today describes Proaction using Codex, GPT-Live-1, and GPT-6 Astra to build, operate, and sell fleet-management software faster. Its headline reports a 60 percent sales increase and more than 75 hours saved. These are customer-case claims rather than controlled evidence of a general productivity gain. The story is relevant as an example of combining coding and operational AI tools across a business workflow, with results that require context before extrapolation. (source: https://openai.com/index/proaction)</p>
-    <div class="story-tags"><span class="tag tag-keyword">Enterprise AI</span><span class="tag tag-keyword">Coding agents</span><span class="tag tag-area">Enterprise AI</span><span class="tag tag-area">Coding agents</span></div>
+    <h3><a href="https://openai.com/index/proaction" target="_blank" rel="noopener noreferrer">Proaction reports sales and time gains from OpenAI tools</a></h3>
+    <p class="story-summary">OpenAI published a Proaction customer story reporting a 60 percent sales increase and more than 75 hours saved with Codex. The accompanying description says Proaction uses Codex, GPT-Live-1, and GPT-6 Astra to build, operate, and sell fleet-management products faster. This is a concrete business-workflow example linking coding and broader operations. The collected summary does not explain the measurement period or isolate each tool’s contribution, so the figures remain vendor-reported case-study outcomes.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Applications</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-09-25T15:58:22Z">Sep 25</time></div>
+  <div class="story-body">
+    <h3><a href="https://newsletter.semianalysis.com/p/the-chinese-ai-infrastructure-boom" target="_blank" rel="noopener noreferrer">SemiAnalysis maps China’s AI datacenter expansion</a></h3>
+<a href="https://newsletter.semianalysis.com/p/the-chinese-ai-infrastructure-boom" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/ai-blog/ai-blog-b5150421be1bb57a5b17.jpg" alt="SemiAnalysis maps China’s AI datacenter expansion" loading="lazy"></a>
+    <p class="story-summary">SemiAnalysis introduced a China datacenter model covering more than 1,000 facilities across over 60 operators. Its summary describes infrastructure originally built for retail demand and increasingly redirected toward AI, alongside rapid construction and concentrated hyperscaler leasing. For model builders and infrastructure planners, the report offers a supply-side perspective on the compute market. The collected excerpt provides headline scope and claims, but not the underlying facility dataset or methodology needed to verify individual estimates.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Applications</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-09-23T12:00:00Z">Sep 23</time></div>
+  <div class="story-body">
+    <h3><a href="https://openai.com/index/invideo-builds-with-gpt-6-astra" target="_blank" rel="noopener noreferrer">invideo reports faster grading and custom effects with GPT-6 Astra</a></h3>
+    <p class="story-summary">In a September 23 customer story, OpenAI describes invideo using GPT-6 Astra for more precise edit planning, color correction, and grading. The summary reports a threefold improvement in correction and grading and production of 50 custom effects in one day. This connects language-model planning with creative production tasks beyond text generation. The available excerpt does not specify the evaluation method or baseline, so these figures should be interpreted as reported customer outcomes.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Applications</span></div>
   </div>
 </article>
 </section>
-<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>4 stories</span></div>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>1 story</span></div>
 <article class="story">
-  <div class="story-kicker"><span>01</span><time>2026-09-25T22:13:08Z</time></div>
+  <div class="story-kicker"><span>01</span><time datetime="2026-09-25T22:06:03Z">Sep 25</time></div>
   <div class="story-body">
-    <h3><a href="https://x.com/Google/status/2103608768609370118" target="_blank" rel="noopener noreferrer">Google highlights two Gemini 3.8 speech models</a></h3>
-    <p class="story-summary">Google highlighted Gemini 3.8 Flash TTS and Gemini 3.8 Flash-Lite TTS in a report-date announcement, describing them as releases from this week. The stated focus is creative production alongside cost-efficient speech at scale. For teams building spoken interfaces or generated audio workflows, the announcement identifies two options to evaluate. The collected post does not supply pricing, latency measurements, or comparative quality results, so those remain questions for a practical evaluation. (source: https://x.com/Google/status/2103608768609370118)</p>
-    <div class="story-tags"><span class="tag tag-keyword">Speech generation</span><span class="tag tag-keyword">AIGC</span><span class="tag tag-area">Speech generation</span><span class="tag tag-area">AIGC</span></div>
+    <h3><a href="https://recurse.run" target="_blank" rel="noopener noreferrer">Recurse presents a serverless harness for specialist agents</a></h3>
+<a href="https://recurse.run" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-e942316db09dc4e08338.png" alt="Recurse presents a serverless harness for specialist agents" loading="lazy"></a>
+    <p class="story-summary">Recurse introduced a coding-agent skill and serverless runtime aimed at specialist agents with clear input-output contracts. Developers provide requirements and evaluation criteria, while the coding agent tries prompt and Python-tool variants. A finite-state harness supports iterative refinement in verifiable domains. The team describes the system as operational, with documentation available but some examples still incomplete. Its central proposition is faster agent experimentation, including use of smaller models where evaluations can guide improvement.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Applications</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>9 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-09-25T22:13:08Z">Sep 25</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Google/status/2103608768609370118" target="_blank" rel="noopener noreferrer">Google highlights Gemini 3.8 speech models</a></h3>
+<a href="https://x.com/Google/status/2103608768609370118" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-913abd676755351d5b7c.jpg" alt="Google highlights Gemini 3.8 speech models" loading="lazy"></a>
+    <p class="story-summary">Google highlighted Gemini 3.8 Flash TTS and Gemini 3.8 Flash-Lite TTS in a report-date recap of its audio releases. The company positions the pair around creative production and cost-efficient speech at scale. The announcement gives builders two named options to investigate for speech workflows, although this collected post does not provide pricing, latency measurements, or a comparative quality evaluation. It is a product update rather than independent benchmark evidence.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Applications</span></div>
   </div>
 </article>
 <article class="story">
-  <div class="story-kicker"><span>02</span><time>2026-09-25T20:06:55Z</time></div>
+  <div class="story-kicker"><span>02</span><time datetime="2026-09-25T20:06:55Z">Sep 25</time></div>
   <div class="story-body">
-    <h3><a href="https://x.com/ClaudeDevs/status/2103577007938228300" target="_blank" rel="noopener noreferrer">Claude adds a portal for plugin submission and review</a></h3>
-    <p class="story-summary">Claude’s developer account announced a portal for submitting plugins, tracking their review, and viewing usage. The post describes plugins as packages combining MCP and skills, and reports that MCP usage across Claude products has increased 110-fold this year. The concrete developer change is a more explicit distribution and review workflow. The usage figure is a vendor-reported adoption claim, while the portal gives builders a practical place to manage their integrations. (source: https://x.com/ClaudeDevs/status/2103577007938228300)</p>
-    <div class="story-tags"><span class="tag tag-keyword">MCP</span><span class="tag tag-keyword">Plugins</span><span class="tag tag-area">MCP</span><span class="tag tag-area">Plugins</span></div>
+    <h3><a href="https://x.com/ClaudeDevs/status/2103577007938228300" target="_blank" rel="noopener noreferrer">Claude adds a plugin submission and usage portal</a></h3>
+<a href="https://x.com/ClaudeDevs/status/2103577007938228300" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-6e9b1accb82bef0c889e.jpg" alt="Claude adds a plugin submission and usage portal" loading="lazy"></a>
+    <p class="story-summary">Claude developers announced a portal for submitting plugins, tracking review, and viewing usage. Plugins package MCP integrations and skills, connecting distribution with the components developers already use to extend Claude. The announcement also reports that MCP usage across Claude products has grown 110 times this year. That figure is a company-reported adoption claim; the concrete developer change is a more visible submission, review, and usage workflow for plugins.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Applications</span></div>
   </div>
 </article>
 <article class="story">
-  <div class="story-kicker"><span>03</span><time>2026-09-25T19:04:40Z</time></div>
+  <div class="story-kicker"><span>03</span><time datetime="2026-09-25T19:04:40Z">Sep 25</time></div>
   <div class="story-body">
-    <h3><a href="https://x.com/ClaudeDevs/status/2103561342057943314" target="_blank" rel="noopener noreferrer">Claude Code adds a wrap-up allowance at session limits</a></h3>
-    <p class="story-summary">Claude Code will try to reach a graceful stopping point when a task hits the five-hour usage limit, according to its developer account. A small, fixed allowance drawn from the weekly limit lets it finish what it can instead of stopping immediately in the middle of an edit. This is a workflow reliability change for longer coding tasks. It does not promise task completion, and the extra work still consumes the user’s weekly allocation. (source: https://x.com/ClaudeDevs/status/2103561342057943314)</p>
-    <div class="story-tags"><span class="tag tag-keyword">Coding agents</span><span class="tag tag-keyword">Reliability</span><span class="tag tag-area">Coding agents</span><span class="tag tag-area">Reliability</span></div>
+    <h3><a href="https://x.com/ClaudeDevs/status/2103561342057943314" target="_blank" rel="noopener noreferrer">Claude Code adds a graceful stop at usage limits</a></h3>
+<a href="https://x.com/ClaudeDevs/status/2103561342057943314" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-8dfd734386795d9332ec.jpg" alt="Claude Code adds a graceful stop at usage limits" loading="lazy"></a>
+    <p class="story-summary">Claude Code will try to reach a graceful stopping point when a user hits the five-hour usage limit during a task. Instead of cutting off immediately during an edit, it receives a small fixed allowance drawn from the weekly limit to finish what it can. This changes interruption behavior for ongoing coding work, but the announcement does not promise task completion or specify the size of the additional allowance.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Applications</span></div>
   </div>
 </article>
 <article class="story">
-  <div class="story-kicker"><span>04</span><time>2026-09-25T17:41:35Z</time></div>
+  <div class="story-kicker"><span>04</span><time datetime="2026-09-25T18:13:31Z">Sep 25</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeDevs/status/2103548467729887677" target="_blank" rel="noopener noreferrer">Claude adds a calculator for Opus 5.5 task costs</a></h3>
+<a href="https://x.com/ClaudeDevs/status/2103548467729887677" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-5af970eaea89d9840170.png" alt="Claude adds a calculator for Opus 5.5 task costs" loading="lazy"></a>
+    <p class="story-summary">Claude developers say Opus 5.5 costs 20 percent less per input and output token than Opus 5, with cache reads priced 60 percent lower. They also introduced a calculator accessible from the usage interface to help users examine task costs. The useful distinction is between token prices and actual workflow spending: the announcement supplies relative pricing claims and a planning tool, without establishing identical savings for every coding task.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Applications</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-09-25T17:41:35Z">Sep 25</time></div>
   <div class="story-body">
     <h3><a href="https://x.com/runwayml/status/2103540433225908447" target="_blank" rel="noopener noreferrer">Runway connects image and video generation to Claude through MCP</a></h3>
-    <p class="story-summary">Runway announced a connection between Claude Opus 5.5 and its MCP integration for image and video generation. The post names Gen-4.5, Seedance 2.5, GPT Image 2, and Kling among the available generation options. This places creative generation tools inside an assistant workflow and illustrates MCP’s role in connecting models with external capabilities. The announcement does not establish comparative output quality, pricing, or access conditions for each listed model. (source: https://x.com/runwayml/status/2103540433225908447)</p>
-    <div class="story-tags"><span class="tag tag-keyword">MCP</span><span class="tag tag-keyword">Video generation</span><span class="tag tag-area">MCP</span><span class="tag tag-area">Video generation</span></div>
+<a href="https://x.com/runwayml/status/2103540433225908447" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-4a945e401f15e84e9d34.jpg" alt="Runway connects image and video generation to Claude through MCP" loading="lazy"></a>
+    <p class="story-summary">Runway announced an MCP connection that lets users access image and video generation directly from Claude, highlighting Claude Opus 5.5. The post names Gen-4.5, Seedance 2.5, GPT Image 2, and Kling among the available models. This brings a collection of creative tools into an assistant workflow and reduces the need to move between interfaces. The announcement does not provide comparative output quality, pricing, or detailed permission behavior.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Applications</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-09-25T14:01:02Z">Sep 25</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/runwayml/status/2103484927320723684" target="_blank" rel="noopener noreferrer">Runway introduces editable image layers</a></h3>
+<a href="https://x.com/runwayml/status/2103484927320723684" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-9dfd8475e08008bd856b.jpg" alt="Runway introduces editable image layers" loading="lazy"></a>
+    <p class="story-summary">Runway introduced Layers, a feature that splits an image into editable components with a single click. The company describes background removal, text editing, and independent changes to individual elements within the same workspace. For creative teams, the stated benefit is a more direct path from a generated image to targeted revisions. The collected announcement does not quantify segmentation accuracy or show how consistently complex images separate into usable layers.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Applications</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-09-24T23:47:13Z">Sep 24</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/pika_labs/status/2103270057057169799" target="_blank" rel="noopener noreferrer">Pika connects Grok Bots to a multimodal generation API</a></h3>
+<a href="https://x.com/pika_labs/status/2103270057057169799" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-4da108a6615150445b80.jpg" alt="Pika connects Grok Bots to a multimodal generation API" loading="lazy"></a>
+    <p class="story-summary">In a September 24 announcement, Pika described connecting Grok Bots to its API for image, video, and audio generation. The company says the integration provides access to more than 120 models through one API key, naming Seedance 2.5, Wan 3.0, and GPT-image-2. This is a practical example of assistants gaining creative production tools. The collected post does not include model-by-model availability, generation costs, or performance comparisons.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Applications</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>08</span><time datetime="2026-09-24T17:11:05Z">Sep 24</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeDevs/status/2103170368794185758" target="_blank" rel="noopener noreferrer">Claude resumes billing for selected blocked requests</a></h3>
+<a href="https://x.com/ClaudeDevs/status/2103170368794185758" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-f32f3d0ab148bbf79ccd.png" alt="Claude resumes billing for selected blocked requests" loading="lazy"></a>
+    <p class="story-summary">Claude developers announced on September 24 that billing would resume for requests blocked by safeguards before a response. The post limits the policy to categories described as having low false-positive rates, including biology, distillation attacks, and frontier language-model development. It also mentions recent coordinated attacks. For API users, the operational implication is that some rejected requests can still incur charges; the collected excerpt does not specify the complete billing calculation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Applications</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>09</span><time datetime="2026-09-24T17:10:47Z">Sep 24</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/runwayml/status/2103170291103154460" target="_blank" rel="noopener noreferrer">Runway adds a lower-cost Seedance 2.5 draft mode</a></h3>
+<a href="https://x.com/runwayml/status/2103170291103154460" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-440162494c0b1ef26250.jpg" alt="Runway adds a lower-cost Seedance 2.5 draft mode" loading="lazy"></a>
+    <p class="story-summary">Runway announced a Draft mode for Seedance 2.5 on September 24. It describes faster generation with fewer credits during exploration, followed by an option to enhance preferred results to full quality. The feature separates early creative iteration from final rendering, potentially making it easier to compare ideas before committing more resources. The announcement does not specify exact credit savings, speed improvements, or how closely enhanced outputs preserve each draft.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Applications</span></div>
   </div>
 </article>
 </section>
-<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1" fill="none"/><text x="12" y="16" text-anchor="middle" font-size="12">HF</text></svg> HuggingFace</h2><span>3 stories</span></div>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>2 stories</span></div>
 <article class="story">
-  <div class="story-kicker"><span>01</span><time>2026-09-23T20:00:00Z</time></div>
+  <div class="story-kicker"><span>01</span><time datetime="2026-09-25T20:14:12Z">Sep 25</time></div>
   <div class="story-body">
-    <h3><a href="https://huggingface.co/papers/2609.29421" target="_blank" rel="noopener noreferrer">Rufus-Air documents an eight-stage open post-training recipe</a></h3>
-    <p class="story-summary">Rufus-Air presents a reproducible post-training pipeline for GLM-4.5-Air-Base, spanning supervised fine-tuning, reasoning and coding reinforcement learning, instruction following, agent capabilities, and RLHF. The authors describe data, rewards, infrastructure, stage ordering, and intermediate results. Their key argument is that reward reliability should guide the progression from verifiable tasks to softer judging signals. They report improvements over the official post-trained release; these remain paper-reported results. The work appeared before today but offers substantive implementation detail for open-model training. (source: https://huggingface.co/papers/2609.29421)</p>
-    <div class="story-tags"><span class="tag tag-keyword">Post-training</span><span class="tag tag-keyword">RL</span><span class="tag tag-area">Post-training</span><span class="tag tag-area">RL</span></div>
+    <h3><a href="https://github.com/vectorize-io/hindsight" target="_blank" rel="noopener noreferrer">Hindsight highlights learning memory for agents</a></h3>
+<a href="https://github.com/vectorize-io/hindsight" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/github/github-57687486696d14936ebf.png" alt="Hindsight highlights learning memory for agents" loading="lazy"></a>
+    <p class="story-summary">Hindsight appeared in the collected GitHub Trending snapshot as a Python project described as agent memory that learns. Its latest recorded commit falls on the report date, and the snapshot records 29,789 stars. Those signals support including it as a project to inspect, rather than treating the snapshot as evidence of a new release. The available repository description does not establish its memory architecture, evaluation results, or production reliability.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Applications</span></div>
   </div>
 </article>
 <article class="story">
-  <div class="story-kicker"><span>02</span><time>2026-09-23T20:00:00Z</time></div>
+  <div class="story-kicker"><span>02</span><time datetime="2026-09-25T18:06:27Z">Sep 25</time></div>
   <div class="story-body">
-    <h3><a href="https://huggingface.co/papers/2609.29816" target="_blank" rel="noopener noreferrer">AV-GRPO separates reward learning for joint audio-video generation</a></h3>
-    <p class="story-summary">AV-GRPO proposes modality-anchored diffusion reinforcement learning to improve joint audio-video generation. The method separates coupled learning signals, freezes one modality tower during selected optimization, and adapts objectives to each modality’s dynamics. A companion dataset, 5DAV, supports controlled training across five dimensions. The authors report improvements over LTX-2.3 on JavisBench and VABench for quality, alignment, and synchronization. This earlier research item matters for teams investigating how reinforcement learning can improve multimodal generation without obscuring reward attribution. (source: https://huggingface.co/papers/2609.29816)</p>
-    <div class="story-tags"><span class="tag tag-keyword">Video generation</span><span class="tag tag-keyword">RL</span><span class="tag tag-area">Video generation</span><span class="tag tag-area">RL</span></div>
+    <h3><a href="https://github.com/obra/superpowers" target="_blank" rel="noopener noreferrer">Superpowers presents an agentic skills methodology</a></h3>
+<a href="https://github.com/obra/superpowers" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/github/github-4251a228ae407247ee1d.png" alt="Superpowers presents an agentic skills methodology" loading="lazy"></a>
+    <p class="story-summary">Superpowers appeared in the collected GitHub Trending snapshot as a skills framework and software-development methodology for agents. The snapshot identifies Shell as its language, records 291,662 stars, and places its latest commit on the report date. This makes it relevant to the expanding ecosystem around reusable agent skills. The collected metadata does not describe individual skills or provide controlled productivity measurements, so the entry should be read as project discovery rather than a validated performance claim.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Applications</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1" fill="none"/><text x="12" y="16" text-anchor="middle" font-size="12">HF</text></svg> HuggingFace</h2><span>12 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-09-23T20:00:00Z">Sep 23</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2609.29845" target="_blank" rel="noopener noreferrer">Transformers show evidence of linear superposition</a></h3>
+<a href="https://huggingface.co/papers/2609.29845" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-e95284fb1e33db8d4a64.png" alt="Transformers show evidence of linear superposition" loading="lazy"></a>
+    <p class="story-summary">This paper studies whether a Transformer can process linearly combined text streams and produce a corresponding mixture of next-token distributions. The authors find evidence that the behavior is intrinsic to the architecture and diminishes during pretraining, while lightweight fine-tuning can restore it. They also introduce guided decoding to separate two coherent continuations from one forward pass. The result suggests an unusual inference direction, though the abstract does not establish broad deployment-ready efficiency gains.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Research</span></div>
   </div>
 </article>
 <article class="story">
-  <div class="story-kicker"><span>03</span><time>2026-09-23T20:00:00Z</time></div>
+  <div class="story-kicker"><span>02</span><time datetime="2026-09-23T20:00:00Z">Sep 23</time></div>
   <div class="story-body">
-    <h3><a href="https://huggingface.co/papers/2609.30199" target="_blank" rel="noopener noreferrer">ExplorationBench tests whether agents discover unfamiliar rules</a></h3>
-    <p class="story-summary">ExplorationBench evaluates exploration in executable environments whose rules conflict with familiar knowledge, reducing the usefulness of simple recall. Its AlienCode and AlienLogic sandboxes each contain 70 tasks, with flawed manuals, environmental feedback, and tool-call interfaces. Across ten evaluated AI systems, the authors find that strong systems can learn unfamiliar rules, but longer exploration can stall or reverse gains. The paper predates today’s report and provides a useful evaluation design for agents that must acquire knowledge through interaction. (source: https://huggingface.co/papers/2609.30199)</p>
-    <div class="story-tags"><span class="tag tag-keyword">Agent evaluation</span><span class="tag tag-keyword">Exploration</span><span class="tag tag-area">Agent evaluation</span><span class="tag tag-area">Exploration</span></div>
+    <h3><a href="https://huggingface.co/papers/2609.29964" target="_blank" rel="noopener noreferrer">World Action Agent rehearses robot actions before execution</a></h3>
+<a href="https://huggingface.co/papers/2609.29964" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-c09fc4bd327a00e1e705.png" alt="World Action Agent rehearses robot actions before execution" loading="lazy"></a>
+    <p class="story-summary">World Action Agent gives vision-language models a visual workspace for robot manipulation, combining contact views, action rehearsal, and corrections tied to observed execution. Agents can preview and revise proposed actions, while reusable skills come from expert videos and human teaching. The authors report 75.6 percent average success on LIBERO-Pro with transferred skills. Training a smaller model on interaction traces also improves out-of-domain success, suggesting the harness can support both execution and data collection.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Research</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-09-23T20:00:00Z">Sep 23</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2609.29421" target="_blank" rel="noopener noreferrer">Rufus-Air publishes an eight-stage post-training recipe</a></h3>
+<a href="https://huggingface.co/papers/2609.29421" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-be60667537892ac82d0a.png" alt="Rufus-Air publishes an eight-stage post-training recipe" loading="lazy"></a>
+    <p class="story-summary">Rufus-Air presents an open post-training recipe for GLM-4.5-Air-Base, moving through eight stages from supervised fine-tuning to reasoning, coding, instruction following, agent capabilities, and RLHF. The paper documents data, rewards, infrastructure, ordering, and intermediate results. It emphasizes reliable rewards and appropriate difficulty as practical training principles, using public data and open components without new human annotation or an internal distillation teacher. The authors report improvements over the official post-trained base-family release.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Research</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-09-23T20:00:00Z">Sep 23</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2609.29444" target="_blank" rel="noopener noreferrer">IterSynth separates search planning from evidence synthesis</a></h3>
+<a href="https://huggingface.co/papers/2609.29444" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-bde3d03407d2a31ddbf0.png" alt="IterSynth separates search planning from evidence synthesis" loading="lazy"></a>
+    <p class="story-summary">IterSynth restructures deep-search agents around a Planner and a Synthesizer, using an evolving summary instead of an ever-growing search transcript as persistent state. Its training method assigns role-specific reinforcement-learning credit through final outcomes and turn-level rubric evaluations. Across five benchmarks, the authors report an average score of 50.7 for IterSynth-8B, exceeding the strongest prior agent in its size class. The design also provides a prompting approach for larger proprietary models.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Research</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-09-23T20:00:00Z">Sep 23</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2609.30233" target="_blank" rel="noopener noreferrer">Coding agents synthesize reusable robot planners</a></h3>
+<a href="https://huggingface.co/papers/2609.30233" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-978dfb3130872551fa99.png" alt="Coding agents synthesize reusable robot planners" loading="lazy"></a>
+    <p class="story-summary">This study asks coding agents to build programs for generalized task and motion planning using task descriptions and simulator access. Programs are frozen before testing on unseen instances, separating development from evaluation. Across 28 simulated environments and 98,000 evaluation episodes, the authors find strong performance from the evaluated Claude Code and Codex configurations. On environments with hand-engineered planners, reported mean success ranges from 56 to 95 percent, compared with 47 percent for those planners.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Research</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-09-23T20:00:00Z">Sep 23</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2609.29892" target="_blank" rel="noopener noreferrer">Qwen-Planner-Agent closes the mobile-agent development loop</a></h3>
+<a href="https://huggingface.co/papers/2609.29892" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-7db632842de4a214c788.png" alt="Qwen-Planner-Agent closes the mobile-agent development loop" loading="lazy"></a>
+    <p class="story-summary">Qwen-Planner-Agent connects data production, training, and deployment through a shared action-feedback-verification contract. The framework includes human-gated data collection, supervised initialization, online agentic reinforcement learning, and coordinated adaptation of models and runtime tools. Its CARE method targets reasoning and tool-use costs while preserving task performance. The authors report the strongest overall results among the evaluated systems on MobilePA-Bench, with additional gains on non-mobile agent benchmarks and largely preserved general capabilities.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Research</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-09-23T20:00:00Z">Sep 23</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2609.29429" target="_blank" rel="noopener noreferrer">Jev evaluates alignment failures with calibrated decisions</a></h3>
+<a href="https://huggingface.co/papers/2609.29429" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-63bd9a466fc15629d5d7.png" alt="Jev evaluates alignment failures with calibrated decisions" loading="lazy"></a>
+    <p class="story-summary">The paper evaluates Jev, a model trained with reinforcement learning for calibrated decisions, as a detector of ten kinds of alignment failure. Its benchmark spans 44 datasets and five target models, including prompt injection, deception, and reward hacking. A generic question reportedly achieves median AUROC of 0.886 without task-specific training. The authors find that supplied context matters more than question wording and report much lower scoring costs than generative judges in their evaluation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Research</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>08</span><time datetime="2026-09-23T20:00:00Z">Sep 23</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2609.29816" target="_blank" rel="noopener noreferrer">AV-GRPO decouples reinforcement learning for audio and video</a></h3>
+<a href="https://huggingface.co/papers/2609.29816" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-3bfc2fb7eb1bfa433fa0.png" alt="AV-GRPO decouples reinforcement learning for audio and video" loading="lazy"></a>
+    <p class="story-summary">AV-GRPO addresses joint audio-video generation by separating learning signals that otherwise make reward attribution difficult. Its modality-anchored rollouts, frozen-tower optimization, and adaptive objectives turn coupled preference learning into more focused subproblems. The accompanying 5DAV dataset controls training difficulty across five dimensions. On JavisBench and VABench, the authors report improvements over LTX-2.3 in generation quality, semantic alignment, and synchronization under both LoRA and full fine-tuning, with ablations supporting the proposed components.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Research</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>09</span><time datetime="2026-09-23T20:00:00Z">Sep 23</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2609.30199" target="_blank" rel="noopener noreferrer">ExplorationBench tests discovery in unfamiliar executable worlds</a></h3>
+<a href="https://huggingface.co/papers/2609.30199" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-28586dfb13b8340f31da.png" alt="ExplorationBench tests discovery in unfamiliar executable worlds" loading="lazy"></a>
+    <p class="story-summary">ExplorationBench evaluates whether AI systems can discover unfamiliar rules rather than recall knowledge from training. It uses executable alien worlds with misleading manuals, feedback, and tool interfaces, making answers verifiable while deliberately conflicting with familiar assumptions. Two sandboxes each contain 70 tasks. Across ten evaluated systems, stronger models can learn and apply new rules, but longer exploration sometimes stalls or reverses gains, exposing a distinction between additional interaction and productive discovery.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Research</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>10</span><time datetime="2026-09-23T20:00:00Z">Sep 23</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2609.30221" target="_blank" rel="noopener noreferrer">WanPE turns video prompts into cinematic shot plans</a></h3>
+<a href="https://huggingface.co/papers/2609.30221" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-26815b61ed983a19d123.png" alt="WanPE turns video prompts into cinematic shot plans" loading="lazy"></a>
+    <p class="story-summary">WanPE is a 397-billion-parameter prompt-enhancement model trained on 1.05 million videos to plan multi-shot video generation. It combines video-grounded reverse construction with reinforcement learning designed to preserve user intent across shots and time. The authors introduce WanPEval with approximately 11,000 blind pairwise assessments. When used with Wan3.0, they report improved human preference over raw prompts, including a particularly large gain for 30-second sequences, highlighting text planning as a video-quality factor.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Research</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>11</span><time datetime="2026-09-23T20:00:00Z">Sep 23</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2609.28923" target="_blank" rel="noopener noreferrer">ViRDM simplifies few-step causal video post-training</a></h3>
+<a href="https://huggingface.co/papers/2609.28923" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-218305b6bf421ee74216.png" alt="ViRDM simplifies few-step causal video post-training" loading="lazy"></a>
+    <p class="story-summary">ViRDM replaces the teacher-and-critic setup commonly used for video diffusion distillation with generator-only post-training against a precomputed representation distribution. Its recipe addresses memory constraints and temporal dynamics through truncated supervision, a lightweight decoder, staged derivatives, and dynamics regularization. The authors report an official VBench score of 84.87 after 20 generator updates using 16 A100 GPU-hours. These results suggest a cheaper post-training route, while remaining specific to the evaluated generation settings.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Research</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>12</span><time datetime="2026-09-22T20:00:00Z">Sep 22</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2609.28416" target="_blank" rel="noopener noreferrer">Agent-Editing World Model revises contaminated task state</a></h3>
+<a href="https://huggingface.co/papers/2609.28416" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-2d55b885b67f0ca174e9.png" alt="Agent-Editing World Model revises contaminated task state" loading="lazy"></a>
+    <p class="story-summary">Agent-Editing World Model targets unsupported assumptions and stale plans in agent histories instead of trying to predict complex tool responses. An Action Judge classifies decisions, while State Revision edits noisy reasoning and action continuations. The EditAct method combines those capabilities with real execution feedback. Across six benchmarks and three agent backbones, the authors report average gains of 3.2 to 6.7 points over the strongest baseline, suggesting that repairing internal task state can improve subsequent decisions.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI</span><span class="tag tag-area">Research</span></div>
   </div>
 </article>
 </section>

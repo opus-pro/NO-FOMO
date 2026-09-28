@@ -20,6 +20,42 @@
     });
   }
 
+  if (config.surface === "issue" && "HTMLDialogElement" in window) {
+    // Thumbnails open an enlarged copy in a dialog; without JS they link to the source.
+    const dialog = document.createElement("dialog");
+    dialog.className = "lightbox";
+    const image = document.createElement("img");
+    const bar = document.createElement("div");
+    bar.className = "lightbox-bar";
+    const source = document.createElement("a");
+    source.target = "_blank";
+    source.rel = "noopener noreferrer";
+    const close = document.createElement("button");
+    close.type = "button";
+    const chinese = document.documentElement.lang.startsWith("zh");
+    source.textContent = chinese ? "查看原文 ↗" : "Open source ↗";
+    close.textContent = chinese ? "关闭" : "Close";
+    bar.append(source, close);
+    dialog.append(image, bar);
+    document.body.append(dialog);
+    close.addEventListener("click", () => dialog.close());
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+    dialog.addEventListener("close", () => image.removeAttribute("src"));
+    for (const link of document.querySelectorAll(".screenshot-link")) {
+      link.addEventListener("click", (event) => {
+        const thumbnail = link.querySelector("img");
+        if (!thumbnail || event.metaKey || event.ctrlKey || event.shiftKey) return;
+        event.preventDefault();
+        image.src = thumbnail.currentSrc || thumbnail.src;
+        image.alt = thumbnail.alt;
+        source.href = link.href;
+        dialog.showModal();
+      });
+    }
+  }
+
   if (config.surface === "issue") {
     const progress = document.querySelector(".reading-progress span");
     const updateProgress = () => {
