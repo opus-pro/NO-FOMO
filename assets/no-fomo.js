@@ -90,6 +90,65 @@
     }
   }
 
+  if (config.surface === "issue") {
+    // The daily video digest, when one was published beside this issue
+    // (home/<date>/video.json, .mp4, .jpg). Built with textContent only.
+    const issue = document.querySelector(".issue");
+    const chinese = document.documentElement.lang.startsWith("zh");
+    fetch("../video.json", { credentials: "omit" })
+      .then((response) => (response.ok ? response.json() : null))
+      .then((facts) => {
+        if (!issue || !facts || typeof facts !== "object") return;
+        const style = document.createElement("style");
+        style.textContent = `
+.video-digest{margin:28px 0 8px;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px;align-items:center}
+.video-digest video{width:100%;aspect-ratio:16/9;border-radius:14px;background:var(--ink);display:block}
+.video-digest .host{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--signal)}
+.video-digest .who{margin:8px 0 0;font-size:1.05rem;line-height:1.5;color:var(--ink)}
+.video-digest .native{margin:6px 0 0;font-style:italic;color:var(--muted);line-height:1.5}
+.video-digest .look{margin:12px 0 0;font-size:.8rem;color:var(--muted)}
+@media (max-width:760px){.video-digest{grid-template-columns:1fr;gap:14px}}`;
+        document.head.append(style);
+        const figure = document.createElement("figure");
+        figure.className = "video-digest";
+        const video = document.createElement("video");
+        video.controls = true;
+        video.playsInline = true;
+        video.preload = "none";
+        video.poster = "../video.jpg";
+        video.src = "../video.mp4";
+        const caption = document.createElement("figcaption");
+        const label = document.createElement("span");
+        label.className = "host";
+        label.textContent = chinese ? "今日视频简报 · 今天的主播" : "Today's video · your host";
+        caption.append(label);
+        for (const [name, value] of [["who", facts.host], ["native", facts.native]]) {
+          if (typeof value !== "string" || !value) continue;
+          const line = document.createElement("p");
+          line.className = name;
+          line.textContent = value;
+          caption.append(line);
+        }
+        const seconds = Number(facts.seconds);
+        const look = [
+          typeof facts.look === "string" ? facts.look : "",
+          Number.isFinite(seconds) && seconds > 0
+            ? `${Math.floor(seconds / 60)}:${String(Math.round(seconds % 60)).padStart(2, "0")}`
+            : "",
+        ].filter(Boolean);
+        if (look.length) {
+          const line = document.createElement("p");
+          line.className = "look";
+          line.textContent = look.join(" · ");
+          caption.append(line);
+        }
+        figure.append(video, caption);
+        video.addEventListener("error", () => figure.remove());
+        issue.after(figure);
+      })
+      .catch(() => {});
+  }
+
   const origin = config.counterOrigin;
   const urlFor = (path) =>
     `${origin}/counter/${path === "TOTAL" ? "TOTAL" : encodeURIComponent(path)}.json`;
