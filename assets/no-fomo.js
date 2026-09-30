@@ -95,8 +95,10 @@
     // (home/<date>/video.json, .mp4, .jpg). Built with textContent only.
     const issue = document.querySelector(".issue");
     const chinese = document.documentElement.lang.startsWith("zh");
-    fetch("../video.json", { credentials: "omit" })
-      .then((response) => (response.ok ? response.json() : null))
+    // The issue's own folder, whichever of its pages this is (/home/<date>/, /en/, /cn/).
+    const folder = location.pathname.match(/^(.*\/home\/\d{4}-\d{2}-\d{2}\/)/)?.[1];
+    (folder ? fetch(`${folder}video.json`, { credentials: "omit" }) : Promise.resolve(null))
+      .then((response) => (response?.ok ? response.json() : null))
       .then((facts) => {
         if (!issue || !facts || typeof facts !== "object") return;
         const style = document.createElement("style");
@@ -115,8 +117,8 @@
         video.controls = true;
         video.playsInline = true;
         video.preload = "none";
-        video.poster = "../video.jpg";
-        video.src = "../video.mp4";
+        video.poster = `${folder}video.jpg`;
+        video.src = `${folder}video.mp4`;
         const caption = document.createElement("figcaption");
         const label = document.createElement("span");
         label.className = "host";
