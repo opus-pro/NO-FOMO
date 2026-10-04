@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2026-10-04</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  
+/* OpusClip mark ahead of the NO/FOMO wordmark. */
+.brand{display:inline-flex;align-items:center;gap:.28em}
+.brand-mark{flex:none;width:.78em;height:.78em}
+
+/* Medium-style reading layout: one narrow column, compact type, thumbnails on the right. */
+.shell{width:min(728px,calc(100% - 32px))}
+.masthead{padding:14px 0 12px}
+.brand{font-size:1.9rem}
+.nav{font-size:.72rem}
+.issue{grid-template-columns:minmax(0,1fr) auto;gap:20px;padding:28px 0 20px;border-bottom:1px solid var(--ink)}
+.eyebrow{margin:0 0 8px;font-size:.7rem}
+.issue h1{font-size:clamp(1.8rem,4.6vw,2.5rem);line-height:1.08;letter-spacing:-.03em}
+.issue-meta{font-size:.7rem}
+.issue-meta>strong{font-size:.95rem}
+.readership{margin-top:10px;padding-top:8px}
+.readership dd{font-size:1rem}
+.content{padding:0 0 56px}
+.source-section{margin-top:36px}
+.source-heading{padding:0 0 8px}
+.story{display:block;padding:20px 0}
+.story-kicker{display:flex;gap:10px;align-items:baseline;margin:0 0 6px;font-size:.68rem}
+.story-kicker span{display:inline;margin:0;font-size:.72rem}
+.story-body{display:grid;grid-template-columns:minmax(0,1fr) 168px;grid-template-areas:"title thumb" "summary thumb" "tags thumb";column-gap:24px;align-items:start}
+.story-body:not(:has(.screenshot-link)){grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "summary" "tags"}
+.story h3{grid-area:title;max-width:none;margin:0 0 6px;font:700 1.22rem/1.3 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.012em}
+.story-summary{grid-area:summary;max-width:none;margin:0 0 10px;color:#242424;font:400 1rem/1.62 Charter,Georgia,serif}
+.screenshot-link{grid-area:thumb;width:168px;height:112px;margin:2px 0 0;overflow:hidden;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:zoom-in}
+.screenshot-link img{width:100%;height:100%;object-fit:cover;object-position:center}
+.story-tags{grid-area:tags;gap:6px}
+.tag{padding:2px 9px;border:0;border-radius:999px;background:#ebe7dc;font-size:.66rem;letter-spacing:.02em;text-transform:none}
+.tag-area{background:#e3e9fb;color:#173c9b}
+/* Enlarged image dialog opened from a thumbnail. */
+.lightbox{max-width:min(960px,calc(100vw - 32px));max-height:calc(100vh - 32px);padding:0;border:0;border-radius:6px;background:var(--surface);box-shadow:0 18px 60px rgba(0,0,0,.35)}
+.lightbox::backdrop{background:rgba(24,24,22,.72)}
+.lightbox img{display:block;max-width:100%;max-height:calc(100vh - 96px);margin:0 auto;object-fit:contain}
+.lightbox-bar{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:10px 14px;font-size:.78rem}
+.lightbox-bar a{color:var(--accent);font-weight:700;text-underline-offset:3px}
+.lightbox-bar button{border:0;background:none;font:inherit;font-weight:700;cursor:pointer}
+@media (max-width:640px){
+.issue{grid-template-columns:minmax(0,1fr)}
+.issue-meta{text-align:left}
+.story-body{grid-template-columns:minmax(0,1fr) 96px;column-gap:14px}
+.screenshot-link{width:96px;height:64px}
+.story h3{font-size:1.08rem}
+.story-summary{font-size:.95rem}
+}
+</style>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO by OpusClip, home"><svg class="brand-mark" aria-hidden="true" viewBox="0 0 14 14" fill="currentColor"><path d="M2.22635 6.97859C2.23788 4.352 4.3707 2.2263 7 2.2263C9.63644 2.2263 11.7737 4.36356 11.7737 7C11.7737 9.63644 9.63644 11.7737 7 11.7737C6.65485 11.7737 6.31825 11.7371 5.99388 11.6675V13.9282C6.32243 13.9755 6.65836 14 7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7V13.9786H2.2263C2.2263 13.9786 2.22635 10.0297 2.22635 7.35C2.22635 7.29608 2.22635 6.97859 2.22635 6.97859Z"/><path d="M2.99694 6.99694V14H5.22324L5.22333 7.44333V6.97859C5.23319 6.00854 6.02376 5.22324 7 5.22324C7.98239 5.22324 8.77676 6.01846 8.77676 6.99694C8.77676 7.97542 7.98239 8.77064 7 8.77064C6.62629 8.77064 6.2798 8.65557 5.99388 8.4591V10.8695C6.31539 10.9527 6.65255 10.9969 7 10.9969C9.20972 10.9969 11.0031 9.20719 11.0031 6.99694C11.0031 4.78669 9.20972 2.99694 7 2.99694C4.79028 2.99694 2.99694 4.78669 2.99694 6.99694Z"/></svg><span>NO<i>/</i>FOMO</span></a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-10-04</strong><span>ENGLISH EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2026-10-04" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg> AI Blog</h2><span>2 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-09-23T21:20:29Z">Sep 23</time></div>
+  <div class="story-body">
+    <h3><a href="https://newsletter.semianalysis.com/p/clustermax-30-the-industry-standard" target="_blank" rel="noopener noreferrer">ClusterMAX 3.0 compares the operational side of GPU clouds</a></h3>
+<a href="https://newsletter.semianalysis.com/p/clustermax-30-the-industry-standard" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/ai-blog/ai-blog-bb2cc697dd09e7966dd5.jpg" alt="ClusterMAX 3.0 compares the operational side of GPU clouds" loading="lazy"></a>
+    <p class="story-summary">SemiAnalysis presents ClusterMAX 3.0 as a detailed rating of GPU cloud providers worldwide, covering reliability, performance, support, pricing, and security. Published September 23, this is background analysis rather than a new October 4 launch. It remains relevant to teams choosing infrastructure for model workloads because procurement involves more than accelerator specifications. The collected description does not expose provider rankings or underlying measurements, so this edition does not infer winners from the article&#x27;s headline.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI infrastructure</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-09-21T18:14:15Z">Sep 21</time></div>
+  <div class="story-body">
+    <h3><a href="https://newsletter.semianalysis.com/p/computation-and-data-movement-for" target="_blank" rel="noopener noreferrer">SemiAnalysis examines computation and data movement in MoE inference</a></h3>
+<a href="https://newsletter.semianalysis.com/p/computation-and-data-movement-for" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/ai-blog/ai-blog-c79c169d9cc3208d05f9.jpg" alt="SemiAnalysis examines computation and data movement in MoE inference" loading="lazy"></a>
+    <p class="story-summary">SemiAnalysis outlines how mixture-of-experts models map onto inference hardware, emphasizing structure, flow, and efficient serving. The September 21 article supplies background for current interest in running larger models on constrained hardware. Its central framing is useful: inference depends on where data moves as well as where arithmetic happens. The collected summary contains no benchmark table or implementation recipe, so it supports the topic&#x27;s relevance without validating any particular throughput claim in today&#x27;s projects.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Inference systems</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>5 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-10-04T00:20:16Z">Oct 4</time></div>
+  <div class="story-body">
+    <h3><a href="https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/" target="_blank" rel="noopener noreferrer">Simon Willison calls for default hard spending caps</a></h3>
+    <p class="story-summary">Simon Willison argues that hard budget caps should become a default feature across services. The post drew 550 points and 283 comments on Hacker News at collection time, making it one of the day&#x27;s strongest relevant discussions. For teams deploying agents that can repeatedly invoke paid tools, the argument raises a concrete product question: whether spending limits actually stop execution or merely alert an operator after costs accumulate.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agent costs</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-10-04T12:51:53Z">Oct 4</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/Niko1221/Strata" target="_blank" rel="noopener noreferrer">Strata claims fast Qwen inference on an RTX 4090</a></h3>
+<a href="https://github.com/Niko1221/Strata" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-12b08dc551fe88880a28.png" alt="Strata claims fast Qwen inference on an RTX 4090" loading="lazy"></a>
+    <p class="story-summary">A Strata submission on Hacker News claims it can run Qwen 3.8 Flash Next, described as a 125-billion-parameter model, on consumer RTX 4090 hardware at 100 tokens per second. The submission attracted 302 points and 158 comments. These are the project&#x27;s advertised figures, not independently reproduced measurements. The claim makes memory requirements, model configuration, and reproducible throughput testing central questions for developers considering local inference instead of hosted access.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Local inference</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-10-04T02:34:22Z">Oct 4</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.nytimes.com/2026/09/29/us/anthropic-claude-morals-ai.html" target="_blank" rel="noopener noreferrer">Anthropic meeting with religious scholars draws scrutiny</a></h3>
+    <p class="story-summary">A New York Times report about religious scholars meeting with Anthropic became a prominent Hacker News discussion, with 142 points and 345 comments at collection time. The story places questions about AI and moral reasoning before a broader audience than model researchers alone. The collected listing establishes the reported meeting, but does not establish that Claude is conscious or that participants agreed on any position about machine moral status.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI governance</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-10-04T09:24:52Z">Oct 4</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/allenv0/SCM" target="_blank" rel="noopener noreferrer">SCM brings AI search to photos and video frames on macOS</a></h3>
+<a href="https://github.com/allenv0/SCM" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-e2cb4595240ac7161f63.png" alt="SCM brings AI search to photos and video frames on macOS" loading="lazy"></a>
+    <p class="story-summary">A Show HN submission presents SCM as an AI search tool for photos and individual video frames on macOS. The GitHub-linked project attracted 75 points and 40 comments at collection time. Its focus is retrieval across an existing visual collection, a useful complement to tools that generate new media. The collected listing does not specify indexing performance, model choice, or privacy guarantees, which remain key details to check before using it with a personal archive.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multimodal search</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-10-04T14:28:33Z">Oct 4</time></div>
+  <div class="story-body">
+    <h3><a href="https://gvisor.dev/blog/2026/10/02/gvisor-cncf/" target="_blank" rel="noopener noreferrer">gVisor donation to CNCF puts sandbox governance in focus</a></h3>
+    <p class="story-summary">An official gVisor blog post announces its donation to the Cloud Native Computing Foundation, and the story appeared on Hacker News on October 4. For developers building systems that execute code, including AI agents, sandbox infrastructure is an important dependency to track. The collected listing identifies the governance move but provides no new security benchmark. Foundation stewardship should therefore be considered separately from the isolation properties of any particular deployment or configuration.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agent infrastructure</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>7 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-10-04T00:50:21Z">Oct 4</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/fchollet/status/2106547436244304232" target="_blank" rel="noopener noreferrer">François Chollet challenges an argument for AI consciousness</a></h3>
+    <p class="story-summary">François Chollet challenges the inference that because consciousness involves computation, computational AI models are therefore likely conscious. He compares that reasoning with treating a rock as alive merely because living organisms also contain atoms. His October 4 post drew more than two thousand likes. The contribution is a critique of an argument, rather than experimental evidence about sentience, and sharpens the distinction between shared ingredients and demonstrated properties in current AI debates.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI consciousness</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-10-04T00:55:45Z">Oct 4</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/GaryMarcus/status/2106548795555336296" target="_blank" rel="noopener noreferrer">Gary Marcus questions the leap from AI investment to GDP forecasts</a></h3>
+<a href="https://x.com/GaryMarcus/status/2106548795555336296" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-e7af312fac291e43e60c.jpg" alt="Gary Marcus questions the leap from AI investment to GDP forecasts" loading="lazy"></a>
+    <p class="story-summary">Gary Marcus warns against presenting a plausible increase in AI capital expenditure and a much more speculative doubling of GDP as if both had the same likelihood. His October 4 post frames this as a recurring rhetorical move in technology discussions. The practical distinction is between money committed to infrastructure and economic gains actually realized. The post offers criticism of forecasting rhetoric, not a quantitative model proving what future growth will be.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI economics</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-10-03T17:36:19Z">Oct 3</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/natolambert/status/2106438210213613722" target="_blank" rel="noopener noreferrer">Nathan Lambert questions whether frontier pacing is workable</a></h3>
+    <p class="story-summary">Nathan Lambert says pacing frontier AI development sounds attractive in principle but is difficult to implement. He asks which benchmarks would be restricted and who would participate, and points to research on swarms and efficiency as alternative directions if capability work slows. His argument highlights the operational problem behind a broad policy slogan: defining what counts as progress and deciding how restrictions would cover routes that improve useful systems without simply enlarging models.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI governance</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-10-02T17:23:31Z">Oct 2</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Thom_Wolf/status/2106072600778596742" target="_blank" rel="noopener noreferrer">Thomas Wolf highlights on-device personal AI with Underdog</a></h3>
+<a href="https://x.com/Thom_Wolf/status/2106072600778596742" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-72f807bfba8af6502273.jpg" alt="Thomas Wolf highlights on-device personal AI with Underdog" loading="lazy"></a>
+    <p class="story-summary">Thomas Wolf argues that most personal AI should run on the user&#x27;s own device and highlights Sigil&#x27;s Underdog, which he says is powered by the Hugging Face Hub. The post is an endorsement of a deployment direction rather than a detailed performance report. Alongside interest in consumer-hardware inference, it signals demand for personal tools whose usefulness depends on local access and integration, with hardware requirements and privacy properties still requiring product-specific evaluation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Local inference</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-10-02T15:57:12Z">Oct 2</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Kyle_L_Wiggers/status/2106050879052714337" target="_blank" rel="noopener noreferrer">An 8B model targets locally generated scientific reports</a></h3>
+<a href="https://x.com/Kyle_L_Wiggers/status/2106050879052714337" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-905c3e4cad011cf56b24.jpg" alt="An 8B model targets locally generated scientific reports" loading="lazy"></a>
+    <p class="story-summary">Kyle Wiggers describes an eight-billion-parameter model intended to generate scientific reports with citations locally. The short announcement supplies the model size and intended workflow, but does not provide evaluation results or enough detail to establish citation accuracy. The useful direction is clear: moving research assistance onto local infrastructure. For scientific users, assessing whether cited sources support each claim remains as important as the ability to produce a polished report on device.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Scientific AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-10-04T03:00:01Z">Oct 4</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Kling_ai/status/2106580068499939470" target="_blank" rel="noopener noreferrer">Kling previews an October 6 event ahead of Kling 4.0</a></h3>
+<a href="https://x.com/Kling_ai/status/2106580068499939470" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-43861720cc142ce7251a.jpg" alt="Kling previews an October 6 event ahead of Kling 4.0" loading="lazy"></a>
+    <p class="story-summary">Kling AI says it will appear at Advertising Week New York on October 6 for a panel about scaling creative production. Its October 4 announcement explicitly places the event ahead of the launch of Kling 4.0. This is a schedule and positioning update, not confirmation that the new model is available. Creative teams following generative video can watch for concrete release details, especially capabilities and production controls that the collected announcement does not yet specify.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Generative video</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-10-02T20:53:36Z">Oct 2</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeAI/status/2106125468365918268" target="_blank" rel="noopener noreferrer">Claude showcases a watermill built with Opus 5.5</a></h3>
+<a href="https://x.com/ClaudeAI/status/2106125468365918268" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-f144e19b2bad6149bc44.jpg" alt="Claude showcases a watermill built with Opus 5.5" loading="lazy"></a>
+    <p class="story-summary">Claude&#x27;s official account highlights a working watermill built with Opus 5.5 as one example of recent user creations. The demonstration drew more than ten thousand likes and over four thousand bookmarks at collection time. It illustrates interest in using models for concrete making and prototyping. The short post does not explain the complete construction process or isolate the model&#x27;s contribution, so it should be read as a showcase rather than a controlled capability evaluation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI applications</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>2 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-10-04T06:01:30Z">Oct 4</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/earthtojake/text-to-cad" target="_blank" rel="noopener noreferrer">Text-to-CAD gives agents a design-oriented tool surface</a></h3>
+<a href="https://github.com/earthtojake/text-to-cad" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/github/github-97fd47923097e03ffadf.png" alt="Text-to-CAD gives agents a design-oriented tool surface" loading="lazy"></a>
+    <p class="story-summary">The text-to-cad repository describes its purpose as giving agents CAD capabilities. Written in Python, it appeared among the collected GitHub trending projects with 16,745 stars. The project points toward agents that produce structured design artifacts rather than only text or code. The available repository description is brief, so supported geometry operations, output formats, and engineering tolerances should be checked in the project before treating generated designs as suitable for fabrication or production use.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agent tools</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-10-03T01:51:39Z">Oct 3</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/coreyhaines31/marketingskills" target="_blank" rel="noopener noreferrer">Marketing skills repository packages tasks for coding agents</a></h3>
+<a href="https://github.com/coreyhaines31/marketingskills" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/github/github-9df5cf3dc0bd384dabc7.png" alt="Marketing skills repository packages tasks for coding agents" loading="lazy"></a>
+    <p class="story-summary">The marketingskills repository packages marketing-oriented skills for Claude Code and other AI agents, covering conversion optimization, copywriting, search optimization, analytics, and growth engineering. It had 52,915 stars in the collected GitHub snapshot. The notable pattern is the use of reusable task instructions to extend a general agent into domain work. Popularity does not establish business effectiveness, so teams should assess individual skills against their own content standards, data access, and measurable outcomes.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agent skills</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2026-10-04" data-counter-title="NO-FOMO issue 2026-10-04" defer></script>
+</body>
+</html>
