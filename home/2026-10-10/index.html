@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2026-10-10</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  
+/* OpusClip mark ahead of the NO/FOMO wordmark. */
+.brand{display:inline-flex;align-items:center;gap:.28em}
+.brand-mark{flex:none;width:.78em;height:.78em}
+
+/* Medium-style reading layout: one narrow column, compact type, thumbnails on the right. */
+.shell{width:min(728px,calc(100% - 32px))}
+.masthead{padding:14px 0 12px}
+.brand{font-size:1.9rem}
+.nav{font-size:.72rem}
+.issue{grid-template-columns:minmax(0,1fr) auto;gap:20px;padding:28px 0 20px;border-bottom:1px solid var(--ink)}
+.eyebrow{margin:0 0 8px;font-size:.7rem}
+.issue h1{font-size:clamp(1.8rem,4.6vw,2.5rem);line-height:1.08;letter-spacing:-.03em}
+.issue-meta{font-size:.7rem}
+.issue-meta>strong{font-size:.95rem}
+.readership{margin-top:10px;padding-top:8px}
+.readership dd{font-size:1rem}
+.content{padding:0 0 56px}
+.source-section{margin-top:36px}
+.source-heading{padding:0 0 8px}
+.story{display:block;padding:20px 0}
+.story-kicker{display:flex;gap:10px;align-items:baseline;margin:0 0 6px;font-size:.68rem}
+.story-kicker span{display:inline;margin:0;font-size:.72rem}
+.story-body{display:grid;grid-template-columns:minmax(0,1fr) 168px;grid-template-areas:"title thumb" "summary thumb" "tags thumb";column-gap:24px;align-items:start}
+.story-body:not(:has(.screenshot-link)){grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "summary" "tags"}
+.story h3{grid-area:title;max-width:none;margin:0 0 6px;font:700 1.22rem/1.3 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.012em}
+.story-summary{grid-area:summary;max-width:none;margin:0 0 10px;color:#242424;font:400 1rem/1.62 Charter,Georgia,serif}
+.screenshot-link{grid-area:thumb;width:168px;height:112px;margin:2px 0 0;overflow:hidden;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:zoom-in}
+.screenshot-link img{width:100%;height:100%;object-fit:cover;object-position:center}
+.story-tags{grid-area:tags;gap:6px}
+.tag{padding:2px 9px;border:0;border-radius:999px;background:#ebe7dc;font-size:.66rem;letter-spacing:.02em;text-transform:none}
+.tag-area{background:#e3e9fb;color:#173c9b}
+/* Enlarged image dialog opened from a thumbnail. */
+.lightbox{max-width:min(960px,calc(100vw - 32px));max-height:calc(100vh - 32px);padding:0;border:0;border-radius:6px;background:var(--surface);box-shadow:0 18px 60px rgba(0,0,0,.35)}
+.lightbox::backdrop{background:rgba(24,24,22,.72)}
+.lightbox img{display:block;max-width:100%;max-height:calc(100vh - 96px);margin:0 auto;object-fit:contain}
+.lightbox-bar{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:10px 14px;font-size:.78rem}
+.lightbox-bar a{color:var(--accent);font-weight:700;text-underline-offset:3px}
+.lightbox-bar button{border:0;background:none;font:inherit;font-weight:700;cursor:pointer}
+@media (max-width:640px){
+.issue{grid-template-columns:minmax(0,1fr)}
+.issue-meta{text-align:left}
+.story-body{grid-template-columns:minmax(0,1fr) 96px;column-gap:14px}
+.screenshot-link{width:96px;height:64px}
+.story h3{font-size:1.08rem}
+.story-summary{font-size:.95rem}
+}
+</style>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../" aria-label="NO-FOMO by OpusClip, home"><svg class="brand-mark" aria-hidden="true" viewBox="0 0 14 14" fill="currentColor"><path d="M2.22635 6.97859C2.23788 4.352 4.3707 2.2263 7 2.2263C9.63644 2.2263 11.7737 4.36356 11.7737 7C11.7737 9.63644 9.63644 11.7737 7 11.7737C6.65485 11.7737 6.31825 11.7371 5.99388 11.6675V13.9282C6.32243 13.9755 6.65836 14 7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7V13.9786H2.2263C2.2263 13.9786 2.22635 10.0297 2.22635 7.35C2.22635 7.29608 2.22635 6.97859 2.22635 6.97859Z"/><path d="M2.99694 6.99694V14H5.22324L5.22333 7.44333V6.97859C5.23319 6.00854 6.02376 5.22324 7 5.22324C7.98239 5.22324 8.77676 6.01846 8.77676 6.99694C8.77676 7.97542 7.98239 8.77064 7 8.77064C6.62629 8.77064 6.2798 8.65557 5.99388 8.4591V10.8695C6.31539 10.9527 6.65255 10.9969 7 10.9969C9.20972 10.9969 11.0031 9.20719 11.0031 6.99694C11.0031 4.78669 9.20972 2.99694 7 2.99694C4.79028 2.99694 2.99694 4.78669 2.99694 6.99694Z"/></svg><span>NO<i>/</i>FOMO</span></a><nav class="nav" aria-label="Issue navigation"><a href="../">Archive</a><a href="cn/">中文</a><a href="en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-10-10</strong><span>DEFAULT EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2026-10-10" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg> AI Blog</h2><span>2 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-10-09T07:00:00Z">Oct 9</time></div>
+  <div class="story-body">
+    <h3><a href="https://openai.com/index/asana-browser-agent" target="_blank" rel="noopener noreferrer">Asana reports sharply lower browser-agent test costs</a></h3>
+    <p class="story-summary">OpenAI&#x27;s Asana case study reports that browser-agent tests became 76 times cheaper and five times faster. The headline names GPT-6.1 Sol, while the collected description says GPT-6 Astra in Codex was used to improve the agent. These are vendor-reported results for a specific test setting, not a general pricing promise or universal speedup. The case illustrates why engineering changes and model selection should be evaluated together when making browser automation economically viable.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agent efficiency</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-10-07T13:55:22Z">Oct 7</time></div>
+  <div class="story-body">
+    <h3><a href="https://a16z.com/why-texas-is-making-data-centers-wait/" target="_blank" rel="noopener noreferrer">a16z examines why Texas is making data centers wait</a></h3>
+<a href="https://a16z.com/why-texas-is-making-data-centers-wait/" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/ai-blog/ai-blog-233581edc0b5abc337d1.png" alt="a16z examines why Texas is making data centers wait" loading="lazy"></a>
+    <p class="story-summary">Andreessen Horowitz published an analysis titled Why Texas Is Making Data Centers Wait, framing the issue around how the United States will power its next wave of growth. The collected excerpt does not give the detailed policy or grid mechanisms, so specific causes should not be invented. As an industry perspective, it complements the day&#x27;s political scrutiny of data-center costs and underscores that electricity access can shape the pace of AI infrastructure expansion.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI infrastructure</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>4 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-10-10T15:04:38Z">Oct 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://wsj.com/tech/ai/tom-brown-athropic-669005ad" target="_blank" rel="noopener noreferrer">Report: Tom Brown brokered a $1.25 billion monthly SpaceX compute deal</a></h3>
+    <p class="story-summary">A Wall Street Journal story surfaced on Hacker News reports that Tom Brown used Republican connections to broker a SpaceX compute deal valued at $1.25 billion per month. The collected evidence provides the headline, rather than the full contract or reporting, so the figure and political connection remain attributed claims. The story merits attention because compute procurement at this scale links AI expansion with infrastructure access, corporate bargaining power, and political relationships.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI industry</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-10-10T09:30:03Z">Oct 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.warren.senate.gov/newsroom/press-releases/ai-data-center-companies-reveal-to-warren-blumenthal-van-hollen-they-are-not-paying-their-full-costs-will-continue-using-ndas-and-seeking-tax-breaks/" target="_blank" rel="noopener noreferrer">US senators challenge data-center cost shifting and tax breaks</a></h3>
+<a href="https://www.warren.senate.gov/newsroom/press-releases/ai-data-center-companies-reveal-to-warren-blumenthal-van-hollen-they-are-not-paying-their-full-costs-will-continue-using-ndas-and-seeking-tax-breaks/" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/hacker-news/hacker-news-3c526a63196ce065ceb9.jpg" alt="US senators challenge data-center cost shifting and tax breaks" loading="lazy"></a>
+    <p class="story-summary">A release from Senator Elizabeth Warren&#x27;s office says AI data-center companies disclosed that they are not paying their full costs and intend to continue using nondisclosure agreements and seeking tax breaks. The statement names Warren, Richard Blumenthal, and Chris Van Hollen. This is an official account of the senators&#x27; findings, not an independent audit. It puts public subsidies, cost allocation, and transparency at the center of the debate over AI infrastructure growth.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI policy</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-10-10T14:46:16Z">Oct 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.businessinsider.com/personal-ai-agent-grok-bot-posted-bank-details-company-slack-2026-10" target="_blank" rel="noopener noreferrer">Personal-agent privacy failure reaches workplace Slack</a></h3>
+<a href="https://www.businessinsider.com/personal-ai-agent-grok-bot-posted-bank-details-company-slack-2026-10" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/hacker-news/hacker-news-3a3bfde9dd0de7640f54.jpg" alt="Personal-agent privacy failure reaches workplace Slack" loading="lazy"></a>
+    <p class="story-summary">A Business Insider story shared on Hacker News describes a personal AI agent posting its user&#x27;s bank details to company Slack. The collected headline identifies a concrete information-boundary failure, but does not establish the complete sequence of permissions, prompts, or safeguards involved. The practical lesson is that agents connected to both private data and workplace communication need explicit controls over outbound disclosure. Successful task execution alone is not enough to demonstrate safe behavior across those boundaries.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agent security</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-10-10T10:52:09Z">Oct 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/rociiu/talorys" target="_blank" rel="noopener noreferrer">Talorys brings a self-hosted agent to Cloudflare’s free tier</a></h3>
+<a href="https://github.com/rociiu/talorys" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/hacker-news/hacker-news-aa7eb4e101720c748f9e.png" alt="Talorys brings a self-hosted agent to Cloudflare’s free tier" loading="lazy"></a>
+    <p class="story-summary">Talorys attracted substantial Hacker News discussion as a self-hosted personal AI agent designed for Cloudflare&#x27;s free tier. The collected listing points to its public repository and recorded 150 points and 79 comments at collection time. Those signals indicate developer interest, not a verified security or cost assessment. The project is worth examining for lightweight agent deployment, with particular attention to what runs on the free tier and which external model or service costs remain.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agent projects</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>11 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-10-09T22:04:59Z">Oct 9</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/AnthropicAI/status/2108680150556737819" target="_blank" rel="noopener noreferrer">Anthropic begins more frequent model-behavior reporting</a></h3>
+<a href="https://x.com/AnthropicAI/status/2108680150556737819" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-7037a2f33d3ab693a91b.jpg" alt="Anthropic begins more frequent model-behavior reporting" loading="lazy"></a>
+    <p class="story-summary">Anthropic says it is beginning more frequent reports on model behavior, supplementing system cards and regular risk reports. Its announcement describes a first report covering four behavior types observed during evaluations and internal use. The available post does not enumerate those cases in full, so it supports a change in disclosure practice rather than conclusions about incident severity. More frequent reporting could help users assess deployed agents as their capabilities and operating environments change.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI safety</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-10-09T18:11:50Z">Oct 9</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeDevs/status/2108621476538781878" target="_blank" rel="noopener noreferrer">Claude Code Projects admits all Pro and Max users on its waitlist</a></h3>
+<a href="https://x.com/ClaudeDevs/status/2108621476538781878" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-416d0197669bad1f0c67.jpg" alt="Claude Code Projects admits all Pro and Max users on its waitlist" loading="lazy"></a>
+    <p class="story-summary">Claude&#x27;s announcement says every Pro and Max user on the Claude Code Projects waitlist has now been admitted. It also points newcomers to a four-minute walkthrough. The scope is the existing waitlist for those subscription tiers; the post does not establish unrestricted availability for all users or plans. For developers already waiting, this is a concrete access expansion and an opportunity to evaluate the Projects workflow against their current coding setup.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Coding agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-10-08T21:04:30Z">Oct 8</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/AnthropicAI/status/2108302539498414208" target="_blank" rel="noopener noreferrer">Anthropic launches Cyber Mission for infrastructure and open source</a></h3>
+<a href="https://x.com/AnthropicAI/status/2108302539498414208" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-5e905bf4095ca2be2976.jpg" alt="Anthropic launches Cyber Mission for infrastructure and open source" loading="lazy"></a>
+    <p class="story-summary">Anthropic announced the Anthropic Cyber Mission, describing it as a new effort to secure critical infrastructure and open-source software. The collected announcement establishes the initiative and its intended focus, but does not provide detailed participation terms, budgets, or measured outcomes. Its significance is the explicit pairing of AI security work with widely shared software and infrastructure. Whether it improves defenses will depend on execution and evidence beyond the launch announcement.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Cybersecurity</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-10-07T18:01:56Z">Oct 7</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/AnthropicAI/status/2107894208547983705" target="_blank" rel="noopener noreferrer">Anthropic announces Claude Haiku 5.5</a></h3>
+<a href="https://x.com/AnthropicAI/status/2107894208547983705" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-5e6aeacfff6d680464d5.jpg" alt="Anthropic announces Claude Haiku 5.5" loading="lazy"></a>
+    <p class="story-summary">Anthropic introduced Claude Haiku 5.5 in a short official post calling it the company&#x27;s latest model. The collected text does not include pricing, benchmark results, context limits, or deployment details, so those should not be inferred from the model name. The announcement is nevertheless a material model-family update for teams tracking Claude. Adoption decisions will require the fuller release documentation and workload-specific comparisons rather than the announcement&#x27;s engagement or branding alone.</p>
+    <div class="story-tags"><span class="tag tag-keyword">LLMs</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-10-07T20:01:57Z">Oct 7</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/sama/status/2107924408597950702" target="_blank" rel="noopener noreferrer">Sam Altman says ChatGPT can generate custom interfaces</a></h3>
+<a href="https://x.com/sama/status/2107924408597950702" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-a2b500396b2abbb20e54.jpg" alt="Sam Altman says ChatGPT can generate custom interfaces" loading="lazy"></a>
+    <p class="story-summary">Sam Altman announced that ChatGPT can now generate a custom user interface. The short post offers no detailed account of supported components, rollout scope, persistence, or integration boundaries. It is a meaningful product direction because generated interfaces can change how users interact with model outputs beyond a text conversation. The collected evidence supports the capability announcement, while practical questions about availability and what those interfaces can actually do remain open.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI interfaces</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-10-08T22:15:03Z">Oct 8</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeDevs/status/2108320296323477683" target="_blank" rel="noopener noreferrer">Claude Managed Agents adds a scheduled automation workflow</a></h3>
+<a href="https://x.com/ClaudeDevs/status/2108320296323477683" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-aefd906dd57f05600775.png" alt="Claude Managed Agents adds a scheduled automation workflow" loading="lazy"></a>
+    <p class="story-summary">Claude Developers describes how to deploy a Managed Agent that reads Slack and GitHub on a schedule, retains memory, and posts updates using configured credentials. The post says setup can begin with a Claude Code command and use new API credits included in Max and Team. This makes recurring workplace automation a concrete agent use case. Teams still need to define what information an agent may read and where its generated updates may be sent.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Autonomous agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-10-08T22:57:43Z">Oct 8</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Google/status/2108331030189154814" target="_blank" rel="noopener noreferrer">Google highlights a prospective patient-facing AMIE study</a></h3>
+    <p class="story-summary">Google shared Sundar Pichai&#x27;s announcement that The Lancet published an AMIE study conducted with Beth Israel Deaconess Medical Center. The post describes it as a first prospective study of patient-facing conversational AI in this context. The collected announcement does not provide sample sizes, endpoints, or performance figures. Moving from retrospective evaluation toward prospective patient interaction is noteworthy, but the announcement alone cannot establish clinical effectiveness or justify unsupervised medical deployment.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI healthcare</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>08</span><time datetime="2026-10-08T20:06:28Z">Oct 8</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/runwayml/status/2108287937272266800" target="_blank" rel="noopener noreferrer">Runway connects Claude Motion output with image and video generation</a></h3>
+<a href="https://x.com/runwayml/status/2108287937272266800" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-3027619b34fd0645d71a.jpg" alt="Runway connects Claude Motion output with image and video generation" loading="lazy"></a>
+    <p class="story-summary">Runway describes a workflow that begins with Claude Motion for animated charts, customer walkthroughs, or short explainers, then brings the output into Runway for video and image generation. The announcement focuses on connecting creative tools rather than demonstrating a new model benchmark. For production teams, the useful question is whether the handoff preserves the desired content and reduces manual rework. The post establishes the proposed workflow without quantifying its quality or time savings.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Generative video</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>09</span><time datetime="2026-10-10T16:13:52Z">Oct 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/natolambert/status/2108954173316178231" target="_blank" rel="noopener noreferrer">Nathan Lambert flags a decline in open-model download counts</a></h3>
+<a href="https://x.com/natolambert/status/2108954173316178231" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-27a19a50f6a6df475221.jpg" alt="Nathan Lambert flags a decline in open-model download counts" loading="lazy"></a>
+    <p class="story-summary">Nathan Lambert reports a continuing decline in HuggingFace downloads among leading open language models tracked by Interconnects. He notes that a possible counting change appeared to produce roughly a thirty-percent drop for many models, while the downward pattern continued afterward. This is a measurement observation, not proof that open-model usage has fallen by the same amount. It highlights the need to separate platform accounting changes from actual shifts in adoption before drawing ecosystem conclusions.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Open models</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>10</span><time datetime="2026-10-10T16:05:08Z">Oct 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/fchollet/status/2108951977904517409" target="_blank" rel="noopener noreferrer">François Chollet links coding-agent progress to synthesized reasoning</a></h3>
+<a href="https://x.com/fchollet/status/2108951977904517409" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-4344914269ca7b4296cd.png" alt="François Chollet links coding-agent progress to synthesized reasoning" loading="lazy"></a>
+    <p class="story-summary">François Chollet frames recent AI progress as a shift from token-by-token answer completion toward synthesizing reasoning chains at inference time. He calls this a central development of 2025 and 2026 and connects it to the success of coding agents. This is an interpretive argument rather than a new experimental result in the collected post. It offers a useful lens for evaluating whether an agent&#x27;s gains come from its reasoning process, supporting tools, or underlying model alone.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Reasoning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>11</span><time datetime="2026-10-10T13:13:00Z">Oct 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/rasbt/status/2108908657786355788" target="_blank" rel="noopener noreferrer">Sebastian Raschka explains practical RLVR and GRPO training</a></h3>
+<a href="https://x.com/rasbt/status/2108908657786355788" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-a6e6fadd97878f28ca12.jpg" alt="Sebastian Raschka explains practical RLVR and GRPO training" loading="lazy"></a>
+    <p class="story-summary">Sebastian Raschka released another Reasoning From Scratch lesson on reinforcement learning with verifiable rewards. The announced material covers clipped policy ratios, the KL loss term, format rewards, interpretation of basic GRPO training metrics, and related implementation tips. This is a practical educational resource rather than a new model release or performance claim. Its value is in making the training choices behind reasoning systems easier to inspect and understand before applying them to a particular task.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Reinforcement learning</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>1 story</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-10-10T08:14:38Z">Oct 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/storytold/artcraft" target="_blank" rel="noopener noreferrer">ArtCraft targets intentional creative workflows</a></h3>
+    <p class="story-summary">ArtCraft describes itself as an intentional crafting engine for artists, designers, and filmmakers. The GitHub collection identifies a Rust repository with 13,604 stars and a report-date commit, making it a current project to watch in creative tooling. The available description does not establish specific generation models or production benchmarks. Its relevance is the emphasis on deliberate creative work; prospective users should inspect the actual workflow and controls before assuming a particular level of automation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Creative tools</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2026-10-10" data-counter-title="NO-FOMO issue 2026-10-10" defer></script>
+</body>
+</html>
