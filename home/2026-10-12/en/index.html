@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2026-10-12</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  
+/* OpusClip mark ahead of the NO/FOMO wordmark. */
+.brand{display:inline-flex;align-items:center;gap:.28em}
+.brand-mark{flex:none;width:.78em;height:.78em}
+
+/* Medium-style reading layout: one narrow column, compact type, thumbnails on the right. */
+.shell{width:min(728px,calc(100% - 32px))}
+.masthead{padding:14px 0 12px}
+.brand{font-size:1.9rem}
+.nav{font-size:.72rem}
+.issue{grid-template-columns:minmax(0,1fr) auto;gap:20px;padding:28px 0 20px;border-bottom:1px solid var(--ink)}
+.eyebrow{margin:0 0 8px;font-size:.7rem}
+.issue h1{font-size:clamp(1.8rem,4.6vw,2.5rem);line-height:1.08;letter-spacing:-.03em}
+.issue-meta{font-size:.7rem}
+.issue-meta>strong{font-size:.95rem}
+.readership{margin-top:10px;padding-top:8px}
+.readership dd{font-size:1rem}
+.content{padding:0 0 56px}
+.source-section{margin-top:36px}
+.source-heading{padding:0 0 8px}
+.story{display:block;padding:20px 0}
+.story-kicker{display:flex;gap:10px;align-items:baseline;margin:0 0 6px;font-size:.68rem}
+.story-kicker span{display:inline;margin:0;font-size:.72rem}
+.story-body{display:grid;grid-template-columns:minmax(0,1fr) 168px;grid-template-areas:"title thumb" "summary thumb" "tags thumb";column-gap:24px;align-items:start}
+.story-body:not(:has(.screenshot-link)){grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "summary" "tags"}
+.story h3{grid-area:title;max-width:none;margin:0 0 6px;font:700 1.22rem/1.3 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.012em}
+.story-summary{grid-area:summary;max-width:none;margin:0 0 10px;color:#242424;font:400 1rem/1.62 Charter,Georgia,serif}
+.screenshot-link{grid-area:thumb;width:168px;height:112px;margin:2px 0 0;overflow:hidden;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:zoom-in}
+.screenshot-link img{width:100%;height:100%;object-fit:cover;object-position:center}
+.story-tags{grid-area:tags;gap:6px}
+.tag{padding:2px 9px;border:0;border-radius:999px;background:#ebe7dc;font-size:.66rem;letter-spacing:.02em;text-transform:none}
+.tag-area{background:#e3e9fb;color:#173c9b}
+/* Enlarged image dialog opened from a thumbnail. */
+.lightbox{max-width:min(960px,calc(100vw - 32px));max-height:calc(100vh - 32px);padding:0;border:0;border-radius:6px;background:var(--surface);box-shadow:0 18px 60px rgba(0,0,0,.35)}
+.lightbox::backdrop{background:rgba(24,24,22,.72)}
+.lightbox img{display:block;max-width:100%;max-height:calc(100vh - 96px);margin:0 auto;object-fit:contain}
+.lightbox-bar{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:10px 14px;font-size:.78rem}
+.lightbox-bar a{color:var(--accent);font-weight:700;text-underline-offset:3px}
+.lightbox-bar button{border:0;background:none;font:inherit;font-weight:700;cursor:pointer}
+@media (max-width:640px){
+.issue{grid-template-columns:minmax(0,1fr)}
+.issue-meta{text-align:left}
+.story-body{grid-template-columns:minmax(0,1fr) 96px;column-gap:14px}
+.screenshot-link{width:96px;height:64px}
+.story h3{font-size:1.08rem}
+.story-summary{font-size:.95rem}
+}
+</style>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO by OpusClip, home"><svg class="brand-mark" aria-hidden="true" viewBox="0 0 14 14" fill="currentColor"><path d="M2.22635 6.97859C2.23788 4.352 4.3707 2.2263 7 2.2263C9.63644 2.2263 11.7737 4.36356 11.7737 7C11.7737 9.63644 9.63644 11.7737 7 11.7737C6.65485 11.7737 6.31825 11.7371 5.99388 11.6675V13.9282C6.32243 13.9755 6.65836 14 7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7V13.9786H2.2263C2.2263 13.9786 2.22635 10.0297 2.22635 7.35C2.22635 7.29608 2.22635 6.97859 2.22635 6.97859Z"/><path d="M2.99694 6.99694V14H5.22324L5.22333 7.44333V6.97859C5.23319 6.00854 6.02376 5.22324 7 5.22324C7.98239 5.22324 8.77676 6.01846 8.77676 6.99694C8.77676 7.97542 7.98239 8.77064 7 8.77064C6.62629 8.77064 6.2798 8.65557 5.99388 8.4591V10.8695C6.31539 10.9527 6.65255 10.9969 7 10.9969C9.20972 10.9969 11.0031 9.20719 11.0031 6.99694C11.0031 4.78669 9.20972 2.99694 7 2.99694C4.79028 2.99694 2.99694 4.78669 2.99694 6.99694Z"/></svg><span>NO<i>/</i>FOMO</span></a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-10-12</strong><span>ENGLISH EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2026-10-12" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg> AI Blog</h2><span>2 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-10-10T00:00:00Z">Oct 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://boristane.com/blog/self-improving-software-is-inevitable/" target="_blank" rel="noopener noreferrer">Boris Tane argues production feedback can drive software improvement</a></h3>
+<a href="https://boristane.com/blog/self-improving-software-is-inevitable/" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/ai-blog/ai-blog-925da776cc9b048bebf5.png" alt="Boris Tane argues production feedback can drive software improvement" loading="lazy"></a>
+    <p class="story-summary">Boris Tane argues that agents can connect production telemetry, user behavior, and support signals to proposed software changes, shortening the feedback loop currently mediated by people. His essay puts defining fitness functions and resolving tradeoffs at the center of the human role. This is an architectural vision, not evidence of fully autonomous production reliability. Its useful contribution is treating observability and product goals as inputs to development, with measurable constraints on what counts as improvement.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Self-Improvement</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-10-08T13:55:42Z">Oct 8</time></div>
+  <div class="story-body">
+    <h3><a href="https://a16z.com/you-need-a-new-cfo/" target="_blank" rel="noopener noreferrer">a16z describes finance teams shifting toward agents and continuous planning</a></h3>
+    <p class="story-summary">An a16z essay argues that AI is changing finance leadership from managing fragmented data toward designing workflows, agents, and controls. It describes automated reconciliation, forecasting, and procurement, and highlights finance teams building their own tools. The authors also stress auditable evidence and approval rules as software takes on more work. This is an investor perspective with portfolio examples, but it captures a concrete enterprise adoption pattern: domain experts becoming builders of operational AI systems.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Enterprise AI</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>7 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-10-12T16:48:01Z">Oct 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://research.meta.ai/blog/muse-wonder" target="_blank" rel="noopener noreferrer">Meta launches Muse Wonder for personal and professional agents</a></h3>
+<a href="https://research.meta.ai/blog/muse-wonder" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-7f065211e9dc864c2b4b.webp" alt="Meta launches Muse Wonder for personal and professional agents" loading="lazy"></a>
+    <p class="story-summary">Meta introduced Muse Wonder and Muse Wonder Full, emphasizing persistent context through Active Memory and sustained task execution through Active Focus. Muse Wonder is available through the Meta Model API and Muse Code, while the Full version is available to Muse Code subscribers. Meta reports frontier results in coding and agent tasks, with broader Muse availability planned. The launch puts long-running work and useful memory at the center of its product strategy.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-10-12T12:46:52Z">Oct 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.theguardian.com/technology/2026/oct/12/ai-less-regulated-than-milk-microsoft-president-calls-for-tougher-rules" target="_blank" rel="noopener noreferrer">Microsoft’s Brad Smith calls for AI safety rules and emergency brakes</a></h3>
+<a href="https://www.theguardian.com/technology/2026/oct/12/ai-less-regulated-than-milk-microsoft-president-calls-for-tougher-rules" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-afe8609ad9f57ba7b90b.jpg" alt="Microsoft’s Brad Smith calls for AI safety rules and emergency brakes" loading="lazy"></a>
+    <p class="story-summary">Microsoft president Brad Smith called for stronger AI safety regulation, including emergency brakes and obligations toward victims of rogue agents, according to the Guardian. He argued that everyday products face more safety requirements than AI. The report also cites Satya Nadella’s call for observable, containable systems and anticipated UK government action. These are calls for policy and engineering safeguards, rather than evidence that a new regulatory regime has already taken effect.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Governance</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-10-12T11:22:24Z">Oct 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/qgis/QGIS-Enhancement-Proposals/pull/387" target="_blank" rel="noopener noreferrer">QGIS’s AI contribution ban draws renewed attention</a></h3>
+<a href="https://github.com/qgis/QGIS-Enhancement-Proposals/pull/387" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-0ae5812f0cb7657466dc.png" alt="QGIS’s AI contribution ban draws renewed attention" loading="lazy"></a>
+    <p class="story-summary">QGIS’s merged policy proposal prohibits AI-assisted contributions, with maintainers pointing to review overload and the need to protect the project’s human contributor community. The proposal was merged on October 7 and attracted substantial Hacker News discussion today. Its rationale highlights an operational constraint on automated coding: producing more patches does not automatically create more review capacity. The discussion also separates questions about contributions from possible uses in auditing or security review.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Coding</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-10-12T14:52:37Z">Oct 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://mortoray.com/why-arent-ai-companies-being-charged-for-hacking/" target="_blank" rel="noopener noreferrer">AI hacking accountability becomes a major developer debate</a></h3>
+    <p class="story-summary">A widely discussed essay by Edaqa Mortoray argues that AI vendors should remain accountable for unauthorized access carried out by their systems. The author focuses on choices about training, tools, network access, and safeguards, challenging the idea that unpredictable model behavior removes responsibility. This is a legal and technical argument, not a court finding. Its relevance is the growing pressure to define who bears responsibility when capable agents cross authorization boundaries.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Security</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-10-12T14:45:44Z">Oct 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://azure.microsoft.com/en-us/blog/deep-dive-into-azure-maia-300-architecture/" target="_blank" rel="noopener noreferrer">Microsoft details Maia 300’s system approach to agent inference</a></h3>
+<a href="https://azure.microsoft.com/en-us/blog/deep-dive-into-azure-maia-300-architecture/" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-3f7582182ef005f59c08.png" alt="Microsoft details Maia 300’s system approach to agent inference" loading="lazy"></a>
+    <p class="story-summary">Microsoft published an architectural account of Azure Maia 300, presenting the third-generation platform as a system designed around large language model inference. The article emphasizes joint design across software, silicon, networking, racks, and datacenters. Its central argument is that agent workloads change memory and communication demands through long contexts, tool use, and repeated execution. For infrastructure teams, the relevant question is how system efficiency translates into usable inference capacity within power and cooling limits.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Infrastructure</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-10-12T16:46:34Z">Oct 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://news.ycombinator.com/item?id=50059096" target="_blank" rel="noopener noreferrer">Agent37 explains its approach to low-cost agent sandboxes</a></h3>
+    <p class="story-summary">Agent37’s Launch HN post describes sandboxes intended to make persistent personal agents cheaper to host. The company attributes its economics to burst-aware resource allocation, lower-cost infrastructure providers, and gVisor-based sharing rather than reserving a full virtual machine’s memory for every user. It reports average customer spending of $0.37 per sandbox per month. Those figures are vendor claims, and the post acknowledges workload compatibility tradeoffs, including limitations around Docker-in-Docker.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-10-12T00:03:53Z">Oct 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://tedhaley.ca/pensieve/" target="_blank" rel="noopener noreferrer">Pensieve uses local search to reduce coding-agent context costs</a></h3>
+<a href="https://tedhaley.ca/pensieve/" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-96400c3ab01a3845badf.png" alt="Pensieve uses local search to reduce coding-agent context costs" loading="lazy"></a>
+    <p class="story-summary">Pensieve offers local search across code, documents, and agent sessions, exposing focused passages through MCP instead of asking an agent to inspect large amounts of material. Its published evaluation reports 2.0 tool calls per lookup versus 3.4 with grep, with lower average cost on the tested repositories. The benchmark is developer-run and task-specific. The practical idea is to improve retrieval before expanding context windows or spending more model calls on navigation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">MCP</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>9 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-10-12T16:38:47Z">Oct 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/vivnat/status/2109685220341629116" target="_blank" rel="noopener noreferrer">Clinical conversational AI study reaches The Lancet</a></h3>
+<a href="https://x.com/vivnat/status/2109685220341629116" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-62dab6bed017a45ebe69.jpg" alt="Clinical conversational AI study reaches The Lancet" loading="lazy"></a>
+    <p class="story-summary">Vivek Natarajan highlighted publication in The Lancet of a real-world study involving a conversational diagnostic AI system. His post frames the work as a deliberate step toward evaluating AI in clinical settings, rather than treating adoption as inevitable. The announcement is significant because clinical deployment requires evidence from actual workflows, not only benchmark performance. The collected post does not provide outcome statistics, so it should not be read as demonstrating broad clinical readiness.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Clinical AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-10-11T20:47:47Z">Oct 11</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/hardmaru/status/2109385496237678844" target="_blank" rel="noopener noreferrer">Sakana AI introduces Multi-Agent Self-Supervision</a></h3>
+<a href="https://x.com/hardmaru/status/2109385496237678844" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-b0d0440adb30850ea9aa.png" alt="Sakana AI introduces Multi-Agent Self-Supervision" loading="lazy"></a>
+    <p class="story-summary">Sakana AI’s David Ha introduced a paper on Multi-Agent Self-Supervision, or MASS, as an approach to recursive self-improvement. The announcement centers on a supervision bottleneck: open-ended research can become too complex for humans to evaluate reliably. It proposes collective intelligence as a direction for addressing that constraint. The post attracted strong engagement, but the collected excerpt does not establish performance numbers or prove that human oversight can safely be removed.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Self-Improvement</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-10-12T13:00:04Z">Oct 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/LumaLabsAI/status/2109630178163151205" target="_blank" rel="noopener noreferrer">Luma highlights lighting edits without rebuilding a shot</a></h3>
+<a href="https://x.com/LumaLabsAI/status/2109630178163151205" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-5769cb87565c5f8241d6.jpg" alt="Luma highlights lighting edits without rebuilding a shot" loading="lazy"></a>
+    <p class="story-summary">Luma’s official account highlighted Relight Studio as a way to explore alternative lighting for an existing shot without starting over. The workflow targets a practical production need: keeping a usable composition while changing its visual treatment. The post is a product demonstration rather than a comparative evaluation, and it supplies no quality or latency measurements. Its relevance is the shift toward controllable edits that fit iterative creative work, beyond generating a first draft.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Generative Video</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-10-12T12:02:14Z">Oct 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Kling_ai/status/2109615624985219203" target="_blank" rel="noopener noreferrer">Kling showcases a 4.0 music-video production workflow</a></h3>
+<a href="https://x.com/Kling_ai/status/2109615624985219203" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-a90e769c74ad19922c6c.jpg" alt="Kling showcases a 4.0 music-video production workflow" loading="lazy"></a>
+    <p class="story-summary">Kling’s official account shared a music-video example made by PROMPTR Studios creative director Simon Meyer using early access to Kling 4.0. The company presents the work as a demonstration of the model’s new capabilities in a production-oriented setting. The collected post does not disclose detailed workflow settings or independent quality measurements. For creators, the useful signal is the growing emphasis on finished projects that combine creative direction with generative video tools.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Generative Video</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-10-12T12:18:59Z">Oct 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Thom_Wolf/status/2109619839341842480" target="_blank" rel="noopener noreferrer">ManimGX announcement targets animation tools for agents</a></h3>
+    <p class="story-summary">Thomas Wolf amplified the announcement of ManimGX, a 3D animation engine designed for agents and built around a Rust and wgpu core. The announcement claims a large speed advantage over ManimCE, but the collected excerpt provides no benchmark methodology to assess that comparison. The broader development is useful for agent tooling: structured animation generation can make visual explanations and demonstrations part of an automated workflow, provided output quality and compatibility are checked.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-10-10T16:07:21Z">Oct 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/natolambert/status/2108952534744256675" target="_blank" rel="noopener noreferrer">Nathan Lambert focuses RL progress on better training data</a></h3>
+<a href="https://x.com/natolambert/status/2108952534744256675" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-c57e42eecb3bfae1c499.jpg" alt="Nathan Lambert focuses RL progress on better training data" loading="lazy"></a>
+    <p class="story-summary">Nathan Lambert argues that the expanding data industry still produces insufficiently high-quality output for reinforcement learning, including data that can amplify reward hacking. He describes work toward scalable creation of sample-efficient RL data. The post offers a research priority rather than a completed benchmark result. Its implication is that more supervision is not automatically better supervision: the usefulness of training signals and the behavior they reward remain central constraints on model improvement.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Reinforcement Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-10-09T17:54:36Z">Oct 9</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/fchollet/status/2108617137241911723" target="_blank" rel="noopener noreferrer">François Chollet uses science as a model for recursive improvement</a></h3>
+    <p class="story-summary">François Chollet suggests studying science itself as a reference system for understanding recursive self-improvement in AI. His post treats science as a process with goals and resources, rather than assuming improvement must be understood only at the level of an individual model. The framing attracted substantial engagement. It is a conceptual argument, not evidence of a deployed self-improving system, and helps place current research claims within a broader discussion about evaluation and accumulated knowledge.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Self-Improvement</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>08</span><time datetime="2026-10-12T07:17:38Z">Oct 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/GaryMarcus/status/2109544001317880047" target="_blank" rel="noopener noreferrer">Gary Marcus distinguishes language models from tool-equipped systems</a></h3>
+<a href="https://x.com/GaryMarcus/status/2109544001317880047" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-484bf60a181ce49e80d9.jpg" alt="Gary Marcus distinguishes language models from tool-equipped systems" loading="lazy"></a>
+    <p class="story-summary">Gary Marcus argues that discussion should distinguish earlier standalone language models from newer systems combining models with symbolic harnesses and code interpreters. The point matters when attributing progress: better system behavior can reflect external tools and verification as well as model changes. The collected post is commentary rather than an experiment. It encourages evaluation of the complete deployed system and clearer reporting about which components contribute to a result, especially in coding and reasoning tasks.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Evaluation</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>09</span><time datetime="2026-10-11T01:39:48Z">Oct 11</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/fchollet/status/2109096597011534242" target="_blank" rel="noopener noreferrer">François Chollet experiments with KerasHub post-training</a></h3>
+    <p class="story-summary">François Chollet says he has been experimenting with large language model post-training using KerasHub, JAX, and TPUs, and may release some of that work as open source. The post offers a concrete indication of his current tooling interests, but announces neither a released training package nor benchmark gains. For practitioners watching alternative training stacks, it is a development to follow while keeping possible future publication separate from software that is already available.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Post-Training</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>1 story</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-10-10T21:10:07Z">Oct 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener noreferrer">Open WebUI remains a prominent interface for multiple model backends</a></h3>
+<a href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/github/github-aa408c0f83f345a858be.png" alt="Open WebUI remains a prominent interface for multiple model backends" loading="lazy"></a>
+    <p class="story-summary">Open WebUI appears among the collected GitHub projects as a user-facing AI interface supporting backends including Ollama and OpenAI-compatible APIs. The repository had more than 154,000 stars at collection, indicating broad developer attention rather than proof of deployment quality. Its relevance is the interface layer around model choice: teams can explore different backends through a common application. This item is a project discovery note, not an announcement of a newly verified release.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Applications</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1" fill="none"/><text x="12" y="16" text-anchor="middle" font-size="12">HF</text></svg> HuggingFace</h2><span>8 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-10-08T20:00:00Z">Oct 8</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2610.12984" target="_blank" rel="noopener noreferrer">Work2Skill converts human GUI demonstrations into reusable skills</a></h3>
+<a href="https://huggingface.co/papers/2610.12984" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-c1b4efc1794fa5271151.png" alt="Work2Skill converts human GUI demonstrations into reusable skills" loading="lazy"></a>
+    <p class="story-summary">Work2Skill captures screen recordings, input events, and available accessibility information to induce reusable skills for computer-use agents. Its WorkDemo-350 dataset contains 350 screened human demonstrations. The method extracts workflow rules, dependencies, and completion checks while inspecting evidence on demand. Across shared execution settings, the authors report improvements on MyPCBench and an OSWorld-Verified subset. The contribution is a structured route from human procedural knowledge to agent behavior, rather than simply replaying recorded clicks.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Computer Use</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-10-08T20:00:00Z">Oct 8</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2610.13912" target="_blank" rel="noopener noreferrer">RSI-Anything combines predictive world models with retained updates</a></h3>
+<a href="https://huggingface.co/papers/2610.13912" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-4720281abf6330d03bcb.png" alt="RSI-Anything combines predictive world models with retained updates" loading="lazy"></a>
+    <p class="story-summary">RSI-Anything uses predictive world models to guide action choices and select learning data, then checks compatibility before retaining updated policies and models. The authors report code-repair success increasing from 26.3% with a static verifier to 31.2% after adaptation, at comparable test usage. They also evaluate GUI and scientific tasks. The work makes recursive improvement a concrete loop of prediction, feedback, and checked updates, while its broader applicability remains bounded by the reported experiments.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Self-Improvement</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-10-08T20:00:00Z">Oct 8</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2610.13395" target="_blank" rel="noopener noreferrer">ProgramGym builds verifiable environments for program reproduction</a></h3>
+<a href="https://huggingface.co/papers/2610.13395" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-2cde23c1f6b962da6349.png" alt="ProgramGym builds verifiable environments for program reproduction" loading="lazy"></a>
+    <p class="story-summary">ProgramGym combines a pipeline for constructing verifiable program-reproduction environments with an agent workflow for analysis, implementation, and review. The authors built 1,648 environments spanning C, C++, Go, and Rust, repairing sandbox builds and black-box tests through feedback. They report that fine-tuning improves Qwen3.8-27B on ProgramBench, with further gains from the workflow. The key idea is to train agents to discover behavior and sustain implementation work, not only solve isolated repository issues.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Coding</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-10-08T01:54:03Z">Oct 8</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2610.11291" target="_blank" rel="noopener noreferrer">Offline student rollouts challenge always-on-policy distillation</a></h3>
+<a href="https://huggingface.co/papers/2610.11291" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-16936fea87c2a5cac757.png" alt="Offline student rollouts challenge always-on-policy distillation" loading="lazy"></a>
+    <p class="story-summary">A distillation study finds that Semi-OPD, which uses offline rollouts from the initial student, outperforms on-policy distillation in 14 of 17 tested teacher-student pairs. The authors connect the choice to alignment between teacher and student outputs, measured through token overlap. They report gains in both accuracy and training efficiency for suitable pairs. The result argues for selecting a distillation strategy based on model compatibility, rather than assuming fresh student sampling is universally beneficial.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Post-Training</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-10-07T20:00:00Z">Oct 7</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2610.12611" target="_blank" rel="noopener noreferrer">SoftwareGym synthesizes GUI environments for agent training</a></h3>
+<a href="https://huggingface.co/papers/2610.12611" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-b2913ba28bba153a4160.png" alt="SoftwareGym synthesizes GUI environments for agent training" loading="lazy"></a>
+    <p class="story-summary">SoftwareGym generates functional GUI applications, evaluates their behavior, and repairs them iteratively to produce training environments for computer-use agents. The authors report 182 applications across twelve categories and a mean GUI task pass rate of 91.5%. Training on collected trajectories improves OSWorld Pass@3 from 41.39% to 56.97% in their experiments. The approach addresses a bottleneck in agent learning: obtaining varied, executable environments with enough workflow depth to support transferable practice.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Computer Use</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-10-07T20:00:00Z">Oct 7</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2610.11069" target="_blank" rel="noopener noreferrer">Clinical AI benchmarks miss much of clinicians’ actual work</a></h3>
+<a href="https://huggingface.co/papers/2610.11069" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-9a754524ac993bae6711.png" alt="Clinical AI benchmarks miss much of clinicians’ actual work" loading="lazy"></a>
+    <p class="story-summary">Researchers analyzed 127,833 queries from 6,342 clinicians and found a large mismatch between real assistant use and public benchmarks. Documentation, administration, and knowledge retrieval made up nearly two-thirds of requests, while diagnosis represented 3.7%. Across 58 benchmarks, the median task mix overlapped only 31% with real use. The study argues that readiness claims should reflect actual clinical workflows and incomplete questions, not depend mainly on examination-style performance or curated diagnostic cases.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Clinical AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-10-07T20:00:00Z">Oct 7</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2610.11361" target="_blank" rel="noopener noreferrer">SepGen separates and generates individual audio stems with video</a></h3>
+<a href="https://huggingface.co/papers/2610.11361" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-8aef8a5ad54f402d2e1a.png" alt="SepGen separates and generates individual audio stems with video" loading="lazy"></a>
+    <p class="story-summary">SepGen extends an audio-video generator to output video, a mixed soundtrack, and separate waveforms for captioned sound sources in one sampling run. It also supports separating recordings through text descriptions. The authors evaluate generated scenes, outputs from other generators, and real speech, music, and sound effects. The practical contribution is access to individual sound sources for editing or spatial rendering, addressing a limitation of systems that deliver only a single mixed soundtrack.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Generative Video</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>08</span><time datetime="2026-10-07T20:00:00Z">Oct 7</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2610.12569" target="_blank" rel="noopener noreferrer">SWE-Duel makes coding agents create and repair each other’s bugs</a></h3>
+<a href="https://huggingface.co/papers/2610.12569" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-5e207b94cd4f37d443bb.png" alt="SWE-Duel makes coding agents create and repair each other’s bugs" loading="lazy"></a>
+    <p class="story-summary">SWE-Duel proposes an evaluation arena where coding agents alternate between creating testable repository changes with hidden bugs and repairing the opponent’s changes. Tasks are admitted only after checks for validity and solvability. The reported tournament spans eleven model-harness participants, fifteen repositories, and 1,500 turns. By creating tasks during evaluation, the authors aim to reduce static benchmark leakage and allow difficulty to grow with participants’ capabilities, while measuring both problem creation and repair.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI Evaluation</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2026-10-12" data-counter-title="NO-FOMO issue 2026-10-12" defer></script>
+</body>
+</html>
