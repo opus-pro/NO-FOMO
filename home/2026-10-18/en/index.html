@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2026-10-18</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  
+/* OpusClip mark ahead of the NO/FOMO wordmark. */
+.brand{display:inline-flex;align-items:center;gap:.28em}
+.brand-mark{flex:none;width:.78em;height:.78em}
+
+/* Medium-style reading layout: one narrow column, compact type, thumbnails on the right. */
+.shell{width:min(728px,calc(100% - 32px))}
+.masthead{padding:14px 0 12px}
+.brand{font-size:1.9rem}
+.nav{font-size:.72rem}
+.issue{grid-template-columns:minmax(0,1fr) auto;gap:20px;padding:28px 0 20px;border-bottom:1px solid var(--ink)}
+.eyebrow{margin:0 0 8px;font-size:.7rem}
+.issue h1{font-size:clamp(1.8rem,4.6vw,2.5rem);line-height:1.08;letter-spacing:-.03em}
+.issue-meta{font-size:.7rem}
+.issue-meta>strong{font-size:.95rem}
+.readership{margin-top:10px;padding-top:8px}
+.readership dd{font-size:1rem}
+.content{padding:0 0 56px}
+.source-section{margin-top:36px}
+.source-heading{padding:0 0 8px}
+.story{display:block;padding:20px 0}
+.story-kicker{display:flex;gap:10px;align-items:baseline;margin:0 0 6px;font-size:.68rem}
+.story-kicker span{display:inline;margin:0;font-size:.72rem}
+.story-body{display:grid;grid-template-columns:minmax(0,1fr) 168px;grid-template-areas:"title thumb" "summary thumb" "tags thumb";column-gap:24px;align-items:start}
+.story-body:not(:has(.screenshot-link)){grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "summary" "tags"}
+.story h3{grid-area:title;max-width:none;margin:0 0 6px;font:700 1.22rem/1.3 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.012em}
+.story-summary{grid-area:summary;max-width:none;margin:0 0 10px;color:#242424;font:400 1rem/1.62 Charter,Georgia,serif}
+.screenshot-link{grid-area:thumb;width:168px;height:112px;margin:2px 0 0;overflow:hidden;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:zoom-in}
+.screenshot-link img{width:100%;height:100%;object-fit:cover;object-position:center}
+.story-tags{grid-area:tags;gap:6px}
+.tag{padding:2px 9px;border:0;border-radius:999px;background:#ebe7dc;font-size:.66rem;letter-spacing:.02em;text-transform:none}
+.tag-area{background:#e3e9fb;color:#173c9b}
+/* Enlarged image dialog opened from a thumbnail. */
+.lightbox{max-width:min(960px,calc(100vw - 32px));max-height:calc(100vh - 32px);padding:0;border:0;border-radius:6px;background:var(--surface);box-shadow:0 18px 60px rgba(0,0,0,.35)}
+.lightbox::backdrop{background:rgba(24,24,22,.72)}
+.lightbox img{display:block;max-width:100%;max-height:calc(100vh - 96px);margin:0 auto;object-fit:contain}
+.lightbox-bar{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:10px 14px;font-size:.78rem}
+.lightbox-bar a{color:var(--accent);font-weight:700;text-underline-offset:3px}
+.lightbox-bar button{border:0;background:none;font:inherit;font-weight:700;cursor:pointer}
+@media (max-width:640px){
+.issue{grid-template-columns:minmax(0,1fr)}
+.issue-meta{text-align:left}
+.story-body{grid-template-columns:minmax(0,1fr) 96px;column-gap:14px}
+.screenshot-link{width:96px;height:64px}
+.story h3{font-size:1.08rem}
+.story-summary{font-size:.95rem}
+}
+</style>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO by OpusClip, home"><svg class="brand-mark" aria-hidden="true" viewBox="0 0 14 14" fill="currentColor"><path d="M2.22635 6.97859C2.23788 4.352 4.3707 2.2263 7 2.2263C9.63644 2.2263 11.7737 4.36356 11.7737 7C11.7737 9.63644 9.63644 11.7737 7 11.7737C6.65485 11.7737 6.31825 11.7371 5.99388 11.6675V13.9282C6.32243 13.9755 6.65836 14 7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7V13.9786H2.2263C2.2263 13.9786 2.22635 10.0297 2.22635 7.35C2.22635 7.29608 2.22635 6.97859 2.22635 6.97859Z"/><path d="M2.99694 6.99694V14H5.22324L5.22333 7.44333V6.97859C5.23319 6.00854 6.02376 5.22324 7 5.22324C7.98239 5.22324 8.77676 6.01846 8.77676 6.99694C8.77676 7.97542 7.98239 8.77064 7 8.77064C6.62629 8.77064 6.2798 8.65557 5.99388 8.4591V10.8695C6.31539 10.9527 6.65255 10.9969 7 10.9969C9.20972 10.9969 11.0031 9.20719 11.0031 6.99694C11.0031 4.78669 9.20972 2.99694 7 2.99694C4.79028 2.99694 2.99694 4.78669 2.99694 6.99694Z"/></svg><span>NO<i>/</i>FOMO</span></a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-10-18</strong><span>ENGLISH EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2026-10-18" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-10-18T06:50:36Z">Oct 18</time></div>
+  <div class="story-body">
+    <h3><a href="https://api-docs.deepseek.com/guides/search/" target="_blank" rel="noopener noreferrer">DeepSeek prices search and fetch at $0.75 per 1,000 successful requests</a></h3>
+<a href="https://api-docs.deepseek.com/guides/search/" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-928cf643f77523aa379e.jpg" alt="DeepSeek prices search and fetch at $0.75 per 1,000 successful requests" loading="lazy"></a>
+    <p class="story-summary">DeepSeek’s search documentation drew the strongest AI-related discussion among today’s collected Hacker News stories, with 421 points and 206 comments. The listed price is $0.75 per 1,000 successful search and fetch requests. For teams building agents that need fresh web information, request-level pricing is a concrete input to operating costs. The headline does not establish the service’s coverage or quality, which still need evaluation against the intended workload.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agent tools</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-10-18T14:30:27Z">Oct 18</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropics-proposed-ai-safety-bill-only-kicks-in-if-50-deaths-or-usd1-billion-in-damages-are-on-the-line-proposal-would-effectively-make-the-commerce-department-the-only-agency-capable-of-stopping-an-ai-model" target="_blank" rel="noopener noreferrer">Anthropic safety-bill proposal draws scrutiny over intervention thresholds</a></h3>
+    <p class="story-summary">A Tom’s Hardware report highlights controversy over Anthropic’s proposed AI safety legislation, describing thresholds involving 50 deaths or $1 billion in damages and a central role for the Commerce Department in stopping a model. The story attracted 122 Hacker News comments. This is a proposal under scrutiny, not evidence of an enacted law. Its significance lies in who could intervene and what evidence of harm would trigger that authority.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI policy</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-10-18T08:22:11Z">Oct 18</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/opencode/status/2111519637049319818" target="_blank" rel="noopener noreferrer">OpenCode reports breach affecting 1.4% of console users</a></h3>
+<a href="https://twitter.com/opencode/status/2111519637049319818" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-7a09fa559d21e6d94c2a.png" alt="OpenCode reports breach affecting 1.4% of console users" loading="lazy"></a>
+    <p class="story-summary">An OpenCode announcement linked from Hacker News reports a security breach affecting 1.4% of console users. The collected headline supplies the affected share but does not establish the exposed data, root cause, or remediation details. For coding-agent users, the incident brings account and service security into focus alongside model capability. Readers operating affected integrations should consult the original announcement for the precise scope and response before drawing broader conclusions.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI security</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-10-18T14:58:10Z">Oct 18</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.theverge.com/ai-artificial-intelligence/1013195/ai-agents-blocked-web" target="_blank" rel="noopener noreferrer">Websites push back against AI-agent access</a></h3>
+<a href="https://www.theverge.com/ai-artificial-intelligence/1013195/ai-agents-blocked-web" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-7acecd506977e64bd30c.jpg" alt="Websites push back against AI-agent access" loading="lazy"></a>
+    <p class="story-summary">The Verge reports that websites are closing their doors to AI agents, a story that generated 102 points and 82 comments in the collected Hacker News snapshot. The broad issue is access: an agent’s ability to navigate or act on the web depends on permission and availability as well as reasoning. The collected material does not identify a universal blocking policy, so teams should assess restrictions site by site.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Autonomous agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-10-18T10:21:51Z">Oct 18</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.niemanlab.org/2026/10/legal-experts-warn-metas-new-terms-still-grant-broad-scraping-permissions-despite-language-changes/" target="_blank" rel="noopener noreferrer">Legal experts question Meta’s revised scraping terms</a></h3>
+<a href="https://www.niemanlab.org/2026/10/legal-experts-warn-metas-new-terms-still-grant-broad-scraping-permissions-despite-language-changes/" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-ed23394e83cbcd1ed7fe.jpg" alt="Legal experts question Meta’s revised scraping terms" loading="lazy"></a>
+    <p class="story-summary">Nieman Lab reports that legal experts still see broad scraping permissions in Meta’s revised terms despite changes in wording. The story received 164 points in the collected Hacker News snapshot. It puts contractual control over online material back into the AI data debate. The headline supports concern about the terms’ scope, rather than a finding that any particular use is unlawful; publishers and developers need to examine the actual language.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI policy</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-10-18T04:33:49Z">Oct 18</time></div>
+  <div class="story-body">
+    <h3><a href="https://sphinx-six-theta.vercel.app/" target="_blank" rel="noopener noreferrer">Sphinx quizzes developers on agent-written code before shipping</a></h3>
+    <p class="story-summary">Sphinx is presented on Hacker News as a free and open-source hook for existing coding-agent workflows. Before a production push, it asks a questionnaire intended to check whether the developer understands the code being shipped. The project drew 210 points and 71 comments in the collected snapshot. Its appeal is a concrete human-review step for AI-assisted development; the submission does not demonstrate that passing the quiz guarantees software correctness.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Developer tools</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>10 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-10-18T14:34:40Z">Oct 18</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Thom_Wolf/status/2111828314851598745" target="_blank" rel="noopener noreferrer">Thomas Wolf estimates nearly $1 billion in shared model-training compute</a></h3>
+<a href="https://x.com/Thom_Wolf/status/2111828314851598745" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-c8b91b35ccd5c7dd4f0c.jpg" alt="Thomas Wolf estimates nearly $1 billion in shared model-training compute" loading="lazy"></a>
+    <p class="story-summary">Hugging Face cofounder Thomas Wolf estimates that models shared on the Hub represent close to $1 billion in training compute, compared with under $40 million at the end of 2023. He names Meta, NVIDIA, Alibaba, DeepSeek, Moonshot and Mistral among the contributing labs. Wolf explicitly frames this as rough arithmetic. The estimate illustrates the growing resource base behind downloadable models, rather than an audited valuation or a uniform licensing guarantee.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Open models</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-10-17T17:20:43Z">Oct 17</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/fchollet/status/2111507711653564543" target="_blank" rel="noopener noreferrer">François Chollet argues agent coding is reshaping engineering work</a></h3>
+    <p class="story-summary">François Chollet argues that software-engineering demand and workload can grow even as agents take over code writing. His post describes more engineers than in 2025 and says engineers are working harder while agents write nearly all the code in the workflow he discusses. These are his observations, not a labor-market study. The useful question for teams is how review, direction and responsibility change as implementation becomes increasingly automated.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI coding</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-10-17T10:17:12Z">Oct 17</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Thom_Wolf/status/2111401132840890440" target="_blank" rel="noopener noreferrer">Wolf highlights DeepSeek’s reported coding-benchmark gains</a></h3>
+<a href="https://x.com/Thom_Wolf/status/2111401132840890440" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-7bbcd63856ce55a0a3cf.jpg" alt="Wolf highlights DeepSeek’s reported coding-benchmark gains" loading="lazy"></a>
+    <p class="story-summary">Thomas Wolf highlights a DeepSeek update that he says raises Terminal-Bench 4.0 from 31.2 to 42.3 and reports 77.0 on DeepSWE. His post compares that score with figures for Opus 5 and GPT-5.6 Sol and also points to faster task completion. These are reported benchmark figures relayed in commentary. They make the update worth testing on real coding tasks, without establishing that every workload will improve similarly.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Model evaluation</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-10-16T19:29:54Z">Oct 16</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeAI/status/2111177834127601902" target="_blank" rel="noopener noreferrer">Claude showcases an Opus 5.5 wildfire-analysis prototype</a></h3>
+<a href="https://x.com/ClaudeAI/status/2111177834127601902" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-f6c7c519ffaaba41e1e3.jpg" alt="Claude showcases an Opus 5.5 wildfire-analysis prototype" loading="lazy"></a>
+    <p class="story-summary">The official Claude account highlights a wildfire-analysis prototype built with Opus 5.5 as one of six recent projects that caught its attention. The described prototype maps fire spread over time and tracks hot spots. This is a concrete example of AI-assisted application building around spatial and temporal information. The post presents a showcase, not validation for emergency operations, so its demonstrated scope should be kept distinct from operational readiness.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI applications</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-10-16T18:26:06Z">Oct 16</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/LumaLabsAI/status/2111161778247786541" target="_blank" rel="noopener noreferrer">Luma adds a continuation path from Claude Motion</a></h3>
+<a href="https://x.com/LumaLabsAI/status/2111161778247786541" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-a89c2102a6448e79ba89.jpg" alt="Luma adds a continuation path from Claude Motion" loading="lazy"></a>
+    <p class="story-summary">Luma says animations made in Claude Motion can be sent to Luma to continue building, using a Send to Luma option inside Claude Motion. The short announcement describes a workflow connection rather than a new model or benchmark result. For creators, moving a project between tools can matter as much as generating its first output. The post does not specify supported formats, pricing, or limits on what transfers.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Generative video</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-10-15T17:54:20Z">Oct 15</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Google/status/2110791397573845265" target="_blank" rel="noopener noreferrer">Google demonstrates Gemini 4 Argon across 80,000 NASA files</a></h3>
+<a href="https://x.com/Google/status/2110791397573845265" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-80e55c137a709d219f1f.jpg" alt="Google demonstrates Gemini 4 Argon across 80,000 NASA files" loading="lazy"></a>
+    <p class="story-summary">Google showcases Gemini 4 Argon processing 80,000 files from NASA’s open archives to build a Google Slides presentation under specified design guidelines. The listed inputs include CSVs, images, PDFs, web articles, XML logs and raw videos. The example emphasizes coordination across heterogeneous research material and presentation output. It is a vendor demonstration, not an independent assessment of factual accuracy, completeness, runtime, or the cost of reproducing the workflow.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multimodal AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-10-15T18:05:07Z">Oct 15</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/natolambert/status/2110794113415008610" target="_blank" rel="noopener noreferrer">Nathan Lambert sees US open-weight models narrowing the gap</a></h3>
+<a href="https://x.com/natolambert/status/2110794113415008610" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-0ea62461c89456255698.jpg" alt="Nathan Lambert sees US open-weight models narrowing the gap" loading="lazy"></a>
+    <p class="story-summary">Nathan Lambert describes renewed progress for US open-weight models, saying the latest development has cut their lag behind Chinese models by at least half in time terms, to roughly three months. Related collected commentary identifies Meta as central to this discussion. This is an analyst’s assessment rather than a common benchmark result. It highlights increasing competitive pressure in open weights while leaving deployment suitability and licensing to separate evaluation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Open models</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>08</span><time datetime="2026-10-15T16:51:24Z">Oct 15</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/fchollet/status/2110775560846914009" target="_blank" rel="noopener noreferrer">Chollet compares Argon and Astra on ARC-AGI-3</a></h3>
+<a href="https://x.com/fchollet/status/2110775560846914009" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-bc944e203bed62b3bfa7.jpg" alt="Chollet compares Argon and Astra on ARC-AGI-3" loading="lazy"></a>
+    <p class="story-summary">François Chollet says Argon has a similar performance profile to Astra on ARC-AGI-3 and characterizes Google as back at the frontier. The concise post supplies a qualitative comparison rather than detailed scores or a full evaluation methodology. It is a notable assessment from a prominent reasoning researcher, but readers should avoid treating one benchmark profile as a complete ranking of models across coding, multimodal work, or production reliability.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Model evaluation</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>09</span><time datetime="2026-10-15T15:36:00Z">Oct 15</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/fchollet/status/2110756584611516512" target="_blank" rel="noopener noreferrer">Chollet makes the case for active conversational tutoring</a></h3>
+    <p class="story-summary">François Chollet argues that conversational AI could expand access to the benefits of one-to-one tutoring. His post emphasizes active conversational learning and contrasts the effectiveness of individual tutoring with its difficulty scaling. The collected text frames an educational opportunity rather than reporting a controlled learning-outcome study. For education products, the substantive design question is whether interaction makes learners reason and participate, instead of simply receiving answers from a model.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI education</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>10</span><time datetime="2026-10-17T20:08:41Z">Oct 17</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/natolambert/status/2111549984373911572" target="_blank" rel="noopener noreferrer">Lambert urges precision when discussing model distillation and key theft</a></h3>
+    <p class="story-summary">Nathan Lambert questions the use of distillation as an umbrella term that also covers cyberattacks to steal API keys and model-transfer operations. He says the volume of activity and its connection to model training remain unclear. The point is about separating technical processes from security incidents and uncertain attribution. Clear terminology matters because defenses against stolen credentials differ from questions about training on another model’s outputs or enforcing service terms.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI security</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>2 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-10-18T07:31:07Z">Oct 18</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/cursor/plugins" target="_blank" rel="noopener noreferrer">Cursor publishes its plugin specification and official plugins</a></h3>
+<a href="https://github.com/cursor/plugins" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/github/github-e0c5b60fcbe6479b16a6.png" alt="Cursor publishes its plugin specification and official plugins" loading="lazy"></a>
+    <p class="story-summary">The cursor/plugins repository provides Cursor’s plugin specification and official plugins. It appears among the collected trending repositories with 12,639 stars and a report-date update. A shared specification gives developers a concrete reference when integrating extensions into an AI coding environment. The repository description alone does not establish compatibility across other agents, security properties, or plugin quality, so adopters should inspect the specification and each dependency before integration.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Developer tools</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-10-18T00:47:54Z">Oct 18</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/ruvnet/ruflo" target="_blank" rel="noopener noreferrer">Ruflo combines agent coordination, memory and retrieval</a></h3>
+<a href="https://github.com/ruvnet/ruflo" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/github/github-757bb2aa982fbfd2dea6.jpg" alt="Ruflo combines agent coordination, memory and retrieval" loading="lazy"></a>
+    <p class="story-summary">Ruflo describes itself as an agent harness for coordinating autonomous workflows and multi-agent systems. Its repository lists adaptive memory, federation, vector retrieval-augmented generation, and integrations with coding assistants including Claude Code and Codex. The collected snapshot shows 76,390 stars and a report-date update. These are project claims and adoption signals, not independent reliability measurements; the useful next step for teams is testing orchestration behavior on bounded tasks.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Autonomous agents</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2026-10-18" data-counter-title="NO-FOMO issue 2026-10-18" defer></script>
+</body>
+</html>
