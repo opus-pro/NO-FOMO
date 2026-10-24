@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2026-10-24</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  
+/* OpusClip mark ahead of the NO/FOMO wordmark. */
+.brand{display:inline-flex;align-items:center;gap:.28em}
+.brand-mark{flex:none;width:.78em;height:.78em}
+
+/* Medium-style reading layout: one narrow column, compact type, thumbnails on the right. */
+.shell{width:min(728px,calc(100% - 32px))}
+.masthead{padding:14px 0 12px}
+.brand{font-size:1.9rem}
+.nav{font-size:.72rem}
+.issue{grid-template-columns:minmax(0,1fr) auto;gap:20px;padding:28px 0 20px;border-bottom:1px solid var(--ink)}
+.eyebrow{margin:0 0 8px;font-size:.7rem}
+.issue h1{font-size:clamp(1.8rem,4.6vw,2.5rem);line-height:1.08;letter-spacing:-.03em}
+.issue-meta{font-size:.7rem}
+.issue-meta>strong{font-size:.95rem}
+.readership{margin-top:10px;padding-top:8px}
+.readership dd{font-size:1rem}
+.content{padding:0 0 56px}
+.source-section{margin-top:36px}
+.source-heading{padding:0 0 8px}
+.story{display:block;padding:20px 0}
+.story-kicker{display:flex;gap:10px;align-items:baseline;margin:0 0 6px;font-size:.68rem}
+.story-kicker span{display:inline;margin:0;font-size:.72rem}
+.story-body{display:grid;grid-template-columns:minmax(0,1fr) 168px;grid-template-areas:"title thumb" "summary thumb" "tags thumb";column-gap:24px;align-items:start}
+.story-body:not(:has(.screenshot-link)){grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "summary" "tags"}
+.story h3{grid-area:title;max-width:none;margin:0 0 6px;font:700 1.22rem/1.3 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.012em}
+.story-summary{grid-area:summary;max-width:none;margin:0 0 10px;color:#242424;font:400 1rem/1.62 Charter,Georgia,serif}
+.screenshot-link{grid-area:thumb;width:168px;height:112px;margin:2px 0 0;overflow:hidden;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:zoom-in}
+.screenshot-link img{width:100%;height:100%;object-fit:cover;object-position:center}
+.story-tags{grid-area:tags;gap:6px}
+.tag{padding:2px 9px;border:0;border-radius:999px;background:#ebe7dc;font-size:.66rem;letter-spacing:.02em;text-transform:none}
+.tag-area{background:#e3e9fb;color:#173c9b}
+/* Enlarged image dialog opened from a thumbnail. */
+.lightbox{max-width:min(960px,calc(100vw - 32px));max-height:calc(100vh - 32px);padding:0;border:0;border-radius:6px;background:var(--surface);box-shadow:0 18px 60px rgba(0,0,0,.35)}
+.lightbox::backdrop{background:rgba(24,24,22,.72)}
+.lightbox img{display:block;max-width:100%;max-height:calc(100vh - 96px);margin:0 auto;object-fit:contain}
+.lightbox-bar{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:10px 14px;font-size:.78rem}
+.lightbox-bar a{color:var(--accent);font-weight:700;text-underline-offset:3px}
+.lightbox-bar button{border:0;background:none;font:inherit;font-weight:700;cursor:pointer}
+@media (max-width:640px){
+.issue{grid-template-columns:minmax(0,1fr)}
+.issue-meta{text-align:left}
+.story-body{grid-template-columns:minmax(0,1fr) 96px;column-gap:14px}
+.screenshot-link{width:96px;height:64px}
+.story h3{font-size:1.08rem}
+.story-summary{font-size:.95rem}
+}
+</style>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../" aria-label="NO-FOMO by OpusClip, home"><svg class="brand-mark" aria-hidden="true" viewBox="0 0 14 14" fill="currentColor"><path d="M2.22635 6.97859C2.23788 4.352 4.3707 2.2263 7 2.2263C9.63644 2.2263 11.7737 4.36356 11.7737 7C11.7737 9.63644 9.63644 11.7737 7 11.7737C6.65485 11.7737 6.31825 11.7371 5.99388 11.6675V13.9282C6.32243 13.9755 6.65836 14 7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7V13.9786H2.2263C2.2263 13.9786 2.22635 10.0297 2.22635 7.35C2.22635 7.29608 2.22635 6.97859 2.22635 6.97859Z"/><path d="M2.99694 6.99694V14H5.22324L5.22333 7.44333V6.97859C5.23319 6.00854 6.02376 5.22324 7 5.22324C7.98239 5.22324 8.77676 6.01846 8.77676 6.99694C8.77676 7.97542 7.98239 8.77064 7 8.77064C6.62629 8.77064 6.2798 8.65557 5.99388 8.4591V10.8695C6.31539 10.9527 6.65255 10.9969 7 10.9969C9.20972 10.9969 11.0031 9.20719 11.0031 6.99694C11.0031 4.78669 9.20972 2.99694 7 2.99694C4.79028 2.99694 2.99694 4.78669 2.99694 6.99694Z"/></svg><span>NO<i>/</i>FOMO</span></a><nav class="nav" aria-label="Issue navigation"><a href="../">Archive</a><a href="cn/">中文</a><a href="en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-10-24</strong><span>DEFAULT EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2026-10-24" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg> AI Blog</h2><span>5 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-10-23T10:00:00Z">Oct 23</time></div>
+  <div class="story-body">
+    <h3><a href="https://openai.com/index/securing-our-frontier-model-training-environment" target="_blank" rel="noopener noreferrer">OpenAI describes tighter containment for frontier training and evaluation</a></h3>
+    <p class="story-summary">OpenAI describes changes intended to strengthen containment around frontier model training and evaluation. The official summary highlights offline environments and high-compute red-teaming as part of that work. The announcement makes infrastructure security a first-class part of developing more capable models, alongside assessments of model behavior. It is an account of the company’s approach, not an independent audit, and the collected summary does not quantify how much residual risk remains after the changes.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI safety</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-10-23T19:06:44Z">Oct 23</time></div>
+  <div class="story-body">
+    <h3><a href="https://newsletter.semianalysis.com/p/amazons-trainium-takes-a-strike-at" target="_blank" rel="noopener noreferrer">SemiAnalysis examines Trainium’s push into model training</a></h3>
+<a href="https://newsletter.semianalysis.com/p/amazons-trainium-takes-a-strike-at" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/ai-blog/ai-blog-061da33d4fee97af0b88.jpg" alt="SemiAnalysis examines Trainium’s push into model training" loading="lazy"></a>
+    <p class="story-summary">SemiAnalysis examines Amazon Trainium’s position in model training as well as inference. The collected summary highlights native Trainium PyTorch, continuous-integration quality, TorchTitan, and profiling tools as parts of the discussion. The useful question is whether the surrounding software makes alternative accelerators practical for demanding training workloads. The summary does not supply comparative cost or performance tables, so its headline should not be treated as proof that Trainium outperforms GPUs across every training scenario.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI hardware</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-10-23T17:00:00Z">Oct 23</time></div>
+  <div class="story-body">
+    <h3><a href="https://openai.com/index/scaling-storage-one-billion-users-part-two" target="_blank" rel="noopener noreferrer">OpenAI reports faster reads in ChatGPT’s storage architecture</a></h3>
+    <p class="story-summary">OpenAI’s second installment on scaling online storage describes Habitat’s use of reliable multi-tenancy, global caching, and Azure Cosmos DB. The official summary reports twelvefold faster reads while serving a ChatGPT user base of more than one billion. The engineering focus is the data infrastructure surrounding the model, where caching and tenant isolation influence responsiveness at scale. The collected summary does not specify the benchmark conditions or which read paths received the reported improvement.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI infrastructure</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-10-22T00:00:00Z">Oct 22</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.anthropic.com/news/open-call-guest-investigators-life-sciences" target="_blank" rel="noopener noreferrer">Anthropic invites life-sciences guest investigators</a></h3>
+<a href="https://www.anthropic.com/news/open-call-guest-investigators-life-sciences" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/ai-blog/ai-blog-6950f6169e819866442d.jpg" alt="Anthropic invites life-sciences guest investigators" loading="lazy"></a>
+    <p class="story-summary">Anthropic invites members of the life-sciences community to apply for special projects as guest investigators. The announcement points to direct collaboration with domain specialists as AI companies expand their work in biology and related research. It is an open call, rather than a report of a completed scientific result. The collected summary does not specify project selection criteria, funding, access arrangements, or application deadlines, so interested researchers need to consult the full announcement.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI for science</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-10-19T00:00:00Z">Oct 19</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.sglang.io/blog/hicache" target="_blank" rel="noopener noreferrer">SGLang HiCache reports hierarchical caching gains for hybrid models</a></h3>
+<a href="https://www.sglang.io/blog/hicache" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/ai-blog/ai-blog-7ba91c8489932d8d8430.png" alt="SGLang HiCache reports hierarchical caching gains for hybrid models" loading="lazy"></a>
+    <p class="story-summary">SGLang describes HiCache as hierarchical prefix caching across GPU memory, CPU memory, and external storage. Its summary reports up to 15.5 times effective input throughput on DeepSeek-V4-Flash. This older, newly surfaced engineering item is relevant to serving workloads where prefix reuse can reduce repeated computation. The number is a reported maximum tied to a named model, and should not be generalized to every deployment without checking workload characteristics and the original benchmark setup.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Inference</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>4 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-10-24T14:38:34Z">Oct 24</time></div>
+  <div class="story-body">
+    <h3><a href="https://nypost.com/2026/10/24/business/google-illegally-tore-down-250k-trees-for-finland-data-center-infuriating-locals-report/" target="_blank" rel="noopener noreferrer">Report alleges unlawful tree clearance for Google’s Finland data center</a></h3>
+<a href="https://nypost.com/2026/10/24/business/google-illegally-tore-down-250k-trees-for-finland-data-center-infuriating-locals-report/" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/hacker-news/hacker-news-0b65961c53baf043d7fd.jpg" alt="Report alleges unlawful tree clearance for Google’s Finland data center" loading="lazy"></a>
+    <p class="story-summary">A report surfaced on Hacker News alleges that Google unlawfully cleared about 250,000 trees for a data center in Finland. The collected candidate contains the headline and link, rather than the underlying legal findings or Google’s response. It belongs in the infrastructure discussion because large computing projects face environmental and permitting constraints alongside power and chip availability. The allegation should be read as attributed reporting, with legal status and responsibility requiring the full supporting evidence.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI infrastructure</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-10-24T11:18:54Z">Oct 24</time></div>
+  <div class="story-body">
+    <h3><a href="https://torrentfreak.com/ai-assisted-paper-on-z-library-cites-a-torrentfreak-article-that-doesnt-exist/" target="_blank" rel="noopener noreferrer">TorrentFreak flags a nonexistent citation in an AI-assisted paper</a></h3>
+<a href="https://torrentfreak.com/ai-assisted-paper-on-z-library-cites-a-torrentfreak-article-that-doesnt-exist/" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/hacker-news/hacker-news-4fc0339a1d4ce83bfb3d.jpg" alt="TorrentFreak flags a nonexistent citation in an AI-assisted paper" loading="lazy"></a>
+    <p class="story-summary">TorrentFreak reports that an AI-assisted paper about Z-Library cites a TorrentFreak article that does not exist. The story offers a concrete example of the citation-verification problem in AI-supported research. The collected headline alone does not establish which system produced the reference or how the paper was reviewed. Its practical lesson is that a plausible-looking citation needs checking against the original publication before it can serve as evidence in scholarly or professional writing.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI reliability</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-10-24T08:06:39Z">Oct 24</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.aikido.dev/blog/python-packages-vulnerable-node2shell-brotli-cve-2026-111497" target="_blank" rel="noopener noreferrer">Aikido warns Node2Shell exposure extends into HTTP libraries</a></h3>
+<a href="https://www.aikido.dev/blog/python-packages-vulnerable-node2shell-brotli-cve-2026-111497" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/hacker-news/hacker-news-78d04d978a1cec8c9072.jpg" alt="Aikido warns Node2Shell exposure extends into HTTP libraries" loading="lazy"></a>
+    <p class="story-summary">Aikido’s report, surfaced on Hacker News, describes Node2Shell evolving into HTTP2Shell and affecting a wider set of HTTP libraries and applications. The source URL identifies Brotli and CVE-2026-111497, making dependency exposure the central issue to investigate. For teams operating AI services, these shared libraries are part of the surrounding application stack. The collected candidate does not contain affected-version ranges or remediation instructions, so operators need the original advisory before making patching decisions.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Security</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-10-24T09:58:27Z">Oct 24</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/Zagitta/gpu-unlock" target="_blank" rel="noopener noreferrer">GPU-unlock explores FP16 and BF16 issue rates on Nvidia 3000 GPUs</a></h3>
+<a href="https://github.com/Zagitta/gpu-unlock" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/hacker-news/hacker-news-0a82cad3b8274c13a8ac.png" alt="GPU-unlock explores FP16 and BF16 issue rates on Nvidia 3000 GPUs" loading="lazy"></a>
+    <p class="story-summary">A GPU-unlock repository surfaced on Hacker News focuses on FP16 and BF16 instruction issue rates on Nvidia 3000-series cards. Those numeric formats are relevant to machine-learning workloads, making the project worth examining for developers working with existing hardware. The collected candidate establishes the repository’s topic, but does not provide validated speedups or a compatibility matrix. Any practical benefit needs measurement on the target workload rather than inference from the project’s name or discussion score.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI hardware</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>9 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-10-23T22:41:43Z">Oct 23</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/GaryMarcus/status/2113762821942981108" target="_blank" rel="noopener noreferrer">Texas sues OpenAI and Sam Altman over product safety, Politico reports</a></h3>
+<a href="https://x.com/GaryMarcus/status/2113762821942981108" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-4fb3cc4161da6ef6c5c0.jpg" alt="Texas sues OpenAI and Sam Altman over product safety, Politico reports" loading="lazy"></a>
+    <p class="story-summary">A Politico report shared by Gary Marcus says Texas is suing OpenAI and Sam Altman over product safety. The collected post provides the headline but no complaint text or detailed allegations, so it does not establish the merits of the case. The development puts legal accountability for AI products on the agenda alongside technical safety work, with the specific claims and requested remedies requiring examination of the underlying filing.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI policy</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-10-23T17:20:49Z">Oct 23</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/natolambert/status/2113682066374062528" target="_blank" rel="noopener noreferrer">Kimi 3.1 Pro announcement raises open-model expectations</a></h3>
+<a href="https://x.com/natolambert/status/2113682066374062528" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-225a927b9f96fa2a652a.jpg" alt="Kimi 3.1 Pro announcement raises open-model expectations" loading="lazy"></a>
+    <p class="story-summary">Nathan Lambert highlights the announcement of Kimi 3.1 Pro and describes its reported benchmark scores as exceptionally strong among open models. His assessment is conditional: the weights are promised by November 4, rather than already available in this post. He also notes the team’s discussion of cyber risks. The immediate significance is a new capability claim to evaluate, with independent testing and the promised weight release still needed to establish practical performance.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Open models</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-10-23T18:24:08Z">Oct 23</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeDevs/status/2113698001889927608" target="_blank" rel="noopener noreferrer">Claude adds MCP Tasks and Elicitations</a></h3>
+<a href="https://x.com/ClaudeDevs/status/2113698001889927608" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-2bbbabc916f5d2b7f1ac.jpg" alt="Claude adds MCP Tasks and Elicitations" loading="lazy"></a>
+    <p class="story-summary">Claude’s developer account announces support for MCP Tasks and Elicitations. The post explains that Tasks let Claude assign long-running work, such as deep research, to plugins and receive results when that work finishes. This expands the interaction pattern beyond a short request and immediate response. For developers building research or reporting integrations, the relevant change is explicit support for work that continues over time; the announcement does not supply implementation details for Elicitations.</p>
+    <div class="story-tags"><span class="tag tag-keyword">MCP</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-10-22T17:55:59Z">Oct 22</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeDevs/status/2113328526413996100" target="_blank" rel="noopener noreferrer">Anthropic donates Agent Skills to the Agentic AI Foundation</a></h3>
+    <p class="story-summary">Claude’s developer account says Agent Skills is being donated to the Agentic AI Foundation, which also received MCP. The announcement reports adoption by more than 70 agent platforms since December 2025, including ChatGPT, Cursor, GitHub Copilot, and VS Code. Moving the standard into a shared foundation makes its governance a broader ecosystem issue. The post establishes the announced transfer and adoption claim, but does not describe the foundation’s future technical roadmap.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agent standards</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-10-22T21:27:56Z">Oct 22</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeDevs/status/2113381868364271743" target="_blank" rel="noopener noreferrer">Full Claude API becomes accessible through Google Cloud accounts</a></h3>
+<a href="https://x.com/ClaudeDevs/status/2113381868364271743" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-8c18e9e80434538d46fa.jpg" alt="Full Claude API becomes accessible through Google Cloud accounts" loading="lazy"></a>
+    <p class="story-summary">Claude’s developer account announces a new way to access the full Claude API from a Google Cloud account. Listed capabilities include Claude Managed Agents, code execution, Opus 5.5 fast mode, and new features as they launch. The change matters to teams that already organize their infrastructure around Google Cloud and want access to those capabilities. The collected announcement does not specify prices, regional availability, or how existing deployments should migrate to this access route.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI platforms</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-10-22T19:35:10Z">Oct 22</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Google/status/2113353489938075794" target="_blank" rel="noopener noreferrer">Google demonstrates Gemini controlling Blender through MCP</a></h3>
+<a href="https://x.com/Google/status/2113353489938075794" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-eb3d6f380c27b26ad504.jpg" alt="Google demonstrates Gemini controlling Blender through MCP" loading="lazy"></a>
+    <p class="story-summary">Google demonstrates Gemini 4 Argon creating a three-dimensional, audio-reactive cathedral scene from a single Nano Banana image. According to the post, the model drives Blender MCP in an autonomous loop inside Antigravity, handling Gothic architecture, camera arrangements, and scene staging. The example shows how a generative model can operate an existing creative application through tools. It is a vendor demonstration, with no collected evidence about repeatability, production cost, or performance across other scenes.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Generative media</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-10-22T17:45:29Z">Oct 22</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/gdb/status/2113325885491437764" target="_blank" rel="noopener noreferrer">Uber rolls out ChatGPT Work to all employees, Brockman says</a></h3>
+<a href="https://x.com/gdb/status/2113325885491437764" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-fdf32582f546c80d328c.jpg" alt="Uber rolls out ChatGPT Work to all employees, Brockman says" loading="lazy"></a>
+    <p class="story-summary">Greg Brockman says OpenAI has worked with Uber to roll out ChatGPT Work to every employee, bringing agentic capabilities across the company. The post presents a broad enterprise deployment rather than a limited departmental trial. It is a useful signal of how organizations are distributing AI tools at scale, although the announcement does not provide usage figures, measurable productivity results, rollout timing, or details about which employee workflows have actually changed.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Enterprise AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>08</span><time datetime="2026-10-23T17:34:57Z">Oct 23</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/natolambert/status/2113685620941885732" target="_blank" rel="noopener noreferrer">Lambert estimates DeepSeek serves 150 trillion tokens daily on one cluster</a></h3>
+<a href="https://x.com/natolambert/status/2113685620941885732" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-1c7185b5b7fba925bf67.jpg" alt="Lambert estimates DeepSeek serves 150 trillion tokens daily on one cluster" loading="lazy"></a>
+    <p class="story-summary">Nathan Lambert presents a reconstruction of inference-volume reports and says DeepSeek serves 150 trillion tokens per day on one cluster. He compares that figure with the combined open-model inference volumes of OpenRouter, Fireworks, Together, and BaseTen. This is an analyst’s synthesis of reported volumes, not an independently audited measurement. The comparison draws attention to the scale of model serving and the importance of checking consistent definitions before treating providers’ token counts as directly comparable.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Inference</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>09</span><time datetime="2026-10-24T10:00:05Z">Oct 24</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Kling_ai/status/2113933538903154798" target="_blank" rel="noopener noreferrer">Kling signals full 4.0 API availability on Atlas Cloud</a></h3>
+    <p class="story-summary">Kling’s account shares an Atlas Cloud announcement that the full Kling 4.0 API is live on that platform. The visible excerpt also says Omni Reference accepts up to 15 references, although the rest of that description is truncated. The useful development is another integration route for developers building video workflows. The collected post does not establish pricing, rate limits, output duration, or whether every capability is available to every account.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Generative video</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>2 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-10-23T14:59:30Z">Oct 23</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/aws/agent-toolkit-for-aws" target="_blank" rel="noopener noreferrer">AWS publishes an agent toolkit of MCP servers, skills, and plugins</a></h3>
+<a href="https://github.com/aws/agent-toolkit-for-aws" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/github/github-59f72413990ae366c08f.png" alt="AWS publishes an agent toolkit of MCP servers, skills, and plugins" loading="lazy"></a>
+    <p class="story-summary">AWS’s agent-toolkit-for-aws repository describes an official, AWS-supported collection of MCP servers, skills, and plugins that help AI agents build on AWS. The project brings several agent integration mechanisms into one supported toolkit. For teams developing cloud-connected agents, it provides a concrete starting point for evaluating available building blocks. The collected repository description does not establish the permissions, coverage, or operational guarantees of each component, which still need review before production integration.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agent tooling</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-10-22T17:20:30Z">Oct 22</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/Nutlope/hallmark" target="_blank" rel="noopener noreferrer">Hallmark offers a design skill for coding agents</a></h3>
+<a href="https://github.com/Nutlope/hallmark" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/github/github-7d94f9c58dfee1e240ed.png" alt="Hallmark offers a design skill for coding agents" loading="lazy"></a>
+    <p class="story-summary">The Hallmark repository describes a design skill intended to reduce generic AI-generated interface styling in Claude Code, Cursor, and Codex. Its relevance is the use of reusable instructions to influence a coding agent’s visual output across different development tools. The collected repository description is a statement of purpose, rather than a comparative design evaluation. Teams considering the project should assess its generated interfaces against their own accessibility, branding, and usability requirements.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agent tooling</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2026-10-24" data-counter-title="NO-FOMO issue 2026-10-24" defer></script>
+</body>
+</html>
