@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2026-11-10</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  
+/* OpusClip mark ahead of the NO/FOMO wordmark. */
+.brand{display:inline-flex;align-items:center;gap:.28em}
+.brand-mark{flex:none;width:.78em;height:.78em}
+
+/* Medium-style reading layout: one narrow column, compact type, thumbnails on the right. */
+.shell{width:min(728px,calc(100% - 32px))}
+.masthead{padding:14px 0 12px}
+.brand{font-size:1.9rem}
+.nav{font-size:.72rem}
+.issue{grid-template-columns:minmax(0,1fr) auto;gap:20px;padding:28px 0 20px;border-bottom:1px solid var(--ink)}
+.eyebrow{margin:0 0 8px;font-size:.7rem}
+.issue h1{font-size:clamp(1.8rem,4.6vw,2.5rem);line-height:1.08;letter-spacing:-.03em}
+.issue-meta{font-size:.7rem}
+.issue-meta>strong{font-size:.95rem}
+.readership{margin-top:10px;padding-top:8px}
+.readership dd{font-size:1rem}
+.content{padding:0 0 56px}
+.source-section{margin-top:36px}
+.source-heading{padding:0 0 8px}
+.story{display:block;padding:20px 0}
+.story-kicker{display:flex;gap:10px;align-items:baseline;margin:0 0 6px;font-size:.68rem}
+.story-kicker span{display:inline;margin:0;font-size:.72rem}
+.story-body{display:grid;grid-template-columns:minmax(0,1fr) 168px;grid-template-areas:"title thumb" "summary thumb" "tags thumb";column-gap:24px;align-items:start}
+.story-body:not(:has(.screenshot-link)){grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "summary" "tags"}
+.story h3{grid-area:title;max-width:none;margin:0 0 6px;font:700 1.22rem/1.3 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.012em}
+.story-summary{grid-area:summary;max-width:none;margin:0 0 10px;color:#242424;font:400 1rem/1.62 Charter,Georgia,serif}
+.screenshot-link{grid-area:thumb;width:168px;height:112px;margin:2px 0 0;overflow:hidden;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:zoom-in}
+.screenshot-link img{width:100%;height:100%;object-fit:cover;object-position:center}
+.story-tags{grid-area:tags;gap:6px}
+.tag{padding:2px 9px;border:0;border-radius:999px;background:#ebe7dc;font-size:.66rem;letter-spacing:.02em;text-transform:none}
+.tag-area{background:#e3e9fb;color:#173c9b}
+/* Enlarged image dialog opened from a thumbnail. */
+.lightbox{max-width:min(960px,calc(100vw - 32px));max-height:calc(100vh - 32px);padding:0;border:0;border-radius:6px;background:var(--surface);box-shadow:0 18px 60px rgba(0,0,0,.35)}
+.lightbox::backdrop{background:rgba(24,24,22,.72)}
+.lightbox img{display:block;max-width:100%;max-height:calc(100vh - 96px);margin:0 auto;object-fit:contain}
+.lightbox-bar{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:10px 14px;font-size:.78rem}
+.lightbox-bar a{color:var(--accent);font-weight:700;text-underline-offset:3px}
+.lightbox-bar button{border:0;background:none;font:inherit;font-weight:700;cursor:pointer}
+@media (max-width:640px){
+.issue{grid-template-columns:minmax(0,1fr)}
+.issue-meta{text-align:left}
+.story-body{grid-template-columns:minmax(0,1fr) 96px;column-gap:14px}
+.screenshot-link{width:96px;height:64px}
+.story h3{font-size:1.08rem}
+.story-summary{font-size:.95rem}
+}
+</style>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../" aria-label="NO-FOMO by OpusClip, home"><svg class="brand-mark" aria-hidden="true" viewBox="0 0 14 14" fill="currentColor"><path d="M2.22635 6.97859C2.23788 4.352 4.3707 2.2263 7 2.2263C9.63644 2.2263 11.7737 4.36356 11.7737 7C11.7737 9.63644 9.63644 11.7737 7 11.7737C6.65485 11.7737 6.31825 11.7371 5.99388 11.6675V13.9282C6.32243 13.9755 6.65836 14 7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7V13.9786H2.2263C2.2263 13.9786 2.22635 10.0297 2.22635 7.35C2.22635 7.29608 2.22635 6.97859 2.22635 6.97859Z"/><path d="M2.99694 6.99694V14H5.22324L5.22333 7.44333V6.97859C5.23319 6.00854 6.02376 5.22324 7 5.22324C7.98239 5.22324 8.77676 6.01846 8.77676 6.99694C8.77676 7.97542 7.98239 8.77064 7 8.77064C6.62629 8.77064 6.2798 8.65557 5.99388 8.4591V10.8695C6.31539 10.9527 6.65255 10.9969 7 10.9969C9.20972 10.9969 11.0031 9.20719 11.0031 6.99694C11.0031 4.78669 9.20972 2.99694 7 2.99694C4.79028 2.99694 2.99694 4.78669 2.99694 6.99694Z"/></svg><span>NO<i>/</i>FOMO</span></a><nav class="nav" aria-label="Issue navigation"><a href="../">Archive</a><a href="cn/">中文</a><a href="en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-11-10</strong><span>DEFAULT EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2026-11-10" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg> AI Blog</h2><span>4 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-10T00:00:00Z">Nov 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.anthropic.com/news/roadshow-launch" target="_blank" rel="noopener noreferrer">Anthropic launches its proposed IPO roadshow</a></h3>
+<a href="https://www.anthropic.com/news/roadshow-launch" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/ai-blog/ai-blog-84757a8b6e04ab0dc5be.jpg" alt="Anthropic launches its proposed IPO roadshow" loading="lazy"></a>
+    <p class="story-summary">Anthropic announced the roadshow for its proposed initial public offering of Class A common stock. This is a material corporate milestone for a major frontier-model company and puts its financing plans alongside an active product-release cycle. A roadshow is a step in a proposed offering, not confirmation that shares have begun trading or that the transaction has closed. The collected official statement does not establish a final offer price or completed fundraising amount.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Anthropic</span><span class="tag tag-keyword">IPO</span><span class="tag tag-area">AI Industry</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-10T07:00:00Z">Nov 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://openai.com/index/ai-effect-on-freelance-work" target="_blank" rel="noopener noreferrer">OpenAI and Upwork study shifts in freelance demand</a></h3>
+    <p class="story-summary">OpenAI and Upwork published research on how AI is changing freelance work. The collected summary reports shifts in demand and skill combinations, alongside larger budgets and more hours for AI-related projects. This offers a labor-market perspective on AI adoption beyond model benchmarks and product launches. The findings concern the research&#x27;s observed freelance context; the summary alone does not establish economy-wide job effects or show that every category of worker benefits equally.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Freelance work</span><span class="tag tag-keyword">AI adoption</span><span class="tag tag-area">AI Industry</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-09T19:00:00Z">Nov 9</time></div>
+  <div class="story-body">
+    <h3><a href="https://openai.com/index/chatgpt-enterprise-aws-marketplace" target="_blank" rel="noopener noreferrer">ChatGPT Enterprise becomes available through AWS Marketplace</a></h3>
+    <p class="story-summary">OpenAI says ChatGPT Enterprise is now available through AWS Marketplace, allowing organizations to use existing AWS purchasing and billing relationships. The significance is procurement: enterprises may be able to fit the product into established buying processes rather than arrange an entirely separate purchasing route. This announcement concerns availability through a marketplace. It does not, by itself, establish changes to model behavior, data residency, security guarantees or the underlying hosting arrangement.</p>
+    <div class="story-tags"><span class="tag tag-keyword">ChatGPT Enterprise</span><span class="tag tag-keyword">AWS Marketplace</span><span class="tag tag-area">AI Industry</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-11-09T13:00:00Z">Nov 9</time></div>
+  <div class="story-body">
+    <h3><a href="https://openai.com/index/control-room" target="_blank" rel="noopener noreferrer">OpenAI describes a central control system for model workloads</a></h3>
+    <p class="story-summary">OpenAI described Control Room, a central system for tracking model workloads across its research infrastructure and rapidly stopping them when safety or security concerns arise. The operational focus is visibility and intervention as experiments scale across shared infrastructure. This matters for organizations running increasingly capable models because a documented ability to locate and halt workloads complements model-level safeguards. The collected description does not demonstrate how the system performs under every failure or adversarial condition.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Control Room</span><span class="tag tag-keyword">AI safety</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>3 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-10T06:01:08Z">Nov 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://strandsagents.com/blog/amazon-saves-millions-replacing-sonnet-with-strands-decider/" target="_blank" rel="noopener noreferrer">Amazon reports savings from replacing Sonnet with Strands Decider</a></h3>
+<a href="https://strandsagents.com/blog/amazon-saves-millions-replacing-sonnet-with-strands-decider/" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/hacker-news/hacker-news-0c95cc1e05956c1301a1.png" alt="Amazon reports savings from replacing Sonnet with Strands Decider" loading="lazy"></a>
+    <p class="story-summary">A Strands Agents article reports that Amazon saved millions by replacing Sonnet 4.6 with Strands Decider. It was the strongest AI-related Hacker News item in the collected snapshot, with 552 points and 196 comments. The claim makes task-specific decision systems an important cost story for agent builders. The collected record contains the headline rather than the underlying measurement details, so the savings should be treated as the publisher&#x27;s reported result, not a broadly transferable guarantee.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Strands Decider</span><span class="tag tag-keyword">Inference cost</span><span class="tag tag-area">Autonomous Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-10T07:19:38Z">Nov 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.notion.com/help/security-incident-involving-a-third-party-ai-vendor" target="_blank" rel="noopener noreferrer">Notion discloses an incident involving an AI vendor</a></h3>
+<a href="https://www.notion.com/help/security-incident-involving-a-third-party-ai-vendor" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/hacker-news/hacker-news-77d5787d22405c053e8c.png" alt="Notion discloses an incident involving an AI vendor" loading="lazy"></a>
+    <p class="story-summary">A Notion help-page disclosure about a third-party AI vendor security incident reached Hacker News under a headline identifying Fireworks AI and affected Notion customers. The collected discussion had 130 points and 44 comments, making this a significant operational story. Organizations integrating external AI services should review the primary disclosure for applicability. The available candidate does not specify exposed data, affected users or remediation details, so this edition does not infer those facts from the headline.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Notion</span><span class="tag tag-keyword">Fireworks AI</span><span class="tag tag-keyword">Security</span><span class="tag tag-area">AI Safety</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-10T12:11:12Z">Nov 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://deepmind.google/blog/introducing-alphaproof-code/" target="_blank" rel="noopener noreferrer">DeepMind introduces AlphaProof Code</a></h3>
+    <p class="story-summary">Google DeepMind&#x27;s AlphaProof Code announcement drew 371 points and 128 comments in the collected Hacker News snapshot, placing it among the day&#x27;s most discussed AI stories. The official source makes it a priority for readers tracking AI and formal software verification. The candidate record provides the title and discussion metrics but not the technical article text. Accordingly, this brief flags the release without inventing benchmark scores, supported languages or claims about universal software correctness.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AlphaProof Code</span><span class="tag tag-keyword">Formal verification</span><span class="tag tag-area">AI Safety</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>9 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-10T16:05:52Z">Nov 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Google/status/2120186185423159331" target="_blank" rel="noopener noreferrer">Google releases Gemini 4 Carbon for demanding reasoning tasks</a></h3>
+<a href="https://x.com/Google/status/2120186185423159331" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-764ff83a4631f70df2bc.jpg" alt="Google releases Gemini 4 Carbon for demanding reasoning tasks" loading="lazy"></a>
+    <p class="story-summary">Google says Gemini 4 Carbon is now available and describes it as its strongest model for difficult problems. The announcement emphasizes deeper reasoning, long-horizon tasks and multistep work, positioning Carbon above Argon for the hardest assignments. This is a significant model release to evaluate for sustained agent workflows, although the collected announcement does not provide benchmark results, pricing or detailed access conditions. Those deployment questions remain separate from the launch claim.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Gemini 4 Carbon</span><span class="tag tag-keyword">Reasoning</span><span class="tag tag-area">LLMs</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-10T16:07:43Z">Nov 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/DrJimFan/status/2120186651741655428" target="_blank" rel="noopener noreferrer">NVIDIA introduces open GR00T 2 for onboard robot control</a></h3>
+<a href="https://x.com/DrJimFan/status/2120186651741655428" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-bc6e9448a4680269e607.jpg" alt="NVIDIA introduces open GR00T 2 for onboard robot control" loading="lazy"></a>
+    <p class="story-summary">NVIDIA researcher Jim Fan introduced GR00T 2 as an open System One robotics model that runs entirely on a robot&#x27;s onboard compute. His announcement highlights ownership of the model weights and long-horizon tasks combining dexterous manipulation with whole-body control. The local execution design makes this relevant to robots that must operate without a continuous remote inference connection. The collected post is an initial announcement, rather than an independent performance evaluation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">GR00T 2</span><span class="tag tag-keyword">Robotics</span><span class="tag tag-area">Autonomous Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-10T15:00:42Z">Nov 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/GoogleDeepMind/status/2120169787896525104" target="_blank" rel="noopener noreferrer">Gemini Robotics 2.5 expands everyday manipulation skills</a></h3>
+<a href="https://x.com/GoogleDeepMind/status/2120169787896525104" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-5ec5b0d59bcaaa9567f6.jpg" alt="Gemini Robotics 2.5 expands everyday manipulation skills" loading="lazy"></a>
+    <p class="story-summary">Google DeepMind announced Gemini Robotics 2.5, presenting a physical AI system that can learn hundreds of everyday skills. Its examples span folding laundry, serving pastries and autonomously sorting car parts on a factory floor. The breadth of demonstrations makes the release relevant to both household manipulation and industrial robotics. These are capabilities described by the developer; the collected announcement does not establish reliability across unfamiliar sites, hardware or extended unsupervised operation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Gemini Robotics</span><span class="tag tag-keyword">Manipulation</span><span class="tag tag-area">Autonomous Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-11-09T19:04:17Z">Nov 9</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeDevs/status/2119868698613956992" target="_blank" rel="noopener noreferrer">Claude Fable 5.2 arrives with lower token prices</a></h3>
+<a href="https://x.com/ClaudeDevs/status/2119868698613956992" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-082e8934dc71d282fe45.jpg" alt="Claude Fable 5.2 arrives with lower token prices" loading="lazy"></a>
+    <p class="story-summary">Anthropic&#x27;s developer account says Fable 5.2 is available in the Claude Platform and Claude Code. It reports speeds up to 30 percent faster than Fable 5.1 and prices of $8 and $40 per million tokens, down from $10 and $50. The combination makes this a concrete cost and latency change for existing integrations. Teams should still measure their own workloads because the speed improvement is an advertised upper bound, not a universal guarantee.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Claude Fable 5.2</span><span class="tag tag-keyword">Pricing</span><span class="tag tag-area">LLMs</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-11-09T21:03:27Z">Nov 9</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeDevs/status/2119898687803621427" target="_blank" rel="noopener noreferrer">Anthropic publishes guidance on model choice and effort</a></h3>
+<a href="https://x.com/ClaudeDevs/status/2119898687803621427" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-55e8dca07b1d48093c19.png" alt="Anthropic publishes guidance on model choice and effort" loading="lazy"></a>
+    <p class="story-summary">Anthropic released a developer guide comparing when to use Fable 5.2, Opus 5.5, Sonnet or Haiku. The guidance also discusses changing effort instead of switching models and assigning subagents to smaller models to reduce costs. Beyond the day&#x27;s release, this offers a practical framework for allocating inference spending across an agent system. The announcement describes the guide&#x27;s scope and should not be read as a benchmark proving a particular routing policy is optimal.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Model routing</span><span class="tag tag-keyword">Inference cost</span><span class="tag tag-area">Autonomous Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-11-09T19:27:34Z">Nov 9</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/runwayml/status/2119874555581694370" target="_blank" rel="noopener noreferrer">Runway Sightline turns panoramas into consistent shot environments</a></h3>
+<a href="https://x.com/runwayml/status/2119874555581694370" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-49a013625edebc693830.jpg" alt="Runway Sightline turns panoramas into consistent shot environments" loading="lazy"></a>
+    <p class="story-summary">Runway introduced Sightline, a tool for creating a 360-degree panorama of a location and framing shots from different angles while retaining the environment. The company says users can also export the panorama for use as a 3D scene environment, with access through App Studio. This targets a recurring generative production problem: maintaining a coherent location across shots. The announcement establishes the workflow, but does not quantify geometric accuracy or continuity under complex camera motion.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Runway</span><span class="tag tag-keyword">Sightline</span><span class="tag tag-keyword">Video</span><span class="tag tag-area">AIGC</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-11-10T02:41:45Z">Nov 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/pika_labs/status/2119983824503456008" target="_blank" rel="noopener noreferrer">Pika expands H3 Flex inference work to AMD GPUs</a></h3>
+    <p class="story-summary">Pika highlighted community work bringing H3 Flex inference to AMD GPUs and invited additional AMD developers to contribute to the branch. The announcement is relevant to teams seeking a broader hardware choice for generative workloads and to researchers maintaining inference implementations outside a single accelerator ecosystem. It describes an active collaboration rather than a finished compatibility matrix, so supported devices, performance and operational readiness need to be checked in the linked implementation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Pika H3 Flex</span><span class="tag tag-keyword">AMD</span><span class="tag tag-area">AIGC</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>08</span><time datetime="2026-11-09T13:43:58Z">Nov 9</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Google/status/2119788086490001906" target="_blank" rel="noopener noreferrer">Google expands its eighth-generation TPU portfolio</a></h3>
+<a href="https://x.com/Google/status/2119788086490001906" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-43d94a5cf375e26d2163.jpg" alt="Google expands its eighth-generation TPU portfolio" loading="lazy"></a>
+    <p class="story-summary">Google announced two additional systems in its eighth-generation TPU portfolio, bringing the year&#x27;s total to four distinct systems. The post frames the expansion around agent workloads and identifies TPU 8i Max as designed for massive context windows. This links infrastructure planning directly to longer agent histories and demanding inference workloads. The collected excerpt does not include full specifications, availability or cost comparisons, so it supports the product direction rather than a procurement decision.</p>
+    <div class="story-tags"><span class="tag tag-keyword">TPU</span><span class="tag tag-keyword">Long context</span><span class="tag tag-area">LLMs</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>09</span><time datetime="2026-11-09T17:23:10Z">Nov 9</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/fchollet/status/2119843249980662241" target="_blank" rel="noopener noreferrer">François Chollet highlights autonomous businesses as an agent test</a></h3>
+<a href="https://x.com/fchollet/status/2119843249980662241" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-b9667ee34baa2e884937.jpg" alt="François Chollet highlights autonomous businesses as an agent test" loading="lazy"></a>
+    <p class="story-summary">François Chollet highlighted a proposal to acquire distressed or stagnant SaaS businesses and give an agent harness operational control. He describes profit and loss as the objective and market response as the feedback signal, making autonomous business operation a demanding real-world evaluation. The idea is noteworthy because commercial outcomes expose failures that isolated task benchmarks can miss. This is an endorsement of an approach, not evidence that autonomous operators have already achieved durable profitability.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Autonomous business</span><span class="tag tag-keyword">Agent evaluation</span><span class="tag tag-area">Autonomous Agents</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>3 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-10T16:02:58Z">Nov 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/meta/astryx" target="_blank" rel="noopener noreferrer">Meta Astryx offers an agent-ready design system</a></h3>
+<a href="https://github.com/meta/astryx" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/github/github-5ba0bee715812bdebc43.png" alt="Meta Astryx offers an agent-ready design system" loading="lazy"></a>
+    <p class="story-summary">Meta&#x27;s Astryx repository describes an open-source design system that is fully customizable and agent ready. The collected GitHub snapshot identifies TypeScript as its language and records more than 22,000 stars, reflecting substantial developer attention. For teams generating interfaces with coding agents, an explicit design system can give those agents reusable constraints and components. The repository description does not establish compatibility with every agent or production framework, so integration details still require project-level review.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Astryx</span><span class="tag tag-keyword">Design systems</span><span class="tag tag-area">Autonomous Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-10T10:28:09Z">Nov 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/google-deepmind/mujoco" target="_blank" rel="noopener noreferrer">MuJoCo remains a key open physics tool for robotics</a></h3>
+<a href="https://github.com/google-deepmind/mujoco" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/github/github-6bfefb3ce187dc6053bd.png" alt="MuJoCo remains a key open physics tool for robotics" loading="lazy"></a>
+    <p class="story-summary">Google DeepMind&#x27;s MuJoCo appeared in the collected trending repositories with more than 17,000 stars and a report-date commit timestamp. The C++ project is a general-purpose physics simulator centered on multijoint dynamics with contact. It is relevant infrastructure for robotics and reinforcement learning, where simulated interactions support development and evaluation. Trending attention and recent activity should not be confused with a new release announcement or proof that simulated performance transfers directly to physical robots.</p>
+    <div class="story-tags"><span class="tag tag-keyword">MuJoCo</span><span class="tag tag-keyword">Simulation</span><span class="tag tag-area">Reinforcement Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-01T19:24:49Z">Nov 1</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/addyosmani/agent-skills" target="_blank" rel="noopener noreferrer">Agent Skills collects engineering guidance for coding agents</a></h3>
+<a href="https://github.com/addyosmani/agent-skills" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/github/github-1b1a194f4fbb088b43db.png" alt="Agent Skills collects engineering guidance for coding agents" loading="lazy"></a>
+    <p class="story-summary">Addy Osmani&#x27;s Agent Skills repository describes production-grade engineering skills for AI coding agents. The JavaScript project had more than 114,000 stars in the collected snapshot, indicating broad interest in reusable guidance around agent-driven software work. It is a useful project to inspect when standardizing how coding agents approach engineering tasks. Its presence in today&#x27;s trending collection is a discovery signal, not a report-date release, and the description alone does not validate the quality of every included skill.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agent Skills</span><span class="tag tag-keyword">Coding agents</span><span class="tag tag-area">Autonomous Agents</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1" fill="none"/><text x="12" y="16" text-anchor="middle" font-size="12">HF</text></svg> HuggingFace</h2><span>8 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-08T19:00:00Z">Nov 8</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.12806" target="_blank" rel="noopener noreferrer">LingBot-Touch unifies heterogeneous tactile sensors</a></h3>
+<a href="https://huggingface.co/papers/2611.12806" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-b8ca60016d470d5d76d8.png" alt="LingBot-Touch unifies heterogeneous tactile sensors" loading="lazy"></a>
+    <p class="story-summary">LingBot-Touch proposes a tactile foundation model that produces a shared representation across piezoresistive, magnetic and visual tactile sensors. The authors describe plug-and-play tactile tokens that can be added to diffusion policies and vision-language-action models, with experiments spanning simulation and physical robots. This addresses a practical robotics bottleneck: useful touch data often stays tied to particular sensor hardware. The reported gains support the approach within the tested setups rather than establishing universal sensor interoperability.</p>
+    <div class="story-tags"><span class="tag tag-keyword">LingBot-Touch</span><span class="tag tag-keyword">Tactile sensing</span><span class="tag tag-area">Autonomous Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-08T13:59:37Z">Nov 8</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.11558" target="_blank" rel="noopener noreferrer">InfraRSI optimizes training infrastructure with explicit verification</a></h3>
+<a href="https://huggingface.co/papers/2611.11558" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-5d057508f3597d06e96e.png" alt="InfraRSI optimizes training infrastructure with explicit verification" loading="lazy"></a>
+    <p class="story-summary">InfraRSI introduces an agent harness for improving distributed language-model training infrastructure while preserving workload, loss and timing constraints. It combines profiling, configuration search, code changes and re-verification, retaining evidence from unsuccessful trials as well as successful ones. Across four dense and mixture-of-experts workloads, the authors report speedups up to 2.75 times and higher mean utilization. The important contribution is treating measured correctness and failed experiments as part of optimization, rather than accepting plausible-looking code changes.</p>
+    <div class="story-tags"><span class="tag tag-keyword">InfraRSI</span><span class="tag tag-keyword">Training efficiency</span><span class="tag tag-area">Autonomous Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-06T18:04:32Z">Nov 6</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.10304" target="_blank" rel="noopener noreferrer">Longtail-SWE broadens coding-agent evaluation to 13 languages</a></h3>
+<a href="https://huggingface.co/papers/2611.10304" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-712a697457b4900913e7.png" alt="Longtail-SWE broadens coding-agent evaluation to 13 languages" loading="lazy"></a>
+    <p class="story-summary">Longtail-SWE presents 202 repository issue-resolution tasks across 13 programming languages with limited coverage in existing benchmarks, including Clojure, Erlang, Haskell, Julia and Swift. Its construction pipeline uses a solver, judge and repairer to improve ambiguous descriptions and defective tests while preserving intended requirements. The release includes executable environments and evaluation tooling. This broadens the evidence available for coding-agent selection beyond heavily represented ecosystems, while making benchmark construction quality an explicit part of the research.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Longtail-SWE</span><span class="tag tag-keyword">Coding benchmarks</span><span class="tag tag-area">Autonomous Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-11-05T13:45:36Z">Nov 5</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.08452" target="_blank" rel="noopener noreferrer">ReproBridge preserves execution knowledge for ML reproduction</a></h3>
+<a href="https://huggingface.co/papers/2611.08452" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-1f01c3656a5554542a01.png" alt="ReproBridge preserves execution knowledge for ML reproduction" loading="lazy"></a>
+    <p class="story-summary">ReproBridge packages recovered experimental procedures into refined code, environment setup, launchers and a reproduction guide. Its benchmark contains 1,029 tasks from 387 experiments across 36 papers, with an independent auditor checking execution evidence. Across four models, the authors report average reproduction success rising from 76.4 to 92.6 percent and API spending falling by 19.7 percent. The result suggests durable procedural artifacts can improve subsequent agent work, rather than requiring each session to reconstruct missing experimental knowledge.</p>
+    <div class="story-tags"><span class="tag tag-keyword">ReproBridge</span><span class="tag tag-keyword">Reproducibility</span><span class="tag tag-area">Autonomous Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-11-05T11:19:52Z">Nov 5</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.08240" target="_blank" rel="noopener noreferrer">FewStepRL adapts reinforcement learning to few-step diffusion</a></h3>
+<a href="https://huggingface.co/papers/2611.08240" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-f98165e71654f13f8846.png" alt="FewStepRL adapts reinforcement learning to few-step diffusion" loading="lazy"></a>
+    <p class="story-summary">FewStepRL develops a framework for adapting reinforcement-learning objectives to few-step diffusion models, whose interval-based predictions differ from the instantaneous quantities used by many existing objectives. It transforms objectives into a common space, decomposes their gradients, then constructs compatible anchors and weights. The authors implement few-step versions of several established methods in one modular codebase. The work targets the cost of repeated policy rollouts while preserving the distinctions among objectives rather than treating all diffusion policies identically.</p>
+    <div class="story-tags"><span class="tag tag-keyword">FewStepRL</span><span class="tag tag-keyword">Diffusion</span><span class="tag tag-area">Reinforcement Learning</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-10-30T20:00:00Z">Oct 30</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.01112" target="_blank" rel="noopener noreferrer">Auriga improves embodied agents through a measured control harness</a></h3>
+<a href="https://huggingface.co/papers/2611.01112" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-55c811b4f8c30045b9c8.png" alt="Auriga improves embodied agents through a measured control harness" loading="lazy"></a>
+    <p class="story-summary">Auriga separates high-level model decisions from a calibrated robot-control harness using explicit task beliefs, 3D measurements and a single motion admission gateway. The model previews trajectories, while execution checks stop the robot on measured divergence and return discrepancies for recovery. The authors report 57.7 percent success on RoboDojo, more than twice the reference harness with the same model. This makes interface and execution design a concrete contributor to embodied performance, alongside improvements to model weights.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Auriga</span><span class="tag tag-keyword">Robot control</span><span class="tag tag-area">Autonomous Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-10-30T13:59:38Z">Oct 30</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2610.42148" target="_blank" rel="noopener noreferrer">Flide accelerates decision-model inference with state forking</a></h3>
+<a href="https://huggingface.co/papers/2610.42148" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-036177fa9548d834c149.png" alt="Flide accelerates decision-model inference with state forking" loading="lazy"></a>
+    <p class="story-summary">Flide proposes an inference engine for decision models used in agent systems, where branching categorical queries can otherwise repeat prefix computation or distort probabilities. Its ForkAttention represents dependencies in GPU-resident metadata and aims to make each branch equivalent to an isolated forward pass in exact arithmetic. The authors report throughput improvements up to 9.5 times over vLLM and SGLang on evaluated models. These workload-specific results highlight opportunities beyond engines optimized primarily for ordinary text generation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Flide</span><span class="tag tag-keyword">Decision models</span><span class="tag tag-area">LLMs</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>08</span><time datetime="2026-10-27T06:33:06Z">Oct 27</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2610.36980" target="_blank" rel="noopener noreferrer">AutoVend finds business agents struggle with operating economics</a></h3>
+<a href="https://huggingface.co/papers/2610.36980" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-391f03ed3f207db9c89c.png" alt="AutoVend finds business agents struggle with operating economics" loading="lazy"></a>
+    <p class="story-summary">AutoVend evaluates an agent managing 20 vending machines across five site types for 180 simulated days. Its environment includes shared inventory, procurement delays, replenishment costs, expiration and recurring expenses. Four of five tested language-model agents underperformed a rule-based inventory baseline, and rankings changed when accounting for inference cost. The findings caution against equating isolated transaction success with viable autonomous commerce: operational commitments, feedback use and the full cost structure determine whether local gains become sustained returns.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AutoVend</span><span class="tag tag-keyword">Agent economics</span><span class="tag tag-area">Autonomous Agents</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2026-11-10" data-counter-title="NO-FOMO issue 2026-11-10" defer></script>
+</body>
+</html>
