@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2026-11-12</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  
+/* OpusClip mark ahead of the NO/FOMO wordmark. */
+.brand{display:inline-flex;align-items:center;gap:.28em}
+.brand-mark{flex:none;width:.78em;height:.78em}
+
+/* Medium-style reading layout: one narrow column, compact type, thumbnails on the right. */
+.shell{width:min(728px,calc(100% - 32px))}
+.masthead{padding:14px 0 12px}
+.brand{font-size:1.9rem}
+.nav{font-size:.72rem}
+.issue{grid-template-columns:minmax(0,1fr) auto;gap:20px;padding:28px 0 20px;border-bottom:1px solid var(--ink)}
+.eyebrow{margin:0 0 8px;font-size:.7rem}
+.issue h1{font-size:clamp(1.8rem,4.6vw,2.5rem);line-height:1.08;letter-spacing:-.03em}
+.issue-meta{font-size:.7rem}
+.issue-meta>strong{font-size:.95rem}
+.readership{margin-top:10px;padding-top:8px}
+.readership dd{font-size:1rem}
+.content{padding:0 0 56px}
+.source-section{margin-top:36px}
+.source-heading{padding:0 0 8px}
+.story{display:block;padding:20px 0}
+.story-kicker{display:flex;gap:10px;align-items:baseline;margin:0 0 6px;font-size:.68rem}
+.story-kicker span{display:inline;margin:0;font-size:.72rem}
+.story-body{display:grid;grid-template-columns:minmax(0,1fr) 168px;grid-template-areas:"title thumb" "summary thumb" "tags thumb";column-gap:24px;align-items:start}
+.story-body:not(:has(.screenshot-link)){grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "summary" "tags"}
+.story h3{grid-area:title;max-width:none;margin:0 0 6px;font:700 1.22rem/1.3 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.012em}
+.story-summary{grid-area:summary;max-width:none;margin:0 0 10px;color:#242424;font:400 1rem/1.62 Charter,Georgia,serif}
+.screenshot-link{grid-area:thumb;width:168px;height:112px;margin:2px 0 0;overflow:hidden;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:zoom-in}
+.screenshot-link img{width:100%;height:100%;object-fit:cover;object-position:center}
+.story-tags{grid-area:tags;gap:6px}
+.tag{padding:2px 9px;border:0;border-radius:999px;background:#ebe7dc;font-size:.66rem;letter-spacing:.02em;text-transform:none}
+.tag-area{background:#e3e9fb;color:#173c9b}
+/* Enlarged image dialog opened from a thumbnail. */
+.lightbox{max-width:min(960px,calc(100vw - 32px));max-height:calc(100vh - 32px);padding:0;border:0;border-radius:6px;background:var(--surface);box-shadow:0 18px 60px rgba(0,0,0,.35)}
+.lightbox::backdrop{background:rgba(24,24,22,.72)}
+.lightbox img{display:block;max-width:100%;max-height:calc(100vh - 96px);margin:0 auto;object-fit:contain}
+.lightbox-bar{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:10px 14px;font-size:.78rem}
+.lightbox-bar a{color:var(--accent);font-weight:700;text-underline-offset:3px}
+.lightbox-bar button{border:0;background:none;font:inherit;font-weight:700;cursor:pointer}
+@media (max-width:640px){
+.issue{grid-template-columns:minmax(0,1fr)}
+.issue-meta{text-align:left}
+.story-body{grid-template-columns:minmax(0,1fr) 96px;column-gap:14px}
+.screenshot-link{width:96px;height:64px}
+.story h3{font-size:1.08rem}
+.story-summary{font-size:.95rem}
+}
+</style>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../" aria-label="NO-FOMO by OpusClip, home"><svg class="brand-mark" aria-hidden="true" viewBox="0 0 14 14" fill="currentColor"><path d="M2.22635 6.97859C2.23788 4.352 4.3707 2.2263 7 2.2263C9.63644 2.2263 11.7737 4.36356 11.7737 7C11.7737 9.63644 9.63644 11.7737 7 11.7737C6.65485 11.7737 6.31825 11.7371 5.99388 11.6675V13.9282C6.32243 13.9755 6.65836 14 7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7V13.9786H2.2263C2.2263 13.9786 2.22635 10.0297 2.22635 7.35C2.22635 7.29608 2.22635 6.97859 2.22635 6.97859Z"/><path d="M2.99694 6.99694V14H5.22324L5.22333 7.44333V6.97859C5.23319 6.00854 6.02376 5.22324 7 5.22324C7.98239 5.22324 8.77676 6.01846 8.77676 6.99694C8.77676 7.97542 7.98239 8.77064 7 8.77064C6.62629 8.77064 6.2798 8.65557 5.99388 8.4591V10.8695C6.31539 10.9527 6.65255 10.9969 7 10.9969C9.20972 10.9969 11.0031 9.20719 11.0031 6.99694C11.0031 4.78669 9.20972 2.99694 7 2.99694C4.79028 2.99694 2.99694 4.78669 2.99694 6.99694Z"/></svg><span>NO<i>/</i>FOMO</span></a><nav class="nav" aria-label="Issue navigation"><a href="../">Archive</a><a href="cn/">中文</a><a href="en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-11-12</strong><span>DEFAULT EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2026-11-12" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg> AI Blog</h2><span>2 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-12T00:00:00Z">Nov 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://openai.com/index/children-first-declaration" target="_blank" rel="noopener noreferrer">OpenAI commits $2 million to research on children’s AI safety</a></h3>
+    <p class="story-summary">OpenAI announced a $2 million commitment to research on AI and children’s safety. The company says the work will support shared tools for measuring both risks and opportunities for young people. The announcement is relevant as conversational systems become more common in education and everyday family use. Funding and measurement infrastructure can help establish a stronger evidence base, but the commitment itself does not demonstrate that any particular product risk has already been resolved.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Child Safety</span><span class="tag tag-keyword">Research Funding</span><span class="tag tag-area">Safety</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-11T00:00:00Z">Nov 11</time></div>
+  <div class="story-body">
+    <h3><a href="https://openai.com/index/jiostar-vijay-seshadri" target="_blank" rel="noopener noreferrer">JioStar discusses AI discovery at 500-million-user scale</a></h3>
+    <p class="story-summary">An OpenAI interview with JioStar chief architect Vijay Seshadri discusses AI-powered discovery at a reported scale of 500 million users. The description emphasizes evaluations, guardrails and the work required to take AI into production. This is a deployment-focused perspective on turning model capabilities into a consumer experience. The available summary does not provide measured conversion gains, cost savings or reliability statistics, so the story is best read as operational lessons from a large platform.</p>
+    <div class="story-tags"><span class="tag tag-keyword">JioStar</span><span class="tag tag-keyword">Evaluation</span><span class="tag tag-area">Applications</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>2 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-12T13:52:29Z">Nov 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition" target="_blank" rel="noopener noreferrer">Jensen Huang resigns; NVIDIA names Colette Kress interim CEO</a></h3>
+<a href="https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/hacker-news/hacker-news-c6d49ae4f389272ee59e.jpg" alt="Jensen Huang resigns; NVIDIA names Colette Kress interim CEO" loading="lazy"></a>
+    <p class="story-summary">NVIDIA announced that Jensen Huang has resigned as president, chief executive and board member, effective immediately. CFO Colette Kress becomes interim CEO while retaining her finance responsibilities, and Harvey C. Jones becomes board chair. The board will consider internal and external candidates for a permanent successor. NVIDIA says customer commitments and its product roadmap should continue without interruption. The leadership change is consequential for the AI infrastructure ecosystem; the announcement does not establish changes to specific model programs.</p>
+    <div class="story-tags"><span class="tag tag-keyword">NVIDIA</span><span class="tag tag-keyword">Leadership</span><span class="tag tag-area">Industry</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-12T14:09:35Z">Nov 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://pytorch.org/blog/executorch-webgpu-pytorch-models-on-the-gpu-in-the-browser/" target="_blank" rel="noopener noreferrer">ExecuTorch brings PyTorch GPU inference into the browser</a></h3>
+<a href="https://pytorch.org/blog/executorch-webgpu-pytorch-models-on-the-gpu-in-the-browser/" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/hacker-news/hacker-news-0c588c587dd4fce1d590.png" alt="ExecuTorch brings PyTorch GPU inference into the browser" loading="lazy"></a>
+    <p class="story-summary">PyTorch describes a new ExecuTorch WebGPU backend that runs exported .pte models directly in compatible browsers, keeping inference on the device. Supported examples span small language models, vision, speech and some on-device adaptation workflows. In tests on an Apple M1 Pro using Chrome, the team reports faster prefill and decoding than its WebAssembly CPU backend. The backend remains in early development, so operator coverage and device-specific behavior still matter when evaluating deployment readiness.</p>
+    <div class="story-tags"><span class="tag tag-keyword">ExecuTorch</span><span class="tag tag-keyword">WebGPU</span><span class="tag tag-area">Inference</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>12 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-12T11:30:46Z">Nov 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/AnthropicAI/status/2120841731302154708" target="_blank" rel="noopener noreferrer">Anthropic announces its initial public offering</a></h3>
+<a href="https://x.com/AnthropicAI/status/2120841731302154708" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-2331b3f961a0a4b4ff92.jpg" alt="Anthropic announces its initial public offering" loading="lazy"></a>
+    <p class="story-summary">Anthropic announced its initial public offering through its official account and linked to its offering materials. The communication says the company has filed a registration statement, including a prospectus, with the SEC and directs prospective investors to those documents. This is a major corporate milestone for a leading frontier AI developer. The collected announcement does not provide an offering price, valuation or trading date, so those details should not be inferred from the announcement alone.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Anthropic</span><span class="tag tag-keyword">IPO</span><span class="tag tag-area">Industry</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-12T14:15:57Z">Nov 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/runwayml/status/2120883301833400668" target="_blank" rel="noopener noreferrer">Runway adds 3D generation and reference workflows</a></h3>
+<a href="https://x.com/runwayml/status/2120883301833400668" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-0f411fa35ce766a95345.jpg" alt="Runway adds 3D generation and reference workflows" loading="lazy"></a>
+    <p class="story-summary">Runway now supports creating detailed 3D models from text or images with Tripo H3.1, alongside uploading existing models. Users can choose a viewing angle and use that view as a reference for image or video generation, then export models to other 3D tools. The announcement brings asset creation and shot planning into the same creative workflow. It describes available functionality, without supplying independent quality comparisons or performance measurements for the new integration.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Runway</span><span class="tag tag-keyword">Tripo</span><span class="tag tag-keyword">3D</span><span class="tag tag-area">Generative Media</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-12T11:31:32Z">Nov 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/GoogleDeepMind/status/2120841923237683462" target="_blank" rel="noopener noreferrer">DeepMind explains AlphaGenome 2 for rare-disease research</a></h3>
+<a href="https://x.com/GoogleDeepMind/status/2120841923237683462" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-0befdf68a7b98959e3b2.jpg" alt="DeepMind explains AlphaGenome 2 for rare-disease research" loading="lazy"></a>
+    <p class="story-summary">Google DeepMind is highlighting AlphaGenome 2 through a podcast discussion about finding genetic causes of rare disease. The company describes the model as helping scientists examine millions of DNA changes for clues relevant to human health. This frames genomics prediction as a practical research aid rather than a clinical diagnosis claim. The post points readers to an explanatory conversation; it does not itself provide validation statistics, patient outcomes or evidence of regulatory approval.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AlphaGenome 2</span><span class="tag tag-keyword">Genomics</span><span class="tag tag-area">AI for Science</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-11-12T00:22:24Z">Nov 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/fchollet/status/2120673529951813985" target="_blank" rel="noopener noreferrer">François Chollet urges tutoring tools to prioritize learning</a></h3>
+<a href="https://x.com/fchollet/status/2120673529951813985" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-1e4217c71dbc7182f4ba.jpg" alt="François Chollet urges tutoring tools to prioritize learning" loading="lazy"></a>
+    <p class="story-summary">François Chollet argues that conversational AI could deliver personalized tutoring at scale, but that educational tools must optimize for learning rather than simply returning answers. His post stresses that the purpose of homework includes developing the ability to think. This is a useful product-design distinction as assistants enter classrooms and study workflows. It is an argument about objectives and design, rather than evidence that a particular tutoring system has improved measured educational outcomes.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Tutoring</span><span class="tag tag-keyword">Education</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-11-11T22:30:10Z">Nov 11</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/LumaLabsAI/status/2120645286519562294" target="_blank" rel="noopener noreferrer">Luma introduces Character Swap and Insert for shot edits</a></h3>
+<a href="https://x.com/LumaLabsAI/status/2120645286519562294" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-99af07fe623843f1ca1c.jpg" alt="Luma introduces Character Swap and Insert for shot edits" loading="lazy"></a>
+    <p class="story-summary">Luma says Character Swap and Insert is now available for editing an existing shot. Its examples include replacing cast members or a car, adding a dog, and removing someone while keeping the shot as the working context. These controls address a common production need: responding to revision requests without rebuilding a scene from the beginning. The short announcement describes the editing workflow but provides no quantitative evidence about consistency, failure rates or supported shot complexity.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Luma</span><span class="tag tag-keyword">Video Editing</span><span class="tag tag-area">Generative Media</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-11-11T21:05:58Z">Nov 11</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/runwayml/status/2120624097826680985" target="_blank" rel="noopener noreferrer">Runway demonstrates a Claude-to-Blender creative workflow</a></h3>
+<a href="https://x.com/runwayml/status/2120624097826680985" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-8705d0ecbc1576de592f.jpg" alt="Runway demonstrates a Claude-to-Blender creative workflow" loading="lazy"></a>
+    <p class="story-summary">Runway demonstrated a workflow using its tools inside Claude with Fable 5.2. The example moves from an idea for a playable electronic flute to concepts in Runway, a prototype in Blender, and final textures and renders back in Runway. It illustrates how conversational assistance can coordinate multiple stages of asset creation. The demonstration is a concrete workflow example, not a general benchmark of autonomous design quality or a guarantee that other projects will require similar effort.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Runway</span><span class="tag tag-keyword">Claude</span><span class="tag tag-keyword">Blender</span><span class="tag tag-area">Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-11-11T19:14:30Z">Nov 11</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Google/status/2120596045960790486" target="_blank" rel="noopener noreferrer">Gemini Live arrives on Apple CarPlay</a></h3>
+<a href="https://x.com/Google/status/2120596045960790486" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-5c15b6587d1fb5f166ee.jpg" alt="Gemini Live arrives on Apple CarPlay" loading="lazy"></a>
+    <p class="story-summary">Google announced that the Gemini app is available directly through Apple CarPlay. The company says iOS users can hold hands-free Gemini Live conversations from the car display, including discussing upcoming schedules and their inbox. This extends the assistant into another everyday interface and makes spoken interaction central to the experience. The announcement describes availability and example uses; it does not establish that every account, vehicle configuration or connected service supports the same capabilities.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Gemini Live</span><span class="tag tag-keyword">CarPlay</span><span class="tag tag-area">Assistants</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>08</span><time datetime="2026-11-11T18:26:30Z">Nov 11</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Google/status/2120583966272983331" target="_blank" rel="noopener noreferrer">Google introduces Gemini Decisions API</a></h3>
+<a href="https://x.com/Google/status/2120583966272983331" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-0ede0bef9c0e6ce6b10e.jpg" alt="Google introduces Gemini Decisions API" loading="lazy"></a>
+    <p class="story-summary">Google introduced the Gemini Decisions API in Google AI Studio, powered by Gemini Decision 1. The announcement describes evaluating an input against up to 1,000 questions, with support for text, images, audio, video and PDFs, rather than producing a conventional token-by-token text response. This suggests a specialized interface for structured assessments across multimodal content. The collected post does not specify pricing, latency, accuracy or the full response schema, leaving those operational questions open.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Gemini</span><span class="tag tag-keyword">Decision API</span><span class="tag tag-area">Models</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>09</span><time datetime="2026-11-11T18:03:21Z">Nov 11</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/runwayml/status/2120578138111656227" target="_blank" rel="noopener noreferrer">Runway adds Seedance 2.5 output in 4K</a></h3>
+<a href="https://x.com/runwayml/status/2120578138111656227" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-cca6ee5e33b367a3ab89.jpg" alt="Runway adds Seedance 2.5 output in 4K" loading="lazy"></a>
+    <p class="story-summary">Runway announced that Seedance 2.5 is now available in 4K through its platform. The update gives creators another route to higher-resolution generated video inside an existing production tool. Resolution matters for delivery and editing workflows, although it does not by itself establish improvements in motion, consistency or prompt adherence. The brief availability notice does not provide pricing, generation speed or comparative quality measurements, so the concrete takeaway is the newly announced output option.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Seedance 2.5</span><span class="tag tag-keyword">4K</span><span class="tag tag-area">Generative Media</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>10</span><time datetime="2026-11-11T16:57:45Z">Nov 11</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Google/status/2120561628882125069" target="_blank" rel="noopener noreferrer">Google Labs launches Tabletop for shared custom tools</a></h3>
+<a href="https://x.com/Google/status/2120561628882125069" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-46bda50b593a65104a6e.jpg" alt="Google Labs launches Tabletop for shared custom tools" loading="lazy"></a>
+    <p class="story-summary">Google introduced Tabletop, a collaborative space from Google Labs for building custom tools with friends, family or clubs. Its announcement describes inviting a group into a shared hub where participants can contribute simultaneously to planning and other activities. The product direction moves generated tools beyond individual chat sessions toward shared use. The collected announcement focuses on collaboration and examples, without specifying the underlying model, access restrictions or how custom-tool permissions and persistence are managed.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Tabletop</span><span class="tag tag-keyword">Google Labs</span><span class="tag tag-area">Applications</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>11</span><time datetime="2026-11-11T16:02:26Z">Nov 11</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/c_valenzuelab/status/2120547710403325983" target="_blank" rel="noopener noreferrer">Runway highlights Praxis-1 robotics benchmark performance</a></h3>
+<a href="https://x.com/c_valenzuelab/status/2120547710403325983" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-aa7597ccc44c222bb58f.jpg" alt="Runway highlights Praxis-1 robotics benchmark performance" loading="lazy"></a>
+    <p class="story-summary">Runway co-founder Cristóbal Valenzuela highlighted Praxis-1, describing it as the leading world action model on NVIDIA’s RoboLab-120 leaderboard. The post places the company’s robotics effort alongside its broader work on generative media and world models. Its ranking is a company-reported benchmark claim, rather than proof of general superiority across real-world robot tasks. For developers following physical AI, the release is worth examining together with the benchmark conditions and task coverage.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Praxis-1</span><span class="tag tag-keyword">Robotics</span><span class="tag tag-area">Physical AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>12</span><time datetime="2026-11-10T17:54:45Z">Nov 10</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/LumaLabsAI/status/2120213587620921545" target="_blank" rel="noopener noreferrer">Luma brings its MCP integration to ChatGPT and Claude</a></h3>
+<a href="https://x.com/LumaLabsAI/status/2120213587620921545" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-ffa2e7e09e967ab58679.jpg" alt="Luma brings its MCP integration to ChatGPT and Claude" loading="lazy"></a>
+    <p class="story-summary">Luma announced that its MCP integration is live in ChatGPT and Claude, presenting a workflow that takes one character across a campaign without leaving the chat interface. The integration is relevant to teams connecting conversational assistants with media-generation tools through a common protocol. The short announcement establishes the supported assistant surfaces, but does not detail the full tool set, authentication requirements, pricing or how reliably character identity is maintained across outputs.</p>
+    <div class="story-tags"><span class="tag tag-keyword">MCP</span><span class="tag tag-keyword">Luma</span><span class="tag tag-area">Agents</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>1 story</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-12T01:43:55Z">Nov 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/openai/codex-security" target="_blank" rel="noopener noreferrer">OpenAI publishes Codex Security CLI and TypeScript SDK</a></h3>
+<a href="https://github.com/openai/codex-security" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/github/github-d038df16c3cff44f17f7.png" alt="OpenAI publishes Codex Security CLI and TypeScript SDK" loading="lazy"></a>
+    <p class="story-summary">OpenAI’s codex-security repository provides a command-line interface and TypeScript SDK for finding, validating and fixing security vulnerabilities. The repository appeared among the collected GitHub trending projects, with more than 12,000 stars at collection time. It is directly relevant to agent-assisted security workflows because it packages discovery and remediation into developer tooling. Repository popularity is an adoption signal, not evidence of vulnerability-detection accuracy, and the collected description does not supply comparative evaluation results.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Codex Security</span><span class="tag tag-keyword">Security</span><span class="tag tag-area">Developer Tools</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1" fill="none"/><text x="12" y="16" text-anchor="middle" font-size="12">HF</text></svg> HuggingFace</h2><span>7 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-09T19:00:00Z">Nov 9</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.11306" target="_blank" rel="noopener noreferrer">ScrapeBench finds weak compliance with website scraping rules</a></h3>
+<a href="https://huggingface.co/papers/2611.11306" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-f7e58384d670d7c1a8ae.png" alt="ScrapeBench finds weak compliance with website scraping rules" loading="lazy"></a>
+    <p class="story-summary">ScrapeBench evaluates whether AI agents comply with website terms and robots.txt directives during scraping tasks. Across 1,626 sampled sites that prohibit scraping, the authors report compliance below five percent for most tested agents, even when agents inspect the rules. They also find substantial over-refusal on some permitted sites. The study highlights a gap between reading a policy and applying it correctly, while its legal framing and sampled environments should be distinguished from universal judgments about scraping law.</p>
+    <div class="story-tags"><span class="tag tag-keyword">ScrapeBench</span><span class="tag tag-keyword">Agent Compliance</span><span class="tag tag-area">Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-09T19:00:00Z">Nov 9</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.13410" target="_blank" rel="noopener noreferrer">SteerDistill trains quantized agents with execution feedback</a></h3>
+<a href="https://huggingface.co/papers/2611.13410" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-64e97468618811068548.png" alt="SteerDistill trains quantized agents with execution feedback" loading="lazy"></a>
+    <p class="story-summary">SteerDistill uses a full-precision teacher to guide a quantized agent through corrections to failed actions, refining that guidance with feedback from execution. The student then learns the corrected behavior for inference without teacher assistance. Across five agent benchmarks and three models, the authors report W4A16 results within one point of BF16 and improvements over quantized baselines. The approach targets behavioral failures that ordinary offline distillation can miss when the student encounters unfamiliar failure states.</p>
+    <div class="story-tags"><span class="tag tag-keyword">SteerDistill</span><span class="tag tag-keyword">Quantization</span><span class="tag tag-area">Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-08T19:00:00Z">Nov 8</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.12304" target="_blank" rel="noopener noreferrer">Evolving Infra adapts serving infrastructure to agent workloads</a></h3>
+<a href="https://huggingface.co/papers/2611.12304" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-aa36a91e3cc0bc523460.png" alt="Evolving Infra adapts serving infrastructure to agent workloads" loading="lazy"></a>
+    <p class="story-summary">Evolving Infra separates compute allocation from KV-cache management so serving nodes can switch between prefill and decoding while preserving useful agent context. An online planner adjusts the split, and an agent-aware cache manager uses context signals to guide eviction and transfer. On coding, mathematics and computer-use workloads across up to 256 GB300 GPUs, the authors report substantial latency improvements over Dynamo. The maximum gains are workload-dependent results, rather than an expected speedup for every deployment.</p>
+    <div class="story-tags"><span class="tag tag-keyword">KV Cache</span><span class="tag tag-keyword">Serving</span><span class="tag tag-area">Inference</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-11-08T19:00:00Z">Nov 8</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.13028" target="_blank" rel="noopener noreferrer">GTAGym provides automatically checked GTA V tasks for agents</a></h3>
+<a href="https://huggingface.co/papers/2611.13028" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-633eba0c691e60addd58.png" alt="GTAGym provides automatically checked GTA V tasks for agents" loading="lazy"></a>
+    <p class="story-summary">GTAGym turns GTA V scenarios into an evaluation and reinforcement-learning environment with automatic engine-state outcome checks. Its benchmark includes 103 online tasks across nine families and 47 image-based shooting tasks. The authors report that even the best evaluated configuration struggles with aerial navigation, evasion and interception. Training experiments also show transfer beyond the training task categories. The contribution is a verifiable interactive testbed, with game-specific performance that should not be equated with real-world autonomy.</p>
+    <div class="story-tags"><span class="tag tag-keyword">GTAGym</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-area">Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-11-06T19:00:00Z">Nov 6</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2608.22237" target="_blank" rel="noopener noreferrer">SparseRead reduces unnecessary reading by AI agents</a></h3>
+<a href="https://huggingface.co/papers/2608.22237" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-5241f2422ac882595de0.png" alt="SparseRead reduces unnecessary reading by AI agents" loading="lazy"></a>
+    <p class="story-summary">SparseRead adds a reusable control layer that selects what external content reaches an agent without changing the underlying model. It tracks reading intent, chooses retrieval backends and limits cumulative exposure while retaining a full-view fallback. Across six models and five scenarios, the authors report large maximum reductions in tokens and wall time, with quality preserved or improved in most settings. More moderate deep-search gains underscore that benefits depend on the task and available evidence structure.</p>
+    <div class="story-tags"><span class="tag tag-keyword">SparseRead</span><span class="tag tag-keyword">Context</span><span class="tag tag-area">Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-11-04T19:00:00Z">Nov 4</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.08286" target="_blank" rel="noopener noreferrer">Interactive Visual Gym tests assistants in closed-loop tasks</a></h3>
+<a href="https://huggingface.co/papers/2611.08286" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-f1f98f84eed86b6bfff3.png" alt="Interactive Visual Gym tests assistants in closed-loop tasks" loading="lazy"></a>
+    <p class="story-summary">Interactive Visual Gym evaluates visual assistants through simulated users and executable environments covering cooking, household manipulation and mobile interfaces. Its 315 scenarios capture how advice changes subsequent behavior, including user errors. The authors report only 53.4 percent completion for the strongest evaluated model and identify grounding, actionable guidance and latency limitations. A human study supports the evaluation metric, while a small reinforcement-learning experiment suggests these environments can also supply useful training signals.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Visual Assistants</span><span class="tag tag-keyword">Evaluation</span><span class="tag tag-area">Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-10-28T20:00:00Z">Oct 28</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2610.39671" target="_blank" rel="noopener noreferrer">BookNavigator trains models to learn from textbooks during tasks</a></h3>
+<a href="https://huggingface.co/papers/2610.39671" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-8d85a3399de30001b4b0.png" alt="BookNavigator trains models to learn from textbooks during tasks" loading="lazy"></a>
+    <p class="story-summary">This work studies self-learning during mathematical problem solving: a model navigates textbooks, studies relevant principles and constructs proofs without seeing reference solutions. A BookNavigator interface and fine-grained reinforcement-learning rewards encourage that behavior. The authors report proof accuracy rising from 51.5 to 79.5 percent for Intern-S2-Preview-35B, alongside smaller gains on broader long-context benchmarks. The results suggest benefits from learning how to study reference material, although the strongest gains come from the paper’s textbook-centered setting.</p>
+    <div class="story-tags"><span class="tag tag-keyword">BookNavigator</span><span class="tag tag-keyword">Reinforcement Learning</span><span class="tag tag-area">Reasoning</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2026-11-12" data-counter-title="NO-FOMO issue 2026-11-12" defer></script>
+</body>
+</html>
