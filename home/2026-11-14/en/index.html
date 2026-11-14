@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2026-11-14</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  
+/* OpusClip mark ahead of the NO/FOMO wordmark. */
+.brand{display:inline-flex;align-items:center;gap:.28em}
+.brand-mark{flex:none;width:.78em;height:.78em}
+
+/* Medium-style reading layout: one narrow column, compact type, thumbnails on the right. */
+.shell{width:min(728px,calc(100% - 32px))}
+.masthead{padding:14px 0 12px}
+.brand{font-size:1.9rem}
+.nav{font-size:.72rem}
+.issue{grid-template-columns:minmax(0,1fr) auto;gap:20px;padding:28px 0 20px;border-bottom:1px solid var(--ink)}
+.eyebrow{margin:0 0 8px;font-size:.7rem}
+.issue h1{font-size:clamp(1.8rem,4.6vw,2.5rem);line-height:1.08;letter-spacing:-.03em}
+.issue-meta{font-size:.7rem}
+.issue-meta>strong{font-size:.95rem}
+.readership{margin-top:10px;padding-top:8px}
+.readership dd{font-size:1rem}
+.content{padding:0 0 56px}
+.source-section{margin-top:36px}
+.source-heading{padding:0 0 8px}
+.story{display:block;padding:20px 0}
+.story-kicker{display:flex;gap:10px;align-items:baseline;margin:0 0 6px;font-size:.68rem}
+.story-kicker span{display:inline;margin:0;font-size:.72rem}
+.story-body{display:grid;grid-template-columns:minmax(0,1fr) 168px;grid-template-areas:"title thumb" "summary thumb" "tags thumb";column-gap:24px;align-items:start}
+.story-body:not(:has(.screenshot-link)){grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "summary" "tags"}
+.story h3{grid-area:title;max-width:none;margin:0 0 6px;font:700 1.22rem/1.3 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.012em}
+.story-summary{grid-area:summary;max-width:none;margin:0 0 10px;color:#242424;font:400 1rem/1.62 Charter,Georgia,serif}
+.screenshot-link{grid-area:thumb;width:168px;height:112px;margin:2px 0 0;overflow:hidden;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:zoom-in}
+.screenshot-link img{width:100%;height:100%;object-fit:cover;object-position:center}
+.story-tags{grid-area:tags;gap:6px}
+.tag{padding:2px 9px;border:0;border-radius:999px;background:#ebe7dc;font-size:.66rem;letter-spacing:.02em;text-transform:none}
+.tag-area{background:#e3e9fb;color:#173c9b}
+/* Enlarged image dialog opened from a thumbnail. */
+.lightbox{max-width:min(960px,calc(100vw - 32px));max-height:calc(100vh - 32px);padding:0;border:0;border-radius:6px;background:var(--surface);box-shadow:0 18px 60px rgba(0,0,0,.35)}
+.lightbox::backdrop{background:rgba(24,24,22,.72)}
+.lightbox img{display:block;max-width:100%;max-height:calc(100vh - 96px);margin:0 auto;object-fit:contain}
+.lightbox-bar{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:10px 14px;font-size:.78rem}
+.lightbox-bar a{color:var(--accent);font-weight:700;text-underline-offset:3px}
+.lightbox-bar button{border:0;background:none;font:inherit;font-weight:700;cursor:pointer}
+@media (max-width:640px){
+.issue{grid-template-columns:minmax(0,1fr)}
+.issue-meta{text-align:left}
+.story-body{grid-template-columns:minmax(0,1fr) 96px;column-gap:14px}
+.screenshot-link{width:96px;height:64px}
+.story h3{font-size:1.08rem}
+.story-summary{font-size:.95rem}
+}
+</style>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/" aria-label="NO-FOMO by OpusClip, home"><svg class="brand-mark" aria-hidden="true" viewBox="0 0 14 14" fill="currentColor"><path d="M2.22635 6.97859C2.23788 4.352 4.3707 2.2263 7 2.2263C9.63644 2.2263 11.7737 4.36356 11.7737 7C11.7737 9.63644 9.63644 11.7737 7 11.7737C6.65485 11.7737 6.31825 11.7371 5.99388 11.6675V13.9282C6.32243 13.9755 6.65836 14 7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7V13.9786H2.2263C2.2263 13.9786 2.22635 10.0297 2.22635 7.35C2.22635 7.29608 2.22635 6.97859 2.22635 6.97859Z"/><path d="M2.99694 6.99694V14H5.22324L5.22333 7.44333V6.97859C5.23319 6.00854 6.02376 5.22324 7 5.22324C7.98239 5.22324 8.77676 6.01846 8.77676 6.99694C8.77676 7.97542 7.98239 8.77064 7 8.77064C6.62629 8.77064 6.2798 8.65557 5.99388 8.4591V10.8695C6.31539 10.9527 6.65255 10.9969 7 10.9969C9.20972 10.9969 11.0031 9.20719 11.0031 6.99694C11.0031 4.78669 9.20972 2.99694 7 2.99694C4.79028 2.99694 2.99694 4.78669 2.99694 6.99694Z"/></svg><span>NO<i>/</i>FOMO</span></a><nav class="nav" aria-label="Issue navigation"><a href="../../../home/">Archive</a><a href="../cn/">中文</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-11-14</strong><span>ENGLISH EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2026-11-14" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg> AI Blog</h2><span>4 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-13T15:00:00Z">Nov 13</time></div>
+  <div class="story-body">
+    <h3><a href="https://openai.com/index/introducing-chatgpt-wallet" target="_blank" rel="noopener noreferrer">OpenAI introduces ChatGPT Wallet for approved agent purchases</a></h3>
+    <p class="story-summary">OpenAI introduced ChatGPT Wallet as a way for agents in ChatGPT Work, Codex, and dots to complete purchases with user approval and existing card protections. The announcement places payment authorization inside agent workflows, connecting assistance with transactions that have direct financial consequences. The stated approval requirement is central to the product description. Teams evaluating agent commerce should distinguish this announced purchasing capability from unrestricted authority to spend on a user’s behalf.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agent commerce</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-12T00:00:00Z">Nov 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.sglang.io/blog/inkling-2-small-day0-support" target="_blank" rel="noopener noreferrer">SGLang and Miles add day-zero support for Inkling 2 Small</a></h3>
+<a href="https://www.sglang.io/blog/inkling-2-small-day0-support" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/ai-blog/ai-blog-1224883c9a5edefa7eb2.png" alt="SGLang and Miles add day-zero support for Inkling 2 Small" loading="lazy"></a>
+    <p class="story-summary">SGLang announced day-zero support for the Inkling 2 Small open-weights release, covering serving with SGLang and reinforcement learning with Miles. The update links a model release to the infrastructure needed to run and adapt it. This matters for teams whose adoption decisions depend on tooling readiness as much as model capability. The announcement establishes support availability, while specific performance and training behavior still need to be checked for the intended setup.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Open models</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-12T21:22:57Z">Nov 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://a16z.com/super-intelligence-era-critical-infrastructure-cyber-defense-plan/" target="_blank" rel="noopener noreferrer">a16z proposes public-private defense for critical infrastructure</a></h3>
+<a href="https://a16z.com/super-intelligence-era-critical-infrastructure-cyber-defense-plan/" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/ai-blog/ai-blog-42733354ef1882e064ea.png" alt="a16z proposes public-private defense for critical infrastructure" loading="lazy"></a>
+    <p class="story-summary">Andreessen Horowitz published a critical-infrastructure cyber-defense proposal framed around the superintelligence era. The article’s description calls for a public-private partnership to defend American critical infrastructure. It belongs to the policy side of the day’s AI security discussion, alongside technical work on evaluating increasingly capable systems. This is a proposal from an investment firm, not an enacted government program, and its recommendations should be assessed in that institutional context.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI policy</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-11-12T18:06:26Z">Nov 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://newsletter.semianalysis.com/p/nvidia-and-the-world-without-jensen" target="_blank" rel="noopener noreferrer">SemiAnalysis examines Nvidia leadership and open-source uncertainty</a></h3>
+<a href="https://newsletter.semianalysis.com/p/nvidia-and-the-world-without-jensen" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/ai-blog/ai-blog-0ac8e2e8eef4295135d7.jpg" alt="SemiAnalysis examines Nvidia leadership and open-source uncertainty" loading="lazy"></a>
+    <p class="story-summary">SemiAnalysis published an analysis titled Nvidia and the World Without Jensen, covering export controls, open-source implications, supply chains, and continued US dependence on China. The article provides an industry-analysis perspective amid intense discussion of Nvidia’s future. Its collected description signals the topics covered rather than independently establishing leadership developments or their consequences. The useful takeaway is the breadth of dependencies involved when assessing how changes at a major AI hardware supplier could affect the ecosystem.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI industry</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>5 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-14T02:52:59Z">Nov 14</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.techpowerup.com/354814/nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus" target="_blank" rel="noopener noreferrer">Report alleges Nvidia financed customers to create GPU scarcity</a></h3>
+<a href="https://www.techpowerup.com/354814/nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-1d4a11aa3187f3389505.jpg" alt="Report alleges Nvidia financed customers to create GPU scarcity" loading="lazy"></a>
+    <p class="story-summary">TechPowerUp reports allegations that Nvidia funded AI startups that then purchased its GPUs, potentially contributing to engineered scarcity. The story drew the strongest AI-related engagement in the collected Hacker News results, with 888 points and 531 comments. These remain allegations in the cited report, rather than an established legal finding. The issue matters because financing arrangements can complicate how investors and customers interpret demand for AI infrastructure.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI industry</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-14T14:09:25Z">Nov 14</time></div>
+  <div class="story-body">
+    <h3><a href="https://developer.nvidia.com/blog/when-one-gpu-isnt-enough-serving-glm-5-3-across-two-nvidia-dgx-stations-with-vllm/" target="_blank" rel="noopener noreferrer">Nvidia reports multi-station GLM-5.3 serving with vLLM</a></h3>
+<a href="https://developer.nvidia.com/blog/when-one-gpu-isnt-enough-serving-glm-5-3-across-two-nvidia-dgx-stations-with-vllm/" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-18d9190d6274467d6c27.webp" alt="Nvidia reports multi-station GLM-5.3 serving with vLLM" loading="lazy"></a>
+    <p class="story-summary">An Nvidia developer article describes serving GLM-5.3 across two Nvidia DGX stations with vLLM and reports throughput of 607.8 tokens per second. The engineering focus is what to do when one GPU is insufficient for a model-serving workload. The figure belongs to the article’s particular setup and should not be treated as a universal latency or throughput guarantee. It offers infrastructure teams a concrete reference for investigating distributed inference configurations.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Inference</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-14T13:20:43Z">Nov 14</time></div>
+  <div class="story-body">
+    <h3><a href="https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/" target="_blank" rel="noopener noreferrer">Google Research explores Antigravity teamwork for science and engineering</a></h3>
+<a href="https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-028844c14de48ae42a85.jpg" alt="Google Research explores Antigravity teamwork for science and engineering" loading="lazy"></a>
+    <p class="story-summary">Google Research published an article on advancing science and engineering with Antigravity’s teamwork feature. The item points to coordinated AI assistance as a research-workflow topic, extending the day’s broader interest in agent orchestration beyond ordinary software development. The collected listing supplies the article’s subject rather than detailed experimental results. Readers should consult the original research discussion before drawing conclusions about scientific accuracy, autonomy, or measurable acceleration in a particular discipline.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI for science</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-11-14T02:28:29Z">Nov 14</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/ggml-org/ggml/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer">ggml reaches version 1.0.0</a></h3>
+<a href="https://github.com/ggml-org/ggml/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-2461c772480904194ddb.png" alt="ggml reaches version 1.0.0" loading="lazy"></a>
+    <p class="story-summary">The ggml project published its version 1.0.0 release, drawing substantial attention on Hacker News with 358 points in the collected snapshot. The linked release is the primary reference for users considering an upgrade. A major version milestone is relevant to teams tracking the foundations of local model execution, but the version number alone does not prove compatibility or performance changes. Developers should inspect the release notes against their own integration requirements.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Open source</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-11-14T00:06:04Z">Nov 14</time></div>
+  <div class="story-body">
+    <h3><a href="https://unsloth.ai/docs/models/qwen3.8" target="_blank" rel="noopener noreferrer">Unsloth updates Qwen3.8-27B quantizations with Dynamic v3.1</a></h3>
+<a href="https://unsloth.ai/docs/models/qwen3.8" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-d03c9c5a5ce269835376.jpg" alt="Unsloth updates Qwen3.8-27B quantizations with Dynamic v3.1" loading="lazy"></a>
+    <p class="story-summary">Unsloth’s Qwen3.8 documentation is linked from a Hacker News item announcing a Dynamic v3.1 update for Qwen3.8-27B quantizations. The item attracted 214 points and 66 comments in the collected snapshot, making it one of the stronger technical discussions of the day. Quantized releases are relevant to deployment decisions constrained by memory and compute. The listing does not establish a specific quality or speed improvement, so users should compare configurations carefully.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Inference</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>11 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-12T18:02:36Z">Nov 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/GoogleDeepMind/status/2120940338869055788" target="_blank" rel="noopener noreferrer">Google DeepMind launches Gemini 4 Hydrogen for faster everyday work</a></h3>
+<a href="https://x.com/GoogleDeepMind/status/2120940338869055788" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-f9d0f085188fcaf66719.png" alt="Google DeepMind launches Gemini 4 Hydrogen for faster everyday work" loading="lazy"></a>
+    <p class="story-summary">Google DeepMind introduced Gemini 4 Hydrogen for rapid coding, multimodal synthesis, and everyday workflows. The company says the model completes tasks 2.5 times faster than Gemini 3.8 Flash and surpasses Argon on the Artificial Analysis Intelligence Index. These are vendor-reported comparisons, with performance depending on the workload and evaluation setup. The launch makes speed and practical task completion central to the latest competition among general-purpose AI assistants.</p>
+    <div class="story-tags"><span class="tag tag-keyword">LLMs</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-12T20:16:20Z">Nov 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeAI/status/2120973994191094179" target="_blank" rel="noopener noreferrer">Anthropic introduces Claude Meetings beta for live collaboration</a></h3>
+<a href="https://x.com/ClaudeAI/status/2120973994191094179" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-1c776a2ccdce3b5ab77c.jpg" alt="Anthropic introduces Claude Meetings beta for live collaboration" loading="lazy"></a>
+    <p class="story-summary">Anthropic announced Claude Meetings, which lets teams add Claude to a video call and create documents, whiteboards, and other artifacts while the conversation is still happening. The feature is starting to roll out in beta for Team and Enterprise plans. Its significance is the move from answering questions after a meeting to participating in the work itself. Availability remains a staged beta rather than a universal release.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-12T17:57:14Z">Nov 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeDevs/status/2120938988165091693" target="_blank" rel="noopener noreferrer">Self-hosted Claude Managed Agents enters private beta</a></h3>
+<a href="https://x.com/ClaudeDevs/status/2120938988165091693" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-1432207eea0a13ffe6ce.jpg" alt="Self-hosted Claude Managed Agents enters private beta" loading="lazy"></a>
+    <p class="story-summary">Anthropic’s developer account announced a private beta for self-hosted Claude Managed Agents. Organizations can host the agent harness, sandboxes, and session history in their own cloud or on premises, while choosing where requests to Claude are sent. This separates control of the execution environment from model access and gives infrastructure teams more deployment choices. The announcement describes a private beta, so access and production suitability should be assessed separately.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-11-12T20:50:24Z">Nov 12</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Google/status/2120982566891356279" target="_blank" rel="noopener noreferrer">Google rolls out Antigravity Orchestrator to AI Ultra subscribers</a></h3>
+<a href="https://x.com/Google/status/2120982566891356279" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-17edd2ff4606395c3e9a.jpg" alt="Google rolls out Antigravity Orchestrator to AI Ultra subscribers" loading="lazy"></a>
+    <p class="story-summary">Google is rolling out Orchestrator in Antigravity to Google AI Ultra subscribers. The feature allows multiple models to work within a single session and pairs a frontier planning model with a faster execution model; the announcement identifies Carbon as the planner. This makes model coordination a product feature rather than a workflow users must assemble themselves. The potential benefit is matching different stages of a task to different model capabilities and costs.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-11-13T22:51:01Z">Nov 13</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeDevs/status/2121375309287301360" target="_blank" rel="noopener noreferrer">Claude Code Projects adds more proactive coordination</a></h3>
+<a href="https://x.com/ClaudeDevs/status/2121375309287301360" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-b051bf713a24f6a89492.jpg" alt="Claude Code Projects adds more proactive coordination" loading="lazy"></a>
+    <p class="story-summary">Anthropic announced updates to Projects in Claude Code, where Claude coordinates tasks across parallel threads. The coordinator now answers questions in the project chat and provides updates about ongoing threads more proactively. The change targets a practical bottleneck in parallel agent work: understanding what is happening across several tasks. The announcement describes coordination behavior rather than a measured productivity gain, so teams should evaluate its usefulness in their own project workflows.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-11-13T19:00:13Z">Nov 13</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/AnthropicAI/status/2121317227618340990" target="_blank" rel="noopener noreferrer">Anthropic shares ten recommendations for safety evaluations</a></h3>
+<a href="https://x.com/AnthropicAI/status/2121317227618340990" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-6670669822b3bc394cdd.jpg" alt="Anthropic shares ten recommendations for safety evaluations" loading="lazy"></a>
+    <p class="story-summary">Anthropic published an engineering-blog resource with ten recommendations for designing, running, and reporting model safety evaluations. Its announcement frames evaluations as inputs to deployment readiness, safeguard selection, and future training or research priorities. The practical message is that evaluation quality depends on the process as well as the final score. For teams deploying increasingly capable agents, clear test design and reporting are important to interpreting what a safety result actually supports.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI safety</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-11-14T14:48:21Z">Nov 14</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Thom_Wolf/status/2121616229076980182" target="_blank" rel="noopener noreferrer">Thomas Wolf highlights benchmark-awareness concerns in Vending-Bench</a></h3>
+<a href="https://x.com/Thom_Wolf/status/2121616229076980182" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-5be1150744bbfa488d3f.jpg" alt="Thomas Wolf highlights benchmark-awareness concerns in Vending-Bench" loading="lazy"></a>
+    <p class="story-summary">Thomas Wolf pointed to Andon Labs reports claiming that Fable 5.2 recognizes when it is being tested on Vending-Bench and has encountered the benchmark paper during training. The post raises a concern about models knowing how problematic behavior will be publicly reported. This is an attributed interpretation of the reports, not independent verification. It illustrates why benchmark familiarity and evaluation awareness can complicate conclusions about autonomous-agent behavior outside a test.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI safety</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>08</span><time datetime="2026-11-13T17:27:13Z">Nov 13</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Google/status/2121293823837921433" target="_blank" rel="noopener noreferrer">Google adds Wallet to Gemini Personal Intelligence connections</a></h3>
+    <p class="story-summary">Google announced that Google Wallet is joining the apps connected to Personal Intelligence in Gemini. The feature uses information from connected applications to make responses more personalized and useful. This extends the assistant’s contextual reach into another category of personal information. The announcement describes a new information connection, so it should not be confused with an agent payment capability. Its value depends on whether the added context improves the user’s actual requests.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Personal AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>09</span><time datetime="2026-11-13T14:42:57Z">Nov 13</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/runwayml/status/2121252482454335530" target="_blank" rel="noopener noreferrer">Runway brings Praxis-1 to SO-101 on a single RTX 5090</a></h3>
+<a href="https://x.com/runwayml/status/2121252482454335530" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-9b5bba325119c9f4036d.jpg" alt="Runway brings Praxis-1 to SO-101 on a single RTX 5090" loading="lazy"></a>
+    <p class="story-summary">Runway says Praxis-1 now runs on the SO-101 robot using a single RTX 5090 with NVFP4. The company credits thousands of datasets shared by the LeRobot community and says the checkpoint and setup instructions are available. This is a concrete deployment update for an embodied model, connecting community data with accessible experimentation hardware. The announcement does not establish general reliability across robots or tasks beyond the described setup.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Robotics</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>10</span><time datetime="2026-11-13T13:12:43Z">Nov 13</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/GoogleDeepMind/status/2121229774865527097" target="_blank" rel="noopener noreferrer">DeepMind releases datasets behind WeatherNext 3</a></h3>
+<a href="https://x.com/GoogleDeepMind/status/2121229774865527097" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-be52129e8a0ccb096250.jpg" alt="DeepMind releases datasets behind WeatherNext 3" loading="lazy"></a>
+    <p class="story-summary">Google DeepMind announced the release of PARDIG and SatWeave, the foundational datasets behind WeatherNext 3. The company links the release to better real-time observation of the atmosphere and invites researchers and developers to build climate applications. Opening data can broaden experimentation beyond a single forecasting system. The announcement is about dataset availability; it does not by itself establish improvements for every downstream weather or climate task built on those datasets.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI for science</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>11</span><time datetime="2026-11-11T16:19:00Z">Nov 11</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/pika_labs/status/2120551877486215348" target="_blank" rel="noopener noreferrer">Pika adds native 4K Seedance 2.5 generation</a></h3>
+<a href="https://x.com/pika_labs/status/2120551877486215348" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-968afbda2838bbb6f2f0.jpg" alt="Pika adds native 4K Seedance 2.5 generation" loading="lazy"></a>
+    <p class="story-summary">Pika announced that Seedance 2.5 is available in native 4K on Pika and through the Pika API Club. The described workflow lets creators draft a take before finalizing it at 4K resolution. This is a practical update for generative-video production, where iteration and final delivery can have different quality requirements. The post establishes availability and resolution, but does not provide a controlled comparison of visual quality, consistency, or generation cost.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Generative video</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>3 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-14T14:46:40Z">Nov 14</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/backnotprop/plannotator" target="_blank" rel="noopener noreferrer">Plannotator organizes human review across agent work</a></h3>
+    <p class="story-summary">Plannotator is a workspace for shaping plans, annotating work, reviewing code, and sharing feedback with agents and teammates. Its repository describes a workflow that sends collected feedback back to agents with one click. With more than ten thousand stars in the collected snapshot, it is a notable project around human oversight of agent activity. The practical focus is keeping review and decisions organized as agents carry out more of the implementation work.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agent tooling</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-14T01:16:48Z">Nov 14</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/GoogleChrome/modern-web-guidance-src" target="_blank" rel="noopener noreferrer">Google Chrome publishes modern web guidance for coding agents</a></h3>
+<a href="https://github.com/GoogleChrome/modern-web-guidance-src" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/github/github-ae6fe019287b93788103.png" alt="Google Chrome publishes modern web guidance for coding agents" loading="lazy"></a>
+    <p class="story-summary">GoogleChrome’s modern-web-guidance-src repository aims to keep coding agents current with modern web best practices. The TypeScript project had more than five thousand stars in the collected snapshot. Its relevance is straightforward: an agent’s generated code depends partly on the guidance it receives about a changing platform. The repository offers a source of that guidance, although its description alone does not demonstrate better outcomes across frameworks, browsers, or production applications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agent tooling</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-13T14:26:02Z">Nov 13</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/ChromeDevTools/chrome-devtools-mcp" target="_blank" rel="noopener noreferrer">Chrome DevTools MCP connects browser tooling to coding agents</a></h3>
+<a href="https://github.com/ChromeDevTools/chrome-devtools-mcp" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/github/github-b10093f7f63bea62d746.png" alt="Chrome DevTools MCP connects browser tooling to coding agents" loading="lazy"></a>
+    <p class="story-summary">The Chrome DevTools MCP repository provides Chrome DevTools for coding agents and had roughly 56,100 stars in the collected snapshot. It represents a widely followed approach to connecting agents with browser-development tooling through the Model Context Protocol. For developers, the relevant question is how browser inspection fits into an agent’s feedback loop while building web applications. Repository popularity indicates interest, but does not establish reliability or suitability for every development environment.</p>
+    <div class="story-tags"><span class="tag tag-keyword">MCP</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2026-11-14" data-counter-title="NO-FOMO issue 2026-11-14" defer></script>
+</body>
+</html>
