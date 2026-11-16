@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO AI 日报 — 2026-11-16</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"PingFang SC","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em}.issue h1{margin:0;max-width:820px;font:800 clamp(2.6rem,7vw,6.3rem)/1.02 Georgia,"Songti SC",serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.06em}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,"Songti SC",serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:800 clamp(1.5rem,3vw,2.35rem)/1.2 Georgia,"Songti SC",serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.86 Georgia,"Songti SC",serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  
+/* OpusClip mark ahead of the NO/FOMO wordmark. */
+.brand{display:inline-flex;align-items:center;gap:.28em}
+.brand-mark{flex:none;width:.78em;height:.78em}
+
+/* Medium-style reading layout: one narrow column, compact type, thumbnails on the right. */
+.shell{width:min(728px,calc(100% - 32px))}
+.masthead{padding:14px 0 12px}
+.brand{font-size:1.9rem}
+.nav{font-size:.72rem}
+.issue{grid-template-columns:minmax(0,1fr) auto;gap:20px;padding:28px 0 20px;border-bottom:1px solid var(--ink)}
+.eyebrow{margin:0 0 8px;font-size:.7rem}
+.issue h1{font-size:clamp(1.8rem,4.6vw,2.5rem);line-height:1.08;letter-spacing:-.03em}
+.issue-meta{font-size:.7rem}
+.issue-meta>strong{font-size:.95rem}
+.readership{margin-top:10px;padding-top:8px}
+.readership dd{font-size:1rem}
+.content{padding:0 0 56px}
+.source-section{margin-top:36px}
+.source-heading{padding:0 0 8px}
+.story{display:block;padding:20px 0}
+.story-kicker{display:flex;gap:10px;align-items:baseline;margin:0 0 6px;font-size:.68rem}
+.story-kicker span{display:inline;margin:0;font-size:.72rem}
+.story-body{display:grid;grid-template-columns:minmax(0,1fr) 168px;grid-template-areas:"title thumb" "summary thumb" "tags thumb";column-gap:24px;align-items:start}
+.story-body:not(:has(.screenshot-link)){grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "summary" "tags"}
+.story h3{grid-area:title;max-width:none;margin:0 0 6px;font:700 1.22rem/1.3 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.012em}
+.story-summary{grid-area:summary;max-width:none;margin:0 0 10px;color:#242424;font:400 1rem/1.62 Charter,Georgia,serif}
+.screenshot-link{grid-area:thumb;width:168px;height:112px;margin:2px 0 0;overflow:hidden;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:zoom-in}
+.screenshot-link img{width:100%;height:100%;object-fit:cover;object-position:center}
+.story-tags{grid-area:tags;gap:6px}
+.tag{padding:2px 9px;border:0;border-radius:999px;background:#ebe7dc;font-size:.66rem;letter-spacing:.02em;text-transform:none}
+.tag-area{background:#e3e9fb;color:#173c9b}
+/* Enlarged image dialog opened from a thumbnail. */
+.lightbox{max-width:min(960px,calc(100vw - 32px));max-height:calc(100vh - 32px);padding:0;border:0;border-radius:6px;background:var(--surface);box-shadow:0 18px 60px rgba(0,0,0,.35)}
+.lightbox::backdrop{background:rgba(24,24,22,.72)}
+.lightbox img{display:block;max-width:100%;max-height:calc(100vh - 96px);margin:0 auto;object-fit:contain}
+.lightbox-bar{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:10px 14px;font-size:.78rem}
+.lightbox-bar a{color:var(--accent);font-weight:700;text-underline-offset:3px}
+.lightbox-bar button{border:0;background:none;font:inherit;font-weight:700;cursor:pointer}
+@media (max-width:640px){
+.issue{grid-template-columns:minmax(0,1fr)}
+.issue-meta{text-align:left}
+.story-body{grid-template-columns:minmax(0,1fr) 96px;column-gap:14px}
+.screenshot-link{width:96px;height:64px}
+.story h3{font-size:1.08rem}
+.story-summary{font-size:.95rem}
+}
+</style>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">跳到新闻列表</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/cn/" aria-label="OpusClip NO-FOMO 主页"><svg class="brand-mark" aria-hidden="true" viewBox="0 0 14 14" fill="currentColor"><path d="M2.22635 6.97859C2.23788 4.352 4.3707 2.2263 7 2.2263C9.63644 2.2263 11.7737 4.36356 11.7737 7C11.7737 9.63644 9.63644 11.7737 7 11.7737C6.65485 11.7737 6.31825 11.7371 5.99388 11.6675V13.9282C6.32243 13.9755 6.65836 14 7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7V13.9786H2.2263C2.2263 13.9786 2.22635 10.0297 2.22635 7.35C2.22635 7.29608 2.22635 6.97859 2.22635 6.97859Z"/><path d="M2.99694 6.99694V14H5.22324L5.22333 7.44333V6.97859C5.23319 6.00854 6.02376 5.22324 7 5.22324C7.98239 5.22324 8.77676 6.01846 8.77676 6.99694C8.77676 7.97542 7.98239 8.77064 7 8.77064C6.62629 8.77064 6.2798 8.65557 5.99388 8.4591V10.8695C6.31539 10.9527 6.65255 10.9969 7 10.9969C9.20972 10.9969 11.0031 9.20719 11.0031 6.99694C11.0031 4.78669 9.20972 2.99694 7 2.99694C4.79028 2.99694 2.99694 4.78669 2.99694 6.99694Z"/></svg><span>NO<i>/</i>FOMO</span></a><nav class="nav" aria-label="日报导航"><a href="../../../home/cn/">往期</a><a href="../">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">每天一次，过滤 AI 噪音</p><h1>值得打开的<br>AI 日报。</h1></div><div class="issue-meta"><span>发布日期</span><strong>2026-11-16</strong><span>中文版本</span><dl class="readership" aria-label="公开阅读量"><div><dt>本期阅读</dt><dd data-view-count="/issue/2026-11-16" aria-live="polite">—</dd></div><div><dt>累计阅读</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg> AI Blog</h2><span>4 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-16T06:00:00Z">11月16日</time></div>
+  <div class="story-body">
+    <h3><a href="https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare" target="_blank" rel="noopener noreferrer">OpenAI 为 ChatGPT for Healthcare 增加计算机操作智能体</a></h3>
+    <p class="story-summary">OpenAI 宣布为 ChatGPT for Healthcare 增加计算机操作智能体、改进临床回答，并推出新的医疗插件，目标是帮助团队跨医疗软件完成任务。这使产品从问答进一步走向工作流程执行。公告介绍的是产品能力，不能直接视为对临床结果或所有医疗场景可靠性的证明。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Healthcare</span><span class="tag tag-keyword">Computer use</span><span class="tag tag-area">Autonomous Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-16T09:00:00Z">11月16日</time></div>
+  <div class="story-body">
+    <h3><a href="https://openai.com/index/lvmh-media-division-partnership" target="_blank" rel="noopener noreferrer">LVMH 媒体部门与 OpenAI 达成合作</a></h3>
+    <p class="story-summary">LVMH 媒体部门与 OpenAI 宣布合作，利用 AI 支持新闻业务，并通过 ChatGPT 提升旗下出版内容的可访问性。合作同时涉及新闻生产与 AI 助手分发渠道。采集公告未说明财务条款或具体实施安排，但体现出大型媒体机构正正式参与 AI 产品中的内容传播。</p>
+    <div class="story-tags"><span class="tag tag-keyword">OpenAI</span><span class="tag tag-keyword">Media</span><span class="tag tag-area">AI Industry</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-16T00:00:00Z">11月16日</time></div>
+  <div class="story-body">
+    <h3><a href="https://openai.com/index/the-kings-trust-and-openai" target="_blank" rel="noopener noreferrer">英国王子信托基金与 OpenAI 启动 100 万英镑 AI 技能合作</a></h3>
+    <p class="story-summary">The King’s Trust 与 OpenAI 宣布价值 100 万英镑的合作，计划帮助英国最多 25,000 名年轻人培养工作所需的实用 AI 技能。项目把 AI 普及与就业能力联系起来。资金及人数是计划规模，公告尚未证明实际参与、完成培训或就业结果。</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI skills</span><span class="tag tag-keyword">Workforce</span><span class="tag tag-area">AI Industry</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-11-15T22:00:01Z">11月15日</time></div>
+  <div class="story-body">
+    <h3><a href="https://openai.com/index/step-toward-defining-the-standard-model" target="_blank" rel="noopener noreferrer">OpenAI 介绍 GPT-6 Astra 参与标准模型格点研究</a></h3>
+    <p class="story-summary">OpenAI 发布了关于标准模型候选非微扰格点定义的研究介绍，并称 GPT-6 Astra 帮助将想法发展为详细证明。该案例将 AI 辅助带入理论物理，但数学与科学审查仍是关键。公告明确使用“候选”表述，应视为待专家评估的研究主张，而非已经定论的问题解决方案。</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI for science</span><span class="tag tag-keyword">GPT-6 Astra</span><span class="tag tag-area">AI Research</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>3 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-16T15:24:09Z">11月16日</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.wired.com/story/nvidia-was-already-in-trouble-before-the-jensen-huang-mess/" target="_blank" rel="noopener noreferrer">英伟达领导层变动之际，AI 芯片竞争加剧</a></h3>
+<a href="https://www.wired.com/story/nvidia-was-already-in-trouble-before-the-jensen-huang-mess/" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-fd9d0cb63248f6b5373e.jpg" alt="英伟达领导层变动之际，AI 芯片竞争加剧" loading="lazy"></a>
+    <p class="story-summary">WIRED 报道，黄仁勋离任后，Colette Kress 接掌英伟达，而 AMD、云厂商自研芯片及专用推理芯片正加强竞争。报道还指出，AI 辅助代码迁移可能降低 CUDA 的转换门槛。领导层变化之外，推理需求增长和替代硬件也在影响英伟达未来产品周期的技术与商业决策。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Nvidia</span><span class="tag tag-keyword">AI chips</span><span class="tag tag-area">AI Industry</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-16T14:14:09Z">11月16日</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.theregister.com/research/2026/11/16/google-ai-agent-turned-a-security-patch-into-a-working-exploit-with-no-human-help/5309926" target="_blank" rel="noopener noreferrer">谷歌研究人员报告自主分析补丁并实施攻击的 AI 系统</a></h3>
+<a href="https://www.theregister.com/research/2026/11/16/google-ai-agent-turned-a-security-patch-into-a-working-exploit-with-no-human-help/5309926" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-0a65a6585006dfb7a98b.jpg" alt="谷歌研究人员报告自主分析补丁并实施攻击的 AI 系统" loading="lazy"></a>
+    <p class="story-summary">据 The Register 转述谷歌威胁情报团队报告，攻击者使用 AI 框架自主分析安全补丁、生成漏洞利用并实施攻击。研究人员发现的暴露服务器还存有受害机构被盗数据。这显示恶意使用正从聊天辅助走向自动化入侵流程，也意味着安全补丁公开后，未修复系统可能更快面临攻击。</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI security</span><span class="tag tag-keyword">Autonomous agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-16T02:14:44Z">11月16日</time></div>
+  <div class="story-body">
+    <h3><a href="https://qwen.ai/blog?id=qwen4-max" target="_blank" rel="noopener noreferrer">Qwen4-Max 在 Hacker News 引发高度关注</a></h3>
+<a href="https://qwen.ai/blog?id=qwen4-max" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-55948fcf8fd11e5744ea.png" alt="Qwen4-Max 在 Hacker News 引发高度关注" loading="lazy"></a>
+    <p class="story-summary">Qwen 官方 Qwen4-Max 页面在采集时获得 Hacker News 746 分和 375 条评论，是当日最受关注的 AI 条目之一。采集内容确认了公告及讨论热度，但没有提供可核实的技术规格或独立基准结果。模型评估应以官方能力与使用说明为准，并区分社区关注度与实际工作负载表现。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Qwen4-Max</span><span class="tag tag-keyword">LLMs</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>9 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-16T16:11:56Z">11月16日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Google/status/2122362040400371712" target="_blank" rel="noopener noreferrer">谷歌称 Gemini 4 Hydrogen 已面向用户广泛提供</a></h3>
+<a href="https://x.com/Google/status/2122362040400371712" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-c10b6f5e8bd667944129.jpg" alt="谷歌称 Gemini 4 Hydrogen 已面向用户广泛提供" loading="lazy"></a>
+    <p class="story-summary">谷歌通过视觉演示强调 Gemini 4 Hydrogen 已在 Gemini、搜索、AI Studio 等产品中提供。更新重点是广泛可用性和创意用途，而非新的基准成绩或技术规格。对用户和开发者而言，熟悉界面中的接入方式同样重要，实际价值仍取决于具体任务和产品入口。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Gemini 4 Hydrogen</span><span class="tag tag-keyword">Google</span><span class="tag tag-area">LLMs</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-16T14:28:37Z">11月16日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/rasbt/status/2122336040899711282" target="_blank" rel="noopener noreferrer">Sebastian Raschka 呼吁建立统一的 LLM 组件 API</a></h3>
+<a href="https://x.com/rasbt/status/2122336040899711282" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-a92ba05268869dd778f6.jpg" alt="Sebastian Raschka 呼吁建立统一的 LLM 组件 API" loading="lazy"></a>
+    <p class="story-summary">Sebastian Raschka 提出，开源 LLM 生态需要组件级 API，以降低跨架构实验的成本。模型组件日益多样，在 PyTorch 或 C++、CUDA 实现间切换会产生工程负担。这是一项工具设计建议，而非已发布标准；统一接口可能让架构比较和可复现实验更容易维护。</p>
+    <div class="story-tags"><span class="tag tag-keyword">LLM architecture</span><span class="tag tag-keyword">Developer tools</span><span class="tag tag-area">LLMs</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-15T13:29:04Z">11月15日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/rasbt/status/2121958665989083253" target="_blank" rel="noopener noreferrer">位置编码教程梳理 RoPE 及现代 LLM 设计</a></h3>
+<a href="https://x.com/rasbt/status/2121958665989083253" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-f13a239e9854380e7e21.jpg" alt="位置编码教程梳理 RoPE 及现代 LLM 设计" loading="lazy"></a>
+    <p class="story-summary">Sebastian Raschka 发布现代语言模型位置编码教程，包括从零实现 RoPE，并讨论 NoPE、部分 RoPE 和混合方案。该内容在采集窗口中获得较高互动，有助于理解架构变化。它的主要价值是解释基础组件，而非宣布新模型或刷新性能纪录。</p>
+    <div class="story-tags"><span class="tag tag-keyword">RoPE</span><span class="tag tag-keyword">Positional embeddings</span><span class="tag tag-area">LLMs</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-11-14T14:38:45Z">11月14日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/rasbt/status/2121613812990095543" target="_blank" rel="noopener noreferrer">Inkling 2 Small 架构讨论聚焦注意力残差</a></h3>
+<a href="https://x.com/rasbt/status/2121613812990095543" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-8e9789a9defb26c488fb.jpg" alt="Inkling 2 Small 架构讨论聚焦注意力残差" loading="lazy"></a>
+    <p class="story-summary">Sebastian Raschka 指出 Inkling 2 Small 采用了类似 Kimi K3 的注意力残差，但没有线性注意力混合结构。这为语言模型架构趋势讨论提供了具体线索。该内容是研究者的技术解读，而非独立基准结论；开发者可据此关注不同组件对实现、训练行为及模型比较的影响。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Inkling 2 Small</span><span class="tag tag-keyword">Attention residuals</span><span class="tag tag-area">LLMs</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-11-13T23:59:59Z">11月13日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeDevs/status/2121392666244186327" target="_blank" rel="noopener noreferrer">Claude Code 桌面版通过 mods 支持自定义主题</a></h3>
+<a href="https://x.com/ClaudeDevs/status/2121392666244186327" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-a3dfc544c8337d4f1182.jpg" alt="Claude Code 桌面版通过 mods 支持自定义主题" loading="lazy"></a>
+    <p class="story-summary">Anthropic 开发者账号宣布 Claude Code 桌面版可通过 mods 自定义主题，包括颜色和动画背景。用户可以向 Claude 描述外观，也可使用 theme-examples 插件。该条目是本次 X 候选中获赞最多的内容，属于显著的开发者产品更新，但不代表编码能力或底层模型性能变化。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Claude Code</span><span class="tag tag-keyword">Developer tools</span><span class="tag tag-area">Autonomous Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-11-13T20:36:43Z">11月13日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Thom_Wolf/status/2121341509769273818" target="_blank" rel="noopener noreferrer">Thomas Wolf 关注 GR00T 2 与 LeRobot 集成</a></h3>
+<a href="https://x.com/Thom_Wolf/status/2121341509769273818" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-f539b8c6222505598d51.jpg" alt="Thomas Wolf 关注 GR00T 2 与 LeRobot 集成" loading="lazy"></a>
+    <p class="story-summary">Hugging Face 的 Thomas Wolf 称赞英伟达开放权重机器人模型 GR00T 2，并表示 LeRobot 集成正在进行。该消息把模型与开放机器人工具生态联系起来，但仍是简短进度说明，不代表集成已完成或能力经过独立验证。实际兼容性和表现需要结合具体硬件与任务评估。</p>
+    <div class="story-tags"><span class="tag tag-keyword">GR00T 2</span><span class="tag tag-keyword">LeRobot</span><span class="tag tag-area">Robotics</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-11-13T18:21:09Z">11月13日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/natolambert/status/2121307394948968767" target="_blank" rel="noopener noreferrer">Nathan Lambert 讨论模型规范与自主智能体治理</a></h3>
+<a href="https://x.com/natolambert/status/2121307394948968767" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-1e6f6111ee66753997f0.jpg" alt="Nathan Lambert 讨论模型规范与自主智能体治理" loading="lazy"></a>
+    <p class="story-summary">Nathan Lambert 认为模型规范有助于组织内部对齐和轻量外部监督，并指出随着智能体从生成文本走向自主行动，其重要性正在上升。这是治理观点，而非新的合规框架。对于智能体产品，随着委托行动范围扩大，预期行为需要更加清晰、可理解和可审查。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Model specifications</span><span class="tag tag-keyword">Agent governance</span><span class="tag tag-area">AI Safety</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>08</span><time datetime="2026-11-13T17:32:45Z">11月13日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/gdb/status/2121295213025194172" target="_blank" rel="noopener noreferrer">Greg Brockman 介绍 dot 与主要银行卡网络的支付合作</a></h3>
+<a href="https://x.com/gdb/status/2121295213025194172" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-cd2eb7ff66c17267b8de.jpg" alt="Greg Brockman 介绍 dot 与主要银行卡网络的支付合作" loading="lazy"></a>
+    <p class="story-summary">Greg Brockman 表示，dot 通过与 American Express、Mastercard 和 Visa 合作支持安全购买。简短公告把支付执行纳入 AI 相关产品行动范围，但未说明可用地区、认证流程或责任安排。评估助手可获得多大购买权限时，这些实现细节十分重要。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Payments</span><span class="tag tag-keyword">dot</span><span class="tag tag-area">Autonomous Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>09</span><time datetime="2026-11-13T01:23:06Z">11月13日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/runwayml/status/2121051193921118712" target="_blank" rel="noopener noreferrer">Runway 接入 Seedance 2.5 Flash 视频模型</a></h3>
+<a href="https://x.com/runwayml/status/2121051193921118712" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-080f42cc33e2590f67d3.jpg" alt="Runway 接入 Seedance 2.5 Flash 视频模型" loading="lazy"></a>
+    <p class="story-summary">Runway 宣布平台已提供 Seedance 2.5 Flash，并将其定位为更快、更低成本的视频生成选择。这是在创作流程中增加模型选项，而非发布新的 Runway 自研基础模型。公告未给出具体价格或延迟对比，制作团队仍需查看当前产品详情再作选择。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Seedance 2.5 Flash</span><span class="tag tag-keyword">Runway</span><span class="tag tag-area">Generative Video</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</h2><span>3 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-16T15:21:33Z">11月16日</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/ag-ui-protocol/ag-ui" target="_blank" rel="noopener noreferrer">AG-UI 为前端应用提供智能体交互协议</a></h3>
+<a href="https://github.com/ag-ui-protocol/ag-ui" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/github/github-2cea992e444a06dfbf3e.png" alt="AG-UI 为前端应用提供智能体交互协议" loading="lazy"></a>
+    <p class="story-summary">AG-UI 是本日 GitHub 候选中的 TypeScript 项目，提供 Agent-User Interaction Protocol，旨在将智能体接入前端应用。采集时仓库拥有 18,596 星，体现开发者关注度，但不等于生产适用性证明。设计用户如何理解和协同智能体工作时，该项目值得研究。</p>
+    <div class="story-tags"><span class="tag tag-keyword">AG-UI</span><span class="tag tag-keyword">Agent interfaces</span><span class="tag tag-area">Autonomous Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-16T14:34:05Z">11月16日</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/tradermonty/claude-trading-skills" target="_blank" rel="noopener noreferrer">Claude 交易技能项目整理可复用金融工作流程</a></h3>
+<a href="https://github.com/tradermonty/claude-trading-skills" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/github/github-5fb5fa89e7c46f3cb863.png" alt="Claude 交易技能项目整理可复用金融工作流程" loading="lazy"></a>
+    <p class="story-summary">claude-trading-skills 为股票投资者和交易者整理 Claude Code 技能，覆盖市场分析、技术图表、经济日历、筛选器及策略开发。它展示了按专业流程组织智能体能力的方式，采集时有 6,106 星。仓库描述说明预期功能，不代表投资业绩，输出仍需独立评估。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Claude Code</span><span class="tag tag-keyword">Financial workflows</span><span class="tag tag-area">Autonomous Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-16T13:08:04Z">11月16日</time></div>
+  <div class="story-body">
+    <h3><a href="https://github.com/dream-num/univer" target="_blank" rel="noopener noreferrer">Univer 为用户和 AI 智能体提供办公软件能力</a></h3>
+<a href="https://github.com/dream-num/univer" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/github/github-5b2653ab79f36aef3494.png" alt="Univer 为用户和 AI 智能体提供办公软件能力" loading="lazy"></a>
+    <p class="story-summary">Univer 是可扩展的开源办公 SDK，为用户和 AI 智能体提供编辑、计算、协作和文件处理能力。该 TypeScript 仓库在采集时有 27,573 星。其价值在应用层：智能体需要操作文档及办公流程的结构化能力，具体功能覆盖和部署要求仍应查阅项目文档。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Univer</span><span class="tag tag-keyword">Office agents</span><span class="tag tag-area">Autonomous Agents</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1" fill="none"/><text x="12" y="16" text-anchor="middle" font-size="12">HF</text></svg> HuggingFace</h2><span>8 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-12T19:00:00Z">11月12日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.17955" target="_blank" rel="noopener noreferrer">WebArena-Pro 在 20 个 Web 应用中评测多模态智能体</a></h3>
+<a href="https://huggingface.co/papers/2611.17955" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-fd22b36ce27f8cb38c30.png" alt="WebArena-Pro 在 20 个 Web 应用中评测多模态智能体" loading="lazy"></a>
+    <p class="story-summary">WebArena-Pro 提供覆盖六类领域、20 个自托管 Web 应用的 300 项任务，将音频和视频与文本、图像一并纳入观察。作者希望兼顾多样工作流程与可复现性，避免在线网站变化影响评估。最佳报告成绩为 62.3%，说明复杂、跨界面且有状态的浏览器工作仍有明显挑战。</p>
+    <div class="story-tags"><span class="tag tag-keyword">WebArena-Pro</span><span class="tag tag-keyword">Evaluation</span><span class="tag tag-area">Autonomous Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-12T19:00:00Z">11月12日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.18482" target="_blank" rel="noopener noreferrer">MMFlash 聚焦视觉依赖 token，加速视觉语言模型解码</a></h3>
+<a href="https://huggingface.co/papers/2611.18482" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-915969d87f3897db909e.png" alt="MMFlash 聚焦视觉依赖 token，加速视觉语言模型解码" loading="lazy"></a>
+    <p class="story-summary">MMFlash 研究视觉依赖为何增加推测解码难度。作者报告，草稿 token 接受率从视觉依赖最低四分位的 46% 降至最高四分位的 22%。方法提高难预测视觉相关 token 的训练权重，并针对长视频采用稀疏注意力，实验报告最高 3.58 倍无损解码加速。</p>
+    <div class="story-tags"><span class="tag tag-keyword">MMFlash</span><span class="tag tag-keyword">Speculative decoding</span><span class="tag tag-area">LLM Inference</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-12T19:00:00Z">11月12日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.18130" target="_blank" rel="noopener noreferrer">JFinBench 用最新考试更新日语金融模型评测</a></h3>
+<a href="https://huggingface.co/papers/2611.18130" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-4fd3fcaa85e0a803be5f.png" alt="JFinBench 用最新考试更新日语金融模型评测" loading="lazy"></a>
+    <p class="story-summary">JFinBench 包含来自 2026 年六项日本金融资格考试的 321 个样例，覆盖会计、税务、财务规划和银行业务。人类审核的智能体转换流程便于持续纳入新版试题，降低数据污染。12 个模型的评测显示，工具使用普遍改善表现，但差距仍存在，说明本地金融知识与持续更新的评估同样重要。</p>
+    <div class="story-tags"><span class="tag tag-keyword">JFinBench</span><span class="tag tag-keyword">Financial AI</span><span class="tag tag-area">AI Evaluation</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-11-12T19:00:00Z">11月12日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.17814" target="_blank" rel="noopener noreferrer">G-CAST 为生产采购智能体提供受控持续训练</a></h3>
+<a href="https://huggingface.co/papers/2611.17814" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-4d82428db4f883f8135c.png" alt="G-CAST 为生产采购智能体提供受控持续训练" loading="lazy"></a>
+    <p class="story-summary">G-CAST 将电商智能体生产证据转为持续训练数据，以应对需求变化和工具演进。系统结合奖励路由、基于熵的数据优先级及受控奖励更新，并在版本切换前进行累计评估。作者报告其适应性和既有能力保持优于基线，并称已部署到阿里巴巴 1688 的源采采购智能体。</p>
+    <div class="story-tags"><span class="tag tag-keyword">G-CAST</span><span class="tag tag-keyword">Continual learning</span><span class="tag tag-area">Autonomous Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-11-12T19:00:00Z">11月12日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.18549" target="_blank" rel="noopener noreferrer">JVT 简化直接在像素空间进行的视频扩散</a></h3>
+<a href="https://huggingface.co/papers/2611.18549" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-301b19e0b5cc59d82f17.png" alt="JVT 简化直接在像素空间进行的视频扩散" loading="lazy"></a>
+    <p class="story-summary">JVT 使用大 patch 的 DiT 风格 Transformer 直接进行像素空间视频扩散，不依赖预训练自动编码器、辅助细化器或级联阶段。作者研究嵌入、寄存 token 与归一化设计，并报告在所测条件下达到与潜空间扩散基线相近的质量。联合 RGB 与视差生成还改善了相机跟随能力。</p>
+    <div class="story-tags"><span class="tag tag-keyword">JVT</span><span class="tag tag-keyword">Video diffusion</span><span class="tag tag-area">Generative Video</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-11-12T19:00:00Z">11月12日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.17831" target="_blank" rel="noopener noreferrer">V-JEPA-LM 让语言模型读取视频动态信息</a></h3>
+<a href="https://huggingface.co/papers/2611.17831" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-24d2c40bc551995ee931.png" alt="V-JEPA-LM 让语言模型读取视频动态信息" loading="lazy"></a>
+    <p class="story-summary">V-JEPA-LM 研究语言模型为何无法利用冻结视频编码器中已存在的运动信息。作者通过变换公开视频构建反事实监督，让答案取决于方向、速度等变化，并报告 10 亿至 80 亿参数模型在 11 项视频基准上的强劲结果。重点是区分编码器保存了什么，以及语言监督教会模型读取什么。</p>
+    <div class="story-tags"><span class="tag tag-keyword">V-JEPA-LM</span><span class="tag tag-keyword">Video understanding</span><span class="tag tag-area">Multimodal AI</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-11-12T19:00:00Z">11月12日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.17820" target="_blank" rel="noopener noreferrer">Aligning AI Teams 发现多智能体系统中的责任分散问题</a></h3>
+<a href="https://huggingface.co/papers/2611.17820" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-2395e87be5a1fdedfea7.png" alt="Aligning AI Teams 发现多智能体系统中的责任分散问题" loading="lazy"></a>
+    <p class="story-summary">Aligning AI Teams 研究单个智能体的对齐行为为何不一定迁移到团队。软件工程和方案生成任务中，相互批评及群聊不能稳定消除差距。作者将责任分散视为主要机制，并报告指定安全负责人和共享安全规范能够改善表现。这表明增加智能体也是组织设计问题。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Multi-agent systems</span><span class="tag tag-keyword">Alignment</span><span class="tag tag-area">AI Safety</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>08</span><time datetime="2026-11-10T19:00:00Z">11月10日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.14505" target="_blank" rel="noopener noreferrer">Continual-ARC 区分持久记忆与可迁移学习</a></h3>
+<a href="https://huggingface.co/papers/2611.14505" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-7e2448ce7247ab67ba5b.png" alt="Continual-ARC 区分持久记忆与可迁移学习" loading="lazy"></a>
+    <p class="story-summary">Continual-ARC 使用三个 ARC-AGI 版本中的重复任务流，通过新样例、反馈预算及后续测试评估终身学习，并在统一尺度上比较记忆型框架与权重学习。所报告实验中，缺乏专家指导时持久化通常无法改善记忆，框架方法也未提升未见任务表现，提示保存历史不等于学会可迁移技能。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Continual-ARC</span><span class="tag tag-keyword">Continual learning</span><span class="tag tag-area">AI Evaluation</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>AI 辅助筛选，原始来源始终可查。</span></footer>
+  <script src="../../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2026-11-16" data-counter-title="NO-FOMO issue 2026-11-16" defer></script>
+</body>
+</html>
