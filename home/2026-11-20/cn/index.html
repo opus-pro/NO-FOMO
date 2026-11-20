@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO AI 日报 — 2026-11-20</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"PingFang SC","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em}.issue h1{margin:0;max-width:820px;font:800 clamp(2.6rem,7vw,6.3rem)/1.02 Georgia,"Songti SC",serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.06em}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,"Songti SC",serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:800 clamp(1.5rem,3vw,2.35rem)/1.2 Georgia,"Songti SC",serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.86 Georgia,"Songti SC",serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  
+/* OpusClip mark ahead of the NO/FOMO wordmark. */
+.brand{display:inline-flex;align-items:center;gap:.28em}
+.brand-mark{flex:none;width:.78em;height:.78em}
+
+/* Medium-style reading layout: one narrow column, compact type, thumbnails on the right. */
+.shell{width:min(728px,calc(100% - 32px))}
+.masthead{padding:14px 0 12px}
+.brand{font-size:1.9rem}
+.nav{font-size:.72rem}
+.issue{grid-template-columns:minmax(0,1fr) auto;gap:20px;padding:28px 0 20px;border-bottom:1px solid var(--ink)}
+.eyebrow{margin:0 0 8px;font-size:.7rem}
+.issue h1{font-size:clamp(1.8rem,4.6vw,2.5rem);line-height:1.08;letter-spacing:-.03em}
+.issue-meta{font-size:.7rem}
+.issue-meta>strong{font-size:.95rem}
+.readership{margin-top:10px;padding-top:8px}
+.readership dd{font-size:1rem}
+.content{padding:0 0 56px}
+.source-section{margin-top:36px}
+.source-heading{padding:0 0 8px}
+.story{display:block;padding:20px 0}
+.story-kicker{display:flex;gap:10px;align-items:baseline;margin:0 0 6px;font-size:.68rem}
+.story-kicker span{display:inline;margin:0;font-size:.72rem}
+.story-body{display:grid;grid-template-columns:minmax(0,1fr) 168px;grid-template-areas:"title thumb" "summary thumb" "tags thumb";column-gap:24px;align-items:start}
+.story-body:not(:has(.screenshot-link)){grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "summary" "tags"}
+.story h3{grid-area:title;max-width:none;margin:0 0 6px;font:700 1.22rem/1.3 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.012em}
+.story-summary{grid-area:summary;max-width:none;margin:0 0 10px;color:#242424;font:400 1rem/1.62 Charter,Georgia,serif}
+.screenshot-link{grid-area:thumb;width:168px;height:112px;margin:2px 0 0;overflow:hidden;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:zoom-in}
+.screenshot-link img{width:100%;height:100%;object-fit:cover;object-position:center}
+.story-tags{grid-area:tags;gap:6px}
+.tag{padding:2px 9px;border:0;border-radius:999px;background:#ebe7dc;font-size:.66rem;letter-spacing:.02em;text-transform:none}
+.tag-area{background:#e3e9fb;color:#173c9b}
+/* Enlarged image dialog opened from a thumbnail. */
+.lightbox{max-width:min(960px,calc(100vw - 32px));max-height:calc(100vh - 32px);padding:0;border:0;border-radius:6px;background:var(--surface);box-shadow:0 18px 60px rgba(0,0,0,.35)}
+.lightbox::backdrop{background:rgba(24,24,22,.72)}
+.lightbox img{display:block;max-width:100%;max-height:calc(100vh - 96px);margin:0 auto;object-fit:contain}
+.lightbox-bar{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:10px 14px;font-size:.78rem}
+.lightbox-bar a{color:var(--accent);font-weight:700;text-underline-offset:3px}
+.lightbox-bar button{border:0;background:none;font:inherit;font-weight:700;cursor:pointer}
+@media (max-width:640px){
+.issue{grid-template-columns:minmax(0,1fr)}
+.issue-meta{text-align:left}
+.story-body{grid-template-columns:minmax(0,1fr) 96px;column-gap:14px}
+.screenshot-link{width:96px;height:64px}
+.story h3{font-size:1.08rem}
+.story-summary{font-size:.95rem}
+}
+</style>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">跳到新闻列表</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../../../home/cn/" aria-label="OpusClip NO-FOMO 主页"><svg class="brand-mark" aria-hidden="true" viewBox="0 0 14 14" fill="currentColor"><path d="M2.22635 6.97859C2.23788 4.352 4.3707 2.2263 7 2.2263C9.63644 2.2263 11.7737 4.36356 11.7737 7C11.7737 9.63644 9.63644 11.7737 7 11.7737C6.65485 11.7737 6.31825 11.7371 5.99388 11.6675V13.9282C6.32243 13.9755 6.65836 14 7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7V13.9786H2.2263C2.2263 13.9786 2.22635 10.0297 2.22635 7.35C2.22635 7.29608 2.22635 6.97859 2.22635 6.97859Z"/><path d="M2.99694 6.99694V14H5.22324L5.22333 7.44333V6.97859C5.23319 6.00854 6.02376 5.22324 7 5.22324C7.98239 5.22324 8.77676 6.01846 8.77676 6.99694C8.77676 7.97542 7.98239 8.77064 7 8.77064C6.62629 8.77064 6.2798 8.65557 5.99388 8.4591V10.8695C6.31539 10.9527 6.65255 10.9969 7 10.9969C9.20972 10.9969 11.0031 9.20719 11.0031 6.99694C11.0031 4.78669 9.20972 2.99694 7 2.99694C4.79028 2.99694 2.99694 4.78669 2.99694 6.99694Z"/></svg><span>NO<i>/</i>FOMO</span></a><nav class="nav" aria-label="日报导航"><a href="../../../home/cn/">往期</a><a href="../">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">每天一次，过滤 AI 噪音</p><h1>值得打开的<br>AI 日报。</h1></div><div class="issue-meta"><span>发布日期</span><strong>2026-11-20</strong><span>中文版本</span><dl class="readership" aria-label="公开阅读量"><div><dt>本期阅读</dt><dd data-view-count="/issue/2026-11-20" aria-live="polite">—</dd></div><div><dt>累计阅读</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg> AI Blog</h2><span>3 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-20T00:00:00Z">11月20日</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.anthropic.com/news/ipo-close" target="_blank" rel="noopener noreferrer">Anthropic 宣布完成每股 83 美元的首次公开发行</a></h3>
+<a href="https://www.anthropic.com/news/ipo-close" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/ai-blog/ai-blog-fd109fdc361c3cd3d582.jpg" alt="Anthropic 宣布完成每股 83 美元的首次公开发行" loading="lazy"></a>
+    <p class="story-summary">Anthropic 宣布完成首次公开发行，以每股83美元发行11.27亿股A类普通股，其中包括承销商全额行使的1.47亿股额外购买权。公告亦涉及同期私募配售。这是公司的重要融资里程碑；发行条款描述的是交易本身，不等于后续股价或投资者收益。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Anthropic</span><span class="tag tag-keyword">IPO</span><span class="tag tag-area">产业</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-19T08:00:00Z">11月19日</time></div>
+  <div class="story-body">
+    <h3><a href="https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast" target="_blank" rel="noopener noreferrer">OpenAI 介绍用于 ChatGPT 性能优化的 Codex 工作流</a></h3>
+    <p class="story-summary">OpenAI介绍Performance Factory：利用Codex工作流寻找并修复性能问题，保持ChatGPT响应速度。这将编程智能体用于持续运维，而不只开发新功能。采集摘要说明了系统目的，但没有提供延迟改善、成本节省或每次修复的具体审查控制。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Codex</span><span class="tag tag-keyword">Performance Factory</span><span class="tag tag-area">智能体</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-19T00:00:00Z">11月19日</time></div>
+  <div class="story-body">
+    <h3><a href="https://openai.com/business/learn/deploying-daybreak-red" target="_blank" rel="noopener noreferrer">OpenAI 介绍受监督的 Daybreak Red 安全调查架构</a></h3>
+    <p class="story-summary">OpenAI发布Daybreak Red受监督安全调查参考架构，涉及安全控制、配置与监控。部署安全智能体不仅涉及模型，也包括外围控制。采集说明没有列出全部控制措施或有效性指标，应将其作为待研究的实施指南，而不是默认安全的证明。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Daybreak Red</span><span class="tag tag-keyword">Security agents</span><span class="tag tag-area">安全</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>5 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-20T13:29:59Z">11月20日</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off" target="_blank" rel="noopener noreferrer">Anthropic 上市未能阻止 AI 股票抛售，全球市场下跌</a></h3>
+<a href="https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-3168c21edf0d471ece12.jpg" alt="Anthropic 上市未能阻止 AI 股票抛售，全球市场下跌" loading="lazy"></a>
+    <p class="story-summary">《卫报》报道，Anthropic创纪录的IPO未能阻止更广泛的AI股票抛售，全球股市走低。市场反应与公司融资完成是不同的事件，反映投资计划与投资者信心之间的关系。采集到的标题支持市场下跌这一事实，但不足以据此给出精确损失或未来走势预测。</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI markets</span><span class="tag tag-keyword">Anthropic</span><span class="tag tag-area">产业</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-20T14:16:21Z">11月20日</time></div>
+  <div class="story-body">
+    <h3><a href="https://alpo.ge/remark.pdf" target="_blank" rel="noopener noreferrer">黎曼猜想证明声明引发高度关注</a></h3>
+    <p class="story-summary">Hacker News链接的一篇论文被描述为Anthropic员工提出的黎曼猜想一般性证明，采集时获得909分和565条评论，是本次HN最高分条目。这是重大数学声明，并非已经验证的成果。现有元数据也无法证明该证明由AI生成，需要等待独立数学审查。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Mathematics</span><span class="tag tag-keyword">Verification</span><span class="tag tag-area">研究</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-20T10:01:41Z">11月20日</time></div>
+  <div class="story-body">
+    <h3><a href="https://architectlabs.com/blog/frostbite" target="_blank" rel="noopener noreferrer">Architect Labs 发布号称由 AI 设计的 Frostbite CPU 架构</a></h3>
+<a href="https://architectlabs.com/blog/frostbite" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-807886b384ddc20c27e1.jpg" alt="Architect Labs 发布号称由 AI 设计的 Frostbite CPU 架构" loading="lazy"></a>
+    <p class="story-summary">Architect Labs将Frostbite介绍为由AI发现、设计和验证的新CPU架构。采集时该消息在HN获得417分和255条评论。它将AI工程的讨论从软件扩展到处理器架构；现有材料未说明流片状态、生产成熟度或相对性能，这些仍需进一步验证。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Frostbite</span><span class="tag tag-keyword">AI hardware</span><span class="tag tag-area">研究</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-11-20T12:16:36Z">11月20日</time></div>
+  <div class="story-body">
+    <h3><a href="https://spectrum.ieee.org/epic-games-unreal-engine-ai" target="_blank" rel="noopener noreferrer">Epic Games 将 AI 编程引入虚幻引擎</a></h3>
+<a href="https://spectrum.ieee.org/epic-games-unreal-engine-ai" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/hacker-news/hacker-news-83908ee20457c99d83f6.jpg" alt="Epic Games 将 AI 编程引入虚幻引擎" loading="lazy"></a>
+    <p class="story-summary">IEEE Spectrum报道Epic Games将AI编程用于虚幻引擎。大型游戏引擎对生成代码提出较高要求，修改必须融入既有系统并服务下游开发者。现有标题能够支持采用AI编程这一消息，但没有提供量化的生产率或质量结果。这体现AI编程进入复杂商业软件开发。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Epic Games</span><span class="tag tag-keyword">AI coding</span><span class="tag tag-area">智能体</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-11-20T12:41:38Z">11月20日</time></div>
+  <div class="story-body">
+    <h3><a href="https://cekrem.github.io/posts/if-you-stop-writing-code-you-also-get-worse-at-reviewing-it/" target="_blank" rel="noopener noreferrer">持续编程是否是保持代码审查能力的关键</a></h3>
+    <p class="story-summary">一篇文章认为，停止亲自写代码也会削弱代码审查能力。随着AI编程工具让工程师更多地评估生成的修改，这一观点值得团队关注：委托实现工作的同时，如何保留识别错误所需的实践知识？这属于作者论点，采集元数据并未提供可验证的因果测量。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Code review</span><span class="tag tag-keyword">Developer skills</span><span class="tag tag-area">智能体</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>12 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-20T03:11:37Z">11月20日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/hardmaru/status/2123615218345599169" target="_blank" rel="noopener noreferrer">Sakana AI 成立公益导向安全研究团队</a></h3>
+<a href="https://x.com/hardmaru/status/2123615218345599169" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-ee57a8c57d126f7d6b98.png" alt="Sakana AI 成立公益导向安全研究团队" loading="lazy"></a>
+    <p class="story-summary">Sakana AI宣布在东京成立独立、公益导向的Security Research Group，由Akihiro Umegai与公告作者共同领导。公告指出，AI正在改变网络攻防的速度和经济性，使安全成为日本的重要议题。这是具体的组织投入，但采集片段尚未列出项目、交付物或评测成果。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Sakana AI</span><span class="tag tag-keyword">Cybersecurity</span><span class="tag tag-area">安全</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-18T21:51:33Z">11月18日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Google/status/2123172282574987698" target="_blank" rel="noopener noreferrer">Google 推出面向复杂任务的 Gemini 4 Neon</a></h3>
+<a href="https://x.com/Google/status/2123172282574987698" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-b317a9a8ef19fd162756.jpg" alt="Google 推出面向复杂任务的 Gemini 4 Neon" loading="lazy"></a>
+    <p class="story-summary">Google推出Gemini 4 Neon，定位为兼顾前沿智能与快速端到端任务完成的模型，面向编程、知识工作和科学任务。Google称其在xhigh设置下位列Artificial Analysis智能指数第三。这里引用的是厂商说法，采集帖子未提供完整独立比较或价格表。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Gemini 4 Neon</span><span class="tag tag-keyword">Google</span><span class="tag tag-area">智能体</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-17T18:02:52Z">11月17日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/gdb/status/2122752345364935113" target="_blank" rel="noopener noreferrer">OpenAI 宣布 GPT-6.2 Astra 与 Sol</a></h3>
+<a href="https://x.com/gdb/status/2122752345364935113" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-6ba3dc3c763c342fe6e2.jpg" alt="OpenAI 宣布 GPT-6.2 Astra 与 Sol" loading="lazy"></a>
+    <p class="story-summary">Greg Brockman宣布GPT-6.2 Astra与Sol推出，强调专业工作、科学研究能力以及更低的单任务成本。这让完成有效工作的成本成为竞争指标之一。采集帖子较简短，没有列出价格表、评测方法或部署限制，采购与生产决策仍需这些细节。</p>
+    <div class="story-tags"><span class="tag tag-keyword">GPT-6.2</span><span class="tag tag-keyword">Astra</span><span class="tag tag-keyword">Sol</span><span class="tag tag-area">产业</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-11-18T02:00:01Z">11月18日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Kling_ai/status/2122872423699914837" target="_blank" rel="noopener noreferrer">可灵推出支持原生 8K 的 Image 4.0</a></h3>
+<a href="https://x.com/Kling_ai/status/2122872423699914837" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-497f43470ec6cdd5e0f8.jpg" alt="可灵推出支持原生 8K 的 Image 4.0" loading="lazy"></a>
+    <p class="story-summary">可灵宣布Image 4.0上线，主打原生8K生成、真实细节、文字渲染与批量图像生成。这些能力对应高分辨率、可读文字和多输出的创作需求。该消息属于产品发布而非独立质量评测，实际采用仍需检查不同题材和版式中的效果。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Kling Image 4.0</span><span class="tag tag-keyword">8K</span><span class="tag tag-area">视频生成</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-11-20T11:04:27Z">11月20日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/LumaLabsAI/status/2123734210926289317" target="_blank" rel="noopener noreferrer">Luma 接入 Ideogram 4.6</a></h3>
+<a href="https://x.com/LumaLabsAI/status/2123734210926289317" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-b0ec34acb2e14b0ad3b3.jpg" alt="Luma 接入 Ideogram 4.6" loading="lazy"></a>
+    <p class="story-summary">Luma宣布平台已上线Ideogram 4.6，这是图像生成模型的渠道与工作流更新。采集公告没有介绍模型变化、价格或相对旧版本的差异，因此本次信息的核心是可用性，不能据此推断质量或生产率提升。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Luma</span><span class="tag tag-keyword">Ideogram</span><span class="tag tag-area">视频生成</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-11-19T19:51:21Z">11月19日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/runwayml/status/2123504421749526904" target="_blank" rel="noopener noreferrer">Runway 介绍 Praxis-1 如何连接视觉与机器人动作</a></h3>
+<a href="https://x.com/runwayml/status/2123504421749526904" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-0c6998229270d54ae57f.jpg" alt="Runway 介绍 Praxis-1 如何连接视觉与机器人动作" loading="lazy"></a>
+    <p class="story-summary">Runway在Inside View节目中介绍Praxis-1如何利用机器人所见内容指导下一步动作，将视频模型的角色从媒体生成延伸到物理控制。这与仿真和机器人共享表征有关，但该公告是讲解节目，并不是覆盖部署可靠性或任务范围的评测报告。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Runway</span><span class="tag tag-keyword">Praxis-1</span><span class="tag tag-area">机器人</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-11-19T17:36:54Z">11月19日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/DrJimFan/status/2123470587259732200" target="_blank" rel="noopener noreferrer">GR00T 2 展示自主灵巧手控制</a></h3>
+<a href="https://x.com/DrJimFan/status/2123470587259732200" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-3969015e967589c27b28.jpg" alt="GR00T 2 展示自主灵巧手控制" loading="lazy"></a>
+    <p class="story-summary">Jim Fan分享GR00T 2端到端控制真实灵巧手的演示，并称视频为自主执行、无剪辑、正常速度播放。这些信息有助于观察单次执行，但无法说明重复试验或多任务成功率，因此应视为能力展示而非普遍可靠性的证明。</p>
+    <div class="story-tags"><span class="tag tag-keyword">GR00T 2</span><span class="tag tag-keyword">Dexterous hands</span><span class="tag tag-area">机器人</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>08</span><time datetime="2026-11-19T15:10:50Z">11月19日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/rasbt/status/2123433827234111659" target="_blank" rel="noopener noreferrer">Marin Mochi 检查点发布聚焦 MoE 训练取舍</a></h3>
+<a href="https://x.com/rasbt/status/2123433827234111659" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-6a4825b300925b82e39a.jpg" alt="Marin Mochi 检查点发布聚焦 MoE 训练取舍" loading="lazy"></a>
+    <p class="story-summary">Sebastian Raschka关注Marin Mochi 535B-A23B检查点发布及技术报告，强调训练稳定性与GPU吞吐量的架构取舍，并提到潜在混合专家设计和额外RMSNorm。其价值在于结合检查点审视工程设计；采集片段没有完整架构说明或独立性能比较。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Marin Mochi</span><span class="tag tag-keyword">MoE</span><span class="tag tag-area">研究</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>09</span><time datetime="2026-11-19T11:52:44Z">11月19日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/maxjaderberg/status/2123383974051660206" target="_blank" rel="noopener noreferrer">Isomorphic Labs 将药物设计引擎与 MSD 能力结合</a></h3>
+<a href="https://x.com/maxjaderberg/status/2123383974051660206" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-666cce7a6278e8c0d652.jpg" alt="Isomorphic Labs 将药物设计引擎与 MSD 能力结合" loading="lazy"></a>
+    <p class="story-summary">Max Jaderberg介绍将Isomorphic Labs的AI方法及专有IsoDDE药物设计引擎，与MSD的数据和研发、制造经验结合的合作。它体现AI药物发现对生物数据及药企能力的依赖。采集公告未提供临床结果、具体候选药物或财务条款。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Isomorphic Labs</span><span class="tag tag-keyword">MSD</span><span class="tag tag-keyword">Drug discovery</span><span class="tag tag-area">产业</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>10</span><time datetime="2026-11-17T22:35:53Z">11月17日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeDevs/status/2122821051910684824" target="_blank" rel="noopener noreferrer">Claude Desktop 增加可选的快速发布渠道</a></h3>
+<a href="https://x.com/ClaudeDevs/status/2122821051910684824" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-6cc2303a1b362ce1cced.jpg" alt="Claude Desktop 增加可选的快速发布渠道" loading="lazy"></a>
+    <p class="story-summary">Claude Desktop在Windows和Mac提供可选Latest渠道，可在设置中切换。官方称其更早提供修复和改进，但可靠性可能低于仍为默认值的Stable渠道。团队可据此在更早体验与版本稳定性之间做出选择。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Claude Desktop</span><span class="tag tag-keyword">Release channels</span><span class="tag tag-area">智能体</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>11</span><time datetime="2026-11-17T18:00:53Z">11月17日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeDevs/status/2122751844455956760" target="_blank" rel="noopener noreferrer">Claude Platform 联动计费进入测试阶段</a></h3>
+<a href="https://x.com/ClaudeDevs/status/2122751844455956760" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-129f695fdec9b83a6964.png" alt="Claude Platform 联动计费进入测试阶段" loading="lazy"></a>
+    <p class="story-summary">Claude Platform推出联动计费测试版，让Factory、Linear、Ramp等工具用户通过自己的Claude Platform组织支付API用量，而无需分享API密钥。这将费用归属与交出可复用凭据区分开来，但公告未详述全部访问控制或计费规则。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Claude Platform</span><span class="tag tag-keyword">Linked billing</span><span class="tag tag-area">智能体</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>12</span><time datetime="2026-11-17T12:51:21Z">11月17日</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Thom_Wolf/status/2122673947409858730" target="_blank" rel="noopener noreferrer">Hugging Face 探索透明的千智能体集群</a></h3>
+<a href="https://x.com/Thom_Wolf/status/2122673947409858730" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/twitter/twitter-7f721e2a838997600767.jpg" alt="Hugging Face 探索透明的千智能体集群" loading="lazy"></a>
+    <p class="story-summary">Thomas Wolf介绍PyBot背后同时运行1000个智能体的实验，目标是研究集群能否在封闭实验室之外扩展，并以更透明方式开展研究。采集片段没有给出效率、任务成功率或计算成本，因此智能体数量本身不能证明有效扩展。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agent swarms</span><span class="tag tag-keyword">PyBot</span><span class="tag tag-area">智能体</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1" fill="none"/><text x="12" y="16" text-anchor="middle" font-size="12">HF</text></svg> HuggingFace</h2><span>7 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-18T19:00:00Z">11月18日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.26595" target="_blank" rel="noopener noreferrer">Coda-DaVinci 以自适应三维代理引导视频生成</a></h3>
+<a href="https://huggingface.co/papers/2611.26595" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-e89593ec05f43a2b97cb.png" alt="Coda-DaVinci 以自适应三维代理引导视频生成" loading="lazy"></a>
+    <p class="story-summary">Coda-DaVinci研究智能体编写的三维代理如何改善视频控制：粗粒度代理有利于自然运动，中等粒度有利于一致性，并结合物理仿真与对齐提示。框架在代理引导与直接生成间选择，通过视觉检查和独立审查修复。论文报告指令遵循和物理合理性提升，但长视频仍存在过渡和场景约束问题。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Coda-DaVinci</span><span class="tag tag-keyword">Code2Video</span><span class="tag tag-area">视频生成</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-18T19:00:00Z">11月18日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.26248" target="_blank" rel="noopener noreferrer">TwinLab-Bench 用真实实验室记录评估 AI 实验设计</a></h3>
+<a href="https://huggingface.co/papers/2611.26248" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-bb4cb38a147a7c46f062.png" alt="TwinLab-Bench 用真实实验室记录评估 AI 实验设计" loading="lazy"></a>
+    <p class="story-summary">TwinLab-Bench涵盖物理、生命科学和工程领域52个自主实验设计任务，利用真实记录与计算器支撑的实验室智能体，并提供超过100种实验动作。报告与隐藏的真实记录答案比较。作者称最强被测模型平均得分45.0，说明即使读数有依据，开放实验设计仍很困难。</p>
+    <div class="story-tags"><span class="tag tag-keyword">TwinLab-Bench</span><span class="tag tag-keyword">AI science</span><span class="tag tag-area">研究</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-18T19:00:00Z">11月18日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.25387" target="_blank" rel="noopener noreferrer">TuringSpace 通过交互任务揭示空间推理缺口</a></h3>
+<a href="https://huggingface.co/papers/2611.25387" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-93fd93aa51c0dcc35b09.png" alt="TuringSpace 通过交互任务揭示空间推理缺口" loading="lazy"></a>
+    <p class="story-summary">TuringSpace包含125个需点击和拖拽的空间验证码任务。作者报告人类解决率94.1%，最强被测模型仍失败25.9%，常因误读截图。Qwen3.5-9B在该环境微调后成功率从1.6%升至33.1%，并在七个分布外基准改善。研究同时揭示推理可能维护错误视觉判断。</p>
+    <div class="story-tags"><span class="tag tag-keyword">TuringSpace</span><span class="tag tag-keyword">Spatial reasoning</span><span class="tag tag-area">研究</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-11-18T19:00:00Z">11月18日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.26603" target="_blank" rel="noopener noreferrer">Depth Pro 2 同时追求清晰、稳定的图像视频深度</a></h3>
+<a href="https://huggingface.co/papers/2611.26603" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-46e75b3eaf1401ae0d8e.png" alt="Depth Pro 2 同时追求清晰、稳定的图像视频深度" loading="lazy"></a>
+    <p class="story-summary">Depth Pro 2在原生分辨率下估计图像和视频的稠密度量深度，以单一可扩展网络兼顾单帧边界清晰度与多帧时间一致性。作者报告精度、清晰度、一致性与运行效率的改进，并发布代码和权重，适用于需要精细边界且避免视频深度闪烁的空间处理。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Depth Pro 2</span><span class="tag tag-keyword">Depth estimation</span><span class="tag tag-area">研究</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-11-18T19:00:00Z">11月18日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.26211" target="_blank" rel="noopener noreferrer">SpecWM 通过修正草稿视频块提升流式世界模型效率</a></h3>
+<a href="https://huggingface.co/papers/2611.26211" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-3f84c09b22b3b7db541e.png" alt="SpecWM 通过修正草稿视频块提升流式世界模型效率" loading="lazy"></a>
+    <p class="story-summary">SpecWM是无需训练的流式世界模型推理框架，用目标模型的潜在速度场对快速草稿块执行接受、修正或拒绝，并复用验证信息进行纠正。作者报告在WBench Navigation上相对目标模型提速1.63倍并改善视觉质量，同时关注相机跟随和轨迹一致性。</p>
+    <div class="story-tags"><span class="tag tag-keyword">SpecWM</span><span class="tag tag-keyword">World models</span><span class="tag tag-area">视频生成</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-11-17T19:00:00Z">11月17日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.23835" target="_blank" rel="noopener noreferrer">NarrowSpec 缩窄草稿模型以加速推测解码</a></h3>
+<a href="https://huggingface.co/papers/2611.23835" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-0e4829715c9da2688581.png" alt="NarrowSpec 缩窄草稿模型以加速推测解码" loading="lazy"></a>
+    <p class="story-summary">NarrowSpec表明推测解码草稿模型可使用目标模型一半或四分之一的隐藏宽度，同时基本保持接受率。实验覆盖DFlash、EAGLE-3、两个目标模型和SGLang；批量为1时，B200提速1.06至1.12倍，GB10提速1.13至1.44倍，体现草稿架构本身的优化价值。</p>
+    <div class="story-tags"><span class="tag tag-keyword">NarrowSpec</span><span class="tag tag-keyword">Speculative decoding</span><span class="tag tag-area">研究</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-11-15T19:00:00Z">11月15日</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.20455" target="_blank" rel="noopener noreferrer">Repo-Premium 以公平词法基线重新审视代码搜索</a></h3>
+<a href="https://huggingface.co/papers/2611.20455" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="../screenshot/huggingface/huggingface-0acf1c7a3ea77f20d863.png" alt="Repo-Premium 以公平词法基线重新审视代码搜索" loading="lazy"></a>
+    <p class="story-summary">研究提出仓库级代码搜索基准Repo-Premium，认为部分稠密检索优势源于评测设置及查询缺少稀有代码标识符。用模型生成标识符扩展查询后，BM25在所有被测Python集合追平稠密检索。作者建议采用公平词法基线、融合两类检索，并补充代码术语。</p>
+    <div class="story-tags"><span class="tag tag-keyword">Repo-Premium</span><span class="tag tag-keyword">Code search</span><span class="tag tag-area">智能体</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>AI 辅助筛选，原始来源始终可查。</span></footer>
+  <script src="../../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2026-11-20" data-counter-title="NO-FOMO issue 2026-11-20" defer></script>
+</body>
+</html>
