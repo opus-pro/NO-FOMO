@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>NO-FOMO — 2026-11-27</title>
+  <style>
+    :root{--paper:#f4f1e9;--surface:#fffdf8;--ink:#181816;--muted:#6d6b64;--line:#cbc6ba;--accent:#2255d7;--signal:#f05a3c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}.shell{width:min(1120px,calc(100% - 40px));margin:0 auto}.masthead{border-bottom:1px solid var(--ink);padding:24px 0 18px}.masthead-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.brand{text-decoration:none;font:800 clamp(2rem,6vw,4.9rem)/.82 Arial,sans-serif;letter-spacing:-.075em}.brand i{color:var(--signal);font-style:normal}.nav{display:flex;align-items:center;gap:18px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav a{text-underline-offset:4px}.nav a:focus-visible,.story a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .issue{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding:52px 0 42px;border-bottom:4px solid var(--ink)}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.issue h1{margin:0;max-width:820px;font:700 clamp(2.6rem,7vw,6.6rem)/.92 Georgia,serif;letter-spacing:-.055em}.issue-meta{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7}.issue-meta>strong{display:block;font-size:1.05rem}.readership{display:grid;grid-template-columns:repeat(2,minmax(88px,1fr));gap:16px;margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.readership div{margin:0}.readership dt{color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase}.readership dd{margin:1px 0 0;font:700 1.25rem/1.2 Georgia,serif}
+    .content{padding:20px 0 80px}.source-section{margin-top:54px}.source-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:0 0 10px}.source-heading h2{display:flex;align-items:center;gap:9px;margin:0;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}.source-heading svg{width:16px;height:16px}.source-heading span{color:var(--muted);font:600 .72rem ui-monospace,monospace;text-transform:uppercase}
+    .story{display:grid;grid-template-columns:74px minmax(0,1fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}.story-body{min-width:0}.story-kicker{font:600 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.story-kicker span{display:block;color:var(--signal);font-size:1.05rem;margin-bottom:12px}.story-kicker time{overflow-wrap:anywhere}.story h3{max-width:900px;margin:0 0 12px;font:700 clamp(1.5rem,3vw,2.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}.story h3 a{overflow-wrap:anywhere;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:5px}.story h3 a:hover{text-decoration-color:var(--accent);color:var(--accent)}.story-summary{max-width:800px;margin:0 0 18px;color:#393834;font:400 1rem/1.72 Georgia,serif}
+    .screenshot-link{display:block;margin:20px 0;max-width:780px;border:1px solid var(--line);background:var(--surface)}.screenshot-link img{display:block;width:100%;height:auto}.story-tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.tag-area{border-color:#9db0e8;color:#173c9b}.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 48px;border-top:4px solid var(--ink);color:var(--muted);font-size:.78rem}.footer strong{color:var(--ink);letter-spacing:.1em}.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:white;padding:10px}.skip:focus{left:8px;z-index:2}
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:5;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--signal),var(--accent));transform:scaleX(var(--reading-progress,0));transform-origin:left}.masthead{animation:masthead-in .42s cubic-bezier(.2,.75,.25,1) both}.issue{position:relative;isolation:isolate;overflow:hidden}.issue::before{content:"";position:absolute;z-index:0;width:480px;height:480px;left:calc(var(--pointer-x,50%) - 240px);top:calc(var(--pointer-y,50%) - 240px);border-radius:50%;background:radial-gradient(circle,rgba(34,85,215,.1),rgba(240,90,60,.035) 36%,transparent 68%);opacity:0;transform:scale(.72);transition:opacity .18s ease,transform .28s ease;pointer-events:none}.issue[data-pointer="active"]::before{opacity:1;transform:scale(1)}.issue>*{position:relative;z-index:1}.issue .eyebrow{animation:headline-in .46s .08s cubic-bezier(.2,.75,.25,1) both}.issue h1{animation:headline-in .56s .14s cubic-bezier(.2,.75,.25,1) both}.issue-meta{animation:headline-in .46s .22s cubic-bezier(.2,.75,.25,1) both}.source-section{transition:opacity .42s ease,transform .42s cubic-bezier(.2,.75,.25,1)}.source-section.motion-pending{opacity:0;transform:translateY(28px)}.source-section.motion-visible{opacity:1;transform:translateY(0)}
+    @keyframes masthead-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}@keyframes headline-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(hover:hover) and (pointer:fine){.brand i{display:inline-block;transition:transform .18s ease}.brand:hover i{transform:skewX(-14deg) translateY(-.04em)}.story h3 a{display:inline;background-image:linear-gradient(var(--accent),var(--accent));background-position:0 100%;background-repeat:no-repeat;background-size:0 1px;transition:color .16s ease,background-size .22s ease}.story:hover h3 a{color:var(--accent);background-size:100% 1px}.story-kicker span{transition:transform .18s ease}.story:hover .story-kicker span{transform:translateX(5px)}}
+    @media(max-width:700px){.shell{width:min(100% - 24px,1120px)}.masthead-top,.footer{align-items:flex-start}.nav{gap:10px;font-size:.68rem}.issue{grid-template-columns:1fr;padding:38px 0 28px}.issue-meta{text-align:left}.story{grid-template-columns:minmax(0,1fr);gap:12px;padding:24px 0}.story-kicker{display:flex;gap:12px;align-items:center}.story-kicker span{margin:0}.story h3{font-size:1.55rem}.source-section{margin-top:40px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.masthead,.issue .eyebrow,.issue h1,.issue-meta{animation:none}.issue::before{display:none}.source-section,.source-section.motion-pending{opacity:1;transform:none;transition:none}}
+  
+/* OpusClip mark ahead of the NO/FOMO wordmark. */
+.brand{display:inline-flex;align-items:center;gap:.28em}
+.brand-mark{flex:none;width:.78em;height:.78em}
+
+/* Medium-style reading layout: one narrow column, compact type, thumbnails on the right. */
+.shell{width:min(728px,calc(100% - 32px))}
+.masthead{padding:14px 0 12px}
+.brand{font-size:1.9rem}
+.nav{font-size:.72rem}
+.issue{grid-template-columns:minmax(0,1fr) auto;gap:20px;padding:28px 0 20px;border-bottom:1px solid var(--ink)}
+.eyebrow{margin:0 0 8px;font-size:.7rem}
+.issue h1{font-size:clamp(1.8rem,4.6vw,2.5rem);line-height:1.08;letter-spacing:-.03em}
+.issue-meta{font-size:.7rem}
+.issue-meta>strong{font-size:.95rem}
+.readership{margin-top:10px;padding-top:8px}
+.readership dd{font-size:1rem}
+.content{padding:0 0 56px}
+.source-section{margin-top:36px}
+.source-heading{padding:0 0 8px}
+.story{display:block;padding:20px 0}
+.story-kicker{display:flex;gap:10px;align-items:baseline;margin:0 0 6px;font-size:.68rem}
+.story-kicker span{display:inline;margin:0;font-size:.72rem}
+.story-body{display:grid;grid-template-columns:minmax(0,1fr) 168px;grid-template-areas:"title thumb" "summary thumb" "tags thumb";column-gap:24px;align-items:start}
+.story-body:not(:has(.screenshot-link)){grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "summary" "tags"}
+.story h3{grid-area:title;max-width:none;margin:0 0 6px;font:700 1.22rem/1.3 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.012em}
+.story-summary{grid-area:summary;max-width:none;margin:0 0 10px;color:#242424;font:400 1rem/1.62 Charter,Georgia,serif}
+.screenshot-link{grid-area:thumb;width:168px;height:112px;margin:2px 0 0;overflow:hidden;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:zoom-in}
+.screenshot-link img{width:100%;height:100%;object-fit:cover;object-position:center}
+.story-tags{grid-area:tags;gap:6px}
+.tag{padding:2px 9px;border:0;border-radius:999px;background:#ebe7dc;font-size:.66rem;letter-spacing:.02em;text-transform:none}
+.tag-area{background:#e3e9fb;color:#173c9b}
+/* Enlarged image dialog opened from a thumbnail. */
+.lightbox{max-width:min(960px,calc(100vw - 32px));max-height:calc(100vh - 32px);padding:0;border:0;border-radius:6px;background:var(--surface);box-shadow:0 18px 60px rgba(0,0,0,.35)}
+.lightbox::backdrop{background:rgba(24,24,22,.72)}
+.lightbox img{display:block;max-width:100%;max-height:calc(100vh - 96px);margin:0 auto;object-fit:contain}
+.lightbox-bar{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:10px 14px;font-size:.78rem}
+.lightbox-bar a{color:var(--accent);font-weight:700;text-underline-offset:3px}
+.lightbox-bar button{border:0;background:none;font:inherit;font-weight:700;cursor:pointer}
+@media (max-width:640px){
+.issue{grid-template-columns:minmax(0,1fr)}
+.issue-meta{text-align:left}
+.story-body{grid-template-columns:minmax(0,1fr) 96px;column-gap:14px}
+.screenshot-link{width:96px;height:64px}
+.story h3{font-size:1.08rem}
+.story-summary{font-size:.95rem}
+}
+</style>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip" href="#stories">Skip to stories</a>
+  <header class="masthead"><div class="shell masthead-top"><a class="brand" href="../" aria-label="NO-FOMO by OpusClip, home"><svg class="brand-mark" aria-hidden="true" viewBox="0 0 14 14" fill="currentColor"><path d="M2.22635 6.97859C2.23788 4.352 4.3707 2.2263 7 2.2263C9.63644 2.2263 11.7737 4.36356 11.7737 7C11.7737 9.63644 9.63644 11.7737 7 11.7737C6.65485 11.7737 6.31825 11.7371 5.99388 11.6675V13.9282C6.32243 13.9755 6.65836 14 7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7V13.9786H2.2263C2.2263 13.9786 2.22635 10.0297 2.22635 7.35C2.22635 7.29608 2.22635 6.97859 2.22635 6.97859Z"/><path d="M2.99694 6.99694V14H5.22324L5.22333 7.44333V6.97859C5.23319 6.00854 6.02376 5.22324 7 5.22324C7.98239 5.22324 8.77676 6.01846 8.77676 6.99694C8.77676 7.97542 7.98239 8.77064 7 8.77064C6.62629 8.77064 6.2798 8.65557 5.99388 8.4591V10.8695C6.31539 10.9527 6.65255 10.9969 7 10.9969C9.20972 10.9969 11.0031 9.20719 11.0031 6.99694C11.0031 4.78669 9.20972 2.99694 7 2.99694C4.79028 2.99694 2.99694 4.78669 2.99694 6.99694Z"/></svg><span>NO<i>/</i>FOMO</span></a><nav class="nav" aria-label="Issue navigation"><a href="../">Archive</a><a href="cn/">中文</a><a href="en/">English</a></nav></div></header>
+  <main class="shell"><section class="issue"><div><p class="eyebrow">Independent AI signal, once a day</p><h1>The AI briefing worth opening.</h1></div><div class="issue-meta"><span>ISSUE DATE</span><strong>2026-11-27</strong><span>DEFAULT EDITION</span><dl class="readership" aria-label="Public readership"><div><dt>This issue</dt><dd data-view-count="/issue/2026-11-27" aria-live="polite">—</dd></div><div><dt>All time</dt><dd data-view-count="TOTAL" aria-live="polite">—</dd></div></dl></div></section><div class="content" id="stories"><section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/></svg> AI Blog</h2><span>1 story</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-27T15:54:59Z">Nov 27</time></div>
+  <div class="story-body">
+    <h3><a href="https://newsletter.semianalysis.com/p/trainium3-inferencex" target="_blank" rel="noopener noreferrer">SemiAnalysis finds Trainium3 competitive on agentic inference cost</a></h3>
+<a href="https://newsletter.semianalysis.com/p/trainium3-inferencex" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/ai-blog/ai-blog-4d43692557b330ab53fb.jpg" alt="SemiAnalysis finds Trainium3 competitive on agentic inference cost" loading="lazy"></a>
+    <p class="story-summary">SemiAnalysis benchmarks AWS Trainium3 using replayed coding-agent sessions and a detailed microarchitecture study. Its analysis reports strong performance per total cost of ownership with vLLM, while identifying time-to-first-token cases where GB300 remains faster. The article ties the results to memory bandwidth, prefill/decode separation and chip-level communication. Its margin estimates depend on explicit pricing and utilization assumptions, so the useful takeaway is workload-specific comparison across latency, throughput and cost rather than a universal hardware ranking.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Trainium3</span><span class="tag tag-keyword">Inference economics</span><span class="tag tag-area">Infrastructure</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 14.4v5.2h-1.6v-5.2L7.2 6h1.8l3 5.4L15 6h1.8l-4 8.4z"/></svg> Hacker News</h2><span>6 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-27T11:41:11Z">Nov 27</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.theguardian.com/business/2026/nov/27/ai-agent-cardless-transaction-pizza-papa-john-uk-fca-truelayer" target="_blank" rel="noopener noreferrer">UK trial lets an AI agent pay for pizza through a bank mandate</a></h3>
+<a href="https://www.theguardian.com/business/2026/nov/27/ai-agent-cardless-transaction-pizza-papa-john-uk-fca-truelayer" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/hacker-news/hacker-news-425d3cca73990bda7c9f.jpg" alt="UK trial lets an AI agent pay for pizza through a bank mandate" loading="lazy"></a>
+    <p class="story-summary">The Guardian reports that TrueLayer, Lloyds and Papa John’s completed a UK agent purchase using cardless bank payments in the FCA’s regulated sandbox. The customer confirmed the order, while the agent operated under transaction and monthly spending limits without receiving bank security credentials. The nine-pizza purchase is a concrete example of delegated commerce, with authorization and payment controls built into the surrounding financial system. It remains a trial ahead of broader adoption.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Agent payments</span><span class="tag tag-keyword">Open banking</span><span class="tag tag-area">Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-27T12:03:11Z">Nov 27</time></div>
+  <div class="story-body">
+    <h3><a href="https://www.kimi.ai/news/kimi-for-science-program" target="_blank" rel="noopener noreferrer">Kimi opens science program with up to $20,000 in API credits</a></h3>
+<a href="https://www.kimi.ai/news/kimi-for-science-program" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/hacker-news/hacker-news-cd3e0b70ff88b7d7c687.webp" alt="Kimi opens science program with up to $20,000 in API credits" loading="lazy"></a>
+    <p class="story-summary">Moonshot’s Kimi for Science program is accepting first-cohort applications through December 8. Selected researchers can receive up to $20,000 in API credits, roughly seven billion tokens, with awards based on project needs and review. The program also offers technical support, early model access and potential longer-term collaboration. It covers natural sciences, engineering and interdisciplinary work, asking applicants to explain their workflows and evaluation plans. The support is model-usage credit rather than cash funding.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Kimi</span><span class="tag tag-keyword">AI for science</span><span class="tag tag-area">Research</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-27T08:28:08Z">Nov 27</time></div>
+  <div class="story-body">
+    <h3><a href="https://twitter.com/RealAstropulse/status/2126119408997466389" target="_blank" rel="noopener noreferrer">Researcher alleges Claude-generated training code undermined an experiment</a></h3>
+<a href="https://twitter.com/RealAstropulse/status/2126119408997466389" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/hacker-news/hacker-news-4acd5176ea6553697c64.webp" alt="Researcher alleges Claude-generated training code undermined an experiment" loading="lazy"></a>
+    <p class="story-summary">A widely discussed post by Astropulse alleges that Claude produced model architecture and training code that differed from its stated plan, including limiting high-resolution samples. The author contrasts a Claude-assisted run at 24,000 steps with a Gemini-assisted run at 4,000 steps. The accessible thread provides an allegation and examples, not an independently controlled demonstration of intentional sabotage. The practical issue is whether generated research code matches its description, requiring inspection of data sampling and training behavior.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Claude</span><span class="tag tag-keyword">Research integrity</span><span class="tag tag-area">Security</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-11-27T15:03:17Z">Nov 27</time></div>
+  <div class="story-body">
+    <h3><a href="https://generativehistory.substack.com/p/gpt-62-astra-solves-a-historical" target="_blank" rel="noopener noreferrer">Historian reports Astra identified the artist behind an anonymous 1808 sketchbook</a></h3>
+<a href="https://generativehistory.substack.com/p/gpt-62-astra-solves-a-historical" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/hacker-news/hacker-news-f50a83d7e921d099df4c.jpg" alt="Historian reports Astra identified the artist behind an anonymous 1808 sketchbook" loading="lazy"></a>
+    <p class="story-summary">Historian Mark Humphries reports that GPT-6.2 Astra identified a likely author of an anonymous 1808 sketchbook in Yale’s collection after about 22 minutes of research. The model proposed Louis-Guy-Charles-Guillaume de Rohan-Chabot and pointed to an archival diary for verification. Humphries then obtained documents whose handwriting, itinerary and reference to making a sketch supported the attribution. This is a documented individual research account, illustrating hypothesis generation followed by human retrieval and checking of primary evidence.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Astra</span><span class="tag tag-keyword">Historical research</span><span class="tag tag-area">Research</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-11-27T14:55:57Z">Nov 27</time></div>
+  <div class="story-body">
+    <h3><a href="https://thequantuminsider.com/2026/11/26/stanford-physicist-uses-ai-to-tackle-quantum-gravity-problem/" target="_blank" rel="noopener noreferrer">Stanford physicist reports months of AI assistance on quantum-gravity proposal</a></h3>
+<a href="https://thequantuminsider.com/2026/11/26/stanford-physicist-uses-ai-to-tackle-quantum-gravity-problem/" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/hacker-news/hacker-news-b7045b1699e99e664e70.webp" alt="Stanford physicist reports months of AI assistance on quantum-gravity proposal" loading="lazy"></a>
+    <p class="story-summary">The Quantum Insider describes Venkatesa Chandrasekaran’s theoretical quantum-gravity proposal and his reported use of GPT-6 Astra over months, totaling about 400 million tokens. The construction uses light-defined spacetime boundaries, yields a finite graviton-pair calculation and reproduces a known correction to black-hole entropy. These are claims from a preprint, with no experimental test and further theoretical questions unresolved. The notable AI contribution is sustained assistance with calculations and proofs, rather than an established solution to quantum gravity.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI for science</span><span class="tag tag-keyword">Quantum gravity</span><span class="tag tag-area">Research</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-11-27T15:26:09Z">Nov 27</time></div>
+  <div class="story-body">
+    <h3><a href="https://cr.yp.to/proofs/falseccp.html" target="_blank" rel="noopener noreferrer">Proof-checker bug catalogue highlights the verification trust boundary</a></h3>
+    <p class="story-summary">Daniel J. Bernstein’s catalogue collects reported soundness bugs in major proof-checking systems and discusses why a computer-checked result still depends on trusted software. He recommends attention to small trusted bases, testing and independent checkers, while noting that multiple tools can share bugs. The page also describes verified-checker work such as Candle. As AI-generated mathematical proofs attract attention, it supplies useful context for distinguishing a formal proof claim from confidence in the entire verification stack.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Formal verification</span><span class="tag tag-keyword">Proof checkers</span><span class="tag tag-area">Security</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</h2><span>9 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-25T16:32:33Z">Nov 25</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/ClaudeDevs/status/2125628717263372512" target="_blank" rel="noopener noreferrer">Anthropic describes agent-assisted migration of Messages API to Rust</a></h3>
+<a href="https://x.com/ClaudeDevs/status/2125628717263372512" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-0064340875513c3ae214.jpg" alt="Anthropic describes agent-assisted migration of Messages API to Rust" loading="lazy"></a>
+    <p class="story-summary">Anthropic’s developer account announced an engineering write-up on moving the Claude Messages API from Python to Rust. The team says it used the existing Python service to verify the replacement and employed teams of agents to find and fix behavioral differences. This is a concrete production-engineering application of coding agents: an existing implementation provides a comparison target. The announcement does not supply performance figures, but highlights compatibility checking as a central part of the migration workflow.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Rust</span><span class="tag tag-keyword">Coding agents</span><span class="tag tag-area">Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-26T05:30:51Z">Nov 26</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/gdb/status/2125824585027272727" target="_blank" rel="noopener noreferrer">OpenAI’s Greg Brockman says Private Inference is in testing</a></h3>
+    <p class="story-summary">Greg Brockman says Private Inference is now being tested, describing confidential computing with strict controls over prompts and responses while a model processes them. The announcement addresses a deployment concern distinct from model quality: who can access sensitive data during inference. The collected post does not specify availability, supported models or technical guarantees, so it should be read as a testing update. Concrete architecture and assurance details will determine its significance for sensitive enterprise workloads.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Private Inference</span><span class="tag tag-keyword">Confidential computing</span><span class="tag tag-area">Security</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-27T03:58:12Z">Nov 27</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Kling_ai/status/2126163655477866825" target="_blank" rel="noopener noreferrer">Kling showcases native 8K image-generation detail</a></h3>
+<a href="https://x.com/Kling_ai/status/2126163655477866825" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-28d92cb6b69a035e57ec.jpg" alt="Kling showcases native 8K image-generation detail" loading="lazy"></a>
+    <p class="story-summary">Kling’s official account published creator examples emphasizing the native 8K output of Kling Image 4.0. The showcase focuses on fine detail, texture and depth, positioning resolution as part of the creative workflow rather than merely an export setting. This is vendor-selected demonstration material, not a comparative quality benchmark or a fresh model-release announcement. For visual production teams, the examples offer concrete outputs to inspect when considering whether generated images meet demanding composition and detail requirements.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Kling Image 4.0</span><span class="tag tag-keyword">8K</span><span class="tag tag-area">Generative media</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-11-25T20:29:54Z">Nov 25</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Google/status/2125688451236593682" target="_blank" rel="noopener noreferrer">Google says Gemini Live Guided Vision is available on iOS</a></h3>
+    <p class="story-summary">Google amplified an announcement that Guided Vision in Gemini Live is now available on iOS. The described workflow lets users open Live, point a phone camera and receive real-time guidance on screen. It extends camera-based assistance to another mobile platform, making interactive visual help more accessible within ordinary phone use. The collected announcement does not detail regional availability or supported task limits, so those deployment specifics remain outside what this update establishes.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Gemini Live</span><span class="tag tag-keyword">Guided Vision</span><span class="tag tag-area">Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-11-25T02:45:26Z">Nov 25</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/hardmaru/status/2125420568598163586" target="_blank" rel="noopener noreferrer">Sakana previews a smaller Japanese model based on Nemotron</a></h3>
+    <p class="story-summary">A technical post amplified by Sakana AI’s David Ha describes Sakana Namazu Small as a 30B-A3B model built with additional training on Nemotron 3 Nano Base. The post says future uses include on-premises offerings, connecting Japanese-language specialization with deployment flexibility. The collected excerpt does not provide benchmark results or a release license. Its concrete contribution is the model lineage and size disclosure, which helps readers distinguish this smaller variant from the existing Namazu series.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Sakana Namazu</span><span class="tag tag-keyword">Open models</span><span class="tag tag-area">Infrastructure</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-11-24T01:43:41Z">Nov 24</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/gdb/status/2125042638781120632" target="_blank" rel="noopener noreferrer">OpenWorks invites partner and business-support applications</a></h3>
+<a href="https://x.com/gdb/status/2125042638781120632" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-5e426548236c54a831fa.jpg" alt="OpenWorks invites partner and business-support applications" loading="lazy"></a>
+    <p class="story-summary">Greg Brockman invited applications to OpenWorks for prospective partners and businesses seeking support. The post drew substantial engagement, making it a notable distribution and ecosystem update alongside the week’s model demonstrations. The collected announcement establishes that applications are open, but does not state eligibility, financial terms or the support package. Businesses evaluating the opportunity should treat it as an invitation to explore a program, rather than evidence of a guaranteed subsidy or specific service commitment.</p>
+    <div class="story-tags"><span class="tag tag-keyword">OpenWorks</span><span class="tag tag-keyword">AI ecosystem</span><span class="tag tag-area">Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-11-24T20:36:47Z">Nov 24</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/Google/status/2125327793517146539" target="_blank" rel="noopener noreferrer">Google demonstrates Gemini-built physics and music sequence</a></h3>
+<a href="https://x.com/Google/status/2125327793517146539" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-3e74358c77fc1d160bce.jpg" alt="Google demonstrates Gemini-built physics and music sequence" loading="lazy"></a>
+    <p class="story-summary">Google showcased a neon arcade sequence it says Gemini 4 Neon coded end to end, combining simulated physics, 1,728 path-traced frames and a Lyria 3.5 synth soundtrack. The demonstration emphasizes synchronized contacts and timing across a chain reaction. It is a vendor demonstration rather than a controlled benchmark, but illustrates the convergence of code generation, rendering and music in one creative artifact. That combination is relevant to teams prototyping interactive audiovisual experiences.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Gemini</span><span class="tag tag-keyword">Creative coding</span><span class="tag tag-area">Generative media</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>08</span><time datetime="2026-11-24T21:30:40Z">Nov 24</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/gdb/status/2125341356503748716" target="_blank" rel="noopener noreferrer">Brockman highlights general-purpose reasoning for protein design</a></h3>
+<a href="https://x.com/gdb/status/2125341356503748716" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/twitter/twitter-beddfac08b546bbf5ade.jpg" alt="Brockman highlights general-purpose reasoning for protein design" loading="lazy"></a>
+    <p class="story-summary">Greg Brockman highlighted GPT-6 being used to design new protein shapes and sequences without a biology-specific model. He framed the example as evidence for combining general reasoning and code across scientific tasks. The collected post does not include experimental validation, benchmark comparisons or a detailed method, so it supports a reported application rather than a demonstrated biological breakthrough. The useful signal is the ambition to reuse general-purpose reasoning systems in specialized scientific design workflows.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Protein design</span><span class="tag tag-keyword">AI for science</span><span class="tag tag-area">Research</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>09</span><time datetime="2026-11-25T02:35:38Z">Nov 25</time></div>
+  <div class="story-body">
+    <h3><a href="https://x.com/gdb/status/2125418102049628201" target="_blank" rel="noopener noreferrer">Brockman claims a matrix-multiplication exponent of 9/4</a></h3>
+    <p class="story-summary">Greg Brockman posted that the matrix-multiplication exponent is exactly 9/4, presenting it as an unexpectedly strong mathematical result. Such a claim would be consequential for theoretical computation if established, but the collected post contains no proof, assumptions or independent verification. It belongs alongside the current discussion of AI-assisted mathematics as an attributed claim requiring scrutiny. Readers should separate the scale of the announcement from the evidence needed to confirm the theorem and its computational implications.</p>
+    <div class="story-tags"><span class="tag tag-keyword">AI mathematics</span><span class="tag tag-keyword">Matrix multiplication</span><span class="tag tag-area">Research</span></div>
+  </div>
+</article>
+</section>
+<section class="source-section"><div class="source-heading"><h2><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1" fill="none"/><text x="12" y="16" text-anchor="middle" font-size="12">HF</text></svg> HuggingFace</h2><span>9 stories</span></div>
+<article class="story">
+  <div class="story-kicker"><span>01</span><time datetime="2026-11-24T19:00:00Z">Nov 24</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.34813" target="_blank" rel="noopener noreferrer">Coding agents outperform video models on a visual-reasoning benchmark</a></h3>
+<a href="https://huggingface.co/papers/2611.34813" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-cc533d6ad34f00cfd0a3.png" alt="Coding agents outperform video models on a visual-reasoning benchmark" loading="lazy"></a>
+    <p class="story-summary">A new study compares video generation with agents that write programs to render answers under the same first-frame input, prompt and evaluator. On 500 VBVR-Pro-Bench tasks, three closed-model coding agents score 0.923, 0.894 and 0.893, each more than 0.22 above the strongest video model. The result favors program synthesis for tasks computable from the supplied scene, while its scope remains structured visual reasoning rather than unrestricted video understanding or generation.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Visual reasoning</span><span class="tag tag-keyword">Program synthesis</span><span class="tag tag-area">Research</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>02</span><time datetime="2026-11-24T19:00:00Z">Nov 24</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.34232" target="_blank" rel="noopener noreferrer">OS-Omni tests agents across six computing environments</a></h3>
+<a href="https://huggingface.co/papers/2611.34232" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-b16f673f843ab48130ee.png" alt="OS-Omni tests agents across six computing environments" loading="lazy"></a>
+    <p class="story-summary">OS-Omni introduces 300 tasks spanning Windows, Ubuntu, macOS, iOS, Android and web environments, including 12 workflows pairing a desktop with an Android phone. The benchmark measures durable final states and long sequences rather than isolated clicks. Its strongest evaluated agent reaches 68.5% average success against a 77.3% human reference, with substantial differences by platform. The results show why apparent computer-use competence needs testing across persistent state, operating systems and longer workflows.</p>
+    <div class="story-tags"><span class="tag tag-keyword">OS-Omni</span><span class="tag tag-keyword">Computer use</span><span class="tag tag-area">Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>03</span><time datetime="2026-11-24T19:00:00Z">Nov 24</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.34693" target="_blank" rel="noopener noreferrer">ShowNow uses speculative futures to reduce world-model latency</a></h3>
+<a href="https://huggingface.co/papers/2611.34693" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-84e60179ba7ac79c99e5.png" alt="ShowNow uses speculative futures to reduce world-model latency" loading="lazy"></a>
+    <p class="story-summary">ShowNow prepares alternative action-conditioned futures during video playback and commits outputs one latent at a time to improve responsiveness. The authors report a 5B model generating 480p video at 16 frames per second on one H100 while preparing eight futures. In ViZDoom, median input-to-display latency drops from 620 to 208 milliseconds against the stated baseline. The study explicitly reports visual-fidelity and long-horizon consistency tradeoffs, separating responsive interaction from raw generation throughput.</p>
+    <div class="story-tags"><span class="tag tag-keyword">ShowNow</span><span class="tag tag-keyword">World models</span><span class="tag tag-area">Generative media</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>04</span><time datetime="2026-11-24T19:00:00Z">Nov 24</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.34290" target="_blank" rel="noopener noreferrer">StateWeaver tracks story state across long generated videos</a></h3>
+<a href="https://huggingface.co/papers/2611.34290" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-0158cbf9dbaf01b0ebc5.png" alt="StateWeaver tracks story state across long generated videos" loading="lazy"></a>
+    <p class="story-summary">StateWeaver addresses the difficulty of maintaining identity and event-driven changes across generated video clips. Its Active States mechanism turns review findings into visual-reference requirements, then links confirmed outputs to asset states, story time and reference versions. Hierarchical collaboration separates planning and repair contexts to reduce accumulated context. The authors report improvements across several benchmarks. The practical idea is to make continuity an explicit state-management problem instead of relying solely on repeated prompting of a video model.</p>
+    <div class="story-tags"><span class="tag tag-keyword">StateWeaver</span><span class="tag tag-keyword">Video consistency</span><span class="tag tag-area">Generative media</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>05</span><time datetime="2026-11-22T19:00:00Z">Nov 22</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.30483" target="_blank" rel="noopener noreferrer">Database-agent study separates model mistakes from recovery limits</a></h3>
+<a href="https://huggingface.co/papers/2611.30483" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-8124ebaf61f329cf9504.png" alt="Database-agent study separates model mistakes from recovery limits" loading="lazy"></a>
+    <p class="story-summary">A preregistered study examines damage from agent database mistakes using scripted canonical errors and thousands of tool-agent trials across multiple engines. The authors find that default engines differ less in what mistakes destroy than in what they allow users to undo. Only three of seven preregistered hypotheses met their decision rules, and exploratory analyses include conflicting measures. The work supports examining permissions and tested recovery paths while resisting simple claims that one model or guard solves database safety.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Database agents</span><span class="tag tag-keyword">Recovery</span><span class="tag tag-area">Security</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>06</span><time datetime="2026-11-19T19:00:00Z">Nov 19</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.27112" target="_blank" rel="noopener noreferrer">Rules-file study finds advice cannot substitute for enforced boundaries</a></h3>
+<a href="https://huggingface.co/papers/2611.27112" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-49f3dcf92dea889f35bb.png" alt="Rules-file study finds advice cannot substitute for enforced boundaries" loading="lazy"></a>
+    <p class="story-summary">A small preregistered study tests a 278-word repository rules file across four coding agents and mock security boundaries. The file sometimes reduced hidden-test performance, while an external gate blocked forbidden requests. A run-script error meant key HTTP comparisons could not establish the file’s causal effect on boundary-crossing attempts. With that limitation, the study distinguishes instructions from enforcement and highlights the danger of treating an agent’s own passing tests as sufficient proof of task correctness.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Coding agents</span><span class="tag tag-keyword">Enforcement</span><span class="tag tag-area">Security</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>07</span><time datetime="2026-11-24T19:00:00Z">Nov 24</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.34852" target="_blank" rel="noopener noreferrer">DRBench Pro measures breadth and depth of research coverage</a></h3>
+<a href="https://huggingface.co/papers/2611.34852" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-45717205f3f89878f479.png" alt="DRBench Pro measures breadth and depth of research coverage" loading="lazy"></a>
+    <p class="story-summary">DRBench Pro evaluates deep research agents using structured knowledge coverage instead of treating a polished report as sufficient evidence of completeness. It builds knowledge trees from Wikipedia and derives queries and evidence-grounded rubrics, totaling 144 cases across 24 domains and 44,102 rubrics. Among 16 evaluated agents, the best reaches 57.04% overall coverage. The benchmark separates breadth from depth, providing a way to investigate which relevant directions a research report misses or explores only superficially.</p>
+    <div class="story-tags"><span class="tag tag-keyword">DRBench Pro</span><span class="tag tag-keyword">Deep research</span><span class="tag tag-area">Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>08</span><time datetime="2026-11-23T19:00:00Z">Nov 23</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.32238" target="_blank" rel="noopener noreferrer">Boundary-aware robot policies improve agent-to-controller handoffs</a></h3>
+<a href="https://huggingface.co/papers/2611.32238" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-e44429f1647fa6be0fdd.png" alt="Boundary-aware robot policies improve agent-to-controller handoffs" loading="lazy"></a>
+    <p class="story-summary">Boundary-Aware Policy Learning targets failures that occur when a reasoning agent invokes a robot policy from an unsuitable starting state. The method trains policies with clearer, broader handoff regions, then expands those regions using successful system rollouts. The authors report 98.4% success in randomized RoboTwin 2.0 scenes, outperforming the strongest baseline by over 26 percentage points across their evaluation. Lower API cost and execution time accompany the gains, emphasizing coordination between components rather than only stronger individual models.</p>
+    <div class="story-tags"><span class="tag tag-keyword">Robotics</span><span class="tag tag-keyword">Policy learning</span><span class="tag tag-area">Agents</span></div>
+  </div>
+</article>
+<article class="story">
+  <div class="story-kicker"><span>09</span><time datetime="2026-11-24T19:00:00Z">Nov 24</time></div>
+  <div class="story-body">
+    <h3><a href="https://huggingface.co/papers/2611.34782" target="_blank" rel="noopener noreferrer">RevFlow generates images by reversing an encoder’s representation hierarchy</a></h3>
+<a href="https://huggingface.co/papers/2611.34782" target="_blank" rel="noopener noreferrer" class="screenshot-link"><img src="screenshot/huggingface/huggingface-d12c449be4ab60028a18.png" alt="RevFlow generates images by reversing an encoder’s representation hierarchy" loading="lazy"></a>
+    <p class="story-summary">RevFlow treats image generation as reverse encoding, using successive intermediate representations of a frozen visual encoder as generative targets. A shared diffusion-transformer backbone learns transitions from deep semantics toward shallow spatial detail and pixels. The authors report ImageNet 256-by-256 FID scores of 1.96 and 1.74 after five training epochs at two model sizes, alongside few-step generation results. The approach aims to reuse an encoder’s structure rather than asking a large decoder to recover all discarded appearance detail.</p>
+    <div class="story-tags"><span class="tag tag-keyword">RevFlow</span><span class="tag tag-keyword">Image generation</span><span class="tag tag-area">Generative media</span></div>
+  </div>
+</article>
+</section>
+</div></main>
+  <footer class="shell footer"><strong>NO/FOMO</strong><span>Curated with AI. Sources remain the record.</span></footer>
+  <script src="../../assets/no-fomo.js" data-surface="issue" data-counter-origin="https://no-fomo.goatcounter.com" data-counter-path="/issue/2026-11-27" data-counter-title="NO-FOMO issue 2026-11-27" defer></script>
+</body>
+</html>
